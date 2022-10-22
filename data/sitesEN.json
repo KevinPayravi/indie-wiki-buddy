@@ -170,6 +170,16 @@
     "destination_icon": "pikipedia.png"
   },
   {
+    "origin": "Path of Exile Fandom Wiki",
+    "origin_base_url": "pathofexile.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Path of Exile Wiki",
+    "destination_base_url": "www.poewiki.net",
+    "destination_api_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pathofexilewiki.png"
+  },
+  {
     "origin": "Pokemon Fandom Wiki",
     "origin_base_url": "pokemon.fandom.com",
     "origin_content_path": "/wiki/",
