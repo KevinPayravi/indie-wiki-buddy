@@ -1,0 +1,22 @@
+[
+  {
+    "origin": "Animal Crossing Fandom Wiki (DE)",
+    "origin_base_url": "animalcrossing.fandom.com/de",
+    "origin_content_path": "/wiki/",
+    "destination": "Animal Crossing Wiki (DE)",
+    "destination_base_url": "animalcrossingwiki.de",
+    "destination_api_path": "/",
+    "destination_platform": "doku",
+    "destination_icon": "animalcrossingwiki.png"
+  },
+  {
+    "origin": "Star Citizen Fandom Wiki",
+    "origin_base_url": "starcitizen.fandom.com/de",
+    "origin_content_path": "/wiki/",
+    "destination": "Star Citizen Wiki",
+    "destination_base_url": "star-citizen.wiki",
+    "destination_api_path": "/",
+    "destination_platform": "mw",
+    "destination_icon": "starcitizen-de.png"
+  }
+]
