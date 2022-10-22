@@ -250,6 +250,16 @@
     "destination_icon": "teamfortress.png"
   },
   {
+    "origin": "Tears of Themis Fandom Wiki",
+    "origin_base_url": "tearsofthemis.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Tears of Themis Wiki",
+    "destination_base_url": "tot.wiki",
+    "destination_api_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tearsofthemis.png"
+  },
+  {
     "origin": "Transformers Fandom Wiki",
     "origin_base_url": "transformers.fandom.com",
     "origin_content_path": "/wiki/",
