@@ -179,6 +179,16 @@
     "destination_platform": "mediawiki",
     "destination_icon": "bulbapedia.png"
   },
+    {
+    "origin": "RollerCoaster Tycoon Fandom Wiki",
+    "origin_base_url": "rct.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "RollerCoaster Tycoon Miraheze Wiki",
+    "destination_base_url": "rct.wiki",
+    "destination_api_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rctwiki.png"
+  },
   {
     "origin": "Runescape Fandom Wiki",
     "origin_base_url": "runescape.fandom.com",
