@@ -1,0 +1,272 @@
+[
+  {
+    "origin": "Animal Crossing Fandom Wiki",
+    "origin_base_url": "animalcrossing.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Nookipedia",
+    "destination_base_url": "nookipedia.com",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nookipedia.png"
+  },
+  {
+    "origin": "ARMS Fandom Wiki",
+    "origin_base_url": "arms.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "ARMS Institute",
+    "destination_base_url": "armswiki.org",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arms.png"
+  },
+  {
+    "origin": "BlazBlue Fandom Wiki",
+    "origin_base_url": "blazblue.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "BlazBlue Wiki",
+    "destination_base_url": "blazblue.wiki",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "blazblue.png"
+  },
+  {
+    "origin": "Chrono Fandom Wiki",
+    "origin_base_url": "chrono.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Chrono Wiki",
+    "destination_base_url": "www.chronowiki.org",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "chrono.png"
+  },
+  {
+    "origin": "Dragalia Lost Fandom Wiki",
+    "origin_base_url": "dragalialost.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Dragalia Lost Wiki",
+    "destination_base_url": "dragalialost.wiki",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dragalialost.png"
+  },
+  {
+    "origin": "Elder Scrolls Fandom Wiki",
+    "origin_base_url": "elderscrolls.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Unofficial Elder Scrolls Pages",
+    "destination_base_url": "en.uesp.net",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "uesp.png"
+  },
+  {
+    "origin": "Fire Emblem Fandom Wiki",
+    "origin_base_url": "fireemblem.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Fire Emblem Wiki",
+    "destination_base_url": "fireemblemwiki.org",
+    "destination_api_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fireemblem.png"
+  },
+  {
+    "origin": "F-Zero Fandom Wiki",
+    "origin_base_url": "fzero.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "F-Zero Wiki",
+    "destination_base_url": "mutecity.org",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fzero.png"
+  },
+  {
+    "origin": "Golden Sun Fandom Wiki",
+    "origin_base_url": "goldensun.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Golden Sun Universe",
+    "destination_base_url": "goldensunwiki.net",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "goldensun.png"
+  },
+  {
+    "origin": "Half-Life & Portal Fandom Wiki",
+    "origin_base_url": "half-life.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Combine OverWiki",
+    "destination_base_url": "combineoverwiki.net",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "combine.png"
+  },
+  {
+    "origin": "JoJo's Bizarre Wiki",
+    "origin_base_url": "jojo.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "JoJo's Bizarre Encyclopedia",
+    "destination_base_url": "jojowiki.com",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "jojo.png"
+  },
+  {
+    "origin": "Kingdom Hearts Fandom Wiki",
+    "origin_base_url": "kingdomhearts.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Kingdom Hearts Wiki",
+    "destination_base_url": "www.khwiki.com",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "khwiki.png"
+  },
+  {
+    "origin": "Halo Alpha Fandom Wiki",
+    "origin_base_url": "halo.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Halopedia",
+    "destination_base_url": "www.halopedia.org",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "halopedia.png"
+  },
+  {
+    "origin": "Hyperrogue Fandom Wiki",
+    "origin_base_url": "hyperrogue.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "HyperRogue Wiki",
+    "destination_base_url": "hyperrogue.miraheze.org",
+    "destination_api_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hyperrogue.png"
+  },
+  {
+    "origin": "Kirby Fandom Wiki",
+    "origin_base_url": "kirby.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Wikirby",
+    "destination_base_url": "wikirby.com",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikirby.png"
+  },
+  {
+    "origin": "Mario Fandom Wiki",
+    "origin_base_url": "mario.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Super Mario Wiki",
+    "destination_base_url": "www.mariowiki.com",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "supermariowiki.png"
+  },
+  {
+    "origin": "Pikmin Fandom Wiki",
+    "origin_base_url": "pikmin.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Pikipedia",
+    "destination_base_url": "www.pikminwiki.com",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pikipedia.png"
+  },
+  {
+    "origin": "Pokemon Fandom Wiki",
+    "origin_base_url": "pokemon.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Bulbapedia",
+    "destination_base_url": "bulbapedia.bulbagarden.net",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bulbapedia.png"
+  },
+  {
+    "origin": "Runescape Fandom Wiki",
+    "origin_base_url": "runescape.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Runescape Wiki",
+    "destination_base_url": "runescape.wiki",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "runescape.png"
+  },
+  {
+    "origin": "Simpsons Fandom Wiki",
+    "origin_base_url": "simpsons.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Wikisimpsons",
+    "destination_base_url": "simpsonswiki.com",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikisimpsons.png"
+  },
+  {
+    "origin": "Splatoon Fandom Wiki",
+    "origin_base_url": "splatoon.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Inkipedia",
+    "destination_base_url": "splatoonwiki.org",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "inkipedia.png"
+  },
+  {
+    "origin": "Star Citizen Fandom Wiki",
+    "origin_base_url": "starcitizen.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Star Citizen Wiki",
+    "destination_base_url": "starcitizen.tools",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starcitizen.png"
+  },
+  {
+    "origin": "Stardew Valley Fandom Wiki",
+    "origin_base_url": "stardewvalley.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Stardew Valley Wiki",
+    "destination_base_url": "stardewvalleywiki.com",
+    "destination_api_path": "/mediawiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "stardew.png"
+  },
+  {
+    "origin": "Super Smash Bros. Fandom Wiki",
+    "origin_base_url": "supersmashbros.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "SmashWiki",
+    "destination_base_url": "www.ssbwiki.com",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "smashwiki.png"
+  },
+  {
+    "origin": "Team Fortress Fandom Wiki",
+    "origin_base_url": "teamfortress.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Team Fortress Wiki",
+    "destination_base_url": "wiki.teamfortress.com",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "teamfortress.png"
+  },
+  {
+    "origin": "Transformers Fandom Wiki",
+    "origin_base_url": "transformers.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Transformers Wiki",
+    "destination_base_url": "tfwiki.net",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "transformers.png"
+  },
+  {
+    "origin": "Zelda Fandom Wiki",
+    "origin_base_url": "zelda.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Zeldapedia",
+    "destination_base_url": "zeldapedia.wiki",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "zeldapedia.png"
+  }
+]
