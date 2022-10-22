@@ -160,6 +160,16 @@
     "destination_icon": "supermariowiki.png"
   },
   {
+    "origin": "Mr. Love: Queen's Choice Fandom Wiki",
+    "origin_base_url": "mr-love-queens-choice.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Mr. Love Wiki",
+    "destination_base_url": "mrlove.wiki",
+    "destination_api_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mrlove.png"
+  },
+  {
     "origin": "Pikmin Fandom Wiki",
     "origin_base_url": "pikmin.fandom.com",
     "origin_content_path": "/wiki/",
