@@ -40,6 +40,16 @@
     "destination_icon": "chrono.png"
   },
   {
+    "origin": "Digimon Fandom Wiki",
+    "origin_base_url": "digimon.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Wikimon",
+    "destination_base_url": "wikimon.net",
+    "destination_api_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikimon.png"
+  },
+  {
     "origin": "Dragalia Lost Fandom Wiki",
     "origin_base_url": "dragalialost.fandom.com",
     "origin_content_path": "/wiki/",
