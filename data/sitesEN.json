@@ -10,6 +10,16 @@
     "destination_icon": "nookipedia.png"
   },
   {
+    "origin": "Another Eden Fandom Wiki",
+    "origin_base_url": "anothereden.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Another Eden Wiki",
+    "destination_base_url": "anothereden.wiki",
+    "destination_api_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "anothereden.png"
+  },
+  {
     "origin": "ARMS Fandom Wiki",
     "origin_base_url": "arms.fandom.com",
     "origin_content_path": "/wiki/",
