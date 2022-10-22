@@ -1,0 +1,22 @@
+[
+  {
+    "origin": "Smashpedia Fandom Wiki",
+    "origin_base_url": "supersmashbros.fandom.com/es",
+    "origin_content_path": "/wiki/",
+    "destination": "SmashPedia",
+    "destination_base_url": "es.ssbwiki.com",
+    "destination_api_path": "/",
+    "destination_platform": "mw",
+    "destination_icon": "smashpedia.png"
+  },
+  {
+    "origin": "WikiDex (Fandom)",
+    "origin_base_url": "pokemon.fandom.com/es",
+    "origin_content_path": "/wiki/",
+    "destination": "WikiDex",
+    "destination_base_url": "www.wikidex.net",
+    "destination_api_path": "/",
+    "destination_platform": "mw",
+    "destination_icon": "wikidex.png"
+  }
+]
