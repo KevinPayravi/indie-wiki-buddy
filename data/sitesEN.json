@@ -260,6 +260,16 @@
     "destination_icon": "transformers.png"
   },
   {
+    "origin": "World Flipper Fandom Wiki",
+    "origin_base_url": "worldflipper.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "World Flipper Wiki",
+    "destination_base_url": "worldflipper.miraheze.org",
+    "destination_api_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "worldflipper.png"
+  },
+  {
     "origin": "Zelda Fandom Wiki",
     "origin_base_url": "zelda.fandom.com",
     "origin_content_path": "/wiki/",
