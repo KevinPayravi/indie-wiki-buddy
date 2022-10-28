@@ -9,7 +9,7 @@ Large, corporate-run wiki farms have enabled hundreds of great wikis and communi
 
 When visiting a wiki on a large corporate wiki farm such as Fandom, Indie Wiki Buddy will notify and/or automatically redirect you if a quality, independent alternative is available. You can customize your experience per-wiki.
 
-# Contributing wikis
+# Adding wikis
 
 Contributions are welcome and encouraged! You can either open a pull request to add a new wiki, or [open an issue](https://github.com/KevinPayravi/indie-wiki-buddy/issues/new?assignees=KevinPayravi&labels=add+wiki&template=request-a-wiki-be-added.md&title=Add+a+wiki%3A+WIKI+NAME).
 
@@ -19,7 +19,7 @@ Contributions are welcome and encouraged! You can either open a pull request to 
 * The destination wiki should be of decent quality, ideally matching (or exceeding) the quality and size of the origin wiki. While we want to support all independent wikis, we also want extension users to be directed to wikis where they can find what they are looking for.
 * When there are multiple independent wikis on the same subject, we will usually point to the wiki that is most complete and prominent in the community.
 
-## Technical details
+## Data
 Wiki data is located in JSON files in the [data](data) folder, one file per language.
 
 Entries are formatted as follows:
@@ -36,7 +36,13 @@ Entries are formatted as follows:
 }
 ```
 
-`destination_api_path` varies by wiki, but is usually `/` or `/w/`.
-Supported `destination_platform`s are `mediawiki` and `doku`. If you are contributing an independent wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
+* `origin`: Name of the wiki being redirected.
+* `origin_base_url`: Fully qualified domain name of the wiki being redirected.
+* `origin_content_path`: The URL path for article links. On MediaWiki wikis, it can be found at Special:Version. Fandom wikis are usually `/wiki/`.
+* `destination`: Name of the wiki being redirected to.
+* `destination_base_url`: Fully qualified domain name of the wiki being redirected to.
+* `destination_api_path`: The URL path for the wiki's API endpoints. This is different from `origin_content_path`. On MediaWiki wikis, it can be found at Special:Version. It is usually `/` or `/w/`.
+* `destination_platform`: The wiki's software. The current supported options are `mediawiki` and `doku`. If you are contributing a wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
+* `destination_icon`: The name of the wiki's favicon in the [favicons](favicons) folder.
 
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
