@@ -30,7 +30,7 @@ Entries are formatted as follows:
   "origin_content_path": "/wiki/",
   "destination": "Example Wiki",
   "destination_base_url": "example.com",
-  "destination_api_path": "/w/",
+  "destination_content_path": "/w/",
   "destination_platform": "mediawiki",
   "destination_icon": "example.png"
 }
@@ -38,10 +38,10 @@ Entries are formatted as follows:
 
 * `origin`: Name of the wiki being redirected.
 * `origin_base_url`: Fully qualified domain name of the wiki being redirected.
-* `origin_content_path`: The URL path for article links. On MediaWiki wikis, it can be found at Special:Version. Fandom wikis are usually `/wiki/`.
+* `origin_content_path`: The URL path prefix for article links on the wiki being redirected. On MediaWiki wikis, it can be found at Special:Version. Fandom wikis are usually `/wiki/`.
 * `destination`: Name of the wiki being redirected to.
 * `destination_base_url`: Fully qualified domain name of the wiki being redirected to.
-* `destination_api_path`: The URL path for the wiki's API endpoints. This is different from `origin_content_path`. On MediaWiki wikis, it can be found at Special:Version. It is usually `/` or `/w/`.
+* `destination_content_path`: The URL path prefix for article links on the wiki being redirected to. On MediaWiki wikis, it can be found at Special:Version. It is typically `/wiki/` or `/`.
 * `destination_platform`: The wiki's software. The current supported options are `mediawiki` and `doku`. If you are contributing a wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
 * `destination_icon`: The name of the wiki's favicon in the [favicons](favicons) folder.
 

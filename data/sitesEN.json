@@ -5,7 +5,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Nookipedia",
     "destination_base_url": "nookipedia.com",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "nookipedia.png"
   },
@@ -15,7 +15,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Another Eden Wiki",
     "destination_base_url": "anothereden.wiki",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
     "destination_icon": "anothereden.png"
   },
@@ -25,7 +25,7 @@
     "origin_content_path": "/wiki/",
     "destination": "ARMS Institute",
     "destination_base_url": "armswiki.org",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "arms.png"
   },
@@ -35,7 +35,7 @@
     "origin_content_path": "/wiki/",
     "destination": "BlazBlue Wiki",
     "destination_base_url": "blazblue.wiki",
-    "destination_api_path": "/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "blazblue.png"
   },
@@ -45,7 +45,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Chrono Wiki",
     "destination_base_url": "www.chronowiki.org",
-    "destination_api_path": "/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "chrono.png"
   },
@@ -55,7 +55,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Wikimon",
     "destination_base_url": "wikimon.net",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "wikimon.png"
   },
@@ -65,7 +65,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Dragalia Lost Wiki",
     "destination_base_url": "dragalialost.wiki",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
     "destination_icon": "dragalialost.png"
   },
@@ -75,7 +75,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Unofficial Elder Scrolls Pages",
     "destination_base_url": "en.uesp.net",
-    "destination_api_path": "/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "uesp.png"
   },
@@ -85,7 +85,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Factorio Wiki",
     "destination_base_url": "wiki.factorio.com",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "factorio.png"
   },
@@ -95,7 +95,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Fire Emblem Wiki",
     "destination_base_url": "fireemblemwiki.org",
-    "destination_api_path": "/wiki/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "fireemblem.png"
   },
@@ -105,7 +105,7 @@
     "origin_content_path": "/wiki/",
     "destination": "F-Zero Wiki",
     "destination_base_url": "mutecity.org",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "fzero.png"
   },
@@ -115,7 +115,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Golden Sun Universe",
     "destination_base_url": "goldensunwiki.net",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "goldensun.png"
   },
@@ -125,7 +125,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Combine OverWiki",
     "destination_base_url": "combineoverwiki.net",
-    "destination_api_path": "/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "combine.png"
   },
@@ -135,7 +135,7 @@
     "origin_content_path": "/wiki/",
     "destination": "JoJo's Bizarre Encyclopedia",
     "destination_base_url": "jojowiki.com",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "jojo.png"
   },
@@ -145,7 +145,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Kingdom Hearts Wiki",
     "destination_base_url": "www.khwiki.com",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "khwiki.png"
   },
@@ -155,7 +155,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Halopedia",
     "destination_base_url": "www.halopedia.org",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "halopedia.png"
   },
@@ -165,7 +165,7 @@
     "origin_content_path": "/wiki/",
     "destination": "HyperRogue Wiki",
     "destination_base_url": "hyperrogue.miraheze.org",
-    "destination_api_path": "/wiki/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "hyperrogue.png"
   },
@@ -175,7 +175,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Wikirby",
     "destination_base_url": "wikirby.com",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "wikirby.png"
   },
@@ -185,7 +185,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Super Mario Wiki",
     "destination_base_url": "www.mariowiki.com",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "supermariowiki.png"
   },
@@ -195,7 +195,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Mr. Love Wiki",
     "destination_base_url": "mrlove.wiki",
-    "destination_api_path": "/wiki/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "mrlove.png"
   },
@@ -205,7 +205,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Pikipedia",
     "destination_base_url": "www.pikminwiki.com",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "pikipedia.png"
   },
@@ -215,7 +215,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Bulbapedia",
     "destination_base_url": "bulbapedia.bulbagarden.net",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "bulbapedia.png"
   },
@@ -223,9 +223,9 @@
     "origin": "RollerCoaster Tycoon Fandom Wiki",
     "origin_base_url": "rct.fandom.com",
     "origin_content_path": "/wiki/",
-    "destination": "RollerCoaster Tycoon Miraheze Wiki",
+    "destination": "RCT Miraheze Wiki",
     "destination_base_url": "rct.wiki",
-    "destination_api_path": "/wiki/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "rctwiki.png"
   },
@@ -235,7 +235,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Runescape Wiki",
     "destination_base_url": "runescape.wiki",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
     "destination_icon": "runescape.png"
   },
@@ -245,7 +245,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Wikisimpsons",
     "destination_base_url": "simpsonswiki.com",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "wikisimpsons.png"
   },
@@ -255,7 +255,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Inkipedia",
     "destination_base_url": "splatoonwiki.org",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "inkipedia.png"
   },
@@ -265,7 +265,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Star Citizen Wiki",
     "destination_base_url": "starcitizen.tools",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "starcitizen.png"
   },
@@ -275,7 +275,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Stardew Valley Wiki",
     "destination_base_url": "stardewvalleywiki.com",
-    "destination_api_path": "/mediawiki/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "stardew.png"
   },
@@ -285,7 +285,7 @@
     "origin_content_path": "/wiki/",
     "destination": "SmashWiki",
     "destination_base_url": "www.ssbwiki.com",
-    "destination_api_path": "/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "smashwiki.png"
   },
@@ -295,7 +295,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Team Fortress Wiki",
     "destination_base_url": "wiki.teamfortress.com",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "teamfortress.png"
   },
@@ -305,7 +305,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Tears of Themis Wiki",
     "destination_base_url": "tot.wiki",
-    "destination_api_path": "/wiki/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "tearsofthemis.png"
   },
@@ -315,7 +315,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Transformers Wiki",
     "destination_base_url": "tfwiki.net",
-    "destination_api_path": "/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "transformers.png"
   },
@@ -325,7 +325,7 @@
     "origin_content_path": "/wiki/",
     "destination": "World Flipper Wiki",
     "destination_base_url": "worldflipper.miraheze.org",
-    "destination_api_path": "/wiki/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "worldflipper.png"
   },
@@ -335,7 +335,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Zeldapedia",
     "destination_base_url": "zeldapedia.wiki",
-    "destination_api_path": "/w/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "zeldapedia.png"
   }

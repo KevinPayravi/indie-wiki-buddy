@@ -5,8 +5,8 @@
     "origin_content_path": "/wiki/",
     "destination": "SmashPedia",
     "destination_base_url": "es.ssbwiki.com",
-    "destination_api_path": "/",
-    "destination_platform": "mw",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
     "destination_icon": "smashpedia.png"
   },
   {
@@ -15,8 +15,8 @@
     "origin_content_path": "/wiki/",
     "destination": "WikiDex",
     "destination_base_url": "www.wikidex.net",
-    "destination_api_path": "/",
-    "destination_platform": "mw",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
     "destination_icon": "wikidex.png"
   }
 ]
