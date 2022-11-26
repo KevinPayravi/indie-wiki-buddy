@@ -87,7 +87,7 @@
     "destination_base_url": "wiki.factorio.com",
     "destination_api_path": "/",
     "destination_platform": "mediawiki",
-    "destination_icon": "factoriowiki.png"
+    "destination_icon": "factorio.png"
   },
   {
     "origin": "Fire Emblem Fandom Wiki",
