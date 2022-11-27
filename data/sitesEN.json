@@ -139,13 +139,13 @@
     "destination_platform": "mediawiki",
     "destination_icon": "hyperrogue.png"
   },
-  
+  {
     "origin": "Lord of the Rings Fandom Wiki",
     "origin_base_url": "lotr.fandom.com",
     "origin_content_path": "/wiki/",
     "destination": "Tolkien Gateway",
     "destination_base_url": "tolkiengateway.net",
-    "destination_api_path": "/wiki/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "tolkiengateway.png"
   },
