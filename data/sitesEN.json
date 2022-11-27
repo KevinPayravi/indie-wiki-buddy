@@ -175,7 +175,7 @@
     "origin_content_path": "/wiki/",
     "destination": "Path of Exile Wiki",
     "destination_base_url": "www.poewiki.net",
-    "destination_api_path": "/wiki/",
+    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "pathofexilewiki.png"
   },
