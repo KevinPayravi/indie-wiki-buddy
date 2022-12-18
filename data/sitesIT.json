@@ -16,7 +16,7 @@
     "origin_base_url": "mario.fandom.com/it",
     "origin_content_path": "/wiki/",
     "destination": "Super Mario Wiki",
-    "destination_base_url": "www.mariowiki.it/",
+    "destination_base_url": "www.mariowiki.it",
     "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "supermariowiki.png"
