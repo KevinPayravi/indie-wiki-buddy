@@ -1,0 +1,35 @@
+[
+  {
+    "id": "it-pokemon",
+    "origin": "Analisi Pokémon Wiki",
+    "origin_base_url": "pokemon.fandom.com/it",
+    "origin_content_path": "/wiki/",
+    "destination": "Pokémon Central Wiki",
+    "destination_base_url": "wiki.pokemoncentral.it",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pokemoncentral.png"
+  },
+  {
+    "id": "it-mario",
+    "origin": "Mario Wiki",
+    "origin_base_url": "mario.fandom.com/it",
+    "origin_content_path": "/wiki/",
+    "destination": "Super Mario Wiki",
+    "destination_base_url": "www.mariowiki.it/",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "supermariowiki.png"
+  },
+  {
+    "id": "it-earthbound",
+    "origin": "EarthBound Wiki",
+    "origin_base_url": "earthbound.fandom.com/it",
+    "origin_content_path": "/wiki/",
+    "destination": "WikiBound",
+    "destination_base_url": "it.wikibound.info",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikibound.png"
+  }
+]
