@@ -1,5 +1,6 @@
 [
   {
+    "id": "es-animalcrossing",
     "origin": "Animal Crossing Fandom Wiki",
     "origin_base_url": "animalcrossing.fandom.com/de",
     "origin_content_path": "/wiki/",
@@ -10,6 +11,7 @@
     "destination_icon": "animalcrossingwiki.png"
   },
   {
+    "id": "es-starcitizen",
     "origin": "Star Citizen Fandom Wiki",
     "origin_base_url": "starcitizen.fandom.com/de",
     "origin_content_path": "/wiki/",

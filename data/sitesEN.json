@@ -1,5 +1,6 @@
 [
   {
+    "id": "en-animalcrossing",
     "origin": "Animal Crossing Fandom Wiki",
     "origin_base_url": "animalcrossing.fandom.com",
     "origin_content_path": "/wiki/",
@@ -10,6 +11,7 @@
     "destination_icon": "nookipedia.png"
   },
   {
+    "id": "en-anothereden",
     "origin": "Another Eden Fandom Wiki",
     "origin_base_url": "anothereden.fandom.com",
     "origin_content_path": "/wiki/",
@@ -20,6 +22,7 @@
     "destination_icon": "anothereden.png"
   },
   {
+    "id": "en-arms",
     "origin": "ARMS Fandom Wiki",
     "origin_base_url": "arms.fandom.com",
     "origin_content_path": "/wiki/",
@@ -30,6 +33,7 @@
     "destination_icon": "arms.png"
   },
   {
+    "id": "en-blazblue",
     "origin": "BlazBlue Fandom Wiki",
     "origin_base_url": "blazblue.fandom.com",
     "origin_content_path": "/wiki/",
@@ -40,6 +44,7 @@
     "destination_icon": "blazblue.png"
   },
   {
+    "id": "en-chrono",
     "origin": "Chrono Fandom Wiki",
     "origin_base_url": "chrono.fandom.com",
     "origin_content_path": "/wiki/",
@@ -50,6 +55,7 @@
     "destination_icon": "chrono.png"
   },
   {
+    "id": "en-digimon",
     "origin": "Digimon Fandom Wiki",
     "origin_base_url": "digimon.fandom.com",
     "origin_content_path": "/wiki/",
@@ -60,6 +66,7 @@
     "destination_icon": "wikimon.png"
   },
   {
+    "id": "en-dragalialost",
     "origin": "Dragalia Lost Fandom Wiki",
     "origin_base_url": "dragalialost.fandom.com",
     "origin_content_path": "/wiki/",
@@ -70,6 +77,7 @@
     "destination_icon": "dragalialost.png"
   },
   {
+    "id": "en-elderscrolls",
     "origin": "Elder Scrolls Fandom Wiki",
     "origin_base_url": "elderscrolls.fandom.com",
     "origin_content_path": "/wiki/",
@@ -80,6 +88,7 @@
     "destination_icon": "uesp.png"
   },
   {
+    "id": "en-factorio",
     "origin": "Factorio Fandom Wiki",
     "origin_base_url": "factorio.fandom.com",
     "origin_content_path": "/wiki/",
@@ -90,6 +99,7 @@
     "destination_icon": "factorio.png"
   },
   {
+    "id": "en-fireemblem",
     "origin": "Fire Emblem Fandom Wiki",
     "origin_base_url": "fireemblem.fandom.com",
     "origin_content_path": "/wiki/",
@@ -100,6 +110,7 @@
     "destination_icon": "fireemblem.png"
   },
   {
+    "id": "en-fzero",
     "origin": "F-Zero Fandom Wiki",
     "origin_base_url": "fzero.fandom.com",
     "origin_content_path": "/wiki/",
@@ -110,6 +121,7 @@
     "destination_icon": "fzero.png"
   },
   {
+    "id": "en-goldensun",
     "origin": "Golden Sun Fandom Wiki",
     "origin_base_url": "goldensun.fandom.com",
     "origin_content_path": "/wiki/",
@@ -120,6 +132,7 @@
     "destination_icon": "goldensun.png"
   },
   {
+    "id": "en-half-life",
     "origin": "Half-Life & Portal Fandom Wiki",
     "origin_base_url": "half-life.fandom.com",
     "origin_content_path": "/wiki/",
@@ -130,6 +143,7 @@
     "destination_icon": "combine.png"
   },
   {
+    "id": "en-jojo",
     "origin": "JoJo's Bizarre Wiki",
     "origin_base_url": "jojo.fandom.com",
     "origin_content_path": "/wiki/",
@@ -140,6 +154,7 @@
     "destination_icon": "jojo.png"
   },
   {
+    "id": "en-kingdomhearts",
     "origin": "Kingdom Hearts Fandom Wiki",
     "origin_base_url": "kingdomhearts.fandom.com",
     "origin_content_path": "/wiki/",
@@ -150,6 +165,7 @@
     "destination_icon": "khwiki.png"
   },
   {
+    "id": "en-halo",
     "origin": "Halo Alpha Fandom Wiki",
     "origin_base_url": "halo.fandom.com",
     "origin_content_path": "/wiki/",
@@ -160,6 +176,7 @@
     "destination_icon": "halopedia.png"
   },
   {
+    "id": "en-hyperrogue",
     "origin": "Hyperrogue Fandom Wiki",
     "origin_base_url": "hyperrogue.fandom.com",
     "origin_content_path": "/wiki/",
@@ -170,6 +187,7 @@
     "destination_icon": "hyperrogue.png"
   },
   {
+    "id": "en-lotr",
     "origin": "Lord of the Rings Fandom Wiki",
     "origin_base_url": "lotr.fandom.com",
     "origin_content_path": "/wiki/",
@@ -180,6 +198,7 @@
     "destination_icon": "tolkiengateway.png"
   },
   {
+    "id": "en-kirby",
     "origin": "Kirby Fandom Wiki",
     "origin_base_url": "kirby.fandom.com",
     "origin_content_path": "/wiki/",
@@ -190,6 +209,7 @@
     "destination_icon": "wikirby.png"
   },
   {
+    "id": "en-mario",
     "origin": "Mario Fandom Wiki",
     "origin_base_url": "mario.fandom.com",
     "origin_content_path": "/wiki/",
@@ -200,6 +220,7 @@
     "destination_icon": "supermariowiki.png"
   },
   {
+    "id": "en-mr-love-queens-choice",
     "origin": "Mr. Love: Queen's Choice Fandom Wiki",
     "origin_base_url": "mr-love-queens-choice.fandom.com",
     "origin_content_path": "/wiki/",
@@ -210,6 +231,7 @@
     "destination_icon": "mrlove.png"
   },
   {
+    "id": "en-pikmin",
     "origin": "Pikmin Fandom Wiki",
     "origin_base_url": "pikmin.fandom.com",
     "origin_content_path": "/wiki/",
@@ -220,6 +242,7 @@
     "destination_icon": "pikipedia.png"
   },
   {
+    "id": "en-pathofexile",
     "origin": "Path of Exile Fandom Wiki",
     "origin_base_url": "pathofexile.fandom.com",
     "origin_content_path": "/wiki/",
@@ -230,6 +253,7 @@
     "destination_icon": "pathofexile.png"
   },
   {
+    "id": "en-pokemon",
     "origin": "Pokemon Fandom Wiki",
     "origin_base_url": "pokemon.fandom.com",
     "origin_content_path": "/wiki/",
@@ -240,6 +264,7 @@
     "destination_icon": "bulbapedia.png"
   },
     {
+    "id": "en-rct",
     "origin": "RollerCoaster Tycoon Fandom Wiki",
     "origin_base_url": "rct.fandom.com",
     "origin_content_path": "/wiki/",
@@ -250,6 +275,7 @@
     "destination_icon": "rctwiki.png"
   },
   {
+    "id": "en-runescape",
     "origin": "Runescape Fandom Wiki",
     "origin_base_url": "runescape.fandom.com",
     "origin_content_path": "/wiki/",
@@ -260,6 +286,7 @@
     "destination_icon": "runescape.png"
   },
   {
+    "id": "en-simpsons",
     "origin": "Simpsons Fandom Wiki",
     "origin_base_url": "simpsons.fandom.com",
     "origin_content_path": "/wiki/",
@@ -270,6 +297,7 @@
     "destination_icon": "wikisimpsons.png"
   },
   {
+    "id": "en-splatoon",
     "origin": "Splatoon Fandom Wiki",
     "origin_base_url": "splatoon.fandom.com",
     "origin_content_path": "/wiki/",
@@ -280,6 +308,7 @@
     "destination_icon": "inkipedia.png"
   },
   {
+    "id": "en-starcitizen",
     "origin": "Star Citizen Fandom Wiki",
     "origin_base_url": "starcitizen.fandom.com",
     "origin_content_path": "/wiki/",
@@ -290,6 +319,7 @@
     "destination_icon": "starcitizen.png"
   },
   {
+    "id": "en-stardewvalley",
     "origin": "Stardew Valley Fandom Wiki",
     "origin_base_url": "stardewvalley.fandom.com",
     "origin_content_path": "/wiki/",
@@ -300,6 +330,7 @@
     "destination_icon": "stardew.png"
   },
   {
+    "id": "en-supersmashbros",
     "origin": "Super Smash Bros. Fandom Wiki",
     "origin_base_url": "supersmashbros.fandom.com",
     "origin_content_path": "/wiki/",
@@ -310,6 +341,7 @@
     "destination_icon": "smashwiki.png"
   },
   {
+    "id": "en-teamfortress",
     "origin": "Team Fortress Fandom Wiki",
     "origin_base_url": "teamfortress.fandom.com",
     "origin_content_path": "/wiki/",
@@ -320,6 +352,7 @@
     "destination_icon": "teamfortress.png"
   },
   {
+    "id": "en-tearsofthemis",
     "origin": "Tears of Themis Fandom Wiki",
     "origin_base_url": "tearsofthemis.fandom.com",
     "origin_content_path": "/wiki/",
@@ -330,6 +363,7 @@
     "destination_icon": "tearsofthemis.png"
   },
   {
+    "id": "en-transformers",
     "origin": "Transformers Fandom Wiki",
     "origin_base_url": "transformers.fandom.com",
     "origin_content_path": "/wiki/",
@@ -340,6 +374,7 @@
     "destination_icon": "transformers.png"
   },
   {
+    "id": "en-worldflipper",
     "origin": "World Flipper Fandom Wiki",
     "origin_base_url": "worldflipper.fandom.com",
     "origin_content_path": "/wiki/",
@@ -350,6 +385,7 @@
     "destination_icon": "worldflipper.png"
   },
   {
+    "id": "en-zelda",
     "origin": "Zelda Fandom Wiki",
     "origin_base_url": "zelda.fandom.com",
     "origin_content_path": "/wiki/",

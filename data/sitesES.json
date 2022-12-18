@@ -1,5 +1,6 @@
 [
   {
+    "id": "es-supersmashbros",
     "origin": "Smashpedia Fandom Wiki",
     "origin_base_url": "supersmashbros.fandom.com/es",
     "origin_content_path": "/wiki/",
@@ -10,6 +11,7 @@
     "destination_icon": "smashpedia.png"
   },
   {
+    "id": "es-pokemon",
     "origin": "WikiDex (Fandom)",
     "origin_base_url": "pokemon.fandom.com/es",
     "origin_content_path": "/wiki/",
