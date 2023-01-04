@@ -1,7 +1,7 @@
 [
   {
     "id": "it-pokemon",
-    "origin": "Analisi Pokémon Wiki",
+    "origin": "Analisi Pokémon Fandom Wiki",
     "origin_base_url": "pokemon.fandom.com/it",
     "origin_content_path": "/wiki/",
     "destination": "Pokémon Central Wiki",
@@ -12,7 +12,7 @@
   },
   {
     "id": "it-mario",
-    "origin": "Mario Wiki",
+    "origin": "Mario Fandom Wiki",
     "origin_base_url": "mario.fandom.com/it",
     "origin_content_path": "/wiki/",
     "destination": "Super Mario Wiki",
@@ -23,7 +23,7 @@
   },
   {
     "id": "it-earthbound",
-    "origin": "EarthBound Wiki",
+    "origin": "EarthBound Fandom Wiki",
     "origin_base_url": "earthbound.fandom.com/it",
     "origin_content_path": "/wiki/",
     "destination": "WikiBound",
