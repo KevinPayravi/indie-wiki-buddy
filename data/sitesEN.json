@@ -77,6 +77,17 @@
     "destination_icon": "dragalialost.png"
   },
   {
+    "id": "en-drawntolife",
+    "origin": "Drawn to Life Fandom Wiki",
+    "origin_base_url": "drawntolife.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Wapopedia",
+    "destination_base_url": "drawntolife.wiki",
+    "destination_content_path": "/en/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wapopedia.png"
+  },
+  {
     "id": "en-elderscrolls",
     "origin": "Elder Scrolls Fandom Wiki",
     "origin_base_url": "elderscrolls.fandom.com",
