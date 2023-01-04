@@ -143,28 +143,6 @@
     "destination_icon": "combine.png"
   },
   {
-    "id": "en-jojo",
-    "origin": "JoJo's Bizarre Wiki",
-    "origin_base_url": "jojo.fandom.com",
-    "origin_content_path": "/wiki/",
-    "destination": "JoJo's Bizarre Encyclopedia",
-    "destination_base_url": "jojowiki.com",
-    "destination_content_path": "/",
-    "destination_platform": "mediawiki",
-    "destination_icon": "jojo.png"
-  },
-  {
-    "id": "en-kingdomhearts",
-    "origin": "Kingdom Hearts Fandom Wiki",
-    "origin_base_url": "kingdomhearts.fandom.com",
-    "origin_content_path": "/wiki/",
-    "destination": "Kingdom Hearts Wiki",
-    "destination_base_url": "www.khwiki.com",
-    "destination_content_path": "/",
-    "destination_platform": "mediawiki",
-    "destination_icon": "khwiki.png"
-  },
-  {
     "id": "en-halo",
     "origin": "Halo Alpha Fandom Wiki",
     "origin_base_url": "halo.fandom.com",
@@ -187,15 +165,26 @@
     "destination_icon": "hyperrogue.png"
   },
   {
-    "id": "en-lotr",
-    "origin": "Lord of the Rings Fandom Wiki",
-    "origin_base_url": "lotr.fandom.com",
+    "id": "en-jojo",
+    "origin": "JoJo's Bizarre Wiki",
+    "origin_base_url": "jojo.fandom.com",
     "origin_content_path": "/wiki/",
-    "destination": "Tolkien Gateway",
-    "destination_base_url": "tolkiengateway.net",
-    "destination_content_path": "/wiki/",
+    "destination": "JoJo's Bizarre Encyclopedia",
+    "destination_base_url": "jojowiki.com",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
-    "destination_icon": "tolkiengateway.png"
+    "destination_icon": "jojo.png"
+  },
+  {
+    "id": "en-kingdomhearts",
+    "origin": "Kingdom Hearts Fandom Wiki",
+    "origin_base_url": "kingdomhearts.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Kingdom Hearts Wiki",
+    "destination_base_url": "www.khwiki.com",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "khwiki.png"
   },
   {
     "id": "en-kirby",
@@ -207,6 +196,17 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "wikirby.png"
+  },
+  {
+    "id": "en-lotr",
+    "origin": "Lord of the Rings Fandom Wiki",
+    "origin_base_url": "lotr.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Tolkien Gateway",
+    "destination_base_url": "tolkiengateway.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tolkiengateway.png"
   },
   {
     "id": "en-mario",
@@ -231,17 +231,6 @@
     "destination_icon": "mrlove.png"
   },
   {
-    "id": "en-pikmin",
-    "origin": "Pikmin Fandom Wiki",
-    "origin_base_url": "pikmin.fandom.com",
-    "origin_content_path": "/wiki/",
-    "destination": "Pikipedia",
-    "destination_base_url": "www.pikminwiki.com",
-    "destination_content_path": "/",
-    "destination_platform": "mediawiki",
-    "destination_icon": "pikipedia.png"
-  },
-  {
     "id": "en-pathofexile",
     "origin": "Path of Exile Fandom Wiki",
     "origin_base_url": "pathofexile.fandom.com",
@@ -253,8 +242,19 @@
     "destination_icon": "pathofexile.png"
   },
   {
+    "id": "en-pikmin",
+    "origin": "Pikmin Fandom Wiki",
+    "origin_base_url": "pikmin.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Pikipedia",
+    "destination_base_url": "www.pikminwiki.com",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pikipedia.png"
+  },
+  {
     "id": "en-pokemon",
-    "origin": "Pokemon Fandom Wiki",
+    "origin": "Pokémon Fandom Wiki",
     "origin_base_url": "pokemon.fandom.com",
     "origin_content_path": "/wiki/",
     "destination": "Bulbapedia",
@@ -263,7 +263,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "bulbapedia.png"
   },
-    {
+  {
     "id": "en-rct",
     "origin": "RollerCoaster Tycoon Fandom Wiki",
     "origin_base_url": "rct.fandom.com",
