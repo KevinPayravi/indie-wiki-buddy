@@ -25,6 +25,7 @@ Wiki data is located in JSON files in the [data](data) folder, one file per lang
 Entries are formatted as follows:
 ```
 {
+  "id": "en-example",
   "origin": "Example Fandom Wiki",
   "origin_base_url": "example.fandom.com",
   "origin_content_path": "/wiki/",
@@ -36,6 +37,7 @@ Entries are formatted as follows:
 }
 ```
 
+* `id`: A unique identifier for the wiki; should start with the two-letter language code for the wiki, followed by a hypen and the name of the subject/franchise the wiki covers.
 * `origin`: Name of the wiki being redirected.
 * `origin_base_url`: Fully qualified domain name of the wiki being redirected.
 * `origin_content_path`: The URL path prefix for article links on the wiki being redirected. On MediaWiki wikis, it can be found at Special:Version. Fandom wikis are usually `/wiki/`.
