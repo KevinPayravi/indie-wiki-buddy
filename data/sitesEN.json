@@ -55,6 +55,17 @@
     "destination_icon": "chrono.png"
   },
   {
+    "id": "en-detectiveconan",
+    "origin": "Detective Conan Fandom Wiki",
+    "origin_base_url": "detectiveconan.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Detective Conan Wiki",
+    "destination_base_url": "www.detectiveconanworld.com/wiki",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "detectiveconan.png"
+  },
+  {
     "id": "en-digimon",
     "origin": "Digimon Fandom Wiki",
     "origin_base_url": "digimon.fandom.com",

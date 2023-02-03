@@ -11,6 +11,17 @@
     "destination_icon": "animalcrossingwiki.png"
   },
   {
+    "id": "de-detektivconan",
+    "origin": "Detektiv Conan Fandom Wiki",
+    "origin_base_url": "detektivconan.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "ConanWiki",
+    "destination_base_url": "conanwiki.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "detektivconan.png"
+  },
+  {
     "id": "de-starcitizen",
     "origin": "Star Citizen Fandom Wiki",
     "origin_base_url": "starcitizen.fandom.com/de",
