@@ -8,4 +8,4 @@ assignees: KevinPayravi
 ---
 
 Link to origin wiki: 
-Link to destination (independent) wiki:
+Link to destination (independent) wiki: 
