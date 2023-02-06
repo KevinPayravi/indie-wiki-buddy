@@ -14,7 +14,7 @@ Object.prototype.set = function(prop, value) {
 // Used when switching languages
 function resetOptions() {
   var toggleContainer = document.getElementById('toggles');
-  toggleContainer.innerHTML = "";
+  toggleContainer.textContent = "";
 
   // Clone "select all" buttons to reset listeners
   document.getElementById('setAllRedirect').cloneNode(true);
@@ -194,28 +194,28 @@ async function loadOptions(lang) {
         // Output disable radio button:
         let inputDisabledText = document.createElement('span');
         inputDisabledText.classList.add('visuallyHidden');
-        inputDisabledText.innerHTML = 'Disable action for ' + sites[i].origin;
+        inputDisabledText.textContent = 'Disable action for ' + sites[i].origin;
         labelDisabled.appendChild(inputDisabled);
         labelDisabled.appendChild(inputDisabledText);
 
         // Output redirect radio button:
         let inputRedirectText = document.createElement('span');
         inputRedirectText.classList.add('visuallyHidden');
-        inputRedirectText.innerHTML = 'Automatically redirect ' + sites[i].origin;
+        inputRedirectText.textContent = 'Automatically redirect ' + sites[i].origin;
         labelRedirect.appendChild(inputRedirect);
         labelRedirect.appendChild(inputRedirectText);
 
         // Output alert radio button:
         let inputAlertText = document.createElement('span');
         inputAlertText.classList.add('visuallyHidden');
-        inputAlertText.innerHTML = 'Automatically alert for' + sites[i].origin;
+        inputAlertText.textContent = 'Automatically alert for' + sites[i].origin;
         labelAlert.appendChild(inputAlert);
         labelAlert.appendChild(inputAlertText);
 
         // Output search filter checkbox:
         let inputFilterText = document.createElement('span');
         inputFilterText.classList.add('visuallyHidden');
-        inputFilterText.innerHTML = 'Filter ' + sites[i].origin + ' from search engine results';
+        inputFilterText.textContent = 'Filter ' + sites[i].origin + ' from search engine results';
         labelFilter.appendChild(inputFilter);
         labelFilter.appendChild(inputFilterText);
 
@@ -231,7 +231,7 @@ async function loadOptions(lang) {
 
         // Output text:
         let text = document.createElement('span');
-        text.innerHTML = sites[i].origin + ' » ' + sites[i].destination;
+        text.textContent = sites[i].origin + ' » ' + sites[i].destination;
         let siteContainer = document.createElement("div");
 
         siteContainer.appendChild(labelDisabled);
@@ -304,7 +304,7 @@ function setPower(setting) {
   var powerImage = document.getElementById('powerImage');
   powerImage.src = 'images/power-' + setting + '.png';
   var powerText = document.getElementById('powerText');
-  powerText.innerHTML = 'Extension is ' + setting;
+  powerText.textContent = 'Extension is ' + setting;
 }
 
 // Set notifications setting
@@ -313,7 +313,7 @@ function setNotifications(setting) {
   var notificationsImage = document.getElementById('notificationsImage');
   notificationsImage.src = 'images/bell-' + setting + '.png';
   var notificationsText = document.getElementById('notificationsText');
-  notificationsText.innerHTML = 'Notify-on-redirect is ' + setting;
+  notificationsText.textContent = 'Notify-on-redirect is ' + setting;
 }
 
 // Set BreezeWiki settings
@@ -322,7 +322,7 @@ function setBreezeWiki(setting) {
   var breezewikiImage = document.getElementById('breezewikiImage');
   breezewikiImage.src = 'images/check-' + setting + '.png';
   var breezewikiText = document.getElementById('breezewikiText');
-  breezewikiText.innerHTML = 'BreezeWiki is ' + setting;
+  breezewikiText.textContent = 'BreezeWiki is ' + setting;
   var breezewikiHost = document.getElementById('breezewikiHost');
   if (setting === 'on') {
     breezewikiHost.style.display = 'block';
@@ -410,16 +410,16 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'countAlerts': 0 }, function (item) {
     var key = Object.keys(item)[0];
     chrome.storage.sync.set({ 'countAlerts': item[key] });
-    document.getElementById('countAlerts').innerHTML = item[key];
+    document.getElementById('countAlerts').textContent = item[key];
   });
   chrome.storage.sync.get({ 'countRedirects': 0 }, function (item) {
     var key = Object.keys(item)[0];
     chrome.storage.sync.set({ 'countRedirects': item[key] });
-    document.getElementById('countRedirects').innerHTML = item[key];
+    document.getElementById('countRedirects').textContent = item[key];
   });
   chrome.storage.sync.get({ 'countSearchFilters': 0 }, function (item) {
     var key = Object.keys(item)[0];
     chrome.storage.sync.set({ 'countSearchFilters': item[key] });
-    document.getElementById('countSearchFilters').innerHTML = item[key];
+    document.getElementById('countSearchFilters').textContent = item[key];
   });  
 });

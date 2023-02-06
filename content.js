@@ -63,7 +63,8 @@ function displayRedirectBanner(url, destination, storage) {
   bannerExit.onclick = function () { this.parentElement.remove(); };
   var bannerText = document.createElement('span');
   banner.appendChild(bannerText);
-  bannerText.innerHTML = 'There is an independent wiki covering this topic! <br/>'
+  bannerText.textContent = 'There is an independent wiki covering this topic!'
+  bannerText.appendChild(document.createElement('br'));
   var bannerLink = document.createElement('a');
   bannerText.appendChild(bannerLink);
   bannerLink.href = url;
@@ -106,7 +107,7 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
         } else {
           searchResultLink = searchResult.closest('[href]').href;
         }
-      } catch(e) {
+      } catch (e) {
         console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
       }
       // Check if site is in our list of wikis:
@@ -149,7 +150,17 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
               default:
             }
             if (cssQuery) {
-              searchResult.closest(cssQuery).innerHTML = '<i>A Fandom result has been removed by Indie Wiki Buddy. Look for results from <a href="https://' + site.destination_base_url + '">' + site.destination + '</a> instead!</i>';
+              let searchListing = document.createElement('div');
+              searchListing.style.fontStyle = 'italic';
+              let searchListingLink = document.createElement('a');
+              searchListingLink.href = 'https://' + site.destination_base_url;
+              searchListingLink.textContent = site.destination;
+              searchListingPretext = document.createTextNode('A search result from ' + site.origin + ' has been removed by Indie Wiki Buddy. Look for results from ');
+              searchListingPosttext = document.createTextNode(' instead!');
+              searchListing.appendChild(searchListingPretext);
+              searchListing.appendChild(searchListingLink);
+              searchListing.appendChild(searchListingPosttext);
+              searchResult.closest(cssQuery).replaceChildren(searchListing);
               countFiltered++;
             }
           }
