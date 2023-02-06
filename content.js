@@ -1,0 +1,300 @@
+const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com/;
+const fandomRegex = /\.fandom\.com$/;
+const breezeWikiRegex = /breezewiki\.pussthecat\.org$|bw\.odyssey346\.dev$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$/;
+const currentURL = new URL(document.location);
+
+// Create object prototypes for getting and setting attributes:
+Object.prototype.get = function (prop) {
+  this[prop] = this[prop] || {};
+  return this[prop];
+};
+Object.prototype.set = function (prop, value) {
+  this[prop] = value;
+}
+
+// Create an observer to watch for mutations
+function addLocationObserver(callback) {
+  const config = {
+    attributes: false,
+    childList: true,
+    subtree: true
+  }
+  const observer = new MutationObserver(callback);
+  observer.observe(document.body, config);
+}
+
+// Load website data
+async function getData() {
+  const LANGS = ["DE", "EN", "ES", "IT"];
+  let sites = [];
+  let promises = [];
+  for (let i = 0; i < LANGS.length; i++) {
+    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
+      .then((resp) => resp.json())
+      .then(function (jsonData) {
+        sites = sites.concat(jsonData);
+      }));
+  }
+  await Promise.all(promises);
+  return sites;
+}
+
+function displayRedirectBanner(url, destination, storage) {
+  // Output banner
+  var banner = document.createElement('div');
+  banner.id = 'indie-wiki-banner';
+  banner.style.fontSize = '1.2em';
+  banner.style.fontFamily = 'sans-serif';
+  banner.style.width = '100%';
+  banner.style.zIndex = '2147483647';
+  banner.style.position = 'fixed';
+  banner.style.textAlign = 'center';
+  banner.style.backgroundColor = '#acdae2';
+  banner.style.minHeight = '40px';
+  banner.style.lineHeight = '40px';
+  var bannerExit = document.createElement('div');
+  banner.appendChild(bannerExit);
+  bannerExit.style.float = 'right';
+  bannerExit.style.paddingRight = '10px';
+  bannerExit.style.fontSize = '1.5em';
+  bannerExit.style.color = '#333';
+  bannerExit.style.cursor = 'pointer';
+  bannerExit.innerText = '✕';
+  bannerExit.onclick = function () { this.parentElement.remove(); };
+  var bannerText = document.createElement('span');
+  banner.appendChild(bannerText);
+  bannerText.innerHTML = 'There is an independent wiki covering this topic! <br/>'
+  var bannerLink = document.createElement('a');
+  bannerText.appendChild(bannerLink);
+  bannerLink.href = url;
+  bannerLink.style.color = 'navy';
+  bannerLink.style.fontWeight = '600';
+  bannerLink.innerText = 'Visit ' + destination + '→';
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    document.body.insertAdjacentElement('beforeBegin', banner);
+    if (storage.breezewiki === 'on') {
+      if (currentURL.hostname.match(breezeWikiRegex)) {
+        chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
+      }
+    } else {
+      chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
+    }
+  } else {
+    document.addEventListener('readystatechange', e => {
+      if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        document.body.insertAdjacentElement('beforeBegin', banner);
+        if (storage.breezewiki === 'on') {
+          if (currentURL.hostname.match(breezeWikiRegex)) {
+            chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
+          }
+        } else {
+          chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
+        }
+      }
+    });
+  }
+}
+
+function filterSearchResults(fandomSearchResults, searchEngine, storage) {
+  getData().then(sites => {
+    countFiltered = 0;
+    fandomSearchResults.forEach(searchResult => {
+      let searchResultLink = searchResult.closest('[href]').href;
+      // Check if site is in our list of wikis:
+      let matchingSites = sites.filter(el => String(searchResultLink).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+      if (matchingSites.length > 0) {
+        // Select match with longest base URL 
+        let closestMatch = "";
+        matchingSites.forEach(site => {
+          if (site.origin_base_url.length > closestMatch.length) {
+            closestMatch = site.origin_base_url;
+          }
+        });
+        let site = matchingSites.find(site => site.origin_base_url === closestMatch);
+        if (site) {
+          // Get user's settings for the wiki
+          let settings = storage.siteSettings || {};
+          let id = site['id'];
+          let searchFilterSetting = 'true';
+          if (settings.hasOwnProperty(id) && settings[id].searchFilter) {
+            searchFilterSetting = settings[id].searchFilter;
+          }
+          if (searchFilterSetting === 'true') {
+            let cssQuery = '';
+            switch (searchEngine) {
+              case 'google':
+                if (searchResult.closest('div[data-hveid]')) {
+                  cssQuery = 'div[data-hveid]';
+                }
+                break;
+              case 'bing':
+                if (searchResult.closest('li.b_algo')) {
+                  cssQuery = 'li.b_algo';
+                }
+                break;
+              case 'duckduckgo':
+                if (searchResult.closest('div.nrn-react-div')) {
+                  cssQuery = 'div.nrn-react-div';
+                }
+                break;
+              default:
+            }
+            if (cssQuery) {
+              searchResult.closest(cssQuery).innerHTML = '<i>A Fandom result has been removed by Indie Wiki Buddy. Look for results from <a href="https://' + site.destination_base_url + '">' + site.destination + '</a> instead!</i>';
+              countFiltered++;
+              console.log(countFiltered);
+            }
+          }
+        }
+      }
+    });
+    chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
+  });
+}
+
+// Check if search engine results, Fandom, or a BreezeWiki host:
+function checkSite() {
+  if (currentURL.hostname.match(searchEngineRegex) || currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(breezeWikiRegex)) {
+    return true;
+  }
+}
+
+function main(mutations = null, observer = null) {
+  if (observer) {
+    observer.disconnect();
+  }
+  chrome.storage.sync.get(function (storage) {
+    // Check if extension is on:
+    if ((storage.power ?? 'on') === 'on') {
+      // Check if on Fandom or BreezeWiki
+      // If on BreezeWiki, check if there is a pathname (which indicates we are looking at a wiki)
+      if (currentURL.hostname.match(fandomRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
+        // Check if notifications are enabled:
+        if ((storage.notifications ?? 'on') === 'on') {
+          let origin = currentURL;
+          // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
+          if (currentURL.hostname.match(breezeWikiRegex)) {
+            origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
+            if (currentURL.search.includes('?q=')) {
+              origin = origin + currentURL.search.substring(3).split('&')[0];
+            } else {
+              origin = origin + currentURL.pathname.split('/')[3];
+            }
+          }
+          getData().then(sites => {
+            // Check if site is in our list of wikis:
+            let matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+            if (matchingSites.length > 0) {
+              // Select match with longest base URL 
+              let closestMatch = "";
+              matchingSites.forEach(site => {
+                if (site.origin_base_url.length > closestMatch.length) {
+                  closestMatch = site.origin_base_url;
+                }
+              });
+              let site = matchingSites.find(site => site.origin_base_url === closestMatch);
+              if (site) {
+                // Get user's settings for the wiki
+                let settings = storage.siteSettings || {};
+                let id = site['id'];
+                let siteSetting = 'alert';
+                if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
+                  siteSetting = settings[id].action;
+                }
+                // Notify if enabled for the wiki:
+                if (siteSetting === 'alert') {
+                  // Get article name from the end of the URL;
+                  // We can't just take the last part of the path due to subpages;
+                  // Instead, we take everything after the wiki's base URL + content path:
+                  let article = String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1];
+                  // Set up URL to redirect user to based on wiki platform:
+                  if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
+                    let newURL = '';
+                    if (article) {
+                      let searchParams = '';
+                      switch (site['destination_platform']) {
+                        case 'mediawiki':
+                          searchParams = '?title=Special:Search&search=' + article;
+                          break;
+                        case 'doku':
+                          searchParams = 'start?do=search&q=' + article;
+                          break;
+                      }
+                      newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+                    } else {
+                      newURL = 'https://' + site["destination_base_url"];
+                    }
+                    // Notify that another wiki is available
+                    displayRedirectBanner(newURL, site['destination'], storage);
+
+                    // Unused code to notify user of alternative via browser notification:
+                    // let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
+                    // chrome.notifications.create(notifID, {
+                    //   "type": "basic",
+                    //   "iconUrl": 'images/logo-48.png',
+                    //   "title": "An independent wiki is available!",
+                    //   "message": "Check out " + site['destination']
+                    // });
+                    // chrome.notifications.onClicked.addListener(function () {
+                    //   chrome.tabs.update(undefined, { url: newURL });
+                    // });
+                    // chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
+                    // setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
+                  }
+                }
+              }
+            }
+          });
+        }
+      } else if (currentURL.hostname.includes('www.google.')) {
+        // Check if doing a Google search:
+        function filterGoogle() {
+          let fandomSearchResults = document.querySelectorAll("a[href*='fandom.com']>h3, h3>a[href*='fandom.com']");
+          filterSearchResults(fandomSearchResults, 'google', storage);
+        }
+        addLocationObserver(main);
+        filterGoogle();
+      } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
+        // Check if doing a Duck Duck Go search:
+        function filterDuckDuckGo() {
+          let fandomSearchResults = document.querySelectorAll("h2>a[href*='fandom.com']");
+          filterSearchResults(fandomSearchResults, 'duckduckgo', storage);
+        }
+        // Need to wait for document to be ready
+        if (document.readyState === 'complete') {
+          addLocationObserver(main);
+          filterDuckDuckGo();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (document.readyState === 'complete') {
+              addLocationObserver(main);
+              filterDuckDuckGo();
+            }
+          });
+        }
+      } else if (currentURL.hostname.includes('www.bing.com')) {
+        // Check if doing a Bing search:
+        function filterBing() {
+          let fandomSearchResults = document.querySelectorAll("h2>a[href*='fandom.com']");
+          filterSearchResults(fandomSearchResults, 'bing', storage);
+        }
+        // Need to wait for document to be ready
+        if (document.readyState === 'complete') {
+          addLocationObserver(main);
+          filterBing();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (document.readyState === 'complete') {
+              addLocationObserver(main);
+              filterBing();
+            }
+          });
+        }
+      }
+    }
+  });
+}
+
+if (checkSite()) {
+  main();
+}
