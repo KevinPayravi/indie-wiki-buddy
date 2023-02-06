@@ -1,13 +1,20 @@
 # Indie Wiki Buddy
 Indie Wiki Buddy is a browser extension that automatically notifies and redirects you from wikis on large, corporate-run wiki farms to independent wikis.
 
-Work in progress! Source code coming soon.
+* Learn more at [getindie.wiki](https://getindie.wiki/).
+* [Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/)
+* Coming soon for Chrome
+* Coming soon for Microsoft Edge
 
 ----
 
 Large, corporate-run wiki farms have enabled hundreds of great wikis and communities. Unfortunately, these wiki farms can easily overshadow quality independent wikis, especially in search engine results. Independent wikis often have the benefit of greater self-determination and fewer ads, but are easily missed by users who aren't aware of their existence.
 
 When visiting a wiki on a large corporate wiki farm such as Fandom, Indie Wiki Buddy will notify and/or automatically redirect you if a quality, independent alternative is available. You can customize your experience per-wiki.
+
+In addition, search results in Google, Bing, and DuckDuckGo can also be filtered, replacing non-independent wikis with text inviting you to visit the independent counterpart.
+
+Indie Wiki Buddy also supports [BreezeWiki](https://breezewiki.com/), a service that renders Fandom wikis without ads or bloat. This helps give you a more enjoyable reading experience on Fandom when an independent wiki isn't available.
 
 # Adding wikis
 
