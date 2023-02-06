@@ -99,7 +99,16 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
   getData().then(sites => {
     countFiltered = 0;
     fandomSearchResults.forEach(searchResult => {
-      let searchResultLink = searchResult.closest('[href]').href;
+      let searchResultLink = '';
+      try {
+        if (searchEngine === 'bing') {
+          searchResultLink = searchResult.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '');
+        } else {
+          searchResultLink = searchResult.closest('[href]').href;
+        }
+      } catch(e) {
+        console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
+      }
       // Check if site is in our list of wikis:
       let matchingSites = sites.filter(el => String(searchResultLink).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
       if (matchingSites.length > 0) {
@@ -142,7 +151,6 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
             if (cssQuery) {
               searchResult.closest(cssQuery).innerHTML = '<i>A Fandom result has been removed by Indie Wiki Buddy. Look for results from <a href="https://' + site.destination_base_url + '">' + site.destination + '</a> instead!</i>';
               countFiltered++;
-              console.log(countFiltered);
             }
           }
         }
@@ -275,7 +283,7 @@ function main(mutations = null, observer = null) {
       } else if (currentURL.hostname.includes('www.bing.com')) {
         // Check if doing a Bing search:
         function filterBing() {
-          let fandomSearchResults = document.querySelectorAll("h2>a[href*='fandom.com']");
+          let fandomSearchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com'));
           filterSearchResults(fandomSearchResults, 'bing', storage);
         }
         // Need to wait for document to be ready
