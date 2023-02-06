@@ -305,6 +305,11 @@ function setPower(setting) {
   powerImage.src = 'images/power-' + setting + '.png';
   var powerText = document.getElementById('powerText');
   powerText.textContent = 'Extension is ' + setting;
+
+  chrome.runtime.sendMessage({
+    action: 'updateIcon',
+    value: setting
+  });
 }
 
 // Set notifications setting

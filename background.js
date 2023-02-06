@@ -5,6 +5,26 @@ chrome.webNavigation.onBeforeNavigate.addListener(event => main(event, 'onBefore
 chrome.webNavigation.onCreatedNavigationTarget.addListener(event => main(event, 'onCreatedNavigationTarget'));
 chrome.webNavigation.onCommitted.addListener(event => main(event, 'onCommitted'));
 
+// Listen for user turning extension on or off, to update icon
+chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+  if (msg.action === "updateIcon") {
+    const manifestVersion = chrome.runtime.getManifest().manifest_version;
+    if (msg.value === 'on') {
+      if (manifestVersion === 2) {
+        chrome.browserAction.setIcon({ path: "/images/logo-128.png" });
+      } else {
+        chrome.action.setIcon({ path: "/images/logo-128.png" });
+      }
+    } else {
+      if (manifestVersion === 2) {
+        chrome.browserAction.setIcon({ path: "/images/logo-off.png" });
+      } else {
+        chrome.action.setIcon({ path: "/images/logo-off.png" });
+      }
+    }
+  }
+});
+
 function redirectToBreezeWiki(storage, eventInfo, url) {
   function processRedirect(host) {
     const subdomain = url.hostname.split(".")[0];
@@ -64,11 +84,11 @@ async function getData() {
 
 async function main(eventInfo, eventName) {
   // Create object prototypes for getting and setting attributes:
-  Object.prototype.get = function(prop) {
+  Object.prototype.get = function (prop) {
     this[prop] = this[prop] || {};
     return this[prop];
   };
-  Object.prototype.set = function(prop, value) {
+  Object.prototype.set = function (prop, value) {
     this[prop] = value;
   }
 
