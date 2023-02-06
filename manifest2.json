@@ -42,8 +42,11 @@
       "matches": [
         "https://*.fandom.com/*",
         "https://breezewiki.com/*",
+        "https://antifandom.com/*",
+        "https://bw.projectsegfau.lt/*",
+        "https://breeze.hostux.net/*",
+        "https://breeze.777.tf/*",
         "https://breezewiki.pussthecat.org/*",
-        "https://bw.odyssey346.dev/*",
         "https://bw.vern.cc/*",
         "https://breezewiki.esmailelbob.xyz/*",
         "https://bw.artemislena.eu/*",
