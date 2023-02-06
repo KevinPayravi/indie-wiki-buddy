@@ -55,12 +55,19 @@ async function loadOptions(lang) {
       // Fetch and cache list of BreezeWiki hosts if first time,
       // or if it has been 24 hrs since last refresh
       if (!host || !hostOptions || !hostFetchTimestamp || (Date.now() - 86400000 > hostFetchTimestamp)) {
-        fetch('http://bw.getindie.wiki/instances.json')
+        fetch('https://bw.getindie.wiki/instances.json')
           .then((response) => response.json())
           .then((breezewikiHosts) => {
             // If host isn't set, or currently selected host is no longer available, select random host:
             if (!host || !breezewikiHosts.some(item => item.instance === host)) {
-              host = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+              // Check if BreezeWiki's main site is available
+              let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
+              if (breezewikiMain.length > 0) {
+                host = breezewikiMain[0].instance;
+              } else {
+                // If BreezeWiki.com is not available, set to a random mirror
+                host = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+              }
             }
             // Populate dropdown selection of hosts
             const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
@@ -333,10 +340,17 @@ function setBreezeWiki(setting) {
     breezewikiHost.style.display = 'block';
     chrome.storage.sync.get({ 'breezewikiHost': null }, function (host) {
       if (!host.breezewikiHost) {
-        fetch('http://bw.getindie.wiki/instances.json')
+        fetch('https://bw.getindie.wiki/instances.json')
           .then((response) => response.json())
           .then((breezewikiHosts) => {
-            host.breezewikiHost = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+            // Check if BreezeWiki's main site is available
+            let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
+            if (breezewikiMain.length > 0) {
+              host.breezewikiHost = breezewikiMain[0].instance;
+            } else {
+              // If BreezeWiki.com is not available, set to a random mirror
+              host.breezewikiHost = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+            }
             chrome.storage.sync.set({ 'breezewikiHost': host.breezewikiHost });
             chrome.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
             chrome.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });

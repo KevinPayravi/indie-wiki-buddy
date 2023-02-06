@@ -30,7 +30,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
     const subdomain = url.hostname.split(".")[0];
     const article = url.href.split('fandom.com/wiki/')[1];
     if (article) {
-      chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain + '/search?q=' + article });
+      chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain + '/wiki/' + article });
     } else {
       chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain });
     }
@@ -51,11 +51,17 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
 
   if (url.href.includes('fandom.com/wiki/')) {
     if (!(storage.breezewikiHost ?? null)) {
-      fetch('http://bw.getindie.wiki/instances.json')
+      fetch('https://bw.getindie.wiki/instances.json')
         .then((response) => response.json())
         .then((breezewikiHosts) => {
-          const host = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
-          chrome.storage.sync.set({ 'breezewikiHost': host });
+          // Check if BreezeWiki's main site is available
+          let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
+          if (breezewikiMain.length > 0) {
+            chrome.storage.sync.set({ 'breezewikiHost': breezewikiMain[0].instance });
+          } else {
+            // If BreezeWiki.com is not available, set to a random mirror
+            chrome.storage.sync.set({ 'breezewikiHost': breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance });
+          }
           chrome.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
           chrome.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
           processRedirect(host);
