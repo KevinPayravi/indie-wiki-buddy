@@ -401,7 +401,7 @@
   "origin_base_url": "touhou.fandom.com",
   "origin_content_path": "/wiki/",
   "destination": "Touhou Wiki",
-  "destination_base_url": "en.touhouwiki.net/wiki/Touhou_Wiki",
+  "destination_base_url": "en.touhouwiki.net",
   "destination_content_path": "/wiki/",
   "destination_platform": "mediawiki",
   "destination_icon": "touhouwiki.png"
