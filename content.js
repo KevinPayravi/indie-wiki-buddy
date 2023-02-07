@@ -125,9 +125,13 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
           // Get user's settings for the wiki
           let settings = storage.siteSettings || {};
           let id = site['id'];
-          let searchFilterSetting = 'true';
+          let searchFilterSetting = '';
           if (settings.hasOwnProperty(id) && settings[id].searchFilter) {
             searchFilterSetting = settings[id].searchFilter;
+          } else if (storage.defaultSearchFilterSetting) {
+            searchFilterSetting = storage.defaultSearchFilterSetting;
+          } else {
+            searchFilterSetting = 'true';
           }
           if (searchFilterSetting === 'true') {
             let cssQuery = '';
@@ -188,83 +192,70 @@ function main(mutations = null, observer = null) {
       // Check if on Fandom or BreezeWiki
       // If on BreezeWiki, check if there is a pathname (which indicates we are looking at a wiki)
       if (currentURL.hostname.match(fandomRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
-        // Check if notifications are enabled:
-        if ((storage.notifications ?? 'on') === 'on') {
-          let origin = currentURL;
-          // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
-          if (currentURL.hostname.match(breezeWikiRegex)) {
-            origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
-            if (currentURL.search.includes('?q=')) {
-              origin = origin + currentURL.search.substring(3).split('&')[0];
-            } else {
-              origin = origin + currentURL.pathname.split('/')[3];
-            }
+        let origin = currentURL;
+        // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
+        if (currentURL.hostname.match(breezeWikiRegex)) {
+          origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
+          if (currentURL.search.includes('?q=')) {
+            origin = origin + currentURL.search.substring(3).split('&')[0];
+          } else {
+            origin = origin + currentURL.pathname.split('/')[3];
           }
-          getData().then(sites => {
-            // Check if site is in our list of wikis:
-            let matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
-            if (matchingSites.length > 0) {
-              // Select match with longest base URL 
-              let closestMatch = "";
-              matchingSites.forEach(site => {
-                if (site.origin_base_url.length > closestMatch.length) {
-                  closestMatch = site.origin_base_url;
-                }
-              });
-              let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-              if (site) {
-                // Get user's settings for the wiki
-                let settings = storage.siteSettings || {};
-                let id = site['id'];
-                let siteSetting = 'alert';
-                if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
-                  siteSetting = settings[id].action;
-                }
-                // Notify if enabled for the wiki:
-                if (siteSetting === 'alert') {
-                  // Get article name from the end of the URL;
-                  // We can't just take the last part of the path due to subpages;
-                  // Instead, we take everything after the wiki's base URL + content path:
-                  let article = String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1];
-                  // Set up URL to redirect user to based on wiki platform:
-                  if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
-                    let newURL = '';
-                    if (article) {
-                      let searchParams = '';
-                      switch (site['destination_platform']) {
-                        case 'mediawiki':
-                          searchParams = '?title=Special:Search&search=' + article;
-                          break;
-                        case 'doku':
-                          searchParams = 'start?do=search&q=' + article;
-                          break;
-                      }
-                      newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
-                    } else {
-                      newURL = 'https://' + site["destination_base_url"];
+        }
+        getData().then(sites => {
+          // Check if site is in our list of wikis:
+          let matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+          if (matchingSites.length > 0) {
+            // Select match with longest base URL 
+            let closestMatch = "";
+            matchingSites.forEach(site => {
+              if (site.origin_base_url.length > closestMatch.length) {
+                closestMatch = site.origin_base_url;
+              }
+            });
+            let site = matchingSites.find(site => site.origin_base_url === closestMatch);
+            if (site) {
+              // Get user's settings for the wiki
+              let settings = storage.siteSettings || {};
+              let id = site['id'];
+              let siteSetting = '';
+              if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
+                siteSetting = settings[id].action;
+              } else if (storage.defaultActionSetting) {
+                siteSetting = storage.defaultActionSetting;
+              } else {
+                siteSetting = 'alert';
+              }
+              // Notify if enabled for the wiki:
+              if (siteSetting === 'alert') {
+                // Get article name from the end of the URL;
+                // We can't just take the last part of the path due to subpages;
+                // Instead, we take everything after the wiki's base URL + content path:
+                let article = String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1];
+                // Set up URL to redirect user to based on wiki platform:
+                if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
+                  let newURL = '';
+                  if (article) {
+                    let searchParams = '';
+                    switch (site['destination_platform']) {
+                      case 'mediawiki':
+                        searchParams = '?title=Special:Search&search=' + article;
+                        break;
+                      case 'doku':
+                        searchParams = 'start?do=search&q=' + article;
+                        break;
                     }
-                    // Notify that another wiki is available
-                    displayRedirectBanner(newURL, site['destination'], storage);
-
-                    // Unused code to notify user of alternative via browser notification:
-                    // let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
-                    // chrome.notifications.create(notifID, {
-                    //   "type": "basic",
-                    //   "iconUrl": 'images/logo-48.png',
-                    //   "title": "An independent wiki is available!",
-                    //   "message": "Check out " + site['destination']
-                    // });
-                    // chrome.notifications.onClicked.addListener(function () {
-                    //   chrome.tabs.update(undefined, { url: newURL });
-                    // });
-                    // chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
-                    // setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
+                    newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+                  } else {
+                    newURL = 'https://' + site["destination_base_url"];
                   }
+                  // Notify that another wiki is available
+                  displayRedirectBanner(newURL, site['destination'], storage);
                 }
               }
             }
-          });
-        }
+          }
+        });
       } else if (currentURL.hostname.includes('www.google.')) {
         // Check if doing a Google search:
         function filterGoogle() {

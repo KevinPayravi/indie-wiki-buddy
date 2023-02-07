@@ -148,20 +148,39 @@ async function loadOptions(lang) {
         inputFilter.title = 'Filter from search results on Google, Bing, and DuckDuckGo';
         inputFilter.id = key + '-filter';
 
-        // Check radio button based on user's settings (default alert):
+        // Check radio button based on user's settings
+        // Will default to alert or the last "select all" setting the user chose
         if (siteSettings[key] && siteSettings[key].action === 'disabled') {
           inputDisabled.checked = true;
         } else if (siteSettings[key] && siteSettings[key].action === 'redirect') {
           inputRedirect.checked = true;
-        } else {
+        } else if (siteSettings[key] && siteSettings[key].action === 'alert') {
           inputAlert.checked = true;
+        } else {
+          chrome.storage.sync.get({ 'defaultActionSetting': 'alert' }, function (response) {
+            if (response.defaultActionSetting === 'disabled') {
+              inputDisabled.checked = true;
+            } else if (response.defaultActionSetting === 'redirect') {
+              inputRedirect.checked = true;
+            } else {
+              inputAlert.checked = true;
+            }
+          });
         }
 
         // Check search filter checkbox based on user's settings (default filter):
         if (siteSettings[key] && siteSettings[key].searchFilter === 'false') {
           inputFilter.checked = false;
-        } else {
+        } else if (siteSettings[key] && siteSettings[key].searchFilter === 'true') {
           inputFilter.checked = true;
+        } else {
+          chrome.storage.sync.get({ 'defaultSearchFilterSetting': 'true' }, function (response) {
+            if (response.defaultSearchFilterSetting === 'true') {
+              inputFilter.checked = true;
+            } else {
+              inputFilter.checked = false;
+            }
+          });
         }
 
         // Add listeners for when user clicks control:
@@ -261,6 +280,7 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('action', 'redirect');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
+      chrome.storage.sync.set({ 'defaultActionSetting': 'redirect' });
     });
 
     var setAllAlert = document.getElementById('setAllAlert');
@@ -271,6 +291,7 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('action', 'alert');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
+      chrome.storage.sync.set({ 'defaultActionSetting': 'alert' });
     });
 
     var setAllDisabled = document.getElementById('setAllDisabled');
@@ -281,6 +302,7 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('action', 'disabled');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
+      chrome.storage.sync.set({ 'defaultActionSetting': 'disabled' });
     });
 
     var setAllSearchFilter = document.getElementById('setAllSearchFilter');
@@ -291,6 +313,7 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('searchFilter', 'true');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
+      chrome.storage.sync.set({ 'defaultSearchFilterSetting': 'true' });
     });
 
     var setNoneSearchFilter = document.getElementById('setNoneSearchFilter');
@@ -301,6 +324,7 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('searchFilter', 'false');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
+      chrome.storage.sync.set({ 'defaultSearchFilterSetting': 'false' });
     });
   });
 }

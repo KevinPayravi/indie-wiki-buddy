@@ -129,9 +129,13 @@ async function main(eventInfo, eventName) {
                 // Get user's settings for the wiki
                 let settings = storage.siteSettings || {};
                 let id = site['id'];
-                let siteSetting = 'alert';
+                let siteSetting = '';
                 if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
                   siteSetting = settings[id].action;
+                } else if (storage.defaultActionSetting) {
+                  siteSetting = storage.defaultActionSetting;
+                } else {
+                  siteSetting = 'alert';
                 }
                 // Check if redirects are enabled for the site:
                 if (siteSetting === 'redirect') {
