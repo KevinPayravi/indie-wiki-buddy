@@ -81,6 +81,7 @@ async function getData() {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
       .then(function (jsonData) {
+        jsonData.forEach((site) => site.language = LANGS[i]);
         sites = sites.concat(jsonData);
       }));
   }
@@ -132,8 +133,8 @@ async function main(eventInfo, eventName) {
                 let siteSetting = '';
                 if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
                   siteSetting = settings[id].action;
-                } else if (storage.defaultActionSetting) {
-                  siteSetting = storage.defaultActionSetting;
+                } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
+                  siteSetting = storage.defaultActionSettings[site.language];
                 } else {
                   siteSetting = 'alert';
                 }

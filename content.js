@@ -32,6 +32,7 @@ async function getData() {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
       .then(function (jsonData) {
+        jsonData.forEach((site) => site.language = LANGS[i]);
         sites = sites.concat(jsonData);
       }));
   }
@@ -128,8 +129,8 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
           let searchFilterSetting = '';
           if (settings.hasOwnProperty(id) && settings[id].searchFilter) {
             searchFilterSetting = settings[id].searchFilter;
-          } else if (storage.defaultSearchFilterSetting) {
-            searchFilterSetting = storage.defaultSearchFilterSetting;
+          } else if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings[site.language]) {
+            searchFilterSetting = storage.defaultSearchFilterSettings[site.language];
           } else {
             searchFilterSetting = 'true';
           }
@@ -171,7 +172,9 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
         }
       }
     });
-    chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
+    if (countFiltered > 0) {
+      chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
+    }
   });
 }
 
@@ -221,8 +224,8 @@ function main(mutations = null, observer = null) {
               let siteSetting = '';
               if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
                 siteSetting = settings[id].action;
-              } else if (storage.defaultActionSetting) {
-                siteSetting = storage.defaultActionSetting;
+              } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
+                siteSetting = storage.defaultActionSettings[site.language];
               } else {
                 siteSetting = 'alert';
               }

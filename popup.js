@@ -44,8 +44,10 @@ async function getData() {
 async function loadOptions(lang) {
   sites = await getData();
 
-  chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-    let siteSettings = response.siteSettings;
+  chrome.storage.sync.get(function (storage) {
+    let siteSettings = storage.siteSettings || {};
+    let defaultActionSettings = storage.defaultActionSettings || {};
+    let defaultSearchFilterSettings = storage.defaultSearchFilterSettings || {};
 
     // Load BreezeWiki options:
     chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost'], function (item) {
@@ -120,6 +122,7 @@ async function loadOptions(lang) {
         inputDisabled.name = key;
         inputDisabled.title = 'Disable actions for ' + sites[i].origin;
         inputDisabled.id = key + '-redirect';
+        inputDisabled.lang = lang;
 
         // Create radio for redirect:
         let labelRedirect = document.createElement("label");
@@ -129,6 +132,7 @@ async function loadOptions(lang) {
         inputRedirect.name = key;
         inputRedirect.title = 'Automatically redirect from ' + sites[i].origin + ' to ' + sites[i].destination;
         inputRedirect.id = key + '-redirect';
+        inputRedirect.lang = lang;
 
         // Create radio for alert:
         let labelAlert = document.createElement("label");
@@ -138,6 +142,7 @@ async function loadOptions(lang) {
         inputAlert.name = key;
         inputAlert.title = 'Notify with banner when visiting ' + sites[i].origin;
         inputAlert.id = key + '-alert';
+        inputAlert.lang = lang;
 
         // Create checkbox for search filtering:
         let labelFilter = document.createElement("label");
@@ -147,40 +152,47 @@ async function loadOptions(lang) {
         inputFilter.name = key;
         inputFilter.title = 'Filter from search results on Google, Bing, and DuckDuckGo';
         inputFilter.id = key + '-filter';
+        inputFilter.lang = lang;
 
         // Check radio button based on user's settings
         // Will default to alert or the last "select all" setting the user chose
-        if (siteSettings[key] && siteSettings[key].action === 'disabled') {
-          inputDisabled.checked = true;
-        } else if (siteSettings[key] && siteSettings[key].action === 'redirect') {
-          inputRedirect.checked = true;
-        } else if (siteSettings[key] && siteSettings[key].action === 'alert') {
-          inputAlert.checked = true;
+        if (siteSettings[key] && siteSettings[key].action) {
+          if (siteSettings[key].action === 'disabled') {
+            inputDisabled.checked = true;
+          } else if (siteSettings[key].action === 'redirect') {
+            inputRedirect.checked = true;
+          } else {
+            inputAlert.checked = true;
+          }
         } else {
-          chrome.storage.sync.get({ 'defaultActionSetting': 'alert' }, function (response) {
-            if (response.defaultActionSetting === 'disabled') {
+          let actionSetting = defaultActionSettings[lang];
+          if (actionSetting) {
+            if (actionSetting === 'disabled') {
               inputDisabled.checked = true;
-            } else if (response.defaultActionSetting === 'redirect') {
+            } else if (actionSetting === 'redirect') {
               inputRedirect.checked = true;
             } else {
               inputAlert.checked = true;
             }
-          });
+          } else {
+            inputAlert.checked = true;
+          }
         }
 
         // Check search filter checkbox based on user's settings (default filter):
-        if (siteSettings[key] && siteSettings[key].searchFilter === 'false') {
-          inputFilter.checked = false;
-        } else if (siteSettings[key] && siteSettings[key].searchFilter === 'true') {
-          inputFilter.checked = true;
+        if (siteSettings[key] && siteSettings[key].searchFilter) {
+          if (siteSettings[key].searchFilter === 'false') {
+            inputFilter.checked = false;
+          } else {
+            inputFilter.checked = true;
+          }
         } else {
-          chrome.storage.sync.get({ 'defaultSearchFilterSetting': 'true' }, function (response) {
-            if (response.defaultSearchFilterSetting === 'true') {
-              inputFilter.checked = true;
-            } else {
-              inputFilter.checked = false;
-            }
-          });
+          let searchFilterSetting = defaultSearchFilterSettings[lang];
+          if (searchFilterSetting && searchFilterSetting === 'false') {
+            inputFilter.checked = false;
+          } else {
+            inputFilter.checked = true;
+          }
         }
 
         // Add listeners for when user clicks control:
@@ -199,19 +211,19 @@ async function loadOptions(lang) {
           });
         });
         inputDisabled.addEventListener('click', function (input) {
-          chrome.storage.sync.get({ 'siteSettings': {} }[key], function (response) {
+          chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
             var key = input.target.name;
             response.siteSettings.get(key).set('action', 'disabled');
             chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
           });
         });
         inputFilter.addEventListener('click', function (input) {
-          chrome.storage.sync.get({ 'siteSettings': {} }[key], function (response) {
+          chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
             var key = input.target.name;
-            if (response.siteSettings[key].searchFilter === 'true') {
-              response.siteSettings.get(key).set('searchFilter', 'false');
-            } else {
+            if (input.target.checked === true) {
               response.siteSettings.get(key).set('searchFilter', 'true');
+            } else {
+              response.siteSettings.get(key).set('searchFilter', 'false');
             }
             chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
           });
@@ -280,7 +292,8 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('action', 'redirect');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
-      chrome.storage.sync.set({ 'defaultActionSetting': 'redirect' });
+      defaultActionSettings[toggles[0].lang] = 'redirect';
+      chrome.storage.sync.set({ 'defaultActionSettings': defaultActionSettings });
     });
 
     var setAllAlert = document.getElementById('setAllAlert');
@@ -291,7 +304,8 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('action', 'alert');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
-      chrome.storage.sync.set({ 'defaultActionSetting': 'alert' });
+      defaultActionSettings[toggles[0].lang] = 'alert';
+      chrome.storage.sync.set({ 'defaultActionSettings': defaultActionSettings });
     });
 
     var setAllDisabled = document.getElementById('setAllDisabled');
@@ -302,7 +316,8 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('action', 'disabled');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
-      chrome.storage.sync.set({ 'defaultActionSetting': 'disabled' });
+      defaultActionSettings[toggles[0].lang] = 'disabled';
+      chrome.storage.sync.set({ 'defaultActionSettings': defaultActionSettings });
     });
 
     var setAllSearchFilter = document.getElementById('setAllSearchFilter');
@@ -313,7 +328,8 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('searchFilter', 'true');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
-      chrome.storage.sync.set({ 'defaultSearchFilterSetting': 'true' });
+      defaultSearchFilterSettings[toggles[0].lang] = 'true';
+      chrome.storage.sync.set({ 'defaultSearchFilterSettings': defaultSearchFilterSettings });
     });
 
     var setNoneSearchFilter = document.getElementById('setNoneSearchFilter');
@@ -324,7 +340,8 @@ async function loadOptions(lang) {
         siteSettings.get(toggles[i].name).set('searchFilter', 'false');
       }
       chrome.storage.sync.set({ 'siteSettings': siteSettings });
-      chrome.storage.sync.set({ 'defaultSearchFilterSetting': 'false' });
+      defaultSearchFilterSettings[toggles[0].lang] = 'false';
+      chrome.storage.sync.set({ 'defaultSearchFilterSettings': defaultSearchFilterSettings });
     });
   });
 }
