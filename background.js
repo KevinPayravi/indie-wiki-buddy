@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
 function redirectToBreezeWiki(storage, eventInfo, url) {
   function processRedirect(host) {
     const subdomain = url.hostname.split(".")[0];
-    const article = url.href.split('fandom.com/wiki/')[1];
+    const article = url.href.split('fandom.com/wiki/')[1].replaceAll('%20', '_');
     if (article) {
       chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain + '/wiki/' + article });
     } else {
