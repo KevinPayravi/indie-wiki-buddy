@@ -33,6 +33,28 @@
     "destination_icon": "arms.png"
   },
   {
+    "id": "en-banjokazooie",
+    "origin": "Banjo-Kazooie Fandom Wiki",
+    "origin_base_url": "banjokazooie.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Jiggywikki",
+    "destination_base_url": "banjokazooiewiki.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "jiggywikki.png"
+  },
+  {
+    "id": "en-bionicle",
+    "origin": "Bionicle Fandom Wiki",
+    "origin_base_url": "bionicle.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "BIONICLEsector01",
+    "destination_base_url": "biosector01.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "biosector01.png"
+  },
+  {
     "id": "en-blazblue",
     "origin": "BlazBlue Fandom Wiki",
     "origin_base_url": "blazblue.fandom.com",
@@ -44,6 +66,17 @@
     "destination_icon": "blazblue.png"
   },
   {
+    "id": "en-bluearchive",
+    "origin": "Blue Archive Fandom Wiki",
+    "origin_base_url": "bluearchive.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Blue Archive Wiki",
+    "destination_base_url": "bluearchive.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bluearchive.png"
+  },
+  {
     "id": "en-chrono",
     "origin": "Chrono Fandom Wiki",
     "origin_base_url": "chrono.fandom.com",
@@ -53,6 +86,17 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "chrono.png"
+  },
+  {
+    "id": "en-criticalrole",
+    "origin": "Critical Role Fandom Wiki",
+    "origin_base_url": "criticalrole.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Critical Role Wiki",
+    "destination_base_url": "criticalrole.miraheze.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "criticalrole.png"
   },
   {
     "id": "en-detectiveconan",
@@ -77,6 +121,17 @@
     "destination_icon": "wikimon.png"
   },
   {
+    "id": "en-doom",
+    "origin": "Doom Fandom Wiki",
+    "origin_base_url": "doom.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "The Doom Wiki",
+    "destination_base_url": "doomwiki.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "doomwiki.png"
+  },
+  {
     "id": "en-dragalialost",
     "origin": "Dragalia Lost Fandom Wiki",
     "origin_base_url": "dragalialost.fandom.com",
@@ -97,6 +152,17 @@
     "destination_content_path": "/en/",
     "destination_platform": "mediawiki",
     "destination_icon": "wapopedia.png"
+  },
+  {
+    "id": "en-earthbound",
+    "origin": "EarthBound Fandom Wiki",
+    "origin_base_url": "earthbound.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "WikiBound",
+    "destination_base_url": "wikibound.info",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikibound.png"
   },
   {
     "id": "en-elderscrolls",
@@ -132,6 +198,17 @@
     "destination_icon": "fallout.png"
   },
   {
+    "id": "en-falloutarchive",
+    "origin": "Fallout Fandom Wiki (Archived)",
+    "origin_base_url": "fallout-archive.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Independent Fallout Wiki",
+    "destination_base_url": "fallout.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fallout.png"
+  },
+  {
     "id": "en-fireemblem",
     "origin": "Fire Emblem Fandom Wiki",
     "origin_base_url": "fireemblem.fandom.com",
@@ -141,6 +218,17 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "fireemblem.png"
+  },
+  {
+    "id": "en-friendsatthetable",
+    "origin": "Friends at the Table Fandom Wiki",
+    "origin_base_url": "friendsatthetable.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "FatTWiki",
+    "destination_base_url": "fatt.wiki",
+    "destination_content_path": "/view/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "friendsatthetable.png"
   },
   {
     "id": "en-fzero",
@@ -154,6 +242,17 @@
     "destination_icon": "fzero.png"
   },
   {
+    "id": "en-godzilla",
+    "origin": "Godzilla Fandom Wiki",
+    "origin_base_url": "godzilla.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Wikizilla",
+    "destination_base_url": "wikizilla.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikizilla.png"
+  },
+  {
     "id": "en-goldensun",
     "origin": "Golden Sun Fandom Wiki",
     "origin_base_url": "goldensun.fandom.com",
@@ -165,7 +264,7 @@
     "destination_icon": "goldensun.png"
   },
   {
-    "id": "en-half-life",
+    "id": "en-halflife",
     "origin": "Half-Life & Portal Fandom Wiki",
     "origin_base_url": "half-life.fandom.com",
     "origin_content_path": "/wiki/",
@@ -253,6 +352,17 @@
     "destination_icon": "supermariowiki.png"
   },
   {
+    "id": "en-micronations",
+    "origin": "MicroNations Fandom Wiki",
+    "origin_base_url": "micronations.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "MicroWiki",
+    "destination_base_url": "micronations.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "microwiki.png"
+  },
+  {
     "id": "en-mrlovequeenschoice",
     "origin": "Mr. Love: Queen's Choice Fandom Wiki",
     "origin_base_url": "mr-love-queens-choice.fandom.com",
@@ -262,6 +372,17 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "mrlove.png"
+  },
+  {
+    "id": "en-oldschoolrunescape",
+    "origin": "Old School Runescape Fandom Wiki",
+    "origin_base_url": "oldschoolrunescape.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "OSRS Wiki",
+    "destination_base_url": "oldschool.runescape.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "oldschoolrunescape.png"
   },
   {
     "id": "en-pathofexile",
@@ -308,15 +429,37 @@
     "destination_icon": "rctwiki.png"
   },
   {
+    "id": "en-rayman",
+    "origin": "Rayman Fandom Wiki",
+    "origin_base_url": "rayman.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "RayWiki",
+    "destination_base_url": "raymanpc.com",
+    "destination_content_path": "/wiki/en/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rayman.png"
+  },
+  {
     "id": "en-runescape",
-    "origin": "Runescape Fandom Wiki",
+    "origin": "RuneScape Fandom Wiki",
     "origin_base_url": "runescape.fandom.com",
     "origin_content_path": "/wiki/",
-    "destination": "Runescape Wiki",
+    "destination": "RuneScape Wiki",
     "destination_base_url": "runescape.wiki",
     "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
     "destination_icon": "runescape.png"
+  },
+  {
+    "id": "en-runescapeclassic",
+    "origin": "RuneScape Classic Fandom Wiki",
+    "origin_base_url": "runescapeclassic.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "RuneScape Classic Wiki",
+    "destination_base_url": "classic.runescape.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "runescapeclassic.png"
   },
   {
     "id": "en-simpsons",
@@ -396,15 +539,15 @@
     "destination_icon": "tearsofthemis.png"
   },
   {
-  "id": "en-touhou",
-  "origin": "Touhou Fandom Wiki",
-  "origin_base_url": "touhou.fandom.com",
-  "origin_content_path": "/wiki/",
-  "destination": "Touhou Wiki",
-  "destination_base_url": "en.touhouwiki.net",
-  "destination_content_path": "/wiki/",
-  "destination_platform": "mediawiki",
-  "destination_icon": "touhouwiki.png"
+    "id": "en-touhou",
+    "origin": "Touhou Fandom Wiki",
+    "origin_base_url": "touhou.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Touhou Wiki",
+    "destination_base_url": "en.touhouwiki.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "touhouwiki.png"
   },
   {
     "id": "en-transformers",

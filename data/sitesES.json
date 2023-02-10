@@ -11,6 +11,17 @@
     "destination_icon": "smashpedia.png"
   },
   {
+    "id": "es-touhou",
+    "origin": "Touhou Fandom Wiki",
+    "origin_base_url": "touhou.fandom.com/es",
+    "origin_content_path": "/wiki/",
+    "destination": "Touhou Wiki",
+    "destination_base_url": "es.touhouwiki.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "touhouwiki.png"
+  },
+  {
     "id": "es-pokemon",
     "origin": "WikiDex (Fandom)",
     "origin_base_url": "pokemon.fandom.com/es",

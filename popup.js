@@ -1,4 +1,4 @@
-const LANGS = ["DE", "EN", "ES", "IT"];
+const LANGS = ["DE", "EN", "ES", "IT", "PL"];
 var sites = [];
 
 // Create object prototypes for getting and setting attributes:
@@ -259,12 +259,12 @@ async function loadOptions(lang) {
 
         // Output icon
         let iconLink = document.createElement("a");
-        iconLink.href = 'https://' + sites[i].destination_base_url;
-        iconLink.title = sites[i].destination;
+        iconLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
+        iconLink.title = 'Visit ' + sites[i].destination;
         iconLink.target = '_blank';
         let icon = document.createElement("img");
         icon.src = 'favicons/' + lang.toLowerCase() + '/' + sites[i].destination_icon;
-        icon.alt = sites[i].destination;
+        icon.alt = 'Visit ' + sites[i].destination;
         iconLink.appendChild(icon);
 
         // Output text:
