@@ -3,7 +3,7 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 
 * Learn more at [getindie.wiki](https://getindie.wiki/).
 * [Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/)
-* Coming soon for Chrome
+* [Download for Chrome](https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm)
 * Coming soon for Microsoft Edge
 
 ----
