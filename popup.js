@@ -408,6 +408,10 @@ function setBreezeWiki(setting) {
 
 // Main function that runs on-load
 document.addEventListener('DOMContentLoaded', function () {
+  // Adding version to popup:
+  const version = chrome.runtime.getManifest().version;
+  document.getElementById('version').textContent = 'v' + version;
+
   // Get user's last set language
   chrome.storage.sync.get({ 'lang': 'EN' }, function (item) {
     langSelect.value = item.lang;
