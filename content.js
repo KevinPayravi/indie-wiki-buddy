@@ -112,7 +112,7 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
         console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
       }
       // Check if site is in our list of wikis:
-      let matchingSites = sites.filter(el => String(searchResultLink).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+      let matchingSites = sites.filter(el => String(searchResultLink).replace(/(.*)https?:\/\//, '').startsWith(el.origin_base_url));
       if (matchingSites.length > 0) {
         // Select match with longest base URL 
         let closestMatch = "";
@@ -262,7 +262,7 @@ function main(mutations = null, observer = null) {
       } else if (currentURL.hostname.includes('www.google.')) {
         // Check if doing a Google search:
         function filterGoogle() {
-          let fandomSearchResults = document.querySelectorAll("a[href*='fandom.com']>h3, h3>a[href*='fandom.com']");
+          let fandomSearchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']");
           filterSearchResults(fandomSearchResults, 'google', storage);
         }
         addLocationObserver(main);
