@@ -31,7 +31,8 @@
         "data/sitesDE.json",
         "data/sitesEN.json",
         "data/sitesES.json",
-        "data/sitesIT.json"
+        "data/sitesIT.json",
+        "data/sitesPL.json"
       ],
       "matches": [
         "https://*.fandom.com/*",
