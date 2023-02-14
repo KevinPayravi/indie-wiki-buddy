@@ -1,6 +1,6 @@
 {
   "name": "Indie Wiki Buddy",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
   "permissions": [
     "storage",
