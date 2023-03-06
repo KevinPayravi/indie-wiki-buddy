@@ -25,7 +25,7 @@ function addLocationObserver(callback) {
 
 // Load website data
 async function getData() {
-  const LANGS = ["DE", "EN", "ES", "IT", "PL"];
+  const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL"];
   let sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
