@@ -176,6 +176,17 @@
     "destination_icon": "uesp.png"
   },
   {
+  "id": "en-evangelion",
+  "origin": "Evangelion Fandom Wiki",
+  "origin_base_url": "evangelion.fandom.com",
+  "origin_content_path": "/wiki/",
+  "destination": "EvaWiki",
+  "destination_base_url": "wiki.evageeks.org",
+  "destination_content_path": "/",
+  "destination_platform": "mediawiki",
+  "destination_icon": "evangelion.png"
+  },
+  {
     "id": "en-factorio",
     "origin": "Factorio Fandom Wiki",
     "origin_base_url": "factorio.fandom.com",
@@ -330,6 +341,17 @@
     "destination_icon": "wikirby.png"
   },
   {
+  "id": "en-lain",
+  "origin": "Serial Experiments Lain Fandom Wiki",
+  "origin_base_url": "sel.fandom.com",
+  "origin_content_path": "/wiki/",
+  "destination": "Serial Experiments Lain Wiki",
+  "destination_base_url": "lain.wiki",
+  "destination_content_path": "/wiki/",
+  "destination_platform": "mediawiki",
+  "destination_icon": "lain.png"
+  },
+  {
     "id": "en-lotr",
     "origin": "Lord of the Rings Fandom Wiki",
     "origin_base_url": "lotr.fandom.com",
@@ -339,6 +361,17 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "tolkiengateway.png"
+  },
+  {
+  "id": "en-madoka",
+  "origin": "Madoka Fandom Wiki",
+  "origin_base_url": "madoka.fandom.com",
+  "origin_content_path": "/wiki/",
+  "destination": "Puella Magi Wiki",
+  "destination_base_url": "wiki.puella-magi.net",
+  "destination_content_path": "/wiki/",
+  "destination_platform": "mediawiki",
+  "destination_icon": "puellamagi.png"
   },
   {
     "id": "en-mario",
