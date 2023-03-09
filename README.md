@@ -14,9 +14,9 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![PL wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PL%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPL.json)
 
 
-![Mozilla Add-on](https://img.shields.io/amo/v/indie-wiki-buddy?style=flat-square&color=%23ff7139&label=firefox%20version&logo=firefox)
-![Mozilla Add-on](https://img.shields.io/amo/users/indie-wiki-buddy?style=flat-square&color=%23ff7139&label=firefox%20downloads&logo=firefox)
-![Mozilla Add-on](https://img.shields.io/amo/stars/indie-wiki-buddy?style=flat-square&color=%23ff7139&label=firefox%20rating&logo=firefox)
+![Mozilla Add-on](https://img.shields.io/amo/v/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20version&logo=firefox)
+![Mozilla Add-on](https://img.shields.io/amo/users/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20downloads&logo=firefox)
+![Mozilla Add-on](https://img.shields.io/amo/stars/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20rating&logo=firefox)
 
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20version&logo=google-chrome)
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/users/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20downloads&logo=googlechrome)
