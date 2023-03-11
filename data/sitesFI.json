@@ -1,0 +1,13 @@
+[
+  {
+    "id": "fi-starwars",
+    "origin": "Jedipedia",
+    "origin_base_url": "starwars.fandom.com/fi",
+    "origin_content_path": "/wiki/",
+    "destination": "Jedipedia",
+    "destination_base_url": "jedipedia.fi",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "jedipedia.png"
+  }
+]
