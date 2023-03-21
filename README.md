@@ -38,7 +38,8 @@ Contributions are welcome and encouraged! You can either open a pull request to 
 
 ## Criteria for inclusion
 * The destination wiki should be independent, meaning that decisioning and control of the wiki largely rests with the wiki's staff and volunteer editing community. Factors include editorial independence, the editorbase's ability to request changes from their host, and any history of the host exerting decisions contrary to a wiki community's wishes.
-  * Miraheze wikis may be considered independent, due to Miraheze's openness, customizability, and ability for wikis to migrate off the platform.
+  * Miraheze wikis may be considered independent, due to the organization being non-profit, allowing for self-configuration, and providing the ability for wikis to migrate off the platform.
+  * wiki.gg wikis are not considered independent. There is a separate "Redirect to wiki.gg" extension available for [Chrome](https://chrome.google.com/webstore/detail/redirect-to-wikigg/cngoemokfjekjkmajenlaokhnmmiinca) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/redirect-to-wiki-gg/) that you can use alongside Indie Wiki Buddy. 
 * The destination wiki should be of decent quality, ideally matching (or exceeding) the quality and size of the origin wiki. While we want to support all independent wikis, we also want extension users to be directed to wikis where they can find what they are looking for.
 * When there are multiple independent wikis on the same subject, we will usually point to the wiki that is most complete and prominent in the community.
 
