@@ -1,10 +1,26 @@
 # Indie Wiki Buddy
+
 Indie Wiki Buddy is a browser extension that automatically notifies and redirects you from wikis on large, corporate-run wiki farms to independent wikis.
 
 * Learn more at [getindie.wiki](https://getindie.wiki/).
 * [Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/)
 * [Download for Chrome](https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm)
-* Coming soon for Microsoft Edge
+
+![DE wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=DE%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesDE.json)
+![EN wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=EN%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesEN.json)
+![ES wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ES%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesES.json)
+![FR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFR.json)
+![IT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=IT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesIT.json)
+![PL wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PL%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPL.json)
+![TOK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TOK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTOK.json)
+
+![Mozilla Add-on](https://img.shields.io/amo/v/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20version&logo=firefox)
+![Mozilla Add-on](https://img.shields.io/amo/users/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20downloads&logo=firefox)
+![Mozilla Add-on](https://img.shields.io/amo/stars/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20rating&logo=firefox)
+
+![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20version&logo=google-chrome)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/users/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20downloads&logo=googlechrome)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20rating&logo=googlechrome)
 
 ----
 
@@ -22,7 +38,8 @@ Contributions are welcome and encouraged! You can either open a pull request to 
 
 ## Criteria for inclusion
 * The destination wiki should be independent, meaning that decisioning and control of the wiki largely rests with the wiki's staff and volunteer editing community. Factors include editorial independence, the editorbase's ability to request changes from their host, and any history of the host exerting decisions contrary to a wiki community's wishes.
-  * Miraheze wikis may be considered independent, due to Miraheze's openness, customizability, and ability for wikis to migrate off the platform.
+  * Miraheze wikis may be considered independent, due to the organization being non-profit, allowing for self-configuration, and providing the ability for wikis to migrate off the platform.
+  * wiki.gg wikis are not considered independent. There is a separate "Redirect to wiki.gg" extension available for [Chrome](https://chrome.google.com/webstore/detail/redirect-to-wikigg/cngoemokfjekjkmajenlaokhnmmiinca) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/redirect-to-wiki-gg/) that you can use alongside Indie Wiki Buddy. 
 * The destination wiki should be of decent quality, ideally matching (or exceeding) the quality and size of the origin wiki. While we want to support all independent wikis, we also want extension users to be directed to wikis where they can find what they are looking for.
 * When there are multiple independent wikis on the same subject, we will usually point to the wiki that is most complete and prominent in the community.
 

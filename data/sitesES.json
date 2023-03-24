@@ -1,5 +1,16 @@
 [
   {
+    "id": "es-animalcrossing",
+    "origin": "Animal Crossing Fandom Wiki",
+    "origin_base_url": "animalcrossing.fandom.com/es",
+    "origin_content_path": "/wiki/",
+    "destination": "Animal Crossing Enciclopedia",
+    "destination_base_url": "animalcrossing.wikidex.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "animalcrossing.png"
+  },
+  {
     "id": "es-supersmashbros",
     "origin": "Smashpedia Fandom Wiki",
     "origin_base_url": "supersmashbros.fandom.com/es",
