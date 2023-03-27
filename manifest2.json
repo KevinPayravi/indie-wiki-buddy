@@ -1,12 +1,11 @@
 {
   "name": "Indie Wiki Buddy",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
   "permissions": [
     "storage",
     "webNavigation",
-    "notifications",
-    "tabs"
+    "notifications"
   ],
   "icons": {
     "16": "images/logo-16.png",
