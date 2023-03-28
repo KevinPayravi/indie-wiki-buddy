@@ -834,5 +834,16 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "zeldapedia.png"
+  },
+  {
+    "id": "en-zelda",
+    "origin": "The Cycle: Frontier Fandom Wiki",
+    "origin_base_url": "thecyclefrontier.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "The Cycle: Frontier Wiki",
+    "destination_base_url": "thecyclefrontier.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tcfwiki.png"
   }
 ]
