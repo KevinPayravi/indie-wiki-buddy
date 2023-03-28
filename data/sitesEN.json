@@ -781,6 +781,17 @@
     "destination_icon": "tearsofthemis.png"
   },
   {
+    "id": "en-thecyclefrontier",
+    "origin": "The Cycle: Frontier Fandom Wiki",
+    "origin_base_url": "thecyclefrontier.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "The Cycle: Frontier Wiki",
+    "destination_base_url": "thecyclefrontier.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tcfwiki.png"
+  },
+  {
     "id": "en-touhou",
     "origin": "Touhou Fandom Wiki",
     "origin_base_url": "touhou.fandom.com",
