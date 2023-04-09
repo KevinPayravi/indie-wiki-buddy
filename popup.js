@@ -76,7 +76,12 @@ async function loadOptions(lang) {
             for (var i = 0; i < breezewikiHosts.length; i++) {
               let option = document.createElement('option');
               option.value = breezewikiHosts[i].instance;
-              option.innerText = breezewikiHosts[i].instance.replace('https://', '');
+              let innerText = breezewikiHosts[i].instance.replace('https://', '');
+              const numberOfPeriods = (innerText.match(/\./g)||[]).length;
+              if (numberOfPeriods > 1) {
+                innerText = innerText.substring(innerText.indexOf('.') + 1);
+              }
+              option.innerText = innerText;
               breezewikiHostSelect.appendChild(option);
               if (option.value === host) {
                 breezewikiHostSelect.value = host;
@@ -97,7 +102,12 @@ async function loadOptions(lang) {
         for (var i = 0; i < hostOptions.length; i++) {
           let option = document.createElement('option');
           option.value = hostOptions[i].instance;
-          option.innerText = hostOptions[i].instance.replace('https://', '');
+          let innerText = hostOptions[i].instance.replace('https://', '');
+          const numberOfPeriods = (innerText.match(/\./g)||[]).length;
+          if (numberOfPeriods > 1) {
+            innerText = innerText.substring(innerText.indexOf('.') + 1);
+          }
+          option.innerText = innerText;
           breezewikiHostSelect.appendChild(option);
           if (option.value === host) {
             breezewikiHostSelect.value = host;
@@ -352,7 +362,7 @@ function setPower(setting) {
   var powerImage = document.getElementById('powerImage');
   powerImage.src = 'images/power-' + setting + '.png';
   var powerText = document.getElementById('powerText');
-  powerText.textContent = 'Extension is ' + setting;
+  powerText.textContent = 'Indie Wiki Buddy is ' + setting;
 
   chrome.runtime.sendMessage({
     action: 'updateIcon',
@@ -367,6 +377,15 @@ function setNotifications(setting) {
   notificationsImage.src = 'images/bell-' + setting + '.png';
   var notificationsText = document.getElementById('notificationsText');
   notificationsText.textContent = 'Notify-on-redirect is ' + setting;
+}
+
+// Set search filter setting
+function setSearchFilter(setting) {
+  chrome.storage.sync.set({ 'searchFilter': setting });
+  var searchFilterImage = document.getElementById('searchFilterImage');
+  searchFilterImage.src = 'images/check-' + setting + '.png';
+  var searchFilterText = document.getElementById('searchFilterText');
+  searchFilterText.textContent = 'Search engine filtering is ' + setting;
 }
 
 // Set BreezeWiki settings
@@ -410,7 +429,7 @@ function setBreezeWiki(setting) {
 document.addEventListener('DOMContentLoaded', function () {
   // Adding version to popup:
   const version = chrome.runtime.getManifest().version;
-  document.getElementById('version').textContent = 'v' + version;
+  document.getElementById('version').textContent = 'Version ' + version;
 
   // Get user's last set language
   chrome.storage.sync.get({ 'lang': 'EN' }, function (item) {
@@ -426,18 +445,21 @@ document.addEventListener('DOMContentLoaded', function () {
     loadOptions(langSelect.value);
   });
 
-  // Set power, notification, and BreezeWiki setting toggle values:
+  // Set setting toggle values:
   chrome.storage.sync.get({ 'power': 'on' }, function (item) {
     setPower(item.power);
   });
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
     setNotifications(item.notifications);
   });
+  chrome.storage.sync.get({ 'searchFilter': 'on' }, function (item) {
+    setSearchFilter(item.searchFilter);
+  });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki);
   });
 
-  // Add event listeners for power, notification, and BreezeWiki setting toggles
+  // Add event listeners for setting toggles
   document.getElementById('powerButton').addEventListener('change', function () {
     chrome.storage.sync.get({ 'power': 'on' }, function (item) {
       if (item.power === 'on') {
@@ -453,6 +475,15 @@ document.addEventListener('DOMContentLoaded', function () {
         setNotifications('off');
       } else {
         setNotifications('on');
+      }
+    });
+  });
+  document.getElementById('searchFilterButton').addEventListener('change', function () {
+    chrome.storage.sync.get({ 'searchFilter': 'on' }, function (item) {
+      if (item.searchFilter === 'on') {
+        setSearchFilter('off');
+      } else {
+        setSearchFilter('on');
       }
     });
   });

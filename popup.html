@@ -14,13 +14,14 @@
 
       h1 {
         font-size: 1.2rem;
+        margin: 8px 0;
       }
 
       hr {
         height: 1px;
         border: none;
-        color: #333;
-        background-color: #333;
+        color: #555;
+        background-color: #555;
       }
 
       label {
@@ -40,17 +41,30 @@
         border: 0 !important;
       }
 
+      .links {
+        font-size: .8em;
+        line-height: 1.5em;
+        margin-left: 8px;
+      }
+      .links a, .links a:visited, .links a:active {
+        text-decoration: none;
+        border-bottom: 1px black dotted;
+      }
+  
       .options {
         display: flex;
         flex-direction: column;
-        align-items: left;
         user-select: none;
-        row-gap: 2px;
+        margin-top: 4px;
       }
-
       .options > div {
         flex: 50%;
-        padding: 5px;
+      }
+      .options > div {
+        padding-bottom: 10px;
+      }
+      .options > div:last-child {
+        padding: 0px;
       }
 
       #controls {
@@ -105,6 +119,12 @@
         vertical-align: middle;
       }
 
+      .columns {
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-auto-flow: column;
+      }
+
       #toggles {
         height: 16em;
         white-space: nowrap;
@@ -143,12 +163,15 @@
         width: 17px;
       }
 
-      .header,
+      #langSelectContainer {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+      }
+
       .footer {
         text-align: center;
         line-height: 1.4em;
       }
-
       .footer a {
         font-size: 0.9em;
         padding: 5px 0px;
@@ -162,78 +185,112 @@
         font-size: 0.8rem;
       }
 
-      #langSelectContainer {
-        float: right;
-        text-align: right;
-        margin-top: 10px;
-        padding-right: 10px;
-      }
       #breezewikiHost {
         display: none;
+        padding-left: 10px;
+      }
+      #breezewikiHost > label {
         padding-left: 10px;
       }
     </style>
   </head>
 
   <body>
-    <div class="header">
-      <h1>Indie Wiki Buddy</h1>
-    </div>
-    <div id="langSelectContainer">
-      <select name="lang" id="langSelect">
-        <option value="DE">Deutsch</option>
-        <option value="EN" selected>English</option>
-        <option value="ES">Español</option>
-        <option value="FR">Français</option>
-        <option value="IT">Italiano</option>
-        <option value="PL">Polski</option>
-        <option value="TOK">Toki Pona</option>
-      </select>
-    </div>
-    <div class="options">
-      <div class="settingToggleContainer">
-        <div id="power" class="settingToggle">
-          <input id="powerButton" type="checkbox" />
-          <label for="powerButton">
-            <img id="powerImage" src="" alt="" />
-            <span id="powerText"></span>
-          </label>
-        </div>
+    <div class="columns">
+      <div class="links">
+        <h1>Indie Wiki Buddy</h1>
+        <span id="version"></span>
+        <br />
+        <a
+          href="https://getindie.wiki/"
+          target="_blank"
+          >Info & Help</a
+        >
+        <br />
+        <a
+          href="https://getindie.wiki/changelog/"
+          target="_blank"
+          >Changelog</a
+        >
+        <br />
+        <a
+          href="https://getindie.wiki/#submit"
+          target="_blank"
+          >Submit a Wiki</a
+        >
+        <br />
+        <a
+          href="https://github.com/KevinPayravi/indie-wiki-buddy"
+          target="_blank"
+          >Source Code</a
+        >
       </div>
-      <div class="settingToggleContainer">
-        <div id="notifications" class="settingToggle">
-          <input id="notificationsButton" type="checkbox" />
-          <label for="notificationsButton">
-            <img id="notificationsImage" src="" alt="" />
-            <span id="notificationsText"></span>
-          </label>
-        </div>
-      </div>
-      <div class="settingToggleContainer">
-        <div id="breezewiki" class="settingToggle">
-          <input id="breezewikiButton" type="checkbox" />
-          <label for="breezewikiButton">
-            <img id="breezewikiImage" src="" alt="" />
-            <span id="breezewikiText"></span>
-          </label>
-        </div>
-        <div>
-          <div>
-            &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank"
-              >learn more</a
-            >)
+      <div class="options">
+        <div class="settingToggleContainer">
+          <div id="power" class="settingToggle">
+            <input id="powerButton" type="checkbox" />
+            <label for="powerButton">
+              <img id="powerImage" src="" alt="" />
+              <span id="powerText"></span>
+            </label>
           </div>
         </div>
-      </div>
-      <div class="settingToggleContainer">
-        <div id="breezewikiHost" class="settingToggle">
-          <label for="breezewikiHostSelect">BreezeWiki host: </label>
-          <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+        <div class="settingToggleContainer">
+          <div id="notifications" class="settingToggle">
+            <input id="notificationsButton" type="checkbox" />
+            <label for="notificationsButton">
+              <img id="notificationsImage" src="" alt="" />
+              <span id="notificationsText"></span>
+            </label>
+          </div>
+        </div>
+        <div class="settingToggleContainer">
+          <div id="searchFilter" class="settingToggle">
+            <input id="searchFilterButton" type="checkbox" />
+            <label for="searchFilterButton">
+              <img id="searchFilterImage" src="" alt="" />
+              <span id="searchFilterText"></span>
+            </label>
+          </div>
+        </div>
+        <div class="settingToggleContainer">
+          <div id="breezewiki" class="settingToggle">
+            <input id="breezewikiButton" type="checkbox" />
+            <label for="breezewikiButton">
+              <img id="breezewikiImage" src="" alt="" />
+              <span id="breezewikiText"></span>
+            </label>
+          </div>
+          <div>
+            <div>
+              &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank"
+                >learn more</a
+              >)
+            </div>
+          </div>
+        </div>
+        <div class="settingToggleContainer">
+          <div id="breezewikiHost" class="settingToggle">
+            <label for="breezewikiHostSelect">Host:&nbsp;</label>
+            <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+          </div>
         </div>
       </div>
     </div>
     <hr />
     <div id="controls">
+      <div id="langSelectContainer">
+        Viewing wikis in:
+        <select name="lang" id="langSelect">
+          <option value="DE">Deutsch</option>
+          <option value="EN" selected>English</option>
+          <option value="ES">Español</option>
+          <option value="FR">Français</option>
+          <option value="IT">Italiano</option>
+          <option value="PL">Polski</option>
+          <option value="TOK">Toki Pona</option>
+        </select>
+      </div>
       <button id="setAllDisabled" class="control">
         <img src="images/toggle-disabled.png" width="10" alt="" /> Disable all
       </button>
@@ -255,7 +312,6 @@
         search for none
       </button>
     </div>
-    <br />
     <div id="togglesKey">
       <div>
         <img
@@ -293,27 +349,11 @@
     <div id="toggles"></div>
     <hr />
     <div class="footer">
-      You have been notified of indie wikis <span id="countAlerts"></span> times
-      and redirected <span id="countRedirects"></span> times. Search results
-      have been filtered <span id="countSearchFilters"></span> times.
-      <br />
-      <span id="version"></span>&nbsp;&nbsp;|&nbsp;&nbsp;<a
-        href="https://getindie.wiki/"
-        target="_blank"
-        >Info & Help</a
-      >&nbsp;&nbsp;|&nbsp;&nbsp;<a
-        href="https://getindie.wiki/changelog/"
-        target="_blank"
-        >Changelog</a
-      >&nbsp;&nbsp;|&nbsp;&nbsp;<a
-        href="https://getindie.wiki/#submit"
-        target="_blank"
-        >Submit a Wiki</a
-      >&nbsp;&nbsp;|&nbsp;&nbsp;<a
-        href="https://github.com/KevinPayravi/indie-wiki-buddy"
-        target="_blank"
-        >Source Code</a
-      >
+      Indie wiki alerts: <span id="countAlerts"></span>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      Redirections: <span id="countRedirects"></span>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      Search engine results filtered: <span id="countSearchFilters"></span>
     </div>
   </body>
   <script type="text/javascript" src="popup.js"></script>

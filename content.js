@@ -259,49 +259,51 @@ function main(mutations = null, observer = null) {
             }
           }
         });
-      } else if (currentURL.hostname.includes('www.google.')) {
-        // Check if doing a Google search:
-        function filterGoogle() {
-          let fandomSearchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']");
-          filterSearchResults(fandomSearchResults, 'google', storage);
-        }
-        addLocationObserver(main);
-        filterGoogle();
-      } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
-        // Check if doing a Duck Duck Go search:
-        function filterDuckDuckGo() {
-          let fandomSearchResults = document.querySelectorAll("h2>a[href*='fandom.com']");
-          filterSearchResults(fandomSearchResults, 'duckduckgo', storage);
-        }
-        // Need to wait for document to be ready
-        if (document.readyState === 'complete') {
+      } else if ((storage.searchFilter ?? 'on') === 'on') {
+        if (currentURL.hostname.includes('www.google.')) {
+          // Check if doing a Google search:
+          function filterGoogle() {
+            let fandomSearchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']");
+            filterSearchResults(fandomSearchResults, 'google', storage);
+          }
           addLocationObserver(main);
-          filterDuckDuckGo();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterDuckDuckGo();
-            }
-          });
-        }
-      } else if (currentURL.hostname.includes('www.bing.com')) {
-        // Check if doing a Bing search:
-        function filterBing() {
-          let fandomSearchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com'));
-          filterSearchResults(fandomSearchResults, 'bing', storage);
-        }
-        // Need to wait for document to be ready
-        if (document.readyState === 'complete') {
-          addLocationObserver(main);
-          filterBing();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterBing();
-            }
-          });
+          filterGoogle();
+        } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
+          // Check if doing a Duck Duck Go search:
+          function filterDuckDuckGo() {
+            let fandomSearchResults = document.querySelectorAll("h2>a[href*='fandom.com']");
+            filterSearchResults(fandomSearchResults, 'duckduckgo', storage);
+          }
+          // Need to wait for document to be ready
+          if (document.readyState === 'complete') {
+            addLocationObserver(main);
+            filterDuckDuckGo();
+          } else {
+            document.addEventListener('readystatechange', e => {
+              if (document.readyState === 'complete') {
+                addLocationObserver(main);
+                filterDuckDuckGo();
+              }
+            });
+          }
+        } else if (currentURL.hostname.includes('www.bing.com')) {
+          // Check if doing a Bing search:
+          function filterBing() {
+            let fandomSearchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com'));
+            filterSearchResults(fandomSearchResults, 'bing', storage);
+          }
+          // Need to wait for document to be ready
+          if (document.readyState === 'complete') {
+            addLocationObserver(main);
+            filterBing();
+          } else {
+            document.addEventListener('readystatechange', e => {
+              if (document.readyState === 'complete') {
+                addLocationObserver(main);
+                filterBing();
+              }
+            });
+          }
         }
       }
     }
