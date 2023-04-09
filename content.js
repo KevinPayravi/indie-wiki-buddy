@@ -263,7 +263,7 @@ function main(mutations = null, observer = null) {
         if (currentURL.hostname.includes('www.google.')) {
           // Check if doing a Google search:
           function filterGoogle() {
-            let fandomSearchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']");
+            let fandomSearchResults = document.querySelectorAll("div[lang] a[href*='fandom.com']");
             filterSearchResults(fandomSearchResults, 'google', storage);
           }
           addLocationObserver(main);
