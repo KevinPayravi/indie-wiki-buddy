@@ -1,9 +1,14 @@
 [
   {
     "id": "de-animalcrossing",
-    "origin": "Animal Crossing Fandom Wiki",
-    "origin_base_url": "animalcrossing.fandom.com/de",
-    "origin_content_path": "/wiki/",
+    "label": "Animal Crossing Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Animal Crossing Fandom Wiki",
+        "origin_base_url": "animalcrossing.fandom.com/de",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Animal Crossing Wiki",
     "destination_base_url": "animalcrossingwiki.de",
     "destination_content_path": "/",
@@ -12,9 +17,14 @@
   },
   {
     "id": "de-detektivconan",
-    "origin": "Detektiv Conan Fandom Wiki",
-    "origin_base_url": "detektivconan.fandom.com",
-    "origin_content_path": "/wiki/",
+    "label": "Detektiv Conan Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Detektiv Conan Fandom Wiki",
+        "origin_base_url": "detektivconan.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "ConanWiki",
     "destination_base_url": "conanwiki.org",
     "destination_content_path": "/wiki/",
@@ -23,9 +33,14 @@
   },
   {
     "id": "de-starcitizen",
-    "origin": "Star Citizen Fandom Wiki",
-    "origin_base_url": "starcitizen.fandom.com/de",
-    "origin_content_path": "/wiki/",
+    "label": "Star Citizen Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Star Citizen Fandom Wiki",
+        "origin_base_url": "starcitizen.fandom.com/de",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Star Citizen Wiki",
     "destination_base_url": "star-citizen.wiki",
     "destination_content_path": "/",

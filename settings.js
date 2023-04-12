@@ -130,7 +130,7 @@ async function loadOptions(lang) {
         inputDisabled.classList = 'toggleDisable';
         inputDisabled.type = "radio";
         inputDisabled.name = key;
-        inputDisabled.title = 'Disable actions for ' + sites[i].origin;
+        inputDisabled.title = 'Disable actions for ' + sites[i].label;
         inputDisabled.id = key + '-redirect';
         inputDisabled.lang = lang;
 
@@ -140,7 +140,7 @@ async function loadOptions(lang) {
         inputRedirect.classList = 'toggleRedirect';
         inputRedirect.type = "radio";
         inputRedirect.name = key;
-        inputRedirect.title = 'Automatically redirect from ' + sites[i].origin + ' to ' + sites[i].destination;
+        inputRedirect.title = 'Automatically redirect from ' + sites[i].label + ' to ' + sites[i].destination;
         inputRedirect.id = key + '-redirect';
         inputRedirect.lang = lang;
 
@@ -150,7 +150,7 @@ async function loadOptions(lang) {
         inputAlert.classList = 'toggleAlert';
         inputAlert.type = "radio";
         inputAlert.name = key;
-        inputAlert.title = 'Notify with banner when visiting ' + sites[i].origin;
+        inputAlert.title = 'Notify with banner when visiting ' + sites[i].label;
         inputAlert.id = key + '-alert';
         inputAlert.lang = lang;
 
@@ -242,28 +242,28 @@ async function loadOptions(lang) {
         // Output disable radio button:
         let inputDisabledText = document.createElement('span');
         inputDisabledText.classList.add('visuallyHidden');
-        inputDisabledText.textContent = 'Disable action for ' + sites[i].origin;
+        inputDisabledText.textContent = 'Disable action for ' + sites[i].label;
         labelDisabled.appendChild(inputDisabled);
         labelDisabled.appendChild(inputDisabledText);
 
         // Output redirect radio button:
         let inputRedirectText = document.createElement('span');
         inputRedirectText.classList.add('visuallyHidden');
-        inputRedirectText.textContent = 'Automatically redirect ' + sites[i].origin;
+        inputRedirectText.textContent = 'Automatically redirect ' + sites[i].label;
         labelRedirect.appendChild(inputRedirect);
         labelRedirect.appendChild(inputRedirectText);
 
         // Output alert radio button:
         let inputAlertText = document.createElement('span');
         inputAlertText.classList.add('visuallyHidden');
-        inputAlertText.textContent = 'Automatically alert for' + sites[i].origin;
+        inputAlertText.textContent = 'Automatically alert for' + sites[i].label;
         labelAlert.appendChild(inputAlert);
         labelAlert.appendChild(inputAlertText);
 
         // Output search filter checkbox:
         let inputFilterText = document.createElement('span');
         inputFilterText.classList.add('visuallyHidden');
-        inputFilterText.textContent = 'Filter ' + sites[i].origin + ' from search engine results';
+        inputFilterText.textContent = 'Filter ' + sites[i].label + ' from search engine results';
         labelFilter.appendChild(inputFilter);
         labelFilter.appendChild(inputFilterText);
 
@@ -279,7 +279,7 @@ async function loadOptions(lang) {
 
         // Output text:
         let text = document.createElement('span');
-        text.textContent = sites[i].origin + ' » ' + sites[i].destination;
+        text.textContent = sites[i].label + ' » ' + sites[i].destination;
         let siteContainer = document.createElement("div");
 
         siteContainer.appendChild(labelDisabled);

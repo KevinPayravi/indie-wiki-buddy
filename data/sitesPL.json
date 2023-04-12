@@ -1,9 +1,14 @@
 [
   {
     "id": "pl-rayman",
-    "origin": "Rayman Fandom Wiki",
-    "origin_base_url": "rayman.fandom.com/pl",
-    "origin_content_path": "/wiki/",
+    "label": "Rayman Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Rayman Fandom Wiki",
+        "origin_base_url": "rayman.fandom.com/pl",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "RayWiki",
     "destination_base_url": "raymanpc.com",
     "destination_content_path": "/wiki/pl/",

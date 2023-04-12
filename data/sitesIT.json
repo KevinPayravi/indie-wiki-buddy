@@ -1,9 +1,14 @@
 [
   {
     "id": "it-pokemon",
-    "origin": "Analisi Pokémon Fandom Wiki",
-    "origin_base_url": "pokemon.fandom.com/it",
-    "origin_content_path": "/wiki/",
+    "label": "Analisi Pokémon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Analisi Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/it",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Pokémon Central Wiki",
     "destination_base_url": "wiki.pokemoncentral.it",
     "destination_content_path": "/",
@@ -12,9 +17,14 @@
   },
   {
     "id": "it-mario",
-    "origin": "Mario Fandom Wiki",
-    "origin_base_url": "mario.fandom.com/it",
-    "origin_content_path": "/wiki/",
+    "label": "Mario Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Mario Fandom Wiki",
+        "origin_base_url": "mario.fandom.com/it",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Super Mario Wiki",
     "destination_base_url": "www.mariowiki.it",
     "destination_content_path": "/",
@@ -23,9 +33,14 @@
   },
   {
     "id": "it-earthbound",
-    "origin": "EarthBound Fandom Wiki",
-    "origin_base_url": "earthbound.fandom.com/it",
-    "origin_content_path": "/wiki/",
+    "label": "EarthBound Fandom Wiki",
+    "origins": [
+      {
+        "origin": "EarthBound Fandom Wiki",
+        "origin_base_url": "earthbound.fandom.com/it",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "WikiBound",
     "destination_base_url": "it.wikibound.info",
     "destination_content_path": "/wiki/",

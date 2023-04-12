@@ -23,7 +23,7 @@ function addLocationObserver(callback) {
   observer.observe(document.body, config);
 }
 
-// Load website data
+// Load website data:
 async function getData() {
   const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
   let sites = [];
@@ -32,8 +32,22 @@ async function getData() {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
       .then(function (jsonData) {
-        jsonData.forEach((site) => site.language = LANGS[i]);
-        sites = sites.concat(jsonData);
+        jsonData.forEach((site) => {
+          site.origins.forEach((origin) => {
+            sites.push({
+              "id": site.id,
+              "origin": origin.origin,
+              "origin_base_url": origin.origin_base_url,
+              "origin_content_path": origin.origin_content_path,
+              "destination": site.destination,
+              "destination_base_url":  site.destination_base_url,
+              "destination_content_path":  site.destination_content_path,
+              "destination_platform":  site.destination_platform,
+              "destination_icon":  site.destination_icon,
+              "lang": LANGS[i]
+            })
+          })
+        });
       }));
   }
   await Promise.all(promises);
