@@ -737,6 +737,17 @@
     "destination_icon": "starfy.png"
   },
   {
+    "id": "en-sto",
+    "origin": "Star Trek Online Fandom Wiki",
+    "origin_base_url": "sto.fandom.com",
+    "origin_content_path": "/wiki/",
+    "destination": "Star Trek Online Wiki",
+    "destination_base_url": "stowiki.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sto.png"
+  },
+  {
     "id": "en-suikoden",
     "origin": "Suikoden Fandom Wiki",
     "origin_base_url": "suikoden.fandom.com",
