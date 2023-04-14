@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Listener for settings page in new tab:
   document.getElementById('openSettings').addEventListener('click', function () {
-    chrome.tabs.create({'url': chrome.extension.getURL('settings.html')});
+    chrome.tabs.create({'url': chrome.runtime.getURL('settings.html')});
     window.close();
   });
 
