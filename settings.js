@@ -125,7 +125,7 @@ async function loadOptions(lang) {
         var key = sites[i].id;
 
         // Create radio for disabled:
-        let labelDisabled = document.createElement("origins_label");
+        let labelDisabled = document.createElement("label");
         let inputDisabled = document.createElement("input");
         inputDisabled.classList = 'toggleDisable';
         inputDisabled.type = "radio";
@@ -135,7 +135,7 @@ async function loadOptions(lang) {
         inputDisabled.lang = lang;
 
         // Create radio for redirect:
-        let labelRedirect = document.createElement("origins_label");
+        let labelRedirect = document.createElement("label");
         let inputRedirect = document.createElement("input");
         inputRedirect.classList = 'toggleRedirect';
         inputRedirect.type = "radio";
@@ -145,7 +145,7 @@ async function loadOptions(lang) {
         inputRedirect.lang = lang;
 
         // Create radio for alert:
-        let labelAlert = document.createElement("origins_label");
+        let labelAlert = document.createElement("label");
         let inputAlert = document.createElement("input");
         inputAlert.classList = 'toggleAlert';
         inputAlert.type = "radio";
@@ -155,7 +155,7 @@ async function loadOptions(lang) {
         inputAlert.lang = lang;
 
         // Create checkbox for search filtering:
-        let labelFilter = document.createElement("origins_label");
+        let labelFilter = document.createElement("label");
         let inputFilter = document.createElement("input");
         inputFilter.classList = 'toggleFilter';
         inputFilter.type = 'checkbox';
