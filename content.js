@@ -1,5 +1,6 @@
 const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com/;
 const fandomRegex = /\.fandom\.com$/;
+const fextraRegex = /\.fextralife\.com$/;
 const breezeWikiRegex = /breeze\.777\.tf$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$/;
 const currentURL = new URL(document.location);
 
@@ -58,7 +59,7 @@ function displayRedirectBanner(url, destination, storage) {
   // Output banner
   var banner = document.createElement('div');
   banner.id = 'indie-wiki-banner';
-  banner.style.fontSize = '1.2em';
+  banner.style.fontSize = '18px';
   banner.style.fontFamily = 'sans-serif';
   banner.style.width = '100%';
   banner.style.zIndex = '2147483647';
@@ -194,7 +195,7 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
 
 // Check if search engine results, Fandom, or a BreezeWiki host:
 function checkSite() {
-  if (currentURL.hostname.match(searchEngineRegex) || currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(breezeWikiRegex)) {
+  if (currentURL.hostname.match(searchEngineRegex) || currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(fextraRegex) || currentURL.hostname.match(breezeWikiRegex)) {
     return true;
   }
 }
@@ -206,9 +207,9 @@ function main(mutations = null, observer = null) {
   chrome.storage.sync.get(function (storage) {
     // Check if extension is on:
     if ((storage.power ?? 'on') === 'on') {
-      // Check if on Fandom or BreezeWiki
+      // Check if on Fandom, Fextralife, or BreezeWiki
       // If on BreezeWiki, check if there is a pathname (which indicates we are looking at a wiki)
-      if (currentURL.hostname.match(fandomRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
+      if (currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(fextraRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
         let origin = currentURL;
         // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
         if (currentURL.hostname.match(breezeWikiRegex)) {
@@ -277,16 +278,16 @@ function main(mutations = null, observer = null) {
         if (currentURL.hostname.includes('www.google.')) {
           // Check if doing a Google search:
           function filterGoogle() {
-            let fandomSearchResults = document.querySelectorAll("div[lang] a[href*='fandom.com']");
-            filterSearchResults(fandomSearchResults, 'google', storage);
+            let searchResults = document.querySelectorAll("div[lang] a[href*='fandom.com'], div[lang] a[href*='fextralife.com']");
+            filterSearchResults(searchResults, 'google', storage);
           }
           addLocationObserver(main);
           filterGoogle();
         } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
           // Check if doing a Duck Duck Go search:
           function filterDuckDuckGo() {
-            let fandomSearchResults = document.querySelectorAll("h2>a[href*='fandom.com']");
-            filterSearchResults(fandomSearchResults, 'duckduckgo', storage);
+            let searchResults = document.querySelectorAll("h2>a[href*='fandom.com'], h2>a[href*='fextralife.com']");
+            filterSearchResults(searchResults, 'duckduckgo', storage);
           }
           // Need to wait for document to be ready
           if (document.readyState === 'complete') {
@@ -303,8 +304,8 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('www.bing.com')) {
           // Check if doing a Bing search:
           function filterBing() {
-            let fandomSearchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com'));
-            filterSearchResults(fandomSearchResults, 'bing', storage);
+            let searchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
+            filterSearchResults(searchResults, 'bing', storage);
           }
           // Need to wait for document to be ready
           if (document.readyState === 'complete') {

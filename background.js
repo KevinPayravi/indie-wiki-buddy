@@ -118,7 +118,7 @@ async function main(eventInfo, eventName) {
 
   // Check if tabId is > 0 (some background events may have tabId < 0)
   // & check for fandom.com in hostname and quit early if it's not:
-  if (eventInfo.tabId > 0 && url.hostname.includes('.fandom.com')) {
+  if (eventInfo.tabId > 0 && (url.hostname.includes('.fandom.com') || url.hostname.includes('wiki.fextralife.com'))) {
     // Check if tab is actually available
     // This is mainly to prevent background processes from triggering an event
     chrome.tabs.get(eventInfo.tabId, async function (tab) {
