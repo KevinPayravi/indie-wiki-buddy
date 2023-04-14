@@ -1,7 +1,7 @@
 [
   {
     "id": "it-pokemon",
-    "label": "Analisi Pokémon Fandom Wiki",
+    "origins_label": "Analisi Pokémon Fandom Wiki",
     "origins": [
       {
         "origin": "Analisi Pokémon Fandom Wiki",
@@ -17,7 +17,7 @@
   },
   {
     "id": "it-mario",
-    "label": "Mario Fandom Wiki",
+    "origins_label": "Mario Fandom Wiki",
     "origins": [
       {
         "origin": "Mario Fandom Wiki",
@@ -33,7 +33,7 @@
   },
   {
     "id": "it-earthbound",
-    "label": "EarthBound Fandom Wiki",
+    "origins_label": "EarthBound Fandom Wiki",
     "origins": [
       {
         "origin": "EarthBound Fandom Wiki",

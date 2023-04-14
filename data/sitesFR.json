@@ -1,7 +1,7 @@
 [
   {
     "id": "fr-dragonquest",
-    "label": "Dragon Quest Fandom Wiki",
+    "origins_label": "Dragon Quest Fandom Wiki",
     "origins": [
       {
         "origin": "Dragon Quest Fandom Wiki",
@@ -17,7 +17,7 @@
   },
   {
     "id": "fr-pokemon",
-    "label": "Pokémon Fandom Wiki",
+    "origins_label": "Pokémon Fandom Wiki",
     "origins": [
       {
         "origin": "Pokémon Fandom Wiki",

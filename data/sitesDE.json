@@ -1,7 +1,7 @@
 [
   {
     "id": "de-animalcrossing",
-    "label": "Animal Crossing Fandom Wiki",
+    "origins_label": "Animal Crossing Fandom Wiki",
     "origins": [
       {
         "origin": "Animal Crossing Fandom Wiki",
@@ -17,7 +17,7 @@
   },
   {
     "id": "de-detektivconan",
-    "label": "Detektiv Conan Fandom Wiki",
+    "origins_label": "Detektiv Conan Fandom Wiki",
     "origins": [
       {
         "origin": "Detektiv Conan Fandom Wiki",
@@ -33,7 +33,7 @@
   },
   {
     "id": "de-starcitizen",
-    "label": "Star Citizen Fandom Wiki",
+    "origins_label": "Star Citizen Fandom Wiki",
     "origins": [
       {
         "origin": "Star Citizen Fandom Wiki",

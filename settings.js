@@ -125,37 +125,37 @@ async function loadOptions(lang) {
         var key = sites[i].id;
 
         // Create radio for disabled:
-        let labelDisabled = document.createElement("label");
+        let labelDisabled = document.createElement("origins_label");
         let inputDisabled = document.createElement("input");
         inputDisabled.classList = 'toggleDisable';
         inputDisabled.type = "radio";
         inputDisabled.name = key;
-        inputDisabled.title = 'Disable actions for ' + sites[i].label;
+        inputDisabled.title = 'Disable actions for ' + sites[i].origins_label;
         inputDisabled.id = key + '-redirect';
         inputDisabled.lang = lang;
 
         // Create radio for redirect:
-        let labelRedirect = document.createElement("label");
+        let labelRedirect = document.createElement("origins_label");
         let inputRedirect = document.createElement("input");
         inputRedirect.classList = 'toggleRedirect';
         inputRedirect.type = "radio";
         inputRedirect.name = key;
-        inputRedirect.title = 'Automatically redirect from ' + sites[i].label + ' to ' + sites[i].destination;
+        inputRedirect.title = 'Automatically redirect from ' + sites[i].origins_label + ' to ' + sites[i].destination;
         inputRedirect.id = key + '-redirect';
         inputRedirect.lang = lang;
 
         // Create radio for alert:
-        let labelAlert = document.createElement("label");
+        let labelAlert = document.createElement("origins_label");
         let inputAlert = document.createElement("input");
         inputAlert.classList = 'toggleAlert';
         inputAlert.type = "radio";
         inputAlert.name = key;
-        inputAlert.title = 'Notify with banner when visiting ' + sites[i].label;
+        inputAlert.title = 'Notify with banner when visiting ' + sites[i].origins_label;
         inputAlert.id = key + '-alert';
         inputAlert.lang = lang;
 
         // Create checkbox for search filtering:
-        let labelFilter = document.createElement("label");
+        let labelFilter = document.createElement("origins_label");
         let inputFilter = document.createElement("input");
         inputFilter.classList = 'toggleFilter';
         inputFilter.type = 'checkbox';
@@ -242,28 +242,28 @@ async function loadOptions(lang) {
         // Output disable radio button:
         let inputDisabledText = document.createElement('span');
         inputDisabledText.classList.add('visuallyHidden');
-        inputDisabledText.textContent = 'Disable action for ' + sites[i].label;
+        inputDisabledText.textContent = 'Disable action for ' + sites[i].origins_label;
         labelDisabled.appendChild(inputDisabled);
         labelDisabled.appendChild(inputDisabledText);
 
         // Output redirect radio button:
         let inputRedirectText = document.createElement('span');
         inputRedirectText.classList.add('visuallyHidden');
-        inputRedirectText.textContent = 'Automatically redirect ' + sites[i].label;
+        inputRedirectText.textContent = 'Automatically redirect ' + sites[i].origins_label;
         labelRedirect.appendChild(inputRedirect);
         labelRedirect.appendChild(inputRedirectText);
 
         // Output alert radio button:
         let inputAlertText = document.createElement('span');
         inputAlertText.classList.add('visuallyHidden');
-        inputAlertText.textContent = 'Automatically alert for' + sites[i].label;
+        inputAlertText.textContent = 'Automatically alert for' + sites[i].origins_label;
         labelAlert.appendChild(inputAlert);
         labelAlert.appendChild(inputAlertText);
 
         // Output search filter checkbox:
         let inputFilterText = document.createElement('span');
         inputFilterText.classList.add('visuallyHidden');
-        inputFilterText.textContent = 'Filter ' + sites[i].label + ' from search engine results';
+        inputFilterText.textContent = 'Filter ' + sites[i].origins_label + ' from search engine results';
         labelFilter.appendChild(inputFilter);
         labelFilter.appendChild(inputFilterText);
 
@@ -279,7 +279,7 @@ async function loadOptions(lang) {
 
         // Output text:
         let text = document.createElement('span');
-        text.textContent = sites[i].label + ' » ' + sites[i].destination;
+        text.textContent = sites[i].origins_label + ' » ' + sites[i].destination;
         let siteContainer = document.createElement("div");
 
         siteContainer.appendChild(labelDisabled);

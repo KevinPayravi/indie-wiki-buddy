@@ -1,7 +1,7 @@
 [
   {
     "id": "es-animalcrossing",
-    "label": "Animal Crossing Fandom Wiki",
+    "origins_label": "Animal Crossing Fandom Wiki",
     "origins": [
       {
         "origin": "Animal Crossing Fandom Wiki",
@@ -17,7 +17,7 @@
   },
   {
     "id": "es-supersmashbros",
-    "label": "Smashpedia Fandom Wiki",
+    "origins_label": "Smashpedia Fandom Wiki",
     "origins": [
       {
         "origin": "Smashpedia Fandom Wiki",
@@ -33,7 +33,7 @@
   },
   {
     "id": "es-touhou",
-    "label": "Touhou Fandom Wiki",
+    "origins_label": "Touhou Fandom Wiki",
     "origins": [
       {
         "origin": "Touhou Fandom Wiki",
@@ -49,7 +49,7 @@
   },
   {
     "id": "es-pokemon",
-    "label": "WikiDex (Fandom)",
+    "origins_label": "WikiDex (Fandom)",
     "origins": [
       {
         "origin": "WikiDex (Fandom)",

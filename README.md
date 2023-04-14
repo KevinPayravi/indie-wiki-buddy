@@ -50,7 +50,7 @@ Entries are formatted as follows:
 ```
 {
   "id": "en-example",
-  "label": "Example Fandom Wiki",
+  "origins_label": "Example Fandom Wiki",
   "origins": [
     {
       "origin": "Example Fandom Wiki",

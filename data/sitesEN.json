@@ -1,7 +1,7 @@
 [
   {
     "id": "en-animalcrossing",
-    "label": "Animal Crossing Fandom Wiki",
+    "origins_label": "Animal Crossing Fandom Wiki",
     "origins": [
       {
         "origin": "Animal Crossing Fandom Wiki",
@@ -17,7 +17,7 @@
   },
   {
     "id": "en-anothereden",
-    "label": "Another Eden Fandom Wiki",
+    "origins_label": "Another Eden Fandom Wiki",
     "origins": [
       {
         "origin": "Another Eden Fandom Wiki",
@@ -33,7 +33,7 @@
   },
   {
     "id": "en-arms",
-    "label": "ARMS Fandom Wiki",
+    "origins_label": "ARMS Fandom Wiki",
     "origins": [
       {
         "origin": "ARMS Fandom Wiki",
@@ -49,7 +49,7 @@
   },
   {
     "id": "en-bakugan",
-    "label": "Bakugan Fandom Wiki",
+    "origins_label": "Bakugan Fandom Wiki",
     "origins": [
       {
         "origin": "Bakugan Fandom Wiki",
@@ -65,7 +65,7 @@
   },
   {
     "id": "en-banjokazooie",
-    "label": "Banjo-Kazooie Fandom Wiki",
+    "origins_label": "Banjo-Kazooie Fandom Wiki",
     "origins": [
       {
         "origin": "Banjo-Kazooie Fandom Wiki",
@@ -81,7 +81,7 @@
   },
   {
     "id": "en-bionicle",
-    "label": "Bionicle Fandom Wiki",
+    "origins_label": "Bionicle Fandom Wiki",
     "origins": [
       {
         "origin": "Bionicle Fandom Wiki",
@@ -97,7 +97,7 @@
   },
   {
     "id": "en-blazblue",
-    "label": "BlazBlue Fandom Wiki",
+    "origins_label": "BlazBlue Fandom Wiki",
     "origins": [
       {
         "origin": "BlazBlue Fandom Wiki",
@@ -113,7 +113,7 @@
   },
   {
     "id": "en-bluearchive",
-    "label": "Blue Archive Fandom Wiki",
+    "origins_label": "Blue Archive Fandom Wiki",
     "origins": [
       {
         "origin": "Blue Archive Fandom Wiki",
@@ -129,7 +129,7 @@
   },
   {
     "id": "en-celeste",
-    "label": "Celeste Fandom Wiki",
+    "origins_label": "Celeste Fandom Wiki",
     "origins": [
       {
         "origin": "Celeste Fandom Wiki",
@@ -145,7 +145,7 @@
   },
   {
     "id": "en-chipschallenge",
-    "label": "Chip's Challenge Fandom Wiki",
+    "origins_label": "Chip's Challenge Fandom Wiki",
     "origins": [
       {
         "origin": "Chip's Challenge Fandom Wiki",
@@ -161,7 +161,7 @@
   },
   {
     "id": "en-chrono",
-    "label": "Chrono Fandom Wiki",
+    "origins_label": "Chrono Fandom Wiki",
     "origins": [
       {
         "origin": "Chrono Fandom Wiki",
@@ -177,7 +177,7 @@
   },
   {
     "id": "en-criticalrole",
-    "label": "Critical Role Fandom Wiki",
+    "origins_label": "Critical Role Fandom Wiki",
     "origins": [
       {
         "origin": "Critical Role Fandom Wiki",
@@ -193,7 +193,7 @@
   },
   {
     "id": "en-daria",
-    "label": "Daria Fandom Wiki",
+    "origins_label": "Daria Fandom Wiki",
     "origins": [
       {
         "origin": "Daria Fandom Wiki",
@@ -209,7 +209,7 @@
   },
   {
     "id": "en-destiny",
-    "label": "Destiny Fandom Wiki",
+    "origins_label": "Destiny Fandom Wiki",
     "origins": [
       {
         "origin": "Destiny Fandom Wiki",
@@ -225,7 +225,7 @@
   },
   {
     "id": "en-detectiveconan",
-    "label": "Detective Conan Fandom Wiki",
+    "origins_label": "Detective Conan Fandom Wiki",
     "origins": [
       {
         "origin": "Detective Conan Fandom Wiki",
@@ -241,7 +241,7 @@
   },
   {
     "id": "en-digimon",
-    "label": "Digimon Fandom Wiki",
+    "origins_label": "Digimon Fandom Wiki",
     "origins": [
       {
         "origin": "Digimon Fandom Wiki",
@@ -257,7 +257,7 @@
   },
   {
     "id": "en-doom",
-    "label": "Doom Fandom Wiki",
+    "origins_label": "Doom Fandom Wiki",
     "origins": [
       {
         "origin": "Doom Fandom Wiki",
@@ -273,7 +273,7 @@
   },
   {
     "id": "en-dragalialost",
-    "label": "Dragalia Lost Fandom Wiki",
+    "origins_label": "Dragalia Lost Fandom Wiki",
     "origins": [
       {
         "origin": "Dragalia Lost Fandom Wiki",
@@ -289,7 +289,7 @@
   },
   {
     "id": "en-drawntolife",
-    "label": "Drawn to Life Fandom Wiki",
+    "origins_label": "Drawn to Life Fandom Wiki",
     "origins": [
       {
         "origin": "Drawn to Life Fandom Wiki",
@@ -305,7 +305,7 @@
   },
   {
     "id": "en-earthbound",
-    "label": "EarthBound Fandom Wiki",
+    "origins_label": "EarthBound Fandom Wiki",
     "origins": [
       {
         "origin": "EarthBound Fandom Wiki",
@@ -321,7 +321,7 @@
   },
   {
     "id": "en-elderscrolls",
-    "label": "Elder Scrolls Fandom Wiki",
+    "origins_label": "Elder Scrolls Fandom Wiki",
     "origins": [
       {
         "origin": "Elder Scrolls Fandom Wiki",
@@ -337,7 +337,7 @@
   },
   {
     "id": "en-factorio",
-    "label": "Factorio Fandom Wiki",
+    "origins_label": "Factorio Fandom Wiki",
     "origins": [
       {
         "origin": "Factorio Fandom Wiki",
@@ -353,7 +353,7 @@
   },
   {
     "id": "en-fallout",
-    "label": "Fallout Fandom Wiki (Nukapedia)",
+    "origins_label": "Fallout Fandom Wiki (Nukapedia)",
     "origins": [
       {
         "origin": "Fallout Fandom Wiki (Nukapedia)",
@@ -374,7 +374,7 @@
   },
   {
     "id": "en-fireemblem",
-    "label": "Fire Emblem Fandom Wiki",
+    "origins_label": "Fire Emblem Fandom Wiki",
     "origins": [
       {
         "origin": "Fire Emblem Fandom Wiki",
@@ -390,7 +390,7 @@
   },
   {
     "id": "en-friendsatthetable",
-    "label": "Friends at the Table Fandom Wikis",
+    "origins_label": "Friends at the Table Fandom Wikis",
     "origins": [
       {
         "origin": "Friends at the Table Fandom Wiki",
@@ -436,7 +436,7 @@
   },
   {
     "id": "en-futurama",
-    "label": "Futurama Fandom Wiki",
+    "origins_label": "Futurama Fandom Wiki",
     "origins": [
       {
         "origin": "Futurama Fandom Wiki",
@@ -452,7 +452,7 @@
   },
   {
     "id": "en-fzero",
-    "label": "F-Zero Fandom Wiki",
+    "origins_label": "F-Zero Fandom Wiki",
     "origins": [
       {
         "origin": "F-Zero Fandom Wiki",
@@ -468,7 +468,7 @@
   },
   {
     "id": "en-godzilla",
-    "label": "Godzilla Fandom Wiki",
+    "origins_label": "Godzilla Fandom Wiki",
     "origins": [
       {
         "origin": "Godzilla Fandom Wiki",
@@ -484,7 +484,7 @@
   },
   {
     "id": "en-goldensun",
-    "label": "Golden Sun Fandom Wiki",
+    "origins_label": "Golden Sun Fandom Wiki",
     "origins": [
       {
         "origin": "Golden Sun Fandom Wiki",
@@ -500,7 +500,7 @@
   },
   {
     "id": "en-granblue",
-    "label": "Granblue Fantasy Fandom Wiki",
+    "origins_label": "Granblue Fantasy Fandom Wiki",
     "origins": [
       {
         "origin": "Granblue Fantasy Fandom Wiki",
@@ -516,7 +516,7 @@
   },
   {
     "id": "en-guiltygear",
-    "label": "Guilty Gear Fandom Wiki",
+    "origins_label": "Guilty Gear Fandom Wiki",
     "origins": [
       {
         "origin": "Guilty Gear Fandom Wiki",
@@ -532,7 +532,7 @@
   },
   {
     "id": "en-halflife",
-    "label": "Half-Life & Portal Fandom Wiki",
+    "origins_label": "Half-Life & Portal Fandom Wiki",
     "origins": [
       {
         "origin": "Half-Life & Portal Fandom Wiki",
@@ -548,7 +548,7 @@
   },
   {
     "id": "en-halo",
-    "label": "Halo Alpha Fandom Wiki",
+    "origins_label": "Halo Alpha Fandom Wiki",
     "origins": [
       {
         "origin": "Halo Alpha Fandom Wiki",
@@ -564,7 +564,7 @@
   },
   {
     "id": "en-hololive",
-    "label": "Hololive Fandom Wiki",
+    "origins_label": "Hololive Fandom Wiki",
     "origins": [
       {
         "origin": "Hololive Fandom Wiki",
@@ -580,7 +580,7 @@
   },
   {
     "id": "en-hyperrogue",
-    "label": "Hyperrogue Fandom Wiki",
+    "origins_label": "Hyperrogue Fandom Wiki",
     "origins": [
       {
         "origin": "Hyperrogue Fandom Wiki",
@@ -596,7 +596,7 @@
   },
   {
     "id": "en-idolish7",
-    "label": "IDOLiSH7 Fandom Wiki",
+    "origins_label": "IDOLiSH7 Fandom Wiki",
     "origins": [
       {
         "origin": "IDOLiSH7 Fandom Wiki",
@@ -612,7 +612,7 @@
   },
   {
     "id": "en-idolmaster",
-    "label": "IDOLM@STER Fandom Wiki",
+    "origins_label": "IDOLM@STER Fandom Wiki",
     "origins": [
       {
         "origin": "IDOLM@STER Fandom Wiki",
@@ -628,7 +628,7 @@
   },
   {
     "id": "en-jojo",
-    "label": "JoJo's Bizarre Wiki",
+    "origins_label": "JoJo's Bizarre Wiki",
     "origins": [
       {
         "origin": "JoJo's Bizarre Wiki",
@@ -644,7 +644,7 @@
   },
   {
     "id": "en-kentuckyroutezero",
-    "label": "Kentucky Route Zero Fandom Wiki",
+    "origins_label": "Kentucky Route Zero Fandom Wiki",
     "origins": [
       {
         "origin": "Kentucky Route Zero Fandom Wiki",
@@ -660,7 +660,7 @@
   },
   {
     "id": "en-kingdomhearts",
-    "label": "Kingdom Hearts Fandom Wiki",
+    "origins_label": "Kingdom Hearts Fandom Wiki",
     "origins": [
       {
         "origin": "Kingdom Hearts Fandom Wiki",
@@ -676,7 +676,7 @@
   },
   {
     "id": "en-kirby",
-    "label": "Kirby Fandom Wiki",
+    "origins_label": "Kirby Fandom Wiki",
     "origins": [
       {
         "origin": "Kirby Fandom Wiki",
@@ -692,7 +692,7 @@
   },
   {
     "id": "en-lotr",
-    "label": "Lord of the Rings Fandom Wiki",
+    "origins_label": "Lord of the Rings Fandom Wiki",
     "origins": [
       {
         "origin": "Lord of the Rings Fandom Wiki",
@@ -708,7 +708,7 @@
   },
   {
     "id": "en-madokamagica",
-    "label": "Madoka Magica Fandom Wiki",
+    "origins_label": "Madoka Magica Fandom Wiki",
     "origins": [
       {
         "origin": "Madoka Magica Fandom Wiki",
@@ -724,7 +724,7 @@
   },
   {
     "id": "en-mario",
-    "label": "Mario Fandom Wiki",
+    "origins_label": "Mario Fandom Wiki",
     "origins": [
       {
         "origin": "Mario Fandom Wiki",
@@ -740,7 +740,7 @@
   },
   {
     "id": "en-micronations",
-    "label": "MicroNations Fandom Wiki",
+    "origins_label": "MicroNations Fandom Wiki",
     "origins": [
       {
         "origin": "MicroNations Fandom Wiki",
@@ -756,7 +756,7 @@
   },
   {
     "id": "en-mrlovequeenschoice",
-    "label": "Mr. Love: Queen's Choice Fandom Wiki",
+    "origins_label": "Mr. Love: Queen's Choice Fandom Wiki",
     "origins": [
       {
         "origin": "Mr. Love: Queen's Choice Fandom Wiki",
@@ -772,7 +772,7 @@
   },
   {
     "id": "en-mylittlepony",
-    "label": "My Little Pony Fandom Wiki",
+    "origins_label": "My Little Pony Fandom Wiki",
     "origins": [
       {
         "origin": "My Little Pony Fandom Wiki",
@@ -788,7 +788,7 @@
   },
   {
     "id": "en-nethack",
-    "label": "NetHack Fandom Wiki",
+    "origins_label": "NetHack Fandom Wiki",
     "origins": [
       {
         "origin": "NetHack Fandom Wiki",
@@ -804,7 +804,7 @@
   },
   {
     "id": "en-oldschoolrunescape",
-    "label": "Old School Runescape Fandom Wiki",
+    "origins_label": "Old School Runescape Fandom Wiki",
     "origins": [
       {
         "origin": "Old School Runescape Fandom Wiki",
@@ -820,7 +820,7 @@
   },
   {
     "id": "en-osamusato",
-    "label": "Eastern Mind Fandom Wiki",
+    "origins_label": "Eastern Mind Fandom Wiki",
     "origins": [
       {
         "origin": "Eastern Mind Fandom Wiki",
@@ -836,7 +836,7 @@
   },
   {
     "id": "en-pathfinder",
-    "label": "Pathfinder Fandom Wiki",
+    "origins_label": "Pathfinder Fandom Wiki",
     "origins": [
       {
         "origin": "Pathfinder Fandom Wiki",
@@ -852,7 +852,7 @@
   },
   {
     "id": "en-pathofexile",
-    "label": "Path of Exile Fandom Wiki",
+    "origins_label": "Path of Exile Fandom Wiki",
     "origins": [
       {
         "origin": "Path of Exile Fandom Wiki",
@@ -868,7 +868,7 @@
   },
   {
     "id": "en-pikmin",
-    "label": "Pikmin Fandom Wiki",
+    "origins_label": "Pikmin Fandom Wiki",
     "origins": [
       {
         "origin": "Pikmin Fandom Wiki",
@@ -884,7 +884,7 @@
   },
   {
     "id": "en-pokemon",
-    "label": "Pokémon Fandom Wiki",
+    "origins_label": "Pokémon Fandom Wiki",
     "origins": [
       {
         "origin": "Pokémon Fandom Wiki",
@@ -900,7 +900,7 @@
   },
   {
     "id": "en-puyopuyo",
-    "label": "Puyo Puyo Fandom Wiki",
+    "origins_label": "Puyo Puyo Fandom Wiki",
     "origins": [
       {
         "origin": "Puyo Puyo Fandom Wiki",
@@ -916,7 +916,7 @@
   },
   {
     "id": "en-rainworld",
-    "label": "Rain World Fandom Wiki",
+    "origins_label": "Rain World Fandom Wiki",
     "origins": [
       {
         "origin": "Rain World Fandom Wiki",
@@ -932,7 +932,7 @@
   },
   {
     "id": "en-rayman",
-    "label": "Rayman Fandom Wiki",
+    "origins_label": "Rayman Fandom Wiki",
     "origins": [
       {
         "origin": "Rayman Fandom Wiki",
@@ -948,7 +948,7 @@
   },
   {
     "id": "en-rct",
-    "label": "RollerCoaster Tycoon Fandom Wiki",
+    "origins_label": "RollerCoaster Tycoon Fandom Wiki",
     "origins": [
       {
         "origin": "RollerCoaster Tycoon Fandom Wiki",
@@ -964,7 +964,7 @@
   },
   {
     "id": "en-runescape",
-    "label": "RuneScape Fandom Wiki",
+    "origins_label": "RuneScape Fandom Wiki",
     "origins": [
       {
         "origin": "RuneScape Fandom Wiki",
@@ -980,7 +980,7 @@
   },
   {
     "id": "en-runescapeclassic",
-    "label": "RuneScape Classic Fandom Wiki",
+    "origins_label": "RuneScape Classic Fandom Wiki",
     "origins": [
       {
         "origin": "RuneScape Classic Fandom Wiki",
@@ -996,7 +996,7 @@
   },
   {
     "id": "en-sailormoon",
-    "label": "Sailor Moon Fandom Wiki",
+    "origins_label": "Sailor Moon Fandom Wiki",
     "origins": [
       {
         "origin": "Sailor Moon Fandom Wiki",
@@ -1012,7 +1012,7 @@
   },
   {
     "id": "en-simpsons",
-    "label": "Simpsons Fandom Wiki",
+    "origins_label": "Simpsons Fandom Wiki",
     "origins": [
       {
         "origin": "Simpsons Fandom Wiki",
@@ -1028,7 +1028,7 @@
   },
   {
     "id": "en-splatoon",
-    "label": "Splatoon Fandom Wiki",
+    "origins_label": "Splatoon Fandom Wiki",
     "origins": [
       {
         "origin": "Splatoon Fandom Wiki",
@@ -1044,7 +1044,7 @@
   },
   {
     "id": "en-starcitizen",
-    "label": "Star Citizen Fandom Wiki",
+    "origins_label": "Star Citizen Fandom Wiki",
     "origins": [
       {
         "origin": "Star Citizen Fandom Wiki",
@@ -1060,7 +1060,7 @@
   },
   {
     "id": "en-stardewvalley",
-    "label": "Stardew Valley Fandom Wiki",
+    "origins_label": "Stardew Valley Fandom Wiki",
     "origins": [
       {
         "origin": "Stardew Valley Fandom Wiki",
@@ -1076,7 +1076,7 @@
   },
   {
     "id": "en-starfy",
-    "label": "Starfy Fandom Wiki",
+    "origins_label": "Starfy Fandom Wiki",
     "origins": [
       {
         "origin": "Starfy Fandom Wiki",
@@ -1092,7 +1092,7 @@
   },
   {
     "id": "en-suikoden",
-    "label": "Suikoden Fandom Wiki",
+    "origins_label": "Suikoden Fandom Wiki",
     "origins": [
       {
         "origin": "Suikoden Fandom Wiki",
@@ -1108,7 +1108,7 @@
   },
   {
     "id": "en-supersmashbros",
-    "label": "Super Smash Bros. Fandom Wiki",
+    "origins_label": "Super Smash Bros. Fandom Wiki",
     "origins": [
       {
         "origin": "Super Smash Bros. Fandom Wiki",
@@ -1124,7 +1124,7 @@
   },
   {
     "id": "en-teamfortress",
-    "label": "Team Fortress Fandom Wiki",
+    "origins_label": "Team Fortress Fandom Wiki",
     "origins": [
       {
         "origin": "Team Fortress Fandom Wiki",
@@ -1140,7 +1140,7 @@
   },
   {
     "id": "en-tearsofthemis",
-    "label": "Tears of Themis Fandom Wiki",
+    "origins_label": "Tears of Themis Fandom Wiki",
     "origins": [
       {
         "origin": "Tears of Themis Fandom Wiki",
@@ -1156,7 +1156,7 @@
   },
   {
     "id": "en-thecyclefrontier",
-    "label": "The Cycle: Frontier Fandom Wiki",
+    "origins_label": "The Cycle: Frontier Fandom Wiki",
     "origins": [
       {
         "origin": "The Cycle: Frontier Fandom Wiki",
@@ -1172,7 +1172,7 @@
   },
   {
     "id": "en-touhou",
-    "label": "Touhou Fandom Wiki",
+    "origins_label": "Touhou Fandom Wiki",
     "origins": [
       {
         "origin": "Touhou Fandom Wiki",
@@ -1188,7 +1188,7 @@
   },
   {
     "id": "en-transformers",
-    "label": "Transformers Fandom Wiki",
+    "origins_label": "Transformers Fandom Wiki",
     "origins": [
       {
         "origin": "Transformers Fandom Wiki",
@@ -1204,7 +1204,7 @@
   },
   {
     "id": "en-worldflipper",
-    "label": "World Flipper Fandom Wiki",
+    "origins_label": "World Flipper Fandom Wiki",
     "origins": [
       {
         "origin": "World Flipper Fandom Wiki",
@@ -1220,7 +1220,7 @@
   },
   {
     "id": "en-worldtrigger",
-    "label": "World Trigger Fandom Wiki",
+    "origins_label": "World Trigger Fandom Wiki",
     "origins": [
       {
         "origin": "World Trigger Fandom Wiki",
@@ -1236,7 +1236,7 @@
   },
   {
     "id": "en-zelda",
-    "label": "Zelda Fandom Wiki",
+    "origins_label": "Zelda Fandom Wiki",
     "origins": [
       {
         "origin": "Zelda Fandom Wiki",
