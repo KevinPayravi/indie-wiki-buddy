@@ -1107,6 +1107,22 @@
     "destination_icon": "starfy.png"
   },
   {
+    "id": "en-sto",
+    "origins_label": "Star Trek Online Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Star Trek Online Fandom Wiki",
+        "origin_base_url": "sto.fandom.com",
+        "origin_content_path": "/wiki/",
+      }
+    ],
+    "destination": "Star Trek Online Wiki",
+    "destination_base_url": "stowiki.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sto.png"
+  },
+  {
     "id": "en-suikoden",
     "origins_label": "Suikoden Fandom Wiki",
     "origins": [
