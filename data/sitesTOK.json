@@ -1,9 +1,14 @@
 [
   {
     "id": "tok-wikipesija",
-    "origin": "Toki Pona Fandom Wiki",
-    "origin_base_url": "tokipona.fandom.com",
-    "origin_content_path": "/wiki/",
+    "origins_label": "Toki Pona Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Toki Pona Fandom Wiki",
+        "origin_base_url": "tokipona.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Wikipesija",
     "destination_base_url": "wikipesija.org",
     "destination_content_path": "/wiki/",

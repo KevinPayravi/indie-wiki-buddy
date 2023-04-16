@@ -1,9 +1,14 @@
 [
   {
     "id": "es-animalcrossing",
-    "origin": "Animal Crossing Fandom Wiki",
-    "origin_base_url": "animalcrossing.fandom.com/es",
-    "origin_content_path": "/wiki/",
+    "origins_label": "Animal Crossing Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Animal Crossing Fandom Wiki",
+        "origin_base_url": "animalcrossing.fandom.com/es",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Animal Crossing Enciclopedia",
     "destination_base_url": "animalcrossing.wikidex.net",
     "destination_content_path": "/wiki/",
@@ -12,9 +17,14 @@
   },
   {
     "id": "es-supersmashbros",
-    "origin": "Smashpedia Fandom Wiki",
-    "origin_base_url": "supersmashbros.fandom.com/es",
-    "origin_content_path": "/wiki/",
+    "origins_label": "Smashpedia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Smashpedia Fandom Wiki",
+        "origin_base_url": "supersmashbros.fandom.com/es",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "SmashPedia",
     "destination_base_url": "es.ssbwiki.com",
     "destination_content_path": "/wiki/",
@@ -23,9 +33,14 @@
   },
   {
     "id": "es-touhou",
-    "origin": "Touhou Fandom Wiki",
-    "origin_base_url": "touhou.fandom.com/es",
-    "origin_content_path": "/wiki/",
+    "origins_label": "Touhou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Touhou Fandom Wiki",
+        "origin_base_url": "touhou.fandom.com/es",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Touhou Wiki",
     "destination_base_url": "es.touhouwiki.net",
     "destination_content_path": "/wiki/",
@@ -34,9 +49,14 @@
   },
   {
     "id": "es-pokemon",
-    "origin": "WikiDex (Fandom)",
-    "origin_base_url": "pokemon.fandom.com/es",
-    "origin_content_path": "/wiki/",
+    "origins_label": "WikiDex (Fandom)",
+    "origins": [
+      {
+        "origin": "WikiDex (Fandom)",
+        "origin_base_url": "pokemon.fandom.com/es",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "WikiDex",
     "destination_base_url": "www.wikidex.net",
     "destination_content_path": "/wiki/",

@@ -5,81 +5,123 @@
     <meta charset="UTF-8" />
     <title>Indie Wiki Buddy</title>
     <style>
+      /* ELEMENTS */
       body {
-        width: 550px;
-        max-width: 96%;
-        margin: 10px;
+        width: max-content;
+        max-width: 600px;
+        background-color: #005799;
+        margin: 0px;
         font-family: Helvetica, Sans-Serif;
+        font-size: .9em;
       }
 
       h1 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        margin: 8px 0;
       }
 
       hr {
         height: 1px;
         border: none;
-        color: #333;
-        background-color: #333;
+        color: #005799;
+        background-color: #005799;
+        margin: 1em 0;
       }
 
-      label {
-        display: inline-block;
-        height: 20px;
-      }
-
-      .visuallyHidden {
-        position: absolute !important;
-        width: 1px !important;
-        height: 1px !important;
-        padding: 0 !important;
-        margin: -1px !important;
-        overflow: hidden !important;
-        clip: rect(0, 0, 0, 0) !important;
-        white-space: nowrap !important;
-        border: 0 !important;
-      }
-
-      .options {
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-        user-select: none;
-        row-gap: 2px;
-      }
-
-      .options > div {
-        flex: 50%;
-        padding: 5px;
-      }
-
-      #controls {
-        margin: 0 auto;
-        width: fit-content;
+      #openSettingsContainer {
+        width: 100%;
         text-align: center;
       }
-
-      .control {
-        background: #ffffff;
-        border: 1px solid #333333;
-        color: #333333;
-        border-radius: 5px;
-        padding: 3px 5px;
-        margin: 3px 5px;
-      }
-      .control:hover {
-        cursor: pointer;
+      #openSettings {
         background: #3174f1;
+        border: 1px solid #333333;
+        color: #fff;
+        border-radius: 5px;
+        padding: .5em;
+        margin: 0 .5em .5em .5em;
+        font-size: 1.3em;
+      }
+      #openSettings:hover {
+        cursor: pointer;
+        background: #ffffff;
         border: 1px solid#3174f1;
-        color: #ffffff;
+        color: #3174f1;
       }
 
+      /* HEADER */
+      #header {
+        line-height: 1.5em;
+        padding: .5em 1em;
+        box-sizing: border-box; 
+        background-color: #005799;
+        color: #fff;
+        width: 100%;
+      }
+      #header .settingToggle label {
+        background-color: #fff;
+        border-radius: 20px;
+        height: fit-content;
+        width: fit-content;
+      }
+
+      /* POWER TOGGLE */
+      #power {
+        cursor: pointer;
+        width: fit-content;
+        vertical-align: middle;
+        float: right;
+        padding-top: .2em;
+      }
+      #power > label {
+        display: inline-block;
+        cursor: pointer;
+        background-color: #fff;
+        border-radius: 20px;
+      }
+      #power > input {
+        height: 0;
+        width: 0;
+        margin: 0;
+        border: none;
+        appearance: none;
+      }
+      #power img {
+        width: 30px;
+        vertical-align: middle;
+      }
+
+      /* CONTENT */
+      #content {
+        padding: 1em;
+        background-color: #e5f4ff;
+        box-sizing: border-box;
+      }
+
+      #links {
+        text-align: center;
+        margin-bottom: .5em;
+      }
+
+      /* GLOBAL SETTINGS SECTION */
+      .options {
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        user-select: none;
+        width: 100%;
+      }
+      .options .settingToggleContainer {
+        padding-bottom: 10px;
+      }
+      .options .settingToggleContainer:last-child {
+        padding: 0px;
+      }
+
+      /* GLOBAL SETTING TOGGLES */
       .settingToggleContainer {
         display: flex;
         flex-direction: row;
         align-items: baseline;
       }
-
       .settingToggle {
         cursor: pointer;
         width: fit-content;
@@ -93,227 +135,107 @@
       .settingToggle label {
         cursor: pointer;
       }
-      .settingToggle input {
-        height: 0;
-        width: 0;
-        margin: 0;
-        border: none;
-        appearance: none;
-      }
-      .settingToggle img {
-        width: 30px;
-        vertical-align: middle;
-      }
 
-      #toggles {
-        height: 16em;
-        white-space: nowrap;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        position: relative;
-      }
-      #toggles > div:hover {
-        background-color: #e8f0fe;
-      }
-      #toggles input {
-        cursor: pointer;
-      }
-      #toggles > div {
-        line-height: 1.2em;
-        font-size: 1em;
-      }
-      #toggles img {
-        width: 16px;
-        height: 16px;
-        max-height: 1.2em;
-      }
-      #toggles a {
-        float: right;
-        padding-right: 10px;
-        clear: both;
-      }
-      #toggles span {
-        padding-left: 10px;
-      }
-      #togglesKey {
-        padding-left: 5px;
-      }
-      #togglesKey > div {
-        display: inline-block;
-        width: 17px;
-      }
-
-      .header,
-      .footer {
-        text-align: center;
-        line-height: 1.4em;
-      }
-
-      .footer a {
-        font-size: 0.9em;
-        padding: 5px 0px;
-        color: #3174f1;
-      }
-
-      #toggles,
-      #powerText,
-      .settingToggleContainer,
-      .footer {
-        font-size: 0.8rem;
-      }
-
-      #langSelectContainer {
-        float: right;
-        text-align: right;
-        margin-top: 10px;
-        padding-right: 10px;
-      }
       #breezewikiHost {
         display: none;
+        padding-left: 10px;
+      }
+      #breezewikiHost > label {
         padding-left: 10px;
       }
     </style>
   </head>
 
   <body>
-    <div class="header">
+    <div id="header">
+      <div id="power">
+        <input id="powerCheckbox" type="checkbox" />
+        <label for="powerCheckbox">
+          <img id="powerImage" src="" alt="" width="30" />
+        </label>
+      </div>
       <h1>Indie Wiki Buddy</h1>
     </div>
-    <div id="langSelectContainer">
-      <select name="lang" id="langSelect">
-        <option value="DE">Deutsch</option>
-        <option value="EN" selected>English</option>
-        <option value="ES">Español</option>
-        <option value="FR">Français</option>
-        <option value="IT">Italiano</option>
-        <option value="PL">Polski</option>
-        <option value="TOK">Toki Pona</option>
-      </select>
-    </div>
-    <div class="options">
-      <div class="settingToggleContainer">
-        <div id="power" class="settingToggle">
-          <input id="powerButton" type="checkbox" />
-          <label for="powerButton">
-            <img id="powerImage" src="" alt="" />
-            <span id="powerText"></span>
-          </label>
+    <div id="content">
+      <div class="options">
+        <div class="settingToggleContainer">
+          <div id="notifications" class="settingToggle">
+            <input id="notificationsCheckbox" type="checkbox" />
+            <label for="notificationsCheckbox">
+              <span id="notificationsText">🔔 Desktop notifications when redirected to an indie wiki or BreezeWiki</span>
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="settingToggleContainer">
-        <div id="notifications" class="settingToggle">
-          <input id="notificationsButton" type="checkbox" />
-          <label for="notificationsButton">
-            <img id="notificationsImage" src="" alt="" />
-            <span id="notificationsText"></span>
-          </label>
+        <div class="settingToggleContainer">
+          <div id="searchFilter" class="settingToggle">
+            <input id="searchFilterCheckbox" type="checkbox" />
+            <label for="searchFilterCheckbox">
+              <span id="searchFilterText">🔎 Filter non-indie wiki results in Google, Bing, & DuckDuckGo</span>
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="settingToggleContainer">
-        <div id="breezewiki" class="settingToggle">
-          <input id="breezewikiButton" type="checkbox" />
-          <label for="breezewikiButton">
-            <img id="breezewikiImage" src="" alt="" />
-            <span id="breezewikiText"></span>
-          </label>
-        </div>
-        <div>
+        <div class="settingToggleContainer">
+          <div id="breezewiki" class="settingToggle">
+            <input id="breezewikiCheckbox" type="checkbox" />
+            <label for="breezewikiCheckbox">
+              <span id="breezewikiText">🌬️ Use BreezeWiki on Fandom</span>
+            </label>
+          </div>
           <div>
-            &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank"
-              >learn more</a
-            >)
+            <div>
+              &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank"
+                >learn more</a
+              >)
+            </div>
+          </div>
+        </div>
+        <div class="settingToggleContainer">
+          <div id="breezewikiHost" class="settingToggle">
+            <label for="breezewikiHostSelect">BreezeWiki Host:&nbsp;</label>
+            <select name="breezewikiHost" id="breezewikiHostSelect"></select>
           </div>
         </div>
       </div>
-      <div class="settingToggleContainer">
-        <div id="breezewikiHost" class="settingToggle">
-          <label for="breezewikiHostSelect">BreezeWiki host: </label>
-          <select name="breezewikiHost" id="breezewikiHostSelect"></select>
-        </div>
+      <hr/>
+      <div id="openSettingsContainer">
+        <button id="openSettings">
+          View All Settings
+        </button>
+        <br />
+        View all settings to configure your options per-wiki.
       </div>
-    </div>
-    <hr />
-    <div id="controls">
-      <button id="setAllDisabled" class="control">
-        <img src="images/toggle-disabled.png" width="10" alt="" /> Disable all
-      </button>
-      <button id="setAllRedirect" class="control">
-        <img src="images/toggle-redirect.png" width="10" alt="" /> Set all to
-        redirect
-      </button>
-      <button id="setAllAlert" class="control">
-        <img src="images/toggle-alert.png" width="10" alt="" /> Set all to
-        notify
-      </button>
-      <br />
-      <button id="setAllSearchFilter" class="control">
-        <img src="images/toggle-search-filter.png" width="10" alt="" /> Filter
-        search for all
-      </button>
-      <button id="setNoneSearchFilter" class="control">
-        <img src="images/toggle-search-filter.png" width="10" alt="" /> Filter
-        search for none
-      </button>
-    </div>
-    <br />
-    <div id="togglesKey">
-      <div>
-        <img
-          src="images/toggle-disabled.png"
-          width="15"
-          alt="Disable"
-          title="Disable"
-        />
+      <hr />
+      <div id="links">
+        <a
+          href="guide.html"
+          target="_blank"
+          >Guide</a
+        >
+        &nbsp;&nbsp;&nbsp;
+        <a
+          href="https://getindie.wiki/#guide"
+          target="_blank"
+          >Website</a
+        >
+        &nbsp;&nbsp;&nbsp;
+        <a
+          href="https://getindie.wiki/changelog/"
+          target="_blank"
+          >Changelog</a
+        >
+        &nbsp;&nbsp;&nbsp;
+        <a
+          href="https://getindie.wiki/#submit"
+          target="_blank"
+          >Submit a Wiki</a
+        >
+        &nbsp;&nbsp;&nbsp;
+        <a
+          href="https://github.com/KevinPayravi/indie-wiki-buddy"
+          target="_blank"
+          >Source Code</a
+        >
       </div>
-      <div>
-        <img
-          src="images/toggle-redirect.png"
-          width="15"
-          alt="Automatically redirect to indie wiki"
-          title="Automatically redirect to indie wiki"
-        />
-      </div>
-      <div>
-        <img
-          src="images/toggle-alert.png"
-          width="15"
-          alt="Notify of indie wiki with banner"
-          title="Notify of indie wiki with banner"
-        />
-      </div>
-      <div>
-        <img
-          src="images/toggle-search-filter.png"
-          width="15"
-          alt="Filter results from search engines"
-          title="Filter results from search engines"
-        />
-      </div>
-    </div>
-    <div id="toggles"></div>
-    <hr />
-    <div class="footer">
-      You have been notified of indie wikis <span id="countAlerts"></span> times
-      and redirected <span id="countRedirects"></span> times. Search results
-      have been filtered <span id="countSearchFilters"></span> times.
-      <br />
-      <span id="version"></span>&nbsp;&nbsp;|&nbsp;&nbsp;<a
-        href="https://getindie.wiki/"
-        target="_blank"
-        >Info & Help</a
-      >&nbsp;&nbsp;|&nbsp;&nbsp;<a
-        href="https://getindie.wiki/changelog/"
-        target="_blank"
-        >Changelog</a
-      >&nbsp;&nbsp;|&nbsp;&nbsp;<a
-        href="https://form.getindie.wiki/"
-        target="_blank"
-        >Submit a Wiki</a
-      >&nbsp;&nbsp;|&nbsp;&nbsp;<a
-        href="https://github.com/KevinPayravi/indie-wiki-buddy"
-        target="_blank"
-        >Source Code</a
-      >
     </div>
   </body>
   <script type="text/javascript" src="popup.js"></script>

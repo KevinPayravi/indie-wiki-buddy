@@ -1,5 +1,6 @@
 const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com/;
 const fandomRegex = /\.fandom\.com$/;
+const fextraRegex = /\.fextralife\.com$/;
 const breezeWikiRegex = /breeze\.777\.tf$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$/;
 const currentURL = new URL(document.location);
 
@@ -23,7 +24,7 @@ function addLocationObserver(callback) {
   observer.observe(document.body, config);
 }
 
-// Load website data
+// Load website data:
 async function getData() {
   const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
   let sites = [];
@@ -32,8 +33,22 @@ async function getData() {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
       .then(function (jsonData) {
-        jsonData.forEach((site) => site.language = LANGS[i]);
-        sites = sites.concat(jsonData);
+        jsonData.forEach((site) => {
+          site.origins.forEach((origin) => {
+            sites.push({
+              "id": site.id,
+              "origin": origin.origin,
+              "origin_base_url": origin.origin_base_url,
+              "origin_content_path": origin.origin_content_path,
+              "destination": site.destination,
+              "destination_base_url":  site.destination_base_url,
+              "destination_content_path":  site.destination_content_path,
+              "destination_platform":  site.destination_platform,
+              "destination_icon":  site.destination_icon,
+              "lang": LANGS[i]
+            })
+          })
+        });
       }));
   }
   await Promise.all(promises);
@@ -44,7 +59,7 @@ function displayRedirectBanner(url, destination, storage) {
   // Output banner
   var banner = document.createElement('div');
   banner.id = 'indie-wiki-banner';
-  banner.style.fontSize = '1.2em';
+  banner.style.fontSize = '18px';
   banner.style.fontFamily = 'sans-serif';
   banner.style.width = '100%';
   banner.style.zIndex = '2147483647';
@@ -180,7 +195,7 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
 
 // Check if search engine results, Fandom, or a BreezeWiki host:
 function checkSite() {
-  if (currentURL.hostname.match(searchEngineRegex) || currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(breezeWikiRegex)) {
+  if (currentURL.hostname.match(searchEngineRegex) || currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(fextraRegex) || currentURL.hostname.match(breezeWikiRegex)) {
     return true;
   }
 }
@@ -192,9 +207,9 @@ function main(mutations = null, observer = null) {
   chrome.storage.sync.get(function (storage) {
     // Check if extension is on:
     if ((storage.power ?? 'on') === 'on') {
-      // Check if on Fandom or BreezeWiki
+      // Check if on Fandom, Fextralife, or BreezeWiki
       // If on BreezeWiki, check if there is a pathname (which indicates we are looking at a wiki)
-      if (currentURL.hostname.match(fandomRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
+      if (currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(fextraRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
         let origin = currentURL;
         // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
         if (currentURL.hostname.match(breezeWikiRegex)) {
@@ -259,49 +274,51 @@ function main(mutations = null, observer = null) {
             }
           }
         });
-      } else if (currentURL.hostname.includes('www.google.')) {
-        // Check if doing a Google search:
-        function filterGoogle() {
-          let fandomSearchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']");
-          filterSearchResults(fandomSearchResults, 'google', storage);
-        }
-        addLocationObserver(main);
-        filterGoogle();
-      } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
-        // Check if doing a Duck Duck Go search:
-        function filterDuckDuckGo() {
-          let fandomSearchResults = document.querySelectorAll("h2>a[href*='fandom.com']");
-          filterSearchResults(fandomSearchResults, 'duckduckgo', storage);
-        }
-        // Need to wait for document to be ready
-        if (document.readyState === 'complete') {
+      } else if ((storage.searchFilter ?? 'on') === 'on') {
+        if (currentURL.hostname.includes('www.google.')) {
+          // Check if doing a Google search:
+          function filterGoogle() {
+            let searchResults = document.querySelectorAll("div[lang] a[href*='fandom.com'], div[lang] a[href*='fextralife.com']");
+            filterSearchResults(searchResults, 'google', storage);
+          }
           addLocationObserver(main);
-          filterDuckDuckGo();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterDuckDuckGo();
-            }
-          });
-        }
-      } else if (currentURL.hostname.includes('www.bing.com')) {
-        // Check if doing a Bing search:
-        function filterBing() {
-          let fandomSearchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com'));
-          filterSearchResults(fandomSearchResults, 'bing', storage);
-        }
-        // Need to wait for document to be ready
-        if (document.readyState === 'complete') {
-          addLocationObserver(main);
-          filterBing();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterBing();
-            }
-          });
+          filterGoogle();
+        } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
+          // Check if doing a Duck Duck Go search:
+          function filterDuckDuckGo() {
+            let searchResults = document.querySelectorAll("h2>a[href*='fandom.com'], h2>a[href*='fextralife.com']");
+            filterSearchResults(searchResults, 'duckduckgo', storage);
+          }
+          // Need to wait for document to be ready
+          if (document.readyState === 'complete') {
+            addLocationObserver(main);
+            filterDuckDuckGo();
+          } else {
+            document.addEventListener('readystatechange', e => {
+              if (document.readyState === 'complete') {
+                addLocationObserver(main);
+                filterDuckDuckGo();
+              }
+            });
+          }
+        } else if (currentURL.hostname.includes('www.bing.com')) {
+          // Check if doing a Bing search:
+          function filterBing() {
+            let searchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
+            filterSearchResults(searchResults, 'bing', storage);
+          }
+          // Need to wait for document to be ready
+          if (document.readyState === 'complete') {
+            addLocationObserver(main);
+            filterBing();
+          } else {
+            document.addEventListener('readystatechange', e => {
+              if (document.readyState === 'complete') {
+                addLocationObserver(main);
+                filterBing();
+              }
+            });
+          }
         }
       }
     }

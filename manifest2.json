@@ -43,6 +43,7 @@
     {
       "matches": [
         "https://*.fandom.com/*",
+        "https://*.fextralife.com/*",
         "https://breezewiki.com/*",
         "https://antifandom.com/*",
         "https://bw.projectsegfau.lt/*",

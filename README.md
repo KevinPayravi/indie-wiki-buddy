@@ -50,9 +50,14 @@ Entries are formatted as follows:
 ```
 {
   "id": "en-example",
-  "origin": "Example Fandom Wiki",
-  "origin_base_url": "example.fandom.com",
-  "origin_content_path": "/wiki/",
+  "origins_label": "Example Fandom Wiki",
+  "origins": [
+    {
+      "origin": "Example Fandom Wiki",
+      "origin_base_url": "example.fandom.com",
+      "origin_content_path": "/wiki/"
+    }
+  ]
   "destination": "Example Wiki",
   "destination_base_url": "example.com",
   "destination_content_path": "/w/",
@@ -62,6 +67,8 @@ Entries are formatted as follows:
 ```
 
 * `id`: A unique identifier for the wiki; should start with the two-letter language code for the wiki, followed by a hypen and the name of the subject/franchise the wiki covers.
+* `label`: A label that is shown to the user, identifying the non-indie wiki(s). This is usually just the name of the wiki, but in the case of multiple wikis, it may be something like "Example Fandom Wikis" (plural).
+* `origins`: An array of wikis being redirected to the independent wiki. The vast majority of the time, there is just one wiki here. There may be multiple when a series has multiple wikis that combined into one independent wiki; when a Fandom wiki has archived alternatives; or when there are multiple non-independent wikis across multiple wiki farms.
 * `origin`: Name of the wiki being redirected.
 * `origin_base_url`: Fully qualified domain name of the wiki being redirected.
 * `origin_content_path`: The URL path prefix for article links on the wiki being redirected. On MediaWiki wikis, it can be found at Special:Version. Fandom wikis are usually `/wiki/`.

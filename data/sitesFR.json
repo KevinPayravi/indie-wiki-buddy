@@ -1,9 +1,14 @@
 [
   {
     "id": "fr-dragonquest",
-    "origin": "Dragon Quest Fandom Wiki",
-    "origin_base_url": "dragonquest.fandom.com/fr",
-    "origin_content_path": "/wiki/",
+    "origins_label": "Dragon Quest Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dragon Quest Fandom Wiki",
+        "origin_base_url": "dragonquest.fandom.com/fr",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Wiki Dragon Quest",
     "destination_base_url": "wikidragonquest.fr",
     "destination_content_path": "/",
@@ -12,9 +17,14 @@
   },
   {
     "id": "fr-pokemon",
-    "origin": "Pokémon Fandom Wiki",
-    "origin_base_url": "pokemon.fandom.com/fr",
-    "origin_content_path": "/wiki/",
+    "origins_label": "Pokémon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/fr",
+        "origin_content_path": "/wiki/"
+      }
+    ],
     "destination": "Poképédia",
     "destination_base_url": "www.pokepedia.fr",
     "destination_content_path": "/",
