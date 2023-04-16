@@ -1108,9 +1108,14 @@
   },
   {
     "id": "en-sto",
-    "origin": "Star Trek Online Fandom Wiki",
-    "origin_base_url": "sto.fandom.com",
-    "origin_content_path": "/wiki/",
+    "origins_label": "Star Trek Online Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Star Trek Online Fandom Wiki",
+        "origin_base_url": "sto.fandom.com",
+        "origin_content_path": "/wiki/",
+      }
+    ],
     "destination": "Star Trek Online Wiki",
     "destination_base_url": "stowiki.net",
     "destination_content_path": "/wiki/",
