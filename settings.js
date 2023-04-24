@@ -160,7 +160,7 @@ async function loadOptions(lang) {
         inputFilter.classList = 'toggleFilter';
         inputFilter.type = 'checkbox';
         inputFilter.name = key;
-        inputFilter.title = 'Filter from search results on Google, Bing, and DuckDuckGo';
+        inputFilter.title = 'Filter ' + sites[i].origins_label + ' from Google, Bing, and DuckDuckGo';
         inputFilter.id = key + '-filter';
         inputFilter.lang = lang;
 
@@ -406,7 +406,7 @@ function setBreezeWiki(setting) {
     document.getElementById('breezewikiCheckbox').checked = false;
   }
   if (setting === 'on') {
-    breezewikiHost.style.display = 'inline';
+    breezewikiHost.style.display = 'inline-block';
     chrome.storage.sync.get({ 'breezewikiHost': null }, function (host) {
       if (!host.breezewikiHost) {
         fetch('https://bw.getindie.wiki/instances.json')

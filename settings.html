@@ -21,7 +21,7 @@
         border: none;
         color: #005799;
         background-color: #005799;
-        margin: .5em 0px;
+        margin: 1em 0 .5em 0;
       }
 
       h1 {
@@ -94,16 +94,15 @@
       .options {
         margin: 0 auto;
         box-sizing: border-box;
-        margin-bottom: 10px;
         padding: 6px 0px 12px 10px;
         user-select: none;
         width: fit-content;
       }
       .options .settingToggleContainer {
-        padding-bottom: 10px;
+        padding-bottom: .8em;
       }
       .options .settingToggleContainer:last-child {
-        padding: 0px;
+        padding-bottom: 0;
       }
 
       /* GLOBAL SETTING TOGGLES */
@@ -138,6 +137,7 @@
       #breezewikiHost {
         display: none;
         padding-left: 3em;
+        padding-top: .8em;
       }
       #breezewikiHost label {
         cursor: default;
@@ -307,17 +307,15 @@
               </label>
             </div>
             <div>
-              <div>
-                &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank"
-                  >learn more</a
-                >)
-              </div>
+              &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank"
+                >learn more</a
+              >)
             </div>
-          </div>
-          <div class="settingToggleContainer">
-            <div id="breezewikiHost" class="settingToggle">
-              <label for="breezewikiHostSelect">BreezeWiki Host:&nbsp;</label>
-              <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+            <div class="settingToggleContainer">
+              <div id="breezewikiHost" class="settingToggle">
+                <label for="breezewikiHostSelect">BreezeWiki Host:&nbsp;</label>
+                <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+              </div>
             </div>
           </div>
         </div>
