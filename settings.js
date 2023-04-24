@@ -267,7 +267,8 @@ async function loadOptions(lang) {
         labelFilter.appendChild(inputFilter);
         labelFilter.appendChild(inputFilterText);
 
-        // Output icon
+        // Output wiki info:
+        let wikiInfo = document.createElement('span');
         let iconLink = document.createElement("a");
         iconLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
         iconLink.title = 'Visit ' + sites[i].destination;
@@ -276,19 +277,19 @@ async function loadOptions(lang) {
         icon.src = 'favicons/' + lang.toLowerCase() + '/' + sites[i].destination_icon;
         icon.alt = 'Visit ' + sites[i].destination;
         iconLink.appendChild(icon);
-
-        // Output text:
-        let text = document.createElement('span');
-        text.textContent = sites[i].origins_label + ' » ' + sites[i].destination;
+        wikiInfo.appendChild(iconLink);
+        wikiInfo.innerHTML += sites[i].origins_label + ' » ' + sites[i].destination;
         let siteContainer = document.createElement("div");
 
-        siteContainer.appendChild(labelDisabled);
-        siteContainer.appendChild(labelRedirect);
-        siteContainer.appendChild(labelAlert);
-        siteContainer.appendChild(labelFilter);
-        siteContainer.appendChild(iconLink);
-        siteContainer.appendChild(text);
-
+        // Output inputs container:
+        let inputsContainer = document.createElement('div');
+        inputsContainer.appendChild(labelDisabled);
+        inputsContainer.appendChild(labelRedirect);
+        inputsContainer.appendChild(labelAlert);
+        inputsContainer.appendChild(labelFilter);
+        inputsContainer.classList = 'inputsContainer';
+        siteContainer.appendChild(wikiInfo);
+        siteContainer.appendChild(inputsContainer);
         toggleContainer.appendChild(siteContainer);
       }
     }

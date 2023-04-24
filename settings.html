@@ -176,7 +176,7 @@
         font-size: 0.8rem;
         white-space: nowrap;
         position: relative;
-        padding: 0px 2px;
+        padding: 0 1em;
       }
       #toggles > div:hover {
         background-color: #e8f0fe;
@@ -185,30 +185,38 @@
         cursor: pointer;
       }
       #toggles > div {
-        line-height: 1.8em;
+        line-height: 2em;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+      }
+      #toggles .inputsContainer {
+        float: right;
       }
       #toggles img {
-        width: 16px;
-        height: 16px;
-        max-height: 1.2em;
+        width: 1.2em;
+        height: 1.2em;
+        vertical-align: middle;
       }
       #toggles a {
-        float: right;
-        padding-right: 10px;
-        clear: both;
+        line-height: 1.2em;
+        padding-right: .5em;
       }
       #toggles span {
-        padding-left: .7em;
+        flex-grow: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       #togglesKey {
-        padding-left: 7px;
+        padding-right: 15px;
+        text-align: right;
       }
       #togglesKey > div {
         display: inline-block;
         width: 17px;
       }
 
-      #togglesKey>div:last-child, #toggles>div>label:last-of-type {
+      #togglesKey>div:last-child, #toggles>div>div>label:last-of-type {
         margin-left: .5em;
       }
 
@@ -339,7 +347,7 @@
           </button>
           <button id="setAllAlert">
             <img src="images/toggle-alert.png" width="10" alt="" /> Set all to
-            alert of indie wikis
+            notify of indie wikis
           </button>
           <br />
           <button id="setAllSearchFilter">
