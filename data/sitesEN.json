@@ -192,6 +192,22 @@
     "destination_icon": "chrono.png"
   },
   {
+    "id": "en-commodore64",
+    "origins_label": "Commodore 64 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Commodore 64 Fandom Wiki",
+        "origin_base_url": "commodore64.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "C64-Wiki",
+    "destination_base_url": "www.c64-wiki.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "c64.png"
+  },
+  {
     "id": "en-criticalrole",
     "origins_label": "Critical Role Fandom Wiki",
     "origins": [
