@@ -48,6 +48,22 @@
     "destination_icon": "arms.png"
   },
   {
+    "id": "en-barotrauma",
+    "origins_label": "Barotrauma Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Barotrauma Fandom Wiki",
+        "origin_base_url": "barotrauma.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Barotrauma Wiki",
+    "destination_base_url": "barotraumagame.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "barotrauma.png"
+  },
+  {
     "id": "en-bakugan",
     "origins_label": "Bakugan Fandom Wiki",
     "origins": [
