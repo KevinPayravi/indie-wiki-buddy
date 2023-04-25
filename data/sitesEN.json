@@ -1251,6 +1251,27 @@
     "destination_icon": "transformers.png"
   },
   {
+    "id": "en-vvvvvv",
+    "origins_label": "VVVVVV Fandom Wikis",
+    "origins": [
+      {
+        "origin": "VVVVVV Fandom Wiki",
+        "origin_base_url": "vvvvvv.fandom.com",
+        "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Space Station VVVVVV Fandom Wiki",
+        "origin_base_url": "spacestation.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Viki",
+    "destination_base_url": "vsix.dev",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "viki.png"
+  },
+  {
     "id": "en-worldflipper",
     "origins_label": "World Flipper Fandom Wiki",
     "origins": [
