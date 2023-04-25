@@ -165,7 +165,7 @@ async function main(eventInfo, eventName) {
                       let searchParams = '';
                       switch (site['destination_platform']) {
                         case 'mediawiki':
-                          searchParams = '?title=Special:Search&search=' + article;
+                          searchParams = 'Special:Search/' + article;
                           break;
                         case 'doku':
                           searchParams = 'start?do=search&q=' + article;
