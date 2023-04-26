@@ -835,6 +835,22 @@
     "destination_icon": "equestripedia.png"
   },
   {
+    "id": "en-mysterydungeon",
+    "origins_label": "Pokémon Mystery Dungeon Wiki",
+    "origins": [
+      {
+        "origin": "Pokémon Mystery Dungeon Wiki",
+        "origin_base_url": "pmd-rt-archive.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Mystery Dungeon Wiki",
+    "destination_base_url": "mysterydungeonwiki.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mysterydungeon.png"
+  },
+  {
     "id": "en-nethack",
     "origins_label": "NetHack Fandom Wiki",
     "origins": [
