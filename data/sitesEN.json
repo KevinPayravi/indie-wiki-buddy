@@ -836,10 +836,10 @@
   },
   {
     "id": "en-mysterydungeon",
-    "origins_label": "Pokémon Mystery Dungeon Wiki",
+    "origins_label": "Pokémon Mystery Dungeon Fandom Wiki",
     "origins": [
       {
-        "origin": "Pokémon Mystery Dungeon Wiki",
+        "origin": "Pokémon Mystery Dungeon Fandom Wiki",
         "origin_base_url": "pmd-rt-archive.fandom.com",
         "origin_content_path": "/wiki/"
       }
