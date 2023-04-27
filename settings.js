@@ -456,8 +456,14 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!item.hideReviewReminder && ((countSettingsOpened - 1) % 5 === 0)) {
         document.getElementById('notificationBanner').style.display = 'block';
 
-        // Hide review reminder if user clicks 'hide' link:
-        document.getElementById('hideReviewReminderLink').addEventListener('click', function () {
+        // Disable future review reminders if user clicks links:
+        document.getElementById('reviewReminderChromeLink').addEventListener('click', function () {
+          chrome.storage.local.set({ 'hideReviewReminder': true });
+        });  
+        document.getElementById('reviewReminderFirefoxLink').addEventListener('click', function () {
+          chrome.storage.local.set({ 'hideReviewReminder': true });
+        });
+        document.getElementById('reviewReminderHideLink').addEventListener('click', function () {
           chrome.storage.local.set({ 'hideReviewReminder': true });
           document.getElementById('notificationBanner').style.display = 'none';
         });      
