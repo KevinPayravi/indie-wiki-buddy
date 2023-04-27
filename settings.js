@@ -436,6 +436,27 @@ function setBreezeWiki(setting) {
 
 // Main function that runs on-load
 document.addEventListener('DOMContentLoaded', function () {
+  // Count number of times settings have been opened
+  // Purposefully using local storage instead of sync
+  chrome.storage.local.get({ 'countSettingsOpened': 0 }, function (item) {
+    const countSettingsOpened = item.countSettingsOpened;
+    chrome.storage.local.set({ 'countSettingsOpened': countSettingsOpened + 1 });
+
+    // Show review reminder every 5 opens,
+    // and if the banner hasn't been previously dismissed
+    chrome.storage.local.get({ 'hideReviewReminder': false }, function (item) {
+      if (!item.hideReviewReminder && ((countSettingsOpened - 1) % 5 === 0)) {
+        document.getElementById('notificationBanner').style.display = 'block';
+
+        // Hide review reminder if user clicks 'hide' link:
+        document.getElementById('hideReviewReminderLink').addEventListener('click', function () {
+          chrome.storage.local.set({ 'hideReviewReminder': true });
+          document.getElementById('notificationBanner').style.display = 'none';
+        });      
+      }
+    });
+  });
+
   // Adding version to popup:
   const version = chrome.runtime.getManifest().version;
   document.getElementById('version').textContent = 'v' + version;
