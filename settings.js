@@ -358,8 +358,10 @@ async function loadOptions(lang) {
 }
 
 // Set power setting
-function setPower(setting) {
-  chrome.storage.sync.set({ 'power': setting });
+function setPower(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'power': setting });
+  }
   var powerImage = document.getElementById('powerImage');
   powerImage.src = 'images/power-' + setting + '.png';
   var powerText = document.getElementById('powerText');
@@ -377,8 +379,10 @@ function setPower(setting) {
 }
 
 // Set notifications setting
-function setNotifications(setting) {
-  chrome.storage.sync.set({ 'notifications': setting });
+function setNotifications(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'notifications': setting });
+  }
   if (setting === 'on') {
     document.getElementById('notificationsCheckbox').checked = true;
   } else {
@@ -387,8 +391,10 @@ function setNotifications(setting) {
 }
 
 // Set search filter setting
-function setSearchFilter(setting) {
-  chrome.storage.sync.set({ 'searchFilter': setting });
+function setSearchFilter(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'searchFilter': setting });
+  }
   if (setting === 'on') {
     document.getElementById('searchFilterCheckbox').checked = true;
   } else {
@@ -397,8 +403,10 @@ function setSearchFilter(setting) {
 }
 
 // Set BreezeWiki settings
-function setBreezeWiki(setting) {
-  chrome.storage.sync.set({ 'breezewiki': setting });
+function setBreezeWiki(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'breezewiki': setting });
+  }
   var breezewikiHost = document.getElementById('breezewikiHost');
   if (setting === 'on') {
     document.getElementById('breezewikiCheckbox').checked = true;
@@ -464,7 +472,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get user's last set language
   chrome.storage.sync.get({ 'lang': 'EN' }, function (item) {
     langSelect.value = item.lang;
-    chrome.storage.sync.set({ 'lang': item.lang });
     loadOptions(item.lang);
   });
   // Add event listener for language select
@@ -477,16 +484,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Set setting toggle values:
   chrome.storage.sync.get({ 'power': 'on' }, function (item) {
-    setPower(item.power);
+    setPower(item.power, false);
   });
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
-    setNotifications(item.notifications);
+    setNotifications(item.notifications, false);
   });
   chrome.storage.sync.get({ 'searchFilter': 'on' }, function (item) {
-    setSearchFilter(item.searchFilter);
+    setSearchFilter(item.searchFilter, false);
   });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
-    setBreezeWiki(item.breezewiki);
+    setBreezeWiki(item.breezewiki, false);
   });
 
   // Add event listeners for setting toggles
@@ -534,17 +541,14 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get and display stat counts
   chrome.storage.sync.get({ 'countAlerts': 0 }, function (item) {
     var key = Object.keys(item)[0];
-    chrome.storage.sync.set({ 'countAlerts': item[key] });
     document.getElementById('countAlerts').textContent = item[key];
   });
   chrome.storage.sync.get({ 'countRedirects': 0 }, function (item) {
     var key = Object.keys(item)[0];
-    chrome.storage.sync.set({ 'countRedirects': item[key] });
     document.getElementById('countRedirects').textContent = item[key];
   });
   chrome.storage.sync.get({ 'countSearchFilters': 0 }, function (item) {
     var key = Object.keys(item)[0];
-    chrome.storage.sync.set({ 'countSearchFilters': item[key] });
     document.getElementById('countSearchFilters').textContent = item[key];
   });  
 });

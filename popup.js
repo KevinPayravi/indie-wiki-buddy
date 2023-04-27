@@ -84,8 +84,10 @@ async function loadBreezeWikiOptions() {
 }
 
 // Set power setting
-function setPower(setting) {
-  chrome.storage.sync.set({ 'power': setting });
+function setPower(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'power': setting });
+  }
   var powerImage = document.getElementById('powerImage');
   powerImage.src = 'images/power-' + setting + '.png';
   powerImage.alt = 'Indie Wiki Buddy is ' + setting;
@@ -102,8 +104,10 @@ function setPower(setting) {
 }
 
 // Set notifications setting
-function setNotifications(setting) {
-  chrome.storage.sync.set({ 'notifications': setting });
+function setNotifications(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'notifications': setting });
+  }
   if (setting === 'on') {
     document.getElementById('notificationsCheckbox').checked = true;
   } else {
@@ -112,8 +116,10 @@ function setNotifications(setting) {
 }
 
 // Set search filter setting
-function setSearchFilter(setting) {
-  chrome.storage.sync.set({ 'searchFilter': setting });
+function setSearchFilter(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'searchFilter': setting });
+  }
   if (setting === 'on') {
     document.getElementById('searchFilterCheckbox').checked = true;
   } else {
@@ -122,8 +128,10 @@ function setSearchFilter(setting) {
 }
 
 // Set BreezeWiki settings
-function setBreezeWiki(setting) {
-  chrome.storage.sync.set({ 'breezewiki': setting });
+function setBreezeWiki(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'breezewiki': setting });
+  }
   if (setting === 'on') {
     document.getElementById('breezewikiCheckbox').checked = true;
   } else {
@@ -171,16 +179,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Set setting toggle values:
   chrome.storage.sync.get({ 'power': 'on' }, function (item) {
-    setPower(item.power);
+    setPower(item.power, false);
   });
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
-    setNotifications(item.notifications);
+    setNotifications(item.notifications, false);
   });
   chrome.storage.sync.get({ 'searchFilter': 'on' }, function (item) {
-    setSearchFilter(item.searchFilter);
+    setSearchFilter(item.searchFilter, false);
   });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
-    setBreezeWiki(item.breezewiki);
+    setBreezeWiki(item.breezewiki, false);
   });
 
   // Add event listeners for setting toggles
