@@ -110,18 +110,13 @@
         width: 100%;
       }
       .options .settingToggleContainer {
-        padding-bottom: 10px;
+        padding-bottom: .8em;
       }
       .options .settingToggleContainer:last-child {
-        padding: 0px;
+        padding-bottom: 0;
       }
 
       /* GLOBAL SETTING TOGGLES */
-      .settingToggleContainer {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-      }
       .settingToggle {
         cursor: pointer;
         width: fit-content;
@@ -138,10 +133,8 @@
 
       #breezewikiHost {
         display: none;
-        padding-left: 10px;
-      }
-      #breezewikiHost > label {
-        padding-left: 10px;
+        padding-left: 3em;
+        padding-top: 0.8em;
       }
     </style>
   </head>
@@ -188,11 +181,11 @@
               >)
             </div>
           </div>
-        </div>
-        <div class="settingToggleContainer">
-          <div id="breezewikiHost" class="settingToggle">
-            <label for="breezewikiHostSelect">BreezeWiki host:&nbsp;</label>
-            <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+          <div class="settingToggleContainer">
+            <div id="breezewikiHost" class="settingToggle">
+              <label for="breezewikiHostSelect">BreezeWiki host:&nbsp;</label>
+              <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+            </div>
           </div>
         </div>
       </div>
