@@ -1,6 +1,6 @@
 // Set power setting
 function setPower(setting) {
-  chrome.storage.sync.set({ 'power': setting });
+  chrome.storage.local.set({ 'power': setting });
   var powerImage = document.getElementById('powerImage');
   powerImage.src = 'images/power-' + setting + '.png';
   powerImage.alt = 'Indie Wiki Buddy is ' + setting;
@@ -86,7 +86,7 @@ async function loadBreezeWikiOptions() {
 // Set power setting
 function setPower(setting, storeSetting = true) {
   if (storeSetting) {
-    chrome.storage.sync.set({ 'power': setting });
+    chrome.storage.local.set({ 'power': setting });
   }
   var powerImage = document.getElementById('powerImage');
   powerImage.src = 'images/power-' + setting + '.png';
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Set setting toggle values:
-  chrome.storage.sync.get({ 'power': 'on' }, function (item) {
+  chrome.storage.local.get({ 'power': 'on' }, function (item) {
     setPower(item.power, false);
   });
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add event listeners for setting toggles
   document.getElementById('powerCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'power': 'on' }, function (item) {
+    chrome.storage.local.get({ 'power': 'on' }, function (item) {
       if (item.power === 'on') {
         setPower('off');
       } else {

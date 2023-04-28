@@ -204,124 +204,127 @@ function main(mutations = null, observer = null) {
   if (observer) {
     observer.disconnect();
   }
-  chrome.storage.sync.get(function (storage) {
-    // Check if extension is on:
-    if ((storage.power ?? 'on') === 'on') {
-      // Check if on Fandom, Fextralife, or BreezeWiki
-      // If on BreezeWiki, check if there is a pathname (which indicates we are looking at a wiki)
-      if (currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(fextraRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
-        let origin = currentURL;
-        // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
-        if (currentURL.hostname.match(breezeWikiRegex)) {
-          origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
-          if (currentURL.search.includes('?q=')) {
-            origin = origin + currentURL.search.substring(3).split('&')[0];
-          } else {
-            origin = origin + currentURL.pathname.split('/')[3];
+  chrome.storage.local.get(function (localStorage) {
+    chrome.storage.sync.get(function (syncStorage) {
+      const storage = {...syncStorage, ...localStorage};
+      // Check if extension is on:
+      if ((storage.power ?? 'on') === 'on') {
+        // Check if on Fandom, Fextralife, or BreezeWiki
+        // If on BreezeWiki, check if there is a pathname (which indicates we are looking at a wiki)
+        if (currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(fextraRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
+          let origin = currentURL;
+          // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
+          if (currentURL.hostname.match(breezeWikiRegex)) {
+            origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
+            if (currentURL.search.includes('?q=')) {
+              origin = origin + currentURL.search.substring(3).split('&')[0];
+            } else {
+              origin = origin + currentURL.pathname.split('/')[3];
+            }
           }
-        }
-        getData().then(sites => {
-          // Check if site is in our list of wikis:
-          let matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
-          if (matchingSites.length > 0) {
-            // Select match with longest base URL 
-            let closestMatch = "";
-            matchingSites.forEach(site => {
-              if (site.origin_base_url.length > closestMatch.length) {
-                closestMatch = site.origin_base_url;
-              }
-            });
-            let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-            if (site) {
-              // Get user's settings for the wiki
-              let settings = storage.siteSettings || {};
-              let id = site['id'];
-              let siteSetting = '';
-              if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
-                siteSetting = settings[id].action;
-              } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
-                siteSetting = storage.defaultActionSettings[site.language];
-              } else {
-                siteSetting = 'alert';
-              }
-              // Notify if enabled for the wiki:
-              if (siteSetting === 'alert') {
-                // Get article name from the end of the URL;
-                // We can't just take the last part of the path due to subpages;
-                // Instead, we take everything after the wiki's base URL + content path:
-                let article = String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1];
-                // Set up URL to redirect user to based on wiki platform:
-                if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
-                  let newURL = '';
-                  if (article) {
-                    let searchParams = '';
-                    switch (site['destination_platform']) {
-                      case 'mediawiki':
-                        searchParams = 'Special:Search/' + article;
-                        break;
-                      case 'doku':
-                        searchParams = 'start?do=search&q=' + article;
-                        break;
+          getData().then(sites => {
+            // Check if site is in our list of wikis:
+            let matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+            if (matchingSites.length > 0) {
+              // Select match with longest base URL 
+              let closestMatch = "";
+              matchingSites.forEach(site => {
+                if (site.origin_base_url.length > closestMatch.length) {
+                  closestMatch = site.origin_base_url;
+                }
+              });
+              let site = matchingSites.find(site => site.origin_base_url === closestMatch);
+              if (site) {
+                // Get user's settings for the wiki
+                let settings = storage.siteSettings || {};
+                let id = site['id'];
+                let siteSetting = '';
+                if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
+                  siteSetting = settings[id].action;
+                } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
+                  siteSetting = storage.defaultActionSettings[site.language];
+                } else {
+                  siteSetting = 'alert';
+                }
+                // Notify if enabled for the wiki:
+                if (siteSetting === 'alert') {
+                  // Get article name from the end of the URL;
+                  // We can't just take the last part of the path due to subpages;
+                  // Instead, we take everything after the wiki's base URL + content path:
+                  let article = String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1];
+                  // Set up URL to redirect user to based on wiki platform:
+                  if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
+                    let newURL = '';
+                    if (article) {
+                      let searchParams = '';
+                      switch (site['destination_platform']) {
+                        case 'mediawiki':
+                          searchParams = 'Special:Search/' + article;
+                          break;
+                        case 'doku':
+                          searchParams = 'start?do=search&q=' + article;
+                          break;
+                      }
+                      newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+                    } else {
+                      newURL = 'https://' + site["destination_base_url"];
                     }
-                    newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
-                  } else {
-                    newURL = 'https://' + site["destination_base_url"];
+                    // Notify that another wiki is available
+                    displayRedirectBanner(newURL, site['destination'], storage);
                   }
-                  // Notify that another wiki is available
-                  displayRedirectBanner(newURL, site['destination'], storage);
                 }
               }
             }
-          }
-        });
-      } else if ((storage.searchFilter ?? 'on') === 'on') {
-        if (currentURL.hostname.includes('www.google.')) {
-          // Check if doing a Google search:
-          function filterGoogle() {
-            let searchResults = document.querySelectorAll("div[lang] a[href*='fandom.com'], div[lang] a[href*='fextralife.com']");
-            filterSearchResults(searchResults, 'google', storage);
-          }
-          addLocationObserver(main);
-          filterGoogle();
-        } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
-          // Check if doing a Duck Duck Go search:
-          function filterDuckDuckGo() {
-            let searchResults = document.querySelectorAll("h2>a[href*='fandom.com'], h2>a[href*='fextralife.com']");
-            filterSearchResults(searchResults, 'duckduckgo', storage);
-          }
-          // Need to wait for document to be ready
-          if (document.readyState === 'complete') {
+          });
+        } else if ((storage.searchFilter ?? 'on') === 'on') {
+          if (currentURL.hostname.includes('www.google.')) {
+            // Check if doing a Google search:
+            function filterGoogle() {
+              let searchResults = document.querySelectorAll("div[lang] a[href*='fandom.com'], div[lang] a[href*='fextralife.com']");
+              filterSearchResults(searchResults, 'google', storage);
+            }
             addLocationObserver(main);
-            filterDuckDuckGo();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (document.readyState === 'complete') {
-                addLocationObserver(main);
-                filterDuckDuckGo();
-              }
-            });
-          }
-        } else if (currentURL.hostname.includes('www.bing.com')) {
-          // Check if doing a Bing search:
-          function filterBing() {
-            let searchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
-            filterSearchResults(searchResults, 'bing', storage);
-          }
-          // Need to wait for document to be ready
-          if (document.readyState === 'complete') {
-            addLocationObserver(main);
-            filterBing();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (document.readyState === 'complete') {
-                addLocationObserver(main);
-                filterBing();
-              }
-            });
+            filterGoogle();
+          } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
+            // Check if doing a Duck Duck Go search:
+            function filterDuckDuckGo() {
+              let searchResults = document.querySelectorAll("h2>a[href*='fandom.com'], h2>a[href*='fextralife.com']");
+              filterSearchResults(searchResults, 'duckduckgo', storage);
+            }
+            // Need to wait for document to be ready
+            if (document.readyState === 'complete') {
+              addLocationObserver(main);
+              filterDuckDuckGo();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (document.readyState === 'complete') {
+                  addLocationObserver(main);
+                  filterDuckDuckGo();
+                }
+              });
+            }
+          } else if (currentURL.hostname.includes('www.bing.com')) {
+            // Check if doing a Bing search:
+            function filterBing() {
+              let searchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
+              filterSearchResults(searchResults, 'bing', storage);
+            }
+            // Need to wait for document to be ready
+            if (document.readyState === 'complete') {
+              addLocationObserver(main);
+              filterBing();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (document.readyState === 'complete') {
+                  addLocationObserver(main);
+                  filterBing();
+                }
+              });
+            }
           }
         }
       }
-    }
+    });
   });
 }
 

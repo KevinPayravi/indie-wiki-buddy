@@ -127,82 +127,85 @@ async function main(eventInfo, eventName) {
 
         sites = await getData();
 
-        chrome.storage.sync.get(function (storage) {
-          if ((storage.power ?? 'on') === 'on') {
-            // Check if site is in our list of wikis:
-            let matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
-            if (matchingSites.length > 0) {
-              // Select match with longest base URL 
-              let closestMatch = "";
-              matchingSites.forEach(site => {
-                if (site.origin_base_url.length > closestMatch.length) {
-                  closestMatch = site.origin_base_url;
-                }
-              });
-              let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-              if (site) {
-                // Get user's settings for the wiki
-                let settings = storage.siteSettings || {};
-                let id = site['id'];
-                let siteSetting = '';
-                if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
-                  siteSetting = settings[id].action;
-                } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
-                  siteSetting = storage.defaultActionSettings[site.language];
-                } else {
-                  siteSetting = 'alert';
-                }
-                // Check if redirects are enabled for the site:
-                if (siteSetting === 'redirect') {
-                  // Get article name from the end of the URL;
-                  // We can't just take the last part of the path due to subpages;
-                  // Instead, we take everything after the wiki's base URL + content path:
-                  let article = url.href.split(site['origin_base_url'] + site['origin_content_path'])[1];
-                  // Set up URL to redirect user to based on wiki platform:
-                  if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
-                    let newURL = '';
-                    if (article) {
-                      let searchParams = '';
-                      switch (site['destination_platform']) {
-                        case 'mediawiki':
-                          searchParams = 'Special:Search/' + article;
-                          break;
-                        case 'doku':
-                          searchParams = 'start?do=search&q=' + article;
-                          break;
-                      }
-                      newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
-                    } else {
-                      newURL = 'https://' + site["destination_base_url"];
-                    }
-
-                    // Perform redirect:
-                    chrome.tabs.update(eventInfo.tabId, { url: newURL });
-                    // Increase global redirect count:
-                    chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
-
-                    // Notify if enabled
-                    if ((storage.notifications ?? 'on') === 'on') {
-                      // Notify that user is being redirected
-                      let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
-                      chrome.notifications.create(notifID, {
-                        "type": "basic",
-                        "iconUrl": 'images/logo-48.png',
-                        "title": "You've been redirected!",
-                        "message": "Indie Wiki Buddy has sent you from " + site['origin'] + " to " + site['destination']
-                      });
-                      // Self-clear notification after 6 seconds:
-                      setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
-                    }
+        chrome.storage.local.get(function (localStorage) {
+          chrome.storage.sync.get(function (syncStorage) {
+            const storage = {...syncStorage, ...localStorage};
+            if ((storage.power ?? 'on') === 'on') {
+              // Check if site is in our list of wikis:
+              let matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+              if (matchingSites.length > 0) {
+                // Select match with longest base URL 
+                let closestMatch = "";
+                matchingSites.forEach(site => {
+                  if (site.origin_base_url.length > closestMatch.length) {
+                    closestMatch = site.origin_base_url;
                   }
-                } else if ((storage.breezewiki ?? 'off') === 'on') {
-                  redirectToBreezeWiki(storage, eventInfo, url);
+                });
+                let site = matchingSites.find(site => site.origin_base_url === closestMatch);
+                if (site) {
+                  // Get user's settings for the wiki
+                  let settings = storage.siteSettings || {};
+                  let id = site['id'];
+                  let siteSetting = '';
+                  if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
+                    siteSetting = settings[id].action;
+                  } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
+                    siteSetting = storage.defaultActionSettings[site.language];
+                  } else {
+                    siteSetting = 'alert';
+                  }
+                  // Check if redirects are enabled for the site:
+                  if (siteSetting === 'redirect') {
+                    // Get article name from the end of the URL;
+                    // We can't just take the last part of the path due to subpages;
+                    // Instead, we take everything after the wiki's base URL + content path:
+                    let article = url.href.split(site['origin_base_url'] + site['origin_content_path'])[1];
+                    // Set up URL to redirect user to based on wiki platform:
+                    if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
+                      let newURL = '';
+                      if (article) {
+                        let searchParams = '';
+                        switch (site['destination_platform']) {
+                          case 'mediawiki':
+                            searchParams = 'Special:Search/' + article;
+                            break;
+                          case 'doku':
+                            searchParams = 'start?do=search&q=' + article;
+                            break;
+                        }
+                        newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+                      } else {
+                        newURL = 'https://' + site["destination_base_url"];
+                      }
+
+                      // Perform redirect:
+                      chrome.tabs.update(eventInfo.tabId, { url: newURL });
+                      // Increase global redirect count:
+                      chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
+
+                      // Notify if enabled
+                      if ((storage.notifications ?? 'on') === 'on') {
+                        // Notify that user is being redirected
+                        let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
+                        chrome.notifications.create(notifID, {
+                          "type": "basic",
+                          "iconUrl": 'images/logo-48.png',
+                          "title": "You've been redirected!",
+                          "message": "Indie Wiki Buddy has sent you from " + site['origin'] + " to " + site['destination']
+                        });
+                        // Self-clear notification after 6 seconds:
+                        setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
+                      }
+                    }
+                  } else if ((storage.breezewiki ?? 'off') === 'on') {
+                    redirectToBreezeWiki(storage, eventInfo, url);
+                  }
                 }
+              } else if ((storage.breezewiki ?? 'off') === 'on') {
+                redirectToBreezeWiki(storage, eventInfo, url);
               }
-            } else if ((storage.breezewiki ?? 'off') === 'on') {
-              redirectToBreezeWiki(storage, eventInfo, url);
             }
-          }
+          });
         });
       }
     });
