@@ -60,8 +60,18 @@ async function loadOptions(lang) {
         // or if it has been 24 hrs since last refresh
         if (!host || !hostOptions || !hostFetchTimestamp || (Date.now() - 86400000 > hostFetchTimestamp)) {
           fetch('https://bw.getindie.wiki/instances.json')
-            .then((response) => response.json())
-            .then((breezewikiHosts) => {
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              }
+              throw new Error('Indie Wiki Buddy failed to get BreezeWiki data.');
+            }).then((breezewikiHosts) => {
+              breezewikiHosts = breezewikiHosts.filter(host =>
+                chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
+                  undefined, 
+                  { numeric: true, sensitivity: 'base' }
+                ) >= 0
+              );
               // If host isn't set, or currently selected host is no longer available, select random host:
               if (!host || !breezewikiHosts.some(item => item.instance === host)) {
                 // Check if BreezeWiki's main site is available
@@ -70,7 +80,11 @@ async function loadOptions(lang) {
                   host = breezewikiMain[0].instance;
                 } else {
                   // If BreezeWiki.com is not available, set to a random mirror
-                  host = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+                  try {
+                    host = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+                  } catch (e) {
+                    console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
+                  }
                 }
               }
               // Populate dropdown selection of hosts
@@ -93,6 +107,8 @@ async function loadOptions(lang) {
               chrome.storage.sync.set({ 'breezewikiHost': host });
               chrome.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
               chrome.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
+            }).catch((e) => {
+              console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
             });
         } else {
           // If currently selected host is no longer available, select random host:
@@ -421,20 +437,36 @@ function setBreezeWiki(setting, storeSetting = true) {
     chrome.storage.sync.get({ 'breezewikiHost': null }, function (host) {
       if (!host.breezewikiHost) {
         fetch('https://bw.getindie.wiki/instances.json')
-          .then((response) => response.json())
-          .then((breezewikiHosts) => {
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Indie Wiki Buddy failed to get BreezeWiki data.');
+          }).then((breezewikiHosts) => {
+            breezewikiHosts = breezewikiHosts.filter(host =>
+              chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
+                undefined, 
+                { numeric: true, sensitivity: 'base' }
+              ) >= 0
+            );
             // Check if BreezeWiki's main site is available
             let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
             if (breezewikiMain.length > 0) {
               host.breezewikiHost = breezewikiMain[0].instance;
             } else {
               // If BreezeWiki.com is not available, set to a random mirror
-              host.breezewikiHost = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+              try {
+                host.breezewikiHost = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+              } catch (e) {
+                console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
+              }
             }
             chrome.storage.sync.set({ 'breezewikiHost': host.breezewikiHost });
             chrome.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
             chrome.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
             document.getElementById('breezewikiHostSelect').value = host.breezewikiHost;
+          }).catch((e) => {
+            console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
           });
       } else {
         document.getElementById('breezewikiHostSelect').value = host.breezewikiHost;
