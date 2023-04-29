@@ -5,6 +5,102 @@ chrome.webNavigation.onBeforeNavigate.addListener(event => main(event, 'onBefore
 chrome.webNavigation.onCreatedNavigationTarget.addListener(event => main(event, 'onCreatedNavigationTarget'));
 chrome.webNavigation.onCommitted.addListener(event => main(event, 'onCommitted'));
 
+if (chrome.declarativeNetRequest) {
+  // In Manifest v3:
+  // Whenever stored settings change, update the header
+  // that is sent to BreezeWiki instances to inform them the user has IWB
+  updateDeclarativeRule(details);
+  chrome.storage.onChanged.addListener(event => updateDeclarativeRule());
+
+} else {
+  // In Manifest v2:
+  // On main frame BreezeWiki requests, update the header
+  // that is sent to BreezeWiki instances to inform them the user has IWB
+  chrome.webRequest.onBeforeSendHeaders.addListener(async (details) =>
+    addHeaderToRequest(details),
+    {
+      urls: [
+        '*://breezewiki.com/*',
+        '*://antifandom.com/*',
+        '*://bw.projectsegfau.lt/*',
+        '*://breeze.hostux.net/*',
+        '*://breeze.777.tf/*',
+        '*://breezewiki.pussthecat.org/*',
+        '*://bw.vern.cc/*',
+        '*://breezewiki.esmailelbob.xyz/*'
+      ],
+      types: [
+        'main_frame'
+      ]
+    },
+    ["blocking", "requestHeaders"]
+  );
+}
+
+function addHeaderToRequest(details) {
+  return new Promise((resolve) => {
+    chrome.storage.local.get(async (localStorage) => {
+      await chrome.storage.sync.get((syncStorage) => {
+        const storage = { ...syncStorage, ...localStorage };
+        const headerValue = JSON.stringify({
+          'power': storage.power,
+          'breezewiki': storage.breezewiki
+        });
+        details.requestHeaders.push({ name: 'x-indie-wiki', value: headerValue });
+        resolve({ requestHeaders: details.requestHeaders });
+      });
+    });
+  });
+}
+
+function updateDeclarativeRule() {
+  chrome.storage.local.get(function (localStorage) {
+    chrome.storage.sync.get(function (syncStorage) {
+      const storage = { ...syncStorage, ...localStorage };
+      console.log(storage);
+      const headerValue = JSON.stringify({
+        'power': storage.power ?? 'on',
+        'breezewiki': storage.breezewiki ?? 'off'
+      });
+      console.log(headerValue);
+      chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [1],
+        addRules: [
+          {
+            "id": 1,
+            "priority": 1,
+            "action": {
+              "type": "modifyHeaders",
+              "requestHeaders": [
+                {
+                  "operation": "set",
+                  "header": "x-indie-wiki",
+                  "value": headerValue
+                }
+              ]
+            },
+            "condition": {
+              "requestDomains": [
+                "breezewiki.com",
+                "antifandom.com",
+                "bw.projectsegfau.lt",
+                "breeze.hostux.net",
+                "breeze.777.tf",
+                "breezewiki.pussthecat.org",
+                "bw.vern.cc",
+                "breezewiki.esmailelbob.xyz"
+              ],
+              "resourceTypes": [
+                "main_frame"
+              ]
+            }
+          }
+        ]
+      });
+    });
+  });
+}
+
 // Listen for user turning extension on or off, to update icon
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
   if (msg.action === "updateIcon") {
@@ -60,7 +156,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
         }).then((breezewikiHosts) => {
           breezewikiHosts = breezewikiHosts.filter(host =>
             chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
-              undefined, 
+              undefined,
               { numeric: true, sensitivity: 'base' }
             ) >= 0
           );
@@ -105,10 +201,10 @@ async function getData() {
               "origin_base_url": origin.origin_base_url,
               "origin_content_path": origin.origin_content_path,
               "destination": site.destination,
-              "destination_base_url":  site.destination_base_url,
-              "destination_content_path":  site.destination_content_path,
-              "destination_platform":  site.destination_platform,
-              "destination_icon":  site.destination_icon,
+              "destination_base_url": site.destination_base_url,
+              "destination_content_path": site.destination_content_path,
+              "destination_platform": site.destination_platform,
+              "destination_icon": site.destination_icon,
               "lang": LANGS[i]
             })
           })
@@ -145,7 +241,7 @@ async function main(eventInfo, eventName) {
 
         chrome.storage.local.get(function (localStorage) {
           chrome.storage.sync.get(function (syncStorage) {
-            const storage = {...syncStorage, ...localStorage};
+            const storage = { ...syncStorage, ...localStorage };
             if ((storage.power ?? 'on') === 'on') {
               // Check if site is in our list of wikis:
               let matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));

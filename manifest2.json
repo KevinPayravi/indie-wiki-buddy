@@ -5,7 +5,18 @@
   "permissions": [
     "storage",
     "webNavigation",
-    "notifications"
+    "webRequest",
+    "webRequestBlocking",
+    "notifications",
+    "https://breezewiki.com/*",
+    "https://antifandom.com/*",
+    "https://bw.projectsegfau.lt/*",
+    "https://breeze.hostux.net/*",
+    "https://breeze.777.tf/*",
+    "https://breezewiki.pussthecat.org/*",
+    "https://bw.vern.cc/*",
+    "https://breezewiki.esmailelbob.xyz/*",
+    "https://bw.artemislena.eu/*"
   ],
   "icons": {
     "16": "images/logo-16.png",

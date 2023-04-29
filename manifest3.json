@@ -5,6 +5,7 @@
   "permissions": [
     "storage",
     "webNavigation",
+    "declarativeNetRequest",
     "notifications"
   ],
   "icons": {
@@ -458,10 +459,16 @@
       "run_at": "document_start"
     }
   ],
-  "applications": {
-    "gecko": {
-      "id": "{cb31ec5d-c49a-4e5a-b240-16c767444f62}"
-    }
-  },
+  "host_permissions": [
+    "https://breezewiki.com/*",
+    "https://antifandom.com/*",
+    "https://bw.projectsegfau.lt/*",
+    "https://breeze.hostux.net/*",
+    "https://breeze.777.tf/*",
+    "https://breezewiki.pussthecat.org/*",
+    "https://bw.vern.cc/*",
+    "https://breezewiki.esmailelbob.xyz/*",
+    "https://bw.artemislena.eu/*"
+  ],
   "manifest_version": 3
 }
