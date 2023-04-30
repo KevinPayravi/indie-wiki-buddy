@@ -296,7 +296,7 @@ async function loadOptions(lang) {
           icon.alt = 'Visit ' + sites[i].destination;
           iconLink.appendChild(icon);
           wikiInfo.appendChild(iconLink);
-          wikiInfo.innerHTML += sites[i].origins_label + ' » ' + sites[i].destination;
+          wikiInfo.appendChild(document.createTextNode(sites[i].origins_label + ' » ' + sites[i].destination));
           let siteContainer = document.createElement("div");
 
           // Output inputs container:
