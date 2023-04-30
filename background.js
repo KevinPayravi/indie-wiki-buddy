@@ -9,9 +9,8 @@ if (chrome.declarativeNetRequest) {
   // In Manifest v3:
   // Whenever stored settings change, update the header
   // that is sent to BreezeWiki instances to inform them the user has IWB
-  updateDeclarativeRule(details);
+  updateDeclarativeRule();
   chrome.storage.onChanged.addListener(event => updateDeclarativeRule());
-
 } else {
   // In Manifest v2:
   // On main frame BreezeWiki requests, update the header
