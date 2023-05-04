@@ -1,4 +1,4 @@
-const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com/;
+const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com|search\.brave\.com/;
 const fandomRegex = /\.fandom\.com$/;
 const fextraRegex = /\.fextralife\.com$/;
 const breezeWikiRegex = /breeze\.777\.tf$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$/;
@@ -167,11 +167,17 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
                   cssQuery = 'div.nrn-react-div';
                 }
                 break;
+              case 'brave':
+                if (searchResult.closest('div.snippet')) {
+                  cssQuery = 'div.snippet';
+                }
+                break;
               default:
             }
             if (cssQuery) {
               let searchListing = document.createElement('div');
               searchListing.style.fontStyle = 'italic';
+              searchListing.style.color = 'var(--search-text-03)';
               let searchListingLink = document.createElement('a');
               searchListingLink.href = 'https://' + site.destination_base_url;
               searchListingLink.textContent = site.destination;
@@ -318,6 +324,24 @@ function main(mutations = null, observer = null) {
                 if (document.readyState === 'complete') {
                   addLocationObserver(main);
                   filterBing();
+                }
+              });
+            }
+          } else if (currentURL.hostname.includes('search.brave.com')) {
+            // Check if doing a Brave search:
+            function filterBrave() {
+              let searchResults = Array.from(document.querySelectorAll(".result-header")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
+              filterSearchResults(searchResults, 'brave', storage);
+            }
+            // Need to wait for document to be ready
+            if (document.readyState === 'complete') {
+              addLocationObserver(main);
+              filterBrave();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (document.readyState === 'complete') {
+                  addLocationObserver(main);
+                  filterBrave();
                 }
               });
             }

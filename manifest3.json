@@ -1,6 +1,6 @@
 {
   "name": "Indie Wiki Buddy",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
   "permissions": [
     "storage",
@@ -50,6 +50,7 @@
         "https://bw.artemislena.eu/*",
         "https://*.duckduckgo.com/*",
         "https://www.bing.com/*",
+        "https://search.brave.com/*",
         "https://www.google.com/*",
         "https://www.google.ad/*",
         "https://www.google.ae/*",
@@ -262,6 +263,7 @@
         "https://bw.artemislena.eu/*",
         "https://*.duckduckgo.com/*",
         "https://*.bing.com/search*",
+        "https://search.brave.com/search*",
         "https://www.google.com/search*",
         "https://www.google.ad/search*",
         "https://www.google.ae/search*",
