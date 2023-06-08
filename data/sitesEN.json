@@ -803,22 +803,6 @@
     "destination_icon": "microwiki.png"
   },
   {
-    "id": "en-mrlovequeenschoice",
-    "origins_label": "Mr. Love: Queen's Choice Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Mr. Love: Queen's Choice Fandom Wiki",
-        "origin_base_url": "mr-love-queens-choice.fandom.com",
-        "origin_content_path": "/wiki/"
-      }
-    ],
-    "destination": "Mr. Love Wiki",
-    "destination_base_url": "mrlove.wiki",
-    "destination_content_path": "/wiki/",
-    "destination_platform": "mediawiki",
-    "destination_icon": "mrlove.png"
-  },
-  {
     "id": "en-mylittlepony",
     "origins_label": "My Little Pony Fandom Wiki",
     "origins": [
@@ -1302,22 +1286,6 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "viki.png"
-  },
-  {
-    "id": "en-worldflipper",
-    "origins_label": "World Flipper Fandom Wiki",
-    "origins": [
-      {
-        "origin": "World Flipper Fandom Wiki",
-        "origin_base_url": "worldflipper.fandom.com",
-        "origin_content_path": "/wiki/"
-      }
-    ],
-    "destination": "World Flipper Wiki",
-    "destination_base_url": "worldflipper.miraheze.org",
-    "destination_content_path": "/wiki/",
-    "destination_platform": "mediawiki",
-    "destination_icon": "worldflipper.png"
   },
   {
     "id": "en-worldtrigger",
