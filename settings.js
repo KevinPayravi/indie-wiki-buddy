@@ -479,6 +479,17 @@ function setBreezeWiki(setting, storeSetting = true) {
 
 // Main function that runs on-load
 document.addEventListener('DOMContentLoaded', function () {
+  
+  notificationBanner = document.getElementById('notificationBanner');
+  
+  // If running Chromium, show warning about service worker bug
+  console.log('wooo');
+  if (navigator.userAgent.match(/Chrom[e|ium]/)) {
+    console.log('weee');
+    notificationBanner.style.display = 'block';
+    document.getElementById('notificationBannerBug').style.display = 'block';
+  }
+
   // Count number of times settings have been opened
   // Purposefully using local storage instead of sync
   chrome.storage.local.get({ 'countSettingsOpened': 0 }, function (item) {
@@ -489,19 +500,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // and if the banner hasn't been previously dismissed
     chrome.storage.local.get({ 'hideReviewReminder': false }, function (item) {
       if (!item.hideReviewReminder && ((countSettingsOpened - 1) % 5 === 0)) {
-        document.getElementById('notificationBanner').style.display = 'block';
+        notificationBanner.style.display = 'block';
+        document.getElementById('notificationBannerReview').style.display = ' block';
 
         // Disable future review reminders if user clicks links:
         document.getElementById('reviewReminderChromeLink').addEventListener('click', function () {
           chrome.storage.local.set({ 'hideReviewReminder': true });
-        });  
+        });
         document.getElementById('reviewReminderFirefoxLink').addEventListener('click', function () {
           chrome.storage.local.set({ 'hideReviewReminder': true });
         });
         document.getElementById('reviewReminderHideLink').addEventListener('click', function () {
           chrome.storage.local.set({ 'hideReviewReminder': true });
-          document.getElementById('notificationBanner').style.display = 'none';
-        });      
+          notificationBanner.style.display = 'none';
+        });
       }
     });
   });

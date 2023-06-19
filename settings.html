@@ -99,6 +99,14 @@
         line-height: 1.3em;
         padding: 1em;
       }
+      #notificationBanner span {
+        display: none;
+      }
+      #notificationBanner span[style*="display: block"] + span[style*="display: block"]{
+        padding-top: .75em;
+        margin-top: .75em;
+        border-top: 1px solid #000;
+      }
 
       /* GLOBAL SETTINGS SECTION */
       .options {
@@ -282,15 +290,21 @@
         >
       </div>
       <div id="notificationBanner">
-        Enjoying Indie Wiki Buddy? Please leave a review!
-        <br />
-        <a id="reviewReminderChromeLink" target="_blank" href="https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm">Chrome</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a id="reviewReminderFirefoxLink" target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/">Firefox</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a id="reviewReminderHideLink" href="#">Hide this message</a>
-        <br /><br />
-        Having issues or ideas for improvement? Please <a target="_blank" href="https://getindie.wiki/#contact">contact me</a>!
+        <span id="notificationBannerBug">
+          Chrome users: Due to a <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1271154" target="_blank">browser bug</a>,
+          this extension may stop working after an update. If this happens, try restarting your browser.
+        </span>
+        <span id="notificationBannerReview">
+          Enjoying Indie Wiki Buddy? Please leave a review!
+          <br />
+          <a id="reviewReminderChromeLink" target="_blank" href="https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm">Chrome</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a id="reviewReminderFirefoxLink" target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/">Firefox</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a id="reviewReminderHideLink" href="#">Hide this message</a>
+          <br /><br />
+          Having issues or ideas for improvement? Please <a target="_blank" href="https://getindie.wiki/#contact">contact me</a>!
+        </span>
       </div>
       <div id="content">
         <h2>Global settings</h2>

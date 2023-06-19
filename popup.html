@@ -64,6 +64,23 @@
         width: fit-content;
       }
 
+      /* NOTIFICATIONS */
+      #notificationBanner {
+        display: none;
+        background-color: #f8f3d6;
+        font-size: .9em;
+        line-height: 1.3em;
+        padding: 1em;
+      }
+      #notificationBanner span {
+        display: none;
+      }
+      #notificationBanner span[style*="display: block"] + span[style*="display: block"]{
+        padding-top: .75em;
+        margin-top: .75em;
+        border-top: 1px solid #000;
+      }
+
       /* POWER TOGGLE */
       #power {
         cursor: pointer;
@@ -148,6 +165,12 @@
         </label>
       </div>
       <h1>Indie Wiki Buddy</h1>
+    </div>
+    <div id="notificationBanner">
+      <span id="notificationBannerBug">
+        Chrome users: Due to a <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1271154" target="_blank">browser bug</a>,
+        this extension may stop working after an update. If this happens, try restarting your browser.
+      </span>
     </div>
     <div id="content">
       <div class="options">
