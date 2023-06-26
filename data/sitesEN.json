@@ -1534,10 +1534,10 @@
   },
   {
     "id": "en-ubfunkeys",
-    "origins_label": "U.B. Funkeys",
+    "origins_label": "U.B. Funkeys Fandom Wiki",
     "origins": [
       {
-        "origin": "U.B. Funkeys",
+        "origin": "U.B. Funkeys Fandom Wiki",
         "origin_base_url": "ubfunkeys.fandom.com",
         "origin_content_path": "/wiki/"
       }
