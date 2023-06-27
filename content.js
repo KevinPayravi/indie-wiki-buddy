@@ -1,7 +1,7 @@
 const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com|search\.brave\.com/;
 const fandomRegex = /\.fandom\.com$/;
 const fextraRegex = /\.fextralife\.com$/;
-const breezeWikiRegex = /breeze\.777\.tf$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$/;
+const breezeWikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$/;
 const currentURL = new URL(document.location);
 
 // Create object prototypes for getting and setting attributes:

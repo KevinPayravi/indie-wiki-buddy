@@ -44,10 +44,13 @@ if (chrome.declarativeNetRequest) {
         '*://antifandom.com/*',
         '*://bw.projectsegfau.lt/*',
         '*://breeze.hostux.net/*',
-        '*://breeze.777.tf/*',
         '*://breezewiki.pussthecat.org/*',
         '*://bw.vern.cc/*',
-        '*://breezewiki.esmailelbob.xyz/*'
+        '*://breezewiki.esmailelbob.xyz/*',
+        '*://bw.artemislena.eu/*',
+        '*://bw.hamstro.dev/*',
+        '*://nerd.whatever.social/*',
+        '*://breeze.nohost.network/*'
       ],
       types: [
         'main_frame'
@@ -94,12 +97,10 @@ function updateDeclarativeRule() {
   chrome.storage.local.get(function (localStorage) {
     chrome.storage.sync.get(function (syncStorage) {
       const storage = { ...syncStorage, ...localStorage };
-      console.log(storage);
       const headerValue = JSON.stringify({
         'power': storage.power ?? 'on',
         'breezewiki': storage.breezewiki ?? 'off'
       });
-      console.log(headerValue);
       chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [1],
         addRules: [
@@ -122,10 +123,13 @@ function updateDeclarativeRule() {
                 "antifandom.com",
                 "bw.projectsegfau.lt",
                 "breeze.hostux.net",
-                "breeze.777.tf",
                 "breezewiki.pussthecat.org",
                 "bw.vern.cc",
-                "breezewiki.esmailelbob.xyz"
+                "breezewiki.esmailelbob.xyz",
+                'bw.artemislena.eu',
+                'bw.hamstro.dev',
+                'nerd.whatever.social',
+                'breeze.nohost.network'
               ],
               "resourceTypes": [
                 "main_frame"
@@ -147,7 +151,9 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
     } else {
       chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain });
     }
-    chrome.storage.sync.set({ 'countBreezeWiki': (storage.countBreezeWiki ?? 0) + 1 });
+    if (eventInfo.frameId === 0) {
+      chrome.storage.sync.set({ 'countBreezeWiki': (storage.countBreezeWiki ?? 0) + 1 });
+    }
     if ((storage.notifications ?? 'on') === 'on') {
       // Notify that user is being redirected to BreezeWiki
       let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
@@ -309,8 +315,11 @@ async function main(eventInfo, eventName) {
 
                       // Perform redirect:
                       chrome.tabs.update(eventInfo.tabId, { url: newURL });
+
                       // Increase global redirect count:
-                      chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
+                      if (eventInfo.frameId === 0) {
+                        chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
+                      }
 
                       // Notify if enabled
                       if ((storage.notifications ?? 'on') === 'on') {
