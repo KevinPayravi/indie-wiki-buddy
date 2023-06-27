@@ -49,10 +49,10 @@
   },
   {
     "id": "es-pokemon",
-    "origins_label": "WikiDex (Fandom)",
+    "origins_label": "Pokémon Fandom Wiki",
     "origins": [
       {
-        "origin": "WikiDex (Fandom)",
+        "origin": "Pokémon Fandom Wiki",
         "origin_base_url": "pokemon.fandom.com/es",
         "origin_content_path": "/wiki/"
       }

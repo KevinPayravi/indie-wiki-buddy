@@ -5,6 +5,27 @@ chrome.webNavigation.onBeforeNavigate.addListener(event => main(event, 'onBefore
 chrome.webNavigation.onCreatedNavigationTarget.addListener(event => main(event, 'onCreatedNavigationTarget'));
 chrome.webNavigation.onCommitted.addListener(event => main(event, 'onCommitted'));
 
+// Listen for user turning extension on or off, to update icon
+chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+  if (msg.action === "updateIcon") {
+    setPowerIcon(msg.value);
+  }
+});
+
+// Listen for browser starting, to set initial icon state
+chrome.runtime.onStartup.addListener(function () {
+  chrome.storage.local.get({ 'power': 'on' }, function (item) {
+    setPowerIcon(item.power);
+  });
+});
+
+// Listen for extension installed/updating, to set initial icon state
+chrome.runtime.onInstalled.addListener(function () {
+  chrome.storage.local.get({ 'power': 'on' }, function (item) {
+    setPowerIcon(item.power);
+  });
+});
+
 if (chrome.declarativeNetRequest) {
   // In Manifest v3:
   // Whenever stored settings change, update the header
@@ -34,6 +55,23 @@ if (chrome.declarativeNetRequest) {
     },
     ["blocking", "requestHeaders"]
   );
+}
+
+function setPowerIcon(status) {
+  const manifestVersion = chrome.runtime.getManifest().manifest_version;
+  if (status === 'on') {
+    if (manifestVersion === 2) {
+      chrome.browserAction.setIcon({ path: "/images/logo-128.png" });
+    } else {
+      chrome.action.setIcon({ path: "/images/logo-128.png" });
+    }
+  } else {
+    if (manifestVersion === 2) {
+      chrome.browserAction.setIcon({ path: "/images/logo-off.png" });
+    } else {
+      chrome.action.setIcon({ path: "/images/logo-off.png" });
+    }
+  }
 }
 
 function addHeaderToRequest(details) {
@@ -99,26 +137,6 @@ function updateDeclarativeRule() {
     });
   });
 }
-
-// Listen for user turning extension on or off, to update icon
-chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-  if (msg.action === "updateIcon") {
-    const manifestVersion = chrome.runtime.getManifest().manifest_version;
-    if (msg.value === 'on') {
-      if (manifestVersion === 2) {
-        chrome.browserAction.setIcon({ path: "/images/logo-128.png" });
-      } else {
-        chrome.action.setIcon({ path: "/images/logo-128.png" });
-      }
-    } else {
-      if (manifestVersion === 2) {
-        chrome.browserAction.setIcon({ path: "/images/logo-off.png" });
-      } else {
-        chrome.action.setIcon({ path: "/images/logo-off.png" });
-      }
-    }
-  }
-});
 
 function redirectToBreezeWiki(storage, eventInfo, url) {
   function processRedirect(host) {
