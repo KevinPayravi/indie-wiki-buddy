@@ -591,5 +591,9 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'countSearchFilters': 0 }, function (item) {
     var key = Object.keys(item)[0];
     document.getElementById('countSearchFilters').textContent = item[key];
-  });  
+  });
+  chrome.storage.sync.get({ 'countBreezeWiki': 0 }, function (item) {
+    var key = Object.keys(item)[0];
+    document.getElementById('countBreezeWiki').textContent = item[key];
+  });
 });
