@@ -11,7 +11,7 @@ function setPower(setting) {
   });
 }
 
-// Populate popup settings and toggles
+// Populate BreezeWiki dropdown when enabled
 async function loadBreezeWikiOptions() {
   // Load BreezeWiki options:
   chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost'], function (item) {
@@ -71,6 +71,11 @@ async function loadBreezeWikiOptions() {
           chrome.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
         }).catch((e) => {
           console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
+
+          // If fetch fails and no host is set, default to breezewiki.com:
+          if (!host) {
+            chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+          }
         });
     } else {
       // If currently selected host is no longer available, select random host:
@@ -189,6 +194,11 @@ function setBreezeWiki(setting, storeSetting = true) {
             document.getElementById('breezewikiHostSelect').value = host.breezewikiHost;
           }).catch((e) => {
             console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
+
+            // If fetch fails and no host is set, default to breezewiki.com:
+            if (!host) {
+              chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+            }
           });
       } else {
         document.getElementById('breezewikiHostSelect').value = host.breezewikiHost;
@@ -201,8 +211,6 @@ function setBreezeWiki(setting, storeSetting = true) {
 
 // Main function that runs on-load
 document.addEventListener('DOMContentLoaded', function () {
-  loadBreezeWikiOptions();
-
   // Listener for settings page in new tab:
   document.getElementById('openSettings').addEventListener('click', function () {
     chrome.tabs.create({'url': chrome.runtime.getURL('settings.html')});
@@ -221,6 +229,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
+
+    // Load BreezeWiki options if BreezeWiki is enabled
+    if(item.breezewiki === 'on') {
+      loadBreezeWikiOptions();
+    }
   });
 
   // Add event listeners for setting toggles
@@ -257,6 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setBreezeWiki('off');
       } else {
         setBreezeWiki('on');
+        loadBreezeWikiOptions();
       }
     });
   });
