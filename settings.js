@@ -80,6 +80,10 @@ async function loadBreezeWikiOptions() {
           }
           // Populate dropdown selection of hosts
           const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
+          while (breezewikiHostSelect.firstChild) {
+            // Remove any existing options
+            breezewikiHostSelect.removeChild(breezewikiHostSelect.lastChild);
+          }
           for (var i = 0; i < breezewikiHosts.length; i++) {
             let option = document.createElement('option');
             option.value = breezewikiHosts[i].instance;
@@ -113,6 +117,10 @@ async function loadBreezeWikiOptions() {
       }
       // Populate dropdown selection of hosts
       const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
+      while (breezewikiHostSelect.firstChild) {
+        // Remove any existing options
+        breezewikiHostSelect.removeChild(breezewikiHostSelect.lastChild);
+      }
       for (var i = 0; i < hostOptions.length; i++) {
         let option = document.createElement('option');
         option.value = hostOptions[i].instance;
