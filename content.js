@@ -1,7 +1,7 @@
 const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com|search\.brave\.com/;
 const fandomRegex = /\.fandom\.com$/;
 const fextraRegex = /\.fextralife\.com$/;
-const breezeWikiRegex = /breeze\.777\.tf$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$/;
+const breezeWikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$/;
 const currentURL = new URL(document.location);
 
 // Create object prototypes for getting and setting attributes:
@@ -59,15 +59,13 @@ function displayRedirectBanner(url, id, destination, storage) {
   // Output CSS
   styleString = `
     #indie-wiki-banner {
-      font-size: 18px;
       font-family: sans-serif;
       width: 100%;
       z-index: 2147483647;
-      position: fixed;
+      position: sticky;
+      top: 0;
       text-align: center;
       background-color: #acdae2;
-      min-height: 40px;
-      line-height: 28px;
       padding: 5px 10px;
     }
     #indie-wiki-banner-exit {
@@ -76,9 +74,18 @@ function displayRedirectBanner(url, id, destination, storage) {
       color: #333;
       cursor: pointer;
     }
+    #indie-wiki-banner-controls {
+      padding-bottom: 3px;
+    }
+    .indie-wiki-banner-big-text {
+      font-size: 14px;
+      line-height: 24px;
+      margin-top: 5px;
+    }
     .indie-wiki-banner-link {
-      color: navy;
+      font-size: 16px;
       font-weight: 600;
+      color: #000080;
       cursor: pointer;
       padding: 0 10px;
       display: block;
@@ -87,6 +94,7 @@ function displayRedirectBanner(url, id, destination, storage) {
     }
     .indie-wiki-banner-link:hover {
       text-decoration: underline;
+      color: #000080;
     }
     .indie-wiki-banner-link-small {
       display: inline-block;
@@ -117,6 +125,11 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerExit.innerText = '✕';
   bannerExit.onclick = function () { this.parentElement.remove(); };
 
+  // Output control links container
+  var bannerControls = document.createElement('div');
+  bannerControls.id = 'indie-wiki-banner-controls';
+  banner.appendChild(bannerControls);
+
   // Output "restore banner" link
   var bannerRestoreLink = document.createElement('div');
   bannerRestoreLink.id = 'indie-wiki-banner-restore';
@@ -124,7 +137,7 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerRestoreLink.classList.add('indie-wiki-banner-link-small');
   bannerRestoreLink.classList.add('indie-wiki-banner-hidden');
   bannerRestoreLink.innerText = '⎌ Restore banner';
-  banner.appendChild(bannerRestoreLink);
+  bannerControls.appendChild(bannerRestoreLink);
   bannerRestoreLink.onclick = function (e) {
     chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
       response.siteSettings.get(id).set('action', 'alert');
@@ -144,7 +157,7 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerDisableLink.classList.add('indie-wiki-banner-link');
   bannerDisableLink.classList.add('indie-wiki-banner-link-small');
   bannerDisableLink.innerText = '✕ Disable banner for this wiki'
-  banner.appendChild(bannerDisableLink);
+  bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
     chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
       response.siteSettings.get(id).set('action', 'disabled');
@@ -165,7 +178,7 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerRedirectLink.classList.add('indie-wiki-banner-link');
   bannerRedirectLink.classList.add('indie-wiki-banner-link-small');
   bannerRedirectLink.innerText = '↪ Auto redirect this wiki';
-  banner.appendChild(bannerRedirectLink);
+  bannerControls.appendChild(bannerRedirectLink);
   bannerRedirectLink.onclick = function (e) {
     chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
       response.siteSettings.get(id).set('action', 'redirect');
@@ -180,10 +193,9 @@ function displayRedirectBanner(url, id, destination, storage) {
     });
   }
 
-  banner.appendChild(document.createElement('br'));
-
   // Output main banner text
   var bannerText = document.createElement('span');
+  bannerText.classList.add('indie-wiki-banner-big-text');
   banner.appendChild(bannerText);
   bannerText.textContent = 'There is an independent wiki covering this topic!'
   var bannerWikiLink = document.createElement('a');
