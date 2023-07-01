@@ -219,6 +219,16 @@ function setBreezeWiki(setting, storeSetting = true) {
 
 // Main function that runs on-load
 document.addEventListener('DOMContentLoaded', function () {
+  notificationBanner = document.getElementById('notificationBanner');
+  
+  // If running Chromium, show warning about service worker bug
+  if (navigator.userAgent.match(/Chrom[e|ium]/)) {
+    notificationBanner.style.display = 'block';
+    document.getElementById('notificationBannerBug').style.display = 'block';
+  }
+
+  loadBreezeWikiOptions();
+
   // Listener for settings page in new tab:
   document.getElementById('openSettings').addEventListener('click', function () {
     chrome.tabs.create({'url': chrome.runtime.getURL('settings.html')});
