@@ -74,32 +74,27 @@ function displayRedirectBanner(url, id, destination, storage) {
       color: #333;
       cursor: pointer;
     }
-    #indie-wiki-banner a {
-      color: #000080;
-    }
-    #indie-wiki-banner a:hover {
-      color: #000080;
-    }
     #indie-wiki-banner-controls {
       padding-bottom: 3px;
-    }
-    .indie-wiki-banner-link {
-      font-size: 16px;
-      font-weight: 600;
-      color: navy;
-      cursor: pointer;
-      padding: 0 10px;
-      display: block;
-      width: fit-content;
-      margin: 0 auto;
     }
     .indie-wiki-banner-big-text {
       font-size: 14px;
       line-height: 24px;
       margin-top: 5px;
     }
+    .indie-wiki-banner-link {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000080;
+      cursor: pointer;
+      padding: 0 10px;
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+    }
     .indie-wiki-banner-link:hover {
       text-decoration: underline;
+      color: #000080;
     }
     .indie-wiki-banner-link-small {
       display: inline-block;
