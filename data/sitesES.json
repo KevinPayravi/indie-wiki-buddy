@@ -1,5 +1,21 @@
 [
   {
+    "id": "es-amiibo",
+    "origins_label": "amiibopedia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "amiibopedia Fandom Wiki",
+        "origin_base_url": "amiibo.fandom.com/es",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "amiibopedia",
+    "destination_base_url": "es.amiibopedia.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "amiibopedia.png"
+  },
+  {
     "id": "es-animalcrossing",
     "origins_label": "Animal Crossing Fandom Wiki",
     "origins": [
