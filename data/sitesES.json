@@ -1,10 +1,10 @@
 [
   {
     "id": "es-amiibo",
-    "origins_label": "amiibopedia",
+    "origins_label": "amiibopedia Fandom Wiki",
     "origins": [
       {
-        "origin": "amiibopedia",
+        "origin": "amiibopedia Fandom Wiki",
         "origin_base_url": "amiibo.fandom.com/es",
         "origin_content_path": "/wiki/"
       }
