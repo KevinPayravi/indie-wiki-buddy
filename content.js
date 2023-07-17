@@ -41,11 +41,11 @@ async function getData() {
               "origin_base_url": origin.origin_base_url,
               "origin_content_path": origin.origin_content_path,
               "destination": site.destination,
-              "destination_base_url":  site.destination_base_url,
-              "destination_content_path":  site.destination_content_path,
+              "destination_base_url": site.destination_base_url,
+              "destination_content_path": site.destination_content_path,
               "destination_content_prefix": (site.destination_content_prefix ? site.destination_content_prefix : ""),
-              "destination_platform":  site.destination_platform,
-              "destination_icon":  site.destination_icon,
+              "destination_platform": site.destination_platform,
+              "destination_icon": site.destination_icon,
               "lang": LANGS[i]
             })
           })
@@ -331,7 +331,7 @@ function main(mutations = null, observer = null) {
   }
   chrome.storage.local.get(function (localStorage) {
     chrome.storage.sync.get(function (syncStorage) {
-      const storage = {...syncStorage, ...localStorage};
+      const storage = { ...syncStorage, ...localStorage };
       // Check if extension is on:
       if ((storage.power ?? 'on') === 'on') {
         // Check if on Fandom, Fextralife, or BreezeWiki
@@ -394,8 +394,18 @@ function main(mutations = null, observer = null) {
                     } else {
                       newURL = 'https://' + site["destination_base_url"];
                     }
-                    // Notify that another wiki is available
-                    displayRedirectBanner(newURL, site['id'], site['destination'], storage);
+                    // When head elem is loaded, notify that another wiki is available
+                    const docObserver = new MutationObserver(function (mutations, mutationInstance) {
+                      const headElement = document.querySelector('head');
+                      if (headElement) {
+                        displayRedirectBanner(newURL, site['id'], site['destination'], storage);
+                        mutationInstance.disconnect();
+                      }
+                    });
+                    docObserver.observe(document, {
+                      childList: true,
+                      subtree: true
+                    });
                   }
                 }
               }
