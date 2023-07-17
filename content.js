@@ -43,6 +43,7 @@ async function getData() {
               "destination": site.destination,
               "destination_base_url":  site.destination_base_url,
               "destination_content_path":  site.destination_content_path,
+              "destination_content_prefix": (site.destination_content_prefix ? site.destination_content_prefix : ""),
               "destination_platform":  site.destination_platform,
               "destination_icon":  site.destination_icon,
               "lang": LANGS[i]
@@ -383,7 +384,7 @@ function main(mutations = null, observer = null) {
                       let searchParams = '';
                       switch (site['destination_platform']) {
                         case 'mediawiki':
-                          searchParams = 'Special:Search/' + article;
+                          searchParams = 'Special:Search/' + site['destination_content_prefix'] + article;
                           break;
                         case 'doku':
                           searchParams = 'start?do=search&q=' + article;

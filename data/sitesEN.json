@@ -48,6 +48,23 @@
     "destination_icon": "anothereden.png"
   },
   {
+    "id": "en-answeredprayers",
+    "origins_label": "Answered Prayers Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Answered Prayers Fandom Wiki",
+        "origin_base_url": "answeredprayers.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Answered Prayers Wiki",
+    "destination_base_url": "yume.wiki",
+    "destination_content_path": "/",
+    "destination_content_prefix": "Answered_Prayers:",
+    "destination_platform": "mediawiki",
+    "destination_icon": "answeredprayerswiki.png"
+  },
+  {
     "id": "en-arms",
     "origins_label": "ARMS Fandom Wiki",
     "origins": [
@@ -192,6 +209,23 @@
     "destination_icon": "bluearchive.png"
   },
   {
+    "id": "en-braingirl",
+    "origins_label": "Braingirl Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Braingirl Fandom Wiki",
+        "origin_base_url": "braingirl.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Braingirl Wiki",
+    "destination_base_url": "yume.wiki",
+    "destination_content_path": "/",
+    "destination_content_prefix": "Braingirl:",
+    "destination_platform": "mediawiki",
+    "destination_icon": "braingirlwiki.png"
+  },
+  {
     "id": "en-brandonsanderson",
     "origins_label": "Brandon Sanderson Fandom Wikis",
     "origins": [
@@ -227,6 +261,23 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "celeste.png"
+  },
+  {
+    "id": "en-cerasus",
+    "origins_label": "Cerasus Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cerasus Fandom Wiki",
+        "origin_base_url": "cerasus.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Cerasus Wiki",
+    "destination_base_url": "yume.wiki",
+    "destination_content_path": "/",
+    "destination_content_prefix": "Cerasus:",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cerasuswiki.png"
   },
   {
     "id": "en-chipschallenge",
@@ -419,6 +470,23 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "doomwiki.png"
+  },
+  {
+    "id": "en-dotflow",
+    "origins_label": "Dotflow Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dotflow Fandom Wiki",
+        "origin_base_url": "dotflow.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Dotflow Wiki",
+    "destination_base_url": "yume.wiki",
+    "destination_content_path": "/",
+    "destination_content_prefix": "Dotflow:",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dotflowwiki.png"
   },
   {
     "id": "en-dragalialost",
@@ -1549,6 +1617,23 @@
     "destination_icon": "ubfunkeyswiki.png"
   },
   {
+    "id": "en-unevendream",
+    "origins_label": "Uneven Dream Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Uneven Dream Fandom Wiki",
+        "origin_base_url": "outotsuyume.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Uneven Dream Wiki",
+    "destination_base_url": "yume.wiki",
+    "destination_content_path": "/",
+    "destination_content_prefix": "Uneven_Dream:",
+    "destination_platform": "mediawiki",
+    "destination_icon": "unevendreamwiki.png"
+  },
+  {
     "id": "en-vvvvvv",
     "origins_label": "VVVVVV Fandom Wikis",
     "origins": [
@@ -1632,6 +1717,56 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "yugipedia.png"
+  },
+  {
+    "id": "en-yume2kki",
+    "origins_label": "Yume 2kki Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Yume 2kki Fandom Wiki",
+        "origin_base_url": "yume2kki.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Yume 2kki Wiki",
+    "destination_base_url": "yume.wiki",
+    "destination_content_path": "/",
+    "destination_content_prefix": "Yume_2kki:",
+    "destination_platform": "mediawiki",
+    "destination_icon": "yume2kkiwiki.png"
+  },
+  {
+    "id": "en-yumenikki",
+    "origins_label": "Yume Nikki Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Yume Nikki Fandom Wiki",
+        "origin_base_url": "yumenikki.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Yume Nikki Wiki",
+    "destination_base_url": "yume.wiki",
+    "destination_content_path": "/",
+    "destination_content_prefix": "Yume_Nikki:",
+    "destination_platform": "mediawiki",
+    "destination_icon": "yumenikkiwiki.png"
+  },
+  {
+    "id": "en-yumenikkifangames",
+    "origins_label": "Yume Nikki Fangames Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Yume Nikki Fangames Fandom Wiki",
+        "origin_base_url": "yumenikkifg.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Yume Nikki Fangames Wiki",
+    "destination_base_url": "ynfg.yume.wiki",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "yumenikkifanwiki.png"
   },
   {
     "id": "en-zelda",
