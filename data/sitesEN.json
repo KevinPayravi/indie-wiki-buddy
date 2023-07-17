@@ -753,6 +753,22 @@
     "destination_icon": "awikioficeandfire.png"
   },
   {
+    "id": "en-genfanad",
+    "origins_label": "Genfanad Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Genfanad Fandom Wiki",
+        "origin_base_url": "genfanad.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Genfanad Wiki",
+    "destination_base_url": "genfanad.info",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "genfanadwiki.png"
+  },
+  {
     "id": "en-godzilla",
     "origins_label": "Godzilla Fandom Wiki",
     "origins": [
