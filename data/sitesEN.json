@@ -638,6 +638,22 @@
     "destination_icon": "fallout.png"
   },
   {
+    "id": "en-famicom",
+    "origins_label": "Famicom Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Famicom Fandom Wiki",
+        "origin_base_url": "famicom.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "FamiWiki",
+    "destination_base_url": "famiwiki.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "famiwiki.png"
+  },
+  {
     "id": "en-fatalframe",
     "origins_label": "Fatal Frame Fandom Wiki",
     "origins": [
