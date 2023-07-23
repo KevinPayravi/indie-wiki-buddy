@@ -1,4 +1,4 @@
-const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com|search\.brave\.com|ecosia\.org/;
+const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com|search\.brave\.com|ecosia\.org|startpage\.com/;
 const fandomRegex = /\.fandom\.com$/;
 const fextraRegex = /\.fextralife\.com$/;
 const breezeWikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$/;
@@ -300,6 +300,11 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                   cssQuery = 'div.result__body';
                 }
                 break;
+              case 'startpage':
+                if (searchResult.closest('div.w-gl__result__main')) {
+                  cssQuery = 'div.w-gl__result__main';
+                }
+                break;
               default:
             }
             if (cssQuery) {
@@ -505,6 +510,24 @@ function main(mutations = null, observer = null) {
                 if (document.readyState === 'complete') {
                   addLocationObserver(main);
                   filterEcosia();
+                }
+              });
+            }
+          } else if (currentURL.hostname.includes('startpage.com')) {
+            // Check if doing a StartPage search:
+            function filterStartPage() {
+              let searchResults = Array.from(document.querySelectorAll("a.result-link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+              filterSearchResults(searchResults, 'startpage', storage);
+            }
+            // Need to wait for document to be ready
+            if (document.readyState === 'complete') {
+              addLocationObserver(main);
+              filterStartPage();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (document.readyState === 'complete') {
+                  addLocationObserver(main);
+                  filterStartPage();
                 }
               });
             }
