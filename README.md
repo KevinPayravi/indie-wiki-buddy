@@ -28,7 +28,7 @@ Large, corporate-run wiki farms have enabled hundreds of great wikis and communi
 
 When visiting a wiki on a large corporate wiki farm such as Fandom, Indie Wiki Buddy will notify and/or automatically redirect you if a quality, independent alternative is available. You can customize your experience per-wiki.
 
-In addition, search results in Google, Bing, DuckDuckGo, and Brave Search can also be filtered, replacing non-independent wikis with text inviting you to visit the independent counterpart.
+In addition, search results in Google, Bing, DuckDuckGo, Brave Search, Ecosia, and StartPage can also be filtered, replacing non-independent wikis with text inviting you to visit the independent counterpart.
 
 Indie Wiki Buddy also supports [BreezeWiki](https://breezewiki.com/), a service that renders Fandom wikis without ads or bloat. This helps give you a more enjoyable reading experience on Fandom when an independent wiki isn't available.
 

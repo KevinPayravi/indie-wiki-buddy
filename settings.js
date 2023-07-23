@@ -201,7 +201,7 @@ async function loadOptions(lang) {
           inputFilter.classList = 'toggleFilter';
           inputFilter.type = 'checkbox';
           inputFilter.name = key;
-          inputFilter.title = 'Filter ' + sites[i].origins_label + ' from Google, Bing, DuckDuckGo, & Brave';
+          inputFilter.title = 'Filter ' + sites[i].origins_label + ' from Google, Bing, DuckDuckGo, & other search engines';
           inputFilter.id = key + '-filter';
           inputFilter.lang = lang;
 
