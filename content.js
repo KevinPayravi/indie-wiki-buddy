@@ -1,4 +1,4 @@
-const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com|search\.brave\.com/;
+const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com|search\.brave\.com|ecosia\.org/;
 const fandomRegex = /\.fandom\.com$/;
 const fextraRegex = /\.fextralife\.com$/;
 const breezeWikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$/;
@@ -231,16 +231,16 @@ function displayRedirectBanner(url, id, destination, storage) {
   }
 }
 
-function filterSearchResults(fandomSearchResults, searchEngine, storage) {
+function filterSearchResults(searchResults, searchEngine, storage) {
   getData().then(sites => {
     countFiltered = 0;
-    fandomSearchResults.forEach(searchResult => {
+    searchResults.forEach(searchResult => {
       let searchResultLink = '';
       try {
         if (searchEngine === 'bing') {
           searchResultLink = searchResult.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '');
         } else {
-          searchResultLink = searchResult.closest('[href]').href;
+          searchResultLink = searchResult.closest('a[href]').href;
         }
       } catch (e) {
         console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
@@ -293,6 +293,11 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
               case 'brave':
                 if (searchResult.closest('div.snippet')) {
                   cssQuery = 'div.snippet';
+                }
+                break;
+              case 'ecosia':
+                if (searchResult.closest('div.result__body')) {
+                  cssQuery = 'div.result__body';
                 }
                 break;
               default:
@@ -482,6 +487,24 @@ function main(mutations = null, observer = null) {
                 if (document.readyState === 'complete') {
                   addLocationObserver(main);
                   filterBrave();
+                }
+              });
+            }
+          } else if (currentURL.hostname.includes('ecosia.org')) {
+            // Check if doing an Ecosia search:
+            function filterEcosia() {
+              let searchResults = Array.from(document.querySelectorAll("a.result__link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+              filterSearchResults(searchResults, 'ecosia', storage);
+            }
+            // Need to wait for document to be ready
+            if (document.readyState === 'complete') {
+              addLocationObserver(main);
+              filterEcosia();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (document.readyState === 'complete') {
+                  addLocationObserver(main);
+                  filterEcosia();
                 }
               });
             }
