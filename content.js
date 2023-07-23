@@ -13,7 +13,7 @@ Object.prototype.set = function (prop, value) {
   this[prop] = value;
 }
 
-// Create an observer to watch for mutations
+// Function to create an observer to watch for mutations on search pages
 function addLocationObserver(callback) {
   const config = {
     attributes: false,
@@ -157,7 +157,7 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerDisableLink.id = 'indie-wiki-banner-disable';
   bannerDisableLink.classList.add('indie-wiki-banner-link');
   bannerDisableLink.classList.add('indie-wiki-banner-link-small');
-  bannerDisableLink.innerText = '✕ Disable banner for this wiki'
+  bannerDisableLink.innerText = '✕ Disable banner for this wiki';
   bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
     chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
@@ -198,7 +198,7 @@ function displayRedirectBanner(url, id, destination, storage) {
   var bannerText = document.createElement('span');
   bannerText.classList.add('indie-wiki-banner-big-text');
   banner.appendChild(bannerText);
-  bannerText.textContent = 'There is an independent wiki covering this topic!'
+  bannerText.textContent = 'There is an independent wiki covering this topic!';
   var bannerWikiLink = document.createElement('a');
   bannerWikiLink.classList.add('indie-wiki-banner-link');
   bannerText.appendChild(bannerWikiLink);
@@ -270,10 +270,13 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
           }
           if (searchFilterSetting === 'true') {
             let cssQuery = '';
+            let color = '';
+            let fontSize = '';
             switch (searchEngine) {
               case 'google':
-                if (searchResult.closest('div[data-hveid]')) {
-                  cssQuery = 'div[data-hveid]';
+                if (searchResult.closest('div[data-hveid] > div')) {
+                  cssQuery = 'div[data-hveid] > div';
+                  fontSize = '14px';
                 }
                 break;
               case 'bing':
@@ -282,8 +285,9 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
                 }
                 break;
               case 'duckduckgo':
-                if (searchResult.closest('div.nrn-react-div')) {
-                  cssQuery = 'div.nrn-react-div';
+                if (searchResult.closest('li[data-layout], div.web-result')) {
+                  cssQuery = 'li[data-layout], div.web-result';
+                  color = 'var(--theme-col-txt-snippet)';
                 }
                 break;
               case 'brave':
@@ -295,9 +299,16 @@ function filterSearchResults(fandomSearchResults, searchEngine, storage) {
             }
             if (cssQuery) {
               let searchListing = document.createElement('div');
+              if (color) {
+                searchListing.style.color = color;
+              }
+              if (fontSize) {
+                searchListing.style.fontSize = fontSize;
+              }
               searchListing.style.fontStyle = 'italic';
-              searchListing.style.color = 'var(--search-text-03)';
+              searchListing.style.padding = '.5em';
               let searchListingLink = document.createElement('a');
+              searchListingLink.style.textDecoration = 'underline';
               searchListingLink.href = 'https://' + site.destination_base_url;
               searchListingLink.textContent = site.destination;
               searchListingPretext = document.createTextNode('A search result from ' + site.origin + ' has been removed by Indie Wiki Buddy. Look for results from ');
@@ -415,12 +426,12 @@ function main(mutations = null, observer = null) {
           if (currentURL.hostname.includes('www.google.')) {
             // Check if doing a Google search:
             function filterGoogle() {
-              let searchResults = document.querySelectorAll("div[lang] a[href*='fandom.com'], div[lang] a[href*='fextralife.com']");
+              let searchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']:first-of-type, div[data-hveid] a[href*='fextralife.com']:first-of-type");
               filterSearchResults(searchResults, 'google', storage);
             }
             addLocationObserver(main);
             filterGoogle();
-          } else if (currentURL.hostname.includes('duckduckgo.com') && currentURL.search.includes('q=')) {
+          } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
             // Check if doing a Duck Duck Go search:
             function filterDuckDuckGo() {
               let searchResults = document.querySelectorAll("h2>a[href*='fandom.com'], h2>a[href*='fextralife.com']");
