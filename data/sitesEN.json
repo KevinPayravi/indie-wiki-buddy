@@ -945,6 +945,22 @@
     "destination_icon": "hololive.png"
   },
   {
+    "id": "en-houkaigakuen2",
+    "origins_label": "Houkai Gakuen 2 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Houkai Gakuen 2 Fandom Wiki",
+        "origin_base_url": "houkai2nd.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Houkai Gakuen 2 Wiki",
+    "destination_base_url": "houkai2nd.miraheze.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "houkaigakuen2wiki.png"
+  },
+  {
     "id": "en-hyperrogue",
     "origins_label": "Hyperrogue Fandom Wiki",
     "origins": [
