@@ -514,20 +514,20 @@ function main(mutations = null, observer = null) {
               });
             }
           } else if (currentURL.hostname.includes('startpage.com')) {
-            // Check if doing a StartPage search:
-            function filterStartPage() {
+            // Check if doing a Startpage search:
+            function filterStartpage() {
               let searchResults = Array.from(document.querySelectorAll("a.result-link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
               filterSearchResults(searchResults, 'startpage', storage);
             }
             // Need to wait for document to be ready
             if (document.readyState === 'complete') {
               addLocationObserver(main);
-              filterStartPage();
+              filterStartpage();
             } else {
               document.addEventListener('readystatechange', e => {
                 if (document.readyState === 'complete') {
                   addLocationObserver(main);
-                  filterStartPage();
+                  filterStartpage();
                 }
               });
             }
