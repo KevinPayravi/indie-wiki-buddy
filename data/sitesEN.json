@@ -1329,6 +1329,22 @@
     "destination_icon": "rayman.png"
   },
   {
+    "id": "en-rollercoasters",
+    "origins_label": "Roller Coaster Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Roller Coaster Fandom Wiki",
+        "origin_base_url": "rollercoaster.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Coasterpedia",
+    "destination_base_url": "coasterpedia.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "coasterpedia.png"
+  },
+  {
     "id": "en-rct",
     "origins_label": "RollerCoaster Tycoon Fandom Wiki",
     "origins": [
