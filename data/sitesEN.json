@@ -81,6 +81,22 @@
     "destination_icon": "arms.png"
   },
   {
+    "id": "en-azurlane",
+    "origins_label": "Azur Lane Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Azur Lane Fandom Wiki",
+        "origin_base_url": "azur-lane.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Azur Lane Wiki",
+    "destination_base_url": "azurlane.koumakan.jp",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "azurlanewiki.png"
+  },
+  {
     "id": "en-bakugan",
     "origins_label": "Bakugan Fandom Wiki",
     "origins": [
