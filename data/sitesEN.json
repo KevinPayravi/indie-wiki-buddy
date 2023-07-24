@@ -945,6 +945,22 @@
     "destination_icon": "projectimas.png"
   },
   {
+    "id": "en-kemonofriends",
+    "origins_label": "Japari Library Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Japari Library Fandom Wiki",
+        "origin_base_url": "kemono-friends.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Japari Library",
+    "destination_base_url": "japari-library.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "japarilibrary.png"
+  },
+  {
     "id": "en-jojo",
     "origins_label": "JoJo's Bizarre Wiki",
     "origins": [
