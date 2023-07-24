@@ -521,6 +521,22 @@
     "destination_icon": "wapopedia.png"
   },
   {
+    "id": "en-dreamlightvalley",
+    "origins_label": "Dreamlight Valley Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dreamlight Valley Fandom Wiki",
+        "origin_base_url": "disneydreamlightvalley.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Dreamlight Valley Wiki",
+    "destination_base_url": "dreamlightvalleywiki.com",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dreamlightvalleywiki.png"
+  },
+  {
     "id": "en-dwarffortress",
     "origins_label": "Dwarf Fortress Fandom Wiki",
     "origins": [
