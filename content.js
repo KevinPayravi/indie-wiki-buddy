@@ -274,8 +274,8 @@ function filterSearchResults(searchResults, searchEngine, storage) {
             let fontSize = '';
             switch (searchEngine) {
               case 'google':
-                if (searchResult.closest('div[data-hveid] > div')) {
-                  cssQuery = 'div[data-hveid] > div';
+                if (searchResult.closest('div[data-hveid]')) {
+                  cssQuery = 'div[data-hveid]';
                   fontSize = '14px';
                 }
                 break;
