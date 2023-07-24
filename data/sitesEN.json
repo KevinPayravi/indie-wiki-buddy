@@ -1402,7 +1402,7 @@
         "origin_content_path": "/wiki/"
       }
     ],
-    "destination": "RCT Miraheze Wiki",
+    "destination": "RollerCoaster Tycoon Wiki",
     "destination_base_url": "rct.wiki",
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
