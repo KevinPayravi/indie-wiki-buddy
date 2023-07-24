@@ -913,6 +913,22 @@
     "destination_icon": "halopedia.png"
   },
   {
+    "id": "en-hannabarbera",
+    "origins_label": "Hanna-Barbera Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Hanna-Barbera Fandom Wiki",
+        "origin_base_url": "hanna-barbera.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Hanna-Barbera Wiki",
+    "destination_base_url": "hanna-barberawiki.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hannabarberawiki.png"
+  },
+  {
     "id": "en-hololive",
     "origins_label": "Hololive Fandom Wiki",
     "origins": [
