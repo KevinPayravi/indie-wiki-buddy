@@ -114,6 +114,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
               case 'brave':
                 if (searchResult.closest('div.snippet')) {
                   cssQuery = 'div.snippet';
+                  color = 'var(--search-text-03)';
                 }
                 break;
               case 'ecosia':
@@ -172,98 +173,114 @@ function main(mutations = null, observer = null) {
         // Determine which search engine we're on
         if ((storage.searchFilter ?? 'on') === 'on') {
           if (currentURL.hostname.includes('www.google.')) {
-            // Check if doing a Google search:
+            // Function to filter search results in Google
             function filterGoogle() {
               let searchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']:first-of-type, div[data-hveid] a[href*='fextralife.com']:first-of-type");
               filterSearchResults(searchResults, 'google', storage);
             }
-            addLocationObserver(main);
-            filterGoogle();
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              addLocationObserver(main);
+              filterGoogle();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (['interactive', 'complete'].includes(document.readyState)) {
+                  addLocationObserver(main);
+                  filterGoogle();
+                }
+              });
+            }
           } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
-            // Check if doing a Duck Duck Go search:
+            // Function to filter search results in DuckDuckGo
             function filterDuckDuckGo() {
               let searchResults = document.querySelectorAll("h2>a[href*='fandom.com'], h2>a[href*='fextralife.com']");
               filterSearchResults(searchResults, 'duckduckgo', storage);
             }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
               addLocationObserver(main);
               filterDuckDuckGo();
             } else {
               document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
+                if (['interactive', 'complete'].includes(document.readyState)) {
                   addLocationObserver(main);
                   filterDuckDuckGo();
                 }
               });
             }
           } else if (currentURL.hostname.includes('www.bing.com')) {
-            // Check if doing a Bing search:
+            // Function to filter search results in Bing
             function filterBing() {
               let searchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
               filterSearchResults(searchResults, 'bing', storage);
             }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
               addLocationObserver(main);
               filterBing();
             } else {
               document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
+                if (['interactive', 'complete'].includes(document.readyState)) {
                   addLocationObserver(main);
                   filterBing();
                 }
               });
             }
           } else if (currentURL.hostname.includes('search.brave.com')) {
-            // Check if doing a Brave search:
+            // Function to filter search results in Brave
             function filterBrave() {
               let searchResults = Array.from(document.querySelectorAll(".result-header")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
               filterSearchResults(searchResults, 'brave', storage);
             }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
               addLocationObserver(main);
               filterBrave();
             } else {
               document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
+                if (['interactive', 'complete'].includes(document.readyState)) {
                   addLocationObserver(main);
                   filterBrave();
                 }
               });
             }
           } else if (currentURL.hostname.includes('ecosia.org')) {
-            // Check if doing an Ecosia search:
+            // Function to filter search results in Ecosia
             function filterEcosia() {
               let searchResults = Array.from(document.querySelectorAll("a.result__link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
               filterSearchResults(searchResults, 'ecosia', storage);
             }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
               addLocationObserver(main);
               filterEcosia();
             } else {
               document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
+                if (['interactive', 'complete'].includes(document.readyState)) {
                   addLocationObserver(main);
                   filterEcosia();
                 }
               });
             }
           } else if (currentURL.hostname.includes('startpage.com')) {
-            // Check if doing a Startpage search:
+            // Function to filter search results in Startpage
             function filterStartpage() {
               let searchResults = Array.from(document.querySelectorAll("a.result-link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
               filterSearchResults(searchResults, 'startpage', storage);
             }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
               addLocationObserver(main);
               filterStartpage();
             } else {
               document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
+                if (['interactive', 'complete'].includes(document.readyState)) {
                   addLocationObserver(main);
                   filterStartpage();
                 }
