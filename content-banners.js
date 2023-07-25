@@ -1,6 +1,3 @@
-const searchEngineRegex = /www\.google\.|duckduckgo\.com|www\.bing\.com|search\.brave\.com|ecosia\.org|startpage\.com/;
-const fandomRegex = /\.fandom\.com$/;
-const fextraRegex = /\.fextralife\.com$/;
 const breezeWikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$/;
 const currentURL = new URL(document.location);
 
@@ -11,17 +8,6 @@ Object.prototype.get = function (prop) {
 };
 Object.prototype.set = function (prop, value) {
   this[prop] = value;
-}
-
-// Function to create an observer to watch for mutations on search pages
-function addLocationObserver(callback) {
-  const config = {
-    attributes: false,
-    childList: true,
-    subtree: true
-  }
-  const observer = new MutationObserver(callback);
-  observer.observe(document.body, config);
 }
 
 // Load website data:
@@ -231,133 +217,14 @@ function displayRedirectBanner(url, id, destination, storage) {
   }
 }
 
-function filterSearchResults(searchResults, searchEngine, storage) {
-  getData().then(sites => {
-    countFiltered = 0;
-    searchResults.forEach(searchResult => {
-      let searchResultLink = '';
-      try {
-        if (searchEngine === 'bing') {
-          searchResultLink = searchResult.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '');
-        } else {
-          searchResultLink = searchResult.closest('a[href]').href;
-        }
-      } catch (e) {
-        console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
-      }
-      // Check if site is in our list of wikis:
-      let matchingSites = sites.filter(el => String(searchResultLink).replace(/(.*)https?:\/\//, '').startsWith(el.origin_base_url));
-      if (matchingSites.length > 0) {
-        // Select match with longest base URL 
-        let closestMatch = "";
-        matchingSites.forEach(site => {
-          if (site.origin_base_url.length > closestMatch.length) {
-            closestMatch = site.origin_base_url;
-          }
-        });
-        let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-        if (site) {
-          // Get user's settings for the wiki
-          let settings = storage.siteSettings || {};
-          let id = site['id'];
-          let searchFilterSetting = '';
-          if (settings.hasOwnProperty(id) && settings[id].searchFilter) {
-            searchFilterSetting = settings[id].searchFilter;
-          } else if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings[site.language]) {
-            searchFilterSetting = storage.defaultSearchFilterSettings[site.language];
-          } else {
-            searchFilterSetting = 'true';
-          }
-          if (searchFilterSetting === 'true') {
-            let cssQuery = '';
-            let color = '';
-            let fontSize = '';
-            switch (searchEngine) {
-              case 'google':
-                if (searchResult.closest('div[data-hveid]')) {
-                  cssQuery = 'div[data-hveid]';
-                  fontSize = '14px';
-                }
-                break;
-              case 'bing':
-                if (searchResult.closest('li.b_algo')) {
-                  cssQuery = 'li.b_algo';
-                }
-                break;
-              case 'duckduckgo':
-                if (searchResult.closest('li[data-layout], div.web-result')) {
-                  cssQuery = 'li[data-layout], div.web-result';
-                  color = 'var(--theme-col-txt-snippet)';
-                }
-                break;
-              case 'brave':
-                if (searchResult.closest('div.snippet')) {
-                  cssQuery = 'div.snippet';
-                }
-                break;
-              case 'ecosia':
-                if (searchResult.closest('div.result__body')) {
-                  cssQuery = 'div.result__body';
-                }
-                break;
-              case 'startpage':
-                if (searchResult.closest('div.w-gl__result__main')) {
-                  cssQuery = 'div.w-gl__result__main';
-                }
-                break;
-              default:
-            }
-            if (cssQuery) {
-              let searchListing = document.createElement('div');
-              if (color) {
-                searchListing.style.color = color;
-              }
-              if (fontSize) {
-                searchListing.style.fontSize = fontSize;
-              }
-              searchListing.style.fontStyle = 'italic';
-              searchListing.style.padding = '.5em';
-              let searchListingLink = document.createElement('a');
-              searchListingLink.style.textDecoration = 'underline';
-              searchListingLink.href = 'https://' + site.destination_base_url;
-              searchListingLink.textContent = site.destination;
-              searchListingPretext = document.createTextNode('A search result from ' + site.origin + ' has been removed by Indie Wiki Buddy. Look for results from ');
-              searchListingPosttext = document.createTextNode(' instead!');
-              searchListing.appendChild(searchListingPretext);
-              searchListing.appendChild(searchListingLink);
-              searchListing.appendChild(searchListingPosttext);
-              searchResult.closest(cssQuery).replaceChildren(searchListing);
-              countFiltered++;
-            }
-          }
-        }
-      }
-    });
-    if (countFiltered > 0) {
-      chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
-    }
-  });
-}
-
-// Check if search engine results, Fandom, or a BreezeWiki host:
-function checkSite() {
-  if (currentURL.hostname.match(searchEngineRegex) || currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(fextraRegex) || currentURL.hostname.match(breezeWikiRegex)) {
-    return true;
-  }
-}
-
-function main(mutations = null, observer = null) {
-  if (observer) {
-    observer.disconnect();
-  }
+function main() {
   chrome.storage.local.get(function (localStorage) {
     chrome.storage.sync.get(function (syncStorage) {
       const storage = { ...syncStorage, ...localStorage };
       // Check if extension is on:
       if ((storage.power ?? 'on') === 'on') {
-        // Check if on Fandom, Fextralife, or BreezeWiki
-        // If on BreezeWiki, check if there is a pathname (which indicates we are looking at a wiki)
-        if (currentURL.hostname.match(fandomRegex) || currentURL.hostname.match(fextraRegex) || (currentURL.hostname.match(breezeWikiRegex) && currentURL.pathname.length > 1)) {
+        // Check if there is a pathname, to ensure we're looking at an article
+        if (currentURL.pathname.length > 1) {
           let origin = currentURL;
           // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
           if (currentURL.hostname.match(breezeWikiRegex)) {
@@ -432,112 +299,10 @@ function main(mutations = null, observer = null) {
               }
             }
           });
-        } else if ((storage.searchFilter ?? 'on') === 'on') {
-          if (currentURL.hostname.includes('www.google.')) {
-            // Check if doing a Google search:
-            function filterGoogle() {
-              let searchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']:first-of-type, div[data-hveid] a[href*='fextralife.com']:first-of-type");
-              filterSearchResults(searchResults, 'google', storage);
-            }
-            addLocationObserver(main);
-            filterGoogle();
-          } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
-            // Check if doing a Duck Duck Go search:
-            function filterDuckDuckGo() {
-              let searchResults = document.querySelectorAll("h2>a[href*='fandom.com'], h2>a[href*='fextralife.com']");
-              filterSearchResults(searchResults, 'duckduckgo', storage);
-            }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterDuckDuckGo();
-            } else {
-              document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
-                  addLocationObserver(main);
-                  filterDuckDuckGo();
-                }
-              });
-            }
-          } else if (currentURL.hostname.includes('www.bing.com')) {
-            // Check if doing a Bing search:
-            function filterBing() {
-              let searchResults = Array.from(document.querySelectorAll(".b_attribution>cite")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
-              filterSearchResults(searchResults, 'bing', storage);
-            }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterBing();
-            } else {
-              document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
-                  addLocationObserver(main);
-                  filterBing();
-                }
-              });
-            }
-          } else if (currentURL.hostname.includes('search.brave.com')) {
-            // Check if doing a Brave search:
-            function filterBrave() {
-              let searchResults = Array.from(document.querySelectorAll(".result-header")).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
-              filterSearchResults(searchResults, 'brave', storage);
-            }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterBrave();
-            } else {
-              document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
-                  addLocationObserver(main);
-                  filterBrave();
-                }
-              });
-            }
-          } else if (currentURL.hostname.includes('ecosia.org')) {
-            // Check if doing an Ecosia search:
-            function filterEcosia() {
-              let searchResults = Array.from(document.querySelectorAll("a.result__link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
-              filterSearchResults(searchResults, 'ecosia', storage);
-            }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterEcosia();
-            } else {
-              document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
-                  addLocationObserver(main);
-                  filterEcosia();
-                }
-              });
-            }
-          } else if (currentURL.hostname.includes('startpage.com')) {
-            // Check if doing a Startpage search:
-            function filterStartpage() {
-              let searchResults = Array.from(document.querySelectorAll("a.result-link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
-              filterSearchResults(searchResults, 'startpage', storage);
-            }
-            // Need to wait for document to be ready
-            if (document.readyState === 'complete') {
-              addLocationObserver(main);
-              filterStartpage();
-            } else {
-              document.addEventListener('readystatechange', e => {
-                if (document.readyState === 'complete') {
-                  addLocationObserver(main);
-                  filterStartpage();
-                }
-              });
-            }
-          }
         }
       }
     });
   });
 }
 
-if (checkSite()) {
-  main();
-}
+main();

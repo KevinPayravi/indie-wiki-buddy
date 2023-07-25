@@ -254,19 +254,6 @@
   "content_scripts": [
     {
       "matches": [
-        "https://*.fandom.com/*",
-        "https://*.fextralife.com/*",
-        "https://breezewiki.com/*",
-        "https://antifandom.com/*",
-        "https://bw.projectsegfau.lt/*",
-        "https://breeze.hostux.net/*",
-        "https://breezewiki.pussthecat.org/*",
-        "https://bw.vern.cc/*",
-        "https://breezewiki.esmailelbob.xyz/*",
-        "https://bw.artemislena.eu/*",
-        "https://bw.hamstro.dev/*",
-        "https://nerd.whatever.social/*",
-        "https://breeze.nohost.network/*",
         "https://*.bing.com/search*",
         "https://search.brave.com/search*",
         "https://*.duckduckgo.com/*",
@@ -464,7 +451,28 @@
         "https://www.google.cat/search*"
       ],
       "js": [
-        "content.js"
+        "content-search-filtering.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://*.fandom.com/*",
+        "https://*.fextralife.com/*",
+        "https://breezewiki.com/*",
+        "https://antifandom.com/*",
+        "https://bw.projectsegfau.lt/*",
+        "https://breeze.hostux.net/*",
+        "https://breezewiki.pussthecat.org/*",
+        "https://bw.vern.cc/*",
+        "https://breezewiki.esmailelbob.xyz/*",
+        "https://bw.artemislena.eu/*",
+        "https://bw.hamstro.dev/*",
+        "https://nerd.whatever.social/*",
+        "https://breeze.nohost.network/*"
+      ],
+      "js": [
+        "content-banners.js"
       ],
       "run_at": "document_start"
     }
