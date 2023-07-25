@@ -82,8 +82,13 @@
   },
   {
     "id": "en-azurlane",
-    "origins_label": "Azur Lane Fandom Wiki",
+    "origins_label": "Azur Lane Fandom Wikis",
     "origins": [
+      {
+        "origin": "Azur Lane Fandom Wiki",
+        "origin_base_url": "blhx.fandom.com",
+        "origin_content_path": "/wiki/"
+      },
       {
         "origin": "Azur Lane Fandom Wiki",
         "origin_base_url": "azur-lane.fandom.com",
