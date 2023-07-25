@@ -553,11 +553,16 @@
   },
   {
     "id": "en-dreamlightvalley",
-    "origins_label": "Dreamlight Valley Fandom Wiki",
+    "origins_label": "Dreamlight Valley Fandom Wikis",
     "origins": [
       {
         "origin": "Dreamlight Valley Fandom Wiki",
         "origin_base_url": "disneydreamlightvalley.fandom.com",
+        "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Dreamlight Valley Fandom Wiki",
+        "origin_base_url": "disney-dreamlight-valley.fandom.com",
         "origin_content_path": "/wiki/"
       }
     ],
