@@ -17,11 +17,21 @@
   },
   {
     "id": "en-animalcrossing",
-    "origins_label": "Animal Crossing Fandom Wiki",
+    "origins_label": "Animal Crossing Fandom Wikis",
     "origins": [
       {
         "origin": "Animal Crossing Fandom Wiki",
         "origin_base_url": "animalcrossing.fandom.com",
+        "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Animal Crossing: New Leaf Fandom Wiki",
+        "origin_base_url": "acnl.fandom.com",
+        "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Animal Crossing Wikipeaia Fandom Wiki",
+        "origin_base_url": "acwikipeaia.fandom.com",
         "origin_content_path": "/wiki/"
       }
     ],
