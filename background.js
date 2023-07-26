@@ -50,7 +50,8 @@ if (chrome.declarativeNetRequest) {
         '*://bw.artemislena.eu/*',
         '*://bw.hamstro.dev/*',
         '*://nerd.whatever.social/*',
-        '*://breeze.nohost.network/*'
+        '*://breeze.nohost.network/*',
+        '*://breeze.whateveritworks.org/*'
       ],
       types: [
         'main_frame'
@@ -126,10 +127,11 @@ function updateDeclarativeRule() {
                 "breezewiki.pussthecat.org",
                 "bw.vern.cc",
                 "breezewiki.esmailelbob.xyz",
-                'bw.artemislena.eu',
-                'bw.hamstro.dev',
-                'nerd.whatever.social',
-                'breeze.nohost.network'
+                "bw.artemislena.eu",
+                "bw.hamstro.dev",
+                "nerd.whatever.social",
+                "breeze.nohost.network",
+                "breeze.whateveritworks.org"
               ],
               "resourceTypes": [
                 "main_frame"

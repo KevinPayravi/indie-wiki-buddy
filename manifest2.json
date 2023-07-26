@@ -18,7 +18,8 @@
     "https://bw.artemislena.eu/*",
     "https://bw.hamstro.dev/*",
     "https://nerd.whatever.social/*",
-    "https://breeze.nohost.network/*"
+    "https://breeze.nohost.network/*",
+    "https://breeze.whateveritworks.org/*"
   ],
   "icons": {
     "16": "images/logo-16.png",
@@ -67,7 +68,8 @@
         "https://bw.artemislena.eu/*",
         "https://bw.hamstro.dev/*",
         "https://nerd.whatever.social/*",
-        "https://breeze.nohost.network/*"
+        "https://breeze.nohost.network/*",
+        "https://breeze.whateveritworks.org/*"
       ],
       "js": [
         "content-banners.js"
