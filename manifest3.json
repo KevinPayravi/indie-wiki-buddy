@@ -1,6 +1,6 @@
 {
   "name": "Indie Wiki Buddy",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
   "permissions": [
     "storage",
@@ -50,6 +50,7 @@
         "https://bw.hamstro.dev/*",
         "https://nerd.whatever.social/*",
         "https://breeze.nohost.network/*",
+        "https://breeze.whateveritworks.org/*",
         "https://*.bing.com/*",
         "https://search.brave.com/*",
         "https://*.duckduckgo.com/*",
@@ -469,7 +470,8 @@
         "https://bw.artemislena.eu/*",
         "https://bw.hamstro.dev/*",
         "https://nerd.whatever.social/*",
-        "https://breeze.nohost.network/*"
+        "https://breeze.nohost.network/*",
+        "https://breeze.whateveritworks.org/*"
       ],
       "js": [
         "content-banners.js"
@@ -488,7 +490,8 @@
     "https://bw.artemislena.eu/*",
     "https://bw.hamstro.dev/*",
     "https://nerd.whatever.social/*",
-    "https://breeze.nohost.network/*"
+    "https://breeze.nohost.network/*",
+    "https://breeze.whateveritworks.org/*"
   ],
   "manifest_version": 3
 }
