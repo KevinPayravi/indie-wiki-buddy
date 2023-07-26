@@ -67,7 +67,9 @@ function filterSearchResults(searchResults, searchEngine, storage) {
         console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
       }
       // Check if site is in our list of wikis:
-      let matchingSites = sites.filter(el => String(searchResultLink).replace(/(.*)https?:\/\//, '').startsWith(el.origin_base_url));
+      let matchingSites = sites.filter(el => 
+        String(searchResultLink).replace(/(.*)https?(:\/\/|%3A%2F%2F)/, '').startsWith(el.origin_base_url)
+      );
       if (matchingSites.length > 0) {
         // Select match with longest base URL 
         let closestMatch = "";
