@@ -30,6 +30,11 @@
         "origin_content_path": "/wiki/"
       },
       {
+        "origin": "Animal Crossing: New Leaf Fandom Wiki",
+        "origin_base_url": "acnewleaf.fandom.com",
+        "origin_content_path": "/wiki/"
+      },
+      {
         "origin": "Animal Crossing Wikipeaia Fandom Wiki",
         "origin_base_url": "acwikipeaia.fandom.com",
         "origin_content_path": "/wiki/"
