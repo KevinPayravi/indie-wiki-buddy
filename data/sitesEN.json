@@ -1146,6 +1146,22 @@
     "destination_icon": "tolkiengateway.png"
   },
   {
+    "id": "en-mabinogi",
+    "origins_label": "Mabinogi Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Mabinogi Fandom Wiki",
+        "origin_base_url": "mabinogi.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Mabinogi World Wiki",
+    "destination_base_url": "wiki.mabinogiworld.com",
+    "destination_content_path": "/view/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mabinogiworldwiki.png"
+  },
+  {
     "id": "en-madokamagica",
     "origins_label": "Madoka Magica Fandom Wiki",
     "origins": [
@@ -1400,6 +1416,38 @@
     "destination_content_path": "/wiki/en/",
     "destination_platform": "mediawiki",
     "destination_icon": "rayman.png"
+  },
+  {
+    "id": "en-rhythmheaven",
+    "origins_label": "Rhythm Heaven Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Rhythm Heaven Fandom Wiki",
+        "origin_base_url": "rhythmheaven.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Rhythm Heaven Wiki",
+    "destination_base_url": "rhwiki.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rhythmheavenwiki.png"
+  },
+  {
+    "id": "en-rimworld",
+    "origins_label": "RimWorld Fandom Wiki",
+    "origins": [
+      {
+        "origin": "RimWorld Fandom Wiki",
+        "origin_base_url": "rimworld.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "RimWorld Wiki",
+    "destination_base_url": "rimworldwiki.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rimworldwiki.png"
   },
   {
     "id": "en-rollercoasters",
