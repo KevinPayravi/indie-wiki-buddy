@@ -1,4 +1,6 @@
 const currentURL = new URL(document.location);
+let filteredWikis = [];
+let hiddenWikisRevealed = false;
 
 // Create object prototypes for getting and setting attributes:
 Object.prototype.get = function (prop) {
@@ -34,6 +36,7 @@ async function getData() {
             sites.push({
               "id": site.id,
               "origin": origin.origin,
+              "origin_group": site.origins_label,
               "origin_base_url": origin.origin_base_url,
               "origin_content_path": origin.origin_content_path,
               "destination": site.destination,
@@ -49,12 +52,67 @@ async function getData() {
       }));
   }
   await Promise.all(promises);
+
   return sites;
+}
+
+function insertCSS() {
+  // Output CSS
+  styleString = `
+    .iwb-notice {
+      display: block;
+      margin: .5em .5em 1em .5em !important;
+      padding: .5em .5em .5em 1em !important;
+      border-left: 3px solid #FFCC33 !important;
+      font-size: 14px !important;
+      color: white !important;
+      mix-blend-mode: difference !important;
+    }
+
+    .iwb-notice a {
+      text-decoration: underline !important;
+      color: white !important;
+      mix-blend-mode: difference !important;
+    }
+
+    .iwb-notice button {
+      cursor: pointer !important;
+      display: inline-block;
+      padding: 2px 8px !important;
+      margin: .75em .5em 0 0 !important;
+      background-color: transparent !important;
+      border-radius: 5px !important; 
+      font-size: 12px !important;
+      color: white !important;
+      mix-blend-mode: difference !important;
+    }
+
+    .iwb-hide {
+      display: none !important;
+    }
+    .iwb-show {
+      display: block !important;
+    }
+
+    .iwb-notice button:hover {
+      outline: 1px solid !important;
+    }
+  `
+  style = document.createElement('style');
+  style.textContent = styleString;
+  document.head.append(style);
+}
+
+// Function to convert strings to consistent IDs
+// Used to convert wiki names to element IDs
+function stringToId(string) {
+  return string.replaceAll(' ', '-').replaceAll("'", '').toLowerCase();
 }
 
 function filterSearchResults(searchResults, searchEngine, storage) {
   getData().then(sites => {
-    countFiltered = 0;
+    let countFiltered = 0;
+
     searchResults.forEach(searchResult => {
       let searchResultLink = '';
       try {
@@ -92,71 +150,203 @@ function filterSearchResults(searchResults, searchEngine, storage) {
             searchFilterSetting = 'true';
           }
           if (searchFilterSetting === 'true') {
+            // Output stylesheet if not already done
+            if (filteredWikis.length === 0) {
+              // Wait for head to be available
+              const headElement = document.querySelector('head');
+              if (headElement) {
+                insertCSS();
+              } else {
+                const docObserver = new MutationObserver(function (mutations, mutationInstance) {
+                  const headElement = document.querySelector('head');
+                  if (headElement) {
+                    insertCSS();
+                    mutationInstance.disconnect();
+                  }
+                });
+                docObserver.observe(document, {
+                  childList: true,
+                  subtree: true
+                });
+              }
+            }
+
+            // Insert search result removal notice
+            if (!filteredWikis.includes(site.origin_group)) {
+              filteredWikis.push(site.origin_group);
+              let searchRemovalNotice = document.createElement('aside');
+              searchRemovalNotice.id = 'iwb-notice-' + stringToId(site.origin);
+              searchRemovalNotice.classList.add('iwb-notice');
+              let searchRemovalNoticeLink = document.createElement('a');
+              searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
+              searchRemovalNoticeLink.textContent = site.destination;
+              searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has removed results from ' + site.origin_group + '. Look for results from ');
+              searchRemovalNoticePosttext = document.createTextNode(' instead!');
+              linebreak = document.createElement("br");
+              searchRemovalNotice.appendChild(searchRemovalNoticePretext);
+              searchRemovalNotice.appendChild(searchRemovalNoticeLink);
+              searchRemovalNotice.appendChild(searchRemovalNoticePosttext);
+              searchRemovalNotice.appendChild(linebreak);
+
+              // Output "show results" button
+              var showResultsButton = document.createElement('button');
+              showResultsButton.classList.add('iwb-show-results-button');
+              showResultsButton.setAttribute('data-group', 'iwb-search-result-' + stringToId(site.origin));
+              showResultsButton.innerText = 'Reveal filtered results';
+              showResultsButton.style.border = '1px solid';
+              searchRemovalNotice.appendChild(showResultsButton);
+              showResultsButton.onclick = function (e) {
+                hiddenWikisRevealed = true;
+                const selector = e.currentTarget.dataset.group;
+                document.querySelectorAll('.' + selector).forEach(el => {
+                  el.classList.add('iwb-show');
+                  e.target.style.display = 'none';
+                  e.target.parentNode.querySelector('.iwb-hide-results-button').style.display = 'inline-block';
+                })
+              }
+
+              // Output "re-hide results" button
+              var hideResultsButton = document.createElement('button');
+              hideResultsButton.classList.add('iwb-hide-results-button');
+              hideResultsButton.setAttribute('data-group', 'iwb-search-result-' + stringToId(site.origin));
+              hideResultsButton.innerText = 'Re-hide filtered results';
+              hideResultsButton.style.border = '1px solid';
+              hideResultsButton.style.display = 'none';
+              searchRemovalNotice.appendChild(hideResultsButton);
+              hideResultsButton.onclick = function (e) {
+                hiddenWikisRevealed = false;
+                const selector = e.currentTarget.dataset.group;
+                document.querySelectorAll('.' + selector).forEach(el => {
+                  el.classList.remove('iwb-show');
+                  e.target.style.display = 'none';
+                  e.target.parentNode.querySelector('.iwb-show-results-button').style.display = 'inline-block';
+                })
+              }
+
+              // Output "disable filtering" button
+              var disableFilterButton = document.createElement('button');
+              disableFilterButton.classList.add('iwb-disable-filtering-button');
+              disableFilterButton.innerText = 'Disable search engine filtering for this wiki';
+              disableFilterButton.style.border = '1px solid';
+              searchRemovalNotice.appendChild(disableFilterButton);
+              disableFilterButton.onclick = function (e) {
+                console.log(site);
+                chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+                  response.siteSettings.get(site.id).set('searchFilter', 'false');
+                  chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+                  e.target.style.display = 'none';
+                  e.target.parentNode.querySelector('.iwb-enable-filtering-button').style.display = 'inline-block';
+                });
+              }
+
+              // Output "enable filtering" button
+              var enableFilterButton = document.createElement('button');
+              enableFilterButton.classList.add('iwb-enable-filtering-button');
+              enableFilterButton.innerText = 'Search filtering disabled (click to undo)';
+              enableFilterButton.style.border = '1px solid';
+              enableFilterButton.style.display = 'none';
+              searchRemovalNotice.appendChild(enableFilterButton);
+              enableFilterButton.onclick = function (e) {
+                console.log(site);
+                chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+                  response.siteSettings.get(site.id).set('searchFilter', 'true');
+                  chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+                  e.target.style.display = 'none';
+                  e.target.parentNode.querySelector('.iwb-disable-filtering-button').style.display = 'inline-block';
+                });
+              }
+
+              switch (searchEngine) {
+                case 'google':
+                  if (document.querySelector('#search')) {
+                    document.querySelector('#search').prepend(searchRemovalNotice);
+                  } else if (document.querySelector('#topstuff')) {
+                    document.querySelector('#topstuff').prepend(searchRemovalNotice);
+                  } else if (document.querySelector('#main')) {
+                    let el = document.querySelector('#main');
+                    el.insertBefore(searchRemovalNotice, el.querySelector('div [data-hveid]').parentElement);
+                  };
+                  break;
+                case 'bing':
+                  let li = document.createElement('li');
+                  li.appendChild(searchRemovalNotice);
+                  document.querySelector('#b_results').prepend(li);
+                  break;
+                case 'duckduckgo':
+                  if (document.getElementById('web_content_wrapper')) {
+                    let li = document.createElement('li');
+                    li.appendChild(searchRemovalNotice);
+                    document.querySelector('#web_content_wrapper ol').prepend(li);
+                  } else {
+                    document.getElementById('links').prepend(searchRemovalNotice);
+                  }
+                  break;
+                case 'brave':
+                  document.querySelector('#results').prepend(searchRemovalNotice);
+                  break;
+                case 'ecosia':
+                  document.querySelector('body').prepend(searchRemovalNotice);
+                  break;
+                case 'startpage':
+                  document.querySelector('#main').prepend(searchRemovalNotice);
+                  break;
+                default:
+              }
+            }
+            countFiltered++;
+
             let cssQuery = '';
-            let color = '';
-            let fontSize = '';
+            let searchResultContainer = null;
             switch (searchEngine) {
               case 'google':
                 if (searchResult.closest('div[data-hveid]')) {
                   cssQuery = 'div[data-hveid]';
-                  fontSize = '14px';
+                  searchResultContainer = searchResult.closest(cssQuery).parentElement;
                 }
                 break;
               case 'bing':
                 if (searchResult.closest('li.b_algo')) {
                   cssQuery = 'li.b_algo';
+                  searchResultContainer = searchResult.closest(cssQuery);
                 }
                 break;
               case 'duckduckgo':
                 if (searchResult.closest('li[data-layout], div.web-result')) {
                   cssQuery = 'li[data-layout], div.web-result';
-                  color = 'var(--theme-col-txt-snippet)';
+                  searchResultContainer = searchResult.closest(cssQuery);
                 }
                 break;
               case 'brave':
                 if (searchResult.closest('div.snippet')) {
                   cssQuery = 'div.snippet';
-                  color = 'var(--search-text-03)';
+                  searchResultContainer = searchResult.closest(cssQuery);
                 }
                 break;
               case 'ecosia':
-                if (searchResult.closest('div.result__body')) {
-                  cssQuery = 'div.result__body';
+                if (searchResult.closest('div.mainline__result-wrapper')) {
+                  cssQuery = 'div.mainline__result-wrapper';
+                  searchResultContainer = searchResult.closest(cssQuery);
                 }
                 break;
               case 'startpage':
-                if (searchResult.closest('div.w-gl__result__main')) {
-                  cssQuery = 'div.w-gl__result__main';
+                if (searchResult.closest('div.w-gl__result')) {
+                  cssQuery = 'div.w-gl__result';
+                  searchResultContainer = searchResult.closest(cssQuery);
                 }
                 break;
               default:
             }
-            if (cssQuery) {
-              let searchListing = document.createElement('div');
-              if (color) {
-                searchListing.style.color = color;
-              }
-              if (fontSize) {
-                searchListing.style.fontSize = fontSize;
-              }
-              searchListing.style.fontStyle = 'italic';
-              searchListing.style.padding = '.5em';
-              let searchListingLink = document.createElement('a');
-              searchListingLink.style.textDecoration = 'underline';
-              searchListingLink.href = 'https://' + site.destination_base_url;
-              searchListingLink.textContent = site.destination;
-              searchListingPretext = document.createTextNode('A search result from ' + site.origin + ' has been removed by Indie Wiki Buddy. Look for results from ');
-              searchListingPosttext = document.createTextNode(' instead!');
-              searchListing.appendChild(searchListingPretext);
-              searchListing.appendChild(searchListingLink);
-              searchListing.appendChild(searchListingPosttext);
-              searchResult.closest(cssQuery).replaceChildren(searchListing);
-              countFiltered++;
+
+            searchResult.closest(cssQuery).classList.add('iwb-search-result-' + stringToId(site.origin));
+            searchResult.closest(cssQuery).classList.add('iwb-hide');
+            if (hiddenWikisRevealed) {
+              searchResult.closest(cssQuery).classList.add('iwb-show');
             }
           }
         }
       }
     });
+    addLocationObserver(main);
     if (countFiltered > 0) {
       chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
     }
@@ -183,15 +373,13 @@ function main(mutations = null, observer = null) {
 
             // Wait for document to be interactive/complete:
             if (['interactive', 'complete'].includes(document.readyState)) {
-              addLocationObserver(main);
               filterGoogle();
             } else {
               document.addEventListener('readystatechange', e => {
                 if (['interactive', 'complete'].includes(document.readyState)) {
-                  addLocationObserver(main);
                   filterGoogle();
                 }
-              });
+              }, { once: true });
             }
           } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
             // Function to filter search results in DuckDuckGo
@@ -202,15 +390,13 @@ function main(mutations = null, observer = null) {
 
             // Wait for document to be interactive/complete:
             if (['interactive', 'complete'].includes(document.readyState)) {
-              addLocationObserver(main);
               filterDuckDuckGo();
             } else {
               document.addEventListener('readystatechange', e => {
                 if (['interactive', 'complete'].includes(document.readyState)) {
-                  addLocationObserver(main);
                   filterDuckDuckGo();
                 }
-              });
+              }, { once: true });
             }
           } else if (currentURL.hostname.includes('www.bing.com')) {
             // Function to filter search results in Bing
@@ -221,15 +407,13 @@ function main(mutations = null, observer = null) {
 
             // Wait for document to be interactive/complete:
             if (['interactive', 'complete'].includes(document.readyState)) {
-              addLocationObserver(main);
               filterBing();
             } else {
               document.addEventListener('readystatechange', e => {
                 if (['interactive', 'complete'].includes(document.readyState)) {
-                  addLocationObserver(main);
                   filterBing();
                 }
-              });
+              }, { once: true });
             }
           } else if (currentURL.hostname.includes('search.brave.com')) {
             // Function to filter search results in Brave
@@ -240,34 +424,30 @@ function main(mutations = null, observer = null) {
 
             // Wait for document to be interactive/complete:
             if (['interactive', 'complete'].includes(document.readyState)) {
-              addLocationObserver(main);
               filterBrave();
             } else {
               document.addEventListener('readystatechange', e => {
                 if (['interactive', 'complete'].includes(document.readyState)) {
-                  addLocationObserver(main);
                   filterBrave();
                 }
-              });
+              }, { once: true });
             }
           } else if (currentURL.hostname.includes('ecosia.org')) {
             // Function to filter search results in Ecosia
             function filterEcosia() {
-              let searchResults = Array.from(document.querySelectorAll("a.result__link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+              let searchResults = Array.from(document.querySelectorAll("section.mainline .result__title a.result__link")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
               filterSearchResults(searchResults, 'ecosia', storage);
             }
 
             // Wait for document to be interactive/complete:
             if (['interactive', 'complete'].includes(document.readyState)) {
-              addLocationObserver(main);
               filterEcosia();
             } else {
               document.addEventListener('readystatechange', e => {
                 if (['interactive', 'complete'].includes(document.readyState)) {
-                  addLocationObserver(main);
                   filterEcosia();
                 }
-              });
+              }, { once: true });
             }
           } else if (currentURL.hostname.includes('startpage.com')) {
             // Function to filter search results in Startpage
@@ -278,15 +458,13 @@ function main(mutations = null, observer = null) {
 
             // Wait for document to be interactive/complete:
             if (['interactive', 'complete'].includes(document.readyState)) {
-              addLocationObserver(main);
               filterStartpage();
             } else {
               document.addEventListener('readystatechange', e => {
                 if (['interactive', 'complete'].includes(document.readyState)) {
-                  addLocationObserver(main);
                   filterStartpage();
                 }
-              });
+              }, { once: true });
             }
           }
         }
