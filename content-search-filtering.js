@@ -222,13 +222,6 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                 }
               }
 
-              // Output "change settings" link
-              // let changeSettingsLink = document.createElement('a');
-              // changeSettingsLink.href = chrome.extension.getURL('settings.html');
-              // changeSettingsLink.target = '_blank';
-              // changeSettingsLink.textContent = 'Change settings';
-              // searchRemovalNotice.appendChild(changeSettingsLink);
-
               // Output "disable filtering" button
               let disableFilterButton = document.createElement('button');
               disableFilterButton.classList.add('iwb-disable-filtering-button');
@@ -241,27 +234,14 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                     response.siteSettings.get(site.id).set('searchFilter', 'false');
                     chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
                     e.target.textContent = 'Re-enable filtering for ' + site.origin_group;
-                    document.getElementById('iwb-reload-link-' + stringToId(site.origin)).classList.remove('iwb-hide');
                   })
                 } else {
                   chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
                     response.siteSettings.get(site.id).set('searchFilter', 'true');
                     chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
                     e.target.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
-                    document.getElementById('iwb-reload-link-' + stringToId(site.origin)).classList.add('iwb-hide');
                   })
                 }
-              }
-
-              // Output refresh link
-              let reloadLink = document.createElement('a');
-              reloadLink.id = 'iwb-reload-link-' + stringToId(site.origin);
-              reloadLink.href = "#";
-              reloadLink.textContent = 'Reload page';
-              reloadLink.classList.add('iwb-hide');
-              searchRemovalNotice.appendChild(reloadLink);
-              reloadLink.onclick = function (e) {
-                window.location.reload();
               }
 
               switch (searchEngine) {
