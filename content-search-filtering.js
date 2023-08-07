@@ -1,6 +1,6 @@
 const currentURL = new URL(document.location);
 let filteredWikis = [];
-let hiddenWikisRevealed = false;
+let hiddenWikisRevealed = {};
 
 // Create object prototypes for getting and setting attributes:
 Object.prototype.get = function (prop) {
@@ -60,7 +60,7 @@ function insertCSS() {
   // Output CSS
   styleString = `
     .iwb-notice {
-      display: block;
+      display: block !important;
       margin: .5em .5em 1em .5em !important;
       padding: .5em .5em .5em 1em !important;
       border-left: 3px solid #FFCC33 !important;
@@ -77,14 +77,22 @@ function insertCSS() {
 
     .iwb-notice button {
       cursor: pointer !important;
-      display: inline-block;
+      display: inline-block !important;
       padding: 2px 8px !important;
-      margin: .75em .5em 0 0 !important;
+      margin: 8px 8px 0 0 !important;
       background-color: transparent !important;
+      border: 1px solid !important;
       border-radius: 5px !important; 
-      font-size: 12px !important;
+      font-size: 11px !important;
       color: white !important;
       mix-blend-mode: difference !important;
+      text-align: left !important;
+    }
+    .iwb-notice button+a {
+      display: inline-block;
+      font-size: 12px !important;
+      margin: 8px 0 0 0 !important;
+      white-space: nowrap !important;
     }
 
     .iwb-hide {
@@ -174,13 +182,15 @@ function filterSearchResults(searchResults, searchEngine, storage) {
             // Insert search result removal notice
             if (!filteredWikis.includes(site.origin_group)) {
               filteredWikis.push(site.origin_group);
+              hiddenWikisRevealed[stringToId(site.origin)] = false;
+  
               let searchRemovalNotice = document.createElement('aside');
               searchRemovalNotice.id = 'iwb-notice-' + stringToId(site.origin);
               searchRemovalNotice.classList.add('iwb-notice');
               let searchRemovalNoticeLink = document.createElement('a');
               searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
               searchRemovalNoticeLink.textContent = site.destination;
-              searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has removed results from ' + site.origin_group + '. Look for results from ');
+              searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + '. Look for results from ');
               searchRemovalNoticePosttext = document.createTextNode(' instead!');
               linebreak = document.createElement("br");
               searchRemovalNotice.appendChild(searchRemovalNoticePretext);
@@ -189,71 +199,69 @@ function filterSearchResults(searchResults, searchEngine, storage) {
               searchRemovalNotice.appendChild(linebreak);
 
               // Output "show results" button
-              var showResultsButton = document.createElement('button');
+              let showResultsButton = document.createElement('button');
               showResultsButton.classList.add('iwb-show-results-button');
               showResultsButton.setAttribute('data-group', 'iwb-search-result-' + stringToId(site.origin));
-              showResultsButton.innerText = 'Reveal filtered results';
-              showResultsButton.style.border = '1px solid';
+              showResultsButton.textContent = 'Show filtered results';
               searchRemovalNotice.appendChild(showResultsButton);
               showResultsButton.onclick = function (e) {
-                hiddenWikisRevealed = true;
-                const selector = e.currentTarget.dataset.group;
-                document.querySelectorAll('.' + selector).forEach(el => {
-                  el.classList.add('iwb-show');
-                  e.target.style.display = 'none';
-                  e.target.parentNode.querySelector('.iwb-hide-results-button').style.display = 'inline-block';
-                })
+                if(e.target.textContent.includes('Show')) {
+                  e.target.textContent = 'Re-hide filtered results';
+                  hiddenWikisRevealed[stringToId(site.origin)] = true;
+                  const selector = e.currentTarget.dataset.group;
+                  document.querySelectorAll('.' + selector).forEach(el => {
+                    el.classList.add('iwb-show');
+                  })
+                } else {
+                  e.target.textContent = 'Show filtered results';
+                  hiddenWikisRevealed[stringToId(site.origin)] = false;
+                  const selector = e.currentTarget.dataset.group;
+                  document.querySelectorAll('.' + selector).forEach(el => {
+                    el.classList.remove('iwb-show');
+                  })
+                }
               }
 
-              // Output "re-hide results" button
-              var hideResultsButton = document.createElement('button');
-              hideResultsButton.classList.add('iwb-hide-results-button');
-              hideResultsButton.setAttribute('data-group', 'iwb-search-result-' + stringToId(site.origin));
-              hideResultsButton.innerText = 'Re-hide filtered results';
-              hideResultsButton.style.border = '1px solid';
-              hideResultsButton.style.display = 'none';
-              searchRemovalNotice.appendChild(hideResultsButton);
-              hideResultsButton.onclick = function (e) {
-                hiddenWikisRevealed = false;
-                const selector = e.currentTarget.dataset.group;
-                document.querySelectorAll('.' + selector).forEach(el => {
-                  el.classList.remove('iwb-show');
-                  e.target.style.display = 'none';
-                  e.target.parentNode.querySelector('.iwb-show-results-button').style.display = 'inline-block';
-                })
-              }
+              // Output "change settings" link
+              // let changeSettingsLink = document.createElement('a');
+              // changeSettingsLink.href = chrome.extension.getURL('settings.html');
+              // changeSettingsLink.target = '_blank';
+              // changeSettingsLink.textContent = 'Change settings';
+              // searchRemovalNotice.appendChild(changeSettingsLink);
 
               // Output "disable filtering" button
-              var disableFilterButton = document.createElement('button');
+              let disableFilterButton = document.createElement('button');
               disableFilterButton.classList.add('iwb-disable-filtering-button');
-              disableFilterButton.innerText = 'Disable search engine filtering for this wiki';
+              disableFilterButton.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
               disableFilterButton.style.border = '1px solid';
               searchRemovalNotice.appendChild(disableFilterButton);
               disableFilterButton.onclick = function (e) {
-                console.log(site);
-                chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-                  response.siteSettings.get(site.id).set('searchFilter', 'false');
-                  chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-                  e.target.style.display = 'none';
-                  e.target.parentNode.querySelector('.iwb-enable-filtering-button').style.display = 'inline-block';
-                });
+                if (e.target.textContent.includes('Stop')) {
+                  chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+                    response.siteSettings.get(site.id).set('searchFilter', 'false');
+                    chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+                    e.target.textContent = 'Re-enable filtering for ' + site.origin_group;
+                    document.getElementById('iwb-reload-link-' + stringToId(site.origin)).classList.remove('iwb-hide');
+                  })
+                } else {
+                  chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+                    response.siteSettings.get(site.id).set('searchFilter', 'true');
+                    chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+                    e.target.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
+                    document.getElementById('iwb-reload-link-' + stringToId(site.origin)).classList.add('iwb-hide');
+                  })
+                }
               }
 
-              // Output "enable filtering" button
-              var enableFilterButton = document.createElement('button');
-              enableFilterButton.classList.add('iwb-enable-filtering-button');
-              enableFilterButton.innerText = 'Search filtering disabled (click to undo)';
-              enableFilterButton.style.border = '1px solid';
-              enableFilterButton.style.display = 'none';
-              searchRemovalNotice.appendChild(enableFilterButton);
-              enableFilterButton.onclick = function (e) {
-                console.log(site);
-                chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-                  response.siteSettings.get(site.id).set('searchFilter', 'true');
-                  chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-                  e.target.style.display = 'none';
-                  e.target.parentNode.querySelector('.iwb-disable-filtering-button').style.display = 'inline-block';
-                });
+              // Output refresh link
+              let reloadLink = document.createElement('a');
+              reloadLink.id = 'iwb-reload-link-' + stringToId(site.origin);
+              reloadLink.href = "#";
+              reloadLink.textContent = 'Reload page';
+              reloadLink.classList.add('iwb-hide');
+              searchRemovalNotice.appendChild(reloadLink);
+              reloadLink.onclick = function (e) {
+                window.location.reload();
               }
 
               switch (searchEngine) {
@@ -293,7 +301,6 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                 default:
               }
             }
-            countFiltered++;
 
             let cssQuery = '';
             let searchResultContainer = null;
@@ -337,10 +344,15 @@ function filterSearchResults(searchResults, searchEngine, storage) {
               default:
             }
 
-            searchResult.closest(cssQuery).classList.add('iwb-search-result-' + stringToId(site.origin));
-            searchResult.closest(cssQuery).classList.add('iwb-hide');
-            if (hiddenWikisRevealed) {
-              searchResult.closest(cssQuery).classList.add('iwb-show');
+            if(!Array.from(searchResultContainer.classList).includes('iwb-hide')) {
+              searchResultContainer.classList.add('iwb-search-result-' + stringToId(site.origin));
+              searchResultContainer.classList.add('iwb-hide');
+              console.log(searchResultContainer);
+              console.log('weeee');
+              countFiltered++;
+              if (hiddenWikisRevealed[stringToId(site.origin)]) {
+                searchResultContainer.classList.add('iwb-show');
+              }
             }
           }
         }
