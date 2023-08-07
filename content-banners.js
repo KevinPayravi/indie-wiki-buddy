@@ -109,7 +109,7 @@ function displayRedirectBanner(url, id, destination, storage) {
   var bannerExit = document.createElement('div');
   bannerExit.id = 'indie-wiki-banner-exit';
   banner.appendChild(bannerExit);
-  bannerExit.innerText = '✕';
+  bannerExit.textContent = '✕';
   bannerExit.onclick = function () { this.parentElement.remove(); };
 
   // Output control links container
@@ -123,17 +123,17 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerRestoreLink.classList.add('indie-wiki-banner-link');
   bannerRestoreLink.classList.add('indie-wiki-banner-link-small');
   bannerRestoreLink.classList.add('indie-wiki-banner-hidden');
-  bannerRestoreLink.innerText = '⎌ Restore banner';
+  bannerRestoreLink.textContent = '⎌ Restore banner';
   bannerControls.appendChild(bannerRestoreLink);
   bannerRestoreLink.onclick = function (e) {
     chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
       response.siteSettings.get(id).set('action', 'alert');
       chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-      e.target.innerText = '✓ Banner restored';
+      e.target.textContent = '✓ Banner restored';
       e.target.classList.add('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-redirect').innerText = '↪ Auto redirect this wiki';
+      document.getElementById('indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
       document.getElementById('indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-disable').innerText = '✕ Disable banner for this wiki';
+      document.getElementById('indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
       document.getElementById('indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
     });
   }
@@ -143,17 +143,17 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerDisableLink.id = 'indie-wiki-banner-disable';
   bannerDisableLink.classList.add('indie-wiki-banner-link');
   bannerDisableLink.classList.add('indie-wiki-banner-link-small');
-  bannerDisableLink.innerText = '✕ Disable banner for this wiki';
+  bannerDisableLink.textContent = '✕ Disable banner for this wiki';
   bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
     chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
       response.siteSettings.get(id).set('action', 'disabled');
       chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-      e.target.innerText = '✓ Banner disabled';
+      e.target.textContent = '✓ Banner disabled';
       e.target.classList.add('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-redirect').innerText = '↪ Auto redirect this wiki';
+      document.getElementById('indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
       document.getElementById('indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-restore').innerText = '⎌ Restore banner';
+      document.getElementById('indie-wiki-banner-restore').textContent = '⎌ Restore banner';
       document.getElementById('indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
       document.getElementById('indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
     });
@@ -164,17 +164,17 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerRedirectLink.id = 'indie-wiki-banner-redirect';
   bannerRedirectLink.classList.add('indie-wiki-banner-link');
   bannerRedirectLink.classList.add('indie-wiki-banner-link-small');
-  bannerRedirectLink.innerText = '↪ Auto redirect this wiki';
+  bannerRedirectLink.textContent = '↪ Auto redirect this wiki';
   bannerControls.appendChild(bannerRedirectLink);
   bannerRedirectLink.onclick = function (e) {
     chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
       response.siteSettings.get(id).set('action', 'redirect');
       chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-      e.target.innerText = '✓ Redirect enabled';
+      e.target.textContent = '✓ Redirect enabled';
       e.target.classList.add('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-disable').innerText = '✕ Disable banner for this wiki';
+      document.getElementById('indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
       document.getElementById('indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-restore').innerText = '⎌ Restore banner';
+      document.getElementById('indie-wiki-banner-restore').textContent = '⎌ Restore banner';
       document.getElementById('indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
       document.getElementById('indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
     });
@@ -189,7 +189,7 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerWikiLink.classList.add('indie-wiki-banner-link');
   bannerText.appendChild(bannerWikiLink);
   bannerWikiLink.href = url;
-  bannerWikiLink.innerText = 'Visit ' + destination + ' →';
+  bannerWikiLink.textContent = 'Visit ' + destination + ' →';
 
   // Increment stats
   if (document.readyState === 'interactive' || document.readyState === 'complete') {

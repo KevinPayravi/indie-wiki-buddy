@@ -87,12 +87,12 @@ async function loadBreezeWikiOptions() {
           for (var i = 0; i < breezewikiHosts.length; i++) {
             let option = document.createElement('option');
             option.value = breezewikiHosts[i].instance;
-            let innerText = breezewikiHosts[i].instance.replace('https://', '');
-            const numberOfPeriods = (innerText.match(/\./g)||[]).length;
+            let textContent = breezewikiHosts[i].instance.replace('https://', '');
+            const numberOfPeriods = (textContent.match(/\./g)||[]).length;
             if (numberOfPeriods > 1) {
-              innerText = innerText.substring(innerText.indexOf('.') + 1);
+              textContent = textContent.substring(textContent.indexOf('.') + 1);
             }
-            option.innerText = innerText;
+            option.textContent = textContent;
             breezewikiHostSelect.appendChild(option);
             if (option.value === host) {
               breezewikiHostSelect.value = host;
@@ -124,12 +124,12 @@ async function loadBreezeWikiOptions() {
       for (var i = 0; i < hostOptions.length; i++) {
         let option = document.createElement('option');
         option.value = hostOptions[i].instance;
-        let innerText = hostOptions[i].instance.replace('https://', '');
-        const numberOfPeriods = (innerText.match(/\./g)||[]).length;
+        let textContent = hostOptions[i].instance.replace('https://', '');
+        const numberOfPeriods = (textContent.match(/\./g)||[]).length;
         if (numberOfPeriods > 1) {
-          innerText = innerText.substring(innerText.indexOf('.') + 1);
+          textContent = textContent.substring(textContent.indexOf('.') + 1);
         }
-        option.innerText = innerText;
+        option.textContent = textContent;
         breezewikiHostSelect.appendChild(option);
         if (option.value === host) {
           breezewikiHostSelect.value = host;
