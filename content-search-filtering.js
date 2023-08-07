@@ -327,8 +327,6 @@ function filterSearchResults(searchResults, searchEngine, storage) {
             if(!Array.from(searchResultContainer.classList).includes('iwb-hide')) {
               searchResultContainer.classList.add('iwb-search-result-' + stringToId(site.origin));
               searchResultContainer.classList.add('iwb-hide');
-              console.log(searchResultContainer);
-              console.log('weeee');
               countFiltered++;
               if (hiddenWikisRevealed[stringToId(site.origin)]) {
                 searchResultContainer.classList.add('iwb-show');

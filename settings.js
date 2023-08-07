@@ -511,9 +511,7 @@ document.addEventListener('DOMContentLoaded', function () {
   notificationBanner = document.getElementById('notificationBanner');
   
   // If running Chromium, show warning about service worker bug
-  console.log('wooo');
   if (navigator.userAgent.match(/Chrom[e|ium]/)) {
-    console.log('weee');
     notificationBanner.style.display = 'block';
     document.getElementById('notificationBannerBug').style.display = 'block';
   }
