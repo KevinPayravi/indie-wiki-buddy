@@ -117,6 +117,12 @@ function stringToId(string) {
   return string.replaceAll(' ', '-').replaceAll("'", '').toLowerCase();
 }
 
+// Function to escape string to use in regex
+function escapeRegex(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+
 function filterSearchResults(searchResults, searchEngine, storage) {
   getData().then(sites => {
     let countFiltered = 0;
@@ -134,7 +140,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
       }
       // Check if site is in our list of wikis:
       let matchingSites = sites.filter(el => 
-        String(searchResultLink).replace(/(.*)https?(:\/\/|%3A%2F%2F)/, '').startsWith(el.origin_base_url)
+        String(searchResultLink).match('https(:\/\/|%3a%2f%2f)' + escapeRegex(el.origin_base_url))
       );
       if (matchingSites.length > 0) {
         // Select match with longest base URL 
@@ -251,18 +257,18 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                   } else if (document.querySelector('#topstuff')) {
                     document.querySelector('#topstuff').prepend(searchRemovalNotice);
                   } else if (document.querySelector('#main')) {
-                    let el = document.querySelector('#main');
+                    var el = document.querySelector('#main');
                     el.insertBefore(searchRemovalNotice, el.querySelector('div [data-hveid]').parentElement);
                   };
                   break;
                 case 'bing':
-                  let li = document.createElement('li');
+                  var li = document.createElement('li');
                   li.appendChild(searchRemovalNotice);
                   document.querySelector('#b_results').prepend(li);
                   break;
                 case 'duckduckgo':
                   if (document.getElementById('web_content_wrapper')) {
-                    let li = document.createElement('li');
+                    var li = document.createElement('li');
                     li.appendChild(searchRemovalNotice);
                     document.querySelector('#web_content_wrapper ol').prepend(li);
                   } else {
@@ -277,6 +283,15 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                   break;
                 case 'startpage':
                   document.querySelector('#main').prepend(searchRemovalNotice);
+                  break;
+                case 'yahoo':
+                  if (document.querySelector('#web > ol')) {
+                    var li = document.createElement('li');
+                    li.appendChild(searchRemovalNotice);
+                    document.querySelector('#web > ol').prepend(li);
+                  } else {
+                    document.querySelector('#main-algo').prepend(searchRemovalNotice);
+                  }
                   break;
                 default:
               }
@@ -318,6 +333,12 @@ function filterSearchResults(searchResults, searchEngine, storage) {
               case 'startpage':
                 if (searchResult.closest('div.w-gl__result')) {
                   cssQuery = 'div.w-gl__result';
+                  searchResultContainer = searchResult.closest(cssQuery);
+                }
+                break;
+              case 'yahoo':
+                if (searchResult.closest('#web > ol > li, section.algo')) {
+                  cssQuery = '#web > ol > li, section.algo';
                   searchResultContainer = searchResult.closest(cssQuery);
                 }
                 break;
@@ -453,6 +474,23 @@ function main(mutations = null, observer = null) {
               document.addEventListener('readystatechange', e => {
                 if (['interactive', 'complete'].includes(document.readyState)) {
                   filterStartpage();
+                }
+              }, { once: true });
+            }
+          } else if (currentURL.hostname.includes('yahoo.com')) {
+            // Function to filter search results in Yahoo
+            function filterYahoo() {
+              let searchResults = Array.from(document.querySelectorAll("#web > ol > li a, #main-algo section.algo a")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+              filterSearchResults(searchResults, 'yahoo', storage);
+            }
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterYahoo();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (['interactive', 'complete'].includes(document.readyState)) {
+                  filterYahoo();
                 }
               }, { once: true });
             }
