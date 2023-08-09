@@ -483,7 +483,7 @@ function main(mutations = null, observer = null) {
           } else if (currentURL.hostname.includes('yahoo.com')) {
             // Function to filter search results in Yahoo
             function filterYahoo() {
-              let searchResults = Array.from(document.querySelectorAll("#web > ol > li a, #main-algo section.algo a")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+              let searchResults = Array.from(document.querySelectorAll("#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)")).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
               filterSearchResults(searchResults, 'yahoo', storage);
             }
 
