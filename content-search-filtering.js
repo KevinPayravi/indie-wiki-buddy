@@ -198,7 +198,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
               let searchRemovalNoticeLink = document.createElement('a');
               searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
               searchRemovalNoticeLink.textContent = site.destination;
-              searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + '. Look for results from ');
+              searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + (site.lang !== 'EN' ? ' (' + site.lang + ')' : '') + '. Look for results from ');
               searchRemovalNoticePosttext = document.createTextNode(' instead!');
               linebreak = document.createElement("br");
               searchRemovalNotice.appendChild(searchRemovalNoticePretext);
