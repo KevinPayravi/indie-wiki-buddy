@@ -140,7 +140,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
       }
       // Check if site is in our list of wikis:
       let matchingSites = sites.filter(el => 
-        String(searchResultLink).match('https(:\/\/|%3a%2f%2f)' + escapeRegex(el.origin_base_url))
+        String(decodeURIComponent(searchResultLink)).includes('https://' + el.origin_base_url)
       );
       if (matchingSites.length > 0) {
         // Select match with longest base URL 
@@ -186,12 +186,14 @@ function filterSearchResults(searchResults, searchEngine, storage) {
             }
 
             // Insert search result removal notice
-            if (!filteredWikis.includes(site.origin_group)) {
-              filteredWikis.push(site.origin_group);
-              hiddenWikisRevealed[stringToId(site.origin)] = false;
+            if (!filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
+              filteredWikis.push(site.lang + ' ' + site.origin_group);
+
+              let elementId = stringToId(site.lang + '-' + site.origin_group);
+              hiddenWikisRevealed[elementId] = false;
   
               let searchRemovalNotice = document.createElement('aside');
-              searchRemovalNotice.id = 'iwb-notice-' + stringToId(site.origin);
+              searchRemovalNotice.id = 'iwb-notice-' + elementId;
               searchRemovalNotice.classList.add('iwb-notice');
               let searchRemovalNoticeLink = document.createElement('a');
               searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
@@ -207,20 +209,20 @@ function filterSearchResults(searchResults, searchEngine, storage) {
               // Output "show results" button
               let showResultsButton = document.createElement('button');
               showResultsButton.classList.add('iwb-show-results-button');
-              showResultsButton.setAttribute('data-group', 'iwb-search-result-' + stringToId(site.origin));
+              showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
               showResultsButton.textContent = 'Show filtered results';
               searchRemovalNotice.appendChild(showResultsButton);
               showResultsButton.onclick = function (e) {
                 if(e.target.textContent.includes('Show')) {
                   e.target.textContent = 'Re-hide filtered results';
-                  hiddenWikisRevealed[stringToId(site.origin)] = true;
+                  hiddenWikisRevealed[elementId] = true;
                   const selector = e.currentTarget.dataset.group;
                   document.querySelectorAll('.' + selector).forEach(el => {
                     el.classList.add('iwb-show');
                   })
                 } else {
                   e.target.textContent = 'Show filtered results';
-                  hiddenWikisRevealed[stringToId(site.origin)] = false;
+                  hiddenWikisRevealed[elementId] = false;
                   const selector = e.currentTarget.dataset.group;
                   document.querySelectorAll('.' + selector).forEach(el => {
                     el.classList.remove('iwb-show');
@@ -346,10 +348,11 @@ function filterSearchResults(searchResults, searchEngine, storage) {
             }
 
             if(!Array.from(searchResultContainer.classList).includes('iwb-hide')) {
-              searchResultContainer.classList.add('iwb-search-result-' + stringToId(site.origin));
+              let elementId = stringToId(site.lang + '-' + site.origin_group);
+              searchResultContainer.classList.add('iwb-search-result-' + elementId);
               searchResultContainer.classList.add('iwb-hide');
               countFiltered++;
-              if (hiddenWikisRevealed[stringToId(site.origin)]) {
+              if (hiddenWikisRevealed[elementId]) {
                 searchResultContainer.classList.add('iwb-show');
               }
             }
