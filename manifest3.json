@@ -1,6 +1,6 @@
 {
   "name": "Indie Wiki Buddy",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
   "permissions": [
     "storage",
@@ -56,7 +56,7 @@
         "https://*.duckduckgo.com/*",
         "https://*.ecosia.org/*",
         "https://*.startpage.com/*",
-        "https://*.yahoo.com/*",
+        "https://*.search.yahoo.com/*",
         "https://www.google.com/*",
         "https://www.google.ad/*",
         "https://www.google.ae/*",
@@ -261,7 +261,7 @@
         "https://*.duckduckgo.com/*",
         "https://*.ecosia.org/*",
         "https://*.startpage.com/*",
-        "https://*.yahoo.com/*",
+        "https://*.search.yahoo.com/*",
         "https://www.google.com/search*",
         "https://www.google.ad/search*",
         "https://www.google.ae/search*",
