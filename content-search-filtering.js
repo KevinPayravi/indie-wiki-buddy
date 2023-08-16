@@ -381,7 +381,7 @@ function main(mutations = null, observer = null) {
           if (currentURL.hostname.includes('www.google.')) {
             // Function to filter search results in Google
             function filterGoogle() {
-              let searchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']:first-of-type, div[data-hveid] a[href*='fextralife.com']:first-of-type");
+              let searchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']:first-of-type:not([jsaction]), div[data-hveid] a[href*='fextralife.com']:first-of-type:not([jsaction])");
               filterSearchResults(searchResults, 'google', storage);
             }
 
