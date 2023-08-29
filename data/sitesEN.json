@@ -16,6 +16,22 @@
     "destination_icon": "adventurezonewiki.png"
   },
   {
+    "id": "en-akudamadrive",
+    "origins_label": "Akudama Drive Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Akudama Drive Fandom Wiki",
+        "origin_base_url": "akudamadrive.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Akudama Drive Wiki",
+    "destination_base_url": "akudamadrive.miraheze.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "akudamadrivewiki.png"
+  },
+  {
     "id": "en-animalcrossing",
     "origins_label": "Animal Crossing Fandom Wikis",
     "origins": [
@@ -727,6 +743,22 @@
     "destination_icon": "zerowiki.png"
   },
   {
+    "id": "en-findeverything",
+    "origins_label": "Find Everything Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Find Everything Fandom Wiki",
+        "origin_base_url": "find-everything-rbx.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Find Everything Wiki",
+    "destination_base_url": "findeverything.miraheze.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "findeverythingwiki.png"
+  },
+  {
     "id": "en-fireemblem",
     "origins_label": "Fire Emblem Fandom Wiki",
     "origins": [
@@ -1322,6 +1354,22 @@
     "destination_icon": "pikipedia.png"
   },
   {
+    "id": "en-pizzatower",
+    "origins_label": "Pizza Tower Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pizza Tower Fandom Wiki",
+        "origin_base_url": "pizzatower.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Pizza Tower Wiki",
+    "destination_base_url": "pizzatower.miraheze.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pizzatowerwiki.png"
+  },
+  {
     "id": "en-pokemon",
     "origins_label": "Pokémon Fandom Wiki",
     "origins": [
@@ -1870,6 +1918,22 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "lexicanum.png"
+  },
+  {
+    "id": "en-weezer",
+    "origins_label": "Weezer Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Weezer Fandom Wiki",
+        "origin_base_url": "weezer.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Weezerpedia",
+    "destination_base_url": "www.weezerpedia.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "weezerpedia.png"
   },
   {
     "id": "en-wildfrost",
