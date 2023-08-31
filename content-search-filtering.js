@@ -139,9 +139,14 @@ function filterSearchResults(searchResults, searchEngine, storage) {
         console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
       }
       // Check if site is in our list of wikis:
-      let matchingSites = sites.filter(el => 
-        String(decodeURIComponent(searchResultLink)).includes('https://' + el.origin_base_url)
-      );
+      let matchingSites = sites.filter(el => {
+        let link =  String(decodeURIComponent(searchResultLink));
+        if (link.substring(8).includes('/')) {
+          return link.includes('https://' + el.origin_base_url + el.origin_content_path);
+        } else {
+          return link.includes('https://' + el.origin_base_url);
+        }
+      });
       if (matchingSites.length > 0) {
         // Select match with longest base URL 
         let closestMatch = "";
