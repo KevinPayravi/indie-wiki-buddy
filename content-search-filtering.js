@@ -114,7 +114,7 @@ function insertCSS() {
 // Function to convert strings to consistent IDs
 // Used to convert wiki names to element IDs
 function stringToId(string) {
-  return string.replaceAll(' ', '-').replaceAll("'", '').toLowerCase();
+  return string.replaceAll(' ', '-').replaceAll("'", '').replace(/\W/g, '').toLowerCase();
 }
 
 // Function to escape string to use in regex
