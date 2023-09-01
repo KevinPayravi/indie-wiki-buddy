@@ -140,7 +140,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
       }
       // Check if site is in our list of wikis:
       let matchingSites = sites.filter(el => {
-        let link =  String(decodeURIComponent(searchResultLink));
+        let link = String(decodeURIComponent(searchResultLink));
         if (link.substring(8).includes('/')) {
           // If the URL has a path, check if an exact match with base URL or base URL + content path
           // This is done to ensure we capture non-English Fandom wikis correctly
@@ -389,7 +389,7 @@ function main(mutations = null, observer = null) {
           if (currentURL.hostname.includes('www.google.')) {
             // Function to filter search results in Google
             function filterGoogle() {
-              let searchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']:first-of-type:not([jsaction]), div[data-hveid] a[href*='fextralife.com']:first-of-type:not([jsaction])");
+              let searchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']:first-of-type:not([role='button']):not([target]), div[data-hveid] a[href*='fextralife.com']:first-of-type:not([role='button']):not([target])");
               filterSearchResults(searchResults, 'google', storage);
             }
 
