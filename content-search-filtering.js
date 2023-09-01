@@ -142,8 +142,11 @@ function filterSearchResults(searchResults, searchEngine, storage) {
       let matchingSites = sites.filter(el => {
         let link =  String(decodeURIComponent(searchResultLink));
         if (link.substring(8).includes('/')) {
-          return link.includes('https://' + el.origin_base_url + el.origin_content_path);
+          // If the URL has a path, check if an exact match with base URL or base URL + content path
+          // This is done to ensure we capture non-English Fandom wikis correctly
+          return (link === 'https://' + el.origin_base_url) || (link.includes('https://' + el.origin_base_url + el.origin_content_path));
         } else {
+          // If URL does not have a path, just check base URL
           return link.includes('https://' + el.origin_base_url);
         }
       });
