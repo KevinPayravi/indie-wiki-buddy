@@ -127,247 +127,255 @@ function filterSearchResults(searchResults, searchEngine, storage) {
   getData().then(sites => {
     let countFiltered = 0;
 
-    searchResults.forEach(searchResult => {
-      let searchResultLink = '';
+    for (let searchResult of searchResults) {
       try {
+        let searchResultLink = '';
         if (searchEngine === 'bing') {
           searchResultLink = searchResult.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '');
         } else {
           searchResultLink = searchResult.closest('a[href]').href;
         }
-      } catch (e) {
-        console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
-      }
-      // Check if site is in our list of wikis:
-      let matchingSites = sites.filter(el => {
         let link = String(decodeURIComponent(searchResultLink));
-        if (link.substring(8).includes('/')) {
-          // If the URL has a path, check if an exact match with base URL or base URL + content path
-          // This is done to ensure we capture non-English Fandom wikis correctly
-          return (link === 'https://' + el.origin_base_url) || (link.includes('https://' + el.origin_base_url + el.origin_content_path));
-        } else {
-          // If URL does not have a path, just check base URL
-          return link.includes('https://' + el.origin_base_url);
+
+        if (searchEngine ==='google') {
+          // Break if image result:
+          if (link.includes('imgurl=')) {
+            break;
+          }
         }
-      });
-      if (matchingSites.length > 0) {
-        // Select match with longest base URL 
-        let closestMatch = "";
-        matchingSites.forEach(site => {
-          if (site.origin_base_url.length > closestMatch.length) {
-            closestMatch = site.origin_base_url;
+
+        // Check if site is in our list of wikis:
+        let matchingSites = sites.filter(el => {
+          if (link.substring(8).includes('/')) {
+            // If the URL has a path, check if an exact match with base URL or base URL + content path
+            // This is done to ensure we capture non-English Fandom wikis correctly
+            return (link === 'https://' + el.origin_base_url) || (link.includes('https://' + el.origin_base_url + el.origin_content_path));
+          } else {
+            // If URL does not have a path, just check base URL
+            return link.includes('https://' + el.origin_base_url);
           }
         });
-        let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-        if (site) {
-          // Get user's settings for the wiki
-          let settings = storage.siteSettings || {};
-          let id = site['id'];
-          let searchFilterSetting = '';
-          if (settings.hasOwnProperty(id) && settings[id].searchFilter) {
-            searchFilterSetting = settings[id].searchFilter;
-          } else if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings[site.language]) {
-            searchFilterSetting = storage.defaultSearchFilterSettings[site.language];
-          } else {
-            searchFilterSetting = 'true';
-          }
-          if (searchFilterSetting === 'true') {
-            // Output stylesheet if not already done
-            if (filteredWikis.length === 0) {
-              // Wait for head to be available
-              const headElement = document.querySelector('head');
-              if (headElement) {
-                insertCSS();
-              } else {
-                const docObserver = new MutationObserver(function (mutations, mutationInstance) {
-                  const headElement = document.querySelector('head');
-                  if (headElement) {
-                    insertCSS();
-                    mutationInstance.disconnect();
-                  }
-                });
-                docObserver.observe(document, {
-                  childList: true,
-                  subtree: true
-                });
-              }
+        if (matchingSites.length > 0) {
+          // Select match with longest base URL 
+          let closestMatch = "";
+          matchingSites.forEach(site => {
+            if (site.origin_base_url.length > closestMatch.length) {
+              closestMatch = site.origin_base_url;
             }
-
-            // Insert search result removal notice
-            if (!filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
-              filteredWikis.push(site.lang + ' ' + site.origin_group);
-
-              let elementId = stringToId(site.lang + '-' + site.origin_group);
-              hiddenWikisRevealed[elementId] = false;
-  
-              let searchRemovalNotice = document.createElement('aside');
-              searchRemovalNotice.id = 'iwb-notice-' + elementId;
-              searchRemovalNotice.classList.add('iwb-notice');
-              let searchRemovalNoticeLink = document.createElement('a');
-              searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
-              searchRemovalNoticeLink.textContent = site.destination;
-              searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + (site.lang !== 'EN' ? ' (' + site.lang + ')' : '') + '. Look for results from ');
-              searchRemovalNoticePosttext = document.createTextNode(' instead!');
-              linebreak = document.createElement("br");
-              searchRemovalNotice.appendChild(searchRemovalNoticePretext);
-              searchRemovalNotice.appendChild(searchRemovalNoticeLink);
-              searchRemovalNotice.appendChild(searchRemovalNoticePosttext);
-              searchRemovalNotice.appendChild(linebreak);
-
-              // Output "show results" button
-              let showResultsButton = document.createElement('button');
-              showResultsButton.classList.add('iwb-show-results-button');
-              showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
-              showResultsButton.textContent = 'Show filtered results';
-              searchRemovalNotice.appendChild(showResultsButton);
-              showResultsButton.onclick = function (e) {
-                if(e.target.textContent.includes('Show')) {
-                  e.target.textContent = 'Re-hide filtered results';
-                  hiddenWikisRevealed[elementId] = true;
-                  const selector = e.currentTarget.dataset.group;
-                  document.querySelectorAll('.' + selector).forEach(el => {
-                    el.classList.add('iwb-show');
-                  })
+          });
+          let site = matchingSites.find(site => site.origin_base_url === closestMatch);
+          if (site) {
+            // Get user's settings for the wiki
+            let settings = storage.siteSettings || {};
+            let id = site['id'];
+            let searchFilterSetting = '';
+            if (settings.hasOwnProperty(id) && settings[id].searchFilter) {
+              searchFilterSetting = settings[id].searchFilter;
+            } else if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings[site.language]) {
+              searchFilterSetting = storage.defaultSearchFilterSettings[site.language];
+            } else {
+              searchFilterSetting = 'true';
+            }
+            if (searchFilterSetting === 'true') {
+              // Output stylesheet if not already done
+              if (filteredWikis.length === 0) {
+                // Wait for head to be available
+                const headElement = document.querySelector('head');
+                if (headElement) {
+                  insertCSS();
                 } else {
-                  e.target.textContent = 'Show filtered results';
-                  hiddenWikisRevealed[elementId] = false;
-                  const selector = e.currentTarget.dataset.group;
-                  document.querySelectorAll('.' + selector).forEach(el => {
-                    el.classList.remove('iwb-show');
-                  })
+                  const docObserver = new MutationObserver(function (mutations, mutationInstance) {
+                    const headElement = document.querySelector('head');
+                    if (headElement) {
+                      insertCSS();
+                      mutationInstance.disconnect();
+                    }
+                  });
+                  docObserver.observe(document, {
+                    childList: true,
+                    subtree: true
+                  });
                 }
               }
 
-              // Output "disable filtering" button
-              let disableFilterButton = document.createElement('button');
-              disableFilterButton.classList.add('iwb-disable-filtering-button');
-              disableFilterButton.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
-              disableFilterButton.style.border = '1px solid';
-              searchRemovalNotice.appendChild(disableFilterButton);
-              disableFilterButton.onclick = function (e) {
-                if (e.target.textContent.includes('Stop')) {
-                  chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-                    response.siteSettings.get(site.id).set('searchFilter', 'false');
-                    chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-                    e.target.textContent = 'Re-enable filtering for ' + site.origin_group;
-                  })
-                } else {
-                  chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-                    response.siteSettings.get(site.id).set('searchFilter', 'true');
-                    chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-                    e.target.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
-                  })
-                }
-              }
+              // Insert search result removal notice
+              if (!filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
+                filteredWikis.push(site.lang + ' ' + site.origin_group);
 
-              switch (searchEngine) {
-                case 'google':
-                  if (document.querySelector('#search')) {
-                    document.querySelector('#search').prepend(searchRemovalNotice);
-                  } else if (document.querySelector('#topstuff')) {
-                    document.querySelector('#topstuff').prepend(searchRemovalNotice);
-                  } else if (document.querySelector('#main')) {
-                    var el = document.querySelector('#main');
-                    el.insertBefore(searchRemovalNotice, el.querySelector('div [data-hveid]').parentElement);
-                  };
-                  break;
-                case 'bing':
-                  var li = document.createElement('li');
-                  li.appendChild(searchRemovalNotice);
-                  document.querySelector('#b_results').prepend(li);
-                  break;
-                case 'duckduckgo':
-                  if (document.getElementById('web_content_wrapper')) {
+                let elementId = stringToId(site.lang + '-' + site.origin_group);
+                hiddenWikisRevealed[elementId] = false;
+    
+                let searchRemovalNotice = document.createElement('aside');
+                searchRemovalNotice.id = 'iwb-notice-' + elementId;
+                searchRemovalNotice.classList.add('iwb-notice');
+                let searchRemovalNoticeLink = document.createElement('a');
+                searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
+                searchRemovalNoticeLink.textContent = site.destination;
+                searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + (site.lang !== 'EN' ? ' (' + site.lang + ')' : '') + '. Look for results from ');
+                searchRemovalNoticePosttext = document.createTextNode(' instead!');
+                linebreak = document.createElement("br");
+                searchRemovalNotice.appendChild(searchRemovalNoticePretext);
+                searchRemovalNotice.appendChild(searchRemovalNoticeLink);
+                searchRemovalNotice.appendChild(searchRemovalNoticePosttext);
+                searchRemovalNotice.appendChild(linebreak);
+
+                // Output "show results" button
+                let showResultsButton = document.createElement('button');
+                showResultsButton.classList.add('iwb-show-results-button');
+                showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
+                showResultsButton.textContent = 'Show filtered results';
+                searchRemovalNotice.appendChild(showResultsButton);
+                showResultsButton.onclick = function (e) {
+                  if(e.target.textContent.includes('Show')) {
+                    e.target.textContent = 'Re-hide filtered results';
+                    hiddenWikisRevealed[elementId] = true;
+                    const selector = e.currentTarget.dataset.group;
+                    document.querySelectorAll('.' + selector).forEach(el => {
+                      el.classList.add('iwb-show');
+                    })
+                  } else {
+                    e.target.textContent = 'Show filtered results';
+                    hiddenWikisRevealed[elementId] = false;
+                    const selector = e.currentTarget.dataset.group;
+                    document.querySelectorAll('.' + selector).forEach(el => {
+                      el.classList.remove('iwb-show');
+                    })
+                  }
+                }
+
+                // Output "disable filtering" button
+                let disableFilterButton = document.createElement('button');
+                disableFilterButton.classList.add('iwb-disable-filtering-button');
+                disableFilterButton.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
+                disableFilterButton.style.border = '1px solid';
+                searchRemovalNotice.appendChild(disableFilterButton);
+                disableFilterButton.onclick = function (e) {
+                  if (e.target.textContent.includes('Stop')) {
+                    chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+                      response.siteSettings.get(site.id).set('searchFilter', 'false');
+                      chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+                      e.target.textContent = 'Re-enable filtering for ' + site.origin_group;
+                    })
+                  } else {
+                    chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+                      response.siteSettings.get(site.id).set('searchFilter', 'true');
+                      chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+                      e.target.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
+                    })
+                  }
+                }
+
+                switch (searchEngine) {
+                  case 'google':
+                    if (document.querySelector('#search')) {
+                      document.querySelector('#search').prepend(searchRemovalNotice);
+                    } else if (document.querySelector('#topstuff')) {
+                      document.querySelector('#topstuff').prepend(searchRemovalNotice);
+                    } else if (document.querySelector('#main')) {
+                      var el = document.querySelector('#main');
+                      el.insertBefore(searchRemovalNotice, el.querySelector('div [data-hveid]').parentElement);
+                    };
+                    break;
+                  case 'bing':
                     var li = document.createElement('li');
                     li.appendChild(searchRemovalNotice);
-                    document.querySelector('#web_content_wrapper ol').prepend(li);
-                  } else {
-                    document.getElementById('links').prepend(searchRemovalNotice);
+                    document.querySelector('#b_results').prepend(li);
+                    break;
+                  case 'duckduckgo':
+                    if (document.getElementById('web_content_wrapper')) {
+                      var li = document.createElement('li');
+                      li.appendChild(searchRemovalNotice);
+                      document.querySelector('#web_content_wrapper ol').prepend(li);
+                    } else {
+                      document.getElementById('links').prepend(searchRemovalNotice);
+                    }
+                    break;
+                  case 'brave':
+                    document.querySelector('#results').prepend(searchRemovalNotice);
+                    break;
+                  case 'ecosia':
+                    document.querySelector('body').prepend(searchRemovalNotice);
+                    break;
+                  case 'startpage':
+                    document.querySelector('#main').prepend(searchRemovalNotice);
+                    break;
+                  case 'yahoo':
+                    if (document.querySelector('#web > ol')) {
+                      var li = document.createElement('li');
+                      li.appendChild(searchRemovalNotice);
+                      document.querySelector('#web > ol').prepend(li);
+                    } else {
+                      document.querySelector('#main-algo').prepend(searchRemovalNotice);
+                    }
+                    break;
+                  default:
+                }
+              }
+
+              let cssQuery = '';
+              let searchResultContainer = null;
+              switch (searchEngine) {
+                case 'google':
+                  if (searchResult.closest('div[data-hveid]')) {
+                    cssQuery = 'div[data-hveid]';
+                    searchResultContainer = searchResult.closest(cssQuery).parentElement;
+                  }
+                  break;
+                case 'bing':
+                  if (searchResult.closest('li.b_algo')) {
+                    cssQuery = 'li.b_algo';
+                    searchResultContainer = searchResult.closest(cssQuery);
+                  }
+                  break;
+                case 'duckduckgo':
+                  if (searchResult.closest('li[data-layout], div.web-result')) {
+                    cssQuery = 'li[data-layout], div.web-result';
+                    searchResultContainer = searchResult.closest(cssQuery);
                   }
                   break;
                 case 'brave':
-                  document.querySelector('#results').prepend(searchRemovalNotice);
+                  if (searchResult.closest('div.snippet')) {
+                    cssQuery = 'div.snippet';
+                    searchResultContainer = searchResult.closest(cssQuery);
+                  }
                   break;
                 case 'ecosia':
-                  document.querySelector('body').prepend(searchRemovalNotice);
+                  if (searchResult.closest('div.mainline__result-wrapper')) {
+                    cssQuery = 'div.mainline__result-wrapper';
+                    searchResultContainer = searchResult.closest(cssQuery);
+                  }
                   break;
                 case 'startpage':
-                  document.querySelector('#main').prepend(searchRemovalNotice);
+                  if (searchResult.closest('div.w-gl__result')) {
+                    cssQuery = 'div.w-gl__result';
+                    searchResultContainer = searchResult.closest(cssQuery);
+                  }
                   break;
                 case 'yahoo':
-                  if (document.querySelector('#web > ol')) {
-                    var li = document.createElement('li');
-                    li.appendChild(searchRemovalNotice);
-                    document.querySelector('#web > ol').prepend(li);
-                  } else {
-                    document.querySelector('#main-algo').prepend(searchRemovalNotice);
+                  if (searchResult.closest('#web > ol > li, section.algo')) {
+                    cssQuery = '#web > ol > li, section.algo';
+                    searchResultContainer = searchResult.closest(cssQuery);
                   }
                   break;
                 default:
               }
-            }
 
-            let cssQuery = '';
-            let searchResultContainer = null;
-            switch (searchEngine) {
-              case 'google':
-                if (searchResult.closest('div[data-hveid]')) {
-                  cssQuery = 'div[data-hveid]';
-                  searchResultContainer = searchResult.closest(cssQuery).parentElement;
+              if(!Array.from(searchResultContainer.classList).includes('iwb-hide')) {
+                let elementId = stringToId(site.lang + '-' + site.origin_group);
+                searchResultContainer.classList.add('iwb-search-result-' + elementId);
+                searchResultContainer.classList.add('iwb-hide');
+                countFiltered++;
+                if (hiddenWikisRevealed[elementId]) {
+                  searchResultContainer.classList.add('iwb-show');
                 }
-                break;
-              case 'bing':
-                if (searchResult.closest('li.b_algo')) {
-                  cssQuery = 'li.b_algo';
-                  searchResultContainer = searchResult.closest(cssQuery);
-                }
-                break;
-              case 'duckduckgo':
-                if (searchResult.closest('li[data-layout], div.web-result')) {
-                  cssQuery = 'li[data-layout], div.web-result';
-                  searchResultContainer = searchResult.closest(cssQuery);
-                }
-                break;
-              case 'brave':
-                if (searchResult.closest('div.snippet')) {
-                  cssQuery = 'div.snippet';
-                  searchResultContainer = searchResult.closest(cssQuery);
-                }
-                break;
-              case 'ecosia':
-                if (searchResult.closest('div.mainline__result-wrapper')) {
-                  cssQuery = 'div.mainline__result-wrapper';
-                  searchResultContainer = searchResult.closest(cssQuery);
-                }
-                break;
-              case 'startpage':
-                if (searchResult.closest('div.w-gl__result')) {
-                  cssQuery = 'div.w-gl__result';
-                  searchResultContainer = searchResult.closest(cssQuery);
-                }
-                break;
-              case 'yahoo':
-                if (searchResult.closest('#web > ol > li, section.algo')) {
-                  cssQuery = '#web > ol > li, section.algo';
-                  searchResultContainer = searchResult.closest(cssQuery);
-                }
-                break;
-              default:
-            }
-
-            if(!Array.from(searchResultContainer.classList).includes('iwb-hide')) {
-              let elementId = stringToId(site.lang + '-' + site.origin_group);
-              searchResultContainer.classList.add('iwb-search-result-' + elementId);
-              searchResultContainer.classList.add('iwb-hide');
-              countFiltered++;
-              if (hiddenWikisRevealed[elementId]) {
-                searchResultContainer.classList.add('iwb-show');
               }
             }
           }
         }
+      } catch (e) {
+        console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
       }
-    });
+    };
     addLocationObserver(main);
     if (countFiltered > 0) {
       chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
