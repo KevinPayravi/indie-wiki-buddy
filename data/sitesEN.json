@@ -1722,6 +1722,22 @@
     "destination_icon": "stardew.png"
   },
   {
+    "id": "en-starfield",
+    "origins_label": "Starfield Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Starfield Fandom Wiki",
+        "origin_base_url": "starfield.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Starfield Wiki",
+    "destination_base_url": "starfieldwiki.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starfieldwiki.png"
+  },
+  {
     "id": "en-starfy",
     "origins_label": "Starfy Fandom Wiki",
     "origins": [
