@@ -938,22 +938,6 @@
     "destination_icon": "granblue.png"
   },
   {
-    "id": "en-guiltygear",
-    "origins_label": "Guilty Gear Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Guilty Gear Fandom Wiki",
-        "origin_base_url": "guiltygear.fandom.com",
-        "origin_content_path": "/wiki/"
-      }
-    ],
-    "destination": "Dustloop Wiki",
-    "destination_base_url": "www.dustloop.com",
-    "destination_content_path": "/w/",
-    "destination_platform": "mediawiki",
-    "destination_icon": "dustloop.png"
-  },
-  {
     "id": "en-halflife",
     "origins_label": "Half-Life & Portal Fandom Wiki",
     "origins": [
