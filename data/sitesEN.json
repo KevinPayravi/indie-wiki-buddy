@@ -133,6 +133,22 @@
     "destination_icon": "azurlanewiki.png"
   },
   {
+    "id": "en-bz",
+    "origins_label": "B'z Fandom Wiki",
+    "origins": [
+      {
+        "origin": "B'z Fandom Wiki",
+        "origin_base_url": "bzrockcom.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "B'z Wiki",
+    "destination_base_url": "bzwiki.com",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bzwiki.png"
+  },
+  {
     "id": "en-bakugan",
     "origins_label": "Bakugan Fandom Wiki",
     "origins": [
