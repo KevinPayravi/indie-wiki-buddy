@@ -1729,6 +1729,11 @@
         "origin": "Starfield Fandom Wiki",
         "origin_base_url": "starfield.fandom.com",
         "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Starfield Fextralife Wiki",
+        "origin_base_url": "starfield.wiki.fextralife.com",
+        "origin_content_path": "/"
       }
     ],
     "destination": "Starfield Wiki",
