@@ -278,7 +278,8 @@ function main() {
                           searchParams = 'start?do=search&q=' + article;
                           break;
                       }
-                      newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+                      newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams.replaceAll('+', '_');
+                      // We replace plus signs with underscores since Fextralife uses pluses instead of spaces/underscores
                     } else {
                       newURL = 'https://' + site["destination_base_url"];
                     }
