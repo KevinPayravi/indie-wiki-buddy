@@ -16,6 +16,22 @@
     "destination_icon": "dragonquest.png"
   },
   {
+    "id": "fr-heroes",
+    "origins_label": "Heroes Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Heroes Fandom Wiki",
+        "origin_base_url": "heroes.fandom.com/fr",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Heroes Wiki",
+    "destination_base_url": "fr.heroeswiki.ddns.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "heroeswiki.png"
+  },
+  {
     "id": "fr-pokemon",
     "origins_label": "Pokémon Fandom Wiki",
     "origins": [

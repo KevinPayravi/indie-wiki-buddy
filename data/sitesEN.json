@@ -1007,6 +1007,22 @@
     "destination_icon": "hannabarberawiki.png"
   },
   {
+    "id": "en-heroes",
+    "origins_label": "Heroes Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Heroes Fandom Wiki",
+        "origin_base_url": "heroes.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Heroes Wiki",
+    "destination_base_url": "heroeswiki.ddns.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "heroeswiki.png"
+  },
+  {
     "id": "en-hololive",
     "origins_label": "Hololive Fandom Wiki",
     "origins": [
