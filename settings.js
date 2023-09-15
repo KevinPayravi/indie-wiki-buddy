@@ -318,8 +318,14 @@ async function loadOptions(lang) {
           icon.src = 'favicons/' + lang.toLowerCase() + '/' + sites[i].destination_icon;
           icon.alt = 'Visit ' + sites[i].destination;
           iconLink.appendChild(icon);
+          let destinationLink = document.createElement("a");
+          destinationLink.title = sites[i].destination;
+          destinationLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
+          destinationLink.target = '_blank';
+          destinationLink.append(document.createTextNode(sites[i].destination));
           wikiInfo.appendChild(iconLink);
-          wikiInfo.appendChild(document.createTextNode(sites[i].origins_label + ' » ' + sites[i].destination));
+          wikiInfo.appendChild(document.createTextNode(sites[i].origins_label + ' » '));
+          wikiInfo.appendChild(destinationLink);
           let siteContainer = document.createElement("div");
 
           // Output inputs container:
