@@ -1,6 +1,8 @@
 // onBeforeNavigate captures right before navigation to a new page starts; 
+// onCreatedNavigationTarget captures new tabs/windows;
 // onCommitted captures after onBeforeNavigate, used to catch redirects.
 chrome.webNavigation.onBeforeNavigate.addListener(event => main(event, 'onBeforeNavigation'));
+chrome.webNavigation.onCreatedNavigationTarget.addListener(event => main(event, 'onCreatedNavigationTarget'));
 chrome.webNavigation.onCommitted.addListener(event => main(event, 'onCommitted'));
 
 // Listen for user turning extension on or off, to update icon
@@ -260,7 +262,7 @@ async function main(eventInfo, eventName) {
   // & check for fandom.com in hostname and quit early if it's not
   if (eventInfo.tabId > 0
     && eventInfo.frameId === 0
-    && !eventInfo.transitionQualifiers?.includes('server_redirect')
+    && !((eventInfo.transitionType === 'typed') && eventInfo.transitionQualifiers?.includes('server_redirect') && eventInfo.transitionQualifiers?.includes('from_address_bar'))
     && (url.hostname.includes('.fandom.com') || url.hostname.includes('wiki.fextralife.com'))) {
     // Check if tab is actually available
     // This is mainly to prevent background processes from triggering an event
