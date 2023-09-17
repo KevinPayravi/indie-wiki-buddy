@@ -1,8 +1,6 @@
 // onBeforeNavigate captures right before navigation to a new page starts; 
-// onCreatedNavigationTarget captures new tabs/windows;
 // onCommitted captures after onBeforeNavigate, used to catch redirects.
 chrome.webNavigation.onBeforeNavigate.addListener(event => main(event, 'onBeforeNavigation'));
-chrome.webNavigation.onCreatedNavigationTarget.addListener(event => main(event, 'onCreatedNavigationTarget'));
 chrome.webNavigation.onCommitted.addListener(event => main(event, 'onCommitted'));
 
 // Listen for user turning extension on or off, to update icon
@@ -148,14 +146,17 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
   function processRedirect(host) {
     const subdomain = url.hostname.split(".")[0];
     const article = url.href.split('fandom.com/wiki/')[1].replaceAll('%20', '_');
+
+    // Extract article from URL
     if (article) {
       chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain + '/wiki/' + article });
     } else {
       chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain });
     }
-    if (eventInfo.frameId === 0) {
-      chrome.storage.sync.set({ 'countBreezeWiki': (storage.countBreezeWiki ?? 0) + 1 });
-    }
+
+    // Increase BreezeWiki stat count
+    chrome.storage.sync.set({ 'countBreezeWiki': (storage.countBreezeWiki ?? 0) + 1 });
+
     if ((storage.notifications ?? 'on') === 'on') {
       // Notify that user is being redirected to BreezeWiki
       let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
@@ -165,7 +166,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
         "title": "You've been redirected to BreezeWiki!",
         "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom."
       });
-      // Self-clear notification after 6 seconds:
+      // Self-clear notification after 6 seconds
       setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
     }
   }
@@ -210,7 +211,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
   }
 }
 
-// Load website data:
+// Load website data
 async function getData() {
   const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
   let sites = [];
@@ -243,7 +244,7 @@ async function getData() {
 }
 
 async function main(eventInfo, eventName) {
-  // Create object prototypes for getting and setting attributes:
+  // Create object prototypes for getting and setting attributes
   Object.prototype.get = function (prop) {
     this[prop] = this[prop] || {};
     return this[prop];
@@ -252,12 +253,15 @@ async function main(eventInfo, eventName) {
     this[prop] = value;
   }
 
-  // Store tab URL and remove any search parameters and section anchors:
+  // Store tab URL and remove any search parameters and section anchors
   const url = new URL(eventInfo.url.replace(/(\?|#).*/i, ''));
 
   // Check if tabId is > 0 (some background events may have tabId < 0)
-  // & check for fandom.com in hostname and quit early if it's not:
-  if (eventInfo.tabId > 0 && (url.hostname.includes('.fandom.com') || url.hostname.includes('wiki.fextralife.com'))) {
+  // & check for fandom.com in hostname and quit early if it's not
+  if (eventInfo.tabId > 0
+    && eventInfo.frameId === 0
+    && !eventInfo.transitionQualifiers?.includes('server_redirect')
+    && (url.hostname.includes('.fandom.com') || url.hostname.includes('wiki.fextralife.com'))) {
     // Check if tab is actually available
     // This is mainly to prevent background processes from triggering an event
     chrome.tabs.get(eventInfo.tabId, async function (tab) {
@@ -293,13 +297,13 @@ async function main(eventInfo, eventName) {
                   } else {
                     siteSetting = 'alert';
                   }
-                  // Check if redirects are enabled for the site:
+                  // Check if redirects are enabled for the site
                   if (siteSetting === 'redirect') {
                     // Get article name from the end of the URL;
                     // We can't just take the last part of the path due to subpages;
-                    // Instead, we take everything after the wiki's base URL + content path:
+                    // Instead, we take everything after the wiki's base URL + content path
                     let article = url.href.split(site['origin_base_url'] + site['origin_content_path'])[1];
-                    // Set up URL to redirect user to based on wiki platform:
+                    // Set up URL to redirect user to based on wiki platform
                     if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
                       let newURL = '';
                       if (article) {
@@ -317,13 +321,11 @@ async function main(eventInfo, eventName) {
                         newURL = 'https://' + site["destination_base_url"];
                       }
 
-                      // Perform redirect:
+                      // Perform redirect
                       chrome.tabs.update(eventInfo.tabId, { url: newURL });
 
-                      // Increase global redirect count:
-                      if (eventInfo.frameId === 0) {
-                        chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
-                      }
+                      // Increase redirect count
+                      chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
 
                       // Notify if enabled
                       if ((storage.notifications ?? 'on') === 'on') {
@@ -335,7 +337,7 @@ async function main(eventInfo, eventName) {
                           "title": "You've been redirected!",
                           "message": "Indie Wiki Buddy has sent you from " + site['origin'] + " to " + site['destination']
                         });
-                        // Self-clear notification after 6 seconds:
+                        // Self-clear notification after 6 seconds
                         setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
                       }
                     }
