@@ -83,16 +83,10 @@ function insertCSS() {
       background-color: transparent !important;
       border: 1px solid !important;
       border-radius: 5px !important; 
-      font-size: 11px !important;
+      font-size: 12px !important;
       color: white !important;
       mix-blend-mode: difference !important;
       text-align: left !important;
-    }
-    .iwb-notice button+a {
-      display: inline-block;
-      font-size: 12px !important;
-      margin: 8px 0 0 0 !important;
-      white-space: nowrap !important;
     }
 
     .iwb-hide {
