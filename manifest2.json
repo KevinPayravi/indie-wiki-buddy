@@ -4,10 +4,11 @@
   "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
   "permissions": [
     "storage",
-    "webNavigation",
     "webRequest",
     "webRequestBlocking",
     "notifications",
+    "https://*.fandom.com/*",
+    "https://*.fextralife.com/*",
     "https://breezewiki.com/*",
     "https://antifandom.com/*",
     "https://bw.projectsegfau.lt/*",
