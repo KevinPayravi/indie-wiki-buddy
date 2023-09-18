@@ -513,9 +513,13 @@ function setBreezeWiki(setting, storeSetting = true) {
 
 // Main function that runs on-load
 document.addEventListener('DOMContentLoaded', function () {
-  
   notificationBanner = document.getElementById('notificationBanner');
   
+  // If newly installed, show initial install guide
+  if (new URLSearchParams(window.location.search).get('newinstall')) {
+    document.getElementById('firstInstallInfo').style.display = 'block';
+  }
+
   // If running Chromium, show warning about service worker bug
   if (navigator.userAgent.match(/Chrom[e|ium]/)) {
     notificationBanner.style.display = 'block';

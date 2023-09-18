@@ -20,11 +20,17 @@ chrome.runtime.onStartup.addListener(function () {
   });
 });
 
-// Listen for extension installed/updating, to set initial icon state
-chrome.runtime.onInstalled.addListener(function () {
+// Listen for extension installed/updating
+chrome.runtime.onInstalled.addListener(function (detail) {
+  // Set initial icon state
   chrome.storage.local.get({ 'power': 'on' }, function (item) {
     setPowerIcon(item.power);
   });
+
+  // If new install, open settings with starter guide
+  if (detail.reason === 'install') {
+    chrome.tabs.create({ url: 'settings.html?newinstall=true' });
+  }
 });
 
 if (chrome.declarativeNetRequest) {
