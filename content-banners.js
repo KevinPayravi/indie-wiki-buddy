@@ -195,19 +195,22 @@ function displayRedirectBanner(url, id, destination, storage) {
   function addBannerToDOM() {
     // Check if document is in a ready state
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
-      document.body.insertAdjacentElement('beforeBegin', banner);
+      // Ensure banner isn't already outputted
+      if (!document.querySelector(':root > #indie-wiki-banner')) {
+        document.body.insertAdjacentElement('beforeBegin', banner);
+
+        // Increment banner count
+        if (storage.breezewiki === 'on') {
+          if (currentURL.hostname.match(breezeWikiRegex)) {
+            chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
+          }
+        } else {
+          chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
+        }
+      }
 
       // Remove readystatechange listener
       document.removeEventListener('readystatechange', addBannerToDOM);
-      
-      // Increment banner count
-      if (storage.breezewiki === 'on') {
-        if (currentURL.hostname.match(breezeWikiRegex)) {
-          chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
-        }
-      } else {
-        chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
-      }
     }
   }
 
