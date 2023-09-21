@@ -1247,6 +1247,22 @@
     "destination_icon": "puellamagi.png"
   },
   {
+    "id": "en-riichimahjong",
+    "origins_label": "Mahjong Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Mahjong Fandom Wiki",
+        "origin_base_url": "mahjong.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Japanese Mahjong Wiki",
+    "destination_base_url": "riichi.wiki",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "japanesemahjongwiki.png"
+  },
+  {
     "id": "en-mario",
     "origins_label": "Mario Fandom Wiki",
     "origins": [
