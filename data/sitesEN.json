@@ -1279,6 +1279,27 @@
     "destination_icon": "microwiki.png"
   },
   {
+    "id": "en-minecraft",
+    "origins_label": "Minecraft Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com",
+        "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Minecraft Fandom Wiki (Archived)",
+        "origin_base_url": "minecraft-archive.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "minecraft.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png"
+  },
+  {
     "id": "en-mylittlepony",
     "origins_label": "My Little Pony Fandom Wiki",
     "origins": [
