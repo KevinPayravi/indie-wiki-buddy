@@ -1850,6 +1850,22 @@
     "destination_icon": "smashwiki.png"
   },
   {
+    "id": "en-tallyhall",
+    "origins_label": "Tally Hall Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tally Hall Fandom Wiki",
+        "origin_base_url": "tallyhall.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Tally Hallmanac",
+    "destination_base_url": "www.hiddeninthesand.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tallyhallmanac.png"
+  },
+  {
     "id": "en-teamfortress",
     "origins_label": "Team Fortress Fandom Wiki",
     "origins": [
