@@ -191,30 +191,28 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerWikiLink.href = url;
   bannerWikiLink.textContent = 'Visit ' + destination + ' →';
 
-  // Increment stats
-  if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    document.body.insertAdjacentElement('beforeBegin', banner);
-    if (storage.breezewiki === 'on') {
-      if (currentURL.hostname.match(breezeWikiRegex)) {
-        chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
-      }
-    } else {
-      chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
-    }
-  } else {
-    document.addEventListener('readystatechange', e => {
-      if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        document.body.insertAdjacentElement('beforeBegin', banner);
-        if (storage.breezewiki === 'on') {
-          if (currentURL.hostname.match(breezeWikiRegex)) {
-            chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
-          }
-        } else {
+  // Function to insert banner into DOM before body element
+  function addBannerToDOM() {
+    // Check if document is in a ready state
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      document.body.insertAdjacentElement('beforeBegin', banner);
+
+      // Remove readystatechange listener
+      document.removeEventListener('readystatechange', addBannerToDOM);
+      
+      // Increment banner count
+      if (storage.breezewiki === 'on') {
+        if (currentURL.hostname.match(breezeWikiRegex)) {
           chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
         }
+      } else {
+        chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
       }
-    });
+    }
   }
+
+  document.addEventListener('readystatechange', addBannerToDOM);
+  addBannerToDOM();
 }
 
 function main() {
