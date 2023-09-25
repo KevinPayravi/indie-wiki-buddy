@@ -1199,6 +1199,22 @@
     "destination_icon": "wikirby.png"
   },
   {
+    "id": "en-koeitecmo",
+    "origins_label": "Koei Tecmo Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Koei Tecmo Fandom Wiki",
+        "origin_base_url": "koei.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Koei Tecmo Wiki",
+    "destination_base_url": "koeitecmo.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "koeitecmowiki.png"
+  },
+  {
     "id": "en-lotr",
     "origins_label": "Lord of the Rings Fandom Wiki",
     "origins": [
@@ -1976,6 +1992,22 @@
     "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "ubfunkeyswiki.png"
+  },
+  {
+    "id": "en-ultrakill",
+    "origins_label": "ULTRAKILL Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ULTRAKILL Fandom Wiki",
+        "origin_base_url": "ultrakill.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "ULTRAWIKI",
+    "destination_base_url": "ultrakill.miraheze.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ultrawiki.png"
   },
   {
     "id": "en-unevendream",
