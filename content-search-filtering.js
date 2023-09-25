@@ -267,7 +267,11 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                       document.querySelector('#topstuff').prepend(searchRemovalNotice);
                     } else if (document.querySelector('#main')) {
                       var el = document.querySelector('#main');
-                      el.insertBefore(searchRemovalNotice, el.querySelector('div [data-hveid]').parentElement);
+                      if (el.querySelector('#main > div[data-hveid]')) {
+                        el.insertBefore(searchRemovalNotice, el.querySelector('div[data-hveid]'));
+                      } else {
+                        el.insertBefore(searchRemovalNotice, el.querySelector('div div[data-hveid]').parentElement);
+                      }
                     };
                     break;
                   case 'bing':
