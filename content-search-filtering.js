@@ -504,6 +504,20 @@ function main(mutations = null, observer = null) {
                 }
               }, { once: true });
             }
+
+            // Create observer to watch for changes  in search results (Qwant does not reload the page when searching)
+            if (!observer) {
+              const observer = new MutationObserver((mutationList, _) => {
+                for (const mutation of mutationList) {
+                  if (mutation.addedNodes.length > 0 && mutation.previousSibling != null) {
+                    // Reset list of filtered wikis
+                    filteredWikis = [];
+                  }
+                }
+              });
+  
+              observer.observe(document.querySelector('section[data-testid=containerWeb]'), { childList: true, attributes: false, subtree: false });
+            }
           } else if (currentURL.hostname.includes('startpage.com')) {
             // Function to filter search results in Startpage
             function filterStartpage() {
