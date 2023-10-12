@@ -294,6 +294,9 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                   case 'ecosia':
                     document.querySelector('body').prepend(searchRemovalNotice);
                     break;
+                  case 'qwant':
+                    document.querySelector('div[data-testid=sectionWeb]').prepend(searchRemovalNotice);
+                    break;
                   case 'startpage':
                     document.querySelector('#main').prepend(searchRemovalNotice);
                     break;
@@ -341,6 +344,12 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                   if (searchResult.closest('div.mainline__result-wrapper')) {
                     cssQuery = 'div.mainline__result-wrapper';
                     searchResultContainer = searchResult.closest(cssQuery);
+                  }
+                  break;
+                case 'qwant':
+                  if (searchResult.closest('div[data-testid=webResult]')) {
+                    cssQuery = 'div[data-testid=webResult]';
+                    searchResultContainer = searchResult.closest(cssQuery).parentElement;
                   }
                   break;
                 case 'startpage':
@@ -477,6 +486,37 @@ function main(mutations = null, observer = null) {
                   filterEcosia();
                 }
               }, { once: true });
+            }
+          } else if (currentURL.hostname.includes('qwant.com')) {
+            // Function to filter search results in Qwant
+            function filterQwant() {
+              let searchResults = Array.from(document.querySelectorAll('a[data-testid=serTitle]')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+              filterSearchResults(searchResults, 'qwant', storage);
+            }
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterQwant();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (['interactive', 'complete'].includes(document.readyState)) {
+                  filterQwant();
+                }
+              }, { once: true });
+            }
+
+            // Create observer to watch for changes  in search results (Qwant does not reload the page when searching)
+            if (!observer) {
+              const observer = new MutationObserver((mutationList, _) => {
+                for (const mutation of mutationList) {
+                  if (mutation.addedNodes.length > 0 && mutation.previousSibling != null) {
+                    // Reset list of filtered wikis
+                    filteredWikis = [];
+                  }
+                }
+              });
+  
+              observer.observe(document.querySelector('section[data-testid=containerWeb]'), { childList: true, attributes: false, subtree: false });
             }
           } else if (currentURL.hostname.includes('startpage.com')) {
             // Function to filter search results in Startpage
