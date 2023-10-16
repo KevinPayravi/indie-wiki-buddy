@@ -31,6 +31,11 @@ chrome.runtime.onInstalled.addListener(function (detail) {
   if (detail.reason === 'install') {
     chrome.tabs.create({ url: 'settings.html?newinstall=true' });
   }
+
+  // If update, open changelog
+  if (detail.reason === 'update') {
+    chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true' });
+  }
 });
 
 if (chrome.declarativeNetRequest) {
