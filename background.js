@@ -1,6 +1,6 @@
 // Capture web requests
 chrome.webRequest.onBeforeSendHeaders.addListener(
-  function(event) {
+  function (event) {
     main(event);
   },
   { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*'], types: ['main_frame'] }
@@ -212,7 +212,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
           processRedirect(host);
         }).catch((e) => {
           console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
-          chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+          chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
         });
     } else {
       processRedirect(storage.breezewikiHost);
