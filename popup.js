@@ -229,6 +229,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('notificationBannerBug').style.display = 'block';
   }
 
+  // If running Opera, show note about search engine acces
+  if (navigator.userAgent.match(/OPR\//)) {
+    notificationBanner.style.display = 'block';
+    document.getElementById('notificationBannerOpera').style.display = 'block';
+  }
+
   loadBreezeWikiOptions();
 
   // Listener for settings page in new tab:
