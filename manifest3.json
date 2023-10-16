@@ -28,6 +28,7 @@
   "web_accessible_resources": [
     {
       "resources": [
+        "favicons/*",
         "data/sitesDE.json",
         "data/sitesEN.json",
         "data/sitesES.json",

@@ -131,7 +131,7 @@
         width: fit-content;
       }
       .options .settingToggleContainer {
-        padding-bottom: .8em;
+        padding-bottom: 1em;
       }
       .options .settingToggleContainer:last-child {
         padding-bottom: 0;
@@ -361,18 +361,30 @@
             </div>
           </div>
           <div class="settingToggleContainer">
-            <div id="notifications" class="settingToggle">
-              <label>
-                <input id="notificationsCheckbox" type="checkbox" />
-                <span id="notificationsText">🔔 Desktop notifications when redirected to an indie wiki or BreezeWiki</span>
+            <div id="searchFilteringReplace" class="settingToggle">
+              <label for="searchFilteringReplaceRadio">
+                <input id="searchFilteringReplaceRadio" type="radio" name="searchSetting" value="replace" />
+                <span id="searchFilteringReplaceText">🔎 In search engines, disable non-indie wikis & add link to indie counterparts</span>
+              </label>
+            </div>
+            <div id="searchFilteringHide" class="settingToggle">
+              <label for="searchFilteringHideRadio">
+                <input id="searchFilteringHideRadio" type="radio" name="searchSetting" value="hide" />
+                <span id="searchFilteringHideText">🔎 In search engines, hide non-indie wikis that have indie counterparts</span>
+              </label>
+            </div>
+            <div id="searchFilteringNothing" class="settingToggle">
+              <label for="searchFilteringNothingRadio">
+                <input id="searchFilteringNothingRadio" type="radio" name="searchSetting" value="nothing" />
+                <span id="searchFilteringNothingText">🔎 Do nothing on search engines</span>
               </label>
             </div>
           </div>
           <div class="settingToggleContainer">
-            <div id="searchFilter" class="settingToggle">
+            <div id="notifications" class="settingToggle">
               <label>
-                <input id="searchFilterCheckbox" type="checkbox" />
-                <span id="searchFilterText">🔎 Filter non-indie wikis in Google, Bing, DuckDuckGo, & other search engines</span>
+                <input id="notificationsCheckbox" type="checkbox" />
+                <span id="notificationsText">🔔 Desktop notifications when redirected to an indie wiki or BreezeWiki</span>
               </label>
             </div>
           </div>

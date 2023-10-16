@@ -145,14 +145,16 @@ function setNotifications(setting, storeSetting = true) {
 }
 
 // Set search filter setting
-function setSearchFilter(setting, storeSetting = true) {
+function setSearchSetting(setting, storeSetting = true) {
   if (storeSetting) {
-    chrome.storage.sync.set({ 'searchFilter': setting });
+    chrome.storage.sync.set({ 'searchSetting': setting });
   }
-  if (setting === 'on') {
-    document.getElementById('searchFilterCheckbox').checked = true;
+  if (setting === 'hide') {
+    document.getElementById('searchFilteringHideRadio').checked = true;
+  } else if (setting === 'nothing') {
+    document.getElementById('searchFilteringNothingRadio').checked = true;
   } else {
-    document.getElementById('searchFilterCheckbox').checked = false;
+    document.getElementById('searchFilteringReplaceRadio').checked = true;
   }
 }
 
@@ -242,8 +244,8 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
     setNotifications(item.notifications, false);
   });
-  chrome.storage.sync.get({ 'searchFilter': 'on' }, function (item) {
-    setSearchFilter(item.searchFilter, false);
+  chrome.storage.sync.get({ 'searchSetting': 'replace' }, function (item) {
+    setSearchSetting(item.searchSetting, false);
   });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
@@ -273,14 +275,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('searchFilterCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'searchFilter': 'on' }, function (item) {
-      if (item.searchFilter === 'on') {
-        setSearchFilter('off');
-      } else {
-        setSearchFilter('on');
-      }
-    });
+  document.getElementById('searchFilteringReplaceRadio').addEventListener('change', function () {
+    setSearchSetting('replace');
+  });
+  document.getElementById('searchFilteringHideRadio').addEventListener('change', function () {
+    setSearchSetting('hide');
+  });
+  document.getElementById('searchFilteringNothingRadio').addEventListener('change', function () {
+    setSearchSetting('nothing');
   });
   document.getElementById('breezewikiCheckbox').addEventListener('change', function () {
     chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {

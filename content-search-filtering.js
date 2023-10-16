@@ -68,13 +68,11 @@ function insertCSS() {
       color: white !important;
       mix-blend-mode: difference !important;
     }
-
     .iwb-notice a {
       text-decoration: underline !important;
       color: white !important;
       mix-blend-mode: difference !important;
     }
-
     .iwb-notice button {
       cursor: pointer !important;
       display: inline-block !important;
@@ -88,16 +86,63 @@ function insertCSS() {
       mix-blend-mode: difference !important;
       text-align: left !important;
     }
-
     .iwb-hide {
       display: none !important;
     }
     .iwb-show {
       display: block !important;
     }
-
     .iwb-notice button:hover {
       outline: 1px solid !important;
+    }
+    .iwb-new-link {
+      display: inline-block;
+      font-size: 12px !important;
+      text-decoration: none;
+      padding-left: 5px;
+      position: relative;
+    }
+    .iwb-new-link:hover {
+      text-decoration: none;
+      z-index: 9999999;
+    }
+    .iwb-new-link button {
+      cursor: pointer;
+      color: white;
+      background: #005799;
+      border: 0px solid #fff;
+      border-radius: 10px;
+      padding: 5px 10px;
+      margin: .5em 0 .2em 0;
+      font-size: 1.2em;
+      width: fit-content;
+    }
+    .iwb-new-link button:hover {
+      background: #00467a;
+    }
+    .iwb-new-link button * {
+      vertical-align: middle;
+    }
+    .iwb-new-link div:first-of-type {
+      display: inline-block;
+      background: white; 
+      border-radius: 16px;
+      margin-right: 10px;
+      width: fit-content;
+      height: fit-content;
+      line-height: 12px;
+      padding: 5px;
+    }
+    .iwb-new-link img {
+      width: 12px;
+    }
+    .iwb-disavow > *:not(.iwb-new-link) {
+      opacity: 60%;
+      pointer-events: none;
+      cursor: default;
+    }
+    .iwb-disavow > a:not(.iwb-new-link), .iwb-disavow > *:not(.iwb-new-link) a, .iwb-disavow > *:not(.iwb-new-link) a * {
+      text-decoration: line-through !important;
     }
   `
   style = document.createElement('style');
@@ -116,6 +161,188 @@ function escapeRegex(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+function redirectSearchResults(searchResultContainer, site, link) {
+  let countFiltered = 0;
+  // Build new URL:
+  let article = link.split(site['origin_base_url'] + site['origin_content_path'])[1]?.split('#')[0].split('?')[0].split('&')[0];
+  let newURL = '';
+  if (article) {
+    let searchParams = '';
+    switch (site['destination_platform']) {
+      case 'mediawiki':
+        searchParams = 'Special:Search/' + site['destination_content_prefix'] + article;
+        break;
+      case 'doku':
+        searchParams = 'start?do=search&q=' + article;
+        break;
+    }
+    newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+  } else {
+    newURL = 'https://' + site["destination_base_url"];
+  }
+
+  if (searchResultContainer && !searchResultContainer.classList.contains('iwb-detected')) {
+    searchResultContainer.classList.add('iwb-detected');
+    var indieResultLink = document.createElement('a');
+    indieResultLink.href = newURL;
+    indieResultLink.classList.add('iwb-new-link');
+    var indieResultButton = document.createElement('button');
+    var indieResultFaviconContainer = document.createElement('div');
+    var indieResultFavicon = document.createElement('img');
+    indieResultFavicon.alt = '';
+    indieResultFavicon.width = '12';
+    indieResultFavicon.height = '12';
+    indieResultFavicon.src = chrome.runtime.getURL('favicons/' + site.lang.toLowerCase() + '/' + site.destination_icon);
+    indieResultFaviconContainer.append(indieResultFavicon);
+    var indieResultText = document.createElement('span');
+    if (article) {
+      indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(article.replaceAll('_', ' '))) + '" on ' + site.destination;
+    } else {
+      indieResultText.innerText = 'Visit ' + site.destination + ' instead';
+    }
+    indieResultButton.append(indieResultFaviconContainer);
+    indieResultButton.append(indieResultText);
+    indieResultLink.appendChild(indieResultButton);
+
+    searchResultContainer.prepend(indieResultLink);
+    searchResultContainer.classList.add('iwb-disavow');
+    countFiltered++;
+  }
+  return countFiltered;
+}
+
+function hideSearchResults(searchResultContainer, searchEngine, site) {
+  let countFiltered = 0;
+  // Insert search result removal notice
+  if (!filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
+    filteredWikis.push(site.lang + ' ' + site.origin_group);
+
+    let elementId = stringToId(site.lang + '-' + site.origin_group);
+    hiddenWikisRevealed[elementId] = false;
+
+    let searchRemovalNotice = document.createElement('aside');
+    searchRemovalNotice.id = 'iwb-notice-' + elementId;
+    searchRemovalNotice.classList.add('iwb-notice');
+    let searchRemovalNoticeLink = document.createElement('a');
+    searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
+    searchRemovalNoticeLink.textContent = site.destination;
+    searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + (site.lang !== 'EN' ? ' (' + site.lang + ')' : '') + '. Look for results from ');
+    searchRemovalNoticePosttext = document.createTextNode(' instead!');
+    linebreak = document.createElement("br");
+    searchRemovalNotice.appendChild(searchRemovalNoticePretext);
+    searchRemovalNotice.appendChild(searchRemovalNoticeLink);
+    searchRemovalNotice.appendChild(searchRemovalNoticePosttext);
+    searchRemovalNotice.appendChild(linebreak);
+
+    // Output "show results" button
+    let showResultsButton = document.createElement('button');
+    showResultsButton.classList.add('iwb-show-results-button');
+    showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
+    showResultsButton.textContent = 'Show filtered results';
+    searchRemovalNotice.appendChild(showResultsButton);
+    showResultsButton.onclick = function (e) {
+      if (e.target.textContent.includes('Show')) {
+        e.target.textContent = 'Re-hide filtered results';
+        hiddenWikisRevealed[elementId] = true;
+        const selector = e.currentTarget.dataset.group;
+        document.querySelectorAll('.' + selector).forEach(el => {
+          el.classList.add('iwb-show');
+        })
+      } else {
+        e.target.textContent = 'Show filtered results';
+        hiddenWikisRevealed[elementId] = false;
+        const selector = e.currentTarget.dataset.group;
+        document.querySelectorAll('.' + selector).forEach(el => {
+          el.classList.remove('iwb-show');
+        })
+      }
+    }
+
+    // Output "disable filtering" button
+    let disableFilterButton = document.createElement('button');
+    disableFilterButton.classList.add('iwb-disable-filtering-button');
+    disableFilterButton.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
+    disableFilterButton.style.border = '1px solid';
+    searchRemovalNotice.appendChild(disableFilterButton);
+    disableFilterButton.onclick = function (e) {
+      if (e.target.textContent.includes('Stop')) {
+        chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+          response.siteSettings.get(site.id).set('searchFilter', 'false');
+          chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+          e.target.textContent = 'Re-enable filtering for ' + site.origin_group;
+        })
+      } else {
+        chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+          response.siteSettings.get(site.id).set('searchFilter', 'true');
+          chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+          e.target.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
+        })
+      }
+    }
+
+    switch (searchEngine) {
+      case 'google':
+        if (document.querySelector('#search')) {
+          document.querySelector('#search').prepend(searchRemovalNotice);
+        } else if (document.querySelector('#topstuff')) {
+          document.querySelector('#topstuff').prepend(searchRemovalNotice);
+        } else if (document.querySelector('#main')) {
+          var el = document.querySelector('#main');
+          if (el.querySelector('#main > div[data-hveid]')) {
+            el.insertBefore(searchRemovalNotice, el.querySelector('div[data-hveid]'));
+          } else {
+            el.insertBefore(searchRemovalNotice, el.querySelector('div div[data-hveid]').parentElement);
+          }
+        };
+        break;
+      case 'bing':
+        var li = document.createElement('li');
+        li.appendChild(searchRemovalNotice);
+        document.querySelector('#b_results').prepend(li);
+        break;
+      case 'duckduckgo':
+        if (document.getElementById('web_content_wrapper')) {
+          var li = document.createElement('li');
+          li.appendChild(searchRemovalNotice);
+          document.querySelector('#web_content_wrapper ol').prepend(li);
+        } else {
+          document.getElementById('links').prepend(searchRemovalNotice);
+        }
+        break;
+      case 'brave':
+        document.querySelector('body').prepend(searchRemovalNotice);
+        break;
+      case 'ecosia':
+        document.querySelector('body').prepend(searchRemovalNotice);
+        break;
+      case 'startpage':
+        document.querySelector('#main').prepend(searchRemovalNotice);
+        break;
+      case 'yahoo':
+        if (document.querySelector('#web > ol')) {
+          var li = document.createElement('li');
+          li.appendChild(searchRemovalNotice);
+          document.querySelector('#web > ol').prepend(li);
+        } else {
+          document.querySelector('#main-algo').prepend(searchRemovalNotice);
+        }
+        break;
+      default:
+    }
+  }
+
+  if (!Array.from(searchResultContainer.classList).includes('iwb-hide')) {
+    let elementId = stringToId(site.lang + '-' + site.origin_group);
+    searchResultContainer.classList.add('iwb-search-result-' + elementId);
+    searchResultContainer.classList.add('iwb-hide');
+    countFiltered++;
+    if (hiddenWikisRevealed[elementId]) {
+      searchResultContainer.classList.add('iwb-show');
+    }
+  }
+
+  return countFiltered;
+}
 
 function filterSearchResults(searchResults, searchEngine, storage) {
   getData().then(sites => {
@@ -131,7 +358,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
         }
         let link = String(decodeURIComponent(searchResultLink));
 
-        if (searchEngine ==='google') {
+        if (searchEngine === 'google') {
           // Break if image result:
           if (link.includes('imgurl=')) {
             break;
@@ -192,179 +419,38 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                 }
               }
 
-              // Insert search result removal notice
-              if (!filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
-                filteredWikis.push(site.lang + ' ' + site.origin_group);
-
-                let elementId = stringToId(site.lang + '-' + site.origin_group);
-                hiddenWikisRevealed[elementId] = false;
-    
-                let searchRemovalNotice = document.createElement('aside');
-                searchRemovalNotice.id = 'iwb-notice-' + elementId;
-                searchRemovalNotice.classList.add('iwb-notice');
-                let searchRemovalNoticeLink = document.createElement('a');
-                searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
-                searchRemovalNoticeLink.textContent = site.destination;
-                searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + (site.lang !== 'EN' ? ' (' + site.lang + ')' : '') + '. Look for results from ');
-                searchRemovalNoticePosttext = document.createTextNode(' instead!');
-                linebreak = document.createElement("br");
-                searchRemovalNotice.appendChild(searchRemovalNoticePretext);
-                searchRemovalNotice.appendChild(searchRemovalNoticeLink);
-                searchRemovalNotice.appendChild(searchRemovalNoticePosttext);
-                searchRemovalNotice.appendChild(linebreak);
-
-                // Output "show results" button
-                let showResultsButton = document.createElement('button');
-                showResultsButton.classList.add('iwb-show-results-button');
-                showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
-                showResultsButton.textContent = 'Show filtered results';
-                searchRemovalNotice.appendChild(showResultsButton);
-                showResultsButton.onclick = function (e) {
-                  if(e.target.textContent.includes('Show')) {
-                    e.target.textContent = 'Re-hide filtered results';
-                    hiddenWikisRevealed[elementId] = true;
-                    const selector = e.currentTarget.dataset.group;
-                    document.querySelectorAll('.' + selector).forEach(el => {
-                      el.classList.add('iwb-show');
-                    })
-                  } else {
-                    e.target.textContent = 'Show filtered results';
-                    hiddenWikisRevealed[elementId] = false;
-                    const selector = e.currentTarget.dataset.group;
-                    document.querySelectorAll('.' + selector).forEach(el => {
-                      el.classList.remove('iwb-show');
-                    })
-                  }
-                }
-
-                // Output "disable filtering" button
-                let disableFilterButton = document.createElement('button');
-                disableFilterButton.classList.add('iwb-disable-filtering-button');
-                disableFilterButton.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
-                disableFilterButton.style.border = '1px solid';
-                searchRemovalNotice.appendChild(disableFilterButton);
-                disableFilterButton.onclick = function (e) {
-                  if (e.target.textContent.includes('Stop')) {
-                    chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-                      response.siteSettings.get(site.id).set('searchFilter', 'false');
-                      chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-                      e.target.textContent = 'Re-enable filtering for ' + site.origin_group;
-                    })
-                  } else {
-                    chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-                      response.siteSettings.get(site.id).set('searchFilter', 'true');
-                      chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
-                      e.target.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
-                    })
-                  }
-                }
-
-                switch (searchEngine) {
-                  case 'google':
-                    if (document.querySelector('#search')) {
-                      document.querySelector('#search').prepend(searchRemovalNotice);
-                    } else if (document.querySelector('#topstuff')) {
-                      document.querySelector('#topstuff').prepend(searchRemovalNotice);
-                    } else if (document.querySelector('#main')) {
-                      var el = document.querySelector('#main');
-                      if (el.querySelector('#main > div[data-hveid]')) {
-                        el.insertBefore(searchRemovalNotice, el.querySelector('div[data-hveid]'));
-                      } else {
-                        el.insertBefore(searchRemovalNotice, el.querySelector('div div[data-hveid]').parentElement);
-                      }
-                    };
-                    break;
-                  case 'bing':
-                    var li = document.createElement('li');
-                    li.appendChild(searchRemovalNotice);
-                    document.querySelector('#b_results').prepend(li);
-                    break;
-                  case 'duckduckgo':
-                    if (document.getElementById('web_content_wrapper')) {
-                      var li = document.createElement('li');
-                      li.appendChild(searchRemovalNotice);
-                      document.querySelector('#web_content_wrapper ol').prepend(li);
-                    } else {
-                      document.getElementById('links').prepend(searchRemovalNotice);
-                    }
-                    break;
-                  case 'brave':
-                    document.querySelector('body').prepend(searchRemovalNotice);
-                    break;
-                  case 'ecosia':
-                    document.querySelector('body').prepend(searchRemovalNotice);
-                    break;
-                  case 'startpage':
-                    document.querySelector('#main').prepend(searchRemovalNotice);
-                    break;
-                  case 'yahoo':
-                    if (document.querySelector('#web > ol')) {
-                      var li = document.createElement('li');
-                      li.appendChild(searchRemovalNotice);
-                      document.querySelector('#web > ol').prepend(li);
-                    } else {
-                      document.querySelector('#main-algo').prepend(searchRemovalNotice);
-                    }
-                    break;
-                  default:
-                }
-              }
-
               let cssQuery = '';
               let searchResultContainer = null;
               switch (searchEngine) {
                 case 'google':
-                  if (searchResult.closest('div[data-hveid]')) {
-                    cssQuery = 'div[data-hveid]';
-                    searchResultContainer = searchResult.closest(cssQuery).parentElement;
-                  }
+                  searchResultContainer = searchResult.closest('div[data-hveid]');
                   break;
                 case 'bing':
-                  if (searchResult.closest('li.b_algo')) {
-                    cssQuery = 'li.b_algo';
-                    searchResultContainer = searchResult.closest(cssQuery);
-                  }
+                  searchResultContainer = searchResult.closest('li.b_algo');
                   break;
                 case 'duckduckgo':
-                  if (searchResult.closest('li[data-layout], div.web-result')) {
-                    cssQuery = 'li[data-layout], div.web-result';
-                    searchResultContainer = searchResult.closest(cssQuery);
-                  }
+                  searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
                   break;
                 case 'brave':
-                  if (searchResult.closest('div.snippet')) {
-                    cssQuery = 'div.snippet';
-                    searchResultContainer = searchResult.closest(cssQuery);
-                  }
+                  searchResultContainer = searchResult.closest('div.snippet');
                   break;
                 case 'ecosia':
-                  if (searchResult.closest('div.mainline__result-wrapper')) {
-                    cssQuery = 'div.mainline__result-wrapper';
-                    searchResultContainer = searchResult.closest(cssQuery);
-                  }
+                  searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
                   break;
                 case 'startpage':
-                  if (searchResult.closest('div.w-gl__result')) {
-                    cssQuery = 'div.w-gl__result';
-                    searchResultContainer = searchResult.closest(cssQuery);
-                  }
+                  searchResultContainer = searchResult.closest('div.w-gl__result');
                   break;
                 case 'yahoo':
-                  if (searchResult.closest('#web > ol > li, section.algo')) {
-                    cssQuery = '#web > ol > li, section.algo';
-                    searchResultContainer = searchResult.closest(cssQuery);
-                  }
+                  searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
                   break;
                 default:
               }
 
-              if(!Array.from(searchResultContainer.classList).includes('iwb-hide')) {
-                let elementId = stringToId(site.lang + '-' + site.origin_group);
-                searchResultContainer.classList.add('iwb-search-result-' + elementId);
-                searchResultContainer.classList.add('iwb-hide');
-                countFiltered++;
-                if (hiddenWikisRevealed[elementId]) {
-                  searchResultContainer.classList.add('iwb-show');
+              if (searchResultContainer) {
+                if (storage.searchSetting === 'hide') {
+                  countFiltered += hideSearchResults(searchResultContainer, searchEngine, site);
+                } else {
+                  countFiltered += redirectSearchResults(searchResultContainer, site, link);
                 }
               }
             }
@@ -391,7 +477,7 @@ function main(mutations = null, observer = null) {
       // Check if extension is on:
       if ((storage.power ?? 'on') === 'on') {
         // Determine which search engine we're on
-        if ((storage.searchFilter ?? 'on') === 'on') {
+        if ((storage.searchSetting ?? 'replace') !== 'nothing') {
           if (currentURL.hostname.includes('www.google.')) {
             // Function to filter search results in Google
             function filterGoogle() {
@@ -447,7 +533,6 @@ function main(mutations = null, observer = null) {
             // Function to filter search results in Brave
             function filterBrave() {
               let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
-              console.log(searchResults);
               filterSearchResults(searchResults, 'brave', storage);
             }
 
