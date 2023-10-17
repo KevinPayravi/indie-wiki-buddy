@@ -220,19 +220,35 @@ function setBreezeWiki(setting, storeSetting = true) {
 }
 
 // Main function that runs on-load
-document.addEventListener('DOMContentLoaded', function () {
-  notificationBanner = document.getElementById('notificationBanner');
-  
+document.addEventListener('DOMContentLoaded', function () {  
   // If running Chromium, show warning about service worker bug
   if (navigator.userAgent.match(/Chrom[e|ium]/)) {
-    notificationBanner.style.display = 'block';
-    document.getElementById('notificationBannerBug').style.display = 'block';
+    const notificationBannerChromeBug = document.getElementById('notificationBannerChromeBug');
+    chrome.storage.local.get({ 'hideChromeBugNote': false }, function (item) {
+      if (!item.hideChromeBugNote) {
+        notificationBannerChromeBug.style.display = 'block';
+
+        document.getElementById('chromeBugHideLink').addEventListener('click', function () {
+          chrome.storage.local.set({ 'hideChromeBugNote': true });
+          notificationBannerChromeBug.style.display = 'none';
+        });
+      }
+    });
   }
 
-  // If running Opera, show note about search engine acces
+  // If running Opera, show note about search engine access
   if (navigator.userAgent.match(/OPR\//)) {
-    notificationBanner.style.display = 'block';
-    document.getElementById('notificationBannerOpera').style.display = 'block';
+    const notificationBannerOpera = document.getElementById('notificationBannerOpera');
+    chrome.storage.local.get({ 'hideOperaPermissionsNote': false }, function (item) {
+      if (!item.hideOperaPermissionsNote) {
+        notificationBannerOpera.style.display = 'block';
+
+        document.getElementById('operaPermsHideLink').addEventListener('click', function () {
+          chrome.storage.local.set({ 'hideOperaPermissionsNote': true });
+          notificationBannerOpera.style.display = 'none';
+        });
+      }
+    });
   }
 
   loadBreezeWikiOptions();

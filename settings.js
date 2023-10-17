@@ -514,9 +514,7 @@ function setBreezeWiki(setting, storeSetting = true) {
 }
 
 // Main function that runs on-load
-document.addEventListener('DOMContentLoaded', function () {
-  notificationBanner = document.getElementById('notificationBanner');
-  
+document.addEventListener('DOMContentLoaded', function () {  
   // If newly installed, show initial install guide
   if (new URLSearchParams(window.location.search).get('newinstall')) {
     document.getElementById('firstInstallInfo').style.display = 'block';
@@ -524,14 +522,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // If running Chromium, show warning about service worker bug
   if (navigator.userAgent.match(/Chrom[e|ium]/)) {
-    notificationBanner.style.display = 'block';
-    document.getElementById('notificationBannerBug').style.display = 'block';
+    const notificationBannerChromeBug = document.getElementById('notificationBannerChromeBug');
+    chrome.storage.local.get({ 'hideChromeBugNote': false }, function (item) {
+      if (!item.hideChromeBugNote) {
+        notificationBannerChromeBug.style.display = 'block';
+
+        document.getElementById('chromeBugHideLink').addEventListener('click', function () {
+          chrome.storage.local.set({ 'hideChromeBugNote': true });
+          notificationBannerChromeBug.style.display = 'none';
+        });
+      }
+    });
   }
 
-  // If running Opera, show note about search engine acces
+  // If running Opera, show note about search engine access
   if (navigator.userAgent.match(/OPR\//)) {
-    notificationBanner.style.display = 'block';
-    document.getElementById('notificationBannerOpera').style.display = 'block';
+    const notificationBannerOpera = document.getElementById('notificationBannerOpera');
+    chrome.storage.local.get({ 'hideOperaPermissionsNote': false }, function (item) {
+      if (!item.hideOperaPermissionsNote) {
+        notificationBannerOpera.style.display = 'block';
+
+        document.getElementById('operaPermsHideLink').addEventListener('click', function () {
+          chrome.storage.local.set({ 'hideOperaPermissionsNote': true });
+          notificationBannerOpera.style.display = 'none';
+        });
+      }
+    });
   }
 
   // Count number of times settings have been opened
@@ -544,7 +560,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // and if the banner hasn't been previously dismissed
     chrome.storage.local.get({ 'hideReviewReminder': false }, function (item) {
       if (!item.hideReviewReminder && ((countSettingsOpened - 1) % 5 === 0)) {
-        notificationBanner.style.display = 'block';
+        const notificationBannerReview = document.getElementById('notificationBannerReview');
+
+        notificationBannerReview.style.display = 'block';
         document.getElementById('notificationBannerReview').style.display = ' block';
 
         // Disable future review reminders if user clicks links:
@@ -556,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         document.getElementById('reviewReminderHideLink').addEventListener('click', function () {
           chrome.storage.local.set({ 'hideReviewReminder': true });
-          notificationBanner.style.display = 'none';
+          notificationBannerReview.style.display = 'none';
         });
       }
     });
