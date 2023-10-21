@@ -2,6 +2,9 @@ const currentURL = new URL(document.location);
 let filteredWikis = [];
 let hiddenWikisRevealed = {};
 
+/** @type {MutationObserver | undefined} */
+let qwantObserver;
+
 // Create object prototypes for getting and setting attributes:
 Object.prototype.get = function (prop) {
   this[prop] = this[prop] || {};
@@ -495,8 +498,10 @@ function main(mutations = null, observer = null) {
             }
 
             function registerQwantObserver() {
+              const targetElement = document.querySelector('section[data-testid=containerWeb]');
+              if (qwantObserver || !(targetElement instanceof Node)) return;
               // Create observer to watch for changes  in search results (Qwant does not reload the page when searching)
-              const observer = new MutationObserver((mutationList, _) => {
+              qwantObserver = new MutationObserver((mutationList, _) => {
                 for (const mutation of mutationList) {
                   if (mutation.addedNodes.length > 0 && mutation.previousSibling != null) {
                     // Reset list of filtered wikis
@@ -505,7 +510,7 @@ function main(mutations = null, observer = null) {
                 }
               });
   
-              observer.observe(document.querySelector('section[data-testid=containerWeb]'), { childList: true, attributes: false, subtree: false });
+              qwantObserver.observe(targetElement, { childList: true, attributes: false, subtree: false });
             }
 
             // Wait for document to be interactive/complete:
