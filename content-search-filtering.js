@@ -494,19 +494,8 @@ function main(mutations = null, observer = null) {
               filterSearchResults(searchResults, 'qwant', storage);
             }
 
-            // Wait for document to be interactive/complete:
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterQwant();
-            } else {
-              document.addEventListener('readystatechange', e => {
-                if (['interactive', 'complete'].includes(document.readyState)) {
-                  filterQwant();
-                }
-              }, { once: true });
-            }
-
-            // Create observer to watch for changes  in search results (Qwant does not reload the page when searching)
-            if (!observer) {
+            function registerQwantObserver() {
+              // Create observer to watch for changes  in search results (Qwant does not reload the page when searching)
               const observer = new MutationObserver((mutationList, _) => {
                 for (const mutation of mutationList) {
                   if (mutation.addedNodes.length > 0 && mutation.previousSibling != null) {
@@ -517,6 +506,19 @@ function main(mutations = null, observer = null) {
               });
   
               observer.observe(document.querySelector('section[data-testid=containerWeb]'), { childList: true, attributes: false, subtree: false });
+            }
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterQwant();
+              registerQwantObserver();
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (['interactive', 'complete'].includes(document.readyState)) {
+                  filterQwant();
+                  registerQwantObserver();
+                }
+              }, { once: true });
             }
           } else if (currentURL.hostname.includes('startpage.com')) {
             // Function to filter search results in Startpage
