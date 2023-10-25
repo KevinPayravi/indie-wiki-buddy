@@ -2048,6 +2048,22 @@
     "destination_icon": "viki.png"
   },
   {
+  "id": "en-warcraft",
+  "origins_label": "Wowpedia",
+  "origins": [
+    {
+      "origin": "Wowpedia",
+      "origin_base_url": "wowpedia.fandom.com",
+      "origin_content_path": "/wiki/"
+    }
+  ]
+  "destination": "Warcraft Wiki",
+  "destination_base_url": "warcraft.wiki.gg",
+  "destination_content_path": "/wiki/",
+  "destination_platform": "mediawiki",
+  "destination_icon": "warcraft.png"
+}
+  {
     "id": "en-warhammer40k",
     "origins_label": "Warhammer 40,000 Fandom Wiki",
     "origins": [
