@@ -1039,6 +1039,22 @@
     "destination_icon": "hololive.png"
   },
   {
+    "id": "en-hollowknight",
+    "origins_label": "Hollow Knight Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Hollow Knight Fandom Wiki",
+        "origin_base_url": "hollowknight.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Hollow Knight Wiki",
+    "destination_base_url": "hollowknight.wiki/",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hollowknight.png"
+  },
+  {
     "id": "en-houkaigakuen2",
     "origins_label": "Houkai Gakuen 2 Fandom Wiki",
     "origins": [
