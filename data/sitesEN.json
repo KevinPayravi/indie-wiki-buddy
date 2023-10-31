@@ -1295,6 +1295,22 @@
     "destination_icon": "supermariowiki.png"
   },
   {
+    "id": "en-mcci",
+    "origins_label": "MCC Island Fandom Wiki",
+    "origins": [
+      {
+        "origin": "MCC Island Fandom Wiki",
+        "origin_base_url": "mccisland.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ]
+    "destination": "MCC Island Wiki",
+    "destination_base_url": "mccisland.wiki",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mcciwiki.png"
+  },
+  {
     "id": "en-micronations",
     "origins_label": "MicroNations Fandom Wiki",
     "origins": [
