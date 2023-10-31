@@ -57,7 +57,7 @@ Entries are formatted as follows:
       "origin_base_url": "example.fandom.com",
       "origin_content_path": "/wiki/"
     }
-  ]
+  ],
   "destination": "Example Wiki",
   "destination_base_url": "example.com",
   "destination_content_path": "/w/",
