@@ -1295,6 +1295,22 @@
     "destination_icon": "supermariowiki.png"
   },
   {
+    "id": "en-mcci",
+    "origins_label": "MCC Island Fandom Wiki",
+    "origins": [
+      {
+        "origin": "MCC Island Fandom Wiki",
+        "origin_base_url": "mccisland.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ]
+    "destination": "MCC Island Wiki",
+    "destination_base_url": "mccisland.wiki",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mcciwiki.png"
+  },
+  {
     "id": "en-micronations",
     "origins_label": "MicroNations Fandom Wiki",
     "origins": [
@@ -2199,19 +2215,19 @@
     "destination_icon": "zeldapedia.png"
   },
   {
-  "id": "en-megamitensei",
-  "origins_label": "Megami Tensei Fandom Wiki",
-  "origins": [
-    {
-      "origin": "Megami Tensei Fandom Wiki",
-      "origin_base_url": "megamitensei.fandom.com",
-      "origin_content_path": "/wiki/"
-    }
-  ]
-  "destination": "Megami Tensei Wiki",
-  "destination_base_url": "megatenwiki.com",
-  "destination_content_path": "/wiki/",
-  "destination_platform": "mediawiki",
-  "destination_icon": "megamitenseiwiki.png"
-}
+    "id": "en-megamitensei",
+    "origins_label": "Megami Tensei Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Megami Tensei Fandom Wiki",
+        "origin_base_url": "megamitensei.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Megami Tensei Wiki",
+    "destination_base_url": "megatenwiki.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "megamitenseiwiki.png"
+  }
 ]
