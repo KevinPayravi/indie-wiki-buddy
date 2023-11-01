@@ -1040,12 +1040,17 @@
   },
   {
     "id": "en-hollowknight",
-    "origins_label": "Hollow Knight Fandom Wiki",
+    "origins_label": "Hollow Knight Fandom & Fextra Wikis",
     "origins": [
       {
         "origin": "Hollow Knight Fandom Wiki",
         "origin_base_url": "hollowknight.fandom.com",
         "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Hollow Knight Fextralife Wiki",
+        "origin_base_url": "hollowknight.wiki.fextralife.com",
+        "origin_content_path": "/"
       }
     ],
     "destination": "Hollow Knight Wiki",
