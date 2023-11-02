@@ -161,6 +161,7 @@ function insertCSS() {
     }
   `
   style = document.createElement('style');
+  style.classList.add('iwb-styles');
   style.textContent = styleString;
   document.head.append(style);
 }
@@ -426,12 +427,12 @@ function filterSearchResults(searchResults, searchEngine, storage) {
               if (filteredWikis.length === 0) {
                 // Wait for head to be available
                 const headElement = document.querySelector('head');
-                if (headElement) {
+                if (headElement && !document.querySelector('.iwb-styles')) {
                   insertCSS();
                 } else {
                   const docObserver = new MutationObserver(function (mutations, mutationInstance) {
                     const headElement = document.querySelector('head');
-                    if (headElement) {
+                    if (headElement && !document.querySelector('.iwb-styles')) {
                       insertCSS();
                       mutationInstance.disconnect();
                     }
