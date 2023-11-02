@@ -222,7 +222,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     // Output link to re-enable disabled result:
     enableResult = document.createElement('div');
     enableResult.classList.add('iwb-enable-result');
-    enableResult.innerText = 'Re-enable non-indie result';
+    enableResult.innerText = 'Re-enable original result';
     enableResult.addEventListener('click', function (e) {
       e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
     });
