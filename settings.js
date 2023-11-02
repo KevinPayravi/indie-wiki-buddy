@@ -13,15 +13,16 @@ Object.prototype.set = function(prop, value) {
 // Clear wiki toggles
 // Used when switching languages
 function resetOptions() {
-  var toggleContainer = document.getElementById('toggles');
+  const toggleContainer = document.getElementById('toggles');
   toggleContainer.textContent = "";
 
   // Clone "select all" buttons to reset listeners
+  document.getElementById('setAllDisabled').cloneNode(true);
   document.getElementById('setAllRedirect').cloneNode(true);
   document.getElementById('setAllAlert').cloneNode(true);
-  document.getElementById('setAllDisabled').cloneNode(true);
-  document.getElementById('setAllSearchFilter').cloneNode(true);
-  document.getElementById('setNoneSearchFilter').cloneNode(true);
+  document.getElementById('setAllSearchEngineDisabled').cloneNode(true);
+  document.getElementById('setAllSearchEngineHide').cloneNode(true);
+  document.getElementById('setAllSearchEngineReplace').cloneNode(true);
 }
 
 // Get wiki data from data folder
@@ -145,12 +146,16 @@ async function loadBreezeWikiOptions() {
 async function loadOptions(lang) {
   sites = await getData();
 
+  // Sort sites alphabetically by destination
+  sites.sort((a, b) => a.destination.localeCompare(b.destination));
+
   chrome.storage.local.get(function (localStorage) {
     chrome.storage.sync.get(function (syncStorage) {
       const storage = {...syncStorage, ...localStorage};
       let siteSettings = storage.siteSettings || {};
-      let defaultActionSettings = storage.defaultActionSettings || {};
-      let defaultSearchFilterSettings = storage.defaultSearchFilterSettings || {};
+      let searchEngineSettings = storage.searchEngineSettings || {};
+      let defaultWikiAction = storage.defaultWikiAction || null;
+      let defaultSearchAction = storage.defaultSearchAction || null;
 
       // Load BreezeWiki options:
       chrome.storage.sync.get(['breezewiki'], function (item) {
@@ -159,54 +164,93 @@ async function loadOptions(lang) {
         }
       });
 
+      // Load defaults for newly added wikis:
+      chrome.storage.sync.get(['defaultWikiAction'], function (item) {
+        if (item.defaultWikiAction === 'disabled') {
+          document.options.defaultWikiAction.value = 'disabled';
+        } else if (item.defaultWikiAction === 'redirect') {
+          document.options.defaultWikiAction.value = 'redirect';
+        } else {
+          document.options.defaultWikiAction.value = 'alert';
+        }
+      });
+      chrome.storage.sync.get(['defaultSearchAction'], function (item) {
+        if (item.defaultSearchAction === 'disabled') {
+          document.options.defaultSearchAction.value = 'disabled';
+        } else if (item.defaultSearchAction === 'hide') {
+          document.options.defaultSearchAction.value = 'hide';
+        } else {
+          document.options.defaultSearchAction.value = 'replace';
+        }
+      });
+
       // Populate individual wiki settings:
-      var toggleContainer = document.getElementById('toggles');
+      const toggleContainer = document.getElementById('toggles');
       for (var i = 0; i < sites.length; i++) {
-        if (sites[i].language === lang) {
+        if ((lang === 'ALL') || (sites[i].language === lang)) {
           var key = sites[i].id;
 
-          // Create radio for disabled:
+          // Create radio for disabling action on wiki:
           let labelDisabled = document.createElement("label");
           let inputDisabled = document.createElement("input");
           inputDisabled.classList = 'toggleDisable';
           inputDisabled.type = "radio";
-          inputDisabled.name = key;
-          inputDisabled.title = 'Disable actions for ' + sites[i].origins_label;
-          inputDisabled.id = key + '-redirect';
-          inputDisabled.lang = lang;
+          inputDisabled.name = key + '-wiki-action';
+          inputDisabled.title = 'Do nothing for ' + sites[i].origins_label  + ' on search engines';
+          inputDisabled.lang = sites[i].language;
+          inputDisabled.setAttribute('data-wiki-key', key);
 
-          // Create radio for redirect:
+          // Create radio for redirecting wiki:
           let labelRedirect = document.createElement("label");
           let inputRedirect = document.createElement("input");
           inputRedirect.classList = 'toggleRedirect';
           inputRedirect.type = "radio";
-          inputRedirect.name = key;
-          inputRedirect.title = 'Automatically redirect from ' + sites[i].origins_label + ' to ' + sites[i].destination;
-          inputRedirect.id = key + '-redirect';
-          inputRedirect.lang = lang;
+          inputRedirect.name = key + '-wiki-action';
+          inputRedirect.title = 'Automatically redirect ' + sites[i].origins_label + ' to ' + sites[i].destination;
+          inputRedirect.lang = sites[i].language;
+          inputRedirect.setAttribute('data-wiki-key', key);
 
-          // Create radio for alert:
+          // Create radio for inserting banner on wiki:
           let labelAlert = document.createElement("label");
           let inputAlert = document.createElement("input");
           inputAlert.classList = 'toggleAlert';
           inputAlert.type = "radio";
-          inputAlert.name = key;
-          inputAlert.title = 'Notify with banner when visiting ' + sites[i].origins_label;
-          inputAlert.id = key + '-alert';
-          inputAlert.lang = lang;
+          inputAlert.name = key + '-wiki-action';
+          inputAlert.title = 'Show banner on ' + sites[i].origins_label + ' linking to ' + sites[i].destination;
+          inputAlert.lang = sites[i].language;
+          inputAlert.setAttribute('data-wiki-key', key);
+          
+          // Create radio for disabling action on search engines:
+          let labelSearchEngineDisabled = document.createElement("label");
+          let inputSearchEngineDisabled = document.createElement("input");
+          inputSearchEngineDisabled.classList = 'toggleSearchEngineDisabled';
+          inputSearchEngineDisabled.type = "radio";
+          inputSearchEngineDisabled.name = key + '-search-engine-action';
+          inputSearchEngineDisabled.title = 'Do nothing for ' + sites[i].origins_label;
+          inputSearchEngineDisabled.lang = sites[i].language;
+          inputSearchEngineDisabled.setAttribute('data-wiki-key', key);
 
-          // Create checkbox for search filtering:
-          let labelFilter = document.createElement("label");
-          let inputFilter = document.createElement("input");
-          inputFilter.classList = 'toggleFilter';
-          inputFilter.type = 'checkbox';
-          inputFilter.name = key;
-          inputFilter.title = 'Filter ' + sites[i].origins_label + ' from Google, Bing, DuckDuckGo, & other search engines';
-          inputFilter.id = key + '-filter';
-          inputFilter.lang = lang;
+          // Create radio for hiding results on search engines:
+          let labelSearchEngineHide = document.createElement("label");
+          let inputSearchEngineHide = document.createElement("input");
+          inputSearchEngineHide.classList = 'toggleSearchEngineHide';
+          inputSearchEngineHide.type = "radio";
+          inputSearchEngineHide.name = key + '-search-engine-action';
+          inputSearchEngineHide.title = 'Hide ' + sites[i].origins_label + ' from search engine results';
+          inputSearchEngineHide.lang = sites[i].language;
+          inputSearchEngineHide.setAttribute('data-wiki-key', key);
 
-          // Check radio button based on user's settings
-          // Will default to alert or the last "select all" setting the user chose
+          // Create radio for replacing results on search engines:
+          let labelSearchEngineReplace = document.createElement("label");
+          let inputSearchEngineReplace = document.createElement("input");
+          inputSearchEngineReplace.classList = 'toggleSearchEngineReplace';
+          inputSearchEngineReplace.type = "radio";
+          inputSearchEngineReplace.name = key + '-search-engine-action';
+          inputSearchEngineReplace.title = 'Replace ' + sites[i].origins_label + ' search engine results with ' + sites[i].destination;
+          inputSearchEngineReplace.lang = sites[i].language;
+          inputSearchEngineReplace.setAttribute('data-wiki-key', key);
+
+          // Check radio buttons based on user's settings
           if (siteSettings[key] && siteSettings[key].action) {
             if (siteSettings[key].action === 'disabled') {
               inputDisabled.checked = true;
@@ -216,7 +260,7 @@ async function loadOptions(lang) {
               inputAlert.checked = true;
             }
           } else {
-            let actionSetting = defaultActionSettings[lang];
+            let actionSetting = defaultWikiAction;
             if (actionSetting) {
               if (actionSetting === 'disabled') {
                 inputDisabled.checked = true;
@@ -230,102 +274,134 @@ async function loadOptions(lang) {
             }
           }
 
-          // Check search filter checkbox based on user's settings (default filter):
-          if (siteSettings[key] && siteSettings[key].searchFilter) {
-            if (siteSettings[key].searchFilter === 'false') {
-              inputFilter.checked = false;
+          if (searchEngineSettings[key] && searchEngineSettings[key].action) {
+            if (searchEngineSettings[key].action === 'disabled') {
+              inputSearchEngineDisabled.checked = true;
+            } else if (searchEngineSettings[key].action === 'replace') {
+              inputSearchEngineReplace.checked = true;
             } else {
-              inputFilter.checked = true;
+              inputSearchEngineHide.checked = true;
             }
           } else {
-            let searchFilterSetting = defaultSearchFilterSettings[lang];
-            if (searchFilterSetting && searchFilterSetting === 'false') {
-              inputFilter.checked = false;
+            let actionSetting = defaultSearchAction;
+            if (actionSetting) {
+              if (actionSetting === 'true' || actionSetting === 'replace') {
+                inputSearchEngineReplace.checked = true;
+              } else if (actionSetting === 'false' || actionSetting === 'disabled') {
+                inputSearchEngineDisabled.checked = true;
+              } else {
+                inputSearchEngineHide.checked = true;
+              }
             } else {
-              inputFilter.checked = true;
+              inputSearchEngineReplace.checked = true;
             }
           }
 
           // Add listeners for when user clicks control:
           inputRedirect.addEventListener('click', function (input) {
             chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-              var key = input.target.name;
+              var key = input.target.getAttribute('data-wiki-key');
               response.siteSettings.get(key).set('action', 'redirect');
               chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
             });
           });
           inputAlert.addEventListener('click', function (input) {
             chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-              var key = input.target.name;
+              var key = input.target.getAttribute('data-wiki-key');
               response.siteSettings.get(key).set('action', 'alert');
               chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
             });
           });
           inputDisabled.addEventListener('click', function (input) {
             chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-              var key = input.target.name;
+              var key = input.target.getAttribute('data-wiki-key');
               response.siteSettings.get(key).set('action', 'disabled');
               chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
             });
           });
-          inputFilter.addEventListener('click', function (input) {
-            chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-              var key = input.target.name;
-              if (input.target.checked === true) {
-                response.siteSettings.get(key).set('searchFilter', 'true');
-              } else {
-                response.siteSettings.get(key).set('searchFilter', 'false');
-              }
-              chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+          inputSearchEngineDisabled.addEventListener('click', function (input) {
+            chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
+              var key = input.target.getAttribute('data-wiki-key');
+              response.searchEngineSettings.get(key).set('action', 'disabled');
+              chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
+            });
+          });
+          inputSearchEngineHide.addEventListener('click', function (input) {
+            chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
+              var key = input.target.getAttribute('data-wiki-key');
+              response.searchEngineSettings.get(key).set('action', 'hide');
+              chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
+            });
+          });
+          inputSearchEngineReplace.addEventListener('click', function (input) {
+            chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
+              var key = input.target.getAttribute('data-wiki-key');
+              response.searchEngineSettings.get(key).set('action', 'replace');
+              chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
             });
           });
 
-          // Output disable radio button:
+          // Output wiki disable radio button:
           let inputDisabledText = document.createElement('span');
           inputDisabledText.classList.add('visuallyHidden');
           inputDisabledText.textContent = 'Disable action for ' + sites[i].origins_label;
           labelDisabled.appendChild(inputDisabled);
           labelDisabled.appendChild(inputDisabledText);
 
-          // Output redirect radio button:
+          // Output wiki redirect radio button:
           let inputRedirectText = document.createElement('span');
           inputRedirectText.classList.add('visuallyHidden');
-          inputRedirectText.textContent = 'Automatically redirect ' + sites[i].origins_label;
+          inputRedirectText.textContent = 'Automatically redirect ' + sites[i].origins_label + ' to ' + sites[i].destination;
           labelRedirect.appendChild(inputRedirect);
           labelRedirect.appendChild(inputRedirectText);
 
-          // Output alert radio button:
+          // Output wiki alert radio button:
           let inputAlertText = document.createElement('span');
           inputAlertText.classList.add('visuallyHidden');
-          inputAlertText.textContent = 'Automatically alert for' + sites[i].origins_label;
+          inputAlertText.textContent = 'Show a banner on ' + sites[i].origins_label + ' linking to ' + sites[i].destination;
           labelAlert.appendChild(inputAlert);
           labelAlert.appendChild(inputAlertText);
 
-          // Output search filter checkbox:
-          let inputFilterText = document.createElement('span');
-          inputFilterText.classList.add('visuallyHidden');
-          inputFilterText.textContent = 'Filter ' + sites[i].origins_label + ' from search engine results';
-          labelFilter.appendChild(inputFilter);
-          labelFilter.appendChild(inputFilterText);
+          // Output search engine disable radio button:
+          let inputSearchEngineDisabledText = document.createElement('span');
+          inputSearchEngineDisabledText.classList.add('visuallyHidden');
+          inputSearchEngineDisabledText.textContent = 'Do nothing for ' + sites[i].origins_label + ' on search engines';
+          labelSearchEngineDisabled.appendChild(inputSearchEngineDisabled);
+          labelSearchEngineDisabled.appendChild(inputSearchEngineDisabledText);
+
+          // Output search engine hide radio button:
+          let inputSearchEngineHideText = document.createElement('span');
+          inputSearchEngineHideText.classList.add('visuallyHidden');
+          inputSearchEngineHideText.textContent = 'Hide ' + sites[i].origins_label + ' from search engines';
+          labelSearchEngineHide.appendChild(inputSearchEngineHide);
+          labelSearchEngineHide.appendChild(inputSearchEngineHideText);
+        
+          // Output search engine replace radio button:
+          let inputSearchEngineReplaceText = document.createElement('span');
+          inputSearchEngineReplaceText.classList.add('visuallyHidden');
+          inputSearchEngineReplaceText.textContent = 'Replace ' + sites[i].origins_label + ' search engine results with ' + sites[i].destination;
+          labelSearchEngineReplace.appendChild(inputSearchEngineReplace);
+          labelSearchEngineReplace.appendChild(inputSearchEngineReplaceText);
 
           // Output wiki info:
           let wikiInfo = document.createElement('span');
-          let iconLink = document.createElement("a");
-          iconLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
-          iconLink.title = 'Visit ' + sites[i].destination;
-          iconLink.target = '_blank';
+          let wikiLink = document.createElement("a");
+          wikiLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
+          wikiLink.title = 'Visit ' + sites[i].destination;
+          wikiLink.target = '_blank';
           let icon = document.createElement("img");
-          icon.src = 'favicons/' + lang.toLowerCase() + '/' + sites[i].destination_icon;
+          icon.src = 'favicons/' + sites[i].language.toLowerCase() + '/' + sites[i].destination_icon;
           icon.alt = 'Visit ' + sites[i].destination;
-          iconLink.appendChild(icon);
-          let destinationLink = document.createElement("a");
-          destinationLink.title = sites[i].destination;
-          destinationLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
-          destinationLink.target = '_blank';
-          destinationLink.append(document.createTextNode(sites[i].destination));
-          wikiInfo.appendChild(iconLink);
-          wikiInfo.appendChild(document.createTextNode(sites[i].origins_label + ' » '));
-          wikiInfo.appendChild(destinationLink);
+          wikiLink.appendChild(icon);
+          wikiLink.appendChild(document.createTextNode(sites[i].destination));
+          wikiInfo.appendChild(wikiLink);
+          wikiInfo.appendChild(document.createTextNode(' (from ' + sites[i].origins_label + ')'));
+          if (lang === 'ALL') {
+            const languageSpan = document.createElement('span');
+            languageSpan.classList.add('text-sm');
+            languageSpan.innerText = ' [' + sites[i].language + '] ';
+            wikiInfo.appendChild(languageSpan);
+          }
           let siteContainer = document.createElement("div");
 
           // Output inputs container:
@@ -333,7 +409,9 @@ async function loadOptions(lang) {
           inputsContainer.appendChild(labelDisabled);
           inputsContainer.appendChild(labelRedirect);
           inputsContainer.appendChild(labelAlert);
-          inputsContainer.appendChild(labelFilter);
+          inputsContainer.appendChild(labelSearchEngineDisabled);
+          inputsContainer.appendChild(labelSearchEngineHide);
+          inputsContainer.appendChild(labelSearchEngineReplace);
           inputsContainer.classList = 'inputsContainer';
           siteContainer.appendChild(wikiInfo);
           siteContainer.appendChild(inputsContainer);
@@ -342,64 +420,64 @@ async function loadOptions(lang) {
       }
 
       // Add "select all" button event listeners:
-      var setAllRedirect = document.getElementById('setAllRedirect');
+      const setAllRedirect = document.getElementById('setAllRedirect');
       setAllRedirect.addEventListener('click', function () {
-        var toggles = document.querySelectorAll('#toggles input.toggleRedirect');
+        const toggles = document.querySelectorAll('#toggles input.toggleRedirect');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          siteSettings.get(toggles[i].name).set('action', 'redirect');
+          siteSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'redirect');
         }
         chrome.storage.sync.set({ 'siteSettings': siteSettings });
-        defaultActionSettings[toggles[0].lang] = 'redirect';
-        chrome.storage.sync.set({ 'defaultActionSettings': defaultActionSettings });
       });
 
-      var setAllAlert = document.getElementById('setAllAlert');
+      const setAllAlert = document.getElementById('setAllAlert');
       setAllAlert.addEventListener('click', function () {
-        var toggles = document.querySelectorAll('#toggles input.toggleAlert');
+        const toggles = document.querySelectorAll('#toggles input.toggleAlert');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          siteSettings.get(toggles[i].name).set('action', 'alert');
+          siteSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'alert');
         }
         chrome.storage.sync.set({ 'siteSettings': siteSettings });
-        defaultActionSettings[toggles[0].lang] = 'alert';
-        chrome.storage.sync.set({ 'defaultActionSettings': defaultActionSettings });
       });
 
-      var setAllDisabled = document.getElementById('setAllDisabled');
+      const setAllDisabled = document.getElementById('setAllDisabled');
       setAllDisabled.addEventListener('click', function () {
-        var toggles = document.querySelectorAll('#toggles input.toggleDisable');
+        const toggles = document.querySelectorAll('#toggles input.toggleDisable');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          siteSettings.get(toggles[i].name).set('action', 'disabled');
+          siteSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'disabled');
         }
         chrome.storage.sync.set({ 'siteSettings': siteSettings });
-        defaultActionSettings[toggles[0].lang] = 'disabled';
-        chrome.storage.sync.set({ 'defaultActionSettings': defaultActionSettings });
       });
 
-      var setAllSearchFilter = document.getElementById('setAllSearchFilter');
-      setAllSearchFilter.addEventListener('click', function () {
-        var toggles = document.querySelectorAll('#toggles input.toggleFilter');
+      const setAllSearchEngineDisabled = document.getElementById('setAllSearchEngineDisabled');
+      setAllSearchEngineDisabled.addEventListener('click', function () {
+        const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineDisabled');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          siteSettings.get(toggles[i].name).set('searchFilter', 'true');
+          searchEngineSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'disabled');
         }
-        chrome.storage.sync.set({ 'siteSettings': siteSettings });
-        defaultSearchFilterSettings[toggles[0].lang] = 'true';
-        chrome.storage.sync.set({ 'defaultSearchFilterSettings': defaultSearchFilterSettings });
+        chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
       });
 
-      var setNoneSearchFilter = document.getElementById('setNoneSearchFilter');
-      setNoneSearchFilter.addEventListener('click', function () {
-        var toggles = document.querySelectorAll('#toggles input.toggleFilter');
+      const setAllSearchEngineHide = document.getElementById('setAllSearchEngineHide');
+      setAllSearchEngineHide.addEventListener('click', function () {
+        const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineHide');
         for (var i = 0; i < toggles.length; i++) {
-          toggles[i].checked = false;
-          siteSettings.get(toggles[i].name).set('searchFilter', 'false');
+          toggles[i].checked = true;
+          searchEngineSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'hide');
         }
-        chrome.storage.sync.set({ 'siteSettings': siteSettings });
-        defaultSearchFilterSettings[toggles[0].lang] = 'false';
-        chrome.storage.sync.set({ 'defaultSearchFilterSettings': defaultSearchFilterSettings });
+        chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
+      });
+
+      const setAllSearchEngineReplace = document.getElementById('setAllSearchEngineReplace');
+      setAllSearchEngineReplace.addEventListener('click', function () {
+        const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineReplace');
+        for (var i = 0; i < toggles.length; i++) {
+          toggles[i].checked = true;
+          searchEngineSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'replace');
+        }
+        chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
       });
     });
   });
@@ -410,14 +488,15 @@ function setPower(setting, storeSetting = true) {
   if (storeSetting) {
     chrome.storage.local.set({ 'power': setting });
   }
-  var powerImage = document.getElementById('powerImage');
-  powerImage.src = 'images/power-' + setting + '.png';
-  var powerText = document.getElementById('powerText');
+  const powerText = document.getElementById('powerText');
   powerText.textContent = 'Extension is ' + setting;
+  const powerIcon = document.getElementById('powerIcon');
   if (setting === 'on') {
     document.getElementById('powerCheckbox').checked = true;
+    powerIcon.innerText = '🔋';
   } else {
     document.getElementById('powerCheckbox').checked = false;
+    powerIcon.innerText = '🪫';
   }
 
   chrome.runtime.sendMessage({
@@ -431,24 +510,13 @@ function setNotifications(setting, storeSetting = true) {
   if (storeSetting) {
     chrome.storage.sync.set({ 'notifications': setting });
   }
+  const notificationsIcon = document.getElementById('notificationsIcon');
   if (setting === 'on') {
     document.getElementById('notificationsCheckbox').checked = true;
+    notificationsIcon.innerText = '🔔';
   } else {
     document.getElementById('notificationsCheckbox').checked = false;
-  }
-}
-
-// Set search filter setting
-function setSearchSetting(setting, storeSetting = true) {
-  if (storeSetting) {
-    chrome.storage.sync.set({ 'searchSetting': setting });
-  }
-  if (setting === 'hide') {
-    document.getElementById('searchFilteringHideRadio').checked = true;
-  } else if (setting === 'nothing') {
-    document.getElementById('searchFilteringNothingRadio').checked = true;
-  } else {
-    document.getElementById('searchFilteringReplaceRadio').checked = true;
+    notificationsIcon.innerText = '🔕';
   }
 }
 
@@ -457,7 +525,7 @@ function setBreezeWiki(setting, storeSetting = true) {
   if (storeSetting) {
     chrome.storage.sync.set({ 'breezewiki': setting });
   }
-  var breezewikiHost = document.getElementById('breezewikiHost');
+  const breezewikiHost = document.getElementById('breezewikiHost');
   if (setting === 'on') {
     document.getElementById('breezewikiCheckbox').checked = true;
   } else {
@@ -514,7 +582,7 @@ function setBreezeWiki(setting, storeSetting = true) {
 }
 
 // Main function that runs on-load
-document.addEventListener('DOMContentLoaded', function () {  
+document.addEventListener('DOMContentLoaded', function () {    
   // If newly installed, show initial install guide
   if (new URLSearchParams(window.location.search).get('newinstall')) {
     document.getElementById('firstInstallInfo').style.display = 'block';
@@ -590,7 +658,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadOptions(item.lang);
   });
   // Add event listener for language select
-  var langSelect = document.getElementById("langSelect");
+  const langSelect = document.getElementById("langSelect");
   langSelect.addEventListener('change', function () {
     chrome.storage.sync.set({ 'lang': langSelect.value });
     resetOptions();
@@ -604,14 +672,14 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
     setNotifications(item.notifications, false);
   });
-  chrome.storage.sync.get({ 'searchSetting': 'replace' }, function (item) {
-    setSearchSetting(item.searchSetting, false);
-  });
+  // chrome.storage.sync.get({ 'searchSetting': 'replace' }, function (item) {
+  //   setSearchSetting(item.searchSetting, false);
+  // });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
   });
 
-  // Add event listeners for setting toggles
+  // Add event listeners for general setting toggles
   document.getElementById('powerCheckbox').addEventListener('change', function () {
     chrome.storage.local.get({ 'power': 'on' }, function (item) {
       if (item.power === 'on') {
@@ -630,15 +698,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('searchFilteringReplaceRadio').addEventListener('change', function () {
-    setSearchSetting('replace');
-  });
-  document.getElementById('searchFilteringHideRadio').addEventListener('change', function () {
-    setSearchSetting('hide');
-  });
-  document.getElementById('searchFilteringNothingRadio').addEventListener('change', function () {
-    setSearchSetting('nothing');
-  });
+
+  // Add event listeners for BreezeWiki settings
   document.getElementById('breezewikiCheckbox').addEventListener('change', function () {
     chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
       if (item.breezewiki === 'on') {
@@ -649,9 +710,21 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  var breezewikiHostSelect = document.getElementById("breezewikiHostSelect");
+  const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
   breezewikiHostSelect.addEventListener('change', function () {
     chrome.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
+  });
+
+  // Add event listeners for default action selections
+  document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
+    el.addEventListener('change', function () {
+      chrome.storage.sync.set({ 'defaultWikiAction':  document.options.defaultWikiAction.value })
+    });
+  });
+  document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
+    el.addEventListener('change', function () {
+      chrome.storage.sync.set({ 'defaultSearchAction':  document.options.defaultSearchAction.value })
+    });
   });
 
   // Get and display stat counts

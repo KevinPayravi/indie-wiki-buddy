@@ -103,6 +103,9 @@
         cursor: pointer;
         background-color: #fff;
         border-radius: 20px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
       }
       #power > input {
         height: 0;
@@ -112,8 +115,9 @@
         appearance: none;
       }
       #power img {
-        width: 30px;
-        vertical-align: middle;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
       }
 
       /* CONTENT */
@@ -170,7 +174,7 @@
       <div id="power">
         <input id="powerCheckbox" type="checkbox" />
         <label for="powerCheckbox">
-          <img id="powerImage" src="" alt="" width="30" />
+          <img id="powerImage" src="" alt="" width="20" />
         </label>
       </div>
       <h1>Indie Wiki Buddy</h1>
@@ -178,30 +182,11 @@
     <div id="content">
       <div class="options">
         <div class="settingToggleContainer">
-          <div id="searchFilteringReplace" class="settingToggle">
-            <label for="searchFilteringReplaceRadio">
-              <input id="searchFilteringReplaceRadio" type="radio" name="searchSetting" value="replace" />
-              <span id="searchFilteringReplaceText">🔎 In search engines, disable non-indie wikis & add link to indie counterparts</span>
-            </label>
-          </div>
-          <div id="searchFilteringHide" class="settingToggle">
-            <label for="searchFilteringHideRadio">
-              <input id="searchFilteringHideRadio" type="radio" name="searchSetting" value="hide" />
-              <span id="searchFilteringHideText">🔎 In search engines, hide non-indie wikis that have indie counterparts</span>
-            </label>
-          </div>
-          <div id="searchFilteringNothing" class="settingToggle">
-            <label for="searchFilteringNothingRadio">
-              <input id="searchFilteringNothingRadio" type="radio" name="searchSetting" value="nothing" />
-              <span id="searchFilteringNothingText">🔎 Do nothing on search engines</span>
-            </label>
-          </div>
-        </div>
-        <div class="settingToggleContainer">
           <div id="notifications" class="settingToggle">
             <input id="notificationsCheckbox" type="checkbox" />
             <label for="notificationsCheckbox">
-              <span id="notificationsText">🔔 Desktop notifications when redirected to an indie wiki or BreezeWiki</span>
+              <span id="notificationsText"><span id="notificationsIcon" aria-hidden="true"></span>
+              Desktop notifications for redirections</span>
             </label>
           </div>
         </div>
@@ -271,9 +256,8 @@
     <div id="notificationBannerContainer">
       <span id="notificationBannerChromeBug">
         Chromium users: Due to a <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1271154" target="_blank">browser bug</a>,
-        this extension may stop working after an update. If this happens, try restarting your browser,
-        turning the extension off and on via your browser's extension settings (chrome://extensions/),
-        and/or reinstalling the extension.
+        this extension may stop working after an update. If this happens, try turning the extension off
+        and on via your browser's extension settings (chrome://extensions/).
         <a id="chromeBugHideLink" href="#">Hide this message</a>
       </span>
       <span id="notificationBannerOpera">

@@ -137,24 +137,14 @@ function setNotifications(setting, storeSetting = true) {
   if (storeSetting) {
     chrome.storage.sync.set({ 'notifications': setting });
   }
+
+  const notificationsIcon = document.getElementById('notificationsIcon');
   if (setting === 'on') {
     document.getElementById('notificationsCheckbox').checked = true;
+    notificationsIcon.innerText = '🔔';
   } else {
     document.getElementById('notificationsCheckbox').checked = false;
-  }
-}
-
-// Set search filter setting
-function setSearchSetting(setting, storeSetting = true) {
-  if (storeSetting) {
-    chrome.storage.sync.set({ 'searchSetting': setting });
-  }
-  if (setting === 'hide') {
-    document.getElementById('searchFilteringHideRadio').checked = true;
-  } else if (setting === 'nothing') {
-    document.getElementById('searchFilteringNothingRadio').checked = true;
-  } else {
-    document.getElementById('searchFilteringReplaceRadio').checked = true;
+    notificationsIcon.innerText = '🔕';
   }
 }
 
@@ -297,15 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('searchFilteringReplaceRadio').addEventListener('change', function () {
-    setSearchSetting('replace');
-  });
-  document.getElementById('searchFilteringHideRadio').addEventListener('change', function () {
-    setSearchSetting('hide');
-  });
-  document.getElementById('searchFilteringNothingRadio').addEventListener('change', function () {
-    setSearchSetting('nothing');
-  });
+
   document.getElementById('breezewikiCheckbox').addEventListener('change', function () {
     chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
       if (item.breezewiki === 'on') {

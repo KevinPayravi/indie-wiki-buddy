@@ -36,6 +36,33 @@ chrome.runtime.onInstalled.addListener(function (detail) {
   if (detail.reason === 'update') {
     chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true' });
   }
+  
+  // Temporary function for 3.0 migration
+  // On update, set new default action settings:
+  if (detail.reason === 'update') {
+    chrome.storage.sync.get({ 'defaultWikiAction': null }, function (item) {
+      if (!item.defaultWikiAction) {
+        chrome.storage.sync.get({ 'defaultActionSettings': {} }, function (item) {
+          if (item.defaultActionSettings['EN']) {
+            chrome.storage.sync.set({ 'defaultWikiAction': item.defaultActionSettings['EN'] });
+          }
+        });
+      }
+    });
+    chrome.storage.sync.get({ 'defaultSearchAction': null }, function (item) {
+      if (!item.defaultSearchAction) {
+        chrome.storage.sync.get({ 'defaultSearchFilterSettings': {} }, function (item) {
+          if (item.defaultSearchFilterSettings['EN']) {
+            if (item.defaultSearchFilterSettings['EN'] === 'true') {
+              chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
+            } else if (item.defaultSearchFilterSettings['EN'] === 'false') {
+              chrome.storage.sync.set({ 'defaultSearchAction': 'disabled' });
+            }
+          }
+        });
+      }
+    });
+  }
 });
 
 if (chrome.declarativeNetRequest) {
@@ -300,8 +327,8 @@ async function main(eventInfo) {
               let siteSetting = '';
               if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
                 siteSetting = settings[id].action;
-              } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
-                siteSetting = storage.defaultActionSettings[site.language];
+              } else if (storage.defaultWikiAction) {
+                siteSetting = storage.defaultWikiAction;
               } else {
                 siteSetting = 'alert';
               }

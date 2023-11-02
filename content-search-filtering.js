@@ -266,15 +266,15 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
     searchRemovalNotice.appendChild(disableFilterButton);
     disableFilterButton.onclick = function (e) {
       if (e.target.textContent.includes('Stop')) {
-        chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-          response.siteSettings.get(site.id).set('searchFilter', 'false');
-          chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+        chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
+          response.searchEngineSettings.get(site.id).set('action', 'disabled');
+          chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
           e.target.textContent = 'Re-enable filtering for ' + site.origin_group;
         })
       } else {
-        chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-          response.siteSettings.get(site.id).set('searchFilter', 'true');
-          chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+        chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
+          response.searchEngineSettings.get(site.id).set('action', 'hide');
+          chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
           e.target.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
         })
       }
@@ -387,17 +387,17 @@ function filterSearchResults(searchResults, searchEngine, storage) {
           let site = matchingSites.find(site => site.origin_base_url === closestMatch);
           if (site) {
             // Get user's settings for the wiki
-            let settings = storage.siteSettings || {};
+            let settings = storage.searchEngineSettings || {};
             let id = site['id'];
             let searchFilterSetting = '';
-            if (settings.hasOwnProperty(id) && settings[id].searchFilter) {
-              searchFilterSetting = settings[id].searchFilter;
-            } else if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings[site.language]) {
-              searchFilterSetting = storage.defaultSearchFilterSettings[site.language];
+            if (settings.hasOwnProperty(id) && settings[id].action) {
+              searchFilterSetting = settings[id].action;
+            } else if (storage.defaultSearchAction) {
+              searchFilterSetting = storage.defaultSearchAction;
             } else {
-              searchFilterSetting = 'true';
+              searchFilterSetting = 'replace';
             }
-            if (searchFilterSetting === 'true') {
+            if (searchFilterSetting !== 'disabled') {
               // Output stylesheet if not already done
               if (filteredWikis.length === 0) {
                 // Wait for head to be available
@@ -419,7 +419,6 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                 }
               }
 
-              let cssQuery = '';
               let searchResultContainer = null;
               switch (searchEngine) {
                 case 'google':
@@ -447,7 +446,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
               }
 
               if (searchResultContainer) {
-                if (storage.searchSetting === 'hide') {
+                if (searchFilterSetting === 'hide') {
                   countFiltered += hideSearchResults(searchResultContainer, searchEngine, site);
                 } else {
                   countFiltered += redirectSearchResults(searchResultContainer, site, link);
@@ -477,7 +476,7 @@ function main(mutations = null, observer = null) {
       // Check if extension is on:
       if ((storage.power ?? 'on') === 'on') {
         // Determine which search engine we're on
-        if ((storage.searchSetting ?? 'replace') !== 'nothing') {
+        if ((storage.action ?? 'replace') !== 'nothing') {
           if (currentURL.hostname.includes('www.google.')) {
             // Function to filter search results in Google
             function filterGoogle() {

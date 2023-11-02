@@ -111,40 +111,13 @@
         </p>
         <h2>Global settings help</h2>
         <p>
-          There are four global settings options:
+          There are three global settings options:
         </p>
         <ul>
           <li>
-            <b>Extension is on/off</b>
+            <b>🔋 Extension is on/off</b>
             <br />
-            This allows you to enable/disable all Indie Wiki Buddy functionality at the click of a button.
-          </li>
-          <br />
-          <li>
-            <b>🔎 Search engine options</b>
-            <br />
-            Indie Wiki Buddy provides two ways to filter results from
-            Google, Bing, DuckDuckGo, Yahoo, Brave Search, Ecosia, and Startpage.
-            <br />
-            <br />
-            When "disable non-indie wikis & add link to indie counterparts" is selected,
-            tracked Fandom and Fextralife wikis that appear in search engine results
-            will be disabled, and a button will be inserted above that attempts to
-            link you to the same article on the respective indie wiki.
-            <br />
-            <br />
-            When "hide non-indie wikis that have indie counterparts" is selected,
-            the results are completely hidden. A notice will be inserted at the top of the search page
-            letting you know that results were hidden, and you will have the option to temporarily
-            re-reveal the results or disable search engine filtering for that particular wiki.
-            <br />
-            <br />
-            If you don't want a particular Fandom or Fextralife wiki to be filtered from search results,
-            you can disable search engine filtering per-wiki on the full settings page.
-            <br />
-            <br />
-            Note that image results are not filtered;
-            we don't want users to miss out on images they might not find elsewhere!
+            Enable/disable all Indie Wiki Buddy functionality at the click of a button.
           </li>
           <br />
           <li>
@@ -160,7 +133,7 @@
           </li>
           <br />
           <li>
-            <b>🌬️ Use BreezeWiki on Fandom</b>
+            <b>🌬️ Use BreezeWiki alternative frontend on Fandom</b>
             <br />
             This option will render Fandom wikis through <a href="https://breezewiki.com/">BreezeWiki</a>, an external service that removes clutter, simplifies the page, and removes ads.
             Occasionally, BreezeWiki or one of its mirrors may go down; when this happens, you can simply switch to another working instance. This is off by default.
@@ -171,10 +144,13 @@
           In the individual settings section, you can configure your settings per-wiki.
           <br />
           <br />
-          The first dropdown lets you switch between lists of wikis in different languages.
+          The "Default settings for future wikis" options let you set the default behavior for wikis added to Indie Wiki Buddy in the future.
           <br />
           <br />
-          Below that is a list of all supported wikis (listed as "non-indie wiki » indie wiki"). You can select what happens whenever you visit each listed non-indie wiki.
+          Below that is a list of all supported wikis. You can select what happens whenever you visit each listed non-indie wiki.
+        </p>
+        <p>
+          The first set of radio buttons controls what happens when you visit the listed non-indie wikis.
         </p>
         <ul class="no-markers">
           <li>
@@ -191,21 +167,29 @@
             <b>Alert</b>: Have a display banner at the top notifying you that an independent wiki is available.
             This will appear on both Fandom and BreezeWiki pages.
           </li>
+        </ul>
+        <p>
+          The second set of radio buttons controls what happens to the non-indie wiki on Google, Bing, DuckDuckGo, and other search engines.
+        </p>
+        <ul class="no-markers">
           <li>
-            <img src="./images/toggle-search-filter.png" alt="" width="15">
-            <b>Search filtering</b>: Replace search results in Google, Bing, DuckDuckGo, and other search engines
-            with text inviting you to visit the independent wiki.
-            Oftentimes, the non-independent wiki should appear in that same search.
+            <img src="./images/toggle-disabled.png" alt="" width="15">
+            <b>Disable</b>: Search engine results are not affected.
+          </li>
+          <li>
+            <img src="./images/toggle-hide.png" alt="" width="15">
+            <b>Hide</b>: Results are hidden in search engines.
+            A banner will be shown near the top of the page to inform you, and allow you to re-reveal the hidden results.
+          </li>
+          <li>
+            <img src="./images/toggle-replace.png" alt="" width="15">
+            <b>Replace</b>: The original non-indie result is disabled, and a button is injected above to take you to the indepedent wiki.
           </li>
         </ul>
         <p>
-          By default, all wikis will be set to alert with search filtering enabled.
+          By default, all wikis will be set to alert, with search engine replacement enabled.
           You can quickly change the settings for all wikis in the current language view by using the control
-          buttons above the list of wikis. For example, if you want to be automatically redirect for all wikis,
-          click "Set all to redirect to indie wikis".
-          <br /><br />
-          Once you click on one of these "select all" buttons, that settings
-          will become the new default for any wikis that are added to the extension in the future.
+          buttons above the list of wikis.
         </p>
         <h2>Have questions or feedback?</h2>
         <p>
