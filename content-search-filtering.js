@@ -113,7 +113,7 @@ function insertCSS() {
       border: 0px solid #fff;
       border-radius: 10px;
       padding: 5px 10px;
-      margin: .5em 0 .2em 0;
+      margin: .5em 0;
       font-size: 1.2em;
       width: fit-content;
     }
@@ -136,13 +136,28 @@ function insertCSS() {
     .iwb-new-link img {
       width: 12px;
     }
-    .iwb-disavow > *:not(.iwb-new-link) {
+    .iwb-disavow > *:not([class^="iwb-"]) {
       opacity: 60%;
       pointer-events: none;
       cursor: default;
     }
-    .iwb-disavow > a:not(.iwb-new-link), .iwb-disavow > *:not(.iwb-new-link) a, .iwb-disavow > *:not(.iwb-new-link) a * {
+    .iwb-disavow > a:not([class^="iwb-"]), .iwb-disavow > *:not([class^="iwb-"]) a, .iwb-disavow > *:not([class^="iwb-"]) a * {
       text-decoration: line-through !important;
+    }
+
+    .iwb-enable-result {
+      display: none;
+      padding: 2px 8px;
+      margin: 2px 8px;
+      cursor: pointer;
+      font-size: 12px;
+      color: white !important;
+      border: 1px solid white;
+      border-radius: 10px;
+      mix-blend-mode: difference !important;
+    }
+    .iwb-disavow .iwb-enable-result {
+      display: inline-block;
     }
   `
   style = document.createElement('style');
@@ -161,7 +176,7 @@ function escapeRegex(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function redirectSearchResults(searchResultContainer, site, link) {
+function replaceSearchResults(searchResultContainer, site, link) {
   let countFiltered = 0;
   // Build new URL:
   let article = link.split(site['origin_base_url'] + site['origin_content_path'])[1]?.split('#')[0].split('?')[0].split('&')[0];
@@ -204,6 +219,15 @@ function redirectSearchResults(searchResultContainer, site, link) {
     indieResultButton.append(indieResultText);
     indieResultLink.appendChild(indieResultButton);
 
+    // Output link to re-enable disabled result:
+    enableResult = document.createElement('div');
+    enableResult.classList.add('iwb-enable-result');
+    enableResult.innerText = 'Re-enable non-indie result';
+    enableResult.addEventListener('click', function (e) {
+      e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
+    });
+
+    searchResultContainer.prepend(enableResult);
     searchResultContainer.prepend(indieResultLink);
     searchResultContainer.classList.add('iwb-disavow');
     countFiltered++;
@@ -449,7 +473,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                 if (searchFilterSetting === 'hide') {
                   countFiltered += hideSearchResults(searchResultContainer, searchEngine, site);
                 } else {
-                  countFiltered += redirectSearchResults(searchResultContainer, site, link);
+                  countFiltered += replaceSearchResults(searchResultContainer, site, link);
                 }
               }
             }
