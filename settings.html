@@ -184,12 +184,17 @@
 
     .two-col {
       display: flex;
-      gap: .5rem;
+      flex-wrap: wrap;
+      gap: 1em;
       padding-bottom: .5rem;
     }
-
     .two-col>div {
-      flex: 50%;
+      flex: 1;
+    }
+    @media (max-width: 600px) {
+      .two-col>div {
+        flex: 100%;
+      }
     }
 
     .settingToggle {
