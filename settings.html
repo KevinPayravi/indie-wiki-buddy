@@ -200,8 +200,8 @@
       cursor: default;
     }
 
-    #legend {
-      text-align: center;
+    #legend div, #legend span {
+      padding-left: 8px;
     }
 
     #legend div {
@@ -373,7 +373,7 @@
 
     .inputsContainer label:nth-child(1) input,
     .inputsContainer label:nth-child(4) input {
-      accent-color: #bc3c3c;
+      accent-color: #3f3f3f;
     }
 
     /* CONTROL CLASSES */
@@ -509,10 +509,9 @@
         <h2>Individual wiki settings</h2>
         <fieldset id="legend">
           <legend>
-            Legend
+            <span aria-hidden="true">ℹ️</span> Icon legend
           </legend>
-          <span class="text-sm">When visiting a Fandom or Fextralife wiki that has an independent alternative, Indie
-            Wiki Buddy can:</span>
+          <span class="text-sm">When visiting a Fandom or Fextralife wiki that has an independent alternative, IWB can:</span>
           <div>
             <img src="images/toggle-disabled.png" width="18" height="18" alt="" /> Do nothing
           </div>
@@ -525,17 +524,16 @@
             indie wiki
           </div>
           <br />
-          <span class="text-sm">When using search engines, Indie Wiki Buddy can:</span>
+          <span class="text-sm">When search engine results include a Fandom or Fextralife wiki that has an independent alternative, IWB can:</span>
           <div>
             <img src="images/toggle-disabled.png" width="18" height="18" alt="" /> Do nothing
           </div>
           <div>
-            <img src="images/toggle-replace.png" width="18" height="18" alt="" /> Replace non-indie results with links
-            to indie wikis
+            <img src="images/toggle-replace.png" width="18" height="18" alt="" /> Replace result with link
+            to indie wiki
           </div>
           <div>
-            <img src="images/toggle-hide.png" width="18" height="18" alt="" /> Hide non-indie results when an
-            indie wiki is avialable
+            <img src="images/toggle-hide.png" width="18" height="18" alt="" /> Hide the result
           </div>
         </fieldset>
         <div id="langSelectContainer">
