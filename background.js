@@ -37,9 +37,9 @@ chrome.runtime.onInstalled.addListener(function (detail) {
     chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true' });
   }
   
-  // Temporary function for 3.0 migration
-  // On update, set new default action settings:
+  // Temporary functions for 3.0 migration  
   if (detail.reason === 'update') {
+    // Set new default action settings:
     chrome.storage.sync.get({ 'defaultWikiAction': null }, function (item) {
       if (!item.defaultWikiAction) {
         chrome.storage.sync.get({ 'defaultActionSettings': {} }, function (item) {
@@ -61,6 +61,31 @@ chrome.runtime.onInstalled.addListener(function (detail) {
           }
         });
       }
+    });
+
+    // Create new searchEngineSettings object:
+    chrome.storage.sync.get({ 'siteSettings': {} }, function (item) {
+      let siteSettings = item.siteSettings;
+      let searchEngineSettings = {};
+      for (const obj in siteSettings) {
+        if (siteSettings[obj].searchFilter) {
+          if (siteSettings[obj].searchFilter === 'false') {
+            searchEngineSettings[obj] = { action: 'disabled' }
+          } else {
+            searchEngineSettings[obj] = { action: 'replace' }
+          }
+        }
+      }
+      chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
+    });
+
+    // Remove all properties that aren't "action" from site settings:
+    chrome.storage.sync.get({ 'siteSettings': {} }, function (item) {
+      let siteSettings = item.siteSettings;
+      for (const obj in item.siteSettings) {
+        Object.keys(siteSettings[obj]).forEach((key) => key === 'action' || delete siteSettings[obj][key]);
+      }
+      chrome.storage.sync.set({ 'siteSettings': siteSettings });
     });
   }
 });
