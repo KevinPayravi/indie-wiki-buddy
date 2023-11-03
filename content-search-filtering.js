@@ -95,11 +95,16 @@ function insertCSS() {
     .iwb-notice button:hover {
       outline: 1px solid !important;
     }
-    .iwb-new-link {
+    .iwb-new-link-container {
       display: inline-block;
       font-size: 12px !important;
       text-decoration: none;
       padding-left: 5px;
+      position: relative;
+    }
+    .iwb-new-link {
+      display: inline-block;
+      text-decoration: none;
       position: relative;
     }
     .iwb-new-link:hover {
@@ -145,20 +150,30 @@ function insertCSS() {
       text-decoration: line-through !important;
     }
 
-    .iwb-enable-result {
-      display: none;
-      padding: 2px 8px;
-      margin: 2px 8px;
-      cursor: pointer;
+    .iwb-result-controls {
+      display: inline-block;
+      margin: .5em;
       font-size: 12px;
       color: white !important;
-      border: 1px solid white;
-      border-radius: 10px;
       mix-blend-mode: difference !important;
     }
-    .iwb-disavow .iwb-enable-result {
+    .iwb-result-controls > div {
       display: inline-block;
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+      padding: 0 1em;
     }
+
+    .iwb-notice .iwb-result-controls {
+      margin: 8px 0 0 0;
+    }
+    .iwb-notice .iwb-result-controls > div{
+      padding: .5em 1em 0 0;
+    }
+
+    
   `
   style = document.createElement('style');
   style.classList.add('iwb-styles');
@@ -192,25 +207,27 @@ function replaceSearchResults(searchResultContainer, site, link) {
         searchParams = 'start?do=search&q=' + article;
         break;
     }
-    newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+    newURL = 'https://' + site['destination_base_url'] + site['destination_content_path'] + searchParams;
   } else {
-    newURL = 'https://' + site["destination_base_url"];
+    newURL = 'https://' + site['destination_base_url'];
   }
 
   if (searchResultContainer && !searchResultContainer.classList.contains('iwb-detected')) {
     searchResultContainer.classList.add('iwb-detected');
-    var indieResultLink = document.createElement('a');
+    let indieContainer = document.createElement('div');
+    indieContainer.classList.add('iwb-new-link-container');
+    let indieResultLink = document.createElement('a');
     indieResultLink.href = newURL;
     indieResultLink.classList.add('iwb-new-link');
-    var indieResultButton = document.createElement('button');
-    var indieResultFaviconContainer = document.createElement('div');
-    var indieResultFavicon = document.createElement('img');
+    let indieResultButton = document.createElement('button');
+    let indieResultFaviconContainer = document.createElement('div');
+    let indieResultFavicon = document.createElement('img');
     indieResultFavicon.alt = '';
     indieResultFavicon.width = '12';
     indieResultFavicon.height = '12';
     indieResultFavicon.src = chrome.runtime.getURL('favicons/' + site.lang.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
-    var indieResultText = document.createElement('span');
+    let indieResultText = document.createElement('span');
     if (article) {
       indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(article.replaceAll('_', ' '))) + '" on ' + site.destination;
     } else {
@@ -219,17 +236,24 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultButton.append(indieResultFaviconContainer);
     indieResultButton.append(indieResultText);
     indieResultLink.appendChild(indieResultButton);
+    indieContainer.appendChild(indieResultLink);
+
+    // Output container for result controls:
+    let resultControls = document.createElement('div');
+    resultControls.classList.add('iwb-result-controls');
 
     // Output link to re-enable disabled result:
-    enableResult = document.createElement('div');
-    enableResult.classList.add('iwb-enable-result');
-    enableResult.innerText = 'Re-enable original result';
-    enableResult.addEventListener('click', function (e) {
+    let enableResultButton = document.createElement('div');
+    enableResultButton.innerText = 'Re-enable the result below';
+    resultControls.prepend(enableResultButton);
+    enableResultButton.addEventListener('click', function (e) {
       e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
+      e.target.classList.add('iwb-hide');
     });
 
-    searchResultContainer.prepend(enableResult);
-    searchResultContainer.prepend(indieResultLink);
+    indieContainer.appendChild(indieResultLink);
+    indieContainer.appendChild(resultControls);
+    searchResultContainer.prepend(indieContainer);
     searchResultContainer.classList.add('iwb-disavow');
     countFiltered++;
   }
@@ -259,12 +283,15 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
     searchRemovalNotice.appendChild(searchRemovalNoticePosttext);
     searchRemovalNotice.appendChild(linebreak);
 
-    // Output "show results" button
-    let showResultsButton = document.createElement('button');
-    showResultsButton.classList.add('iwb-show-results-button');
+    // Output container for result controls:
+    let resultControls = document.createElement('div');
+    resultControls.classList.add('iwb-result-controls');
+
+    // Output link to show hidden results:
+    let showResultsButton = document.createElement('div');
     showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
-    showResultsButton.textContent = 'Show filtered results';
-    searchRemovalNotice.appendChild(showResultsButton);
+    showResultsButton.innerText = 'Show filtered results';
+    resultControls.appendChild(showResultsButton)
     showResultsButton.onclick = function (e) {
       if (e.target.textContent.includes('Show')) {
         e.target.textContent = 'Re-hide filtered results';
@@ -282,28 +309,8 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
         })
       }
     }
-
-    // Output "disable filtering" button
-    let disableFilterButton = document.createElement('button');
-    disableFilterButton.classList.add('iwb-disable-filtering-button');
-    disableFilterButton.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
-    disableFilterButton.style.border = '1px solid';
-    searchRemovalNotice.appendChild(disableFilterButton);
-    disableFilterButton.onclick = function (e) {
-      if (e.target.textContent.includes('Stop')) {
-        chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
-          response.searchEngineSettings.get(site.id).set('action', 'disabled');
-          chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
-          e.target.textContent = 'Re-enable filtering for ' + site.origin_group;
-        })
-      } else {
-        chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
-          response.searchEngineSettings.get(site.id).set('action', 'hide');
-          chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
-          e.target.textContent = 'Stop filtering ' + site.origin_group + ' in future searches';
-        })
-      }
-    }
+ 
+    searchRemovalNotice.appendChild(resultControls);
 
     switch (searchEngine) {
       case 'google':
