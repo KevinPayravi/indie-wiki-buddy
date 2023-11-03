@@ -169,9 +169,6 @@ function insertCSS() {
     .iwb-notice .iwb-result-controls {
       margin: 8px 0 0 0;
     }
-    .iwb-notice .iwb-result-controls > div{
-      padding: .5em 1em 0 0;
-    }
 
     
   `
@@ -276,12 +273,10 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
     searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
     searchRemovalNoticeLink.textContent = site.destination;
     searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + (site.lang !== 'EN' ? ' (' + site.lang + ')' : '') + '. Look for results from ');
-    searchRemovalNoticePosttext = document.createTextNode(' instead!');
-    linebreak = document.createElement("br");
+    searchRemovalNoticePosttext = document.createTextNode(' instead.');
     searchRemovalNotice.appendChild(searchRemovalNoticePretext);
     searchRemovalNotice.appendChild(searchRemovalNoticeLink);
     searchRemovalNotice.appendChild(searchRemovalNoticePosttext);
-    searchRemovalNotice.appendChild(linebreak);
 
     // Output container for result controls:
     let resultControls = document.createElement('div');
