@@ -385,23 +385,28 @@ async function loadOptions(lang) {
 
           // Output wiki info:
           let wikiInfo = document.createElement('span');
-          let wikiLink = document.createElement("a");
-          wikiLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
-          wikiLink.title = 'Visit ' + sites[i].destination;
-          wikiLink.target = '_blank';
+          let iconLink = document.createElement("a");
+          iconLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
+          iconLink.title = 'Visit ' + sites[i].destination;
+          iconLink.target = '_blank';
           let icon = document.createElement("img");
           icon.src = 'favicons/' + sites[i].language.toLowerCase() + '/' + sites[i].destination_icon;
           icon.alt = 'Visit ' + sites[i].destination;
-          wikiLink.appendChild(icon);
-          wikiLink.appendChild(document.createTextNode(sites[i].destination));
-          wikiInfo.appendChild(wikiLink);
-          wikiInfo.appendChild(document.createTextNode(' (from ' + sites[i].origins_label + ')'));
+          iconLink.appendChild(icon);
+          wikiInfo.appendChild(iconLink);
           if (lang === 'ALL') {
             const languageSpan = document.createElement('span');
             languageSpan.classList.add('text-sm');
             languageSpan.innerText = ' [' + sites[i].language + '] ';
             wikiInfo.appendChild(languageSpan);
           }
+          let wikiLink = document.createElement("a");
+          wikiLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
+          wikiLink.title = 'Visit ' + sites[i].destination;
+          wikiLink.target = '_blank';
+          wikiLink.appendChild(document.createTextNode(sites[i].destination));
+          wikiInfo.appendChild(wikiLink);
+          wikiInfo.appendChild(document.createTextNode(' (from ' + sites[i].origins_label + ')'));
           let siteContainer = document.createElement("div");
 
           // Output inputs container:
@@ -672,9 +677,6 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
     setNotifications(item.notifications, false);
   });
-  // chrome.storage.sync.get({ 'searchSetting': 'replace' }, function (item) {
-  //   setSearchSetting(item.searchSetting, false);
-  // });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
   });
