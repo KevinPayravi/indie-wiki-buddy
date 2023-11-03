@@ -74,7 +74,7 @@
       font-weight: 600;
     }
 
-    /* CONTAINERS AND LAYOUT */ 
+    /* CONTAINERS AND LAYOUT */
     .container {
       background: #fff;
     }
@@ -85,9 +85,11 @@
       gap: 1em;
       padding-bottom: .5rem;
     }
+
     .two-col>div {
       flex: 1;
     }
+
     @media (max-width: 600px) {
       .two-col>div {
         flex: 100%;
@@ -153,11 +155,13 @@
       font-size: .9em;
       line-height: 1.3em;
     }
+
     #notificationBannerContainer span {
       padding: .5rem 1rem;
       display: none;
     }
-    #notificationBannerContainer span ~ span[style] {
+
+    #notificationBannerContainer span~span[style] {
       border-top: 1px solid #005799;
     }
 
@@ -216,31 +220,38 @@
       white-space: nowrap;
       position: relative;
     }
+
     .toggles img {
       line-height: 1.2rem;
     }
+
     .toggles a img {
       padding-right: .5rem;
     }
+
     .toggles span {
       flex-grow: 1;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .toggles label {
       display: flex;
       align-items: center;
     }
+
     .toggles input {
       cursor: pointer;
       margin: 0;
     }
+
     .toggles>div {
       line-height: 2rem;
       display: flex;
       flex-direction: row;
       padding: 0 .5rem;
     }
+
     .toggles .inputsContainer {
       display: flex;
       float: right;
@@ -252,14 +263,17 @@
       border-bottom: 1px solid #ccc;
       background-color: #f5fbff;
     }
+
     .togglesHeader span {
       text-align: right;
       font-style: italic;
       margin-right: 1em;
     }
+
     .togglesHeader img {
       cursor: pointer;
     }
+
     .togglesHeader .inputsContainer img {
       width: auto;
       max-width: 17px;
@@ -283,14 +297,17 @@
       top: 0;
       z-index: 999;
     }
+
     #togglesKeys button {
       all: unset;
-      height: 18px;
-      display: block;
+      display: inline-flex;
+      vertical-align: middle;
     }
+
     #togglesKeys button:focus {
       outline: revert;
     }
+
     #togglesKeys .inputsContainer>div {
       position: relative;
     }
@@ -301,18 +318,20 @@
       width: 0;
       height: 0;
     }
+
     #togglesDefaults input+label {
       width: 100%;
       height: 100%;
       background-image: url('images/star-off.png');
-      background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       background-size: 18px;
     }
+
     #togglesDefaults input:checked+label {
       background-image: url('images/star-on.png');
     }
+
     #togglesDefaults label {
       cursor: pointer;
     }
@@ -327,7 +346,7 @@
       color: #fff;
       background: #000;
       z-index: 999999;
-      transform: translateX(calc(-100% - 24px));
+      transform: translateX(calc(-100% - 5px));
       top: 30px;
     }
 
@@ -335,6 +354,7 @@
       display: flex;
       width: 150px;
     }
+
     #togglesColumnLabels>div>div>div {
       flex: 1 1 0;
       font-weight: 600;
@@ -438,7 +458,7 @@
         or
         <img src="images/toggle-redirect.png" width="12" alt="" />
         automatically redirected.
-        On search engines, you can choose to 
+        On search engines, you can choose to
         <img src="images/toggle-replace.png" width="12" alt="" /> replace (default)
         or
         <img src="images/toggle-hide.png" width="12" alt="" /> hide
