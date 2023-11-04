@@ -256,9 +256,6 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
     setNotifications(item.notifications, false);
   });
-  chrome.storage.sync.get({ 'searchSetting': 'replace' }, function (item) {
-    setSearchSetting(item.searchSetting, false);
-  });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
 

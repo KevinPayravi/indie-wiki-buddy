@@ -126,9 +126,9 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerRestoreLink.textContent = '⎌ Restore banner';
   bannerControls.appendChild(bannerRestoreLink);
   bannerRestoreLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-      response.siteSettings.get(id).set('action', 'alert');
-      chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+    chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+      response.wikiSettings.set(id, 'alert');
+      chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Banner restored';
       e.target.classList.add('indie-wiki-banner-disabled');
       document.getElementById('indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
@@ -146,9 +146,9 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerDisableLink.textContent = '✕ Disable banner for this wiki';
   bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-      response.siteSettings.get(id).set('action', 'disabled');
-      chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+    chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+      response.wikiSettings.set(id, 'disabled');
+      chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Banner disabled';
       e.target.classList.add('indie-wiki-banner-disabled');
       document.getElementById('indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
@@ -167,9 +167,9 @@ function displayRedirectBanner(url, id, destination, storage) {
   bannerRedirectLink.textContent = '↪ Auto redirect this wiki';
   bannerControls.appendChild(bannerRedirectLink);
   bannerRedirectLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
-      response.siteSettings.get(id).set('action', 'redirect');
-      chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+    chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+      response.wikiSettings.set(id, 'redirect');
+      chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Redirect enabled';
       e.target.classList.add('indie-wiki-banner-disabled');
       document.getElementById('indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
@@ -250,11 +250,11 @@ function main() {
               let site = matchingSites.find(site => site.origin_base_url === closestMatch);
               if (site) {
                 // Get user's settings for the wiki
-                let settings = storage.siteSettings || {};
+                let settings = storage.wikiSettings || {};
                 let id = site['id'];
                 let siteSetting = '';
-                if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
-                  siteSetting = settings[id].action;
+                if (settings.hasOwnProperty(id)) {
+                  siteSetting = settings[id];
                 } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
                   siteSetting = storage.defaultActionSettings[site.language];
                 } else {

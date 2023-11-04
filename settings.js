@@ -2,11 +2,11 @@ const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
 var sites = [];
 
 // Create object prototypes for getting and setting attributes:
-Object.prototype.get = function(prop) {
+Object.prototype.get = function (prop) {
   this[prop] = this[prop] || {};
   return this[prop];
 };
-Object.prototype.set = function(prop, value) {
+Object.prototype.set = function (prop, value) {
   this[prop] = value;
 }
 
@@ -60,7 +60,7 @@ async function loadBreezeWikiOptions() {
         }).then((breezewikiHosts) => {
           breezewikiHosts = breezewikiHosts.filter(host =>
             chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
-              undefined, 
+              undefined,
               { numeric: true, sensitivity: 'base' }
             ) >= 0
           );
@@ -89,7 +89,7 @@ async function loadBreezeWikiOptions() {
             let option = document.createElement('option');
             option.value = breezewikiHosts[i].instance;
             let textContent = breezewikiHosts[i].instance.replace('https://', '');
-            const numberOfPeriods = (textContent.match(/\./g)||[]).length;
+            const numberOfPeriods = (textContent.match(/\./g) || []).length;
             if (numberOfPeriods > 1) {
               textContent = textContent.substring(textContent.indexOf('.') + 1);
             }
@@ -108,7 +108,7 @@ async function loadBreezeWikiOptions() {
 
           // If fetch fails and no host is set, default to breezewiki.com:
           if (!host) {
-            chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+            chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
           }
         });
     } else {
@@ -126,7 +126,7 @@ async function loadBreezeWikiOptions() {
         let option = document.createElement('option');
         option.value = hostOptions[i].instance;
         let textContent = hostOptions[i].instance.replace('https://', '');
-        const numberOfPeriods = (textContent.match(/\./g)||[]).length;
+        const numberOfPeriods = (textContent.match(/\./g) || []).length;
         if (numberOfPeriods > 1) {
           textContent = textContent.substring(textContent.indexOf('.') + 1);
         }
@@ -151,8 +151,8 @@ async function loadOptions(lang) {
 
   chrome.storage.local.get(function (localStorage) {
     chrome.storage.sync.get(function (syncStorage) {
-      const storage = {...syncStorage, ...localStorage};
-      let siteSettings = storage.siteSettings || {};
+      const storage = { ...syncStorage, ...localStorage };
+      let wikiSettings = storage.wikiSettings || {};
       let searchEngineSettings = storage.searchEngineSettings || {};
       let defaultWikiAction = storage.defaultWikiAction || null;
       let defaultSearchAction = storage.defaultSearchAction || null;
@@ -196,7 +196,7 @@ async function loadOptions(lang) {
           inputDisabled.classList = 'toggleDisable';
           inputDisabled.type = "radio";
           inputDisabled.name = key + '-wiki-action';
-          inputDisabled.title = 'Do nothing for ' + sites[i].origins_label  + ' on search engines';
+          inputDisabled.title = 'Do nothing for ' + sites[i].origins_label + ' on search engines';
           inputDisabled.lang = sites[i].language;
           inputDisabled.setAttribute('data-wiki-key', key);
 
@@ -219,7 +219,7 @@ async function loadOptions(lang) {
           inputRedirect.title = 'Automatically redirect ' + sites[i].origins_label + ' to ' + sites[i].destination;
           inputRedirect.lang = sites[i].language;
           inputRedirect.setAttribute('data-wiki-key', key);
-          
+
           // Create radio for disabling action on search engines:
           let labelSearchEngineDisabled = document.createElement("label");
           let inputSearchEngineDisabled = document.createElement("input");
@@ -248,13 +248,13 @@ async function loadOptions(lang) {
           inputSearchEngineHide.name = key + '-search-engine-action';
           inputSearchEngineHide.title = 'Hide ' + sites[i].origins_label + ' from search engine results';
           inputSearchEngineHide.lang = sites[i].language;
-          inputSearchEngineHide.setAttribute('data-wiki-key', key);          
+          inputSearchEngineHide.setAttribute('data-wiki-key', key);
 
           // Check radio buttons based on user's settings
-          if (siteSettings[key] && siteSettings[key].action) {
-            if (siteSettings[key].action === 'disabled') {
+          if (wikiSettings[key]) {
+            if (wikiSettings[key] === 'disabled') {
               inputDisabled.checked = true;
-            } else if (siteSettings[key].action === 'redirect') {
+            } else if (wikiSettings[key] === 'redirect') {
               inputRedirect.checked = true;
             } else {
               inputAlert.checked = true;
@@ -274,10 +274,10 @@ async function loadOptions(lang) {
             }
           }
 
-          if (searchEngineSettings[key] && searchEngineSettings[key].action) {
-            if (searchEngineSettings[key].action === 'disabled') {
+          if (searchEngineSettings[key]) {
+            if (searchEngineSettings[key] === 'disabled') {
               inputSearchEngineDisabled.checked = true;
-            } else if (searchEngineSettings[key].action === 'replace') {
+            } else if (searchEngineSettings[key] === 'replace') {
               inputSearchEngineReplace.checked = true;
             } else {
               inputSearchEngineHide.checked = true;
@@ -299,44 +299,44 @@ async function loadOptions(lang) {
 
           // Add listeners for when user clicks control:
           inputDisabled.addEventListener('click', function (input) {
-            chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+            chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
               var key = input.target.getAttribute('data-wiki-key');
-              response.siteSettings.get(key).set('action', 'disabled');
-              chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+              response.wikiSettings.set(key, 'disabled');
+              chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
             });
           });
           inputAlert.addEventListener('click', function (input) {
-            chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+            chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
               var key = input.target.getAttribute('data-wiki-key');
-              response.siteSettings.get(key).set('action', 'alert');
-              chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+              response.wikiSettings.set(key, 'alert');
+              chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
             });
           });
           inputRedirect.addEventListener('click', function (input) {
-            chrome.storage.sync.get({ 'siteSettings': {} }, function (response) {
+            chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
               var key = input.target.getAttribute('data-wiki-key');
-              response.siteSettings.get(key).set('action', 'redirect');
-              chrome.storage.sync.set({ 'siteSettings': response.siteSettings });
+              response.wikiSettings.set(key, 'redirect');
+              chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
             });
           });
           inputSearchEngineDisabled.addEventListener('click', function (input) {
             chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
               var key = input.target.getAttribute('data-wiki-key');
-              response.searchEngineSettings.get(key).set('action', 'disabled');
+              response.searchEngineSettings.set(key, 'disabled');
               chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
             });
           });
           inputSearchEngineReplace.addEventListener('click', function (input) {
             chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
               var key = input.target.getAttribute('data-wiki-key');
-              response.searchEngineSettings.get(key).set('action', 'replace');
+              response.searchEngineSettings.set(key, 'replace');
               chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
             });
           });
           inputSearchEngineHide.addEventListener('click', function (input) {
             chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
               var key = input.target.getAttribute('data-wiki-key');
-              response.searchEngineSettings.get(key).set('action', 'hide');
+              response.searchEngineSettings.set(key, 'hide');
               chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
             });
           });
@@ -430,9 +430,9 @@ async function loadOptions(lang) {
         const toggles = document.querySelectorAll('#toggles input.toggleRedirect');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          siteSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'redirect');
+          wikiSettings.set(toggles[i].getAttribute('data-wiki-key'), 'redirect');
         }
-        chrome.storage.sync.set({ 'siteSettings': siteSettings });
+        chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
       });
 
       const setAllAlert = document.getElementById('setAllAlert');
@@ -440,9 +440,9 @@ async function loadOptions(lang) {
         const toggles = document.querySelectorAll('#toggles input.toggleAlert');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          siteSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'alert');
+          wikiSettings.set(toggles[i].getAttribute('data-wiki-key'), 'alert');
         }
-        chrome.storage.sync.set({ 'siteSettings': siteSettings });
+        chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
       });
 
       const setAllDisabled = document.getElementById('setAllDisabled');
@@ -450,9 +450,9 @@ async function loadOptions(lang) {
         const toggles = document.querySelectorAll('#toggles input.toggleDisable');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          siteSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'disabled');
+          wikiSettings.set(toggles[i].getAttribute('data-wiki-key'), 'disabled');
         }
-        chrome.storage.sync.set({ 'siteSettings': siteSettings });
+        chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
       });
 
       const setAllSearchEngineDisabled = document.getElementById('setAllSearchEngineDisabled');
@@ -460,7 +460,7 @@ async function loadOptions(lang) {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineDisabled');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          searchEngineSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'disabled');
+          searchEngineSettings.set(toggles[i].getAttribute('data-wiki-key'), 'disabled');
         }
         chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
       });
@@ -470,7 +470,7 @@ async function loadOptions(lang) {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineHide');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          searchEngineSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'hide');
+          searchEngineSettings.set(toggles[i].getAttribute('data-wiki-key'), 'hide');
         }
         chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
       });
@@ -480,7 +480,7 @@ async function loadOptions(lang) {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineReplace');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          searchEngineSettings.get(toggles[i].getAttribute('data-wiki-key')).set('action', 'replace');
+          searchEngineSettings.set(toggles[i].getAttribute('data-wiki-key'), 'replace');
         }
         chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
       });
@@ -549,7 +549,7 @@ function setBreezeWiki(setting, storeSetting = true) {
           }).then((breezewikiHosts) => {
             breezewikiHosts = breezewikiHosts.filter(host =>
               chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
-                undefined, 
+                undefined,
                 { numeric: true, sensitivity: 'base' }
               ) >= 0
             );
@@ -574,7 +574,7 @@ function setBreezeWiki(setting, storeSetting = true) {
 
             // If fetch fails and no host is set, default to breezewiki.com:
             if (!host) {
-              chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+              chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
             }
           });
       } else {
@@ -586,8 +586,75 @@ function setBreezeWiki(setting, storeSetting = true) {
   }
 }
 
+async function migrateData() {
+  // Set new default action settings:
+  chrome.storage.sync.get({ 'defaultWikiAction': null }, function (item) {
+    if (!item.defaultWikiAction) {
+      chrome.storage.sync.get({ 'defaultActionSettings': {} }, function (item) {
+        if (item.defaultActionSettings['EN']) {
+          chrome.storage.sync.set({ 'defaultWikiAction': item.defaultActionSettings['EN'] });
+        } else {
+          chrome.storage.sync.set({ 'defaultWikiAction': 'alert' });
+        }
+      });
+    }
+  });
+  chrome.storage.sync.get({ 'defaultSearchAction': null }, function (item) {
+    if (!item.defaultSearchAction) {
+      chrome.storage.sync.get({ 'defaultSearchFilterSettings': {} }, function (item) {
+        if (item.defaultSearchFilterSettings['EN']) {
+          if (item.defaultSearchFilterSettings['EN'] === 'true') {
+            chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
+          } else if (item.defaultSearchFilterSettings['EN'] === 'false') {
+            chrome.storage.sync.set({ 'defaultSearchAction': 'disabled' });
+          }
+        } else {
+          chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
+        }
+      });
+    }
+  });
+
+  // Create new searchEngineSettings and wikiSettings objects:
+  sites = await getData();
+  chrome.storage.sync.get(function (storage) {
+    let siteSettings = storage.siteSettings || {};
+    let defaultWikiAction = storage.defaultWikiAction || 'alert';
+    let defaultSearchAction = storage.defaultSearchAction || 'replace';
+    let searchEngineSettings = storage.searchEngineSettings || {};
+    let wikiSettings = storage.wikiSettings || {};
+
+    sites.forEach((site) => {
+      if (!searchEngineSettings[site.id]) {
+        if (siteSettings[site.id] && siteSettings[site.id].searchFilter) {
+          if (siteSettings[site.id].searchFilter === 'false') {
+            searchEngineSettings[site.id] = 'disabled';
+          } else {
+            searchEngineSettings[site.id] = 'replace';
+          }
+        } else {
+          searchEngineSettings[site.id] = defaultSearchAction;
+        }
+      }
+
+      if (!wikiSettings[site.id]) {
+        wikiSettings[site.id] = siteSettings[site.id]?.action || defaultWikiAction;
+      }
+    });
+
+    chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
+    chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
+  });
+
+  // Remove old siteSettings object:
+  chrome.storage.sync.remove('siteSettings');
+}
+
 // Main function that runs on-load
-document.addEventListener('DOMContentLoaded', function () {    
+document.addEventListener('DOMContentLoaded', function () {
+  // Run v3 data migration:
+  migrateData();
+
   // If newly installed, show initial install guide
   if (new URLSearchParams(window.location.search).get('newinstall')) {
     document.getElementById('firstInstallInfo').style.display = 'block';
@@ -720,12 +787,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add event listeners for default action selections
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
     el.addEventListener('change', function () {
-      chrome.storage.sync.set({ 'defaultWikiAction':  document.options.defaultWikiAction.value })
+      chrome.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
     el.addEventListener('change', function () {
-      chrome.storage.sync.set({ 'defaultSearchAction':  document.options.defaultSearchAction.value })
+      chrome.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
     });
   });
 

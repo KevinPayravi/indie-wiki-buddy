@@ -21,7 +21,7 @@ chrome.runtime.onStartup.addListener(function () {
 });
 
 // Listen for extension installed/updating
-chrome.runtime.onInstalled.addListener(function (detail) {
+chrome.runtime.onInstalled.addListener(async function (detail) {
   // Set initial icon state
   chrome.storage.local.get({ 'power': 'on' }, function (item) {
     setPowerIcon(item.power);
@@ -36,8 +36,8 @@ chrome.runtime.onInstalled.addListener(function (detail) {
   if (detail.reason === 'update') {
     chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true' });
   }
-  
-  // Temporary functions for 3.0 migration  
+
+  // Temporary functions for 3.0 migration
   if (detail.reason === 'update') {
     // Set new default action settings:
     chrome.storage.sync.get({ 'defaultWikiAction': null }, function (item) {
@@ -45,6 +45,8 @@ chrome.runtime.onInstalled.addListener(function (detail) {
         chrome.storage.sync.get({ 'defaultActionSettings': {} }, function (item) {
           if (item.defaultActionSettings['EN']) {
             chrome.storage.sync.set({ 'defaultWikiAction': item.defaultActionSettings['EN'] });
+          } else {
+            chrome.storage.sync.set({ 'defaultWikiAction': 'alert' });
           }
         });
       }
@@ -58,35 +60,46 @@ chrome.runtime.onInstalled.addListener(function (detail) {
             } else if (item.defaultSearchFilterSettings['EN'] === 'false') {
               chrome.storage.sync.set({ 'defaultSearchAction': 'disabled' });
             }
+          } else {
+            chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
           }
         });
       }
     });
 
-    // Create new searchEngineSettings object:
-    chrome.storage.sync.get({ 'siteSettings': {} }, function (item) {
-      let siteSettings = item.siteSettings;
-      let searchEngineSettings = {};
-      for (const obj in siteSettings) {
-        if (siteSettings[obj].searchFilter) {
-          if (siteSettings[obj].searchFilter === 'false') {
-            searchEngineSettings[obj] = { action: 'disabled' }
+    // Create new searchEngineSettings and wikiSettings objects:
+    sites = await getData();
+    chrome.storage.sync.get(function (storage) {
+      let siteSettings = storage.siteSettings || {};
+      let defaultWikiAction = storage.defaultWikiAction || 'alert';
+      let defaultSearchAction = storage.defaultSearchAction || 'replace';
+      let searchEngineSettings = storage.searchEngineSettings || {};
+      let wikiSettings = storage.wikiSettings || {};
+
+      sites.forEach((site) => {
+        if (!searchEngineSettings[site.id]) {
+          if (siteSettings[site.id] && siteSettings[site.id].searchFilter) {
+            if (siteSettings[site.id].searchFilter === 'false') {
+              searchEngineSettings[site.id] = 'disabled';
+            } else {
+              searchEngineSettings[site.id] = 'replace';
+            }
           } else {
-            searchEngineSettings[obj] = { action: 'replace' }
+            searchEngineSettings[site.id] = defaultSearchAction;
           }
         }
-      }
+
+        if (!wikiSettings[site.id]) {
+          wikiSettings[site.id] = siteSettings[site.id]?.action || defaultWikiAction;
+        }
+      });
+
       chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
+      chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
     });
 
-    // Remove all properties that aren't "action" from site settings:
-    chrome.storage.sync.get({ 'siteSettings': {} }, function (item) {
-      let siteSettings = item.siteSettings;
-      for (const obj in item.siteSettings) {
-        Object.keys(siteSettings[obj]).forEach((key) => key === 'action' || delete siteSettings[obj][key]);
-      }
-      chrome.storage.sync.set({ 'siteSettings': siteSettings });
-    });
+    // Remove old siteSettings object:
+    chrome.storage.sync.remove('siteSettings');
   }
 });
 
@@ -347,11 +360,11 @@ async function main(eventInfo) {
             let site = matchingSites.find(site => site.origin_base_url === closestMatch);
             if (site) {
               // Get user's settings for the wiki
-              let settings = storage.siteSettings || {};
+              let settings = storage.wikiSettings || {};
               let id = site['id'];
               let siteSetting = '';
-              if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
-                siteSetting = settings[id].action;
+              if (settings.hasOwnProperty(id)) {
+                siteSetting = settings[id];
               } else if (storage.defaultWikiAction) {
                 siteSetting = storage.defaultWikiAction;
               } else {
