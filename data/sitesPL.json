@@ -1,5 +1,234 @@
 [
   {
+    "id": "pl-animalcrossing",
+    "origins_label": "Animal Crossing Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Animal Crossing Fandom Wiki",
+        "origin_base_url": "animal-crossing.fandom.com",
+        "origin_content_path": "/pl/wiki"
+      }
+    ],
+    "destination": "Nookipedia",
+    "destination_base_url": "nookipedia.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nookipedia.png"
+  },
+  {
+    "id": "pl-doom",
+    "origins_label": "Doom Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Doom Fandom Wiki",
+        "origin_base_url": "doom.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "The Doom Wiki",
+    "destination_base_url": "doomwiki.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "doomwiki.png"
+  },
+  {
+    "id": "pl-elderscrolls",
+    "origins_label": "Elder Scrolls Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Elder Scrolls Fandom Wiki",
+        "origin_base_url": "elderscrolls.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Unofficial Elder Scrolls Pages",
+    "destination_base_url": "en.uesp.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "uesp.png"
+  },
+  {
+    "id": "pl-fallout",
+    "origins_label": "Fallout Fandom Wiki (Nukapedia)",
+    "origins": [
+      {
+        "origin": "Fallout Fandom Wiki (Nukapedia)",
+        "origin_base_url": "fallout.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Independent Fallout Wiki",
+    "destination_base_url": "fallout.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fallout.png"
+  },
+  {
+    "id": "pl-gameofthrones",
+    "origins_label": "Game of Thrones Fandom Wikis",
+    "origins": [
+      {
+        "origin": "A Song of Ice and Fire Fandom Wiki",
+        "origin_base_url": "iceandfire.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "A Wiki of Ice and Fire",
+    "destination_base_url": "awoiaf.westeros.org",
+    "destination_content_path": "/index.php/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "awikioficeandfire.png"
+  },
+  {
+    "id": "pl-godzilla",
+    "origins_label": "Godzilla Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Godzilla Fandom Wiki",
+        "origin_base_url": "godzilla.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Wikizilla",
+    "destination_base_url": "wikizilla.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikizilla.png"
+  },
+  {
+    "id": "pl-halflife",
+    "origins_label": "Half-Life & Portal Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Half-Life & Portal Fandom Wiki",
+        "origin_base_url": "half-life.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Borealis wiki",
+    "destination_base_url": "borealis.net.pl",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "combine.png"
+  },
+  {
+    "id": "pl-hollowknight",
+    "origins_label": "Hollow Knight Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Hollow Knight Fandom Wiki",
+        "origin_base_url": "hollowknight.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Hollow Knight Wiki",
+    "destination_base_url": "hollowknight.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hollowknight.png"
+  },
+  {
+    "id": "pl-jojo",
+    "origins_label": "JoJo's Bizarre Wiki",
+    "origins": [
+      {
+        "origin": "JoJo's Bizarre Wiki",
+        "origin_base_url": "jojo.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "JoJo's Bizarre Encyclopedia",
+    "destination_base_url": "jojowiki.com",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "jojo.png"
+  },
+  {
+    "id": "pl-lotr",
+    "origins_label": "Lord of the Rings Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Lord of the Rings Fandom Wiki",
+        "origin_base_url": "lotr.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Tolkien Gateway",
+    "destination_base_url": "tolkiengateway.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tolkiengateway.png"
+  },
+  {
+    "id": "pl-mario",
+    "origins_label": "Mario Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Mario Fandom Wiki",
+        "origin_base_url": "mario.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Super Mario Wiki",
+    "destination_base_url": "www.mariowiki.com",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "supermariowiki.png"
+  },
+  {
+    "id": "pl-minecraft",
+    "origins_label": "Minecraft Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      },
+      {
+        "origin": "Minecraft Fandom Wiki (Archived)",
+        "origin_base_url": "minecraft-archive.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "minecraft.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png"
+  },
+  {
+    "id": "pl-mylittlepony",
+    "origins_label": "My Little Pony Fandom Wiki",
+    "origins": [
+      {
+        "origin": "My Little Pony Fandom Wiki",
+        "origin_base_url": "mlp.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Equestripedia",
+    "destination_base_url": "equestripedia.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "equestripedia.png"
+  },
+  {
+    "id": "pl-pokemon",
+    "origins_label": "Pokémon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Bulbapedia",
+    "destination_base_url": "bulbapedia.bulbagarden.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bulbapedia.png"
+  },
+  {
     "id": "pl-rayman",
     "origins_label": "Rayman Fandom Wiki",
     "origins": [
@@ -14,5 +243,149 @@
     "destination_content_path": "/wiki/pl/",
     "destination_platform": "mediawiki",
     "destination_icon": "rayman.png"
+  },
+  {
+    "id": "pl-rimworld",
+    "origins_label": "RimWorld Fandom Wiki",
+    "origins": [
+      {
+        "origin": "RimWorld Fandom Wiki",
+        "origin_base_url": "rimworld.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "RimWorld Wiki",
+    "destination_base_url": "rimworldwiki.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rimworldwiki.png"
+  },
+  {
+    "id": "pl-runescape",
+    "origins_label": "RuneScape Fandom Wiki",
+    "origins": [
+      {
+        "origin": "RuneScape Fandom Wiki",
+        "origin_base_url": "runescape.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "RuneScape Wiki",
+    "destination_base_url": "runescape.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "runescape.png"
+  },
+  {
+    "id": "pl-simpsons",
+    "origins_label": "Simpsons Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Simpsons Fandom Wiki",
+        "origin_base_url": "simpsons.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Wikisimpsons",
+    "destination_base_url": "simpsonswiki.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikisimpsons.png"
+  },
+  {
+    "id": "pl-starbound",
+    "origins_label": "Starbound Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Starbound Fandom Wiki",
+        "origin_base_url": "starbound.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Starbounder",
+    "destination_base_url": "starbounder.org",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starbounder.png"
+  },
+  {
+    "id": "pl-stardewvalley",
+    "origins_label": "Stardew Valley Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Stardew Valley Fandom Wiki",
+        "origin_base_url": "stardewvalley.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Stardew Valley Wiki",
+    "destination_base_url": "stardewvalleywiki.com",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "stardew.png"
+  },
+  {
+    "id": "pl-starfield",
+    "origins_label": "Starfield Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Starfield Fandom Wiki",
+        "origin_base_url": "starfield.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      },
+    ],
+    "destination": "Polish Starfield Wiki",
+    "destination_base_url": "wiki.starfield.pl",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starfieldwiki.png"
+  },
+  {
+    "id": "pl-teamfortress",
+    "origins_label": "Team Fortress Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Team Fortress Fandom Wiki",
+        "origin_base_url": "teamfortress.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Team Fortress Wiki",
+    "destination_base_url": "wiki.teamfortress.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "teamfortress.png"
+  },
+  {
+    "id": "pl-warhammer40k",
+    "origins_label": "Warhammer 40,000 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Warhammer 40,000 Fandom Wiki",
+        "origin_base_url": "warhammer40k.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Lexicanum",
+    "destination_base_url": "wh40k.lexicanum.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lexicanum.png"
+  },
+  {
+    "id": "pl-zelda",
+    "origins_label": "Zelda Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Zelda Fandom Wiki",
+        "origin_base_url": "zelda.fandom.com",
+        "origin_content_path": "/pl/wiki/"
+      }
+    ],
+    "destination": "Zelda Wiki",
+    "destination_base_url": "zeldawiki.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "zeldapedia.png"
   }
 ]
