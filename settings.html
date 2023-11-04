@@ -200,7 +200,8 @@
       cursor: default;
     }
 
-    #legend div, #legend span {
+    #legend div,
+    #legend span {
       padding-left: 8px;
     }
 
@@ -293,12 +294,6 @@
       background-color: #e8f0fe;
     }
 
-    #togglesKeys {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
     #togglesKeys button {
       all: unset;
       display: inline-flex;
@@ -351,6 +346,11 @@
       top: 30px;
     }
 
+    #togglesColumnLabels {
+      background-color: white;
+      padding-top: 5px;
+    }
+
     #togglesColumnLabels>div>div {
       display: flex;
       width: 150px;
@@ -392,6 +392,12 @@
 
     .text-sm {
       font-size: .85em;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      z-index: 999;
     }
   </style>
 </head>
@@ -512,7 +518,8 @@
           <legend>
             <span aria-hidden="true">ℹ️</span> Icon legend
           </legend>
-          <span class="text-sm">When visiting a Fandom or Fextralife wiki that has an independent alternative, IWB can:</span>
+          <span class="text-sm">When visiting a Fandom or Fextralife wiki that has an independent alternative, IWB
+            can:</span>
           <div>
             <img src="images/toggle-disabled.png" width="18" height="18" alt="" /> Do nothing
           </div>
@@ -525,7 +532,8 @@
             indie wiki
           </div>
           <br />
-          <span class="text-sm">When search engine results include a Fandom or Fextralife wiki that has an independent alternative, IWB can:</span>
+          <span class="text-sm">When search engine results include a Fandom or Fextralife wiki that has an independent
+            alternative, IWB can:</span>
           <div>
             <img src="images/toggle-disabled.png" width="18" height="18" alt="" /> Do nothing
           </div>
@@ -550,48 +558,51 @@
             <option value="TOK">Toki Pona (TOK)</option>
           </select>
         </div>
-        <div id="togglesColumnLabels" class="toggles">
-          <div>
-            <span></span>
+        <div class="sticky">
+          <div id="togglesColumnLabels" class="toggles">
             <div>
-              <div>Wiki experience</div>
-              <div>Search experience</div>
+              <span></span>
+              <div>
+                <div>Wiki experience</div>
+                <div>Search experience</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div id="togglesKeys" class="toggles togglesHeader">
-          <div>
-            <span>Click icon to set all wikis in column:</span>
-            <div class="inputsContainer">
-              <div>
-                <button id="setAllDisabled" type="button" data-title="Do nothing when visiting non-indie wiki">
-                  <img src="images/toggle-disabled.png" width="18" alt="" />
-                </button>
-              </div>
-              <div>
-                <button id="setAllAlert" type="button" data-title="Show banner when indie wiki is available">
-                  <img src="images/toggle-alert.png" width="18" alt="" />
-                </button>
-              </div>
-              <div>
-                <button id="setAllRedirect" type="button" data-title="Automatically redirect to indie wiki">
-                  <img src="images/toggle-redirect.png" width="18" alt="Automatically redirect to indie wiki" />
-                </button>
-              </div>
-              <div>
-                <button id="setAllSearchEngineDisabled" type="button" data-title="Do nothing on search engines">
-                  <img src="images/toggle-disabled.png" width="18" alt="" />
-                </button>
-              </div>
-              <div>
-                <button id="setAllSearchEngineReplace" type="button" data-title="Replace non-indie search results">
-                  <img src="images/toggle-replace.png" width="18" alt="" />
-                </button>
-              </div>
-              <div>
-                <button id="setAllSearchEngineHide" type="button" data-title="Hide non-indie wiki from search results">
-                  <img src="images/toggle-hide.png" width="18" alt="" />
-                </button>
+          <div id="togglesKeys" class="toggles togglesHeader">
+            <div>
+              <span>Click icon to set all wikis in column:</span>
+              <div class="inputsContainer">
+                <div>
+                  <button id="setAllDisabled" type="button" data-title="Do nothing when visiting non-indie wiki">
+                    <img src="images/toggle-disabled.png" width="18" alt="" />
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllAlert" type="button" data-title="Show banner when indie wiki is available">
+                    <img src="images/toggle-alert.png" width="18" alt="" />
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllRedirect" type="button" data-title="Automatically redirect to indie wiki">
+                    <img src="images/toggle-redirect.png" width="18" alt="Automatically redirect to indie wiki" />
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllSearchEngineDisabled" type="button" data-title="Do nothing on search engines">
+                    <img src="images/toggle-disabled.png" width="18" alt="" />
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllSearchEngineReplace" type="button" data-title="Replace non-indie search results">
+                    <img src="images/toggle-replace.png" width="18" alt="" />
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllSearchEngineHide" type="button"
+                    data-title="Hide non-indie wiki from search results">
+                    <img src="images/toggle-hide.png" width="18" alt="" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
