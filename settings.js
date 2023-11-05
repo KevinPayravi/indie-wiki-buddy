@@ -27,7 +27,7 @@ function resetOptions() {
 
 // Get wiki data from data folder
 async function getData() {
-  var sites = [];
+  let sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
@@ -672,9 +672,6 @@ async function migrateData() {
 
 // Main function that runs on-load
 document.addEventListener('DOMContentLoaded', function () {
-  // Run v3 data migration:
-  migrateData();
-
   // If newly installed, show initial install guide
   if (new URLSearchParams(window.location.search).get('newinstall')) {
     document.getElementById('firstInstallInfo').style.display = 'block';
@@ -846,3 +843,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('countBreezeWiki').textContent = item[key];
   });
 });
+
+// Run v3 data migration:
+migrateData();

@@ -330,9 +330,6 @@ function setBreezeWiki(setting, storeSetting = true) {
 
 // Main function that runs on-load
 document.addEventListener('DOMContentLoaded', function () {
-  // Run v3 data migration:
-  migrateData();
-
   // If running Chromium, show warning about service worker bug
   if (navigator.userAgent.match(/Chrom[e|ium]/)) {
     const notificationBannerChromeBug = document.getElementById('notificationBannerChromeBug');
@@ -457,3 +454,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Run v3 data migration:
+migrateData();
