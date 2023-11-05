@@ -1,3 +1,5 @@
+const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
+
 // Set power setting
 function setPower(setting) {
   chrome.storage.local.set({ 'power': setting });
@@ -9,6 +11,22 @@ function setPower(setting) {
     action: 'updateIcon',
     value: setting
   });
+}
+
+// Get wiki data from data folder
+async function getData() {
+  var sites = [];
+  let promises = [];
+  for (let i = 0; i < LANGS.length; i++) {
+    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
+      .then((resp) => resp.json())
+      .then(function (jsonData) {
+        jsonData.forEach((site) => site.language = LANGS[i]);
+        sites = sites.concat(jsonData);
+      }));
+  }
+  await Promise.all(promises);
+  return sites;
 }
 
 // Populate BreezeWiki dropdown when enabled
@@ -163,6 +181,27 @@ function setCrossLanguage(setting, storeSetting = true) {
     crossLanguageIcon.innerText = '⚪️';
   }
 }
+
+// Set default action setting
+chrome.storage.sync.get(['defaultWikiAction'], function (item) {
+  if (item.defaultWikiAction === 'disabled') {
+    document.options.defaultWikiAction.value = 'disabled';
+  } else if (item.defaultWikiAction === 'redirect') {
+    document.options.defaultWikiAction.value = 'redirect';
+  } else {
+    document.options.defaultWikiAction.value = 'alert';
+  }
+});
+// Set default search engine setting
+chrome.storage.sync.get(['defaultSearchAction'], function (item) {
+  if (item.defaultSearchAction === 'disabled') {
+    document.options.defaultSearchAction.value = 'disabled';
+  } else if (item.defaultSearchAction === 'hide') {
+    document.options.defaultSearchAction.value = 'hide';
+  } else {
+    document.options.defaultSearchAction.value = 'replace';
+  }
+});
 
 // Set BreezeWiki settings
 function setBreezeWiki(setting, storeSetting = true) {
@@ -325,5 +364,29 @@ document.addEventListener('DOMContentLoaded', function () {
   var breezewikiHostSelect = document.getElementById("breezewikiHostSelect");
   breezewikiHostSelect.addEventListener('change', function () {
     chrome.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
+  });
+  document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
+    el.addEventListener('change', async function () {
+      chrome.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
+
+      let wikiSettings = {};
+      sites = await getData();
+      sites.forEach((site) => {
+        wikiSettings[site.id] = document.options.defaultWikiAction.value;
+      });
+      chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
+    });
+  });
+  document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
+    el.addEventListener('change', async function () {
+      chrome.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
+
+      let searchEngineSettings = {};
+      sites = await getData();
+      sites.forEach((site) => {
+        searchEngineSettings[site.id] = document.options.defaultSearchAction.value;
+      });
+      chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
+    });
   });
 });

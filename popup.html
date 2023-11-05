@@ -43,6 +43,41 @@
       margin: 1em 0;
     }
 
+    fieldset {
+      background-color: #f5fbff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 3px 0 8px 0;
+      margin: 0;
+      margin-bottom: .5em;
+      font-size: .9em;
+    }
+
+    fieldset+fieldset {
+      margin-top: 1rem;
+    }
+
+    fieldset>div {
+      margin: .4rem .5rem;
+    }
+
+    fieldset>span {
+      margin: .8rem 0 .4rem;
+      display: block;
+    }
+
+    legend {
+      font-weight: 600;
+    }
+
+    .text-sm {
+      font-size: .85em;
+    }
+
+    .center {
+      text-align: center;
+    }
+
     #openSettingsContainer {
       width: 100%;
       text-align: center;
@@ -53,8 +88,8 @@
       border: 1px solid #333333;
       color: #fff;
       border-radius: 5px;
-      padding: .5em;
-      margin: 0 .5em .5em .5em;
+      padding: .4em;
+      margin: .5em;
       font-size: 1.3em;
     }
 
@@ -90,7 +125,7 @@
     }
 
     #notificationBannerContainer span {
-      padding: 1em;
+      padding: .5rem 1rem;
       display: none;
     }
 
@@ -139,8 +174,8 @@
     }
 
     #links {
-      text-align: center;
-      margin-bottom: .5em;
+      background-color: #e5f4ff;
+      padding: .5rem 1rem 0;
     }
 
     /* GLOBAL SETTINGS SECTION */
@@ -151,16 +186,18 @@
       width: 100%;
     }
 
-    .options .settingToggleContainer {
-      padding-bottom: 1em;
-    }
-
     .options .settingToggleContainer:last-child {
       padding-bottom: 0;
     }
 
     .options .settingToggleContainer>div {
       line-height: 1.5rem;
+    }
+
+    .radioGroup {
+      display: flex;
+      flex-direction: row;
+      gap: 1em;
     }
 
     /* GLOBAL SETTING TOGGLES */
@@ -183,7 +220,6 @@
     #breezewikiHost {
       display: none;
       padding-left: 3em;
-      padding-top: 0.8em;
     }
   </style>
 </head>
@@ -198,66 +234,16 @@
     </div>
     <h1>Indie Wiki Buddy</h1>
   </div>
-  <div id="content">
-    <div class="options">
-      <div class="settingToggleContainer">
-        <div class="settingToggle">
-          <label>
-            <input id="notificationsCheckbox" type="checkbox" />
-            <span id="notificationsIcon" aria-hidden="true"></span>
-            Desktop notifications for
-              redirections
-          </label>
-        </div>
-      </div>
-      <div class="settingToggleContainer">
-        <div class="settingToggle">
-          <label>
-            <input id="crossLanguageCheckbox" type="checkbox" />
-            <span id="crossLanguageIcon" aria-hidden="true"></span>
-            Redirect non-English Fandom/Fextralife wikis to
-              English indie wikis when no same-language wiki exists
-          </label>
-        </div>
-      </div>
-      <div class="settingToggleContainer">
-        <div class="settingToggle">
-          <label>
-            <input id="breezewikiCheckbox" type="checkbox" />
-            🌬️ Use BreezeWiki on Fandom (English only)
-          </label>
-        </div>
-        <div>
-          &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank">learn more</a>)
-        </div>
-        <div class="settingToggleContainer">
-          <div id="breezewikiHost" class="settingToggle">
-            <label for="breezewikiHostSelect">BreezeWiki host:&nbsp;</label>
-            <select name="breezewikiHost" id="breezewikiHostSelect"></select>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div id="openSettingsContainer">
-      <button id="openSettings">
-        View All Settings
-      </button>
-      <br />
-      View all settings to configure your options per-wiki.
-    </div>
-    <hr />
-    <div id="links">
-      <a href="guide.html" target="_blank">Guide</a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="https://getindie.wiki/#guide" target="_blank">Website</a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="https://getindie.wiki/changelog/" target="_blank">Changelog</a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="https://getindie.wiki/#submit" target="_blank">Submit a Wiki</a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source Code</a>
-    </div>
+  <div id="links">
+    <a href="guide.html">Guide</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="https://getindie.wiki" target="_blank">Website</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="https://getindie.wiki/changelog/" target="_blank">Changelog</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="https://getindie.wiki/#submit" target="_blank">Submit&nbsp;a&nbsp;Wiki</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source&nbsp;Code</a>
   </div>
   <div id="notificationBannerContainer">
     <span id="notificationBannerChromeBug">
@@ -273,6 +259,102 @@
       and selecting the "Allow access to search page results" option under Indie Wiki Buddy.
       <a id="operaPermsHideLink" href="#">Hide this message</a>
     </span>
+  </div>
+  <div id="content">
+    <form name="options" class="options">
+      <fieldset id="defaultSettings">
+        <legend><span aria-hidden="true">⚙️</span> Default behaviors (apply to all current and new wikis in future updates)</legend>
+        <div class="settingToggleContainer" role="radiogroup" aria-labelledby="defaultWikiActionLabel">
+          <span id="defaultWikiActionLabel">Default behavior when visiting a Fandom/Fextralife wiki:</span>
+          <div class="radioGroup">
+            <label>
+              <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled" />
+              <img src="images/toggle-disabled.png" height="12" alt="" />
+              Do nothing
+            </label>
+            <label>
+              <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert" />
+              <img src="images/toggle-alert.png" height="12" alt="" />
+              Display a banner linking to indie wiki
+            </label>
+            <label>
+              <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect" />
+              <img src="images/toggle-redirect.png" height="12" alt="" />
+              Redirect to indie wiki
+            </label>
+          </div>
+        </div>
+        <div class="settingToggleContainer" role="radiogroup" aria-labelledby="defaultSearchActionLabel">
+          <span id="defaultSearchActionLabel">Default behavior on search engines:</span>
+          <div class="radioGroup">
+            <label>
+              <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled" />
+              <img src="images/toggle-disabled.png" height="12" alt="" />
+              Do nothing
+            </label>
+            <label>
+              <input id="defaultSearchActionAlertRadio" type="radio" name="defaultSearchAction" value="replace" />
+              <img src="images/toggle-replace.png" height="12" alt="" />
+              Replace non-indie results
+            </label>
+            <label>
+              <input id="defaultSearchActionRedirectRadio" type="radio" name="defaultSearchAction" value="hide" />
+              <img src="images/toggle-hide.png" height="12" alt="" />
+              Hide non-indie results
+            </label>
+          </div>
+        </div>
+        <div class="center">
+          View <a href="settings.html" target="_blank">all settings</a> to change behavior per-wiki.
+        </div>
+      </fieldset>
+      <fieldset id="generalSettings">
+        <legend><span aria-hidden="true">⚙️</span> General settings</legend>
+        <div class="settingToggle">
+          <label>
+            <input id="notificationsCheckbox" type="checkbox" />
+            <span id="notificationsIcon" aria-hidden="true"></span>
+            Desktop notifications for
+              redirections
+          </label>
+        </div>
+        <div class="settingToggle">
+          <label>
+            <input id="crossLanguageCheckbox" type="checkbox" />
+            <span id="crossLanguageIcon" aria-hidden="true"></span>
+            Redirect non-English Fandom/Fextralife wikis to
+              English wikis when no same-language wiki exists
+          </label>
+        </div>
+      </fieldset>
+      <fieldset id="breezewikiSettings">
+        <legend>
+          <span aria-hidden="true">༄</span> BreezeWiki settings (<a href="https://breezewiki.com/"
+            target="_blank">learn&nbsp;more</a>)
+        </legend>
+        <div class="settingToggle">
+          <label>
+            <input id="breezewikiCheckbox" type="checkbox" />
+            Use BreezeWiki alternative frontend on Fandom (English only)
+          </label>
+        </div>
+        <div id="breezewikiHost" class="settingToggle">
+          <label>
+            BreezeWiki host:
+            <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+          </label>
+        </div>
+      </fieldset>
+    </form>
+    <div id="openSettingsContainer">
+      <button id="openSettings">
+        View All Settings
+      </button>
+      <br />
+      <span class="text-sm">
+        View all settings to configure your options per-wiki.
+      </span>
+    </div>
   </div>
 </body>
 <script type="text/javascript" src="popup.js"></script>
