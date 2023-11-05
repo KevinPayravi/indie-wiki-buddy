@@ -52,9 +52,13 @@
       background-color: #f5fbff;
       border: 1px solid #ccc;
       border-radius: 5px;
-      padding: 0 0 12px 0;
+      padding: 0 12px 12px 0;
       margin: 0;
       margin-bottom: .5em;
+      font-size: .9em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
     }
 
     fieldset+fieldset {
@@ -68,16 +72,19 @@
     fieldset>span {
       display: block;
     }
+
     fieldset>div+span {
       margin: .8rem 0 0 0;
     }
 
     legend {
       font-weight: 600;
-      margin-bottom: .5em;
+      margin-bottom: .75em;
     }
 
-    input, label, select {
+    input,
+    label,
+    select {
       cursor: pointer;
     }
 
@@ -232,12 +239,6 @@
       vertical-align: middle;
     }
 
-    .toggles span {
-      flex-grow: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
     .toggles label {
       display: flex;
       align-items: center;
@@ -249,15 +250,14 @@
     }
 
     .toggles>div {
-      line-height: 2rem;
       display: flex;
       flex-direction: row;
       padding: 0 .5rem;
+      min-height: 20px;
     }
 
     .toggles .inputsContainer {
       display: flex;
-      float: right;
       width: 150px;
       justify-content: space-between;
     }
@@ -268,27 +268,19 @@
     }
 
     .togglesHeader span {
+      flex: 1;
       text-align: right;
       font-style: italic;
       margin-right: 1em;
+      padding: .75em 0;
+      white-space: break-spaces;
     }
 
-    .togglesHeader img {
-      cursor: pointer;
-    }
-
-    .togglesHeader .inputsContainer img {
-      width: auto;
-      max-width: 17px;
-      height: auto;
-      max-height: 18px;
-      vertical-align: middle;
-    }
-
-    .togglesHeader .inputsContainer>div:nth-child(4),
-    .toggles>div>div>label:nth-child(4) {
-      padding-left: 5px;
-      border-left: 1px solid #ccc;
+    .toggles:not(.togglesHeader) span {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: .5em 0;
     }
 
     #toggles>div:hover {
@@ -299,14 +291,40 @@
       all: unset;
       display: inline-flex;
       vertical-align: middle;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 18px;
+      cursor: pointer;
+    }
+
+    button#setAllDisabled {
+      background-image: url('images/toggle-disabled.png');
+    }
+
+    button#setAllAlert {
+      background-image: url('images/toggle-alert.png');
+    }
+
+    button#setAllRedirect {
+      background-image: url('images/toggle-redirect.png');
+    }
+
+    button#setAllSearchEngineDisabled {
+      background-image: url('images/toggle-disabled.png');
+    }
+
+    button#setAllSearchEngineReplace {
+      background-image: url('images/toggle-replace.png');
+    }
+
+    button#setAllSearchEngineHide {
+      background-image: url('images/toggle-hide.png');
     }
 
     #togglesKeys button:focus {
       outline: revert;
-    }
-
-    #togglesKeys .inputsContainer>div {
-      position: relative;
     }
 
     #togglesDefaults input[type=radio] {
@@ -349,7 +367,7 @@
 
     #togglesColumnLabels {
       background-color: white;
-      padding-top: 5px;
+      padding: 5px 0;
     }
 
     #togglesColumnLabels>div>div {
@@ -369,8 +387,15 @@
     .inputsContainer>label,
     .inputsContainer>div {
       width: 20px;
-      justify-content: center;
+      display: flex;
       text-align: center;
+      justify-content: center;
+    }
+
+    .togglesHeader .inputsContainer>div:nth-child(4),
+    .toggles>div>div>label:nth-child(4) {
+      padding-left: 5px;
+      border-left: 1px solid #ccc;
     }
 
     .inputsContainer label:nth-child(1) input,
@@ -494,7 +519,7 @@
               <input id="notificationsCheckbox" type="checkbox" />
               <span id="notificationsIcon" aria-hidden="true"></span>
               Desktop notifications for
-                redirections
+              redirections
             </label>
           </div>
           <div class="settingToggle">
@@ -502,7 +527,7 @@
               <input id="crossLanguageCheckbox" type="checkbox" />
               <span id="crossLanguageIcon" aria-hidden="true"></span>
               Redirect non-English Fandom/Fextralife wikis to
-                English wikis when no same-language wiki exists
+              English wikis when no same-language wiki exists
             </label>
           </div>
         </fieldset>
@@ -532,27 +557,31 @@
           <span class="text-sm">When visiting a Fandom or Fextralife wiki that has an independent alternative, IWB
             can:</span>
           <div>
-            <img src="images/toggle-disabled.png" width="16" height="16" alt="" /> Do nothing
-          </div>
-          <div>
-            <img src="images/toggle-alert.png" width="16" height="16" alt="" /> Display banner
-            linking to indie wiki
-          </div>
-          <div>
-            <img src="images/toggle-redirect.png" width="16" height="16" alt="" /> Redirect to
-            indie wiki
+            <div>
+              <img src="images/toggle-disabled.png" width="16" height="16" alt="" /> Do nothing
+            </div>
+            <div>
+              <img src="images/toggle-alert.png" width="16" height="16" alt="" /> Display banner
+              linking to indie wiki
+            </div>
+            <div>
+              <img src="images/toggle-redirect.png" width="16" height="16" alt="" /> Redirect to
+              indie wiki
+            </div>
           </div>
           <span class="text-sm">When search engine results include a Fandom or Fextralife wiki that has an independent
             alternative, IWB can:</span>
           <div>
-            <img src="images/toggle-disabled.png" width="16" height="16" alt="" /> Do nothing
-          </div>
-          <div>
-            <img src="images/toggle-replace.png" width="16" height="16" alt="" /> Replace result with link
-            to indie wiki
-          </div>
-          <div>
-            <img src="images/toggle-hide.png" width="16" height="16" alt="" /> Hide the result
+            <div>
+              <img src="images/toggle-disabled.png" width="16" height="16" alt="" /> Do nothing
+            </div>
+            <div>
+              <img src="images/toggle-replace.png" width="16" height="16" alt="" /> Replace result with link
+              to indie wiki
+            </div>
+            <div>
+              <img src="images/toggle-hide.png" width="16" height="16" alt="" /> Hide the result
+            </div>
           </div>
         </fieldset>
         <div id="langSelectContainer">
@@ -583,34 +612,33 @@
               <span>Click icon to set all wikis in column:</span>
               <div class="inputsContainer">
                 <div>
-                  <button id="setAllDisabled" type="button" data-title="Do nothing when visiting non-indie wiki">
-                    <img src="images/toggle-disabled.png" width="18" alt="" />
+                  <button id="setAllDisabled" type="button" data-title="Do nothing when visiting non-indie wiki"
+                    aria-label="Do nothing when visiting non-indie wiki">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllAlert" type="button" data-title="Show banner when indie wiki is available">
-                    <img src="images/toggle-alert.png" width="18" alt="" />
+                  <button id="setAllAlert" type="button" data-title="Show banner when indie wiki is available"
+                    aria-label="Show banner when indie wiki is available">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllRedirect" type="button" data-title="Automatically redirect to indie wiki">
-                    <img src="images/toggle-redirect.png" width="18" alt="Automatically redirect to indie wiki" />
+                  <button id="setAllRedirect" type="button" data-title="Automatically redirect to indie wiki"
+                    aria-label="Automatically redirect to indie wiki">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllSearchEngineDisabled" type="button" data-title="Do nothing on search engines">
-                    <img src="images/toggle-disabled.png" width="18" alt="" />
+                  <button id="setAllSearchEngineDisabled" type="button" data-title="Do nothing on search engines"
+                    aria-label="Do nothing on search engines">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllSearchEngineReplace" type="button" data-title="Replace non-indie search results">
-                    <img src="images/toggle-replace.png" width="18" alt="" />
+                  <button id="setAllSearchEngineReplace" type="button" data-title="Replace non-indie search results"
+                    aria-label="Replace non-indie search results">
                   </button>
                 </div>
                 <div>
                   <button id="setAllSearchEngineHide" type="button"
                     data-title="Hide non-indie wiki from search results">
-                    <img src="images/toggle-hide.png" width="18" alt="" />
                   </button>
                 </div>
               </div>
@@ -623,33 +651,33 @@
             <div class="inputsContainer">
               <div>
                 <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled"
-                  title="Do nothing" />
+                  aria-label="Do nothing" />
                 <label data-title="Do nothing when visiting non-indie wiki"
                   for="defaultWikiActionDisabledRadio"></label>
               </div>
               <div>
                 <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert"
-                  title="Display banner linking to indie wiki" />
+                  aria-label="Display banner linking to indie wiki" />
                 <label data-title="Show banner when indie wiki is available" for="defaultWikiActionAlertRadio"></label>
               </div>
               <div>
                 <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect"
-                  title="Redirect to indie wiki" />
+                  aria-label="Redirect to indie wiki" />
                 <label data-title="Automatically redirect to indie wiki" for="defaultWikiActionRedirectRadio"></label>
               </div>
               <div>
                 <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled"
-                  title="Do nothing" />
+                  aria-label="Do nothing" />
                 <label data-title="Do nothing on search engines" for="defaultSearchActionDisabledRadio"></label>
               </div>
               <div>
                 <input id="defaultSearchActionReplaceRadio" type="radio" name="defaultSearchAction" value="replace"
-                  title="Replace non-indie results" />
+                  aria-label="Replace non-indie results" />
                 <label data-title="Replace non-indie search results" for="defaultSearchActionReplaceRadio"></label>
               </div>
               <div>
                 <input id="defaultSearchActionHideRadio" type="radio" name="defaultSearchAction" value="hide"
-                  title="Hide non-indie results" />
+                  aria-label="Hide non-indie results" />
                 <label data-title="Hide non-indie wiki from search results" for="defaultSearchActionHideRadio"></label>
               </div>
             </div>
