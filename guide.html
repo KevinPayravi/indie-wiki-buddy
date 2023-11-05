@@ -1,200 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
-    <link rel="icon" href="images/logo.png" />
-    <title>Indie Wiki Buddy settings</title>
-    <style>
-      /* ELEMENTS */
-      body {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #2b2a33;
-        font-family: Helvetica, Sans-Serif;
-        font-size: .9em;
-      }
 
-      a {
-        text-decoration-style: dotted;
-        text-decoration-thickness: 1px;
-        color: #005799;
-      }
-      a:visited {
-        color: #005799;
-      }
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <link rel="icon" href="images/logo.png" />
+  <title>Indie Wiki Buddy settings</title>
+  <style>
+    /* ELEMENTS */
+    body {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #2b2a33;
+      font-family: Helvetica, Sans-Serif;
+      font-size: .9em;
+    }
 
-      hr {
-        height: 1px;
-        border: none;
-        color: #005799;
-        background-color: #005799;
-        margin: .5em 0px;
-      }
+    a {
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+      color: #005799;
+    }
 
-      h1 {
-        font-size: 1.3rem;
-        padding: .5em 0;
-        margin: 0;
-      }
-      h2 {
-        font-size: 1.2rem;
-        text-align: center;
-        padding: .8em;
-        margin: 0;
-      }
+    a:visited {
+      color: #005799;
+    }
 
-      p {
-        margin: 1em;
-      }
+    hr {
+      height: 1px;
+      border: none;
+      color: #005799;
+      background-color: #005799;
+      margin: .5em 0px;
+    }
 
-      ul {
-        list-style-type: none;
-        margin: 1em 1em 1em -.5em;
-      }
+    h1 {
+      font-size: 1.3rem;
+      padding: .5em 0;
+      margin: 0;
+    }
 
-      .container {
-        background: #fff;
-      }
+    h2 {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: .5em 0 0 0;
+      margin: 0;
+    }
 
-      /* HEADER */
-      #header {
-        line-height: 1.5em;
-        padding: .5em 1em;
-        box-sizing: border-box; 
-        background-color: #005799;
-        color: #fff;
-        width: 100%;
-      }
+    p {
+      margin: 1em;
+    }
 
-      #links {
-        background-color: #e5f4ff;
-        padding: .5em 1em;
-      }
+    ul {
+      list-style-type: none;
+      margin: 1em 1em 1em -.5em;
+    }
 
-      /* CONTENT */
-      #content {
-        background-color: #fff;
-        box-sizing: border-box;
-        padding-bottom: 1.5em;
-      }
-    </style>
-  </head>
+    .container {
+      background: #fff;
+    }
 
-  <body>
-    <div id="container">
-      <div id="header">
-        <h1>Indie Wiki Buddy guide</h1>
-      </div>
-      <div id="links">
-        <a
-          href="settings.html"
-          >⇦ Back to Settings</a
-        >
-      </div>
-      <div id="content">
-        <h2>Overview</h2>
-        <p>
-          Indie Wiki Buddy provides a suite of features to help you discover independent wikis and improve your general wiki reading experience.
-          <br /><br />
-          When you visit a wiki on a large, corporate-run wiki host, this extension can notify or automatically redirect you to quality independent wikis when they're available.
-          Search results in Google, Bing, DuckDuckGo, Yahoo, Brave Search, Ecosia, and Startpage can also be filtered,
-          replacing non-independent wikis with links to independent counterpart (or hiding them completely).
-          <br /><br />
-          We currently redirect from Fandom and Fextralife wikis to independent counterparts.
-          <br /><br />
-          Indie Wiki Buddy also supports <a href="https://breezewiki.com/">BreezeWiki</a>, a separate service that renders Fandom wikis without ads or bloat.
-          This helps give you a more enjoyable reading experience when an independent wiki isn't available.
-          <br /><br />
-          All these features can be toggled on or off, and you can set your preferences per-wiki as well. You're in full control!
-        </p>
-        <h2>Global settings help</h2>
-        <p>
-          There are three global settings options:
-        </p>
-        <ul>
-          <li>
-            <b>🔋 Extension is on/off</b>
-            <br />
-            Enable/disable all Indie Wiki Buddy functionality at the click of a button.
-          </li>
-          <br />
-          <li>
-            <b>🔔 Desktop notifications when redirected to an indie wiki or BreezeWiki</b>
-            <br />
-            When this option is enabled, you will receive a desktop notification whenever you are
-            automatically redirected to either an indie wiki or <a href="https://breezewiki.com/">BreezeWiki</a>.
-            This is on by default.
-            <br />
-            <br />
-            If you aren't getting notifications when this is enabled, check your operating system's notification
-            settings to ensure that your browser is allowed to send notifications.
-          </li>
-          <br />
-          <li>
-            <b>🌬️ Use BreezeWiki alternative frontend on Fandom</b>
-            <br />
-            This option will render Fandom wikis through <a href="https://breezewiki.com/">BreezeWiki</a>, an external service that removes clutter, simplifies the page, and removes ads.
-            Occasionally, BreezeWiki or one of its mirrors may go down; when this happens, you can simply switch to another working instance. This is off by default.
-          </li>
-        </ul>
-        <h2>Individual wiki settings help</h2>
-        <p>
-          In the individual settings section, you can configure your settings per-wiki.
-          You can refer to the legend or hover over the icons to learn what each column controls.
-        </p>
-        <p>
-          The first set of radio buttons controls what happens when you visit the listed non-indie wikis.
-        </p>
-        <ul class="no-markers">
-          <li>
-            <img src="./images/toggle-disabled.png" alt="" width="15">
-            <b>Disable</b>: You will be neither notified of nor redirected to the independent counterpart.
-            You will still be directed to BreezeWiki if it is turned on.
-          </li>
-          <li>
-            <img src="./images/toggle-redirect.png" alt="" width="15">
-            <b>Redirect</b>: Be automatically redirected to the independent counterpart.
-          </li>
-          <li>
-            <img src="./images/toggle-alert.png" alt="" width="15">
-            <b>Alert</b>: Have a display banner at the top notifying you that an independent wiki is available.
-            This will appear on both Fandom and BreezeWiki pages.
-          </li>
-        </ul>
-        <p>
-          The second set of radio buttons controls what happens to the non-indie wiki on Google, Bing, DuckDuckGo, and other search engines.
-        </p>
-        <ul class="no-markers">
-          <li>
-            <img src="./images/toggle-disabled.png" alt="" width="15">
-            <b>Disable</b>: Search engine results are not affected.
-          </li>
-          <li>
-            <img src="./images/toggle-hide.png" alt="" width="15">
-            <b>Hide</b>: Results are hidden in search engines.
-            A banner will be shown near the top of the page to inform you, and allow you to re-reveal the hidden results.
-          </li>
-          <li>
-            <img src="./images/toggle-replace.png" alt="" width="15">
-            <b>Replace</b>: The original non-indie result is disabled, and a button is injected above to take you to the indepedent wiki.
-          </li>
-        </ul>
-        <p>
-          In the table header, clicking on the icons will apply that setting to all wikis in the table.
-          In the second row, the stars represent the default settings for wikis that are added in future updates.
-          By default, all wikis will be set to alert, with search engine replacement enabled.
-        </p>
-        <h2>Have questions or feedback?</h2>
-        <p>
-          If you're stuck or have questions, please don't hesitate to get in touch via the
-          <a href="https://getindie.wiki/#contact">contact details</a>
-          at the bottom of Indie Wiki Buddy website.
-          <br /><br />
-          Suggestions for improvements to the extension are also welcome!
-        </p>
-      </div>
+    /* HEADER */
+    #header {
+      line-height: 1.5em;
+      padding: .5em 1em;
+      box-sizing: border-box;
+      background-color: #005799;
+      color: #fff;
+      width: 100%;
+    }
+
+    #links {
+      background-color: #e5f4ff;
+      padding: .5em 1em;
+    }
+
+    /* CONTENT */
+    #content {
+      background-color: #fff;
+      box-sizing: border-box;
+      padding-bottom: 1.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>Indie Wiki Buddy guide</h1>
     </div>
-  </body>
+    <div id="links">
+      <a href="settings.html">⇦ Back to Settings</a>
+    </div>
+    <div id="content">
+      <h2>Overview</h2>
+      <p>
+        Indie Wiki Buddy provides a suite of features to help you discover independent wikis and improve your general
+        wiki reading experience.
+        <br /><br />
+        When you visit a wiki on a large, corporate-run wiki host, this extension can notify or automatically redirect
+        you to quality independent wikis when they're available.
+        Search results in Google, Bing, DuckDuckGo, Yahoo, Brave Search, Ecosia, and Startpage can also be filtered,
+        replacing non-independent wikis with links to independent counterpart (or hiding them completely).
+        <br /><br />
+        We currently redirect from Fandom and Fextralife wikis to independent counterparts.
+        <br /><br />
+        Indie Wiki Buddy also supports <a href="https://breezewiki.com/">BreezeWiki</a>, a separate service that renders
+        Fandom wikis without ads or bloat.
+        This helps give you a more enjoyable reading experience when an independent wiki isn't available.
+        <br /><br />
+        All these features can be toggled on or off, and you can set your preferences per-wiki as well. You're in full
+        control!
+      </p>
+      <h2>Global settings help</h2>
+      <p>
+        There are several global settings:
+      </p>
+      <ul>
+        <li>
+          <b><span aria-hidden="true">🔋</span> Extension is on/off</b>
+          <br />
+          Enable/disable all Indie Wiki Buddy functionality at the click of a button.
+        </li>
+        <br />
+        <li>
+          <b><span aria-hidden="true">🔔</span> Desktop notifications when redirected to an indie wiki or BreezeWiki</b>
+          <br />
+          When this option is enabled, you will receive a desktop notification whenever you are
+          automatically redirected to either an indie wiki or <a href="https://breezewiki.com/">BreezeWiki</a>.
+          This is on by default.
+          <br />
+          <br />
+          If you aren't getting notifications when this is enabled, check your operating system's notification
+          settings to ensure that your browser is allowed to send notifications.
+        </li>
+        <br />
+        <li>
+          <b><span aria-hidden="true">🌐</span> Redirect non-English Fandom/Fextralife wikis to English wikis when no
+            same-language wiki exists</b>
+          <br />
+          By default, Indie Wiki Buddy will keep users within the same language
+          (e.g. only redirecting Spanish Fandom wikis to Spanish indie wikis).
+          However, multilingual speakers may want to also use the many independent English wikis that are available.
+          Enabling this option will redirect from non-English Fandom/Fextralife wikis
+          to independent English wikis when one isn't available in the same language.
+        </li>
+        <br />
+        <li>
+          <b><span aria-hidden="true">🌬️</span> Use BreezeWiki alternative frontend on Fandom</b>
+          <br />
+          This option will render Fandom wikis through <a href="https://breezewiki.com/">BreezeWiki</a>, an external
+          service that removes clutter, simplifies the page, and removes ads.
+          Occasionally, BreezeWiki or one of its mirrors may go down; when this happens, you can simply switch to
+          another working instance. This is off by default.
+        </li>
+      </ul>
+      <h2>Individual wiki settings help</h2>
+      <p>
+        In the individual settings section of the <a href="settings.html" target="_blank">settings</a> page, you can
+        configure your settings per-wiki.
+        You can refer to the legend or hover over the icons to learn what each column controls.
+      </p>
+      <p>
+        The first set of radio buttons controls what happens when you visit the listed non-indie wikis.
+      </p>
+      <ul class="no-markers">
+        <li>
+          <img src="./images/toggle-disabled.png" alt="" width="15">
+          <b>Disable</b>: You will be neither notified of nor redirected to the independent counterpart.
+          You will still be directed to BreezeWiki if it is turned on.
+        </li>
+        <li>
+          <img src="./images/toggle-redirect.png" alt="" width="15">
+          <b>Redirect</b>: Be automatically redirected to the independent counterpart.
+        </li>
+        <li>
+          <img src="./images/toggle-alert.png" alt="" width="15">
+          <b>Alert</b>: Have a display banner at the top notifying you that an independent wiki is available.
+          This will appear on both Fandom and BreezeWiki pages.
+        </li>
+      </ul>
+      <p>
+        The second set of radio buttons controls what happens to the non-indie wiki on Google, Bing, DuckDuckGo, and
+        other search engines.
+      </p>
+      <ul class="no-markers">
+        <li>
+          <img src="./images/toggle-disabled.png" alt="" width="15">
+          <b>Disable</b>: Search engine results are not affected.
+        </li>
+        <li>
+          <img src="./images/toggle-hide.png" alt="" width="15">
+          <b>Hide</b>: Results are hidden in search engines.
+          A banner will be shown near the top of the page to inform you, and allow you to re-reveal the hidden results.
+        </li>
+        <li>
+          <img src="./images/toggle-replace.png" alt="" width="15">
+          <b>Replace</b>: The original non-indie result is disabled, and a button is injected above to take you to the
+          indepedent wiki.
+        </li>
+      </ul>
+      <p>
+        In the table header, clicking on the icons will apply that setting to all wikis in the table.
+        In the second row, the stars represent the default settings for wikis that are added in future updates.
+        By default, all wikis will be set to alert, with search engine replacement enabled.
+      </p>
+      <h2>Have questions or feedback?</h2>
+      <p>
+        If you're stuck or have questions, please don't hesitate to get in touch via the
+        <a href="https://getindie.wiki/#contact">contact details</a>
+        at the bottom of Indie Wiki Buddy website.
+        <br /><br />
+        Suggestions for improvements to the extension are also welcome!
+      </p>
+    </div>
+  </div>
+</body>
+
 </html>

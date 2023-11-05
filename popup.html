@@ -58,7 +58,9 @@
     }
 
     fieldset>div {
+      display: inline-block;
       margin: .4rem .5rem;
+      width: 100%;
     }
 
     fieldset>span {
@@ -70,6 +72,11 @@
       font-weight: 600;
     }
 
+    input, label, select {
+      cursor: pointer;
+    }
+
+    /* GENERIC CONTROL CLASSES */
     .text-sm {
       font-size: .85em;
     }
@@ -78,32 +85,10 @@
       text-align: center;
     }
 
-    #openSettingsContainer {
-      width: 100%;
-      text-align: center;
-    }
-
-    #openSettings {
-      background: #3174f1;
-      border: 1px solid #333333;
-      color: #fff;
-      border-radius: 5px;
-      padding: .4em;
-      margin: .5em;
-      font-size: 1.3em;
-    }
-
-    #openSettings:hover {
-      cursor: pointer;
-      background: #ffffff;
-      border: 1px solid#3174f1;
-      color: #3174f1;
-    }
-
     /* HEADER */
     #header {
       line-height: 1.5em;
-      padding: .5em 1em;
+      padding: .3em 1em;
       box-sizing: border-box;
       background-color: #005799;
       color: #fff;
@@ -117,7 +102,7 @@
       width: fit-content;
     }
 
-    /* NOTIFICATIONS */
+    /* NOTIFICATION BANNER */
     #notificationBannerContainer {
       background-color: #f8f3d6;
       font-size: .9em;
@@ -174,11 +159,11 @@
     }
 
     #links {
-      background-color: #e5f4ff;
-      padding: .5rem 1rem 0;
+      background-color: #ceeaff;
+      padding: .5rem 1rem;
     }
 
-    /* GLOBAL SETTINGS SECTION */
+    /* SETTINGS */
     .options {
       box-sizing: border-box;
       margin-bottom: 10px;
@@ -186,40 +171,47 @@
       width: 100%;
     }
 
-    .options .settingToggleContainer:last-child {
-      padding-bottom: 0;
-    }
-
-    .options .settingToggleContainer>div {
-      line-height: 1.5rem;
+    .settingToggle {
+      cursor: pointer;
+      width: fit-content;
+      vertical-align: middle;
+      display: inline-block;
+      width: 100%;
     }
 
     .radioGroup {
       display: flex;
       flex-direction: row;
       gap: 1em;
-    }
-
-    /* GLOBAL SETTING TOGGLES */
-    .settingToggle {
-      cursor: pointer;
-      width: fit-content;
-      vertical-align: middle;
-      display: inline-block;
-    }
-
-    .settingToggle+div {
-      display: inline-block;
-    }
-
-    .settingToggle input,
-    .settingToggle label {
-      cursor: pointer;
+      line-height: 1.5rem;
     }
 
     #breezewikiHost {
       display: none;
       padding-left: 3em;
+    }
+
+    /* SETTINGS BUTTON */
+    #openSettingsContainer {
+      width: 100%;
+      text-align: center;
+    }
+
+    #openSettings {
+      background: #3174f1;
+      border: 1px solid #333333;
+      color: #fff;
+      border-radius: 5px;
+      padding: .4em;
+      margin: .5em 0 0 0;
+      font-size: 1.3em;
+    }
+
+    #openSettings:hover {
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid#3174f1;
+      color: #3174f1;
     }
   </style>
 </head>
@@ -264,8 +256,8 @@
     <form name="options" class="options">
       <fieldset id="defaultSettings">
         <legend><span aria-hidden="true">⚙️</span> Default behaviors (apply to all current and new wikis in future updates)</legend>
-        <div class="settingToggleContainer" role="radiogroup" aria-labelledby="defaultWikiActionLabel">
-          <span id="defaultWikiActionLabel">Default behavior when visiting a Fandom/Fextralife wiki:</span>
+        <div role="radiogroup" aria-labelledby="defaultWikiActionLabel">
+          <span id="defaultWikiActionLabel">Default behavior when visiting Fandom/Fextralife wikis:</span>
           <div class="radioGroup">
             <label>
               <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled" />
@@ -284,7 +276,7 @@
             </label>
           </div>
         </div>
-        <div class="settingToggleContainer" role="radiogroup" aria-labelledby="defaultSearchActionLabel">
+        <div role="radiogroup" aria-labelledby="defaultSearchActionLabel">
           <span id="defaultSearchActionLabel">Default behavior on search engines:</span>
           <div class="radioGroup">
             <label>
@@ -305,7 +297,9 @@
           </div>
         </div>
         <div class="center">
-          View <a href="settings.html" target="_blank">all settings</a> to change behavior per-wiki.
+          Visit <a href="settings.html" target="_blank">all settings</a> to change behavior per-wiki.
+          <br />
+          Clicking an option above will override any per-wiki customizations you may have.
         </div>
       </fieldset>
       <fieldset id="generalSettings">
@@ -350,10 +344,6 @@
       <button id="openSettings">
         View All Settings
       </button>
-      <br />
-      <span class="text-sm">
-        View all settings to configure your options per-wiki.
-      </span>
     </div>
   </div>
 </body>
