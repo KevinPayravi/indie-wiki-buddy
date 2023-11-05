@@ -666,8 +666,9 @@ async function migrateData() {
     chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
   });
 
-  // Remove old siteSettings object:
+  // Remove old objects:
   chrome.storage.sync.remove('siteSettings');
+  chrome.storage.sync.remove('defaultActionSettings');
 }
 
 // Main function that runs on-load
