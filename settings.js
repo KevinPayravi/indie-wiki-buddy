@@ -147,7 +147,11 @@ async function loadOptions(lang) {
   sites = await getData();
 
   // Sort sites alphabetically by destination
-  sites.sort((a, b) => a.destination.localeCompare(b.destination));
+  sites.sort((a, b) => {
+    a = a.destination.toLowerCase().replace(' ', '');
+    b = b.destination.toLowerCase().replace(' ', '');
+    return a < b ? -1 : (a > b ? 1 : 0);
+  });
 
   chrome.storage.local.get(function (localStorage) {
     chrome.storage.sync.get(function (syncStorage) {
