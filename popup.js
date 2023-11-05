@@ -30,7 +30,7 @@ async function loadBreezeWikiOptions() {
         }).then((breezewikiHosts) => {
           breezewikiHosts = breezewikiHosts.filter(host =>
             chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
-              undefined, 
+              undefined,
               { numeric: true, sensitivity: 'base' }
             ) >= 0
           );
@@ -59,7 +59,7 @@ async function loadBreezeWikiOptions() {
             let option = document.createElement('option');
             option.value = breezewikiHosts[i].instance;
             let textContent = breezewikiHosts[i].instance.replace('https://', '');
-            const numberOfPeriods = (textContent.match(/\./g)||[]).length;
+            const numberOfPeriods = (textContent.match(/\./g) || []).length;
             if (numberOfPeriods > 1) {
               textContent = textContent.substring(textContent.indexOf('.') + 1);
             }
@@ -78,7 +78,7 @@ async function loadBreezeWikiOptions() {
 
           // If fetch fails and no host is set, default to breezewiki.com:
           if (!host) {
-            chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+            chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
           }
         });
     } else {
@@ -96,7 +96,7 @@ async function loadBreezeWikiOptions() {
         let option = document.createElement('option');
         option.value = hostOptions[i].instance;
         let textContent = hostOptions[i].instance.replace('https://', '');
-        const numberOfPeriods = (textContent.match(/\./g)||[]).length;
+        const numberOfPeriods = (textContent.match(/\./g) || []).length;
         if (numberOfPeriods > 1) {
           textContent = textContent.substring(textContent.indexOf('.') + 1);
         }
@@ -148,6 +148,22 @@ function setNotifications(setting, storeSetting = true) {
   }
 }
 
+// Set cross-language setting
+function setCrossLanguage(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'crossLanguage': setting });
+  }
+
+  const crossLanguageIcon = document.getElementById('crossLanguageIcon');
+  if (setting === 'on') {
+    document.getElementById('crossLanguageCheckbox').checked = true;
+    crossLanguageIcon.innerText = '🌐';
+  } else {
+    document.getElementById('crossLanguageCheckbox').checked = false;
+    crossLanguageIcon.innerText = '⚪️';
+  }
+}
+
 // Set BreezeWiki settings
 function setBreezeWiki(setting, storeSetting = true) {
   if (storeSetting) {
@@ -172,7 +188,7 @@ function setBreezeWiki(setting, storeSetting = true) {
           }).then((breezewikiHosts) => {
             breezewikiHosts = breezewikiHosts.filter(host =>
               chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
-                undefined, 
+                undefined,
                 { numeric: true, sensitivity: 'base' }
               ) >= 0
             );
@@ -197,7 +213,7 @@ function setBreezeWiki(setting, storeSetting = true) {
 
             // If fetch fails and no host is set, default to breezewiki.com:
             if (!host) {
-              chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+              chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
             }
           });
       } else {
@@ -210,7 +226,7 @@ function setBreezeWiki(setting, storeSetting = true) {
 }
 
 // Main function that runs on-load
-document.addEventListener('DOMContentLoaded', function () {  
+document.addEventListener('DOMContentLoaded', function () {
   // If running Chromium, show warning about service worker bug
   if (navigator.userAgent.match(/Chrom[e|ium]/)) {
     const notificationBannerChromeBug = document.getElementById('notificationBannerChromeBug');
@@ -245,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Listener for settings page in new tab:
   document.getElementById('openSettings').addEventListener('click', function () {
-    chrome.tabs.create({'url': chrome.runtime.getURL('settings.html')});
+    chrome.tabs.create({ 'url': chrome.runtime.getURL('settings.html') });
     window.close();
   });
 
@@ -256,11 +272,14 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
     setNotifications(item.notifications, false);
   });
+  chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
+    setCrossLanguage(item.crossLanguage, false);
+  });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
 
     // Load BreezeWiki options if BreezeWiki is enabled
-    if(item.breezewiki === 'on') {
+    if (item.breezewiki === 'on') {
       loadBreezeWikiOptions();
     }
   });
@@ -284,7 +303,15 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-
+  document.getElementById('crossLanguageCheckbox').addEventListener('change', function () {
+    chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
+      if (item.crossLanguage === 'on') {
+        setCrossLanguage('off');
+      } else {
+        setCrossLanguage('on');
+      }
+    });
+  });
   document.getElementById('breezewikiCheckbox').addEventListener('change', function () {
     chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
       if (item.breezewiki === 'on') {

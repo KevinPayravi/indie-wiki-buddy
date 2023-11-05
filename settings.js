@@ -525,6 +525,22 @@ function setNotifications(setting, storeSetting = true) {
   }
 }
 
+// Set cross-language setting
+function setCrossLanguage(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'crossLanguage': setting });
+  }
+
+  const crossLanguageIcon = document.getElementById('crossLanguageIcon');
+  if (setting === 'on') {
+    document.getElementById('crossLanguageCheckbox').checked = true;
+    crossLanguageIcon.innerText = '🌐';
+  } else {
+    document.getElementById('crossLanguageCheckbox').checked = false;
+    crossLanguageIcon.innerText = '⚪️';
+  }
+}
+
 // Set BreezeWiki settings
 function setBreezeWiki(setting, storeSetting = true) {
   if (storeSetting) {
@@ -744,6 +760,9 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
     setNotifications(item.notifications, false);
   });
+  chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
+    setCrossLanguage(item.crossLanguage, false);
+  });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
   });
@@ -764,6 +783,15 @@ document.addEventListener('DOMContentLoaded', function () {
         setNotifications('off');
       } else {
         setNotifications('on');
+      }
+    });
+  });
+  document.getElementById('crossLanguageCheckbox').addEventListener('change', function () {
+    chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
+      if (item.crossLanguage === 'on') {
+        setCrossLanguage('off');
+      } else {
+        setCrossLanguage('on');
       }
     });
   });

@@ -1,273 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
-    <title>Indie Wiki Buddy</title>
-    <style>
-      /* ELEMENTS */
-      html {
-        max-width: 600px;
-      }
-      body {
-        width: max-content;
-        max-width: min(100%, 600px);
-        background-color: #005799;
-        margin: 0px;
-        font-family: Helvetica, Sans-Serif;
-        font-size: .9em;
-      }
 
-      a {
-        text-decoration-style: dotted;
-        text-decoration-thickness: 1px;
-        color: #005799;
-      }
-      a:visited {
-        color: #005799;
-      }
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <title>Indie Wiki Buddy</title>
+  <style>
+    /* ELEMENTS */
+    html {
+      max-width: 600px;
+    }
 
-      h1 {
-        font-size: 1.3rem;
-        margin: 8px 0;
-      }
+    body {
+      width: max-content;
+      max-width: min(100%, 600px);
+      background-color: #005799;
+      margin: 0px;
+      font-family: Helvetica, Sans-Serif;
+      font-size: .9em;
+    }
 
-      hr {
-        height: 1px;
-        border: none;
-        color: #005799;
-        background-color: #005799;
-        margin: 1em 0;
-      }
+    a {
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+      color: #005799;
+    }
 
-      #openSettingsContainer {
-        width: 100%;
-        text-align: center;
-      }
-      #openSettings {
-        background: #3174f1;
-        border: 1px solid #333333;
-        color: #fff;
-        border-radius: 5px;
-        padding: .5em;
-        margin: 0 .5em .5em .5em;
-        font-size: 1.3em;
-      }
-      #openSettings:hover {
-        cursor: pointer;
-        background: #ffffff;
-        border: 1px solid#3174f1;
-        color: #3174f1;
-      }
+    a:visited {
+      color: #005799;
+    }
 
-      /* HEADER */
-      #header {
-        line-height: 1.5em;
-        padding: .5em 1em;
-        box-sizing: border-box; 
-        background-color: #005799;
-        color: #fff;
-        width: 100%;
-      }
-      #header .settingToggle label {
-        background-color: #fff;
-        border-radius: 20px;
-        height: fit-content;
-        width: fit-content;
-      }
+    h1 {
+      font-size: 1.3rem;
+      margin: 8px 0;
+    }
 
-      /* NOTIFICATIONS */
-      #notificationBannerContainer {
-        background-color: #f8f3d6;
-        font-size: .9em;
-        line-height: 1.3em;
-      }
-      #notificationBannerContainer span {
-        padding: 1em;
-        display: none;
-      }
-      #notificationBannerContainer span ~ span[style] {
-        border-top: 1px solid #005799;
-      }
+    hr {
+      height: 1px;
+      border: none;
+      color: #005799;
+      background-color: #005799;
+      margin: 1em 0;
+    }
 
-      /* POWER TOGGLE */
-      #power {
-        cursor: pointer;
-        width: fit-content;
-        vertical-align: middle;
-        float: right;
-        padding-top: .2em;
-      }
-      #power > label {
-        display: inline-block;
-        cursor: pointer;
-        background-color: #fff;
-        border-radius: 20px;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-      }
-      #power > input {
-        height: 0;
-        width: 0;
-        margin: 0;
-        border: none;
-        appearance: none;
-      }
-      #power img {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-      }
+    #openSettingsContainer {
+      width: 100%;
+      text-align: center;
+    }
 
-      /* CONTENT */
-      #content {
-        padding: 1em;
-        background-color: #e5f4ff;
-        box-sizing: border-box;
-      }
+    #openSettings {
+      background: #3174f1;
+      border: 1px solid #333333;
+      color: #fff;
+      border-radius: 5px;
+      padding: .5em;
+      margin: 0 .5em .5em .5em;
+      font-size: 1.3em;
+    }
 
-      #links {
-        text-align: center;
-        margin-bottom: .5em;
-      }
+    #openSettings:hover {
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid#3174f1;
+      color: #3174f1;
+    }
 
-      /* GLOBAL SETTINGS SECTION */
-      .options {
-        box-sizing: border-box;
-        margin-bottom: 10px;
-        user-select: none;
-        width: 100%;
-      }
-      .options .settingToggleContainer {
-        padding-bottom: 1em;
-      }
-      .options .settingToggleContainer:last-child {
-        padding-bottom: 0;
-      }
-      .options .settingToggleContainer > div {
-        line-height: 1.5rem;
-      }
+    /* HEADER */
+    #header {
+      line-height: 1.5em;
+      padding: .5em 1em;
+      box-sizing: border-box;
+      background-color: #005799;
+      color: #fff;
+      width: 100%;
+    }
 
-      /* GLOBAL SETTING TOGGLES */
-      .settingToggle {
-        cursor: pointer;
-        width: fit-content;
-        vertical-align: middle;
-        display: inline-block;
-      }
-      .settingToggle + div {
-        display: inline-block;
-      }
-      .settingToggle input,
-      .settingToggle label {
-        cursor: pointer;
-      }
+    #header .settingToggle label {
+      background-color: #fff;
+      border-radius: 20px;
+      height: fit-content;
+      width: fit-content;
+    }
 
-      #breezewikiHost {
-        display: none;
-        padding-left: 3em;
-        padding-top: 0.8em;
-      }
-    </style>
-  </head>
+    /* NOTIFICATIONS */
+    #notificationBannerContainer {
+      background-color: #f8f3d6;
+      font-size: .9em;
+      line-height: 1.3em;
+    }
 
-  <body>
-    <div id="header">
-      <div id="power">
-        <input id="powerCheckbox" type="checkbox" />
-        <label for="powerCheckbox">
-          <img id="powerImage" src="" alt="" width="20" />
-        </label>
-      </div>
-      <h1>Indie Wiki Buddy</h1>
+    #notificationBannerContainer span {
+      padding: 1em;
+      display: none;
+    }
+
+    #notificationBannerContainer span~span[style] {
+      border-top: 1px solid #005799;
+    }
+
+    /* POWER TOGGLE */
+    #power {
+      cursor: pointer;
+      width: fit-content;
+      vertical-align: middle;
+      float: right;
+      padding-top: .2em;
+    }
+
+    #power>label {
+      display: inline-block;
+      cursor: pointer;
+      background-color: #fff;
+      border-radius: 20px;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+
+    #power>input {
+      height: 0;
+      width: 0;
+      margin: 0;
+      border: none;
+      appearance: none;
+    }
+
+    #power img {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* CONTENT */
+    #content {
+      padding: 1em;
+      background-color: #e5f4ff;
+      box-sizing: border-box;
+    }
+
+    #links {
+      text-align: center;
+      margin-bottom: .5em;
+    }
+
+    /* GLOBAL SETTINGS SECTION */
+    .options {
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      user-select: none;
+      width: 100%;
+    }
+
+    .options .settingToggleContainer {
+      padding-bottom: 1em;
+    }
+
+    .options .settingToggleContainer:last-child {
+      padding-bottom: 0;
+    }
+
+    .options .settingToggleContainer>div {
+      line-height: 1.5rem;
+    }
+
+    /* GLOBAL SETTING TOGGLES */
+    .settingToggle {
+      cursor: pointer;
+      width: fit-content;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .settingToggle+div {
+      display: inline-block;
+    }
+
+    .settingToggle input,
+    .settingToggle label {
+      cursor: pointer;
+    }
+
+    #breezewikiHost {
+      display: none;
+      padding-left: 3em;
+      padding-top: 0.8em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <div id="power">
+      <input id="powerCheckbox" type="checkbox" />
+      <label for="powerCheckbox">
+        <img id="powerImage" src="" alt="" width="20" />
+      </label>
     </div>
-    <div id="content">
-      <div class="options">
-        <div class="settingToggleContainer">
-          <div id="notifications" class="settingToggle">
+    <h1>Indie Wiki Buddy</h1>
+  </div>
+  <div id="content">
+    <div class="options">
+      <div class="settingToggleContainer">
+        <div class="settingToggle">
+          <label>
             <input id="notificationsCheckbox" type="checkbox" />
-            <label for="notificationsCheckbox">
-              <span id="notificationsText"><span id="notificationsIcon" aria-hidden="true"></span>
-              Desktop notifications for redirections</span>
-            </label>
-          </div>
+            <span id="notificationsIcon" aria-hidden="true"></span>
+            Desktop notifications for
+              redirections
+          </label>
+        </div>
+      </div>
+      <div class="settingToggleContainer">
+        <div class="settingToggle">
+          <label>
+            <input id="crossLanguageCheckbox" type="checkbox" />
+            <span id="crossLanguageIcon" aria-hidden="true"></span>
+            Redirect non-English Fandom/Fextralife wikis to
+              English indie wikis when no same-language wiki exists
+          </label>
+        </div>
+      </div>
+      <div class="settingToggleContainer">
+        <div class="settingToggle">
+          <label>
+            <input id="breezewikiCheckbox" type="checkbox" />
+            🌬️ Use BreezeWiki on Fandom (English only)
+          </label>
+        </div>
+        <div>
+          &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank">learn more</a>)
         </div>
         <div class="settingToggleContainer">
-          <div id="breezewiki" class="settingToggle">
-            <input id="breezewikiCheckbox" type="checkbox" />
-            <label for="breezewikiCheckbox">
-              <span id="breezewikiText">🌬️ Use BreezeWiki on Fandom (English only)</span>
-            </label>
-          </div>
-          <div>
-              &nbsp;&nbsp;(<a href="https://breezewiki.com/" target="_blank"
-                >learn more</a
-              >)
-          </div>
-          <div class="settingToggleContainer">
-            <div id="breezewikiHost" class="settingToggle">
-              <label for="breezewikiHostSelect">BreezeWiki host:&nbsp;</label>
-              <select name="breezewikiHost" id="breezewikiHostSelect"></select>
-            </div>
+          <div id="breezewikiHost" class="settingToggle">
+            <label for="breezewikiHostSelect">BreezeWiki host:&nbsp;</label>
+            <select name="breezewikiHost" id="breezewikiHostSelect"></select>
           </div>
         </div>
       </div>
-      <hr/>
-      <div id="openSettingsContainer">
-        <button id="openSettings">
-          View All Settings
-        </button>
-        <br />
-        View all settings to configure your options per-wiki.
-      </div>
-      <hr />
-      <div id="links">
-        <a
-          href="guide.html"
-          target="_blank"
-          >Guide</a
-        >
-        &nbsp;&nbsp;&nbsp;
-        <a
-          href="https://getindie.wiki/#guide"
-          target="_blank"
-          >Website</a
-        >
-        &nbsp;&nbsp;&nbsp;
-        <a
-          href="https://getindie.wiki/changelog/"
-          target="_blank"
-          >Changelog</a
-        >
-        &nbsp;&nbsp;&nbsp;
-        <a
-          href="https://getindie.wiki/#submit"
-          target="_blank"
-          >Submit a Wiki</a
-        >
-        &nbsp;&nbsp;&nbsp;
-        <a
-          href="https://github.com/KevinPayravi/indie-wiki-buddy"
-          target="_blank"
-          >Source Code</a
-        >
-      </div>
     </div>
-    <div id="notificationBannerContainer">
-      <span id="notificationBannerChromeBug">
-        Chromium users: Due to a <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1271154" target="_blank">browser bug</a>,
-        this extension may stop working after an update. If this happens, try turning the extension off
-        and on via your browser's extension settings (chrome://extensions/).
-        <a id="chromeBugHideLink" href="#">Hide this message</a>
-      </span>
-      <span id="notificationBannerOpera">
-        Opera users: By default, Opera will block extensions from running on search engines.
-        Search engine access can be enabled per-extension by going to "about:extensions"
-        and selecting the "Allow access to search page results" option under Indie Wiki Buddy.
-        <a id="operaPermsHideLink" href="#">Hide this message</a>
-      </span>
+    <hr />
+    <div id="openSettingsContainer">
+      <button id="openSettings">
+        View All Settings
+      </button>
+      <br />
+      View all settings to configure your options per-wiki.
     </div>
-  </body>
-  <script type="text/javascript" src="popup.js"></script>
+    <hr />
+    <div id="links">
+      <a href="guide.html" target="_blank">Guide</a>
+      &nbsp;&nbsp;&nbsp;
+      <a href="https://getindie.wiki/#guide" target="_blank">Website</a>
+      &nbsp;&nbsp;&nbsp;
+      <a href="https://getindie.wiki/changelog/" target="_blank">Changelog</a>
+      &nbsp;&nbsp;&nbsp;
+      <a href="https://getindie.wiki/#submit" target="_blank">Submit a Wiki</a>
+      &nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source Code</a>
+    </div>
+  </div>
+  <div id="notificationBannerContainer">
+    <span id="notificationBannerChromeBug">
+      Chromium users: Due to a <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1271154"
+        target="_blank">browser bug</a>,
+      this extension may stop working after an update. If this happens, try turning the extension off
+      and on via your browser's extension settings (chrome://extensions/).
+      <a id="chromeBugHideLink" href="#">Hide this message</a>
+    </span>
+    <span id="notificationBannerOpera">
+      Opera users: By default, Opera will block extensions from running on search engines.
+      Search engine access can be enabled per-extension by going to "about:extensions"
+      and selecting the "Allow access to search page results" option under Indie Wiki Buddy.
+      <a id="operaPermsHideLink" href="#">Hide this message</a>
+    </span>
+  </div>
+</body>
+<script type="text/javascript" src="popup.js"></script>
+
 </html>

@@ -1,9 +1,11 @@
 // Capture web requests
 chrome.webRequest.onBeforeSendHeaders.addListener(
   function (event) {
-    main(event);
+    if (event.documentLifecycle !== 'prerender') {
+      main(event);
+    }
   },
-  { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*'], types: ['main_frame'] }
+  { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*'], types: ['main_frame', 'sub_frame'] }
 );
 
 // Listen for user turning extension on or off, to update icon
@@ -324,98 +326,104 @@ async function getData() {
 
 async function main(eventInfo) {
   // Store tab URL and remove any search parameters and section anchors
-  const url = new URL(eventInfo.url.replace(/(\?|#).*/i, ''));
-
-  // Check for Fandom or Fextralife in hostname and quit early if not
-  if (eventInfo.documentLifecycle !== 'prerender') {
-    // Create object prototypes for getting and setting attributes
-    Object.prototype.get = function (prop) {
-      this[prop] = this[prop] || {};
-      return this[prop];
-    };
-    Object.prototype.set = function (prop, value) {
-      this[prop] = value;
-    }
-
-    // Check if tab is actually available
-    // This is mainly to prevent background processes from triggering an event
-    let sites = [];
-
-    sites = await getData();
-
-    chrome.storage.local.get(function (localStorage) {
-      chrome.storage.sync.get(function (syncStorage) {
-        const storage = { ...syncStorage, ...localStorage };
-        if ((storage.power ?? 'on') === 'on') {
-          // Check if site is in our list of wikis:
-          let matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
-          if (matchingSites.length > 0) {
-            // Select match with longest base URL 
-            let closestMatch = "";
-            matchingSites.forEach(site => {
-              if (site.origin_base_url.length > closestMatch.length) {
-                closestMatch = site.origin_base_url;
-              }
-            });
-            let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-            if (site) {
-              // Get user's settings for the wiki
-              let settings = storage.wikiSettings || {};
-              let id = site['id'];
-              let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
-              // Check if redirects are enabled for the site
-              if (siteSetting === 'redirect') {
-                // Get article name from the end of the URL;
-                // We can't just take the last part of the path due to subpages;
-                // Instead, we take everything after the wiki's base URL + content path
-                let article = url.href.split(site['origin_base_url'] + site['origin_content_path'])[1];
-                // Set up URL to redirect user to based on wiki platform
-                if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
-                  let newURL = '';
-                  if (article) {
-                    let searchParams = '';
-                    switch (site['destination_platform']) {
-                      case 'mediawiki':
-                        searchParams = 'Special:Search/' + site['destination_content_prefix'] + article;
-                        break;
-                      case 'doku':
-                        searchParams = 'start?do=search&q=' + article;
-                        break;
-                    }
-                    newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
-                  } else {
-                    newURL = 'https://' + site["destination_base_url"];
-                  }
-
-                  // Perform redirect
-                  chrome.tabs.update(eventInfo.tabId, { url: newURL });
-
-                  // Increase redirect count
-                  chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
-
-                  // Notify if enabled
-                  if ((storage.notifications ?? 'on') === 'on') {
-                    // Notify that user is being redirected
-                    let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
-                    chrome.notifications.create(notifID, {
-                      "type": "basic",
-                      "iconUrl": 'images/logo-48.png',
-                      "title": "You've been redirected!",
-                      "message": "Indie Wiki Buddy has sent you from " + site['origin'] + " to " + site['destination']
-                    });
-                    // Self-clear notification after 6 seconds
-                    setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
-                  }
-                }
-              } else if ((storage.breezewiki ?? 'off') === 'on') {
-                redirectToBreezeWiki(storage, eventInfo, url);
-              }
-            }
-          } else if ((storage.breezewiki ?? 'off') === 'on') {
-            redirectToBreezeWiki(storage, eventInfo, url);
-          }
-        }
-      });
-    });
+  let url = '';
+  if (eventInfo.type === 'main_frame') {
+    url = new URL(eventInfo.url.replace(/(\?|#).*/i, ''));
+  } else {
+    url = new URL(eventInfo.initiator);
   }
+
+  // Create object prototypes for getting and setting attributes
+  Object.prototype.get = function (prop) {
+    this[prop] = this[prop] || {};
+    return this[prop];
+  };
+  Object.prototype.set = function (prop, value) {
+    this[prop] = value;
+  }
+
+  // Check if tab is actually available
+  // This is mainly to prevent background processes from triggering an event
+  let sites = [];
+
+  sites = await getData();
+
+  chrome.storage.local.get(function (localStorage) {
+    chrome.storage.sync.get(function (syncStorage) {
+      const storage = { ...syncStorage, ...localStorage };
+      if ((storage.power ?? 'on') === 'on') {
+        let crossLanguageSetting = storage.crossLanguage || 'off';
+        // Check if site is in our list of wikis:
+        let matchingSites = [];
+        if (crossLanguageSetting === 'on') {
+          matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+        } else {
+          matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
+        }
+        if (matchingSites.length > 0) {
+          // Select match with longest base URL 
+          let closestMatch = "";
+          matchingSites.forEach(site => {
+            if (site.origin_base_url.length > closestMatch.length) {
+              closestMatch = site.origin_base_url;
+            }
+          });
+          let site = matchingSites.find(site => site.origin_base_url === closestMatch);
+          if (site) {
+            // Get user's settings for the wiki
+            let settings = storage.wikiSettings || {};
+            let id = site['id'];
+            let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
+            // Check if redirects are enabled for the site
+            if (siteSetting === 'redirect') {
+              // Get article name from the end of the URL;
+              // We can't just take the last part of the path due to subpages;
+              // Instead, we take everything after the wiki's base URL + content path
+              let article = url.href.split(site['origin_base_url'] + site['origin_content_path'])[1];
+              // Set up URL to redirect user to based on wiki platform
+              let newURL = '';
+              if (article) {
+                let searchParams = '';
+                switch (site['destination_platform']) {
+                  case 'mediawiki':
+                    searchParams = 'Special:Search/' + site['destination_content_prefix'] + article;
+                    break;
+                  case 'doku':
+                    searchParams = 'start?do=search&q=' + article;
+                    break;
+                }
+                newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+              } else {
+                newURL = 'https://' + site["destination_base_url"];
+              }
+
+              // Perform redirect
+              chrome.tabs.update(eventInfo.tabId, { url: newURL });
+
+              // Increase redirect count
+              chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
+
+              // Notify if enabled
+              if ((storage.notifications ?? 'on') === 'on') {
+                // Notify that user is being redirected
+                let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
+                chrome.notifications.create(notifID, {
+                  "type": "basic",
+                  "iconUrl": 'images/logo-48.png',
+                  "title": "You've been redirected!",
+                  "message": "Indie Wiki Buddy has sent you from " + site['origin'] + " to " + site['destination']
+                });
+                // Self-clear notification after 6 seconds
+                setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
+              }
+            } else if ((storage.breezewiki ?? 'off') === 'on') {
+              redirectToBreezeWiki(storage, eventInfo, url);
+            }
+          }
+        } else if ((storage.breezewiki ?? 'off') === 'on') {
+          redirectToBreezeWiki(storage, eventInfo, url);
+        }
+      }
+    });
+  });
 }

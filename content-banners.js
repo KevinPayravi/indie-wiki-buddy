@@ -42,7 +42,7 @@ async function getData() {
   return sites;
 }
 
-function displayRedirectBanner(url, id, destination, storage) {
+function displayRedirectBanner(origin, newUrl, id, destinationName, destinationLanguage, storage) {
   // Output CSS
   styleString = `
     #indie-wiki-banner {
@@ -184,12 +184,16 @@ function displayRedirectBanner(url, id, destination, storage) {
   var bannerText = document.createElement('span');
   bannerText.classList.add('indie-wiki-banner-big-text');
   banner.appendChild(bannerText);
-  bannerText.textContent = 'There is an independent wiki covering this topic!';
+  if (destinationLanguage === 'EN' && origin.href.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
+    bannerText.textContent = 'There is an independent wiki covering this topic in English!';
+  } else {
+    bannerText.textContent = 'There is an independent wiki covering this topic!';
+  }
   var bannerWikiLink = document.createElement('a');
   bannerWikiLink.classList.add('indie-wiki-banner-link');
   bannerText.appendChild(bannerWikiLink);
-  bannerWikiLink.href = url;
-  bannerWikiLink.textContent = 'Visit ' + destination + ' →';
+  bannerWikiLink.href = newUrl;
+  bannerWikiLink.textContent = 'Visit ' + destinationName + ' →';
 
   // Function to insert banner into DOM before body element
   function addBannerToDOM() {
@@ -237,11 +241,18 @@ function main() {
             }
           }
           getData().then(sites => {
+            let crossLanguageSetting = storage.crossLanguage || 'off';
             // Check if site is in our list of wikis:
-            let matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+            // let matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+            let matchingSites = [];
+            if (crossLanguageSetting === 'on') {
+              matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+            } else {
+              matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
+            }
             if (matchingSites.length > 0) {
               // Select match with longest base URL 
-              let closestMatch = "";
+              let closestMatch = '';
               matchingSites.forEach(site => {
                 if (site.origin_base_url.length > closestMatch.length) {
                   closestMatch = site.origin_base_url;
@@ -250,46 +261,44 @@ function main() {
               let site = matchingSites.find(site => site.origin_base_url === closestMatch);
               if (site) {
                 // Get user's settings for the wiki
-                let settings = storage.wikiSettings || {};
                 let id = site['id'];
+                let settings = storage.wikiSettings || {};
                 let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
                 // Notify if enabled for the wiki:
                 if (siteSetting === 'alert') {
                   // Get article name from the end of the URL;
                   // We can't just take the last part of the path due to subpages;
                   // Instead, we take everything after the wiki's base URL + content path:
-                  let article = String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1];
+                  let article = String(origin).split(site['origin_content_path'])[1];
                   // Set up URL to redirect user to based on wiki platform:
-                  if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
-                    let newURL = '';
-                    if (article) {
-                      let searchParams = '';
-                      switch (site['destination_platform']) {
-                        case 'mediawiki':
-                          searchParams = 'Special:Search/' + site['destination_content_prefix'] + article;
-                          break;
-                        case 'doku':
-                          searchParams = 'start?do=search&q=' + article;
-                          break;
-                      }
-                      newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams.replaceAll('+', '_');
-                      // We replace plus signs with underscores since Fextralife uses pluses instead of spaces/underscores
-                    } else {
-                      newURL = 'https://' + site["destination_base_url"];
+                  let newURL = '';
+                  if (article) {
+                    let searchParams = '';
+                    switch (site['destination_platform']) {
+                      case 'mediawiki':
+                        searchParams = 'Special:Search/' + site['destination_content_prefix'] + article;
+                        break;
+                      case 'doku':
+                        searchParams = 'start?do=search&q=' + article;
+                        break;
                     }
-                    // When head elem is loaded, notify that another wiki is available
-                    const docObserver = new MutationObserver(function (mutations, mutationInstance) {
-                      const headElement = document.querySelector('head');
-                      if (headElement) {
-                        displayRedirectBanner(newURL, site['id'], site['destination'], storage);
-                        mutationInstance.disconnect();
-                      }
-                    });
-                    docObserver.observe(document, {
-                      childList: true,
-                      subtree: true
-                    });
+                    newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams.replaceAll('+', '_');
+                    // We replace plus signs with underscores since Fextralife uses pluses instead of spaces/underscores
+                  } else {
+                    newURL = 'https://' + site["destination_base_url"];
                   }
+                  // When head elem is loaded, notify that another wiki is available
+                  const docObserver = new MutationObserver(function (mutations, mutationInstance) {
+                    const headElement = document.querySelector('head');
+                    if (headElement) {
+                      displayRedirectBanner(origin, newURL, site['id'], site['destination'], site['lang'], storage);
+                      mutationInstance.disconnect();
+                    }
+                  });
+                  docObserver.observe(document, {
+                    childList: true,
+                    subtree: true
+                  });
                 }
               }
             }
