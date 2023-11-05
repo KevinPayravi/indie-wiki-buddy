@@ -47,10 +47,13 @@
       background-color: #f5fbff;
       border: 1px solid #ccc;
       border-radius: 5px;
-      padding: 3px 0 8px 0;
+      padding: 0 0 12px 0;
       margin: 0;
       margin-bottom: .5em;
       font-size: .9em;
+      display: flex;
+      flex-direction: column;
+      gap: .85em;
     }
 
     fieldset+fieldset {
@@ -58,9 +61,7 @@
     }
 
     fieldset>div {
-      display: inline-block;
-      margin: .4rem .5rem;
-      width: 100%;
+      margin: 0 .5rem;
     }
 
     fieldset>span {
@@ -70,6 +71,7 @@
 
     legend {
       font-weight: 600;
+      margin-bottom: .5em;
     }
 
     input, label, select {
@@ -175,8 +177,6 @@
       cursor: pointer;
       width: fit-content;
       vertical-align: middle;
-      display: inline-block;
-      width: 100%;
     }
 
     .radioGroup {
