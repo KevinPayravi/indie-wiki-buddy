@@ -32,39 +32,34 @@ async function getData() {
 async function migrateData() {
   await chrome.storage.sync.get(async (storage) => {
     if (!storage.v3migration) {
+      let defaultWikiAction = storage.defaultWikiAction || 'alert';
+      let defaultSearchAction = storage.defaultSearchAction || 'replace';
+
       // Set new default action settings:
       if (!storage.defaultWikiAction) {
         if (storage.defaultActionSettings && storage.defaultActionSettings['EN']) {
-          chrome.storage.sync.set({ 'defaultWikiAction': storage.defaultActionSettings['EN'] });
-        } else {
-          chrome.storage.sync.set({ 'defaultWikiAction': 'alert' });
+          defaultWikiAction = storage.defaultActionSettings['EN'];
         }
+        chrome.storage.sync.set({ 'defaultWikiAction': defaultWikiAction });
       }
       if (!storage.defaultSearchAction) {
         if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings['EN']) {
           if (storage.defaultSearchFilterSettings['EN'] === 'false') {
-            chrome.storage.sync.set({ 'defaultSearchAction': 'disabled' });
+            defaultSearchAction = 'disabled';
           } else {
-            chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
+            defaultSearchAction = 'replace';
           }
-        } else {
-          chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
         }
+        chrome.storage.sync.set({ 'defaultSearchAction': defaultSearchAction });
       }
 
-      // Remove old objects
+      // Remove old objects:
       chrome.storage.sync.remove('defaultActionSettings');
       chrome.storage.sync.remove('defaultSearchFilterSettings');
-    }
-  });
 
-  await chrome.storage.sync.get(async (storage) => {
-    if (!storage.v3migration) {
       // Migrate wiki settings to new searchEngineSettings and wikiSettings objects
       sites = await getData();
       let siteSettings = storage.siteSettings || {};
-      let defaultWikiAction = storage.defaultWikiAction || 'alert';
-      let defaultSearchAction = storage.defaultSearchAction || 'replace';
       let searchEngineSettings = storage.searchEngineSettings || {};
       let wikiSettings = storage.wikiSettings || {};
 
@@ -89,7 +84,7 @@ async function migrateData() {
       chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
       chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
 
-      // Remove old objects:
+      // Remove old object:
       chrome.storage.sync.remove('siteSettings');
 
       // Mark v3 migration as complete:
