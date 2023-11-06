@@ -262,7 +262,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieContainer.appendChild(indieResultLink);
     indieContainer.appendChild(resultControls);
     searchResultContainer.prepend(indieContainer);
-    
+
     return 1;
   }
   return 0;
@@ -276,7 +276,7 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
     let elementId = stringToId(site.lang + '-' + site.origin_group);
     hiddenWikisRevealed[elementId] = false;
 
-     // Using aside to avoid conflicts with website CSS and listeners:
+    // Using aside to avoid conflicts with website CSS and listeners:
     let searchRemovalNotice = document.createElement('aside');
     searchRemovalNotice.id = 'iwb-notice-' + elementId;
     searchRemovalNotice.classList.add('iwb-notice');
@@ -315,7 +315,7 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
         })
       }
     }
- 
+
     searchRemovalNotice.appendChild(resultControls);
 
     switch (searchEngine) {
@@ -552,7 +552,11 @@ function main(mutations = null, observer = null) {
           } else if (currentURL.hostname.includes('www.bing.com')) {
             // Function to filter search results in Bing
             function filterBing() {
-              let searchResults = Array.from(document.querySelectorAll('.b_attribution>cite')).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
+              let searchResults = Array.from(document.querySelectorAll('.b_attribution>cite')).filter(el =>
+                el.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '').includes('fandom.com')
+                || el.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '').includes('fextralife.com')
+              );
+              console.log(searchResults);
               filterSearchResults(searchResults, 'bing', storage);
             }
 
