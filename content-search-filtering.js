@@ -12,6 +12,8 @@ Object.prototype.set = function (prop, value) {
 }
 
 // Function to create an observer to watch for mutations on search pages
+// This is used for search engines that paginate via JavaScript,
+// or overwrite their results and remove IWB's elements
 function addLocationObserver(callback) {
   const config = {
     attributes: false,
@@ -190,7 +192,6 @@ function escapeRegex(string) {
 }
 
 function replaceSearchResults(searchResultContainer, site, link) {
-  let countFiltered = 0;
   // Build new URL:
   let article = link.split(site['origin_content_path'])[1]?.split('#')[0].split('?')[0].split('&')[0];
   let newURL = '';
@@ -214,6 +215,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
       searchResultContainer.classList.add('iwb-detected');
       searchResultContainer.classList.add('iwb-disavow');
     }
+    // Using aside to avoid conflicts with website CSS and listeners:
     let indieContainer = document.createElement('aside');
     indieContainer.classList.add('iwb-new-link-container');
     let indieResultLink = document.createElement('a');
@@ -260,13 +262,13 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieContainer.appendChild(indieResultLink);
     indieContainer.appendChild(resultControls);
     searchResultContainer.prepend(indieContainer);
-    countFiltered++;
+    
+    return 1;
   }
-  return countFiltered;
+  return 0;
 }
 
 function hideSearchResults(searchResultContainer, searchEngine, site) {
-  let countFiltered = 0;
   // Insert search result removal notice
   if (!filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
     filteredWikis.push(site.lang + ' ' + site.origin_group);
@@ -274,6 +276,7 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
     let elementId = stringToId(site.lang + '-' + site.origin_group);
     hiddenWikisRevealed[elementId] = false;
 
+     // Using aside to avoid conflicts with website CSS and listeners:
     let searchRemovalNotice = document.createElement('aside');
     searchRemovalNotice.id = 'iwb-notice-' + elementId;
     searchRemovalNotice.classList.add('iwb-notice');
@@ -370,13 +373,14 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
     let elementId = stringToId(site.lang + '-' + site.origin_group);
     searchResultContainer.classList.add('iwb-search-result-' + elementId);
     searchResultContainer.classList.add('iwb-hide');
-    countFiltered++;
+    searchResultContainer.classList.add('iwb-detected');
     if (hiddenWikisRevealed[elementId]) {
       searchResultContainer.classList.add('iwb-show');
     }
+    return 1;
   }
 
-  return countFiltered;
+  return 0;
 }
 
 function filterSearchResults(searchResults, searchEngine, storage) {
@@ -386,101 +390,104 @@ function filterSearchResults(searchResults, searchEngine, storage) {
 
     for (let searchResult of searchResults) {
       try {
-        let searchResultLink = '';
-        if (searchEngine === 'bing') {
-          searchResultLink = searchResult.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '');
-        } else {
-          searchResultLink = searchResult.closest('a[href]').href;
-        }
-        let link = String(decodeURIComponent(searchResultLink));
-
-        if (searchEngine === 'google') {
-          // Break if image result:
-          if (link.includes('imgurl=')) {
-            break;
+        // Check that result isn't within another result
+        if (!searchResult.closest('.iwb-detected')) {
+          let searchResultLink = '';
+          if (searchEngine === 'bing') {
+            searchResultLink = searchResult.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '');
+          } else {
+            searchResultLink = searchResult.closest('a[href]').href;
           }
-        }
+          let link = String(decodeURIComponent(searchResultLink));
 
-        // Check if site is in our list of wikis:
-        if (crossLanguageSetting === 'on') {
-          matchingSites = sites.filter(el => link.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
-        } else {
-          matchingSites = sites.filter(el => link.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
-        }
-        if (matchingSites.length > 0) {
-          // Select match with longest base URL 
-          let closestMatch = "";
-          matchingSites.forEach(site => {
-            if (site.origin_base_url.length > closestMatch.length) {
-              closestMatch = site.origin_base_url;
+          if (searchEngine === 'google') {
+            // Break if image result:
+            if (link.includes('imgurl=')) {
+              break;
             }
-          });
-          let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-          if (site) {
-            // Get user's settings for the wiki
-            let settings = storage.searchEngineSettings || {};
-            let id = site['id'];
-            let searchFilterSetting = '';
-            if (settings.hasOwnProperty(id) && settings[id].action) {
-              searchFilterSetting = settings[id].action;
-            } else if (storage.defaultSearchAction) {
-              searchFilterSetting = storage.defaultSearchAction;
-            } else {
-              searchFilterSetting = 'replace';
-            }
-            if (searchFilterSetting !== 'disabled') {
-              // Output stylesheet if not already done
-              if (filteredWikis.length === 0) {
-                // Wait for head to be available
-                const headElement = document.querySelector('head');
-                if (headElement && !document.querySelector('.iwb-styles')) {
-                  insertCSS();
-                } else {
-                  const docObserver = new MutationObserver(function (mutations, mutationInstance) {
-                    const headElement = document.querySelector('head');
-                    if (headElement && !document.querySelector('.iwb-styles')) {
-                      insertCSS();
-                      mutationInstance.disconnect();
-                    }
-                  });
-                  docObserver.observe(document, {
-                    childList: true,
-                    subtree: true
-                  });
+          }
+
+          // Check if site is in our list of wikis:
+          if (crossLanguageSetting === 'on') {
+            matchingSites = sites.filter(el => link.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url));
+          } else {
+            matchingSites = sites.filter(el => link.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
+          }
+          if (matchingSites.length > 0) {
+            // Select match with longest base URL 
+            let closestMatch = "";
+            matchingSites.forEach(site => {
+              if (site.origin_base_url.length > closestMatch.length) {
+                closestMatch = site.origin_base_url;
+              }
+            });
+            let site = matchingSites.find(site => site.origin_base_url === closestMatch);
+            if (site) {
+              // Get user's settings for the wiki
+              let settings = storage.searchEngineSettings || {};
+              let id = site['id'];
+              let searchFilterSetting = '';
+              if (settings.hasOwnProperty(id) && settings[id].action) {
+                searchFilterSetting = settings[id].action;
+              } else if (storage.defaultSearchAction) {
+                searchFilterSetting = storage.defaultSearchAction;
+              } else {
+                searchFilterSetting = 'replace';
+              }
+              if (searchFilterSetting !== 'disabled') {
+                // Output stylesheet if not already done
+                if (filteredWikis.length === 0) {
+                  // Wait for head to be available
+                  const headElement = document.querySelector('head');
+                  if (headElement && !document.querySelector('.iwb-styles')) {
+                    insertCSS();
+                  } else {
+                    const docObserver = new MutationObserver(function (mutations, mutationInstance) {
+                      const headElement = document.querySelector('head');
+                      if (headElement && !document.querySelector('.iwb-styles')) {
+                        insertCSS();
+                        mutationInstance.disconnect();
+                      }
+                    });
+                    docObserver.observe(document, {
+                      childList: true,
+                      subtree: true
+                    });
+                  }
                 }
-              }
 
-              let searchResultContainer = null;
-              switch (searchEngine) {
-                case 'google':
-                  searchResultContainer = searchResult.closest('div[data-hveid]');
-                  break;
-                case 'bing':
-                  searchResultContainer = searchResult.closest('li.b_algo');
-                  break;
-                case 'duckduckgo':
-                  searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
-                  break;
-                case 'brave':
-                  searchResultContainer = searchResult.closest('div.snippet');
-                  break;
-                case 'ecosia':
-                  searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
-                  break;
-                case 'startpage':
-                  searchResultContainer = searchResult.closest('div.w-gl__result');
-                  break;
-                case 'yahoo':
-                  searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
-                  break;
-                default:
-              }
+                let searchResultContainer = null;
+                switch (searchEngine) {
+                  case 'google':
+                    searchResultContainer = searchResult.closest('div[data-hveid]');
+                    break;
+                  case 'bing':
+                    searchResultContainer = searchResult.closest('li.b_algo');
+                    break;
+                  case 'duckduckgo':
+                    searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
+                    break;
+                  case 'brave':
+                    searchResultContainer = searchResult.closest('div.snippet');
+                    break;
+                  case 'ecosia':
+                    searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
+                    break;
+                  case 'startpage':
+                    searchResultContainer = searchResult.closest('div.w-gl__result');
+                    break;
+                  case 'yahoo':
+                    searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+                    break;
+                  default:
+                }
 
-              if (searchResultContainer) {
-                if (searchFilterSetting === 'hide') {
-                  countFiltered += hideSearchResults(searchResultContainer, searchEngine, site);
-                } else {
-                  countFiltered += replaceSearchResults(searchResultContainer, site, link);
+                if (searchResultContainer) {
+                  if (searchFilterSetting === 'hide') {
+                    countFiltered += hideSearchResults(searchResultContainer, searchEngine, site);
+                  } else {
+                    countFiltered += replaceSearchResults(searchResultContainer, site, link);
+                  }
                 }
               }
             }
