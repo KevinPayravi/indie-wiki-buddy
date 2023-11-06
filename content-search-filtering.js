@@ -192,7 +192,7 @@ function escapeRegex(string) {
 function replaceSearchResults(searchResultContainer, site, link) {
   let countFiltered = 0;
   // Build new URL:
-  let article = link.split(site['origin_base_url'] + site['origin_content_path'])[1]?.split('#')[0].split('?')[0].split('&')[0];
+  let article = link.split(site['origin_content_path'])[1]?.split('#')[0].split('?')[0].split('&')[0];
   let newURL = '';
   if (article) {
     let searchParams = '';
@@ -209,9 +209,12 @@ function replaceSearchResults(searchResultContainer, site, link) {
     newURL = 'https://' + site['destination_base_url'];
   }
 
-  if (searchResultContainer && !searchResultContainer.classList.contains('iwb-detected')) {
-    searchResultContainer.classList.add('iwb-detected');
-    let indieContainer = document.createElement('div');
+  if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link')) {
+    if (!searchResultContainer.classList.contains('iwb-detected')) {
+      searchResultContainer.classList.add('iwb-detected');
+      searchResultContainer.classList.add('iwb-disavow');
+    }
+    let indieContainer = document.createElement('aside');
     indieContainer.classList.add('iwb-new-link-container');
     let indieResultLink = document.createElement('a');
     indieResultLink.href = newURL;
@@ -226,19 +229,25 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (article) {
-      indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(article.replaceAll('_', ' '))) + '" on ' + site.destination;
+      if (site['lang'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
+        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(article.replaceAll('_', ' '))) + '" on ' + site.destination + ' (EN)';
+      } else {
+        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(article.replaceAll('_', ' '))) + '" on ' + site.destination;
+      }
     } else {
-      indieResultText.innerText = 'Visit ' + site.destination + ' instead';
+      if (site['lang'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
+        indieResultText.innerText = 'Visit ' + site.destination + ' (EN) instead';
+      } else {
+        indieResultText.innerText = 'Visit ' + site.destination + ' instead';
+      }
     }
     indieResultButton.append(indieResultFaviconContainer);
     indieResultButton.append(indieResultText);
     indieResultLink.appendChild(indieResultButton);
-    indieContainer.appendChild(indieResultLink);
 
     // Output container for result controls:
     let resultControls = document.createElement('div');
     resultControls.classList.add('iwb-result-controls');
-
     // Output link to re-enable disabled result:
     let enableResultButton = document.createElement('div');
     enableResultButton.innerText = 'Re-enable the result below';
@@ -251,7 +260,6 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieContainer.appendChild(indieResultLink);
     indieContainer.appendChild(resultControls);
     searchResultContainer.prepend(indieContainer);
-    searchResultContainer.classList.add('iwb-disavow');
     countFiltered++;
   }
   return countFiltered;
@@ -373,6 +381,7 @@ function hideSearchResults(searchResultContainer, searchEngine, site) {
 
 function filterSearchResults(searchResults, searchEngine, storage) {
   getData().then(sites => {
+    let crossLanguageSetting = storage.crossLanguage || 'off';
     let countFiltered = 0;
 
     for (let searchResult of searchResults) {
@@ -393,16 +402,11 @@ function filterSearchResults(searchResults, searchEngine, storage) {
         }
 
         // Check if site is in our list of wikis:
-        let matchingSites = sites.filter(el => {
-          if (link.substring(8).includes('/')) {
-            // If the URL has a path, check if an exact match with base URL or base URL + content path
-            // This is done to ensure we capture non-English Fandom wikis correctly
-            return (link === 'https://' + el.origin_base_url) || (link.includes('https://' + el.origin_base_url + el.origin_content_path));
-          } else {
-            // If URL does not have a path, just check base URL
-            return link.includes('https://' + el.origin_base_url);
-          }
-        });
+        if (crossLanguageSetting === 'on') {
+          matchingSites = sites.filter(el => link.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+        } else {
+          matchingSites = sites.filter(el => link.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
+        }
         if (matchingSites.length > 0) {
           // Select match with longest base URL 
           let closestMatch = "";
