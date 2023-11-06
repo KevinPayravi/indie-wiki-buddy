@@ -30,68 +30,72 @@ async function getData() {
 }
 
 async function migrateData() {
-  // Set new default action settings:
-  chrome.storage.sync.get({ 'defaultWikiAction': null }, function (item) {
-    if (!item.defaultWikiAction) {
-      chrome.storage.sync.get({ 'defaultActionSettings': {} }, function (item) {
-        if (item.defaultActionSettings['EN']) {
-          chrome.storage.sync.set({ 'defaultWikiAction': item.defaultActionSettings['EN'] });
+  await chrome.storage.sync.get(async (storage) => {
+    if (!storage.v3migration) {
+      // Set new default action settings:
+      if (!storage.defaultWikiAction) {
+        if (storage.defaultActionSettings && storage.defaultActionSettings['EN']) {
+          chrome.storage.sync.set({ 'defaultWikiAction': storage.defaultActionSettings['EN'] });
         } else {
           chrome.storage.sync.set({ 'defaultWikiAction': 'alert' });
         }
-      });
-    }
-  });
-  chrome.storage.sync.get({ 'defaultSearchAction': null }, function (item) {
-    if (!item.defaultSearchAction) {
-      chrome.storage.sync.get({ 'defaultSearchFilterSettings': {} }, function (item) {
-        if (item.defaultSearchFilterSettings['EN']) {
-          if (item.defaultSearchFilterSettings['EN'] === 'true') {
-            chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
-          } else if (item.defaultSearchFilterSettings['EN'] === 'false') {
+      }
+      if (!storage.defaultSearchAction) {
+        if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings['EN']) {
+          if (storage.defaultSearchFilterSettings['EN'] === 'false') {
             chrome.storage.sync.set({ 'defaultSearchAction': 'disabled' });
+          } else {
+            chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
           }
         } else {
           chrome.storage.sync.set({ 'defaultSearchAction': 'replace' });
         }
-      });
+      }
+
+      // Remove old objects
+      chrome.storage.sync.remove('defaultActionSettings');
+      chrome.storage.sync.remove('defaultSearchFilterSettings');
     }
   });
 
-  // Create new searchEngineSettings and wikiSettings objects:
-  sites = await getData();
-  chrome.storage.sync.get(function (storage) {
-    let siteSettings = storage.siteSettings || {};
-    let defaultWikiAction = storage.defaultWikiAction || 'alert';
-    let defaultSearchAction = storage.defaultSearchAction || 'replace';
-    let searchEngineSettings = storage.searchEngineSettings || {};
-    let wikiSettings = storage.wikiSettings || {};
+  await chrome.storage.sync.get(async (storage) => {
+    if (!storage.v3migration) {
+      // Migrate wiki settings to new searchEngineSettings and wikiSettings objects
+      sites = await getData();
+      let siteSettings = storage.siteSettings || {};
+      let defaultWikiAction = storage.defaultWikiAction || 'alert';
+      let defaultSearchAction = storage.defaultSearchAction || 'replace';
+      let searchEngineSettings = storage.searchEngineSettings || {};
+      let wikiSettings = storage.wikiSettings || {};
 
-    sites.forEach((site) => {
-      if (!searchEngineSettings[site.id]) {
-        if (siteSettings[site.id] && siteSettings[site.id].searchFilter) {
-          if (siteSettings[site.id].searchFilter === 'false') {
-            searchEngineSettings[site.id] = 'disabled';
+      sites.forEach((site) => {
+        if (!searchEngineSettings[site.id]) {
+          if (siteSettings[site.id] && siteSettings[site.id].searchFilter) {
+            if (siteSettings[site.id].searchFilter === 'false') {
+              searchEngineSettings[site.id] = 'disabled';
+            } else {
+              searchEngineSettings[site.id] = 'replace';
+            }
           } else {
-            searchEngineSettings[site.id] = 'replace';
+            searchEngineSettings[site.id] = defaultSearchAction;
           }
-        } else {
-          searchEngineSettings[site.id] = defaultSearchAction;
         }
-      }
 
-      if (!wikiSettings[site.id]) {
-        wikiSettings[site.id] = siteSettings[site.id]?.action || defaultWikiAction;
-      }
-    });
+        if (!wikiSettings[site.id]) {
+          wikiSettings[site.id] = siteSettings[site.id]?.action || defaultWikiAction;
+        }
+      });
 
-    chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
-    chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
+      chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
+      chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
+
+      // Remove old objects:
+      chrome.storage.sync.remove('siteSettings');
+
+      // Mark v3 migration as complete:
+      chrome.storage.sync.set({ 'v3migration': 'done' });
+    }
   });
-
-  // Remove old objects:
-  chrome.storage.sync.remove('siteSettings');
-  chrome.storage.sync.remove('defaultActionSettings');
 }
 
 // Populate BreezeWiki dropdown when enabled
