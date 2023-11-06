@@ -1279,7 +1279,7 @@
     ],
     "destination": "Puella Magi Wiki",
     "destination_base_url": "wiki.puella-magi.net",
-    "destination_content_path": "/wiki/",
+    "destination_content_path": "/",
     "destination_platform": "mediawiki",
     "destination_icon": "puellamagi.png"
   },
