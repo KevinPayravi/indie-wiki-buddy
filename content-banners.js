@@ -262,8 +262,12 @@ function main() {
               if (site) {
                 // Get user's settings for the wiki
                 let id = site['id'];
-                let settings = storage.wikiSettings || {};
-                let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
+                let siteSetting = 'alert';
+                if (storage.wikiSettings && storage.wikiSettings[id]) {
+                  siteSetting = storage.wikiSettings[id];
+                } else if (storage.defaultWikiAction) {
+                  siteSetting = storage.defaultWikiAction;
+                }
                 // Notify if enabled for the wiki:
                 if (siteSetting === 'alert') {
                   // Get article name from the end of the URL;
