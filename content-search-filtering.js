@@ -556,7 +556,6 @@ function main(mutations = null, observer = null) {
                 el.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '').includes('fandom.com')
                 || el.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '').includes('fextralife.com')
               );
-              console.log(searchResults);
               filterSearchResults(searchResults, 'bing', storage);
             }
 
