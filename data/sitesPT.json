@@ -14,5 +14,21 @@
     "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png"
+  },
+  {
+    "id": "pt-runescape",
+    "origins_label": "Runescape Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Runescape Fandom Wiki",
+        "origin_base_url": "runescape.fandom.com/pt",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Runescape Wiki",
+    "destination_base_url": "pt.runescape.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "runescape.png"
   }
 ]
