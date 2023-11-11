@@ -1023,22 +1023,6 @@
     "destination_icon": "heroeswiki.png"
   },
   {
-    "id": "en-hololive",
-    "origins_label": "Hololive Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Hololive Fandom Wiki",
-        "origin_base_url": "hololivevtuber.fandom.com",
-        "origin_content_path": "/wiki/"
-      }
-    ],
-    "destination": "Hololive Fan Wiki",
-    "destination_base_url": "hololive.wiki",
-    "destination_content_path": "/wiki/",
-    "destination_platform": "mediawiki",
-    "destination_icon": "hololive.png"
-  },
-  {
     "id": "en-hollowknight",
     "origins_label": "Hollow Knight Fandom & Fextra Wikis",
     "origins": [
@@ -1058,6 +1042,22 @@
     "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
     "destination_icon": "hollowknight.png"
+  },
+  {
+    "id": "en-hololive",
+    "origins_label": "Hololive Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Hololive Fandom Wiki",
+        "origin_base_url": "hololivevtuber.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Hololive Fan Wiki",
+    "destination_base_url": "hololive.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hololive.png"
   },
   {
     "id": "en-houkaigakuen2",
@@ -1997,6 +1997,22 @@
     "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
     "destination_icon": "tcfwiki.png"
+  },
+  {
+    "id": "en-toontownrewritten",
+    "origins_label": "Toontown Rewritten Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Toontown Rewritten Fandom Wiki",
+        "origin_base_url": "toontownrewritten.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Toontown Rewritten Wiki",
+    "destination_base_url": "toontownrewritten.wiki",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "toontownrewrittenwiki.png"
   },
   {
     "id": "en-touhou",
