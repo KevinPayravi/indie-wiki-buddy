@@ -2015,6 +2015,22 @@
     "destination_icon": "tcfwiki.png"
   },
   {
+    "id": "en-thefinals",
+    "origins_label": "THE FINALS Fandom Wiki",
+    "origins": [
+      {
+        "origin": "THE FINALS Fandom Wiki",
+        "origin_base_url": "the-finals.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "THE FINALS Wiki",
+    "destination_base_url": "www.thefinals.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thefinalswiki.png"
+  },
+  {
     "id": "en-toontownrewritten",
     "origins_label": "Toontown Rewritten Fandom Wiki",
     "origins": [
