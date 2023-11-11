@@ -1188,6 +1188,22 @@
     "destination_icon": "highway0.png"
   },
   {
+    "id": "en-kerbalspaceprogram",
+    "origins_label": "Kerbal Space Program Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Kerbal Space Program Fandom Wiki",
+        "origin_base_url": "kerbalspaceprogram.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Kerbal Space Program Wiki",
+    "destination_base_url": "wiki.kerbalspaceprogram.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "kerbalspaceprogramwiki.png"
+  },
+  {
     "id": "en-kingdomhearts",
     "origins_label": "Kingdom Hearts Fandom Wiki",
     "origins": [
