@@ -34,7 +34,9 @@
         "data/sitesES.json",
         "data/sitesFR.json",
         "data/sitesIT.json",
+        "data/sitesKO.json",
         "data/sitesPL.json",
+        "data/sitesPT.json",
         "data/sitesTOK.json",
         "data/sitesZH.json"
       ],

@@ -32,6 +32,27 @@
     "destination_icon": "heroeswiki.png"
   },
   {
+    "id": "fr-minecraft",
+    "origins_label": "Minecraft Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/fr",
+        "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Minecraft Fandom Wiki (Archived)",
+        "origin_base_url": "minecraft-archive.fandom.com/fr",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "fr.minecraft.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png"
+  },
+  {
     "id": "fr-pokemon",
     "origins_label": "Pokémon Fandom Wiki",
     "origins": [

@@ -1,11 +1,16 @@
 [
     {
     "id": "zh-minecraft",
-    "origins_label": "Minecraft Fandom Wiki",
+    "origins_label": "Minecraft Fandom Wikis",
     "origins": [
       {
         "origin": "Minecraft Fandom Wiki",
         "origin_base_url": "minecraft.fandom.com/zh",
+        "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Minecraft Fandom Wiki (Archived)",
+        "origin_base_url": "minecraft-archive.fandom.com/zh",
         "origin_content_path": "/wiki/"
       }
     ],
