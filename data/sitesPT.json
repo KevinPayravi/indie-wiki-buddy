@@ -1,0 +1,18 @@
+[
+  {
+    "id": "pt-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/pt",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "pt.minecraft.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png"
+  }
+]

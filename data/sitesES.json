@@ -32,6 +32,22 @@
     "destination_icon": "animalcrossing.png"
   },
   {
+    "id": "es-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/es",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Minecraft Wiki ES",
+    "destination_base_url": "es.minecraft.wiki",
+    "destination_content_path": "/w/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png"
+  },
+  {
     "id": "es-supersmashbros",
     "origins_label": "Smashpedia Fandom Wiki",
     "origins": [
