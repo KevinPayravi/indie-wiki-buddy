@@ -41,7 +41,7 @@
         "origin_content_path": "/wiki/"
       }
     ],
-    "destination": "Minecraft Wiki ES",
+    "destination": "Minecraft Wiki",
     "destination_base_url": "es.minecraft.wiki",
     "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
