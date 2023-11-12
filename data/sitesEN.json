@@ -1785,6 +1785,22 @@
     "destination_icon": "severancewiki.png"
   },
   {
+    "id": "en-shroudoftheavatar",
+    "origins_label": "Shroud of the Avatar Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Shroud of the Avatar Fandom Wiki",
+        "origin_base_url": "shroudoftheavatar.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "SotAwiki",
+    "destination_base_url": "sotawiki.net",
+    "destination_content_path": "/sota/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sotawiki.png"
+  },
+  {
     "id": "en-simpsons",
     "origins_label": "Simpsons Fandom Wiki",
     "origins": [
