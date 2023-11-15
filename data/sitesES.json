@@ -48,6 +48,22 @@
     "destination_icon": "minecraftwiki.png"
   },
   {
+    "id": "es-seaofthieves",
+    "origins_label": "The Sea of Thieves Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Sea of Thieves Fandom Wiki",
+        "origin_base_url": "seaofthieves.fandom.com/es",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "The Sea of Thieves Wiki",
+    "destination_base_url": "seaofthieves.wiki.gg/es",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "seaofthieves.png"
+  },
+  {
     "id": "es-supersmashbros",
     "origins_label": "Smashpedia Fandom Wiki",
     "origins": [
