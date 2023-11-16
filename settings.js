@@ -1,4 +1,4 @@
-const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
+const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "TOK", "ZH"];
 var sites = [];
 
 // Create object prototypes for getting and setting attributes:
