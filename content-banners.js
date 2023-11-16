@@ -1,3 +1,4 @@
+const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "TOK", "ZH"];
 const breezeWikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$|breeze\.whateveritworks\.org$/;
 const currentURL = new URL(document.location);
 
@@ -12,7 +13,6 @@ Object.prototype.set = function (prop, value) {
 
 // Load website data:
 async function getData() {
-  const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
   let sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
