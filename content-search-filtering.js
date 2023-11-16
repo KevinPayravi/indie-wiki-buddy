@@ -1,3 +1,4 @@
+const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "TOK", "UK", "ZH"];
 const currentURL = new URL(document.location);
 let filteredWikis = [];
 let hiddenWikisRevealed = {};
@@ -26,7 +27,6 @@ function addLocationObserver(callback) {
 
 // Load website data:
 async function getData() {
-  const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
   let sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
