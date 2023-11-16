@@ -34,10 +34,12 @@ chrome.runtime.onInstalled.addListener(async function (detail) {
     chrome.tabs.create({ url: 'settings.html?newinstall=true' });
   }
 
-  // If update, open changelog
-  if (detail.reason === 'update') {
-    chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true' });
-  }
+  // If update, open changelog if setting is enabled
+  chrome.storage.sync.get({ 'openChangelog': 'on' }, function (item) {
+    if (item.openChangelog === 'on' && detail.reason === 'update') {
+      chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true' });
+    }
+  });
 
   // Temporary functions for 3.0 migration
   if (detail.reason === 'update') {

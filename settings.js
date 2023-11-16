@@ -545,6 +545,22 @@ function setCrossLanguage(setting, storeSetting = true) {
   }
 }
 
+// Set open changelog setting
+function setOpenChangelog(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'openChangelog': setting });
+  }
+
+  const openChangelogIcon = document.getElementById('openChangelogIcon');
+  if (setting === 'on') {
+    document.getElementById('openChangelogCheckbox').checked = true;
+    openChangelogIcon.innerText = '📂';
+  } else {
+    document.getElementById('openChangelogCheckbox').checked = false;
+    openChangelogIcon.innerText = '📁';
+  }
+}
+
 // Set BreezeWiki settings
 function setBreezeWiki(setting, storeSetting = true) {
   if (storeSetting) {
@@ -764,6 +780,9 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
     setCrossLanguage(item.crossLanguage, false);
   });
+  chrome.storage.sync.get({ 'openChangelog': 'on' }, function (item) {
+    setOpenChangelog(item.openChangelog, false);
+  });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
   });
@@ -793,6 +812,15 @@ document.addEventListener('DOMContentLoaded', function () {
         setCrossLanguage('off');
       } else {
         setCrossLanguage('on');
+      }
+    });
+  });
+  document.getElementById('openChangelogCheckbox').addEventListener('change', function () {
+    chrome.storage.sync.get({ 'openChangelog': 'on' }, function (item) {
+      if (item.openChangelog === 'on') {
+        setOpenChangelog('off');
+      } else {
+        setOpenChangelog('on');
       }
     });
   });
