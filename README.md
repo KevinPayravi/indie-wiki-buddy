@@ -11,8 +11,11 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![ES wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ES%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesES.json)
 ![FR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFR.json)
 ![IT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=IT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesIT.json)
+![KO wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=KO%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesKO.json)
 ![PL wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PL%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPL.json)
+![PT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPT.json)
 ![TOK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TOK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTOK.json)
+![ZH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ZH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesZH.json)
 
 ![Mozilla Add-on](https://img.shields.io/amo/v/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20version&logo=firefox)
 ![Mozilla Add-on](https://img.shields.io/amo/users/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20downloads&logo=firefox)
