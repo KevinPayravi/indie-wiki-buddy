@@ -184,7 +184,7 @@ function displayRedirectBanner(origin, newUrl, id, destinationName, destinationL
   var bannerText = document.createElement('span');
   bannerText.classList.add('indie-wiki-banner-big-text');
   banner.appendChild(bannerText);
-  if (destinationLanguage === 'EN' && origin.href.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
+  if (destinationLanguage === 'EN' && location.href.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
     bannerText.textContent = 'There is an independent wiki covering this topic in English!';
   } else {
     bannerText.textContent = 'There is an independent wiki covering this topic!';
@@ -295,8 +295,11 @@ function main() {
                   const docObserver = new MutationObserver(function (mutations, mutationInstance) {
                     const headElement = document.querySelector('head');
                     if (headElement) {
-                      displayRedirectBanner(origin, newURL, site['id'], site['destination'], site['lang'], storage);
-                      mutationInstance.disconnect();
+                      try {
+                        displayRedirectBanner(origin, newURL, site['id'], site['destination'], site['lang'], storage);
+                      } finally {
+                        mutationInstance.disconnect();
+                      }
                     }
                   });
                   docObserver.observe(document, {
