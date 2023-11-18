@@ -93,6 +93,31 @@ async function migrateData() {
   });
 }
 
+function populateBreezewikiHosts(breezewikiHosts, selectedHost) {
+  // Populate dropdown selection of hosts
+  const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
+  while (breezewikiHostSelect.childElementCount > 1) {
+    // Remove any existing options
+    breezewikiHostSelect.removeChild(breezewikiHostSelect.firstChild);
+  }
+
+  // Add known BreezeWiki domains:
+  for (var i = 0; i < breezewikiHosts.length; i++) {
+    let option = document.createElement('option');
+    option.value = breezewikiHosts[i].instance;
+    let textContent = breezewikiHosts[i].instance.replace('https://', '');
+    const numberOfPeriods = (textContent.match(/\./g) || []).length;
+    if (numberOfPeriods > 1) {
+      textContent = textContent.substring(textContent.indexOf('.') + 1);
+    }
+    option.textContent = textContent;
+    breezewikiHostSelect.prepend(option);
+    if (option.value === selectedHost) {
+      breezewikiHostSelect.value = selectedHost;
+    }
+  }
+}
+
 // Populate BreezeWiki dropdown when enabled
 async function loadBreezeWikiOptions() {
   // Load BreezeWiki options:
@@ -131,26 +156,9 @@ async function loadBreezeWikiOptions() {
               }
             }
           }
-          // Populate dropdown selection of hosts
-          const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
-          while (breezewikiHostSelect.firstChild) {
-            // Remove any existing options
-            breezewikiHostSelect.removeChild(breezewikiHostSelect.lastChild);
-          }
-          for (var i = 0; i < breezewikiHosts.length; i++) {
-            let option = document.createElement('option');
-            option.value = breezewikiHosts[i].instance;
-            let textContent = breezewikiHosts[i].instance.replace('https://', '');
-            const numberOfPeriods = (textContent.match(/\./g) || []).length;
-            if (numberOfPeriods > 1) {
-              textContent = textContent.substring(textContent.indexOf('.') + 1);
-            }
-            option.textContent = textContent;
-            breezewikiHostSelect.appendChild(option);
-            if (option.value === host) {
-              breezewikiHostSelect.value = host;
-            }
-          }
+          
+          populateBreezewikiHosts(breezewikiHosts, host);
+
           // Store BreezeWiki host details
           chrome.storage.sync.set({ 'breezewikiHost': host });
           chrome.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
@@ -168,26 +176,9 @@ async function loadBreezeWikiOptions() {
       if (!hostOptions.some(item => item.instance === host)) {
         host = hostOptions[Math.floor(Math.random() * hostOptions.length)].instance;
       }
-      // Populate dropdown selection of hosts
-      const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
-      while (breezewikiHostSelect.firstChild) {
-        // Remove any existing options
-        breezewikiHostSelect.removeChild(breezewikiHostSelect.lastChild);
-      }
-      for (var i = 0; i < hostOptions.length; i++) {
-        let option = document.createElement('option');
-        option.value = hostOptions[i].instance;
-        let textContent = hostOptions[i].instance.replace('https://', '');
-        const numberOfPeriods = (textContent.match(/\./g) || []).length;
-        if (numberOfPeriods > 1) {
-          textContent = textContent.substring(textContent.indexOf('.') + 1);
-        }
-        option.textContent = textContent;
-        breezewikiHostSelect.appendChild(option);
-        if (option.value === host) {
-          breezewikiHostSelect.value = host;
-        }
-      }
+      
+      populateBreezewikiHosts(hostOptions, host);
+
       // Store BreezeWiki host details
       chrome.storage.sync.set({ 'breezewikiHost': host });
     }
