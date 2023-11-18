@@ -1,5 +1,5 @@
 const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "TOK", "UK", "ZH"];
-const breezeWikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$|breeze\.whateveritworks\.org$/;
+const breezewikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$|breeze\.whateveritworks\.org$/;
 const currentURL = new URL(document.location);
 
 // Create object prototypes for getting and setting attributes:
@@ -205,7 +205,7 @@ function displayRedirectBanner(origin, newUrl, id, destinationName, destinationL
 
         // Increment banner count
         if (storage.breezewiki === 'on') {
-          if (currentURL.hostname.match(breezeWikiRegex)) {
+          if (currentURL.hostname.match(breezewikiRegex)) {
             chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
           }
         } else {
@@ -232,7 +232,7 @@ function main() {
         if (currentURL.pathname.length > 1) {
           let origin = currentURL;
           // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
-          if (currentURL.hostname.match(breezeWikiRegex)) {
+          if (currentURL.hostname.match(breezewikiRegex)) {
             origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
             if (currentURL.search.includes('?q=')) {
               origin = origin + currentURL.search.substring(3).split('&')[0];
