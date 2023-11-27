@@ -546,7 +546,7 @@ function main(mutations = null, observer = null) {
               }
             }, { once: true });
           }
-        } else if (currentURL.hostname.includes('www.bing.com')) {
+        } else if (currentURL.hostname.endsWith('.bing.com')) {
           // Function to filter search results in Bing
           function filterBing() {
             let searchResults = Array.from(document.querySelectorAll('.b_attribution>cite')).filter(el =>
