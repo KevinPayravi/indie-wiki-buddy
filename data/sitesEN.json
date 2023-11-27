@@ -1625,6 +1625,22 @@
     "destination_icon": "rayman.png"
   },
   {
+    "id": "en-rhythmdoctor",
+    "origins_label": "Rhythm Doctor Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Rhythm Doctor Fandom Wiki",
+        "origin_base_url": "rhythm-doctor.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Rhythm Doctor Wiki",
+    "destination_base_url": "wiki.rhythm.cafe",
+    "destination_content_path": "/page/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rhythmdoctorwiki.png"
+  },
+  {
     "id": "en-rhythmheaven",
     "origins_label": "Rhythm Heaven Fandom Wiki",
     "origins": [
