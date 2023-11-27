@@ -5,8 +5,9 @@
   "permissions": [
     "storage",
     "webRequest",
-    "webRequestBlocking",
+    "declarativeNetRequest",
     "notifications",
+    "scripting",
     "https://*.fandom.com/*",
     "https://*.fextralife.com/*",
     "https://breezewiki.com/*",
@@ -287,6 +288,7 @@
       "run_at": "document_start"
     }
   ],
+  "optional_permissions": ["https://*/*"],
   "applications": {
     "gecko": {
       "id": "{cb31ec5d-c49a-4e5a-b240-16c767444f62}"

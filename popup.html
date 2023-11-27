@@ -56,10 +56,6 @@
       gap: .5em;
     }
 
-    fieldset+fieldset {
-      margin-top: 1rem;
-    }
-
     fieldset>div {
       margin: 0 .5rem;
     }
@@ -157,7 +153,7 @@
 
     /* CONTENT */
     #content {
-      padding: 1em;
+      padding: .5em 1em;
       background-color: #e5f4ff;
       box-sizing: border-box;
     }
@@ -175,6 +171,10 @@
       width: 100%;
     }
 
+    .options label {
+      display: inline-block;
+    }
+
     .settingToggle {
       cursor: pointer;
       width: fit-content;
@@ -190,7 +190,41 @@
 
     #breezewikiHost {
       display: none;
-      padding-left: 3em;
+      padding: 0 0 0 1rem;
+    }
+
+    #breezewikiHost label {
+      cursor: default;
+    }
+
+    #breezewikiHost button {
+      background: #3174f1;
+      border: 1px solid #333333;
+      color: #fff;
+      border-radius: 5px;
+      padding: .3em;
+      font-size: .9em;
+    }
+
+    #breezewikiHost button:hover {
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid#3174f1;
+      color: #3174f1;
+    }
+
+    #breezewikiHost label+label {
+      margin-top: 8px;
+    }
+
+    #breezewikiCustomHost {
+      display: none;
+    }
+
+    #breezewikiCustomHostStatus {
+      display: block;
+      padding-top: .4em;
+      font-size: .9em;
     }
 
     /* SETTINGS BUTTON */
@@ -205,7 +239,7 @@
       color: #fff;
       border-radius: 5px;
       padding: .4em;
-      margin: .5em 0 0 0;
+      margin: .2em 0 0 0;
       font-size: 1.3em;
     }
 
@@ -280,7 +314,7 @@
           </div>
         </div>
         <div role="radiogroup" aria-labelledby="defaultSearchActionLabel">
-          <span id="defaultSearchActionLabel">When using search engines:</span>
+          <span id="defaultSearchActionLabel">On search engines, when you see non-indie results with indie alternatives:</span>
           <div class="radioGroup">
             <label>
               <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled" />
@@ -339,6 +373,11 @@
           <label>
             BreezeWiki host:
             <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+          </label>
+          <label id="breezewikiCustomHost">
+            Custom BreezeWiki domain:
+            <input disabled type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="See full settings page" size="30" />
+            <span id="breezewikiCustomHostStatus">Change custom domain on <a href="settings.html" target="_blank">full settings page</a></span>
           </label>
         </div>
       </fieldset>

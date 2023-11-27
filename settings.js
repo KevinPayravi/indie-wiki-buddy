@@ -41,12 +41,12 @@ async function getData() {
   return sites;
 }
 
-function populateBreezewikiHosts(breezewikiHosts, selectedHost) {
+function populateBreezewikiHosts(breezewikiHosts, selectedHost, customHostName) {
   // Populate dropdown selection of hosts
   const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
   while (breezewikiHostSelect.firstChild) {
     // Remove any existing options
-    breezewikiHostSelect.removeChild(breezewikiHostSelect.lastChild);
+    breezewikiHostSelect.removeChild(breezewikiHostSelect.firstChild);
   }
 
   // Add known BreezeWiki domains:
@@ -60,19 +60,33 @@ function populateBreezewikiHosts(breezewikiHosts, selectedHost) {
     }
     option.textContent = textContent;
     breezewikiHostSelect.appendChild(option);
-    if (option.value === selectedHost) {
-      breezewikiHostSelect.value = selectedHost;
-    }
   }
+
+  // Add custom BreezeWiki host option:
+  let customOption = document.createElement('option');
+  customOption.value = 'CUSTOM';
+  customOption.textContent = 'Custom host...';
+  breezewikiHostSelect.appendChild(customOption);
+  breezewikiHostSelect.value = selectedHost;
+
+  // Set up custom domain input:
+  if (breezewikiHostSelect.value === 'CUSTOM') {
+    document.getElementById('breezewikiCustomHost').style.display = 'block';
+  } else {
+    document.getElementById('breezewikiCustomHost').style.display = 'none';
+  }
+  document.getElementById('customBreezewikiHost').value = customHostName.replace(/^https?:\/\//i, '');
 }
 
 // Populate BreezeWiki dropdown when enabled
-async function loadBreezeWikiOptions() {
+async function loadBreezewikiOptions() {
   // Load BreezeWiki options:
-  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost'], function (item) {
+  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost', 'breezewikiCustomHost'], function (item) {
     let hostOptions = item.breezewikiHostOptions;
     let hostFetchTimestamp = item.breezewikiHostFetchTimestamp;
     let host = item.breezewikiHost;
+    let customHost = item.breezewikiCustomHost || '';
+
     // Fetch and cache list of BreezeWiki hosts if first time,
     // or if it has been 24 hrs since last refresh
     if (!host || !hostOptions || !hostFetchTimestamp || (Date.now() - 86400000 > hostFetchTimestamp)) {
@@ -104,8 +118,7 @@ async function loadBreezeWikiOptions() {
               }
             }
           }
-
-          populateBreezewikiHosts(breezewikiHosts, host);
+          populateBreezewikiHosts(breezewikiHosts, host, customHost);
 
           // Store BreezeWiki host details
           chrome.storage.sync.set({ 'breezewikiHost': host });
@@ -121,11 +134,11 @@ async function loadBreezeWikiOptions() {
         });
     } else {
       // If currently selected host is no longer available, select random host:
-      if (!hostOptions.some(item => item.instance === host)) {
+      if (host !== 'CUSTOM' && !hostOptions.some(item => item.instance === host)) {
         host = hostOptions[Math.floor(Math.random() * hostOptions.length)].instance;
       }
       
-      populateBreezewikiHosts(hostOptions, host);
+      populateBreezewikiHosts(hostOptions, host, customHost);
 
       // Store BreezeWiki host details
       chrome.storage.sync.set({ 'breezewikiHost': host });
@@ -151,13 +164,6 @@ async function loadOptions(lang) {
       let searchEngineSettings = storage.searchEngineSettings || {};
       let defaultWikiAction = storage.defaultWikiAction || null;
       let defaultSearchAction = storage.defaultSearchAction || null;
-
-      // Load BreezeWiki options:
-      chrome.storage.sync.get(['breezewiki'], function (item) {
-        if (item.breezewiki === 'on') {
-          loadBreezeWikiOptions();
-        }
-      });
 
       // Load defaults for newly added wikis:
       chrome.storage.sync.get(['defaultWikiAction'], function (item) {
@@ -557,14 +563,14 @@ function setBreezeWiki(setting, storeSetting = true) {
   if (storeSetting) {
     chrome.storage.sync.set({ 'breezewiki': setting });
   }
-  const breezewikiHost = document.getElementById('breezewikiHost');
   if (setting === 'on') {
     document.getElementById('breezewikiCheckbox').checked = true;
   } else {
     document.getElementById('breezewikiCheckbox').checked = false;
   }
+  const breezewikiHost = document.getElementById('breezewikiHost');
   if (setting === 'on') {
-    breezewikiHost.style.display = 'inline-block';
+    breezewikiHost.style.display = 'block';
     chrome.storage.sync.get({ 'breezewikiHost': null }, function (host) {
       if (!host.breezewikiHost) {
         fetch('https://bw.getindie.wiki/instances.json')
@@ -776,6 +782,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
     setBreezeWiki(item.breezewiki, false);
+
+    // Load BreezeWiki options if BreezeWiki is enabled
+    if (item.breezewiki === 'on') {
+      loadBreezewikiOptions();
+    }
   });
 
   // Add event listeners for general setting toggles
@@ -823,13 +834,62 @@ document.addEventListener('DOMContentLoaded', function () {
         setBreezeWiki('off');
       } else {
         setBreezeWiki('on');
-        loadBreezeWikiOptions();
+        loadBreezewikiOptions();
       }
     });
   });
   const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
   breezewikiHostSelect.addEventListener('change', function () {
+    if (breezewikiHostSelect.value === 'CUSTOM') {
+      document.getElementById('breezewikiCustomHost').style.display = 'block';
+      document.getElementById('breezewikiCustomHostStatus').innerText = '';
+    } else {
+      document.getElementById('breezewikiCustomHost').style.display = 'none';
+    }
     chrome.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
+  });
+
+  function setCustomBreezewikiDomain() {
+    let breezewikiCustomDomain = document.getElementById('customBreezewikiHost').value;
+    // Add "https://" if not already present
+    if (!/^https?:\/\//i.test(breezewikiCustomDomain)) {
+      breezewikiCustomDomain = 'https://' + breezewikiCustomDomain;
+    }
+    // Reduce to just protocal + hostname
+    breezewikiCustomDomain = new URL(breezewikiCustomDomain);
+    breezewikiCustomDomain = breezewikiCustomDomain.protocol + "//" + breezewikiCustomDomain.hostname
+    breezewikiCustomDomain = breezewikiCustomDomain.toString();
+
+    chrome.permissions.request({
+      origins: [breezewikiCustomDomain + '/*']
+    }, (granted) => {
+      // The callback argument will be true if the user granted the permissions.
+      if (granted) {
+        chrome.scripting.registerContentScripts([{
+          id: 'content-banners',
+          matches: [breezewikiCustomDomain + '/*'],
+          js: ['content-banners.js'],
+          runAt: "document_start"
+        }]);
+        chrome.storage.sync.set({ 'breezewikiCustomHost': breezewikiCustomDomain });
+        document.getElementById('breezewikiCustomHostStatus').innerText = 'Successfully added';
+      } else {
+        document.getElementById('breezewikiCustomHostStatus').innerText = 'Failed to set host';
+      }
+    });
+  }
+
+  document.getElementById('setCustomBreezewikiDomain').addEventListener('click', function () {
+   setCustomBreezewikiDomain();
+  });
+  document.getElementById('customBreezewikiHost').onkeyup = function(e) {
+    if (e.key === 'Enter') {
+      setCustomBreezewikiDomain();
+    }
+  }
+  document.options.addEventListener("submit", function(e) {
+    e.preventDefault();
+    return false;
   });
 
   // Add event listeners for default action selections

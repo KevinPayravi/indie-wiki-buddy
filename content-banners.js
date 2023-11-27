@@ -42,7 +42,7 @@ async function getData() {
   return sites;
 }
 
-function displayRedirectBanner(origin, newUrl, id, destinationName, destinationLanguage, storage) {
+function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage, storage) {
   // Output CSS
   styleString = `
     #indie-wiki-banner {
@@ -202,10 +202,9 @@ function displayRedirectBanner(origin, newUrl, id, destinationName, destinationL
       // Ensure banner isn't already outputted
       if (!document.querySelector(':root > #indie-wiki-banner')) {
         document.body.insertAdjacentElement('beforeBegin', banner);
-
         // Increment banner count
         if (storage.breezewiki === 'on') {
-          if (currentURL.hostname.match(breezewikiRegex)) {
+          if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost.includes(currentURL.hostname))) {
             chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
           }
         } else {
@@ -232,7 +231,7 @@ function main() {
         if (currentURL.pathname.length > 1) {
           let origin = currentURL;
           // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
-          if (currentURL.hostname.match(breezewikiRegex)) {
+          if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost.includes(currentURL.hostname))) {
             origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
             if (currentURL.search.includes('?q=')) {
               origin = origin + currentURL.search.substring(3).split('&')[0];
@@ -296,7 +295,7 @@ function main() {
                     const headElement = document.querySelector('head');
                     if (headElement) {
                       try {
-                        displayRedirectBanner(origin, newURL, site['id'], site['destination'], site['lang'], storage);
+                        displayRedirectBanner(newURL, site['id'], site['destination'], site['lang'], storage);
                       } finally {
                         mutationInstance.disconnect();
                       }

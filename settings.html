@@ -187,6 +187,10 @@
       width: 100%;
     }
 
+    .options label {
+      display: inline-block;
+    }
+
     .settingToggle {
       width: fit-content;
     }
@@ -206,6 +210,34 @@
 
     #breezewikiHost label {
       cursor: default;
+    }
+
+    #breezewikiHost button {
+      background: #3174f1;
+      border: 1px solid #333333;
+      color: #fff;
+      border-radius: 5px;
+      padding: .3em;
+      font-size: .9em;
+    }
+
+    #breezewikiHost button:hover {
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid#3174f1;
+      color: #3174f1;
+    }
+
+    #breezewikiHost label+label {
+      margin-top: 8px;
+    }
+
+    #breezewikiCustomHost {
+      display: none;
+    }
+
+    #breezewikiCustomHostStatus {
+      font-size: .9em;
     }
 
     #legend div,
@@ -553,6 +585,14 @@
             <label>
               BreezeWiki host:
               <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+            </label>
+            <label id="breezewikiCustomHost">
+              Custom BreezeWiki domain:
+              <input type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="bw.example.com" size="30" />
+              <button id="setCustomBreezewikiDomain" type="button">
+                Set domain
+              </button>
+              <span id="breezewikiCustomHostStatus"></span>
             </label>
           </div>
         </fieldset>

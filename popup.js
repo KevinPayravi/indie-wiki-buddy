@@ -93,10 +93,10 @@ async function migrateData() {
   });
 }
 
-function populateBreezewikiHosts(breezewikiHosts, selectedHost) {
+function populateBreezewikiHosts(breezewikiHosts, selectedHost, customHostName) {
   // Populate dropdown selection of hosts
   const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
-  while (breezewikiHostSelect.childElementCount > 1) {
+  while (breezewikiHostSelect.firstChild) {
     // Remove any existing options
     breezewikiHostSelect.removeChild(breezewikiHostSelect.firstChild);
   }
@@ -111,20 +111,34 @@ function populateBreezewikiHosts(breezewikiHosts, selectedHost) {
       textContent = textContent.substring(textContent.indexOf('.') + 1);
     }
     option.textContent = textContent;
-    breezewikiHostSelect.prepend(option);
-    if (option.value === selectedHost) {
-      breezewikiHostSelect.value = selectedHost;
-    }
+    breezewikiHostSelect.appendChild(option);
   }
+
+  // Add custom BreezeWiki host option:
+  let customOption = document.createElement('option');
+  customOption.value = 'CUSTOM';
+  customOption.textContent = 'Custom host...';
+  breezewikiHostSelect.appendChild(customOption);
+  breezewikiHostSelect.value = selectedHost;
+
+  // Set up custom domain input:
+  if (breezewikiHostSelect.value === 'CUSTOM') {
+    document.getElementById('breezewikiCustomHost').style.display = 'block';
+  } else {
+    document.getElementById('breezewikiCustomHost').style.display = 'none';
+  }
+  document.getElementById('customBreezewikiHost').value = customHostName.replace(/^https?:\/\//i, '');
 }
 
 // Populate BreezeWiki dropdown when enabled
-async function loadBreezeWikiOptions() {
+async function loadBreezewikiOptions() {
   // Load BreezeWiki options:
-  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost'], function (item) {
+  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost', 'breezewikiCustomHost'], function (item) {
     let hostOptions = item.breezewikiHostOptions;
     let hostFetchTimestamp = item.breezewikiHostFetchTimestamp;
     let host = item.breezewikiHost;
+    let customHost = item.breezewikiCustomHost || '';
+
     // Fetch and cache list of BreezeWiki hosts if first time,
     // or if it has been 24 hrs since last refresh
     if (!host || !hostOptions || !hostFetchTimestamp || (Date.now() - 86400000 > hostFetchTimestamp)) {
@@ -156,8 +170,7 @@ async function loadBreezeWikiOptions() {
               }
             }
           }
-          
-          populateBreezewikiHosts(breezewikiHosts, host);
+          populateBreezewikiHosts(breezewikiHosts, host, customHost);
 
           // Store BreezeWiki host details
           chrome.storage.sync.set({ 'breezewikiHost': host });
@@ -173,11 +186,11 @@ async function loadBreezeWikiOptions() {
         });
     } else {
       // If currently selected host is no longer available, select random host:
-      if (!hostOptions.some(item => item.instance === host)) {
+      if (host !== 'CUSTOM' && !hostOptions.some(item => item.instance === host)) {
         host = hostOptions[Math.floor(Math.random() * hostOptions.length)].instance;
       }
       
-      populateBreezewikiHosts(hostOptions, host);
+      populateBreezewikiHosts(hostOptions, host, customHost);
 
       // Store BreezeWiki host details
       chrome.storage.sync.set({ 'breezewikiHost': host });
@@ -268,7 +281,7 @@ function setBreezeWiki(setting, storeSetting = true) {
   } else {
     document.getElementById('breezewikiCheckbox').checked = false;
   }
-  var breezewikiHost = document.getElementById('breezewikiHost');
+  const breezewikiHost = document.getElementById('breezewikiHost');
   if (setting === 'on') {
     breezewikiHost.style.display = 'block';
     chrome.storage.sync.get({ 'breezewikiHost': null }, function (host) {
@@ -351,8 +364,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  loadBreezeWikiOptions();
-
   // Listener for settings page in new tab:
   document.getElementById('openSettings').addEventListener('click', function () {
     chrome.tabs.create({ 'url': chrome.runtime.getURL('settings.html') });
@@ -374,11 +385,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Load BreezeWiki options if BreezeWiki is enabled
     if (item.breezewiki === 'on') {
-      loadBreezeWikiOptions();
+      loadBreezewikiOptions();
     }
   });
 
-  // Add event listeners for setting toggles
+  // Add event listeners for general setting toggles
   document.getElementById('powerCheckbox').addEventListener('change', function () {
     chrome.storage.local.get({ 'power': 'on' }, function (item) {
       if (item.power === 'on') {
@@ -406,20 +417,33 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  // Add event listeners for BreezeWiki settings
   document.getElementById('breezewikiCheckbox').addEventListener('change', function () {
     chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
       if (item.breezewiki === 'on') {
         setBreezeWiki('off');
       } else {
         setBreezeWiki('on');
-        loadBreezeWikiOptions();
+        loadBreezewikiOptions();
       }
     });
   });
-  var breezewikiHostSelect = document.getElementById("breezewikiHostSelect");
+  const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
   breezewikiHostSelect.addEventListener('change', function () {
+    if (breezewikiHostSelect.value === 'CUSTOM') {
+      document.getElementById('breezewikiCustomHost').style.display = 'block';
+    } else {
+      document.getElementById('breezewikiCustomHost').style.display = 'none';
+    }
     chrome.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
   });
+
+  document.options.addEventListener("submit", function(e) {
+    e.preventDefault();
+    return false;
+  });
+
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
     el.addEventListener('change', async function () {
       chrome.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })

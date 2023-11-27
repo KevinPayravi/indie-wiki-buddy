@@ -107,41 +107,6 @@ chrome.runtime.onInstalled.addListener(async function (detail) {
   }
 });
 
-if (chrome.declarativeNetRequest) {
-  // In Manifest v3:
-  // Whenever stored settings change, update the header
-  // that is sent to BreezeWiki instances to inform them the user has IWB
-  updateDeclarativeRule();
-  chrome.storage.onChanged.addListener(event => updateDeclarativeRule());
-} else {
-  // In Manifest v2:
-  // On main frame BreezeWiki requests, update the header
-  // that is sent to BreezeWiki instances to inform them the user has IWB
-  chrome.webRequest.onBeforeSendHeaders.addListener(async (details) =>
-    addHeaderToRequest(details),
-    {
-      urls: [
-        '*://breezewiki.com/*',
-        '*://antifandom.com/*',
-        '*://bw.projectsegfau.lt/*',
-        '*://breeze.hostux.net/*',
-        '*://breezewiki.pussthecat.org/*',
-        '*://bw.vern.cc/*',
-        '*://breezewiki.esmailelbob.xyz/*',
-        '*://bw.artemislena.eu/*',
-        '*://bw.hamstro.dev/*',
-        '*://nerd.whatever.social/*',
-        '*://breeze.nohost.network/*',
-        '*://breeze.whateveritworks.org/*'
-      ],
-      types: [
-        'main_frame'
-      ]
-    },
-    ["blocking", "requestHeaders"]
-  );
-}
-
 function setPowerIcon(status) {
   const manifestVersion = chrome.runtime.getManifest().manifest_version;
   if (status === 'on') {
@@ -159,20 +124,11 @@ function setPowerIcon(status) {
   }
 }
 
-function addHeaderToRequest(details) {
-  return new Promise((resolve) => {
-    chrome.storage.local.get(async (localStorage) => {
-      await chrome.storage.sync.get((syncStorage) => {
-        const storage = { ...syncStorage, ...localStorage };
-        const headerValue = JSON.stringify({
-          'power': storage.power,
-          'breezewiki': storage.breezewiki
-        });
-        details.requestHeaders.push({ name: 'x-indie-wiki', value: headerValue });
-        resolve({ requestHeaders: details.requestHeaders });
-      });
-    });
-  });
+if (chrome.declarativeNetRequest) {
+  // Whenever stored settings change, update the header
+  // that is sent to BreezeWiki instances to inform them the user has IWB
+  updateDeclarativeRule();
+  chrome.storage.onChanged.addListener(event => updateDeclarativeRule());
 }
 
 function updateDeclarativeRule() {
@@ -183,6 +139,24 @@ function updateDeclarativeRule() {
         'power': storage.power ?? 'on',
         'breezewiki': storage.breezewiki ?? 'off'
       });
+      let urls = [
+        "breezewiki.com",
+        "antifandom.com",
+        "bw.projectsegfau.lt",
+        "breeze.hostux.net",
+        "breezewiki.pussthecat.org",
+        "bw.vern.cc",
+        "breezewiki.esmailelbob.xyz",
+        "bw.artemislena.eu",
+        "bw.hamstro.dev",
+        "nerd.whatever.social",
+        "breeze.nohost.network",
+        "breeze.whateveritworks.org"
+      ];
+      if (storage.breezewikiCustomHost) {
+        urls.push(storage.breezewikiCustomHost.replace(/^https?:\/\//, ''));
+      };
+
       chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [1],
         addRules: [
@@ -200,20 +174,7 @@ function updateDeclarativeRule() {
               ]
             },
             "condition": {
-              "requestDomains": [
-                "breezewiki.com",
-                "antifandom.com",
-                "bw.projectsegfau.lt",
-                "breeze.hostux.net",
-                "breezewiki.pussthecat.org",
-                "bw.vern.cc",
-                "breezewiki.esmailelbob.xyz",
-                "bw.artemislena.eu",
-                "bw.hamstro.dev",
-                "nerd.whatever.social",
-                "breeze.nohost.network",
-                "breeze.whateveritworks.org"
-              ],
+              "requestDomains": urls,
               "resourceTypes": [
                 "main_frame"
               ]
@@ -289,7 +250,11 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
           chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
         });
     } else {
-      processRedirect(storage.breezewikiHost);
+      if (storage.breezewikiHost === 'CUSTOM') {
+        processRedirect(storage.breezewikiCustomHost || 'https://breezewiki.com');
+      } else {
+        processRedirect(storage.breezewikiHost);
+      }
     }
   }
 }
