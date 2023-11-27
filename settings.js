@@ -777,7 +777,7 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
     setCrossLanguage(item.crossLanguage, false);
   });
-  chrome.storage.sync.get({ 'openChangelog': 'on' }, function (item) {
+  chrome.storage.sync.get({ 'openChangelog': 'off' }, function (item) {
     setOpenChangelog(item.openChangelog, false);
   });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
@@ -818,7 +818,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   document.getElementById('openChangelogCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'openChangelog': 'on' }, function (item) {
+    chrome.storage.sync.get({ 'openChangelog': 'off' }, function (item) {
       if (item.openChangelog === 'on') {
         setOpenChangelog('off');
       } else {

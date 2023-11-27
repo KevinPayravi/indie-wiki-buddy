@@ -40,9 +40,9 @@ chrome.runtime.onInstalled.addListener(async function (detail) {
   }
 
   // If update, open changelog if setting is enabled
-  chrome.storage.sync.get({ 'openChangelog': 'on' }, function (item) {
+  chrome.storage.sync.get({ 'openChangelog': 'off' }, function (item) {
     if (item.openChangelog === 'on' && detail.reason === 'update') {
-      chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true' });
+      chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true', active: false });
     }
   });
 
