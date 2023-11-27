@@ -1,8 +1,13 @@
 // Capture web requests
 chrome.webRequest.onBeforeSendHeaders.addListener(
-  function (event) {
+  async function (event) {
     if (event.documentLifecycle !== 'prerender') {
-      main(event);
+      if (event.frameType === 'sub_frame') {
+        let tabInfo = await chrome.tabs.get(event.tabId);
+        main(tabInfo.url, event.tabId);
+      } else {
+        main(event.url, event.tabId);
+      }
     }
   },
   { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*'], types: ['main_frame', 'sub_frame'] }
@@ -186,16 +191,17 @@ function updateDeclarativeRule() {
   });
 }
 
-function redirectToBreezeWiki(storage, eventInfo, url) {
+function redirectToBreezeWiki(storage, tabId, url) {
   function processRedirect(host) {
-    const subdomain = url.hostname.split(".")[0];
-    const article = url.href.split('fandom.com/wiki/')[1].replaceAll('%20', '_');
+    const urlFormatted = new URL(url);
+    const subdomain = urlFormatted.hostname.split(".")[0];
+    const article = url.split('fandom.com/wiki/')[1].replaceAll('%20', '_');
 
     // Extract article from URL
     if (article) {
-      chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain + '/wiki/' + article });
+      chrome.tabs.update(tabId, { url: host + '/' + subdomain + '/wiki/' + article });
     } else {
-      chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain });
+      chrome.tabs.update(tabId, { url: host + '/' + subdomain });
     }
 
     // Increase BreezeWiki stat count
@@ -215,7 +221,7 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
     }
   }
 
-  if (url.href.includes('fandom.com/wiki/')) {
+  if (url.includes('fandom.com/wiki/')) {
     if (!(storage.breezewikiHost ?? null)) {
       fetch('https://bw.getindie.wiki/instances.json')
         .then((response) => {
@@ -291,15 +297,7 @@ async function getData() {
   return sites;
 }
 
-async function main(eventInfo) {
-  // Store tab URL and remove any search parameters and section anchors
-  let url = '';
-  if (eventInfo.type === 'main_frame') {
-    url = new URL(eventInfo.url.replace(/(\?|#).*/i, ''));
-  } else {
-    url = new URL(eventInfo.initiator);
-  }
-
+async function main(url, tabId) {
   // Create object prototypes for getting and setting attributes
   Object.prototype.get = function (prop) {
     this[prop] = this[prop] || {};
@@ -323,9 +321,9 @@ async function main(eventInfo) {
         // Check if site is in our list of wikis:
         let matchingSites = [];
         if (crossLanguageSetting === 'on') {
-          matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+          matchingSites = sites.filter(el => url.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
         } else {
-          matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
+          matchingSites = sites.filter(el => url.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
         }
         if (matchingSites.length > 0) {
           // Select match with longest base URL 
@@ -346,7 +344,7 @@ async function main(eventInfo) {
               // Get article name from the end of the URL;
               // We can't just take the last part of the path due to subpages;
               // Instead, we take everything after the wiki's base URL + content path
-              let article = url.href.split(site['origin_base_url'] + site['origin_content_path'])[1];
+              let article = url.split(site['origin_base_url'] + site['origin_content_path'])[1];
               // Set up URL to redirect user to based on wiki platform
               let newURL = '';
               if (article) {
@@ -365,7 +363,7 @@ async function main(eventInfo) {
               }
 
               // Perform redirect
-              chrome.tabs.update(eventInfo.tabId, { url: newURL });
+              chrome.tabs.update(tabId, { url: newURL });
 
               // Increase redirect count
               chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
@@ -384,11 +382,11 @@ async function main(eventInfo) {
                 setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
               }
             } else if ((storage.breezewiki ?? 'off') === 'on') {
-              redirectToBreezeWiki(storage, eventInfo, url);
+              redirectToBreezeWiki(storage, tabId, url);
             }
           }
         } else if ((storage.breezewiki ?? 'off') === 'on') {
-          redirectToBreezeWiki(storage, eventInfo, url);
+          redirectToBreezeWiki(storage, tabId, url);
         }
       }
     });
