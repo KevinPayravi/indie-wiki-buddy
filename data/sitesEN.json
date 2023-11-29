@@ -1252,6 +1252,22 @@
     "destination_icon": "koeitecmowiki.png"
   },
   {
+    "id": "en-lethalcompany",
+    "origins_label": "Lethal Company Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Lethal Company Fandom Wiki",
+        "origin_base_url": "lethal-company.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Lethal Company Wiki",
+    "destination_base_url": "lethal.miraheze.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lethalcompany.png"
+  },
+  {
     "id": "en-lotr",
     "origins_label": "Lord of the Rings Fandom Wiki",
     "origins": [
