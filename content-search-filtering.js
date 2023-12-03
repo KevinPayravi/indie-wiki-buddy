@@ -457,7 +457,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                 let searchResultContainer = null;
                 switch (searchEngine) {
                   case 'google':
-                    searchResultContainer = searchResult.closest('div[data-hveid]');
+                    searchResultContainer = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
                     break;
                   case 'bing':
                     searchResultContainer = searchResult.closest('li.b_algo');
