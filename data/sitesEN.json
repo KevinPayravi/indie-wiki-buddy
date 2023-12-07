@@ -2266,6 +2266,22 @@
     "destination_icon": "weezerpedia.png"
   },
   {
+    "id": "en-mana",
+    "origins_label": "Wiki of Mana Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Wiki of Mana Fandom Wiki",
+        "origin_base_url": "mana.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Wiki of Mana",
+    "destination_base_url": "wikiofmana.com",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikiofmana.png"
+  },
+  {
     "id": "en-wildfrost",
     "origins_label": "Wildfrost Fandom Wiki",
     "origins": [
