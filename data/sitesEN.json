@@ -927,6 +927,27 @@
     "destination_icon": "genfanadwiki.png"
   },
   {
+    "id": "en-gigantic",
+    "origins_label": "Gigantic Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Gigantic Fandom Wiki",
+        "origin_base_url": "gigantic.fandom.com",
+        "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "Gigantic Fandom Wiki (Archived)",
+        "origin_base_url": "gigantic-archive.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Gigantic Wiki",
+    "destination_base_url": "gogigantic.wiki",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "giganticwiki.png"
+  },
+  {
     "id": "en-godzilla",
     "origins_label": "Godzilla Fandom Wiki",
     "origins": [
