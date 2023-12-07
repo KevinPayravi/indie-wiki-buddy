@@ -2176,6 +2176,22 @@
     "destination_icon": "unevendreamwiki.png"
   },
   {
+    "id": "en-unrealworld",
+    "origins_label": "UnReal World Fandom Wiki",
+    "origins": [
+      {
+        "origin": "UnReal World Fandom Wiki",
+        "origin_base_url": "unrealworld.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "UnReal World Wiki",
+    "destination_base_url": "www.unrealworld.fi",
+    "destination_content_path": "/wiki/index.php?title=",
+    "destination_platform": "mediawiki",
+    "destination_icon": "unrealworldwiki.png"
+  },
+  {
     "id": "en-vvvvvv",
     "origins_label": "VVVVVV Fandom Wikis",
     "origins": [
