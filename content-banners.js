@@ -1,4 +1,4 @@
-const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "TOK", "UK", "ZH"];
+const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
 const breezewikiRegex = /breezewiki\.com$|breeze\.hostux\.net$|bw\.projectsegfau\.lt$|antifandom\.com$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breezewiki\.esmailelbob\.xyz$|bw\.artemislena\.eu$|bw\.hamstro\.dev$|nerd\.whatever\.social$|breeze\.nohost\.network$|breeze\.whateveritworks\.org$/;
 const currentURL = new URL(document.location);
 

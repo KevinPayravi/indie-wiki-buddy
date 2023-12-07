@@ -267,7 +267,7 @@ function redirectToBreezeWiki(storage, tabId, url) {
 
 // Load website data
 async function getData() {
-  const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "TOK", "UK", "ZH"];
+  const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
   let sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {

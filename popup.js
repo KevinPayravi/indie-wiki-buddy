@@ -1,4 +1,4 @@
-const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "TOK", "UK", "ZH"];
+const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
 
 // Set power setting
 function setPower(setting) {
