@@ -251,7 +251,7 @@
       gap: 5px;
     }
 
-    #langSelectContainer {
+    #langSelectContainer, #filterInputContainer {
       margin: 1em 0;
       text-align: center;
     }
@@ -647,6 +647,12 @@
             <option value="UK">Українська мова (UK)</option>
             <option value="ZH">中文 (ZH)</option>
           </select>
+        </div>
+        <div id="filterInputContainer">
+          <label>
+            Filter wikis by name:
+            <input id="filterInput" type="text" name="filterInput" placeholder="Enter wiki name..." />
+          </label>
         </div>
         <div class="sticky">
           <div id="togglesColumnLabels" class="toggles">
