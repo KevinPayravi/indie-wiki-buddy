@@ -401,6 +401,22 @@
     "destination_icon": "chrono.png"
   },
   {
+    "id": "en-commanderkeen",
+    "origins_label": "Commander Keen Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Commander Keen Fandom Wiki",
+        "origin_base_url": "commander-keen.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Commander Keen Wiki",
+    "destination_base_url": "keenwiki.shikadi.net",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "commanderkeenwiki.png"
+  },
+  {
     "id": "en-commodore64",
     "origins_label": "Commodore 64 Fandom Wiki",
     "origins": [
