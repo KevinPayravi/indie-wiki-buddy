@@ -1429,6 +1429,11 @@
         "origin": "Minecraft Fandom Wiki (Archived)",
         "origin_base_url": "minecraft-archive.fandom.com",
         "origin_content_path": "/wiki/"
+      },
+      {
+        "origin": "MCPC Fandom Wiki (Archived)",
+        "origin_base_url": "mcpc.fandom.com",
+        "origin_content_path": "/wiki/"
       }
     ],
     "destination": "Minecraft Wiki",
