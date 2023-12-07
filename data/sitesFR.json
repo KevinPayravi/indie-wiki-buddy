@@ -32,6 +32,22 @@
     "destination_icon": "heroeswiki.png"
   },
   {
+    "id": "fr-fallout",
+    "origins_label": "L'Abri Fallout Wiki",
+    "origins": [
+      {
+        "origin": "L'Abri Fallout Wiki",
+        "origin_base_url": "fallout.fandom.com/fr",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Les Archives de Vault-Tec",
+    "destination_base_url": "fallout-wiki.com",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lesarchivesdevaulttec.png"
+  },
+  {
     "id": "fr-minecraft",
     "origins_label": "Minecraft Fandom Wikis",
     "origins": [
