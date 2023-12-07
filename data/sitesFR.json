@@ -33,10 +33,10 @@
   },
   {
     "id": "fr-fallout",
-    "origins_label": "L'Abri Fallout Wiki",
+    "origins_label": "L'Abri Fallout Fandom Wiki",
     "origins": [
       {
-        "origin": "L'Abri Fallout Wiki",
+        "origin": "L'Abri Fallout Fandom Wiki",
         "origin_base_url": "fallout.fandom.com/fr",
         "origin_content_path": "/wiki/"
       }
