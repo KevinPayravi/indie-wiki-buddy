@@ -61,7 +61,7 @@
     "destination_base_url": "www.pokewiki.de",
     "destination_content_path": "/",
     "destination_platform": "mediawiki",
-    "destination_icon": "pokwiki.png"
+    "destination_icon": "pokewiki.png"
   },
   {
     "id": "de-starcitizen",
