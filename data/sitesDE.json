@@ -48,6 +48,22 @@
     "destination_icon": "minecraftwiki.png"
   },
   {
+    "id": "de-pokemon",
+    "origins_label": "Pokémon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/de",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "PokéWiki",
+    "destination_base_url": "www.pokewiki.de",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pokwiki.png"
+  },
+  {
     "id": "de-starcitizen",
     "origins_label": "Star Citizen Fandom Wiki",
     "origins": [
