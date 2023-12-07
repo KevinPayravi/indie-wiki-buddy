@@ -711,6 +711,22 @@
     "destination_icon": "uesp.png"
   },
   {
+    "id": "en-evangelion",
+    "origins_label": "Evangelion Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Evangelion Fandom Wiki",
+        "origin_base_url": "evangelion.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "EvaWiki",
+    "destination_base_url": "wiki.evageeks.org",
+    "destination_content_path": "/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "evawiki.png"
+  },
+  {
     "id": "en-fzero",
     "origins_label": "F-Zero Fandom Wiki",
     "origins": [
