@@ -380,6 +380,24 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-calamitymod",
+    "origins_label": "Calamity Mod Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Calamity Mod Fandom Wiki",
+        "origin_base_url": "calamitymod.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Calamity_Mod_Wiki"
+      }
+    ],
+    "destination": "Calamity Mod wiki.gg",
+    "destination_base_url": "calamitymod.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "calamitymodwiki.png",
+    "destination_main_page": "Calamity_Mod_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-celeste",
     "origins_label": "Celeste Fandom Wiki",
     "origins": [
@@ -561,6 +579,42 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-deadcells",
+    "origins_label": "Dead Cells Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dead Cells Fandom Wiki",
+        "origin_base_url": "deadcells.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dead_Cells_Wiki"
+      }
+    ],
+    "destination": "Dead Cells wiki.gg",
+    "destination_base_url": "deadcells.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deadcellswiki.png",
+    "destination_main_page": "Dead_Cells_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-deeprockgalactic",
+    "origins_label": "Deep Rock Galactic Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Deep Rock Galactic Fandom Wiki",
+        "origin_base_url": "deeprockgalactic.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deep_Rock_Galactic_Wiki"
+      }
+    ],
+    "destination": "Deep Rock Galactic wiki.gg",
+    "destination_base_url": "deeprockgalactic.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deeprockgalacticwiki.png",
+    "destination_main_page": "Deep_Rock_Galactic_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-destiny",
     "origins_label": "Destiny Fandom Wiki",
     "origins": [
@@ -630,6 +684,24 @@
     "destination_platform": "mediawiki",
     "destination_icon": "terrypratchettwiki.png",
     "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-dontstarve",
+    "origins_label": "Don't Starve Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Don't Starve Fandom Wiki",
+        "origin_base_url": "dontstarve.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Don't_Starve_Wiki"
+      }
+    ],
+    "destination": "Don't Starve wiki.gg",
+    "destination_base_url": "dontstarve.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dontstarvewiki.png",
+    "destination_main_page": "Don't_Starve_Wiki",
     "destination_search_path": "/index.php"
   },
   {
@@ -1090,6 +1162,24 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-girlslasttour",
+    "origins_label": "Girls' Last Tour Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Girls' Last Tour Fandom Wiki",
+        "origin_base_url": "girls-last-tour.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Girls_Last_Tour_Wiki"
+      }
+    ],
+    "destination": "Girls' Last Tour Wiki",
+    "destination_base_url": "girlslasttour.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "girlslasttourwiki.png",
+    "destination_main_page": "Girls'_Last_Tour_Wiki",
+    "destination_search_path": "/w/index.php"
+  },
+  {
     "id": "en-godzilla",
     "origins_label": "Godzilla Fandom Wiki",
     "origins": [
@@ -1142,24 +1232,6 @@
     "destination_icon": "granblue.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
-  },
-  {
-    "id": "en-girlslasttour",
-    "origins_label": "Girls' Last Tour Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Girls' Last Tour Fandom Wiki",
-        "origin_base_url": "girls-last-tour.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Girls_Last_Tour_Wiki"
-      }
-    ],
-    "destination": "Girls' Last Tour Wiki",
-    "destination_base_url": "girlslasttour.miraheze.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "girlslasttourwiki.png",
-    "destination_main_page": "Girls'_Last_Tour_Wiki",
-    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-halflife",
@@ -1720,6 +1792,24 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-noita",
+    "origins_label": "Noita Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Noita Fandom Wiki",
+        "origin_base_url": "noita.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Noita_Wiki"
+      }
+    ],
+    "destination": "Noita wiki.gg",
+    "destination_base_url": "noita.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "noitawiki.png",
+    "destination_main_page": "Noita_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-obeyme",
     "origins_label": "Obey Me! Fandom Wiki",
     "origins": [
@@ -2098,6 +2188,24 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-satisfactory",
+    "origins_label": "Satisfactory Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Satisfactory Fandom Wiki",
+        "origin_base_url": "satisfactory.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Satisfactory_Wiki"
+      }
+    ],
+    "destination": "Satisfactory wiki.gg",
+    "destination_base_url": "satisfactory.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "satisfactorywiki.png",
+    "destination_main_page": "Satisfactory_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-sega",
     "origins_label": "Sega Fandom Wiki",
     "origins": [
@@ -2393,6 +2501,24 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Wiki"
+      }
+    ],
+    "destination": "Terraria wiki.gg",
+    "destination_base_url": "terraria.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-thecyclefrontier",
     "origins_label": "The Cycle: Frontier Fandom Wiki",
     "origins": [
@@ -2668,6 +2794,24 @@
     "destination_icon": "worldtrigger.png",
     "destination_main_page": "Welcome_to_the_World_Trigger_Wiki",
     "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-warcraft",
+    "origins_label": "Wowpedia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Wowpedia Fandom Wiki",
+        "origin_base_url": "wowpedia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wowpedia"
+      }
+    ],
+    "destination": "Warcraft wiki.gg",
+    "destination_base_url": "warcraft.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "warcraftwiki.png",
+    "destination_main_page": "Warcraft_Wiki",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-yugioh",
