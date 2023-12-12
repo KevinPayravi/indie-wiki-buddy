@@ -1,23 +1,26 @@
 [
-    {
+  {
     "id": "zh-minecraft",
     "origins_label": "Minecraft Fandom Wikis",
     "origins": [
       {
         "origin": "Minecraft Fandom Wiki",
         "origin_base_url": "minecraft.fandom.com/zh",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
       },
       {
         "origin": "Minecraft Fandom Wiki (Archived)",
         "origin_base_url": "minecraft-archive.fandom.com/zh",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
       }
     ],
     "destination": "Minecraft Wiki",
     "destination_base_url": "zh.minecraft.wiki",
-    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
-    "destination_icon": "minecraftwiki.png"
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
   }
 ]

@@ -6,14 +6,16 @@
       {
         "origin": "Dragon Quest Fandom Wiki",
         "origin_base_url": "dragonquest.fandom.com/fr",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Dragon_Quest"
       }
     ],
     "destination": "Wiki Dragon Quest",
     "destination_base_url": "wikidragonquest.fr",
-    "destination_content_path": "/",
     "destination_platform": "mediawiki",
-    "destination_icon": "dragonquest.png"
+    "destination_icon": "dragonquest.png",
+    "destination_main_page": "Wiki_Dragon_Quest",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "fr-heroes",
@@ -22,14 +24,16 @@
       {
         "origin": "Heroes Fandom Wiki",
         "origin_base_url": "heroes.fandom.com/fr",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Accueil_Heroes"
       }
     ],
     "destination": "Heroes Wiki",
     "destination_base_url": "fr.heroeswiki.ddns.net",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "heroeswiki.png"
+    "destination_icon": "heroeswiki.png",
+    "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "fr-fallout",
@@ -38,14 +42,16 @@
       {
         "origin": "L'Abri Fallout Fandom Wiki",
         "origin_base_url": "fallout.fandom.com/fr",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Accueil"
       }
     ],
     "destination": "Les Archives de Vault-Tec",
     "destination_base_url": "fallout-wiki.com",
-    "destination_content_path": "/",
     "destination_platform": "mediawiki",
-    "destination_icon": "lesarchivesdevaulttec.png"
+    "destination_icon": "lesarchivesdevaulttec.png",
+    "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "fr-minecraft",
@@ -54,19 +60,22 @@
       {
         "origin": "Minecraft Fandom Wiki",
         "origin_base_url": "minecraft.fandom.com/fr",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
       },
       {
         "origin": "Minecraft Fandom Wiki (Archived)",
         "origin_base_url": "minecraft-archive.fandom.com/fr",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Minecraft"
       }
     ],
     "destination": "Minecraft Wiki",
     "destination_base_url": "fr.minecraft.wiki",
-    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
-    "destination_icon": "minecraftwiki.png"
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
   },
   {
     "id": "fr-pokemon",
@@ -75,13 +84,15 @@
       {
         "origin": "Pokémon Fandom Wiki",
         "origin_base_url": "pokemon.fandom.com/fr",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Pokémon"
       }
     ],
     "destination": "Poképédia",
     "destination_base_url": "www.pokepedia.fr",
-    "destination_content_path": "/",
     "destination_platform": "mediawiki",
-    "destination_icon": "pokepedia.png"
+    "destination_icon": "pokepedia.png",
+    "destination_main_page": "Portail:Accueil",
+    "destination_search_path": "/index.php"
   }
 ]

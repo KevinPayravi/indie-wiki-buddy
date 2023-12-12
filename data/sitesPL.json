@@ -6,13 +6,15 @@
       {
         "origin": "Rayman Fandom Wiki",
         "origin_base_url": "rayman.fandom.com/pl",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rayman_Wiki"
       }
     ],
     "destination": "RayWiki",
     "destination_base_url": "raymanpc.com",
-    "destination_content_path": "/wiki/pl/",
     "destination_platform": "mediawiki",
-    "destination_icon": "rayman.png"
+    "destination_icon": "rayman.png",
+    "destination_main_page": "Strona_główna",
+    "destination_search_path": "/wiki/script-pl/index.php"
   }
 ]

@@ -59,28 +59,33 @@ Entries are formatted as follows:
     {
       "origin": "Example Fandom Wiki",
       "origin_base_url": "example.fandom.com",
-      "origin_content_path": "/wiki/"
+      "origin_content_path": "/wiki/",
+      "origin_main_page": "Example_Wiki"
     }
   ],
   "destination": "Example Wiki",
   "destination_base_url": "example.com",
-  "destination_content_path": "/w/",
   "destination_platform": "mediawiki",
-  "destination_icon": "example.png"
+  "destination_icon": "example.png",
+  "destination_main_page": "Main_Page",
+  "destination_search_path": "/index.php"
 }
 ```
 
 * `id`: A unique identifier for the wiki; should start with the two-letter language code for the wiki, followed by a hypen and the name of the subject/franchise the wiki covers.
 * `label`: A label that is shown to the user, identifying the non-indie wiki(s). This is usually just the name of the wiki, but in the case of multiple wikis, it may be something like "Example Fandom Wikis" (plural).
-* `origins`: An array of wikis being redirected to the independent wiki. The vast majority of the time, there is just one wiki here. There may be multiple when a series has multiple wikis that combined into one independent wiki; when a Fandom wiki has archived alternatives; or when there are multiple non-independent wikis across multiple wiki farms.
+* `origins`: An array of wikis being redirected to the destination wiki. The vast majority of the time, there is just one wiki here. There may be multiple when a series has multiple wikis that combined into one destination wiki; when a Fandom wiki has archived alternatives; or when there are multiple non-independent wikis across multiple wiki farms.
 * `origin`: Name of the wiki being redirected.
 * `origin_base_url`: Fully qualified domain name of the wiki being redirected.
 * `origin_content_path`: The URL path prefix for article links on the wiki being redirected. On MediaWiki wikis, it can be found at Special:Version. Fandom wikis are usually `/wiki/`.
+* `origin_main_page`: The title of the main page of the wiki. This is used to direct the user to the corresponding main page on the destination wiki.
 * `destination`: Name of the wiki being redirected to.
 * `destination_base_url`: Fully qualified domain name of the wiki being redirected to.
-* `destination_content_path`: The URL path prefix for article links on the wiki being redirected to. On MediaWiki wikis, it can be found at Special:Version. It is typically `/wiki/` or `/`.
 * `destination_content_prefix`: A prefix that is prepended to article names before performing a search on the destination wiki. This can be useful if a wiki separates its content into different namespaces. For example, if we wanted to redirect a wiki about Super Mario Odyssey to a general Mario wiki that has Odyssey content in a namespace called `Odyssey`, we would set `destination_content_prefix` to `Odyssey:`.
 * `destination_platform`: The wiki's software. The current supported options are `mediawiki` and `doku`. If you are contributing a wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
 * `destination_icon`: The name of the wiki's favicon in the [favicons](favicons) folder.
+* `destination_main_page`: The title of the main page of the destination wiki.
+* `destination_search_path`: The URL path prefix for performing searches. On MediaWiki wikis, it is called the index.php entry point and can be found at Special:Version.
+
 
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.

@@ -6,14 +6,16 @@
       {
         "origin": "Minecraft Fandom Wiki",
         "origin_base_url": "minecraft.fandom.com/pt",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
       }
     ],
     "destination": "Minecraft Wiki",
     "destination_base_url": "pt.minecraft.wiki",
-    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
-    "destination_icon": "minecraftwiki.png"
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
   },
   {
     "id": "pt-runescape",
@@ -22,13 +24,15 @@
       {
         "origin": "Runescape Fandom Wiki",
         "origin_base_url": "runescape.fandom.com/pt",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "RuneScape_Wiki"
       }
     ],
     "destination": "Runescape Wiki",
     "destination_base_url": "pt.runescape.wiki",
-    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
-    "destination_icon": "runescape.png"
+    "destination_icon": "runescape.png",
+    "destination_main_page": "RuneScape_Wiki",
+    "destination_search_path": "/"
   }
 ]

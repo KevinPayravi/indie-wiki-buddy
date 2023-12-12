@@ -200,9 +200,6 @@ async function loadOptions(lang, textFilter = '') {
       // Populate individual wiki settings:
       const toggleContainer = document.getElementById('toggles');
       for (var i = 0; i < sites.length; i++) {
-        console.log(sites[i].origins_label);
-        console.log(sites[i].destination);
-        console.log(textFilter);
         var key = sites[i].id;
 
         // Create radio for disabling action on wiki:
@@ -401,7 +398,7 @@ async function loadOptions(lang, textFilter = '') {
         // Output wiki info:
         let wikiInfo = document.createElement('span');
         let iconLink = document.createElement("a");
-        iconLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
+        iconLink.href = 'https://' + sites[i].destination_base_url;
         iconLink.title = 'Visit ' + sites[i].destination;
         iconLink.target = '_blank';
         let icon = document.createElement("img");
@@ -416,7 +413,7 @@ async function loadOptions(lang, textFilter = '') {
           wikiInfo.appendChild(languageSpan);
         }
         let wikiLink = document.createElement("a");
-        wikiLink.href = 'https://' + sites[i].destination_base_url + sites[i].destination_content_path;
+        wikiLink.href = 'https://' + sites[i].destination_base_url;
         wikiLink.title = 'Visit ' + sites[i].destination;
         wikiLink.target = '_blank';
         wikiLink.appendChild(document.createTextNode(sites[i].destination));

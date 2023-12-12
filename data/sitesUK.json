@@ -1,18 +1,20 @@
 [
-    {
+  {
     "id": "uk-minecraft",
     "origins_label": "Minecraft Fandom Wiki",
     "origins": [
       {
         "origin": "Minecraft Fandom Wiki",
         "origin_base_url": "minecraft.fandom.com/uk",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Головна_сторінка"
       }
     ],
     "destination": "Minecraft Wiki",
     "destination_base_url": "uk.minecraft.wiki",
-    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
-    "destination_icon": "minecraftwiki.png"
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Головна_сторінка",
+    "destination_search_path": "/"
   }
 ]

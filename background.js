@@ -193,11 +193,12 @@ function updateDeclarativeRule() {
 
 function redirectToBreezeWiki(storage, tabId, url) {
   function processRedirect(host) {
+    // Extract article from URL
     const urlFormatted = new URL(url);
     const subdomain = urlFormatted.hostname.split(".")[0];
     const article = url.split('fandom.com/wiki/')[1].replaceAll('%20', '_');
 
-    // Extract article from URL
+    // Perform redirect
     if (article) {
       chrome.tabs.update(tabId, { url: host + '/' + subdomain + '/wiki/' + article });
     } else {
@@ -281,12 +282,14 @@ async function getData() {
               "origin": origin.origin,
               "origin_base_url": origin.origin_base_url,
               "origin_content_path": origin.origin_content_path,
+              "origin_main_page": origin.origin_main_page,
               "destination": site.destination,
               "destination_base_url": site.destination_base_url,
-              "destination_content_path": site.destination_content_path,
+              "destination_search_path": site.destination_search_path,
               "destination_content_prefix": (site.destination_content_prefix ? site.destination_content_prefix : ""),
               "destination_platform": site.destination_platform,
               "destination_icon": site.destination_icon,
+              "destination_main_page": site.destination_main_page,
               "lang": LANGS[i]
             })
           })
@@ -344,20 +347,25 @@ async function main(url, tabId) {
               // Get article name from the end of the URL;
               // We can't just take the last part of the path due to subpages;
               // Instead, we take everything after the wiki's base URL + content path
-              let article = url.split(site['origin_base_url'] + site['origin_content_path'])[1];
+              let article = decodeURIComponent(url.split(site['origin_base_url'] + site['origin_content_path'])[1]);
               // Set up URL to redirect user to based on wiki platform
               let newURL = '';
               if (article) {
+                // Check if main page
+                if (article === site['origin_main_page']) {
+                  article = site['destination_main_page'];
+                }
+                
                 let searchParams = '';
                 switch (site['destination_platform']) {
                   case 'mediawiki':
-                    searchParams = 'Special:Search/' + site['destination_content_prefix'] + article;
+                    searchParams = '?search=' + site['destination_content_prefix'] + article;
                     break;
                   case 'doku':
                     searchParams = 'start?do=search&q=' + article;
                     break;
                 }
-                newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
+                newURL = 'https://' + site["destination_base_url"] + site["destination_search_path"] + searchParams;
               } else {
                 newURL = 'https://' + site["destination_base_url"];
               }

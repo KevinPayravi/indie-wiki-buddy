@@ -6,14 +6,16 @@
       {
         "origin": "amiibopedia Fandom Wiki",
         "origin_base_url": "amiibo.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Amiibopedia"
       }
     ],
     "destination": "amiibopedia",
     "destination_base_url": "es.amiibopedia.com",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "amiibopedia.png"
+    "destination_icon": "amiibopedia.png",
+    "destination_main_page": "Amiibopedia",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "es-animalcrossing",
@@ -22,14 +24,16 @@
       {
         "origin": "Animal Crossing Fandom Wiki",
         "origin_base_url": "animalcrossing.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portada"
       }
     ],
     "destination": "Animal Crossing Enciclopedia",
     "destination_base_url": "animalcrossing.wikidex.net",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "animalcrossing.png"
+    "destination_icon": "animalcrossing.png",
+    "destination_main_page": "Portada",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "es-minecraft",
@@ -38,14 +42,16 @@
       {
         "origin": "Minecraft Fandom Wiki",
         "origin_base_url": "minecraft.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
       }
     ],
     "destination": "Minecraft Wiki",
     "destination_base_url": "es.minecraft.wiki",
-    "destination_content_path": "/w/",
     "destination_platform": "mediawiki",
-    "destination_icon": "minecraftwiki.png"
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
   },
   {
     "id": "es-supersmashbros",
@@ -54,14 +60,16 @@
       {
         "origin": "Smashpedia Fandom Wiki",
         "origin_base_url": "supersmashbros.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Smashpedia"
       }
     ],
     "destination": "SmashPedia",
     "destination_base_url": "es.ssbwiki.com",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "smashpedia.png"
+    "destination_icon": "smashpedia.png",
+    "destination_main_page": "SmashPedia",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "es-touhou",
@@ -70,14 +78,16 @@
       {
         "origin": "Touhou Fandom Wiki",
         "origin_base_url": "touhou.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Página_principal"
       }
     ],
     "destination": "Touhou Wiki",
     "destination_base_url": "es.touhouwiki.net",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "touhouwiki.png"
+    "destination_icon": "touhouwiki.png",
+    "destination_main_page": "Touhou_Wiki",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "es-pokemon",
@@ -86,13 +96,15 @@
       {
         "origin": "Pokémon Fandom Wiki",
         "origin_base_url": "pokemon.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pokémon_Wiki"
       }
     ],
     "destination": "WikiDex",
     "destination_base_url": "www.wikidex.net",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "wikidex.png"
+    "destination_icon": "wikidex.png",
+    "destination_main_page": "WikiDex",
+    "destination_search_path": "/index.php"
   }
 ]
