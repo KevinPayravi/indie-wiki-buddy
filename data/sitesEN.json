@@ -1144,6 +1144,22 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-girlslasttour",
+    "origins_label": "Girls' Last Tour Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Girls' Last Tour Fandom Wiki",
+        "origin_base_url": "girls-last-tour.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Girls' Last Tour Wiki",
+    "destination_base_url": "girlslasttour.miraheze.org",
+    "destination_content_path": "/wiki/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "girlslasttourwiki.png"
+  },
+  {
     "id": "en-halflife",
     "origins_label": "Half-Life & Portal Fandom Wiki",
     "origins": [
