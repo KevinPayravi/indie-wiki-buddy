@@ -2502,11 +2502,17 @@
   },
   {
     "id": "en-terraria",
-    "origins_label": "Terraria Fandom Wiki",
+    "origins_label": "Terraria Fandom Wikis",
     "origins": [
       {
         "origin": "Terraria Fandom Wiki",
         "origin_base_url": "terraria.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Wiki"
+      },
+      {
+        "origin": "Terraria Fandom Wiki (Archived)",
+        "origin_base_url": "terraria-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Terraria_Wiki"
       }
@@ -2797,13 +2803,19 @@
   },
   {
     "id": "en-warcraft",
-    "origins_label": "Wowpedia Fandom Wiki",
+    "origins_label": "World of Warcraft Fandom Wikis",
     "origins": [
       {
         "origin": "Wowpedia Fandom Wiki",
         "origin_base_url": "wowpedia.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Wowpedia"
+      },
+      {
+        "origin": "WoWWiki Fandom Wiki (Archived)",
+        "origin_base_url": "wowwiki-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portal:Main"
       }
     ],
     "destination": "Warcraft wiki.gg",
