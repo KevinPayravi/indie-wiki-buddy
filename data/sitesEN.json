@@ -2784,24 +2784,6 @@
     "destination_search_path": "/index.php"
   },
   {
-    "id": "en-worldtrigger",
-    "origins_label": "World Trigger Fandom Wiki",
-    "origins": [
-      {
-        "origin": "World Trigger Fandom Wiki",
-        "origin_base_url": "worldtrigger.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      }
-    ],
-    "destination": "World Trigger Wiki",
-    "destination_base_url": "worldtriggerwiki.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "worldtrigger.png",
-    "destination_main_page": "Welcome_to_the_World_Trigger_Wiki",
-    "destination_search_path": "/w/index.php"
-  },
-  {
     "id": "en-warcraft",
     "origins_label": "World of Warcraft Fandom Wikis",
     "origins": [
@@ -2823,6 +2805,42 @@
     "destination_platform": "mediawiki",
     "destination_icon": "warcraftwiki.png",
     "destination_main_page": "Warcraft_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-worldtrigger",
+    "origins_label": "World Trigger Fandom Wiki",
+    "origins": [
+      {
+        "origin": "World Trigger Fandom Wiki",
+        "origin_base_url": "worldtrigger.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "World Trigger Wiki",
+    "destination_base_url": "worldtriggerwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "worldtrigger.png",
+    "destination_main_page": "Welcome_to_the_World_Trigger_Wiki",
+    "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-xenharmonic",
+    "origins_label": "Xenharmonic Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Xenharmonic Fandom Wiki",
+        "origin_base_url": "xenharmonic.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Xenharmonic Wiki",
+    "destination_base_url": "en.xen.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "xenharmonicwiki.png",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
   },
   {
