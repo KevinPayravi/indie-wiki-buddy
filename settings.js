@@ -32,7 +32,7 @@ async function getData() {
   for (let i = 0; i < LANGS.length; i++) {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
-      .then(function (jsonData) {
+      .then((jsonData) => {
         jsonData.forEach((site) => site.language = LANGS[i]);
         sites = sites.concat(jsonData);
       }));
@@ -81,7 +81,7 @@ function populateBreezewikiHosts(breezewikiHosts, selectedHost, customHostName) 
 // Populate BreezeWiki dropdown when enabled
 async function loadBreezewikiOptions() {
   // Load BreezeWiki options:
-  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost', 'breezewikiCustomHost'], function (item) {
+  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost', 'breezewikiCustomHost'], (item) => {
     let hostOptions = item.breezewikiHostOptions;
     let hostFetchTimestamp = item.breezewikiHostFetchTimestamp;
     let host = item.breezewikiHost;
@@ -166,8 +166,8 @@ async function loadOptions(lang, textFilter = '') {
     site.destination_base_url.toLowerCase().includes(textFilter))
   ));
 
-  chrome.storage.local.get(function (localStorage) {
-    chrome.storage.sync.get(function (syncStorage) {
+  chrome.storage.local.get((localStorage) => {
+    chrome.storage.sync.get((syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
       let wikiSettings = storage.wikiSettings || {};
       let searchEngineSettings = storage.searchEngineSettings || {};
@@ -175,7 +175,7 @@ async function loadOptions(lang, textFilter = '') {
       let defaultSearchAction = storage.defaultSearchAction || null;
 
       // Load defaults for newly added wikis:
-      chrome.storage.sync.get(['defaultWikiAction'], function (item) {
+      chrome.storage.sync.get(['defaultWikiAction'], (item) => {
         if (item.defaultWikiAction === 'disabled') {
           document.options.defaultWikiAction.value = 'disabled';
         } else if (item.defaultWikiAction === 'redirect') {
@@ -184,7 +184,7 @@ async function loadOptions(lang, textFilter = '') {
           document.options.defaultWikiAction.value = 'alert';
         }
       });
-      chrome.storage.sync.get(['defaultSearchAction'], function (item) {
+      chrome.storage.sync.get(['defaultSearchAction'], (item) => {
         if (item.defaultSearchAction === 'disabled') {
           document.options.defaultSearchAction.value = 'disabled';
         } else if (item.defaultSearchAction === 'hide') {
@@ -310,43 +310,43 @@ async function loadOptions(lang, textFilter = '') {
         }
 
         // Add listeners for when user clicks control:
-        inputDisabled.addEventListener('click', function (input) {
-          chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+        inputDisabled.addEventListener('click', (input) => {
+          chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
             var key = input.target.getAttribute('data-wiki-key');
             response.wikiSettings.set(key, 'disabled');
             chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
           });
         });
-        inputAlert.addEventListener('click', function (input) {
-          chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+        inputAlert.addEventListener('click', (input) => {
+          chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
             var key = input.target.getAttribute('data-wiki-key');
             response.wikiSettings.set(key, 'alert');
             chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
           });
         });
-        inputRedirect.addEventListener('click', function (input) {
-          chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+        inputRedirect.addEventListener('click', (input) => {
+          chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
             var key = input.target.getAttribute('data-wiki-key');
             response.wikiSettings.set(key, 'redirect');
             chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
           });
         });
-        inputSearchEngineDisabled.addEventListener('click', function (input) {
-          chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
+        inputSearchEngineDisabled.addEventListener('click', (input) => {
+          chrome.storage.sync.get({ 'searchEngineSettings': {} }, (response) => {
             var key = input.target.getAttribute('data-wiki-key');
             response.searchEngineSettings.set(key, 'disabled');
             chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
           });
         });
-        inputSearchEngineReplace.addEventListener('click', function (input) {
-          chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
+        inputSearchEngineReplace.addEventListener('click', (input) => {
+          chrome.storage.sync.get({ 'searchEngineSettings': {} }, (response) => {
             var key = input.target.getAttribute('data-wiki-key');
             response.searchEngineSettings.set(key, 'replace');
             chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
           });
         });
-        inputSearchEngineHide.addEventListener('click', function (input) {
-          chrome.storage.sync.get({ 'searchEngineSettings': {} }, function (response) {
+        inputSearchEngineHide.addEventListener('click', (input) => {
+          chrome.storage.sync.get({ 'searchEngineSettings': {} }, (response) => {
             var key = input.target.getAttribute('data-wiki-key');
             response.searchEngineSettings.set(key, 'hide');
             chrome.storage.sync.set({ 'searchEngineSettings': response.searchEngineSettings });
@@ -437,7 +437,7 @@ async function loadOptions(lang, textFilter = '') {
 
       // Add "select all" button event listeners:
       const setAllRedirect = document.getElementById('setAllRedirect');
-      setAllRedirect.addEventListener('click', function () {
+      setAllRedirect.addEventListener('click', () => {
         const toggles = document.querySelectorAll('#toggles input.toggleRedirect');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
@@ -447,7 +447,7 @@ async function loadOptions(lang, textFilter = '') {
       });
 
       const setAllAlert = document.getElementById('setAllAlert');
-      setAllAlert.addEventListener('click', function () {
+      setAllAlert.addEventListener('click', () => {
         const toggles = document.querySelectorAll('#toggles input.toggleAlert');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
@@ -457,7 +457,7 @@ async function loadOptions(lang, textFilter = '') {
       });
 
       const setAllDisabled = document.getElementById('setAllDisabled');
-      setAllDisabled.addEventListener('click', function () {
+      setAllDisabled.addEventListener('click', () => {
         const toggles = document.querySelectorAll('#toggles input.toggleDisable');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
@@ -467,7 +467,7 @@ async function loadOptions(lang, textFilter = '') {
       });
 
       const setAllSearchEngineDisabled = document.getElementById('setAllSearchEngineDisabled');
-      setAllSearchEngineDisabled.addEventListener('click', function () {
+      setAllSearchEngineDisabled.addEventListener('click', () => {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineDisabled');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
@@ -477,7 +477,7 @@ async function loadOptions(lang, textFilter = '') {
       });
 
       const setAllSearchEngineHide = document.getElementById('setAllSearchEngineHide');
-      setAllSearchEngineHide.addEventListener('click', function () {
+      setAllSearchEngineHide.addEventListener('click', () => {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineHide');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
@@ -487,7 +487,7 @@ async function loadOptions(lang, textFilter = '') {
       });
 
       const setAllSearchEngineReplace = document.getElementById('setAllSearchEngineReplace');
-      setAllSearchEngineReplace.addEventListener('click', function () {
+      setAllSearchEngineReplace.addEventListener('click', () => {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineReplace');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
@@ -596,7 +596,7 @@ function setBreezeWiki(setting, storeSetting = true) {
   const breezewikiHost = document.getElementById('breezewikiHost');
   if (setting === 'on') {
     breezewikiHost.style.display = 'block';
-    chrome.storage.sync.get({ 'breezewikiHost': null }, function (host) {
+    chrome.storage.sync.get({ 'breezewikiHost': null }, (host) => {
       if (!host.breezewikiHost) {
         fetch('https://bw.getindie.wiki/instances.json')
           .then((response) => {
@@ -709,7 +709,7 @@ async function migrateData() {
 }
 
 // Main function that runs on-load
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   // If newly installed, show initial install guide
   if (new URLSearchParams(window.location.search).get('newinstall')) {
     document.getElementById('firstInstallInfo').style.display = 'block';
@@ -718,11 +718,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // If running Chromium, show warning about service worker bug
   if (navigator.userAgent.match(/Chrom[e|ium]/)) {
     const notificationBannerChromeBug = document.getElementById('notificationBannerChromeBug');
-    chrome.storage.local.get({ 'hideChromeBugNote': false }, function (item) {
+    chrome.storage.local.get({ 'hideChromeBugNote': false }, (item) => {
       if (!item.hideChromeBugNote) {
         notificationBannerChromeBug.style.display = 'block';
 
-        document.getElementById('chromeBugHideLink').addEventListener('click', function () {
+        document.getElementById('chromeBugHideLink').addEventListener('click', () => {
           chrome.storage.local.set({ 'hideChromeBugNote': true });
           notificationBannerChromeBug.style.display = 'none';
         });
@@ -733,11 +733,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // If running Opera, show note about search engine access
   if (navigator.userAgent.match(/OPR\//)) {
     const notificationBannerOpera = document.getElementById('notificationBannerOpera');
-    chrome.storage.local.get({ 'hideOperaPermissionsNote': false }, function (item) {
+    chrome.storage.local.get({ 'hideOperaPermissionsNote': false }, (item) => {
       if (!item.hideOperaPermissionsNote) {
         notificationBannerOpera.style.display = 'block';
 
-        document.getElementById('operaPermsHideLink').addEventListener('click', function () {
+        document.getElementById('operaPermsHideLink').addEventListener('click', () => {
           chrome.storage.local.set({ 'hideOperaPermissionsNote': true });
           notificationBannerOpera.style.display = 'none';
         });
@@ -747,13 +747,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Count number of times settings have been opened
   // Purposefully using local storage instead of sync
-  chrome.storage.local.get({ 'countSettingsOpened': 0 }, function (item) {
+  chrome.storage.local.get({ 'countSettingsOpened': 0 }, (item) => {
     const countSettingsOpened = item.countSettingsOpened;
     chrome.storage.local.set({ 'countSettingsOpened': countSettingsOpened + 1 });
 
     // Show review reminder every 5 opens,
     // and if the banner hasn't been previously dismissed
-    chrome.storage.local.get({ 'hideReviewReminder': false }, function (item) {
+    chrome.storage.local.get({ 'hideReviewReminder': false }, (item) => {
       if (!item.hideReviewReminder && ((countSettingsOpened - 1) % 5 === 0)) {
         const notificationBannerReview = document.getElementById('notificationBannerReview');
 
@@ -761,13 +761,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('notificationBannerReview').style.display = ' block';
 
         // Disable future review reminders if user clicks links:
-        document.getElementById('reviewReminderChromeLink').addEventListener('click', function () {
+        document.getElementById('reviewReminderChromeLink').addEventListener('click', () => {
           chrome.storage.local.set({ 'hideReviewReminder': true });
         });
-        document.getElementById('reviewReminderFirefoxLink').addEventListener('click', function () {
+        document.getElementById('reviewReminderFirefoxLink').addEventListener('click', () => {
           chrome.storage.local.set({ 'hideReviewReminder': true });
         });
-        document.getElementById('reviewReminderHideLink').addEventListener('click', function () {
+        document.getElementById('reviewReminderHideLink').addEventListener('click', () => {
           chrome.storage.local.set({ 'hideReviewReminder': true });
           notificationBannerReview.style.display = 'none';
         });
@@ -780,36 +780,36 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('version').textContent = 'v' + version;
 
   // Get user's last set language
-  chrome.storage.sync.get({ 'lang': 'EN' }, function (item) {
+  chrome.storage.sync.get({ 'lang': 'EN' }, (item) => {
     langSelect.value = item.lang;
     const filterInput = document.getElementById('filterInput').value;
     loadOptions(item.lang, filterInput);
   });
   // Add event listener for language select
   const langSelect = document.getElementById("langSelect");
-  langSelect.addEventListener('change', function () {
+  langSelect.addEventListener('change', () => {
     chrome.storage.sync.set({ 'lang': langSelect.value });
     const filterInput = document.getElementById('filterInput').value;
     loadOptions(langSelect.value, filterInput);
   });
 
   // Set setting toggle values:
-  chrome.storage.local.get({ 'power': 'on' }, function (item) {
+  chrome.storage.local.get({ 'power': 'on' }, (item) => {
     setPower(item.power, false);
   });
-  chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
+  chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
     setNotifications(item.notifications, false);
   });
-  chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, function (item) {
+  chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
     setHiddenResultsBanner(item.hiddenResultsBanner, false);
   });
-  chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
+  chrome.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
     setCrossLanguage(item.crossLanguage, false);
   });
-  chrome.storage.sync.get({ 'openChangelog': 'off' }, function (item) {
+  chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
     setOpenChangelog(item.openChangelog, false);
   });
-  chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
+  chrome.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
     setBreezeWiki(item.breezewiki, false);
 
     // Load BreezeWiki options if BreezeWiki is enabled
@@ -819,8 +819,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Add event listeners for general setting toggles
-  document.getElementById('powerCheckbox').addEventListener('change', function () {
-    chrome.storage.local.get({ 'power': 'on' }, function (item) {
+  document.getElementById('powerCheckbox').addEventListener('change', () => {
+    chrome.storage.local.get({ 'power': 'on' }, (item) => {
       if (item.power === 'on') {
         setPower('off');
       } else {
@@ -828,8 +828,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('notificationsCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
+  document.getElementById('notificationsCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
       if (item.notifications === 'on') {
         setNotifications('off');
       } else {
@@ -837,8 +837,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('hiddenResultsBannerCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, function (item) {
+  document.getElementById('hiddenResultsBannerCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
       if (item.hiddenResultsBanner === 'on') {
         setHiddenResultsBanner('off');
       } else {
@@ -846,8 +846,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('crossLanguageCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
+  document.getElementById('crossLanguageCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
       if (item.crossLanguage === 'on') {
         setCrossLanguage('off');
       } else {
@@ -855,8 +855,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('openChangelogCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'openChangelog': 'off' }, function (item) {
+  document.getElementById('openChangelogCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
       if (item.openChangelog === 'on') {
         setOpenChangelog('off');
       } else {
@@ -866,8 +866,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Add event listeners for BreezeWiki settings
-  document.getElementById('breezewikiCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
+  document.getElementById('breezewikiCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
       if (item.breezewiki === 'on') {
         setBreezeWiki('off');
       } else {
@@ -877,7 +877,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
-  breezewikiHostSelect.addEventListener('change', function () {
+  breezewikiHostSelect.addEventListener('change', () => {
     if (breezewikiHostSelect.value === 'CUSTOM') {
       document.getElementById('breezewikiCustomHost').style.display = 'block';
       document.getElementById('breezewikiCustomHostStatus').innerText = '';
@@ -917,7 +917,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  document.getElementById('setCustomBreezewikiDomain').addEventListener('click', function () {
+  document.getElementById('setCustomBreezewikiDomain').addEventListener('click', () => {
    setCustomBreezewikiDomain();
   });
   document.getElementById('customBreezewikiHost').onkeyup = function(e) {
@@ -932,36 +932,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add event listeners for default action selections
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
-    el.addEventListener('change', function () {
+    el.addEventListener('change', () => {
       chrome.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
-    el.addEventListener('change', function () {
+    el.addEventListener('change', () => {
       chrome.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
     });
   });
 
   // Add event listener for filtering by text
-  document.getElementById('filterInput').addEventListener('input', function (e) {
+  document.getElementById('filterInput').addEventListener('input', (e) => {
     const langSelect = document.getElementById("langSelect");
     loadOptions(langSelect.value, e.target.value);
   });
 
   // Get and display stat counts
-  chrome.storage.sync.get({ 'countAlerts': 0 }, function (item) {
+  chrome.storage.sync.get({ 'countAlerts': 0 }, (item) => {
     var key = Object.keys(item)[0];
     document.getElementById('countAlerts').textContent = item[key];
   });
-  chrome.storage.sync.get({ 'countRedirects': 0 }, function (item) {
+  chrome.storage.sync.get({ 'countRedirects': 0 }, (item) => {
     var key = Object.keys(item)[0];
     document.getElementById('countRedirects').textContent = item[key];
   });
-  chrome.storage.sync.get({ 'countSearchFilters': 0 }, function (item) {
+  chrome.storage.sync.get({ 'countSearchFilters': 0 }, (item) => {
     var key = Object.keys(item)[0];
     document.getElementById('countSearchFilters').textContent = item[key];
   });
-  chrome.storage.sync.get({ 'countBreezeWiki': 0 }, function (item) {
+  chrome.storage.sync.get({ 'countBreezeWiki': 0 }, (item) => {
     var key = Object.keys(item)[0];
     document.getElementById('countBreezeWiki').textContent = item[key];
   });

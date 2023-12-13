@@ -1,6 +1,6 @@
 // Capture web requests
 chrome.webRequest.onBeforeSendHeaders.addListener(
-  async function (event) {
+  async (event) => {
     if (event.documentLifecycle !== 'prerender') {
       if (event.frameType === 'sub_frame') {
         let tabInfo = await chrome.tabs.get(event.tabId);
@@ -14,23 +14,23 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 );
 
 // Listen for user turning extension on or off, to update icon
-chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.action === 'updateIcon') {
     setPowerIcon(msg.value);
   }
 });
 
 // Listen for browser starting, to set initial icon state
-chrome.runtime.onStartup.addListener(function () {
-  chrome.storage.local.get({ 'power': 'on' }, function (item) {
+chrome.runtime.onStartup.addListener(() => {
+  chrome.storage.local.get({ 'power': 'on' }, (item) => {
     setPowerIcon(item.power);
   });
 });
 
 // Listen for extension installed/updating
-chrome.runtime.onInstalled.addListener(async function (detail) {
+chrome.runtime.onInstalled.addListener(async (detail) => {
   // Set initial icon state
-  chrome.storage.local.get({ 'power': 'on' }, function (item) {
+  chrome.storage.local.get({ 'power': 'on' }, (item) => {
     setPowerIcon(item.power);
   });
 
@@ -40,7 +40,7 @@ chrome.runtime.onInstalled.addListener(async function (detail) {
   }
 
   // If update, open changelog if setting is enabled
-  chrome.storage.sync.get({ 'openChangelog': 'off' }, function (item) {
+  chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
     if (item.openChangelog === 'on' && detail.reason === 'update') {
       chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true', active: false });
     }
@@ -137,8 +137,8 @@ if (chrome.declarativeNetRequest) {
 }
 
 function updateDeclarativeRule() {
-  chrome.storage.local.get(function (localStorage) {
-    chrome.storage.sync.get(function (syncStorage) {
+  chrome.storage.local.get((localStorage) => {
+    chrome.storage.sync.get((syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
       const headerValue = JSON.stringify({
         'power': storage.power ?? 'on',
@@ -218,7 +218,7 @@ function redirectToBreezeWiki(storage, tabId, url) {
         "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom."
       });
       // Self-clear notification after 6 seconds
-      setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
+      setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
     }
   }
 
@@ -274,7 +274,7 @@ async function getData() {
   for (let i = 0; i < LANGS.length; i++) {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
-      .then(function (jsonData) {
+      .then((jsonData) => {
         jsonData.forEach((site) => {
           site.origins.forEach((origin) => {
             sites.push({
@@ -316,8 +316,8 @@ async function main(url, tabId) {
 
   sites = await getData();
 
-  chrome.storage.local.get(function (localStorage) {
-    chrome.storage.sync.get(function (syncStorage) {
+  chrome.storage.local.get((localStorage) => {
+    chrome.storage.sync.get((syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
       if ((storage.power ?? 'on') === 'on') {
         let crossLanguageSetting = storage.crossLanguage || 'off';
@@ -387,7 +387,7 @@ async function main(url, tabId) {
                   "message": "Indie Wiki Buddy has sent you from " + site['origin'] + " to " + site['destination']
                 });
                 // Self-clear notification after 6 seconds
-                setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
+                setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
               }
             } else if ((storage.breezewiki ?? 'off') === 'on') {
               redirectToBreezeWiki(storage, tabId, url);

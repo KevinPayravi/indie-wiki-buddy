@@ -32,7 +32,7 @@ async function getData() {
   for (let i = 0; i < LANGS.length; i++) {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
-      .then(function (jsonData) {
+      .then((jsonData) => {
         jsonData.forEach((site) => {
           site.origins.forEach((origin) => {
             sites.push({
@@ -266,7 +266,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let enableResultButton = document.createElement('div');
     enableResultButton.innerText = 'Re-enable the result below';
     resultControls.prepend(enableResultButton);
-    enableResultButton.addEventListener('click', function (e) {
+    enableResultButton.addEventListener('click', (e) => {
       e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
       e.target.classList.add('iwb-hide');
     });
@@ -452,7 +452,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                   if (headElement && !document.querySelector('.iwb-styles')) {
                     insertCSS();
                   } else {
-                    const docObserver = new MutationObserver(function (mutations, mutationInstance) {
+                    const docObserver = new MutationObserver((mutations, mutationInstance) => {
                       const headElement = document.querySelector('head');
                       if (headElement && !document.querySelector('.iwb-styles')) {
                         insertCSS();
@@ -518,8 +518,8 @@ function main(mutations = null, observer = null) {
   if (observer) {
     observer.disconnect();
   }
-  chrome.storage.local.get(function (localStorage) {
-    chrome.storage.sync.get(function (syncStorage) {
+  chrome.storage.local.get((localStorage) => {
+    chrome.storage.sync.get((syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
       // Check if extension is on:
       if ((storage.power ?? 'on') === 'on') {

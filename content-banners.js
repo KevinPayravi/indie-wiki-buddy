@@ -18,7 +18,7 @@ async function getData() {
   for (let i = 0; i < LANGS.length; i++) {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
-      .then(function (jsonData) {
+      .then((jsonData) => {
         jsonData.forEach((site) => {
           site.origins.forEach((origin) => {
             sites.push({
@@ -128,7 +128,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRestoreLink.textContent = '⎌ Restore banner';
   bannerControls.appendChild(bannerRestoreLink);
   bannerRestoreLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+    chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
       response.wikiSettings.set(id, 'alert');
       chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Banner restored';
@@ -148,7 +148,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerDisableLink.textContent = '✕ Disable banner for this wiki';
   bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+    chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
       response.wikiSettings.set(id, 'disabled');
       chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Banner disabled';
@@ -169,7 +169,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRedirectLink.textContent = '↪ Auto redirect this wiki';
   bannerControls.appendChild(bannerRedirectLink);
   bannerRedirectLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'wikiSettings': {} }, function (response) {
+    chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
       response.wikiSettings.set(id, 'redirect');
       chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Redirect enabled';
@@ -224,8 +224,8 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
 }
 
 function main() {
-  chrome.storage.local.get(function (localStorage) {
-    chrome.storage.sync.get(function (syncStorage) {
+  chrome.storage.local.get((localStorage) => {
+    chrome.storage.sync.get((syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
       // Check if extension is on:
       if ((storage.power ?? 'on') === 'on') {
@@ -298,7 +298,7 @@ function main() {
                     newURL = 'https://' + site["destination_base_url"];
                   }
                   // When head elem is loaded, notify that another wiki is available
-                  const docObserver = new MutationObserver(function (mutations, mutationInstance) {
+                  const docObserver = new MutationObserver((mutations, mutationInstance) => {
                     const headElement = document.querySelector('head');
                     if (headElement) {
                       try {

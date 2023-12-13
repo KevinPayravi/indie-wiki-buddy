@@ -20,7 +20,7 @@ async function getData() {
   for (let i = 0; i < LANGS.length; i++) {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
-      .then(function (jsonData) {
+      .then((jsonData) => {
         jsonData.forEach((site) => site.language = LANGS[i]);
         sites = sites.concat(jsonData);
       }));
@@ -133,7 +133,7 @@ function populateBreezewikiHosts(breezewikiHosts, selectedHost, customHostName) 
 // Populate BreezeWiki dropdown when enabled
 async function loadBreezewikiOptions() {
   // Load BreezeWiki options:
-  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost', 'breezewikiCustomHost'], function (item) {
+  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost', 'breezewikiCustomHost'], (item) => {
     let hostOptions = item.breezewikiHostOptions;
     let hostFetchTimestamp = item.breezewikiHostFetchTimestamp;
     let host = item.breezewikiHost;
@@ -282,7 +282,7 @@ function setOpenChangelog(setting, storeSetting = true) {
 }
 
 // Set default action setting
-chrome.storage.sync.get(['defaultWikiAction'], function (item) {
+chrome.storage.sync.get(['defaultWikiAction'], (item) => {
   if (item.defaultWikiAction === 'disabled') {
     document.options.defaultWikiAction.value = 'disabled';
   } else if (item.defaultWikiAction === 'redirect') {
@@ -292,7 +292,7 @@ chrome.storage.sync.get(['defaultWikiAction'], function (item) {
   }
 });
 // Set default search engine setting
-chrome.storage.sync.get(['defaultSearchAction'], function (item) {
+chrome.storage.sync.get(['defaultSearchAction'], (item) => {
   if (item.defaultSearchAction === 'disabled') {
     document.options.defaultSearchAction.value = 'disabled';
   } else if (item.defaultSearchAction === 'hide') {
@@ -315,7 +315,7 @@ function setBreezeWiki(setting, storeSetting = true) {
   const breezewikiHost = document.getElementById('breezewikiHost');
   if (setting === 'on') {
     breezewikiHost.style.display = 'block';
-    chrome.storage.sync.get({ 'breezewikiHost': null }, function (host) {
+    chrome.storage.sync.get({ 'breezewikiHost': null }, (host) => {
       if (!host.breezewikiHost) {
         fetch('https://bw.getindie.wiki/instances.json')
           .then((response) => {
@@ -364,15 +364,15 @@ function setBreezeWiki(setting, storeSetting = true) {
 }
 
 // Main function that runs on-load
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   // If running Chromium, show warning about service worker bug
   if (navigator.userAgent.match(/Chrom[e|ium]/)) {
     const notificationBannerChromeBug = document.getElementById('notificationBannerChromeBug');
-    chrome.storage.local.get({ 'hideChromeBugNote': false }, function (item) {
+    chrome.storage.local.get({ 'hideChromeBugNote': false }, (item) => {
       if (!item.hideChromeBugNote) {
         notificationBannerChromeBug.style.display = 'block';
 
-        document.getElementById('chromeBugHideLink').addEventListener('click', function () {
+        document.getElementById('chromeBugHideLink').addEventListener('click', () => {
           chrome.storage.local.set({ 'hideChromeBugNote': true });
           notificationBannerChromeBug.style.display = 'none';
         });
@@ -383,11 +383,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // If running Opera, show note about search engine access
   if (navigator.userAgent.match(/OPR\//)) {
     const notificationBannerOpera = document.getElementById('notificationBannerOpera');
-    chrome.storage.local.get({ 'hideOperaPermissionsNote': false }, function (item) {
+    chrome.storage.local.get({ 'hideOperaPermissionsNote': false }, (item) => {
       if (!item.hideOperaPermissionsNote) {
         notificationBannerOpera.style.display = 'block';
 
-        document.getElementById('operaPermsHideLink').addEventListener('click', function () {
+        document.getElementById('operaPermsHideLink').addEventListener('click', () => {
           chrome.storage.local.set({ 'hideOperaPermissionsNote': true });
           notificationBannerOpera.style.display = 'none';
         });
@@ -396,28 +396,28 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Listener for settings page in new tab:
-  document.getElementById('openSettings').addEventListener('click', function () {
+  document.getElementById('openSettings').addEventListener('click', () => {
     chrome.tabs.create({ 'url': chrome.runtime.getURL('settings.html') });
     window.close();
   });
 
   // Set setting toggle values:
-  chrome.storage.local.get({ 'power': 'on' }, function (item) {
+  chrome.storage.local.get({ 'power': 'on' }, (item) => {
     setPower(item.power, false);
   });
-  chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
+  chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
     setNotifications(item.notifications, false);
   });
-  chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, function (item) {
+  chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
     setHiddenResultsBanner(item.hiddenResultsBanner, false);
   });
-  chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
+  chrome.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
     setCrossLanguage(item.crossLanguage, false);
   });
-  chrome.storage.sync.get({ 'openChangelog': 'off' }, function (item) {
+  chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
     setOpenChangelog(item.openChangelog, false);
   });
-  chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
+  chrome.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
     setBreezeWiki(item.breezewiki, false);
 
     // Load BreezeWiki options if BreezeWiki is enabled
@@ -427,8 +427,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Add event listeners for general setting toggles
-  document.getElementById('powerCheckbox').addEventListener('change', function () {
-    chrome.storage.local.get({ 'power': 'on' }, function (item) {
+  document.getElementById('powerCheckbox').addEventListener('change', () => {
+    chrome.storage.local.get({ 'power': 'on' }, (item) => {
       if (item.power === 'on') {
         setPower('off');
       } else {
@@ -436,8 +436,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('notificationsCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
+  document.getElementById('notificationsCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
       if (item.notifications === 'on') {
         setNotifications('off');
       } else {
@@ -445,8 +445,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('hiddenResultsBannerCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, function (item) {
+  document.getElementById('hiddenResultsBannerCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
       if (item.hiddenResultsBanner === 'on') {
         setHiddenResultsBanner('off');
       } else {
@@ -454,8 +454,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('crossLanguageCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
+  document.getElementById('crossLanguageCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
       if (item.crossLanguage === 'on') {
         setCrossLanguage('off');
       } else {
@@ -463,8 +463,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-  document.getElementById('openChangelogCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'openChangelog': 'off' }, function (item) {
+  document.getElementById('openChangelogCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
       if (item.openChangelog === 'on') {
         setOpenChangelog('off');
       } else {
@@ -474,8 +474,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Add event listeners for BreezeWiki settings
-  document.getElementById('breezewikiCheckbox').addEventListener('change', function () {
-    chrome.storage.sync.get({ 'breezewiki': 'off' }, function (item) {
+  document.getElementById('breezewikiCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
       if (item.breezewiki === 'on') {
         setBreezeWiki('off');
       } else {
@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
-  breezewikiHostSelect.addEventListener('change', function () {
+  breezewikiHostSelect.addEventListener('change', () => {
     if (breezewikiHostSelect.value === 'CUSTOM') {
       document.getElementById('breezewikiCustomHost').style.display = 'block';
     } else {
@@ -500,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
-    el.addEventListener('change', async function () {
+    el.addEventListener('change', async () => {
       chrome.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
 
       let wikiSettings = {};
@@ -512,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
-    el.addEventListener('change', async function () {
+    el.addEventListener('change', async () => {
       chrome.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
 
       let searchEngineSettings = {};
