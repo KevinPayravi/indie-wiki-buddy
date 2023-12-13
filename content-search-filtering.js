@@ -280,9 +280,9 @@ function replaceSearchResults(searchResultContainer, site, link) {
   return 0;
 }
 
-function hideSearchResults(searchResultContainer, searchEngine, site) {
+function hideSearchResults(searchResultContainer, searchEngine, site, showBanner = 'on') {
   // Insert search result removal notice
-  if (!filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
+  if (showBanner === 'on' && !filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
     filteredWikis.push(site.lang + ' ' + site.origin_group);
 
     let elementId = stringToId(site.lang + '-' + site.origin_group);
@@ -494,7 +494,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
 
                 if (searchResultContainer) {
                   if (searchFilterSetting === 'hide') {
-                    countFiltered += hideSearchResults(searchResultContainer, searchEngine, site);
+                    countFiltered += hideSearchResults(searchResultContainer, searchEngine, site, storage['hiddenResultsBanner']);
                   } else {
                     countFiltered += replaceSearchResults(searchResultContainer, site, link);
                   }

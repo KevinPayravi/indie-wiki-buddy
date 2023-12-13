@@ -536,6 +536,21 @@ function setNotifications(setting, storeSetting = true) {
   }
 }
 
+// Set search results hidden banner setting
+function setHiddenResultsBanner(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'hiddenResultsBanner': setting });
+  }
+  const hiddenResultsBannerIcon = document.getElementById('hiddenResultsBannerIcon');
+  if (setting === 'on') {
+    document.getElementById('hiddenResultsBannerCheckbox').checked = true;
+    hiddenResultsBannerIcon.innerText = '🔔';
+  } else {
+    document.getElementById('hiddenResultsBannerCheckbox').checked = false;
+    hiddenResultsBannerIcon.innerText = '🔕';
+  }
+}
+
 // Set cross-language setting
 function setCrossLanguage(setting, storeSetting = true) {
   if (storeSetting) {
@@ -785,6 +800,9 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.sync.get({ 'notifications': 'on' }, function (item) {
     setNotifications(item.notifications, false);
   });
+  chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, function (item) {
+    setHiddenResultsBanner(item.hiddenResultsBanner, false);
+  });
   chrome.storage.sync.get({ 'crossLanguage': 'off' }, function (item) {
     setCrossLanguage(item.crossLanguage, false);
   });
@@ -816,6 +834,15 @@ document.addEventListener('DOMContentLoaded', function () {
         setNotifications('off');
       } else {
         setNotifications('on');
+      }
+    });
+  });
+  document.getElementById('hiddenResultsBannerCheckbox').addEventListener('change', function () {
+    chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, function (item) {
+      if (item.hiddenResultsBanner === 'on') {
+        setHiddenResultsBanner('off');
+      } else {
+        setHiddenResultsBanner('on');
       }
     });
   });
