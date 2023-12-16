@@ -72,6 +72,24 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-animalcrossingpocketcamp",
+    "origins_label": "Animal Crossing: Pocket Camp Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Animal Crossing: Pocket Camp Fandom Wiki",
+        "origin_base_url": "animalcrossingpocketcamp.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Animal_Crossing:_Pocket_Camp_Wiki"
+      }
+    ],
+    "destination": "Animal Crossing: Pocket Camp wiki.gg",
+    "destination_base_url": "animalcrossingpocketcamp.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "animalcrossingpocketcampwikigg.png",
+    "destination_main_page": "Animal_Crossing:_Pocket_Camp_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-anothereden",
     "origins_label": "Another Eden Fandom Wiki",
     "origins": [
