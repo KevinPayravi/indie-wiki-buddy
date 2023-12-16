@@ -127,6 +127,24 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-ark",
+    "origins_label": "ARK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      }
+    ],
+    "destination": "ARK wiki.gg",
+    "destination_base_url": "ark.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arkwikigg.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-arms",
     "origins_label": "ARMS Fandom Wiki",
     "origins": [
