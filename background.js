@@ -132,61 +132,67 @@ function setPowerIcon(status) {
 if (chrome.declarativeNetRequest) {
   // Whenever stored settings change, update the header
   // that is sent to BreezeWiki instances to inform them the user has IWB
-  updateDeclarativeRule();
-  chrome.storage.onChanged.addListener(event => updateDeclarativeRule());
+  addBreezeWikiDeclarativeRule();
+  chrome.storage.onChanged.addListener(event => addBreezeWikiDeclarativeRule());
 }
 
-function updateDeclarativeRule() {
+function addBreezeWikiDeclarativeRule() {
   chrome.storage.local.get((localStorage) => {
     chrome.storage.sync.get((syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
-      const headerValue = JSON.stringify({
-        'power': storage.power ?? 'on',
-        'breezewiki': storage.breezewiki ?? 'off'
-      });
-      let urls = [
-        "breezewiki.com",
-        "antifandom.com",
-        "bw.projectsegfau.lt",
-        "breeze.hostux.net",
-        "breezewiki.pussthecat.org",
-        "bw.vern.cc",
-        "breezewiki.esmailelbob.xyz",
-        "bw.artemislena.eu",
-        "bw.hamstro.dev",
-        "nerd.whatever.social",
-        "breeze.nohost.network",
-        "breeze.whateveritworks.org"
-      ];
-      if (storage.breezewikiCustomHost) {
-        urls.push(storage.breezewikiCustomHost.replace(/^https?:\/\//, ''));
-      };
-
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1],
-        addRules: [
-          {
-            "id": 1,
-            "priority": 1,
-            "action": {
-              "type": "modifyHeaders",
-              "requestHeaders": [
-                {
-                  "operation": "set",
-                  "header": "x-indie-wiki",
-                  "value": headerValue
-                }
-              ]
-            },
-            "condition": {
-              "requestDomains": urls,
-              "resourceTypes": [
-                "main_frame"
-              ]
+      if (storage.breezewikiSendHeader === 'off') {
+        chrome.declarativeNetRequest.updateDynamicRules({
+          removeRuleIds: [1]
+        });
+      } else {
+        const headerValue = JSON.stringify({
+          'power': storage.power ?? 'on',
+          'breezewiki': storage.breezewiki ?? 'off'
+        });
+        let urls = [
+          "breezewiki.com",
+          "antifandom.com",
+          "bw.projectsegfau.lt",
+          "breeze.hostux.net",
+          "breezewiki.pussthecat.org",
+          "bw.vern.cc",
+          "breezewiki.esmailelbob.xyz",
+          "bw.artemislena.eu",
+          "bw.hamstro.dev",
+          "nerd.whatever.social",
+          "breeze.nohost.network",
+          "breeze.whateveritworks.org"
+        ];
+        if (storage.breezewikiCustomHost) {
+          urls.push(storage.breezewikiCustomHost.replace(/^https?:\/\//, ''));
+        };
+  
+        chrome.declarativeNetRequest.updateDynamicRules({
+          removeRuleIds: [1],
+          addRules: [
+            {
+              "id": 1,
+              "priority": 1,
+              "action": {
+                "type": "modifyHeaders",
+                "requestHeaders": [
+                  {
+                    "operation": "set",
+                    "header": "x-indie-wiki",
+                    "value": headerValue
+                  }
+                ]
+              },
+              "condition": {
+                "requestDomains": urls,
+                "resourceTypes": [
+                  "main_frame"
+                ]
+              }
             }
-          }
-        ]
-      });
+          ]
+        });
+      }
     });
   });
 }

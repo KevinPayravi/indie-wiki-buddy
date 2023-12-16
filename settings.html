@@ -111,6 +111,23 @@
       }
     }
 
+    /* TOOLTIPS */
+    .tooltip {
+      display: inline-block;
+    }
+    .tooltip:hover::after {
+      content: attr(data-title);
+      text-align: center;
+      padding: 8px;
+      width: fit-content;
+      max-width: 250px;
+      color: #fff;
+      background: #000;
+      position: absolute;
+      transform: translate(calc(-100% - 5px), 20px);
+      z-index: 999999;
+    }
+
     /* HEADER */
     #header {
       line-height: 1.5rem;
@@ -384,20 +401,6 @@
       cursor: pointer;
     }
 
-    #togglesKeys .inputsContainer button:hover::after,
-    #togglesDefaults .inputsContainer label:hover::after {
-      content: attr(data-title);
-      padding: 5px;
-      width: fit-content;
-      border: 1px solid #000;
-      position: absolute;
-      color: #fff;
-      background: #000;
-      z-index: 999999;
-      transform: translateX(calc(-100% - 5px));
-      top: 30px;
-    }
-
     #togglesColumnLabels {
       background-color: white;
       padding: 5px 0;
@@ -604,6 +607,13 @@
               <span id="breezewikiCustomHostStatus"></span>
             </label>
           </div>
+          <div id="breezewikiHeader" class="settingToggle">
+            <label>
+              <input id="breezewikiHeaderCheckbox" type="checkbox" />
+              Inform BreezeWiki that you have Indie Wiki Buddy installed
+              <div class="tooltip" data-title="When enabled, IWB will pass a header to BreezeWiki to enable enhancements (e.g. hiding the IWB promo banner)">❓</div>
+            </label>
+          </div>
         </fieldset>
         <h2>Individual wiki settings</h2>
         <fieldset id="legend">
@@ -679,32 +689,32 @@
               <span>Click icon to set all wikis in column:</span>
               <div class="inputsContainer">
                 <div>
-                  <button id="setAllDisabled" type="button" data-title="Do nothing when visiting non-indie wiki"
+                  <button class="tooltip" id="setAllDisabled" type="button" data-title="Do nothing when visiting non-indie wiki"
                     aria-label="Do nothing when visiting non-indie wiki">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllAlert" type="button" data-title="Show banner when indie wiki is available"
+                  <button class="tooltip" id="setAllAlert" type="button" data-title="Show banner when indie wiki is available"
                     aria-label="Show banner when indie wiki is available">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllRedirect" type="button" data-title="Automatically redirect to indie wiki"
+                  <button class="tooltip" id="setAllRedirect" type="button" data-title="Automatically redirect to indie wiki"
                     aria-label="Automatically redirect to indie wiki">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllSearchEngineDisabled" type="button" data-title="Do nothing on search engines"
+                  <button class="tooltip" id="setAllSearchEngineDisabled" type="button" data-title="Do nothing on search engines"
                     aria-label="Do nothing on search engines">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllSearchEngineReplace" type="button" data-title="Replace non-indie search results"
+                  <button class="tooltip" id="setAllSearchEngineReplace" type="button" data-title="Replace non-indie search results"
                     aria-label="Replace non-indie search results">
                   </button>
                 </div>
                 <div>
-                  <button id="setAllSearchEngineHide" type="button"
+                  <button class="tooltip" id="setAllSearchEngineHide" type="button"
                     data-title="Hide non-indie wiki from search results">
                   </button>
                 </div>
@@ -719,33 +729,33 @@
               <div>
                 <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled"
                   aria-label="Do nothing" />
-                <label data-title="Do nothing when visiting non-indie wiki"
+                <label class="tooltip" data-title="Do nothing when visiting non-indie wiki"
                   for="defaultWikiActionDisabledRadio"></label>
               </div>
               <div>
                 <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert"
                   aria-label="Display banner linking to indie wiki" />
-                <label data-title="Show banner when indie wiki is available" for="defaultWikiActionAlertRadio"></label>
+                <label class="tooltip" data-title="Show banner when indie wiki is available" for="defaultWikiActionAlertRadio"></label>
               </div>
               <div>
                 <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect"
                   aria-label="Redirect to indie wiki" />
-                <label data-title="Automatically redirect to indie wiki" for="defaultWikiActionRedirectRadio"></label>
+                <label class="tooltip" data-title="Automatically redirect to indie wiki" for="defaultWikiActionRedirectRadio"></label>
               </div>
               <div>
                 <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled"
                   aria-label="Do nothing" />
-                <label data-title="Do nothing on search engines" for="defaultSearchActionDisabledRadio"></label>
+                <label class="tooltip" data-title="Do nothing on search engines" for="defaultSearchActionDisabledRadio"></label>
               </div>
               <div>
                 <input id="defaultSearchActionReplaceRadio" type="radio" name="defaultSearchAction" value="replace"
                   aria-label="Replace non-indie results" />
-                <label data-title="Replace non-indie search results" for="defaultSearchActionReplaceRadio"></label>
+                <label class="tooltip" data-title="Replace non-indie search results" for="defaultSearchActionReplaceRadio"></label>
               </div>
               <div>
                 <input id="defaultSearchActionHideRadio" type="radio" name="defaultSearchAction" value="hide"
                   aria-label="Hide non-indie results" />
-                <label data-title="Hide non-indie wiki from search results" for="defaultSearchActionHideRadio"></label>
+                <label class="tooltip" data-title="Hide non-indie wiki from search results" for="defaultSearchActionHideRadio"></label>
               </div>
             </div>
           </div>

@@ -644,6 +644,19 @@ function setBreezeWiki(setting, storeSetting = true) {
   }
 }
 
+// Set BreezeWiki header setting
+function setBreezeWikiSendHeader(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'breezewikiSendHeader': setting });
+  }
+
+  if (setting === 'off') {
+    document.getElementById('breezewikiHeaderCheckbox').checked = false;
+  } else {
+    document.getElementById('breezewikiHeaderCheckbox').checked = true;
+  }
+}
+
 async function migrateData() {
   await chrome.storage.sync.get(async (storage) => {
     if (!storage.v3migration) {
@@ -817,6 +830,9 @@ document.addEventListener('DOMContentLoaded', () => {
       loadBreezewikiOptions();
     }
   });
+  chrome.storage.sync.get({ 'breezewikiSendHeader': 'on' }, (item) => {
+    setBreezeWikiSendHeader(item.breezewikiSendHeader, false);
+  });
 
   // Add event listeners for general setting toggles
   document.getElementById('powerCheckbox').addEventListener('change', () => {
@@ -885,6 +901,15 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('breezewikiCustomHost').style.display = 'none';
     }
     chrome.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
+  });
+  document.getElementById('breezewikiHeaderCheckbox').addEventListener('change', () => {
+    chrome.storage.sync.get({ 'breezewikiSendHeader': 'on' }, (item) => {
+      if (item.breezewikiSendHeader === 'on') {
+        setBreezeWikiSendHeader('off');
+      } else {
+        setBreezeWikiSendHeader('on');
+      }
+    });
   });
 
   function setCustomBreezewikiDomain() {
