@@ -88,7 +88,9 @@
     "destination_icon": "animalcrossingpocketcampwikigg.png",
     "destination_main_page": "Animal_Crossing:_Pocket_Camp_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg"]
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-anothereden",
@@ -144,7 +146,10 @@
     "destination_icon": "arkwikigg.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg", "official"]
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-arms",
@@ -434,7 +439,10 @@
     "destination_icon": "calamitymodwiki.png",
     "destination_main_page": "Calamity_Mod_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg", "official"]
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-celeste",
@@ -634,7 +642,10 @@
     "destination_icon": "deadcellswiki.png",
     "destination_main_page": "Dead_Cells_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg", "official"]
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-deeprockgalactic",
@@ -653,7 +664,10 @@
     "destination_icon": "deeprockgalacticwiki.png",
     "destination_main_page": "Deep_Rock_Galactic_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg", "official"]
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-destiny",
@@ -744,7 +758,10 @@
     "destination_icon": "dontstarvewiki.png",
     "destination_main_page": "Don't_Starve_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg", "official"]
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-doom",
@@ -968,7 +985,9 @@
     "destination_icon": "factorio.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-fallout",
@@ -1425,7 +1444,9 @@
     "destination_icon": "hyperrogue.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-idolish7",
@@ -1552,7 +1573,9 @@
     "destination_icon": "kerbalspaceprogramwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-kingdomhearts",
@@ -1853,7 +1876,9 @@
     "destination_icon": "noitawiki.png",
     "destination_main_page": "Noita_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg"]
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-obeyme",
@@ -1890,7 +1915,9 @@
     "destination_icon": "oldschoolrunescape.png",
     "destination_main_page": "Old_School_RuneScape_Wiki",
     "destination_search_path": "/",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-pathofexile",
@@ -2017,7 +2044,9 @@
     "destination_icon": "prisonarchitectwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-projectsekai",
@@ -2072,7 +2101,9 @@
     "destination_icon": "rainworld.png",
     "destination_main_page": "Rain_World_Wiki",
     "destination_search_path": "/w/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-rayman",
@@ -2199,7 +2230,9 @@
     "destination_icon": "runescapeclassic.png",
     "destination_main_page": "RuneScape_Classic_Wiki",
     "destination_search_path": "/",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-runescape",
@@ -2218,7 +2251,9 @@
     "destination_icon": "runescape.png",
     "destination_main_page": "RuneScape_Wiki",
     "destination_search_path": "/",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-sailormoon",
@@ -2273,7 +2308,10 @@
     "destination_icon": "satisfactorywiki.png",
     "destination_main_page": "Satisfactory_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg", "official"]
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-sega",
@@ -2418,7 +2456,9 @@
     "destination_icon": "starbounder.png",
     "destination_main_page": "Starbound_Wiki",
     "destination_search_path": "/mediawiki/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-stardewvalley",
@@ -2437,7 +2477,9 @@
     "destination_icon": "stardew.png",
     "destination_main_page": "Stardew_Valley_Wiki",
     "destination_search_path": "/mediawiki/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-starfield",
@@ -2553,7 +2595,9 @@
     "destination_icon": "teamfortress.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-tearsofthemis",
@@ -2596,7 +2640,10 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg", "official"]
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-thecyclefrontier",
@@ -2651,7 +2698,30 @@
     "destination_icon": "toontownrewrittenwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
+  },
+  {
+    "id": "en-torn",
+    "origins_label": "Torn City Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Torn City Fandom Wiki",
+        "origin_base_url": "torncity.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Torn Wiki",
+    "destination_base_url": "wiki.torn.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tornwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-touhou",
@@ -2857,7 +2927,9 @@
     "destination_icon": "wildfrostwiki.png",
     "destination_main_page": "Wildfrost_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-warcraft",
@@ -2882,7 +2954,9 @@
     "destination_icon": "warcraftwiki.png",
     "destination_main_page": "Warcraft_Wiki",
     "destination_search_path": "/index.php",
-    "tags": ["wiki.gg"]
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-worldtrigger",
