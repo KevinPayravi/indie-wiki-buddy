@@ -34,7 +34,8 @@ async function getData() {
               "destination_platform": site.destination_platform,
               "destination_icon": site.destination_icon,
               "destination_main_page": site.destination_main_page,
-              "lang": LANGS[i]
+              "lang": LANGS[i],
+              "tags": site.tags || []
             })
           })
         });
@@ -44,7 +45,7 @@ async function getData() {
   return sites;
 }
 
-function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage, storage) {
+function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage, tags, storage) {
   // Output CSS
   styleString = `
     #indie-wiki-banner {
@@ -106,21 +107,21 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   document.head.append(style);
 
   // Output banner
-  var banner = document.createElement('div');
+  let banner = document.createElement('div');
   banner.id = 'indie-wiki-banner';
-  var bannerExit = document.createElement('div');
+  let bannerExit = document.createElement('div');
   bannerExit.id = 'indie-wiki-banner-exit';
   banner.appendChild(bannerExit);
   bannerExit.textContent = '✕';
   bannerExit.onclick = function () { this.parentElement.remove(); };
 
   // Output control links container
-  var bannerControls = document.createElement('div');
+  let bannerControls = document.createElement('div');
   bannerControls.id = 'indie-wiki-banner-controls';
   banner.appendChild(bannerControls);
 
   // Output "restore banner" link
-  var bannerRestoreLink = document.createElement('div');
+  let bannerRestoreLink = document.createElement('div');
   bannerRestoreLink.id = 'indie-wiki-banner-restore';
   bannerRestoreLink.classList.add('indie-wiki-banner-link');
   bannerRestoreLink.classList.add('indie-wiki-banner-link-small');
@@ -141,7 +142,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   }
 
   // Output "disable banner" link
-  var bannerDisableLink = document.createElement('div');
+  let bannerDisableLink = document.createElement('div');
   bannerDisableLink.id = 'indie-wiki-banner-disable';
   bannerDisableLink.classList.add('indie-wiki-banner-link');
   bannerDisableLink.classList.add('indie-wiki-banner-link-small');
@@ -162,7 +163,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   }
 
   // Output "auto redirect" link
-  var bannerRedirectLink = document.createElement('div');
+  let bannerRedirectLink = document.createElement('div');
   bannerRedirectLink.id = 'indie-wiki-banner-redirect';
   bannerRedirectLink.classList.add('indie-wiki-banner-link');
   bannerRedirectLink.classList.add('indie-wiki-banner-link-small');
@@ -183,15 +184,25 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   }
 
   // Output main banner text
-  var bannerText = document.createElement('span');
+  let bannerText = document.createElement('span');
   bannerText.classList.add('indie-wiki-banner-big-text');
   banner.appendChild(bannerText);
-  if (destinationLanguage === 'EN' && location.href.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-    bannerText.textContent = 'There is an independent wiki covering this topic in English!';
-  } else {
-    bannerText.textContent = 'There is an independent wiki covering this topic!';
+  
+  // Build descriptor
+  let descriptor = 'an independent';
+  if (tags.includes('wiki.gg')) {
+    descriptor = 'a wiki.gg';
   }
-  var bannerWikiLink = document.createElement('a');
+  if (tags.includes('official')) {
+    descriptor = 'an official ' + descriptor.split(" ").slice(-1);
+  }
+
+  if (destinationLanguage === 'EN' && location.href.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
+    bannerText.textContent = 'There is ' + descriptor + ' wiki covering this topic in English!';
+  } else {
+    bannerText.textContent = 'There is ' + descriptor + ' wiki covering this topic!';
+  }
+  let bannerWikiLink = document.createElement('a');
   bannerWikiLink.classList.add('indie-wiki-banner-link');
   bannerText.appendChild(bannerWikiLink);
   bannerWikiLink.href = newUrl;
@@ -302,7 +313,7 @@ function main() {
                     const headElement = document.querySelector('head');
                     if (headElement) {
                       try {
-                        displayRedirectBanner(newURL, site['id'], site['destination'], site['lang'], storage);
+                        displayRedirectBanner(newURL, site['id'], site['destination'], site['lang'], site['tags'], storage);
                       } finally {
                         mutationInstance.disconnect();
                       }
