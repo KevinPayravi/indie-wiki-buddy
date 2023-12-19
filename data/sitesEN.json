@@ -1449,6 +1449,24 @@
     ]
   },
   {
+    "id": "en-hypixelskyblock",
+    "origins_label": "Hypixel SkyBlock Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Hypixel SkyBlock Fandom Wiki",
+        "origin_base_url": "hypixel-skyblock.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Hypixel_SkyBlock_Wiki"
+      }
+    ],
+    "destination": "Hypixel SkyBlock Wiki",
+    "destination_base_url": "wiki.hypixel.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hypixelskyblockwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-idolish7",
     "origins_label": "IDOLiSH7 Fandom Wiki",
     "origins": [
