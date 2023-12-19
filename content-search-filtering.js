@@ -195,7 +195,7 @@ function escapeRegex(string) {
 
 function replaceSearchResults(searchResultContainer, site, link) {
   // Build new URL:
-  let article = decodeURIComponent(link.split(site['origin_content_path'])[1]?.split('#')[0].split('?')[0].split('&')[0]);
+  let article = decodeURIComponent((link.split(site['origin_base_url'] + site['origin_content_path'])[1] || '').split('#')[0].split('?')[0].split('&')[0]);
   let newURL = '';
   if (article) {
     // Check if main page
@@ -423,7 +423,8 @@ function filterSearchResults(searchResults, searchEngine, storage) {
           if (crossLanguageSetting === 'on') {
             matchingSites = sites.filter(el => link.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url));
           } else {
-            matchingSites = sites.filter(el => link.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
+            matchingSites = sites.filter(el => link.replace(/.*https?:\/\//, '') === (el.origin_base_url));
+            matchingSites = matchingSites.concat(sites.filter(el => link.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)));
           }
           if (matchingSites.length > 0) {
             // Select match with longest base URL 

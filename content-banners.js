@@ -285,7 +285,7 @@ function main() {
                   // Get article name from the end of the URL;
                   // We can't just take the last part of the path due to subpages;
                   // Instead, we take everything after the wiki's base URL + content path:
-                  let article = decodeURIComponent(String(origin).split(site['origin_content_path'])[1]);
+                  let article = decodeURIComponent(String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
                   // Set up URL to redirect user to based on wiki platform:
                   let newURL = '';
                   if (article) {
