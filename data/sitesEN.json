@@ -1464,7 +1464,10 @@
     "destination_platform": "mediawiki",
     "destination_icon": "hypixelskyblockwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-idolish7",
@@ -2715,7 +2718,10 @@
     "destination_platform": "mediawiki",
     "destination_icon": "thoriummodwiki.png",
     "destination_main_page": "Thorium_Mod_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-toontownrewritten",
