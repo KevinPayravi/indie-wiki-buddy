@@ -203,6 +203,9 @@ function replaceSearchResults(searchResultContainer, site, link) {
       article = site['destination_main_page'];
     }
 
+    // Replace underscores with spaces as that performs better in search
+    article = article.replaceAll('_', ' ');
+
     let searchParams = '';
     switch (site['destination_platform']) {
       case 'mediawiki':
