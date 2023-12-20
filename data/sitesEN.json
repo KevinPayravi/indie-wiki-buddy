@@ -2802,6 +2802,30 @@
     "destination_search_path": "/wiki/Special:Search"
   },
   {
+    "id": "en-twoworlds",
+    "origins_label": "Two Worlds Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Two Worlds Fandom Wiki",
+        "origin_base_url": "twoworlds.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Two_Worlds_Main"
+      },
+      {
+        "origin": "Two Worlds II Fandom Wiki",
+        "origin_base_url": "tw2.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Two_Worlds_2_Wiki"
+      }
+    ],
+    "destination": "Two Worlds Wiki",
+    "destination_base_url": "twoworldswiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "twoworldswiki.png",
+    "destination_main_page": "Two_Worlds_Wiki",
+    "destination_search_path": "/w/index.php"
+  },
+  {
     "id": "en-ubfunkeys",
     "origins_label": "U.B. Funkeys Fandom Wiki",
     "origins": [
