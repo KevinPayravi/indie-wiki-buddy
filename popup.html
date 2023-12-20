@@ -234,7 +234,7 @@
       text-align: center;
     }
 
-    #openSettings {
+    #openSettingsButton {
       background: #3174f1;
       border: 1px solid #333333;
       color: #fff;
@@ -244,7 +244,7 @@
       font-size: 1.3em;
     }
 
-    #openSettings:hover {
+    #openSettingsButton:hover {
       cursor: pointer;
       background: #ffffff;
       border: 1px solid#3174f1;
@@ -335,7 +335,7 @@
           </div>
         </div>
         <div class="center">
-          Visit <a href="settings.html" target="_blank">all settings</a> to change behavior per-wiki.
+          Visit <a id="openSettingsLink" href="#">all settings</a> to change behavior per-wiki.
           <br />
           Clicking an option above will override any per-wiki customizations you may have.
         </div>
@@ -399,7 +399,7 @@
       </fieldset>
     </form>
     <div id="openSettingsContainer">
-      <button id="openSettings">
+      <button id="openSettingsButton">
         View All Settings
       </button>
     </div>

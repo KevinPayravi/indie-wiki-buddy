@@ -395,8 +395,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Listener for settings page in new tab:
-  document.getElementById('openSettings').addEventListener('click', () => {
+  // Listener for settings links:
+  document.getElementById('openSettingsButton').addEventListener('click', () => {
+    chrome.tabs.create({ 'url': chrome.runtime.getURL('settings.html') });
+    window.close();
+  });
+  document.getElementById('openSettingsLink').addEventListener('click', () => {
     chrome.tabs.create({ 'url': chrome.runtime.getURL('settings.html') });
     window.close();
   });
