@@ -715,21 +715,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('firstInstallInfo').style.display = 'block';
   }
 
-  // If running Chromium, show warning about service worker bug
-  if (navigator.userAgent.match(/Chrom[e|ium]/)) {
-    const notificationBannerChromeBug = document.getElementById('notificationBannerChromeBug');
-    chrome.storage.local.get({ 'hideChromeBugNote': false }, (item) => {
-      if (!item.hideChromeBugNote) {
-        notificationBannerChromeBug.style.display = 'block';
-
-        document.getElementById('chromeBugHideLink').addEventListener('click', () => {
-          chrome.storage.local.set({ 'hideChromeBugNote': true });
-          notificationBannerChromeBug.style.display = 'none';
-        });
-      }
-    });
-  }
-
   // If running Opera, show note about search engine access
   if (navigator.userAgent.match(/OPR\//)) {
     const notificationBannerOpera = document.getElementById('notificationBannerOpera');
