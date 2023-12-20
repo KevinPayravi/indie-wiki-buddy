@@ -54,6 +54,24 @@
     "destination_search_path": "/"
   },
   {
+    "id": "es-splatoon",
+    "origins_label": "Splatoon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Splatoon Fandom Wiki",
+        "origin_base_url": "splatoon.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Splatoon_Wiki"
+      }
+    ],
+    "destination": "Inkipedia ES",
+    "destination_base_url": "es.splatoonwiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "inkipedia.png",
+    "destination_main_page": "Página_principal",
+    "destination_search_path": "/w/index.php"
+  },
+  {
     "id": "es-supersmashbros",
     "origins_label": "Smashpedia Fandom Wiki",
     "origins": [
