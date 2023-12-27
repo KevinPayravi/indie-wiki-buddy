@@ -367,6 +367,9 @@ async function main(url, tabId) {
                   case 'doku':
                     searchParams = 'start?do=search&q=' + article;
                     break;
+                  case 'wikidot': // TODO: This won't work for wikidot pages using alternative search components, will need special handling (e.g. SCP Wiki)
+                    searchParams = article;
+                    break;
                 }
                 newURL = 'https://' + site["destination_base_url"] + site["destination_search_path"] + searchParams;
               } else {
