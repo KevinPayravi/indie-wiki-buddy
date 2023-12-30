@@ -41,9 +41,10 @@ Indie Wiki Buddy also supports [BreezeWiki](https://breezewiki.com/), a service 
 Contributions are welcome and encouraged! You can either open a pull request to add a new wiki, or [open an issue](https://github.com/KevinPayravi/indie-wiki-buddy/issues/new?assignees=KevinPayravi&labels=add+wiki&template=request-a-wiki-be-added.md&title=Add+a+wiki%3A+WIKI+NAME).
 
 ## Criteria for inclusion
-* The destination wiki should be independent, meaning that decisioning and control of the wiki largely rests with the wiki's staff and volunteer editing community. Factors include editorial independence, the editorbase's ability to request changes from their host, and any history of the host exerting decisions contrary to a wiki community's wishes.
-  * Miraheze wikis may be considered independent, due to the organization being non-profit, allowing for self-configuration, and providing the ability for wikis to migrate off the platform.
-  * wiki.gg wikis are not considered independent. There is a separate "Redirect to wiki.gg" extension available for [Chrome](https://chrome.google.com/webstore/detail/redirect-to-wikigg/cngoemokfjekjkmajenlaokhnmmiinca), [Firefox](https://addons.mozilla.org/en-US/firefox/addon/redirect-to-wiki-gg/), and [Edge](https://microsoftedge.microsoft.com/addons/detail/redirect-to-wikigg/pagmnhcicfingbflafkgemhdaadpojoo) that you can use alongside Indie Wiki Buddy. 
+* The wiki should be editable by the public (that's what makes a wiki a wiki!)
+* The destination wiki should be independent, meaning that decision-making and control of the wiki largely rests with the wiki's staff and volunteer editing community.
+  * Factors include editorial independence, the editorbase's ability to request changes from their host, and any history of the host exerting decisions contrary to a wiki community's wishes.
+  * Large hosts such as Miraheze and Wiki.gg may be considered less independent, but are included as they are community-friendly hosts, provide decent levels of control, and are popular destinations for forking wikis.
 * The destination wiki should be of decent quality, ideally matching (or exceeding) the quality and size of the origin wiki. While we want to support all independent wikis, we also want extension users to be directed to wikis where they can find what they are looking for.
 * When there are multiple independent wikis on the same subject, we will usually point to the wiki that is most complete and prominent in the community.
 
