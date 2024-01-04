@@ -1993,13 +1993,19 @@
   },
   {
     "id": "en-pokemon",
-    "origins_label": "Pokémon Fandom Wiki",
+    "origins_label": "Pokémon Fandom Wikis",
     "origins": [
       {
         "origin": "Pokémon Fandom Wiki",
         "origin_base_url": "pokemon.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Pokémon_Wiki"
+      },
+      {
+        "origin": "Azurilland Wiki",
+        "origin_base_url": "pokemon-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Azurilland_Wiki"
       }
     ],
     "destination": "Bulbapedia",
