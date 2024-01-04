@@ -70,7 +70,7 @@ chrome.runtime.onInstalled.addListener(async (detail) => {
           }
           chrome.storage.sync.set({ 'defaultSearchAction': defaultSearchAction });
         }
-  
+
         // Remove old objects:
         chrome.storage.sync.remove('defaultActionSettings');
         chrome.storage.sync.remove('defaultSearchFilterSettings');
@@ -80,7 +80,7 @@ chrome.runtime.onInstalled.addListener(async (detail) => {
         let siteSettings = storage.siteSettings || {};
         let searchEngineSettings = storage.searchEngineSettings || {};
         let wikiSettings = storage.wikiSettings || {};
-  
+
         sites.forEach((site) => {
           if (!searchEngineSettings[site.id]) {
             if (siteSettings[site.id] && siteSettings[site.id].searchFilter) {
@@ -93,18 +93,18 @@ chrome.runtime.onInstalled.addListener(async (detail) => {
               searchEngineSettings[site.id] = defaultSearchAction;
             }
           }
-  
+
           if (!wikiSettings[site.id]) {
             wikiSettings[site.id] = siteSettings[site.id]?.action || defaultWikiAction;
           }
         });
-  
+
         chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
         chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
-  
+
         // Remove old object:
         chrome.storage.sync.remove('siteSettings');
-  
+
         // Mark v3 migration as complete:
         chrome.storage.sync.set({ 'v3migration': 'done' });
       }
@@ -160,7 +160,7 @@ function redirectToBreezeWiki(storage, tabId, url) {
     }
   }
 
-  if (url.includes('fandom.com/wiki/')) {
+  if (url.includes('fandom.com/wiki/') && !url.includes('bw-redirect=no')) {
     if (!(storage.breezewikiHost ?? null)) {
       fetch('https://bw.getindie.wiki/instances.json')
         .then((response) => {
@@ -293,7 +293,7 @@ async function main(url, tabId) {
                 if (article === site['origin_main_page']) {
                   article = site['destination_main_page'];
                 }
-                
+
                 // Replace underscores with spaces as that performs better in search
                 article = article.replaceAll('_', ' ');
 
