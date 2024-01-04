@@ -160,7 +160,7 @@ function redirectToBreezeWiki(storage, tabId, url) {
     }
   }
 
-  if (url.includes('fandom.com/wiki/') && !url.includes('bw-redirect=no')) {
+  if (url.includes('fandom.com/wiki/') && !url.includes('fandom=allow')) {
     if (!(storage.breezewikiHost ?? null)) {
       fetch('https://bw.getindie.wiki/instances.json')
         .then((response) => {
