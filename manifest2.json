@@ -5,7 +5,6 @@
   "permissions": [
     "storage",
     "webRequest",
-    "declarativeNetRequest",
     "notifications",
     "scripting",
     "https://*.fandom.com/*",
@@ -83,6 +82,26 @@
         "content-banners.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://breezewiki.com/*",
+        "https://antifandom.com/*",
+        "https://bw.projectsegfau.lt/*",
+        "https://breeze.hostux.net/*",
+        "https://breezewiki.pussthecat.org/*",
+        "https://bw.vern.cc/*",
+        "https://breezewiki.esmailelbob.xyz/*",
+        "https://bw.artemislena.eu/*",
+        "https://bw.hamstro.dev/*",
+        "https://nerd.whatever.social/*",
+        "https://breeze.nohost.network/*",
+        "https://breeze.whateveritworks.org/*"
+      ],
+      "js": [
+        "content-breezewiki.js"
+      ],
+      "run_at": "document_end"
     },
     {
       "matches": [

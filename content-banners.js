@@ -223,6 +223,14 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
         } else {
           chrome.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
         }
+
+        // Hide duplicative indie wiki notice on BreezeWiki instances
+        if (currentURL.hostname.match(breezewikiRegex)) {
+          const bwIndieNotice = document.querySelector('aside.niwa__notice');
+          if (bwIndieNotice) {
+            bwIndieNotice.style.display = 'none';
+          }
+        }
       }
 
       // Remove readystatechange listener
