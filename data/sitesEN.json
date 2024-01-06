@@ -647,6 +647,60 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-darksouls",
+    "origins_label": "Dark Souls Fextralife Wiki",
+    "origins": [
+      {
+        "origin": "Dark Souls Fextralife Wiki",
+        "origin_base_url": "darksouls.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Dark+Souls+Wiki"
+      }
+    ],
+    "destination": "Dark Souls Wiki",
+    "destination_base_url": "darksouls.wikidot.com",
+    "destination_platform": "wikidot",
+    "destination_icon": "darksouls.png",
+    "destination_main_page": "index.php",
+    "destination_search_path": "/search:site/q/"
+  },
+  {
+    "id": "en-darksouls2",
+    "origins_label": "Dark Souls II Fextralife Wiki",
+    "origins": [
+      {
+        "origin": "Dark Souls II Fextralife Wiki",
+        "origin_base_url": "darksouls2.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Dark+Souls+2+Wiki"
+      }
+    ],
+    "destination": "Dark Souls II Wiki",
+    "destination_base_url": "darksouls2.wikidot.com",
+    "destination_platform": "wikidot",
+    "destination_icon": "darksouls2.png",
+    "destination_main_page": "index.php",
+    "destination_search_path": "/search:site/q/"
+  },
+  {
+    "id": "en-darksouls3",
+    "origins_label": "Dark Souls III Fextralife Wiki",
+    "origins": [
+      {
+        "origin": "Dark Souls III Fextralife Wiki",
+        "origin_base_url": "darksouls3.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Dark+Souls+3+Wiki"
+      }
+    ],
+    "destination": "Dark Souls III Wiki",
+    "destination_base_url": "darksouls3.wikidot.com",
+    "destination_platform": "wikidot",
+    "destination_icon": "darksouls3.png",
+    "destination_main_page": "index.php",
+    "destination_search_path": "/search:site/q/"
+  },
+  {
     "id": "en-deadcells",
     "origins_label": "Dead Cells Fandom Wiki",
     "origins": [
@@ -689,6 +743,42 @@
       "wiki.gg",
       "official"
     ]
+  },
+  {
+    "id": "en-demonssouls-fandom",
+    "origins_label": "Demon's Souls Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Demon's Souls Fandom Wiki",
+        "origin_base_url": "demonssouls.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Demon's_Souls_Wiki"
+      }
+    ],
+    "destination": "Demon's Souls Wiki",
+    "destination_base_url": "demonssouls.wikidot.com",
+    "destination_platform": "wikidot",
+    "destination_icon": "demonssouls.png",
+    "destination_main_page": "index.php",
+    "destination_search_path": "/search:site/q/"
+  },
+  {
+    "id": "en-demonssouls-fextralife",
+    "origins_label": "Demon's Souls Fextralife Wiki",
+    "origins": [
+      {
+        "origin": "Demon's Souls Fextralife Wiki",
+        "origin_base_url": "demonssouls.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Demons+Souls+Wiki"
+      }
+    ],
+    "destination": "Demon's Souls Wiki",
+    "destination_base_url": "demonssouls.wikidot.com",
+    "destination_platform": "wikidot",
+    "destination_icon": "demonssouls.png",
+    "destination_main_page": "index.php",
+    "destination_search_path": "/search:site/q/"
   },
   {
     "id": "en-destiny",
