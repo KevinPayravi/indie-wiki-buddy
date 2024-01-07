@@ -304,16 +304,22 @@ chrome.storage.sync.get(['defaultSearchAction'], (item) => {
 
 // Set BreezeWiki settings
 function setBreezeWiki(setting, storeSetting = true) {
+  // Account for legacy BreezeWiki sestting ('on' is now 'redirect')
+  if (setting === 'on') {
+    setting = 'redirect';
+  }
+
+  // Store BreezeWiki setting
   if (storeSetting) {
     chrome.storage.sync.set({ 'breezewiki': setting });
   }
-  if (setting === 'on') {
-    document.getElementById('breezewikiCheckbox').checked = true;
-  } else {
-    document.getElementById('breezewikiCheckbox').checked = false;
-  }
+
+  // Set BreezeWiki value on radio group
+  document.options.breezewikiSetting.value = setting;
+  
+  // Toggle/update host display
   const breezewikiHost = document.getElementById('breezewikiHost');
-  if (setting === 'on') {
+  if (setting !== 'off') {
     breezewikiHost.style.display = 'block';
     chrome.storage.sync.get({ 'breezewikiHost': null }, (host) => {
       if (!host.breezewikiHost) {
@@ -407,10 +413,15 @@ document.addEventListener('DOMContentLoaded', () => {
     setOpenChangelog(item.openChangelog, false);
   });
   chrome.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
-    setBreezeWiki(item.breezewiki, false);
+    // Account for legacy 'on' setting for BreezeWiki
+    if (item.breezewiki === 'on') {
+      setBreezeWiki('redirect');
+    } else {
+      setBreezeWiki(item.breezewiki, false);
+    }
 
     // Load BreezeWiki options if BreezeWiki is enabled
-    if (item.breezewiki === 'on') {
+    if (item.breezewiki !== 'off') {
       loadBreezewikiOptions();
     }
   });
@@ -462,13 +473,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Add event listeners for BreezeWiki settings
-  document.getElementById('breezewikiCheckbox').addEventListener('change', () => {
-    chrome.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
-      if (item.breezewiki === 'on') {
-        setBreezeWiki('off');
-      } else {
-        setBreezeWiki('on');
+  document.querySelectorAll('[name="breezewikiSetting"]').forEach((el) => {
+    el.addEventListener('change', async () => {
+      const settingValue = document.options.breezewikiSetting.value;
+      chrome.storage.sync.set({ 'breezewiki': settingValue });
+      setBreezeWiki(settingValue);
+      if (settingValue !== 'off') {
         loadBreezewikiOptions();
       }
     });

@@ -184,9 +184,15 @@
 
     .radioGroup {
       display: flex;
+    }
+    .radioGroup.horizontal {
       flex-direction: row;
-      gap: 1em;
       line-height: 1.5rem;
+      gap: 1em;
+    }
+    .radioGroup.vertical {
+      flex-direction: column;
+      gap: .5em;
     }
 
     #breezewikiHost {
@@ -289,7 +295,7 @@
           updates)</legend>
         <div role="radiogroup" aria-labelledby="defaultWikiActionLabel">
           <span id="defaultWikiActionLabel">When visiting Fandom/Fextralife wikis:</span>
-          <div class="radioGroup">
+          <div class="radioGroup horizontal">
             <label>
               <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled" />
               <img src="images/toggle-disabled.png" height="12" alt="" />
@@ -309,7 +315,7 @@
         </div>
         <div role="radiogroup" aria-labelledby="defaultSearchActionLabel">
           <span id="defaultSearchActionLabel">On search engines, when you see non-indie results with indie alternatives:</span>
-          <div class="radioGroup">
+          <div class="radioGroup horizontal">
             <label>
               <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled" />
               <img src="images/toggle-disabled.png" height="12" alt="" />
@@ -372,11 +378,24 @@
           <span aria-hidden="true">༄</span> BreezeWiki settings (<a href="https://breezewiki.com/"
             target="_blank">learn&nbsp;more</a>)
         </legend>
-        <div class="settingToggle">
-          <label>
-            <input id="breezewikiCheckbox" type="checkbox" />
-            Use BreezeWiki alternative frontend on Fandom (English only)
-          </label>
+        <div role="radiogroup">
+          <div class="radioGroup vertical">
+            <label>
+              <input id="breeezwikiSettingDisabledRadio" type="radio" name="breezewikiSetting" value="off" />
+              <img src="images/toggle-disabled.png" height="12" alt="" />
+              BreezeWiki off
+            </label>
+            <label>
+              <input id="breezewikiSettingBannerRadio" type="radio" name="breezewikiSetting" value="banner" />
+              <img src="images/toggle-alert.png" height="12" alt="" />
+              Insert banner link to take you to BreezeWiki
+            </label>
+            <label>
+              <input id="breezewikiSettingRedirectRadio" type="radio" name="breezewikiSetting" value="redirect" />
+              <img src="images/toggle-redirect.png" height="12" alt="" />
+              Automatically redirect Fandom to BreezeWiki
+            </label>
+          </div>
         </div>
         <div id="breezewikiHost" class="settingToggle">
           <label>

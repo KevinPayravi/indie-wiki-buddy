@@ -330,11 +330,11 @@ async function main(url, tabId) {
                 // Self-clear notification after 6 seconds
                 setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
               }
-            } else if ((storage.breezewiki ?? 'off') === 'on') {
+            } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
               redirectToBreezeWiki(storage, tabId, url);
             }
           }
-        } else if ((storage.breezewiki ?? 'off') === 'on') {
+        } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
           redirectToBreezeWiki(storage, tabId, url);
         }
       }

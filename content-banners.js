@@ -45,84 +45,195 @@ async function getData() {
   return sites;
 }
 
-function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage, tags, storage) {
-  // Output CSS
-  styleString = `
-    #indie-wiki-banner {
-      font-family: sans-serif;
-      width: 100%;
-      z-index: 2147483647;
-      position: sticky;
-      top: 0;
-      text-align: center;
-      background-color: #acdae2;
-      padding: 8px 10px;
+function outputCSS() {
+  if (!document.getElementById('iwb-banner-styles')) {
+    styleString = `
+      #indie-wiki-banner-container {
+        font-family: sans-serif;
+        width: 100%;
+        z-index: 2147483647;
+        position: sticky;
+        top: 0;
+        text-align: center;
+      }
+      .indie-wiki-banner {
+        background-color: #acdae2;
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+      .indie-wiki-banner-exit {
+        float: right;
+        font-size: 20px;
+        color: #333;
+        cursor: pointer;
+      }
+      .indie-wiki-banner-controls {
+        padding-bottom: 5px;
+      }
+      .indie-wiki-banner-big-text {
+        font-size: 14px;
+        line-height: 24px;
+        margin-top: 5px;
+      }
+      .indie-wiki-banner-big-text .indie-wiki-banner-link{
+        font-size: 16px;
+      }
+      .indie-wiki-banner-link {
+        font-weight: 600;
+        color: #000080;
+        cursor: pointer;
+        padding: 0 10px;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+      }
+      .indie-wiki-banner-link:hover {
+        text-decoration: underline;
+        color: #000080;
+      }
+      .indie-wiki-banner-link-small {
+        display: inline-block;
+        font-size: 12px;
+        min-width: 180px;
+      }
+      .indie-wiki-banner-disabled {
+        color: #333;
+        cursor: default;
+      }
+      .indie-wiki-banner-disabled:hover {
+        text-decoration: none;
+      }
+      .indie-wiki-banner-hidden {
+        display: none;
+      }
+    `
+
+    style = document.createElement('style');
+    style.id = 'iwb-banner-styles';
+    style.textContent = styleString;
+    document.head.append(style);
+  }
+}
+
+function outputBannerContainer() {
+  if (!document.getElementById('indie-wiki-banner-container')) {
+    const container = document.createElement('div');
+    container.id = 'indie-wiki-banner-container';
+    document.body.insertAdjacentElement('beforeBegin', container);
+  }
+}
+
+function processBreezeWikiBanner(storage) {
+  // Output BreezeWiki banner, if enabled:
+  if (storage.breezewiki === 'banner' && currentURL.toString().includes('.fandom.com/wiki/')) {
+    // Extract article from URL
+    const subdomain = currentURL.hostname.split(".")[0];
+    const article = currentURL.toString().split('fandom.com/wiki/')[1].replaceAll('%20', '_');
+    breezewikiHost = '';
+    if (!(storage.breezewikiHost ?? null)) {
+      fetch('https://bw.getindie.wiki/instances.json')
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Indie Wiki Buddy failed to get BreezeWiki data.');
+        }).then((breezewikiHosts) => {
+          breezewikiHosts = breezewikiHosts.filter(host =>
+            chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
+              undefined,
+              { numeric: true, sensitivity: 'base' }
+            ) >= 0
+          );
+          // Check if BreezeWiki's main site is available
+          let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
+          if (breezewikiMain.length > 0) {
+            chrome.storage.sync.set({ 'breezewikiHost': breezewikiMain[0].instance });
+          } else {
+            // If BreezeWiki.com is not available, set to a random mirror
+            try {
+              chrome.storage.sync.set({ 'breezewikiHost': breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance });
+            } catch (e) {
+              console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
+            }
+          }
+          chrome.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
+          chrome.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
+          breezewikiHost = host;
+        }).catch((e) => {
+          console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
+          chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
+        });
+    } else {
+      if (storage.breezewikiHost === 'CUSTOM') {
+        breezewikiHost = storage.breezewikiCustomHost || 'https://breezewiki.com';
+      } else {
+        breezewikiHost = storage.breezewikiHost;
+      }
     }
-    #indie-wiki-banner-exit {
-      float: right;
-      font-size: 20px;
-      color: #333;
-      cursor: pointer;
-    }
-    #indie-wiki-banner-controls {
-      padding-bottom: 5px;
-    }
-    .indie-wiki-banner-big-text {
-      font-size: 14px;
-      line-height: 24px;
-      margin-top: 5px;
-    }
-    .indie-wiki-banner-link {
-      font-size: 16px;
-      font-weight: 600;
-      color: #000080;
-      cursor: pointer;
-      padding: 0 10px;
-      display: block;
-      width: fit-content;
-      margin: 0 auto;
-    }
-    .indie-wiki-banner-link:hover {
-      text-decoration: underline;
-      color: #000080;
-    }
-    .indie-wiki-banner-link-small {
-      display: inline-block;
-      font-size: 12px;
-      min-width: 180px;
-    }
-    .indie-wiki-banner-disabled {
-      color: #333;
-      cursor: default;
-    }
-    .indie-wiki-banner-disabled:hover {
-      text-decoration: none;
-    }
-    .indie-wiki-banner-hidden {
-      display: none;
-    }
-  `
-  style = document.createElement('style');
-  style.textContent = styleString;
-  document.head.append(style);
+
+    displayBreezewikiBanner(breezewikiHost + '/' + subdomain + '/wiki/' + article);
+  }
+}
+
+
+function displayBreezewikiBanner(newUrl) {
+  outputCSS();
 
   // Output banner
   let banner = document.createElement('div');
-  banner.id = 'indie-wiki-banner';
+  banner.id = 'indie-wiki-banner-bw';
+  banner.classList.add('indie-wiki-banner');
+
+  // Output main banner text
+  let bannerText = document.createElement('span');
+  let bannerWikiLink = document.createElement('a');
+  bannerWikiLink.classList.add('indie-wiki-banner-link');
+  bannerWikiLink.href = newUrl;
+  bannerWikiLink.textContent = 'View this Fandom wiki through BreezeWiki';
+  bannerText.appendChild(bannerWikiLink);
+  banner.appendChild(bannerText);
+
+  // Function to insert banner into DOM before body element
+  function addBannerToDOM() {
+    // Check if document is in a ready state
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      // Add banner container if not already in doc
+      outputBannerContainer();
+      // Ensure banner isn't already outputted
+      if (!document.querySelector(':root > #indie-wiki-banner-bw')) {
+        document.getElementById('indie-wiki-banner-container').appendChild(banner);
+      }
+
+      // Remove readystatechange listener
+      document.removeEventListener('readystatechange', addBannerToDOM);
+    }
+  }
+
+  document.addEventListener('readystatechange', addBannerToDOM);
+  addBannerToDOM();
+}
+
+function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage, tags, storage) {
+  outputCSS();
+
+  // Output banner
+  let banner = document.createElement('div');
+  banner.id = 'indie-wiki-banner-redirect';
+  banner.classList.add('indie-wiki-banner');
   let bannerExit = document.createElement('div');
-  bannerExit.id = 'indie-wiki-banner-exit';
+  bannerExit.classList.add('indie-wiki-banner-exit');
   banner.appendChild(bannerExit);
   bannerExit.textContent = '✕';
   bannerExit.onclick = function () { this.parentElement.remove(); };
 
   // Output control links container
   let bannerControls = document.createElement('div');
-  bannerControls.id = 'indie-wiki-banner-controls';
+  bannerControls.classList.add('indie-wiki-banner-controls');
   banner.appendChild(bannerControls);
 
   // Output "restore banner" link
   let bannerRestoreLink = document.createElement('div');
-  bannerRestoreLink.id = 'indie-wiki-banner-restore';
+  bannerRestoreLink.classList.add('indie-wiki-banner-restore');
   bannerRestoreLink.classList.add('indie-wiki-banner-link');
   bannerRestoreLink.classList.add('indie-wiki-banner-link-small');
   bannerRestoreLink.classList.add('indie-wiki-banner-hidden');
@@ -134,16 +245,16 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
       chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Banner restored';
       e.target.classList.add('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
-      document.getElementById('indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
-      document.getElementById('indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
+      bannerRestoreLink.querySelector('.indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
+      bannerRestoreLink.querySelector('.indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
+      bannerRestoreLink.querySelector('.indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
+      bannerRestoreLink.querySelector('.indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
     });
   }
 
   // Output "disable banner" link
   let bannerDisableLink = document.createElement('div');
-  bannerDisableLink.id = 'indie-wiki-banner-disable';
+  bannerDisableLink.classList.add('indie-wiki-banner-disable');
   bannerDisableLink.classList.add('indie-wiki-banner-link');
   bannerDisableLink.classList.add('indie-wiki-banner-link-small');
   bannerDisableLink.textContent = '✕ Disable banner for this wiki';
@@ -154,17 +265,17 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
       chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Banner disabled';
       e.target.classList.add('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
-      document.getElementById('indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-restore').textContent = '⎌ Restore banner';
-      document.getElementById('indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
-      document.getElementById('indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
+      bannerDisableLink.querySelector('.indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
+      bannerDisableLink.querySelector('.indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
+      bannerDisableLink.querySelector('.indie-wiki-banner-restore').textContent = '⎌ Restore banner';
+      bannerDisableLink.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
+      bannerDisableLink.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
     });
   }
 
   // Output "auto redirect" link
   let bannerRedirectLink = document.createElement('div');
-  bannerRedirectLink.id = 'indie-wiki-banner-redirect';
+  bannerRedirectLink.classList.add('indie-wiki-banner-redirect');
   bannerRedirectLink.classList.add('indie-wiki-banner-link');
   bannerRedirectLink.classList.add('indie-wiki-banner-link-small');
   bannerRedirectLink.textContent = '↪ Auto redirect this wiki';
@@ -175,11 +286,11 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
       chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
       e.target.textContent = '✓ Redirect enabled';
       e.target.classList.add('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
-      document.getElementById('indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
-      document.getElementById('indie-wiki-banner-restore').textContent = '⎌ Restore banner';
-      document.getElementById('indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
-      document.getElementById('indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
+      bannerRedirectLink.querySelector('.indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
+      bannerRedirectLink.querySelector('.indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
+      bannerRedirectLink.querySelector('.indie-wiki-banner-restore').textContent = '⎌ Restore banner';
+      bannerRedirectLink.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
+      bannerRedirectLink.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
     });
   }
 
@@ -187,7 +298,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   let bannerText = document.createElement('span');
   bannerText.classList.add('indie-wiki-banner-big-text');
   banner.appendChild(bannerText);
-  
+
   // Build descriptor
   let descriptor = 'an independent';
   if (tags.includes('wiki.gg')) {
@@ -212,9 +323,11 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   function addBannerToDOM() {
     // Check if document is in a ready state
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      // Add banner container if not already in doc
+      outputBannerContainer();
       // Ensure banner isn't already outputted
-      if (!document.querySelector(':root > #indie-wiki-banner')) {
-        document.body.insertAdjacentElement('beforeBegin', banner);
+      if (!document.querySelector(':root > #indie-wiki-banner-redirect')) {
+        document.getElementById('indie-wiki-banner-container').appendChild(banner);
         // Increment banner count
         if (storage.breezewiki === 'on') {
           if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(currentURL.hostname))) {
@@ -250,7 +363,10 @@ function main() {
       if ((storage.power ?? 'on') === 'on') {
         // Check if there is a pathname, to ensure we're looking at an article
         if (currentURL.pathname.length > 1) {
+          processBreezeWikiBanner(storage);
+
           let origin = currentURL;
+
           // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
           if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(currentURL.hostname))) {
             origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
@@ -260,6 +376,7 @@ function main() {
               origin = origin + currentURL.pathname.split('/')[3];
             }
           }
+
           getData().then(sites => {
             let crossLanguageSetting = storage.crossLanguage || 'off';
             // Check if site is in our list of wikis:
