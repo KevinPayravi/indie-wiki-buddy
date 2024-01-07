@@ -196,7 +196,7 @@ function escapeRegex(string) {
 function replaceSearchResults(searchResultContainer, site, link) {
   // Build new URL:
   let originArticle = decodeURIComponent((link.split(site['origin_base_url'] + site['origin_content_path'])[1] || '').split('#')[0].split('?')[0].split('&')[0]);
-  let destinationArticle = originArticle;
+  let destinationArticle = site['destination_content_prefix'] + originArticle;
   let newURL = '';
   if (originArticle) {
     // Check if main page
@@ -216,7 +216,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let searchParams = '';
     switch (site['destination_platform']) {
       case 'mediawiki':
-        searchParams = '?search=' + site['destination_content_prefix'] + destinationArticle;
+        searchParams = '?search=' + destinationArticle;
         break;
       case 'doku':
         searchParams = 'start?do=search&q=' + destinationArticle;
@@ -248,10 +248,11 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && originArticle !== site['origin_main_page']) {
+      destinationArticleTitle = destinationArticle.replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
       if (site['lang'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticle.replaceAll('_', ' '))) + '" on ' + site.destination + ' (EN)';
+        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticleTitle)) + '" on ' + site.destination + ' (EN)';
       } else {
-        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticle.replaceAll('_', ' '))) + '" on ' + site.destination;
+        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticleTitle)) + '" on ' + site.destination;
       }
     } else {
       if (site['lang'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {

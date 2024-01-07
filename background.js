@@ -286,7 +286,7 @@ async function main(url, tabId) {
               // We can't just take the last part of the path due to subpages;
               // Instead, we take everything after the wiki's base URL + content path
               let originArticle = decodeURIComponent(url.split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
-              let destinationArticle = originArticle;
+              let destinationArticle = site['destination_content_prefix'] + originArticle;
               // Set up URL to redirect user to based on wiki platform
               let newURL = '';
               if (originArticle) {
@@ -307,7 +307,7 @@ async function main(url, tabId) {
                 let searchParams = '';
                 switch (site['destination_platform']) {
                   case 'mediawiki':
-                    searchParams = '?search=' + site['destination_content_prefix'] + destinationArticle;
+                    searchParams = '?search=' + destinationArticle;
                     break;
                   case 'doku':
                     searchParams = 'start?do=search&q=' + destinationArticle;
