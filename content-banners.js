@@ -30,7 +30,7 @@ async function getData() {
               "destination": site.destination,
               "destination_base_url": site.destination_base_url,
               "destination_search_path": site.destination_search_path,
-              "destination_content_prefix": (site.destination_content_prefix ? site.destination_content_prefix : ""),
+              "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
               "destination_platform": site.destination_platform,
               "destination_icon": site.destination_icon,
               "destination_main_page": site.destination_main_page,
