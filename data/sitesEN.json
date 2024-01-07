@@ -944,6 +944,13 @@
         "origin_base_url": "elderscrolls.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "The_Elder_Scrolls_Wiki"
+      },
+      {
+        "origin": "Skyrim Fandom Wiki",
+        "origin_base_url": "skyrim.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Skyrim_Wiki",
+        "destination_content_prefix": "Skyrim:"
       }
     ],
     "destination": "Unofficial Elder Scrolls Pages",
