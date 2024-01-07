@@ -195,7 +195,7 @@ function escapeRegex(string) {
 
 function replaceSearchResults(searchResultContainer, site, link) {
   // Build new URL:
-  let originArticle = decodeURIComponent((link.split(site['origin_base_url'] + site['origin_content_path'])[1] || '').split('#')[0].split('?')[0].split('&')[0]);
+  let originArticle = decodeURIComponent(link.split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
   let destinationArticle = site['destination_content_prefix'] + originArticle;
   let newURL = '';
   if (originArticle) {
