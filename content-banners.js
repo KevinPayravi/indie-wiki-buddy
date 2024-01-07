@@ -365,27 +365,31 @@ function main() {
         if (currentURL.pathname.length > 1) {
           processBreezeWikiBanner(storage);
 
-          let origin = currentURL;
+          let origin = currentURL.toString();
 
           // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
           if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(currentURL.hostname))) {
             origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
             if (currentURL.search.includes('?q=')) {
-              origin = origin + currentURL.search.substring(3).split('&')[0];
+              origin = 'https://' + origin + currentURL.search.substring(3).split('&')[0];
             } else {
-              origin = origin + currentURL.pathname.split('/')[3];
+              origin = 'https://' + origin + currentURL.pathname.split('/')[3];
             }
           }
+
+          // Remove query paramters
+          let urlObj = new URL(origin);
+          urlObj.search = '';
+          origin = String(decodeURIComponent(urlObj.toString()));
 
           getData().then(sites => {
             let crossLanguageSetting = storage.crossLanguage || 'off';
             // Check if site is in our list of wikis:
-            // let matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
             let matchingSites = [];
             if (crossLanguageSetting === 'on') {
-              matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+              matchingSites = sites.filter(el => origin.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
             } else {
-              matchingSites = sites.filter(el => String(origin).replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
+              matchingSites = sites.filter(el => origin.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
             }
             if (matchingSites.length > 0) {
               // Select match with longest base URL 
@@ -405,12 +409,13 @@ function main() {
                 } else if (storage.defaultWikiAction) {
                   siteSetting = storage.defaultWikiAction;
                 }
+
                 // Notify if enabled for the wiki:
                 if (siteSetting === 'alert') {
                   // Get article name from the end of the URL;
                   // We can't just take the last part of the path due to subpages;
                   // Instead, we take everything after the wiki's base URL + content path:
-                  let originArticle = decodeURIComponent(String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
+                  let originArticle = decodeURIComponent(origin.split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
                   let destinationArticle = site['destination_content_prefix'] + originArticle;
                   // Set up URL to redirect user to based on wiki platform:
                   let newURL = '';

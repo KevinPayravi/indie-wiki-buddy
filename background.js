@@ -280,6 +280,12 @@ async function main(url, tabId) {
             let settings = storage.wikiSettings || {};
             let id = site['id'];
             let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
+
+            // Remove query paramters
+            let urlObj = new URL(url);
+            urlObj.search = '';
+            url = String(decodeURIComponent(urlObj.toString()));
+
             // Check if redirects are enabled for the site
             if (siteSetting === 'redirect') {
               // Get article name from the end of the URL;

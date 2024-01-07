@@ -416,7 +416,10 @@ function filterSearchResults(searchResults, searchEngine, storage) {
           } else {
             searchResultLink = searchResult.closest('a[href]').href;
           }
-          let link = String(decodeURIComponent(searchResultLink));
+
+          let urlObj = new URL(searchResultLink);
+          urlObj.search = '';
+          let link = String(decodeURIComponent(urlObj.toString()));
 
           if (searchEngine === 'google') {
             // Break if image result:
