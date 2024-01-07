@@ -88,6 +88,9 @@
 
     /* HEADER */
     #header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       line-height: 1.5em;
       padding: .3em 1em;
       box-sizing: border-box;
@@ -95,12 +98,10 @@
       color: #fff;
       width: 100%;
     }
-
-    #header .settingToggle label {
-      background-color: #fff;
-      border-radius: 20px;
-      height: fit-content;
-      width: fit-content;
+    #header div {
+      display: flex;
+      align-items: center;
+      gap: .5em;
     }
 
     /* NOTIFICATION BANNER */
@@ -124,7 +125,6 @@
       cursor: pointer;
       width: fit-content;
       vertical-align: middle;
-      float: right;
       padding-top: .2em;
     }
 
@@ -136,6 +136,9 @@
       width: 30px;
       height: 30px;
       text-align: center;
+    }
+    #power>label:hover {
+      outline: 2px solid #3174f1;
     }
 
     #power>input {
@@ -235,24 +238,18 @@
     }
 
     /* SETTINGS BUTTON */
-    #openSettingsContainer {
-      width: 100%;
-      text-align: center;
-    }
-
     #openSettingsButton {
       background: #3174f1;
-      border: 1px solid #333333;
+      border: 1px solid #3174f1;
       color: #fff;
       border-radius: 5px;
-      padding: .4em;
-      margin: .2em 0 0 0;
-      font-size: 1.3em;
+      padding: .2em .4em;
+      font-size: 1em;
     }
 
     #openSettingsButton:hover {
       cursor: pointer;
-      background: #ffffff;
+      background: #fff;
       border: 1px solid#3174f1;
       color: #3174f1;
     }
@@ -261,13 +258,20 @@
 
 <body>
   <div id="header">
-    <div id="power">
-      <input id="powerCheckbox" type="checkbox" />
-      <label for="powerCheckbox">
-        <img id="powerImage" src="" alt="" width="20" />
-      </label>
-    </div>
     <h1>Indie Wiki Buddy</h1>
+    <div>
+      <div>
+        <button id="openSettingsButton">
+          Open All Settings
+        </button>
+      </div>
+      <div id="power">
+        <input id="powerCheckbox" type="checkbox" />
+        <label for="powerCheckbox">
+          <img id="powerImage" src="" alt="" width="20" />
+        </label>
+      </div>
+    </div>
   </div>
   <div id="links">
     <a href="guide.html" target="_blank">Guide</a>
@@ -361,8 +365,8 @@
           <label>
             <input id="crossLanguageCheckbox" type="checkbox" />
             <span id="crossLanguageIcon" aria-hidden="true"></span>
-            Redirect non-English Fandom/Fextralife wikis to
-            indie English wikis when no same-language wiki exists
+            Redirect non-English Fandom wikis to
+            indie English wikis there is no same-lang wiki
           </label>
         </div>
         <div class="settingToggle">
@@ -410,11 +414,6 @@
         </div>
       </fieldset>
     </form>
-    <div id="openSettingsContainer">
-      <button id="openSettingsButton">
-        View All Settings
-      </button>
-    </div>
   </div>
 </body>
 <script type="text/javascript" src="popup.js"></script>
