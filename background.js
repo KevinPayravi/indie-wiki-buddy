@@ -310,6 +310,15 @@ async function main(url, tabId) {
                 // Replace underscores with spaces as that performs better in search
                 destinationArticle = destinationArticle.replaceAll('_', ' ');
 
+                // If a Fextralife wiki, replace plus signs with spaces
+                // When there are multiple plus signs together, this regex will only replace only the first
+                if (site['origin_base_url'].includes('.wiki.fextralife.com')) {
+                  destinationArticle = destinationArticle.replace(/(?<!\+)\+/g, ' ');
+                }
+
+                // Encode article
+                destinationArticle = encodeURIComponent(destinationArticle);
+
                 let searchParams = '';
                 switch (site['destination_platform']) {
                   case 'mediawiki':
