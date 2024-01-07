@@ -410,25 +410,32 @@ function main() {
                   // Get article name from the end of the URL;
                   // We can't just take the last part of the path due to subpages;
                   // Instead, we take everything after the wiki's base URL + content path:
-                  let article = decodeURIComponent(String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
+                  let originArticle = decodeURIComponent(String(origin).split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
+                  let destinationArticle = originArticle;
                   // Set up URL to redirect user to based on wiki platform:
                   let newURL = '';
-                  if (article) {
+                  if (originArticle) {
                     // Check if main page
-                    if (article === site['origin_main_page']) {
-                      article = site['destination_main_page'];
+                    if (originArticle === site['origin_main_page']) {
+                      switch (site['destination_platform']) {
+                        case 'doku':
+                          destinationArticle = '';
+                          break;
+                        default:
+                          destinationArticle = site['destination_main_page'];
+                      }
                     }
 
                     // Replace underscores with spaces as that performs better in search
-                    article = article.replaceAll('_', ' ');
+                    destinationArticle = destinationArticle.replaceAll('_', ' ');
 
                     let searchParams = '';
                     switch (site['destination_platform']) {
                       case 'mediawiki':
-                        searchParams = '?search=' + site['destination_content_prefix'] + article;
+                        searchParams = '?search=' + site['destination_content_prefix'] + destinationArticle;
                         break;
                       case 'doku':
-                        searchParams = 'start?do=search&q=' + article;
+                        searchParams = 'start?do=search&q=' + destinationArticle;
                         break;
                     }
                     newURL = 'https://' + site["destination_base_url"] + site["destination_search_path"] + searchParams.replaceAll('+', '_');

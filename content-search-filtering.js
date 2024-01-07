@@ -195,24 +195,31 @@ function escapeRegex(string) {
 
 function replaceSearchResults(searchResultContainer, site, link) {
   // Build new URL:
-  let article = decodeURIComponent((link.split(site['origin_base_url'] + site['origin_content_path'])[1] || '').split('#')[0].split('?')[0].split('&')[0]);
+  let originArticle = decodeURIComponent((link.split(site['origin_base_url'] + site['origin_content_path'])[1] || '').split('#')[0].split('?')[0].split('&')[0]);
+  let destinationArticle = originArticle;
   let newURL = '';
-  if (article) {
+  if (originArticle) {
     // Check if main page
-    if (article === site['origin_main_page']) {
-      article = site['destination_main_page'];
+    if (originArticle === site['origin_main_page']) {
+      switch (site['destination_platform']) {
+        case 'doku':
+          destinationArticle = '';
+          break;
+        default:
+          destinationArticle = site['destination_main_page'];
+      }
     }
 
     // Replace underscores with spaces as that performs better in search
-    article = article.replaceAll('_', ' ');
+    destinationArticle = destinationArticle.replaceAll('_', ' ');
 
     let searchParams = '';
     switch (site['destination_platform']) {
       case 'mediawiki':
-        searchParams = '?search=' + site['destination_content_prefix'] + article;
+        searchParams = '?search=' + site['destination_content_prefix'] + destinationArticle;
         break;
       case 'doku':
-        searchParams = 'start?do=search&q=' + article;
+        searchParams = 'start?do=search&q=' + destinationArticle;
         break;
     }
     newURL = 'https://' + site['destination_base_url'] + site['destination_search_path'] + searchParams;
@@ -240,16 +247,11 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFavicon.src = chrome.runtime.getURL('favicons/' + site.lang.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
-    if (article) {
-      // Check if main page
-      if (article === site['origin_main_page']) {
-        article = site['destination_main_page'];
-      }
-
+    if (originArticle && originArticle !== site['origin_main_page']) {
       if (site['lang'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(article.replaceAll('_', ' '))) + '" on ' + site.destination + ' (EN)';
+        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticle.replaceAll('_', ' '))) + '" on ' + site.destination + ' (EN)';
       } else {
-        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(article.replaceAll('_', ' '))) + '" on ' + site.destination;
+        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticle.replaceAll('_', ' '))) + '" on ' + site.destination;
       }
     } else {
       if (site['lang'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
