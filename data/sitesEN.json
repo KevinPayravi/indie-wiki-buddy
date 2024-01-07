@@ -937,7 +937,7 @@
   },
   {
     "id": "en-elderscrolls",
-    "origins_label": "Elder Scrolls Fandom Wiki",
+    "origins_label": "Elder Scrolls Fandom & Fextra Wiki",
     "origins": [
       {
         "origin": "Elder Scrolls Fandom Wiki",
@@ -951,6 +951,20 @@
         "origin_content_path": "/wiki/",
         "origin_main_page": "Skyrim_Wiki",
         "destination_content_prefix": "Skyrim:"
+      },
+      {
+        "origin": "Elder Scrolls Legends Fextralife Wiki",
+        "origin_base_url": "elderscrollslegends.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Elder+Scrolls+Legends+Wiki",
+        "destination_content_prefix": "Legends:"
+      },
+      {
+        "origin": "Elder Scrolls Online Fextralife Wiki",
+        "origin_base_url": "elderscrollsonline.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Elder+Scrolls+Online+Wiki",
+        "destination_content_prefix": "Online:"
       }
     ],
     "destination": "Unofficial Elder Scrolls Pages",
