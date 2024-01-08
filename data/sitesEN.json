@@ -85,7 +85,7 @@
     "destination": "Animal Crossing: Pocket Camp wiki.gg",
     "destination_base_url": "animalcrossingpocketcamp.wiki.gg",
     "destination_platform": "mediawiki",
-    "destination_icon": "animalcrossingpocketcampwikigg.png",
+    "destination_icon": "animalcrossingpocketcampwiki.png",
     "destination_main_page": "Animal_Crossing:_Pocket_Camp_Wiki",
     "destination_search_path": "/index.php",
     "tags": [
@@ -143,12 +143,33 @@
     "destination": "ARK wiki.gg",
     "destination_base_url": "ark.wiki.gg",
     "destination_platform": "mediawiki",
-    "destination_icon": "arkwikigg.png",
+    "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
     "tags": [
       "wiki.gg",
       "official"
+    ]
+  },
+  {
+    "id": "en-arknights",
+    "origins_label": "Arknights Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Arknights Fandom Wiki",
+        "origin_base_url": "arknights.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Arknights_Wiki"
+      }
+    ],
+    "destination": "Arknights Terra wiki.gg",
+    "destination_base_url": "arknights.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arknightswiki.png",
+    "destination_main_page": "Arknights_Terra_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
     ]
   },
   {
@@ -211,7 +232,8 @@
     "destination_main_page": "Astroneer_Wiki",
     "destination_search_path": "/index.php",
     "tags": [
-      "wiki.gg"
+      "wiki.gg",
+      "official"
     ]
   },
   {
@@ -401,6 +423,28 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-bookoftravels",
+    "origins_label": "Book of Travels Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Book of Travels Fandom Wiki",
+        "origin_base_url": "bookoftravels.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Book_of_Travels_Wiki"
+      }
+    ],
+    "destination": "Book of Travels wiki.gg",
+    "destination_base_url": "bookoftravels.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bookoftravelswiki.png",
+    "destination_main_page": "Book_of_Travels_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
     "id": "en-braingirl",
     "origins_label": "Braingirl Fandom Wiki",
     "origins": [
@@ -575,6 +619,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-cookieclicker",
+    "origins_label": "Cookie Clicker Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cookie Clicker Fandom Wiki",
+        "origin_base_url": "cookieclicker.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Cookie_Clicker_Wiki"
+      }
+    ],
+    "destination": "Cookie Clicker wiki.gg",
+    "destination_base_url": "cookieclicker.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cookieclickerwiki.png",
+    "destination_main_page": "Cookie_Clicker_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-creatures",
     "origins_label": "Creatures Fandom Wiki",
     "origins": [
@@ -645,6 +710,28 @@
     "destination_icon": "daria.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-darkestdungeon",
+    "origins_label": "Darkest Dungeon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Darkest Dungeon Fandom Wiki",
+        "origin_base_url": "darkestdungeon.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Darkest_Dungeon_Wiki"
+      }
+    ],
+    "destination": "Darkest Dungeon wiki.gg",
+    "destination_base_url": "darkestdungeon.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "darkestdungeonwiki.png",
+    "destination_main_page": "Darkest_Dungeon_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-deadcells",
@@ -1092,6 +1179,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-fearandhunger",
+    "origins_label": "Fear & Hunger Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Fear & Hunger Fandom Wiki",
+        "origin_base_url": "fearandhunger.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "%22Fear_and_Hunger:_the_Tormentpedia%22_Wiki"
+      }
+    ],
+    "destination": "Fear & Hunger wiki.gg",
+    "destination_base_url": "fearandhunger.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fearhungerwiki.png",
+    "destination_main_page": "%22Fear_and_Hunger:_the_Tormentpedia%22_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-findeverything",
     "origins_label": "Find Everything Fandom Wiki",
     "origins": [
@@ -1198,6 +1306,27 @@
     "destination_icon": "infosphere.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-galaxylife",
+    "origins_label": "Galaxy Life Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Galaxy Life Fandom Wiki",
+        "origin_base_url": "galaxylife.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Galaxy_Life_Wiki"
+      }
+    ],
+    "destination": "Galaxy Life wiki.gg",
+    "destination_base_url": "galaxylife.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "galaxylifewiki.png",
+    "destination_main_page": "Galaxy_Life_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-gameofthrones",
@@ -1392,6 +1521,27 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-hearthstone",
+    "origins_label": "Hearthstone Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Hearthstone Fandom Wiki",
+        "origin_base_url": "hearthstone.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Hearthstone_Wiki"
+      }
+    ],
+    "destination": "Hearthstone wiki.gg",
+    "destination_base_url": "hearthstone.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hearthstonewiki.png",
+    "destination_main_page": "Hearthstone_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-heroes",
     "origins_label": "Heroes Fandom Wiki",
     "origins": [
@@ -1432,6 +1582,27 @@
     "destination_icon": "hollowknight.png",
     "destination_main_page": "Hollow_Knight_Wiki",
     "destination_search_path": "/mw/index.php"
+  },
+  {
+    "id": "en-holocure",
+    "origins_label": "HoloCure Fandom Wiki",
+    "origins": [
+      {
+        "origin": "HoloCure Fandom Wiki",
+        "origin_base_url": "holocure.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "HoloCure_Wiki"
+      }
+    ],
+    "destination": "HoloCure wiki.gg",
+    "destination_base_url": "holocure.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "holocurewiki.png",
+    "destination_main_page": "HoloCure_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-hololive",
@@ -1866,6 +2037,27 @@
     "destination_search_path": "/"
   },
   {
+    "id": "en-multiversus",
+    "origins_label": "MultiVersus Fandom Wiki",
+    "origins": [
+      {
+        "origin": "MultiVersus Fandom Wiki",
+        "origin_base_url": "multiversus.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "MultiVersus_Wiki"
+      }
+    ],
+    "destination": "MultiVersus wiki.gg",
+    "destination_base_url": "multiversus.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "multiversuswiki.png",
+    "destination_main_page": "MultiVersus_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-mylittlepony",
     "origins_label": "My Little Pony Fandom Wiki",
     "origins": [
@@ -1882,6 +2074,51 @@
     "destination_icon": "equestripedia.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-mysterydungeon",
+    "origins_label": "Mystery Dungeon Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Mystery Dungeon Fandom Wiki",
+        "origin_base_url": "mysterydungeon.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mystery_Dungeon_Wiki"
+      },
+      {
+        "origin": "Pokémon Mystery Dungeon Fandom Wiki",
+        "origin_base_url": "pmd-rt-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pokémon_Wiki"
+      }
+    ],
+    "destination": "Mystery Dungeon Wiki",
+    "destination_base_url": "mysterydungeonwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mysterydungeon.png",
+    "destination_main_page": "Mystery_Dungeon_Franchise_Wiki",
+    "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-necromerger",
+    "origins_label": "NecroMerger Fandom Wiki",
+    "origins": [
+      {
+        "origin": "NecroMerger Fandom Wiki",
+        "origin_base_url": "necromerger.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "NecroMerger"
+      }
+    ],
+    "destination": "NecroMerger wiki.gg",
+    "destination_base_url": "necromerger.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "necromergerwiki.png",
+    "destination_main_page": "NecroMerger_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-nethack",
@@ -2034,6 +2271,27 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-plantsvszombies",
+    "origins_label": "Plants vs. Zombies Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Plants vs. Zombies Fandom Wiki",
+        "origin_base_url": "plantsvszombies.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Plants vs. Zombies wiki.gg",
+    "destination_base_url": "plantsvszombies.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "plantsvszombieswiki.png",
+    "destination_main_page": "Plants_vs._Zombies_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-pokemon",
     "origins_label": "Pokémon Fandom Wiki",
     "origins": [
@@ -2050,30 +2308,6 @@
     "destination_icon": "bulbapedia.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/wiki/index.php"
-  },
-  {
-    "id": "en-mysterydungeon",
-    "origins_label": "Mystery Dungeon Fandom Wikis",
-    "origins": [
-      {
-        "origin": "Mystery Dungeon Fandom Wiki",
-        "origin_base_url": "mysterydungeon.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Mystery_Dungeon_Wiki"
-      },
-      {
-        "origin": "Pokémon Mystery Dungeon Fandom Wiki",
-        "origin_base_url": "pmd-rt-archive.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Pokémon_Wiki"
-      }
-    ],
-    "destination": "Mystery Dungeon Wiki",
-    "destination_base_url": "mysterydungeonwiki.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "mysterydungeon.png",
-    "destination_main_page": "Mystery_Dungeon_Franchise_Wiki",
-    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-prisonarchitect",
@@ -2113,6 +2347,28 @@
     "destination_icon": "sekaipedia.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-pubg",
+    "origins_label": "PUBG Fandom Wiki",
+    "origins": [
+      {
+        "origin": "PUBG Fandom Wiki",
+        "origin_base_url": "pubg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "PLAYERUNKNOWNS_BATTLEGROUNDS_Wiki"
+      }
+    ],
+    "destination": "PUBG wiki.gg",
+    "destination_base_url": "pubg.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pubgwiki.png",
+    "destination_main_page": "PUBG_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-puyopuyo",
@@ -2362,6 +2618,27 @@
     ]
   },
   {
+    "id": "en-seaofthieves",
+    "origins_label": "Sea of Thieves Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sea of Thieves Fandom Wiki",
+        "origin_base_url": "seaofthieves.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sea_of_Thieves_Wiki"
+      }
+    ],
+    "destination": "Sea of Thieves wiki.gg",
+    "destination_base_url": "seaofthieves.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "seaofthieveswiki.png",
+    "destination_main_page": "Sea_of_Thieves_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-sega",
     "origins_label": "Sega Fandom Wiki",
     "origins": [
@@ -2591,6 +2868,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-superautopets",
+    "origins_label": "Super Auto Pets Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Super Auto Pets Fandom Wiki",
+        "origin_base_url": "superautopets.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Super_Auto_Pets_Wiki"
+      }
+    ],
+    "destination": "Super Auto Pets wiki.gg",
+    "destination_base_url": "superautopets.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "superautopetswiki.png",
+    "destination_main_page": "Super_Auto_Pets_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-supersmashbros",
     "origins_label": "Super Smash Bros. Fandom Wiki",
     "origins": [
@@ -2747,6 +3045,7 @@
     "destination_main_page": "Thorium_Mod_Wiki",
     "destination_search_path": "/index.php",
     "tags": [
+      "wiki.gg",
       "official"
     ]
   },
@@ -3025,6 +3324,48 @@
     ]
   },
   {
+    "id": "en-witchhat",
+    "origins_label": "Witch Hat Atelier Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Witch Hat Atelier Fandom Wiki",
+        "origin_base_url": "witch-hat-atelier.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Witch_Hat_Atelier_Wiki"
+      }
+    ],
+    "destination": "Witch Hat Atelier Wiki",
+    "destination_base_url": "witchhatatelier.telepedia.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "witchhatatelierwiki.png",
+    "destination_main_page": "Witch_Hat_Atelier_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "telepedia"
+    ]
+  },
+  {
+    "id": "en-wizardry",
+    "origins_label": "Wizardry Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Wizardry Fandom Wiki",
+        "origin_base_url": "wizardry.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Wizardry wiki.gg",
+    "destination_base_url": "wizardry.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wizardrywiki.png",
+    "destination_main_page": "Wizardry_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-warcraft",
     "origins_label": "World of Warcraft Fandom Wikis",
     "origins": [
@@ -3049,27 +3390,6 @@
     "destination_search_path": "/index.php",
     "tags": [
       "wiki.gg"
-    ]
-  },
-  {
-    "id": "en-witchhat",
-    "origins_label": "Witch Hat Atelier Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Witch Hat Atelier Fandom Wiki",
-        "origin_base_url": "witch-hat-atelier.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Witch_Hat_Atelier_Wiki"
-      }
-    ],
-    "destination": "Witch Hat Atelier Wiki",
-    "destination_base_url": "witchhatatelier.telepedia.net",
-    "destination_platform": "mediawiki",
-    "destination_icon": "witchhatatelierwiki.png",
-    "destination_main_page": "Witch_Hat_Atelier_Wiki",
-    "destination_search_path": "/index.php",
-    "tags": [
-      "telepedia"
     ]
   },
   {
