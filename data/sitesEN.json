@@ -1290,6 +1290,24 @@
     "destination_search_path": "/wiki/index.php"
   },
   {
+    "id": "en-fromargonavis",
+    "origins_label": "fromARGONAVIS Fandom Wiki",
+    "origins": [
+      {
+        "origin": "fromARGONAVIS Fandom Wiki",
+        "origin_base_url": "argo-bdp.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARGONAVIS_from_BanG_Dream!_Wiki"
+      }
+    ],
+    "destination": "from ARGONAVIS Wiki",
+    "destination_base_url": "argobdp.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fromargonaviswiki.png",
+    "destination_main_page": "from_ARGONAVIS_Wiki",
+    "destination_search_path": "/w/index.php"
+  },
+  {
     "id": "en-futurama",
     "origins_label": "Futurama Fandom Wiki",
     "origins": [
