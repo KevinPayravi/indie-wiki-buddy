@@ -1485,6 +1485,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-guildwars",
+    "origins_label": "Guild Wars Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Guild Wars Fandom Wiki",
+        "origin_base_url": "guildwiki.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Guild Wars Wiki",
+    "destination_base_url": "wiki.guildwars.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "guildwarswiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-halflife",
     "origins_label": "Half-Life & Portal Fandom Wiki",
     "origins": [
