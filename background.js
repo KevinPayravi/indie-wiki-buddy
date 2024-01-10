@@ -1,3 +1,7 @@
+if (typeof importScripts !== 'undefined') {
+  importScripts('common-functions-general.js');
+}
+
 // Capture web requests
 chrome.webRequest.onBeforeSendHeaders.addListener(
   async (event) => {
@@ -48,67 +52,7 @@ chrome.runtime.onInstalled.addListener(async (detail) => {
 
   // Temporary functions for 3.0 migration
   if (detail.reason === 'update') {
-    await chrome.storage.sync.get(async (storage) => {
-      if (!storage.v3migration) {
-        let defaultWikiAction = storage.defaultWikiAction || 'alert';
-        let defaultSearchAction = storage.defaultSearchAction || 'replace';
-
-        // Set new default action settings:
-        if (!storage.defaultWikiAction) {
-          if (storage.defaultActionSettings && storage.defaultActionSettings['EN']) {
-            defaultWikiAction = storage.defaultActionSettings['EN'];
-          }
-          chrome.storage.sync.set({ 'defaultWikiAction': defaultWikiAction });
-        }
-        if (!storage.defaultSearchAction) {
-          if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings['EN']) {
-            if (storage.defaultSearchFilterSettings['EN'] === 'false') {
-              defaultSearchAction = 'disabled';
-            } else {
-              defaultSearchAction = 'replace';
-            }
-          }
-          chrome.storage.sync.set({ 'defaultSearchAction': defaultSearchAction });
-        }
-
-        // Remove old objects:
-        chrome.storage.sync.remove('defaultActionSettings');
-        chrome.storage.sync.remove('defaultSearchFilterSettings');
-
-        // Migrate wiki settings to new searchEngineSettings and wikiSettings objects
-        sites = await getData();
-        let siteSettings = storage.siteSettings || {};
-        let searchEngineSettings = storage.searchEngineSettings || {};
-        let wikiSettings = storage.wikiSettings || {};
-
-        sites.forEach((site) => {
-          if (!searchEngineSettings[site.id]) {
-            if (siteSettings[site.id] && siteSettings[site.id].searchFilter) {
-              if (siteSettings[site.id].searchFilter === 'false') {
-                searchEngineSettings[site.id] = 'disabled';
-              } else {
-                searchEngineSettings[site.id] = 'replace';
-              }
-            } else {
-              searchEngineSettings[site.id] = defaultSearchAction;
-            }
-          }
-
-          if (!wikiSettings[site.id]) {
-            wikiSettings[site.id] = siteSettings[site.id]?.action || defaultWikiAction;
-          }
-        });
-
-        chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
-        chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
-
-        // Remove old object:
-        chrome.storage.sync.remove('siteSettings');
-
-        // Mark v3 migration as complete:
-        chrome.storage.sync.set({ 'v3migration': 'done' });
-      }
-    });
+    commonFunctionMigrateToV3();
   }
 });
 
@@ -204,40 +148,6 @@ function redirectToBreezeWiki(storage, tabId, url) {
   }
 }
 
-// Load website data
-async function getData() {
-  const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
-  let sites = [];
-  let promises = [];
-  for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-      .then((resp) => resp.json())
-      .then((jsonData) => {
-        jsonData.forEach((site) => {
-          site.origins.forEach((origin) => {
-            sites.push({
-              "id": site.id,
-              "origin": origin.origin,
-              "origin_base_url": origin.origin_base_url,
-              "origin_content_path": origin.origin_content_path,
-              "origin_main_page": origin.origin_main_page,
-              "destination": site.destination,
-              "destination_base_url": site.destination_base_url,
-              "destination_search_path": site.destination_search_path,
-              "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
-              "destination_platform": site.destination_platform,
-              "destination_icon": site.destination_icon,
-              "destination_main_page": site.destination_main_page,
-              "lang": LANGS[i]
-            })
-          })
-        });
-      }));
-  }
-  await Promise.all(promises);
-  return sites;
-}
-
 async function main(url, tabId) {
   // Create object prototypes for getting and setting attributes
   Object.prototype.get = function (prop) {
@@ -252,113 +162,95 @@ async function main(url, tabId) {
   // This is mainly to prevent background processes from triggering an event
   let sites = [];
 
-  sites = await getData();
-
   chrome.storage.local.get((localStorage) => {
-    chrome.storage.sync.get((syncStorage) => {
+    chrome.storage.sync.get(async (syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
       if ((storage.power ?? 'on') === 'on') {
         let crossLanguageSetting = storage.crossLanguage || 'off';
-        // Check if site is in our list of wikis:
-        let matchingSites = [];
-        if (crossLanguageSetting === 'on') {
-          matchingSites = sites.filter(el => url.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
-        } else {
-          matchingSites = sites.filter(el => url.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
-        }
-        if (matchingSites.length > 0) {
-          // Select match with longest base URL 
-          let closestMatch = "";
-          matchingSites.forEach(site => {
-            if (site.origin_base_url.length > closestMatch.length) {
-              closestMatch = site.origin_base_url;
-            }
-          });
-          let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-          if (site) {
-            // Get user's settings for the wiki
-            let settings = storage.wikiSettings || {};
-            let id = site['id'];
-            let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
+        let matchingSite = await commonFunctionFindMatchingSite(url, crossLanguageSetting);
+        if (matchingSite) {
+          // Get user's settings for the wiki
+          let settings = storage.wikiSettings || {};
+          let id = matchingSite['id'];
+          let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
 
-            // Remove query paramters
-            let urlObj = new URL(url);
-            urlObj.search = '';
-            url = String(decodeURIComponent(urlObj.toString()));
+          // Remove query paramters
+          let urlObj = new URL(url);
+          urlObj.search = '';
+          url = String(decodeURIComponent(urlObj.toString()));
 
-            // Check if redirects are enabled for the site
-            if (siteSetting === 'redirect') {
-              // Get article name from the end of the URL;
-              // We can't just take the last part of the path due to subpages;
-              // Instead, we take everything after the wiki's base URL + content path
-              let originArticle = decodeURIComponent(url.split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
-              let destinationArticle = site['destination_content_prefix'] + originArticle;
-              // Set up URL to redirect user to based on wiki platform
-              let newURL = '';
-              if (originArticle) {
-                // Check if main page
-                if (originArticle === site['origin_main_page']) {
-                  switch (site['destination_platform']) {
-                    case 'doku':
-                      destinationArticle = '';
-                      break;
-                    default:
-                      destinationArticle = site['destination_main_page'];
-                  }
-                }
-
-                // Replace underscores with spaces as that performs better in search
-                destinationArticle = destinationArticle.replaceAll('_', ' ');
-
-                // If a Fextralife wiki, replace plus signs with spaces
-                // When there are multiple plus signs together, this regex will only replace only the first
-                if (site['origin_base_url'].includes('.wiki.fextralife.com')) {
-                  destinationArticle = destinationArticle.replace(/(?<!\+)\+/g, ' ');
-                }
-
-                // Encode article
-                destinationArticle = encodeURIComponent(destinationArticle);
-
-                let searchParams = '';
-                switch (site['destination_platform']) {
-                  case 'mediawiki':
-                    searchParams = '?search=' + destinationArticle;
-                    break;
+          // Check if redirects are enabled for the site
+          if (siteSetting === 'redirect') {
+            // Get article name from the end of the URL;
+            // We can't just take the last part of the path due to subpages;
+            // Instead, we take everything after the wiki's base URL + content path
+            let originArticle = decodeURIComponent(url.split(matchingSite['origin_base_url'] + matchingSite['origin_content_path'])[1] || '');
+            let destinationArticle = matchingSite['destination_content_prefix'] + originArticle;
+            // Set up URL to redirect user to based on wiki platform
+            let newURL = '';
+            if (originArticle) {
+              // Check if main page
+              if (originArticle === matchingSite['origin_main_page']) {
+                switch (matchingSite['destination_platform']) {
                   case 'doku':
-                    searchParams = 'start?do=search&q=' + destinationArticle;
+                    destinationArticle = '';
                     break;
+                  default:
+                    destinationArticle = matchingSite['destination_main_page'];
                 }
-                newURL = 'https://' + site["destination_base_url"] + site["destination_search_path"] + searchParams;
-              } else {
-                newURL = 'https://' + site["destination_base_url"];
               }
 
-              // Perform redirect
-              chrome.tabs.update(tabId, { url: newURL });
+              // Replace underscores with spaces as that performs better in search
+              destinationArticle = destinationArticle.replaceAll('_', ' ');
 
-              // Increase redirect count
-              chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
-
-              // Notify if enabled
-              if ((storage.notifications ?? 'on') === 'on') {
-                // Notify that user is being redirected
-                let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
-                chrome.notifications.create(notifID, {
-                  "type": "basic",
-                  "iconUrl": 'images/logo-48.png',
-                  "title": "You've been redirected!",
-                  "message": "Indie Wiki Buddy has sent you from " + site['origin'] + " to " + site['destination']
-                });
-                // Self-clear notification after 6 seconds
-                setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
+              // If a Fextralife wiki, replace plus signs with spaces
+              // When there are multiple plus signs together, this regex will only replace only the first
+              if (matchingSite['origin_base_url'].includes('.wiki.fextralife.com')) {
+                destinationArticle = destinationArticle.replace(/(?<!\+)\+/g, ' ');
               }
-            } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
-              redirectToBreezeWiki(storage, tabId, url);
+
+              // Encode article
+              destinationArticle = encodeURIComponent(destinationArticle);
+
+              let searchParams = '';
+              switch (matchingSite['destination_platform']) {
+                case 'mediawiki':
+                  searchParams = '?search=' + destinationArticle;
+                  break;
+                case 'doku':
+                  searchParams = 'start?do=search&q=' + destinationArticle;
+                  break;
+              }
+              newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_search_path"] + searchParams;
+            } else {
+              newURL = 'https://' + matchingSite["destination_base_url"];
             }
+
+            // Perform redirect
+            chrome.tabs.update(tabId, { url: newURL });
+
+            // Increase redirect count
+            chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
+
+            // Notify if enabled
+            if ((storage.notifications ?? 'on') === 'on') {
+              // Notify that user is being redirected
+              let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
+              chrome.notifications.create(notifID, {
+                "type": "basic",
+                "iconUrl": 'images/logo-48.png',
+                "title": "You've been redirected!",
+                "message": "Indie Wiki Buddy has sent you from " + matchingSite['origin'] + " to " + matchingSite['destination']
+              });
+              // Self-clear notification after 6 seconds
+              setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
+            }
+          } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
+            redirectToBreezeWiki(storage, tabId, url);
           }
-        } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
-          redirectToBreezeWiki(storage, tabId, url);
         }
+      } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
+        redirectToBreezeWiki(storage, tabId, url);
       }
     });
   });

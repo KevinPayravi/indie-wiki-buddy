@@ -11,40 +11,6 @@ Object.prototype.set = function (prop, value) {
   this[prop] = value;
 }
 
-// Load website data:
-async function getData() {
-  let sites = [];
-  let promises = [];
-  for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-      .then((resp) => resp.json())
-      .then((jsonData) => {
-        jsonData.forEach((site) => {
-          site.origins.forEach((origin) => {
-            sites.push({
-              "id": site.id,
-              "origin": origin.origin,
-              "origin_base_url": origin.origin_base_url,
-              "origin_content_path": origin.origin_content_path,
-              "origin_main_page": origin.origin_main_page,
-              "destination": site.destination,
-              "destination_base_url": site.destination_base_url,
-              "destination_search_path": site.destination_search_path,
-              "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
-              "destination_platform": site.destination_platform,
-              "destination_icon": site.destination_icon,
-              "destination_main_page": site.destination_main_page,
-              "lang": LANGS[i],
-              "tags": site.tags || []
-            })
-          })
-        });
-      }));
-  }
-  await Promise.all(promises);
-  return sites;
-}
-
 function outputCSS() {
   if (!document.getElementById('iwb-banner-styles')) {
     styleString = `
@@ -382,96 +348,80 @@ function main() {
           urlObj.search = '';
           origin = String(decodeURIComponent(urlObj.toString()));
 
-          getData().then(sites => {
+          commonFunctionGetSiteDataByOrigin().then(async sites => {
             let crossLanguageSetting = storage.crossLanguage || 'off';
-            // Check if site is in our list of wikis:
-            let matchingSites = [];
-            if (crossLanguageSetting === 'on') {
-              matchingSites = sites.filter(el => origin.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
-            } else {
-              matchingSites = sites.filter(el => origin.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
-            }
-            if (matchingSites.length > 0) {
-              // Select match with longest base URL 
-              let closestMatch = '';
-              matchingSites.forEach(site => {
-                if (site.origin_base_url.length > closestMatch.length) {
-                  closestMatch = site.origin_base_url;
-                }
-              });
-              let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-              if (site) {
-                // Get user's settings for the wiki
-                let id = site['id'];
-                let siteSetting = 'alert';
-                if (storage.wikiSettings && storage.wikiSettings[id]) {
-                  siteSetting = storage.wikiSettings[id];
-                } else if (storage.defaultWikiAction) {
-                  siteSetting = storage.defaultWikiAction;
-                }
+            let matchingSite = await commonFunctionFindMatchingSite(origin, crossLanguageSetting);
+            if (matchingSite) {
+              // Get user's settings for the wiki
+              let id = matchingSite['id'];
+              let siteSetting = 'alert';
+              if (storage.wikiSettings && storage.wikiSettings[id]) {
+                siteSetting = storage.wikiSettings[id];
+              } else if (storage.defaultWikiAction) {
+                siteSetting = storage.defaultWikiAction;
+              }
 
-                // Notify if enabled for the wiki:
-                if (siteSetting === 'alert') {
-                  // Get article name from the end of the URL;
-                  // We can't just take the last part of the path due to subpages;
-                  // Instead, we take everything after the wiki's base URL + content path:
-                  let originArticle = decodeURIComponent(origin.split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
-                  let destinationArticle = site['destination_content_prefix'] + originArticle;
-                  // Set up URL to redirect user to based on wiki platform:
-                  let newURL = '';
-                  if (originArticle) {
-                    // Check if main page
-                    if (originArticle === site['origin_main_page']) {
-                      switch (site['destination_platform']) {
-                        case 'doku':
-                          destinationArticle = '';
-                          break;
-                        default:
-                          destinationArticle = site['destination_main_page'];
-                      }
-                    }
-
-                    // Replace underscores with spaces as that performs better in search
-                    destinationArticle = destinationArticle.replaceAll('_', ' ');
-
-                    // If a Fextralife wiki, replace plus signs with spaces
-                    // When there are multiple plus signs together, this regex will only replace only the first
-                    if (site['origin_base_url'].includes('.wiki.fextralife.com')) {
-                      destinationArticle = destinationArticle.replace(/(?<!\+)\+/g, ' ');
-                    }
-
-                    // Encode article
-                    destinationArticle = encodeURIComponent(destinationArticle);
-
-                    let searchParams = '';
-                    switch (site['destination_platform']) {
-                      case 'mediawiki':
-                        searchParams = '?search=' + destinationArticle;
-                        break;
+              // Notify if enabled for the wiki:
+              if (siteSetting === 'alert') {
+                // Get article name from the end of the URL;
+                // We can't just take the last part of the path due to subpages;
+                // Instead, we take everything after the wiki's base URL + content path:
+                let originArticle = decodeURIComponent(origin.split(matchingSite['origin_base_url'] + matchingSite['origin_content_path'])[1] || '');
+                let destinationArticle = matchingSite['destination_content_prefix'] + originArticle;
+                // Set up URL to redirect user to based on wiki platform:
+                let newURL = '';
+                if (originArticle) {
+                  // Check if main page
+                  if (originArticle === matchingSite['origin_main_page']) {
+                    switch (matchingSite['destination_platform']) {
                       case 'doku':
-                        searchParams = 'start?do=search&q=' + destinationArticle;
+                        destinationArticle = '';
                         break;
+                      default:
+                        destinationArticle = matchingSite['destination_main_page'];
                     }
-                    newURL = 'https://' + site["destination_base_url"] + site["destination_search_path"] + searchParams;
-                  } else {
-                    newURL = 'https://' + site["destination_base_url"];
                   }
-                  // When head elem is loaded, notify that another wiki is available
-                  const docObserver = new MutationObserver((mutations, mutationInstance) => {
-                    const headElement = document.querySelector('head');
-                    if (headElement) {
-                      try {
-                        displayRedirectBanner(newURL, site['id'], site['destination'], site['lang'], site['tags'], storage);
-                      } finally {
-                        mutationInstance.disconnect();
-                      }
-                    }
-                  });
-                  docObserver.observe(document, {
-                    childList: true,
-                    subtree: true
-                  });
+
+                  // Replace underscores with spaces as that performs better in search
+                  destinationArticle = destinationArticle.replaceAll('_', ' ');
+
+                  // If a Fextralife wiki, replace plus signs with spaces
+                  // When there are multiple plus signs together, this regex will only replace only the first
+                  if (matchingSite['origin_base_url'].includes('.wiki.fextralife.com')) {
+                    destinationArticle = destinationArticle.replace(/(?<!\+)\+/g, ' ');
+                  }
+
+                  // Encode article
+                  destinationArticle = encodeURIComponent(destinationArticle);
+
+                  let searchParams = '';
+                  switch (matchingSite['destination_platform']) {
+                    case 'mediawiki':
+                      searchParams = '?search=' + destinationArticle;
+                      break;
+                    case 'doku':
+                      searchParams = 'start?do=search&q=' + destinationArticle;
+                      break;
+                  }
+                  newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_search_path"] + searchParams;
+                } else {
+                  newURL = 'https://' + matchingSite["destination_base_url"];
                 }
+                // When head elem is loaded, notify that another wiki is available
+                const docObserver = new MutationObserver((mutations, mutationInstance) => {
+                  const headElement = document.querySelector('head');
+                  if (headElement) {
+                    try {
+                      displayRedirectBanner(newURL, matchingSite['id'], matchingSite['destination'], matchingSite['language'], matchingSite['tags'], storage);
+                    } finally {
+                      mutationInstance.disconnect();
+                    }
+                  }
+                });
+                docObserver.observe(document, {
+                  childList: true,
+                  subtree: true
+                });
               }
             }
           });

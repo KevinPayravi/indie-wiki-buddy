@@ -25,41 +25,6 @@ function addLocationObserver(callback) {
   observer.observe(document.body, config);
 }
 
-// Load website data:
-async function getData() {
-  let sites = [];
-  let promises = [];
-  for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-      .then((resp) => resp.json())
-      .then((jsonData) => {
-        jsonData.forEach((site) => {
-          site.origins.forEach((origin) => {
-            sites.push({
-              "id": site.id,
-              "origin": origin.origin,
-              "origin_group": site.origins_label,
-              "origin_base_url": origin.origin_base_url,
-              "origin_content_path": origin.origin_content_path,
-              "origin_main_page": origin.origin_main_page,
-              "destination": site.destination,
-              "destination_base_url": site.destination_base_url,
-              "destination_search_path": site.destination_search_path,
-              "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
-              "destination_platform": site.destination_platform,
-              "destination_icon": site.destination_icon,
-              "destination_main_page": site.destination_main_page,
-              "lang": LANGS[i]
-            })
-          })
-        });
-      }));
-  }
-  await Promise.all(promises);
-
-  return sites;
-}
-
 function insertCSS() {
   // Output CSS
   styleString = `
@@ -253,18 +218,18 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFavicon.alt = '';
     indieResultFavicon.width = '12';
     indieResultFavicon.height = '12';
-    indieResultFavicon.src = chrome.runtime.getURL('favicons/' + site.lang.toLowerCase() + '/' + site.destination_icon);
+    indieResultFavicon.src = chrome.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && originArticle !== site['origin_main_page']) {
       destinationArticleTitle = destinationArticle.replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
-      if (site['lang'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
+      if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
         indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticleTitle)) + '" on ' + site.destination + ' (EN)';
       } else {
         indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticleTitle)) + '" on ' + site.destination;
       }
     } else {
-      if (site['lang'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
+      if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
         indieResultText.innerText = 'Visit ' + site.destination + ' (EN) instead';
       } else {
         indieResultText.innerText = 'Visit ' + site.destination + ' instead';
@@ -411,8 +376,7 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
 }
 
 function filterSearchResults(searchResults, searchEngine, storage) {
-  getData().then(sites => {
-    let crossLanguageSetting = storage.crossLanguage || 'off';
+  commonFunctionGetSiteDataByOrigin().then(async sites => {
     let countFiltered = 0;
 
     for (let searchResult of searchResults) {
@@ -437,86 +401,71 @@ function filterSearchResults(searchResults, searchEngine, storage) {
             }
           }
 
-          // Check if site is in our list of wikis:
-          if (crossLanguageSetting === 'on') {
-            matchingSites = sites.filter(el => link.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url));
-          } else {
-            matchingSites = sites.filter(el => link.replace(/.*https?:\/\//, '') === (el.origin_base_url));
-            matchingSites = matchingSites.concat(sites.filter(el => link.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)));
-          }
-          if (matchingSites.length > 0) {
-            // Select match with longest base URL 
-            let closestMatch = "";
-            matchingSites.forEach(site => {
-              if (site.origin_base_url.length > closestMatch.length) {
-                closestMatch = site.origin_base_url;
-              }
-            });
-            let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-            if (site) {
-              // Get user's settings for the wiki
-              let id = site['id'];
-              let searchFilterSetting = 'replace';
-              if (storage.searchEngineSettings && storage.searchEngineSettings[id]) {
-                searchFilterSetting = storage.searchEngineSettings[id];
-              } else if (storage.defaultSearchAction) {
-                searchFilterSetting = storage.defaultSearchAction;
-              }
+          let crossLanguageSetting = storage.crossLanguage || 'off';
+          let matchingSite = await commonFunctionFindMatchingSite(link, crossLanguageSetting);
+          if (matchingSite) {
+            // Get user's settings for the wiki
+            let id = matchingSite['id'];
+            let searchFilterSetting = 'replace';
+            if (storage.searchEngineSettings && storage.searchEngineSettings[id]) {
+              searchFilterSetting = storage.searchEngineSettings[id];
+            } else if (storage.defaultSearchAction) {
+              searchFilterSetting = storage.defaultSearchAction;
+            }
 
-              if (searchFilterSetting !== 'disabled') {
-                // Output stylesheet if not already done
-                if (filteredWikis.length === 0) {
-                  // Wait for head to be available
-                  const headElement = document.querySelector('head');
-                  if (headElement && !document.querySelector('.iwb-styles')) {
-                    insertCSS();
-                  } else {
-                    const docObserver = new MutationObserver((mutations, mutationInstance) => {
-                      const headElement = document.querySelector('head');
-                      if (headElement && !document.querySelector('.iwb-styles')) {
-                        insertCSS();
-                        mutationInstance.disconnect();
-                      }
-                    });
-                    docObserver.observe(document, {
-                      childList: true,
-                      subtree: true
-                    });
-                  }
+            if (searchFilterSetting !== 'disabled') {
+              // Output stylesheet if not already done
+              if (filteredWikis.length === 0) {
+                // Wait for head to be available
+                const headElement = document.querySelector('head');
+                if (headElement && !document.querySelector('.iwb-styles')) {
+                  insertCSS();
+                } else {
+                  const docObserver = new MutationObserver((mutations, mutationInstance) => {
+                    const headElement = document.querySelector('head');
+                    if (headElement && !document.querySelector('.iwb-styles')) {
+                      insertCSS();
+                      mutationInstance.disconnect();
+                    }
+                  });
+                  docObserver.observe(document, {
+                    childList: true,
+                    subtree: true
+                  });
                 }
+              }
 
-                let searchResultContainer = null;
-                switch (searchEngine) {
-                  case 'google':
-                    searchResultContainer = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
-                    break;
-                  case 'bing':
-                    searchResultContainer = searchResult.closest('li.b_algo');
-                    break;
-                  case 'duckduckgo':
-                    searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
-                    break;
-                  case 'brave':
-                    searchResultContainer = searchResult.closest('div.snippet');
-                    break;
-                  case 'ecosia':
-                    searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
-                    break;
-                  case 'startpage':
-                    searchResultContainer = searchResult.closest('div.w-gl__result');
-                    break;
-                  case 'yahoo':
-                    searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
-                    break;
-                  default:
-                }
+              let searchResultContainer = null;
+              switch (searchEngine) {
+                case 'google':
+                  searchResultContainer = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
+                  break;
+                case 'bing':
+                  searchResultContainer = searchResult.closest('li.b_algo');
+                  break;
+                case 'duckduckgo':
+                  searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
+                  break;
+                case 'brave':
+                  searchResultContainer = searchResult.closest('div.snippet');
+                  break;
+                case 'ecosia':
+                  searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
+                  break;
+                case 'startpage':
+                  searchResultContainer = searchResult.closest('div.w-gl__result');
+                  break;
+                case 'yahoo':
+                  searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+                  break;
+                default:
+              }
 
-                if (searchResultContainer) {
-                  if (searchFilterSetting === 'hide') {
-                    countFiltered += hideSearchResults(searchResultContainer, searchEngine, site, storage['hiddenResultsBanner']);
-                  } else {
-                    countFiltered += replaceSearchResults(searchResultContainer, site, link);
-                  }
+              if (searchResultContainer) {
+                if (searchFilterSetting === 'hide') {
+                  countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
+                } else {
+                  countFiltered += replaceSearchResults(searchResultContainer, matchingSite, link);
                 }
               }
             }

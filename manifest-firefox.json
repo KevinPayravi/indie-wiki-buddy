@@ -6,21 +6,7 @@
     "storage",
     "webRequest",
     "notifications",
-    "scripting",
-    "https://*.fandom.com/*",
-    "https://*.fextralife.com/*",
-    "https://breezewiki.com/*",
-    "https://antifandom.com/*",
-    "https://bw.projectsegfau.lt/*",
-    "https://breeze.hostux.net/*",
-    "https://breezewiki.pussthecat.org/*",
-    "https://bw.vern.cc/*",
-    "https://breezewiki.esmailelbob.xyz/*",
-    "https://bw.artemislena.eu/*",
-    "https://bw.hamstro.dev/*",
-    "https://nerd.whatever.social/*",
-    "https://breeze.nohost.network/*",
-    "https://breeze.whateveritworks.org/*"
+    "scripting"
   ],
   "icons": {
     "16": "images/logo-16.png",
@@ -29,7 +15,7 @@
     "64": "images/logo-64.png",
     "128": "images/logo-128.png"
   },
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "images/logo-16.png",
@@ -40,69 +26,34 @@
     }
   },
   "web_accessible_resources": [
-    "favicons/*",
-    "data/sitesDE.json",
-    "data/sitesEN.json",
-    "data/sitesES.json",
-    "data/sitesFR.json",
-    "data/sitesIT.json",
-    "data/sitesKO.json",
-    "data/sitesPL.json",
-    "data/sitesPT.json",
-    "data/sitesRU.json",
-    "data/sitesTOK.json",
-    "data/sitesUK.json",
-    "data/sitesZH.json"
+    {
+      "resources": [
+        "favicons/*",
+        "data/sitesDE.json",
+        "data/sitesEN.json",
+        "data/sitesES.json",
+        "data/sitesFR.json",
+        "data/sitesIT.json",
+        "data/sitesKO.json",
+        "data/sitesPL.json",
+        "data/sitesPT.json",
+        "data/sitesRU.json",
+        "data/sitesTOK.json",
+        "data/sitesUK.json",
+        "data/sitesZH.json"
+      ],
+      "matches": [
+        "https://*/*"
+      ]
+    }
   ],
   "background": {
     "scripts": [
+      "common-functions-general.js",
       "background.js"
-    ],
-    "persistent": true
+    ]
   },
   "content_scripts": [
-    {
-      "matches": [
-        "https://*.fandom.com/*",
-        "https://*.fextralife.com/*",
-        "https://breezewiki.com/*",
-        "https://antifandom.com/*",
-        "https://bw.projectsegfau.lt/*",
-        "https://breeze.hostux.net/*",
-        "https://breezewiki.pussthecat.org/*",
-        "https://bw.vern.cc/*",
-        "https://breezewiki.esmailelbob.xyz/*",
-        "https://bw.artemislena.eu/*",
-        "https://bw.hamstro.dev/*",
-        "https://nerd.whatever.social/*",
-        "https://breeze.nohost.network/*",
-        "https://breeze.whateveritworks.org/*"
-      ],
-      "js": [
-        "content-banners.js"
-      ],
-      "run_at": "document_start"
-    },
-    {
-      "matches": [
-        "https://breezewiki.com/*",
-        "https://antifandom.com/*",
-        "https://bw.projectsegfau.lt/*",
-        "https://breeze.hostux.net/*",
-        "https://breezewiki.pussthecat.org/*",
-        "https://bw.vern.cc/*",
-        "https://breezewiki.esmailelbob.xyz/*",
-        "https://bw.artemislena.eu/*",
-        "https://bw.hamstro.dev/*",
-        "https://nerd.whatever.social/*",
-        "https://breeze.nohost.network/*",
-        "https://breeze.whateveritworks.org/*"
-      ],
-      "js": [
-        "content-breezewiki.js"
-      ],
-      "run_at": "document_end"
-    },
     {
       "matches": [
         "https://*.bing.com/search*",
@@ -303,16 +254,76 @@
         "https://www.google.cat/search*"
       ],
       "js": [
+        "common-functions-general.js",
         "content-search-filtering.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://*.fandom.com/*",
+        "https://*.fextralife.com/*",
+        "https://breezewiki.com/*",
+        "https://antifandom.com/*",
+        "https://bw.projectsegfau.lt/*",
+        "https://breeze.hostux.net/*",
+        "https://breezewiki.pussthecat.org/*",
+        "https://bw.vern.cc/*",
+        "https://breezewiki.esmailelbob.xyz/*",
+        "https://bw.artemislena.eu/*",
+        "https://bw.hamstro.dev/*",
+        "https://nerd.whatever.social/*",
+        "https://breeze.nohost.network/*",
+        "https://breeze.whateveritworks.org/*"
+      ],
+      "js": [
+        "common-functions-general.js",
+        "content-banners.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://breezewiki.com/*",
+        "https://antifandom.com/*",
+        "https://bw.projectsegfau.lt/*",
+        "https://breeze.hostux.net/*",
+        "https://breezewiki.pussthecat.org/*",
+        "https://bw.vern.cc/*",
+        "https://breezewiki.esmailelbob.xyz/*",
+        "https://bw.artemislena.eu/*",
+        "https://bw.hamstro.dev/*",
+        "https://nerd.whatever.social/*",
+        "https://breeze.nohost.network/*",
+        "https://breeze.whateveritworks.org/*"
+      ],
+      "js": [
+        "content-breezewiki.js"
+      ],
+      "run_at": "document_end"
     }
   ],
+  "host_permissions": [
+    "https://*.fandom.com/*",
+    "https://*.fextralife.com/*",
+    "https://breezewiki.com/*",
+    "https://antifandom.com/*",
+    "https://bw.projectsegfau.lt/*",
+    "https://breeze.hostux.net/*",
+    "https://breezewiki.pussthecat.org/*",
+    "https://bw.vern.cc/*",
+    "https://breezewiki.esmailelbob.xyz/*",
+    "https://bw.artemislena.eu/*",
+    "https://bw.hamstro.dev/*",
+    "https://nerd.whatever.social/*",
+    "https://breeze.nohost.network/*",
+    "https://breeze.whateveritworks.org/*"
+  ],
   "optional_permissions": ["https://*/*"],
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "{cb31ec5d-c49a-4e5a-b240-16c767444f62}"
     }
   },
-  "manifest_version": 2
+  "manifest_version": 3
 }

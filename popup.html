@@ -191,7 +191,7 @@
     .radioGroup.horizontal {
       flex-direction: row;
       line-height: 1.5rem;
-      gap: 1em;
+      gap: .5em;
     }
     .radioGroup.vertical {
       flex-direction: column;
@@ -306,7 +306,7 @@
             <label>
               <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert" />
               <img src="images/toggle-alert.png" height="12" alt="" />
-              Display banner linking to indie wiki
+              Show banner linking to indie wiki
             </label>
             <label>
               <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect" />
@@ -377,7 +377,7 @@
       </fieldset>
       <fieldset id="breezewikiSettings">
         <legend>
-          <span aria-hidden="true">༄</span> BreezeWiki settings (<a href="https://breezewiki.com/"
+          <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a href="https://breezewiki.com/"
             target="_blank">learn&nbsp;more</a>)
         </legend>
         <div role="radiogroup">
@@ -414,6 +414,8 @@
     </form>
   </div>
 </body>
+<script type="text/javascript" src="common-functions-general.js"></script>
+<script type="text/javascript" src="common-functions-settings.js"></script>
 <script type="text/javascript" src="popup.js"></script>
 
 </html>

@@ -251,6 +251,7 @@
         "https://www.google.cat/search*"
       ],
       "js": [
+        "common-functions-general.js",
         "content-search-filtering.js"
       ],
       "run_at": "document_start"
@@ -273,6 +274,7 @@
         "https://breeze.whateveritworks.org/*"
       ],
       "js": [
+        "common-functions-general.js",
         "content-banners.js"
       ],
       "run_at": "document_start"
@@ -293,6 +295,7 @@
         "https://breeze.whateveritworks.org/*"
       ],
       "js": [
+        "common-functions-general.js",
         "content-breezewiki.js"
       ],
       "run_at": "document_end"
