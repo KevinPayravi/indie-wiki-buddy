@@ -15,7 +15,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "adventurezonewiki.png",
     "destination_main_page": "The_Adventure_Zone_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-akudamadrive",
@@ -33,7 +33,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "akudamadrivewiki.png",
     "destination_main_page": "Akudama_Drive_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-animalcrossing",
@@ -673,7 +673,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "criticalrole.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-necrodancer",
@@ -691,7 +691,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "cryptofthenecrodancerwiki.png",
     "destination_main_page": "NecroDancer_Wiki:About",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-daria",
@@ -1215,7 +1215,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "findeverythingwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-fireemblem",
@@ -1305,7 +1305,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "fromargonaviswiki.png",
     "destination_main_page": "from_ARGONAVIS_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-futurama",
@@ -1428,7 +1428,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "girlslasttourwiki.png",
     "destination_main_page": "Girls'_Last_Tour_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-godzilla",
@@ -1677,7 +1677,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "houkaigakuen2wiki.png",
     "destination_main_page": "Houkai_Gakuen_2_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-hyperrogue",
@@ -1695,7 +1695,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "hyperrogue.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
+    "destination_search_path": "/wiki/Special:Search",
     "tags": [
       "official"
     ]
@@ -1716,7 +1716,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "idolish7.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-idolmaster",
@@ -1899,7 +1899,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "lethalcompany.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-lotr",
@@ -2307,7 +2307,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "pizzatowerwiki.png",
     "destination_main_page": "Pizza_Tower_Wiki:Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-plantsvszombies",
@@ -2449,7 +2449,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "rainworld.png",
     "destination_main_page": "Rain_World_Wiki",
-    "destination_search_path": "/w/index.php",
+    "destination_search_path": "/wiki/Special:Search",
     "tags": [
       "official"
     ]
@@ -3230,7 +3230,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "ultrawiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/Special:Search"
   },
   {
     "id": "en-unevendream",
