@@ -1,5 +1,26 @@
 [
   {
+    "id": "en-acecombat",
+    "origins_label": "Ace Combat Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Ace Combat Fandom Wiki",
+        "origin_base_url": "acecombat.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Acepedia"
+      }
+    ],
+    "destination": "Ace Combat wiki.gg",
+    "destination_base_url": "acecombat.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "acecombatwiki.png",
+    "destination_main_page": "Ace_Combat_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-adventurezone",
     "origins_label": "Adventure Zone Fandom Wiki",
     "origins": [
@@ -3127,6 +3148,27 @@
     "tags": [
       "wiki.gg",
       "official"
+    ]
+  },
+  {
+    "id": "en-toontowncorporateclash",
+    "origins_label": "Toontown Corporate Clash Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Toontown Corporate Clash Fandom Wiki",
+        "origin_base_url": "toontown-corporate-clash.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Toontown_Corporate_Clash_Wiki"
+      }
+    ],
+    "destination": "Toontown Corporate Clash wiki.gg",
+    "destination_base_url": "corporateclash.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "toontowncorporateclashwiki.png",
+    "destination_main_page": "Toontown_Corporate_Clash_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
     ]
   },
   {
