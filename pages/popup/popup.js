@@ -4,7 +4,7 @@ const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK"
 function setPower(setting) {
   chrome.storage.local.set({ 'power': setting });
   var powerImage = document.getElementById('powerImage');
-  powerImage.src = 'images/power-' + setting + '.png';
+  powerImage.src = '../../images/power-' + setting + '.png';
   powerImage.alt = 'Indie Wiki Buddy is ' + setting;
 
   chrome.runtime.sendMessage({
@@ -23,7 +23,7 @@ function setPower(setting, storeSetting = true) {
     chrome.storage.local.set({ 'power': setting });
   }
   var powerImage = document.getElementById('powerImage');
-  powerImage.src = 'images/power-' + setting + '.png';
+  powerImage.src = '../../images/power-' + setting + '.png';
   powerImage.alt = 'Indie Wiki Buddy is ' + setting;
   if (setting === 'on') {
     document.getElementById('powerCheckbox').checked = true;
@@ -77,11 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Listener for settings links:
   document.getElementById('openSettingsButton').addEventListener('click', () => {
-    chrome.tabs.create({ 'url': chrome.runtime.getURL('settings.html') });
+    chrome.tabs.create({ 'url': chrome.runtime.getURL('pages/settings/index.html') });
     window.close();
   });
   document.getElementById('openSettingsLink').addEventListener('click', () => {
-    chrome.tabs.create({ 'url': chrome.runtime.getURL('settings.html') });
+    chrome.tabs.create({ 'url': chrome.runtime.getURL('pages/settings/index.html') });
     window.close();
   });
   

@@ -1,5 +1,5 @@
 if (typeof importScripts !== 'undefined') {
-  importScripts('common-functions-general.js');
+  importScripts('scripts/common-functions.js');
 }
 
 // Capture web requests
@@ -40,7 +40,7 @@ chrome.runtime.onInstalled.addListener(async (detail) => {
 
   // If new install, open settings with starter guide
   if (detail.reason === 'install') {
-    chrome.tabs.create({ url: 'settings.html?newinstall=true' });
+    chrome.tabs.create({ url: 'pages/settings/index.html?newinstall=true' });
   }
 
   // If update, open changelog if setting is enabled

@@ -281,7 +281,7 @@ async function loadOptions(lang, textFilter = '') {
         iconLink.title = 'Visit ' + sites[i].destination;
         iconLink.target = '_blank';
         let icon = document.createElement("img");
-        icon.src = 'favicons/' + sites[i].language.toLowerCase() + '/' + sites[i].destination_icon;
+        icon.src = '../../favicons/' + sites[i].language.toLowerCase() + '/' + sites[i].destination_icon;
         icon.alt = 'Visit ' + sites[i].destination;
         iconLink.appendChild(icon);
         wikiInfo.appendChild(iconLink);
@@ -567,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.scripting.registerContentScripts([{
           id: 'content-banners',
           matches: [breezewikiCustomDomain + '/*'],
-          js: ['content-banners.js'],
+          js: ['scripts/content-banners.js'],
           runAt: "document_start"
         }]);
         chrome.storage.sync.set({ 'breezewikiCustomHost': breezewikiCustomDomain });

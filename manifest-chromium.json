@@ -16,7 +16,7 @@
     "128": "images/logo-128.png"
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "pages/popup/index.html",
     "default_icon": {
       "16": "images/logo-16.png",
       "32": "images/logo-32.png",
@@ -251,8 +251,8 @@
         "https://www.google.cat/search*"
       ],
       "js": [
-        "common-functions-general.js",
-        "content-search-filtering.js"
+        "scripts/common-functions.js",
+        "scripts/content-search-filtering.js"
       ],
       "run_at": "document_start"
     },
@@ -274,8 +274,8 @@
         "https://breeze.whateveritworks.org/*"
       ],
       "js": [
-        "common-functions-general.js",
-        "content-banners.js"
+        "scripts/common-functions.js",
+        "scripts/content-banners.js"
       ],
       "run_at": "document_start"
     },
@@ -295,8 +295,8 @@
         "https://breeze.whateveritworks.org/*"
       ],
       "js": [
-        "common-functions-general.js",
-        "content-breezewiki.js"
+        "scripts/common-functions.js",
+        "scripts/content-breezewiki.js"
       ],
       "run_at": "document_end"
     }
