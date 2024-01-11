@@ -76,20 +76,25 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
   return matchingSite;
 }
 
-function getOriginArticle(originURL, matchingSite) {
+function commonFunctionGetOriginArticle(originURL, matchingSite) {
   return decodeURIComponent(originURL.split(matchingSite['origin_base_url'] + matchingSite['origin_content_path'])[1] || '');
 }
 
-function getDestinationArticle(matchingSite, article) {
+function commonFunctionGetDestinationArticle(matchingSite, article) {
   return matchingSite['destination_content_prefix'] + article;
 }
 
-function getNewURL(originURL, matchingSite) {
+function commonFunctionGetNewURL(originURL, matchingSite) {
+  // Remove query paramters
+  let urlObj = new URL(originURL);
+  urlObj.search = '';
+  originURL = String(decodeURIComponent(urlObj.toString()));
+
   // Get article name from the end of the URL;
   // We can't just take the last part of the path due to subpages;
   // Instead, we take everything after the wiki's base URL + content path
-  let originArticle = getOriginArticle(originURL, matchingSite);
-  let destinationArticle = getDestinationArticle(matchingSite, originArticle);
+  let originArticle = commonFunctionGetOriginArticle(originURL, matchingSite);
+  let destinationArticle = commonFunctionGetDestinationArticle(matchingSite, originArticle);
   // Set up URL to redirect user to based on wiki platform
   let newURL = '';
   if (originArticle) {

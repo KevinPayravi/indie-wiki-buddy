@@ -343,11 +343,6 @@ function main() {
             }
           }
 
-          // Remove query paramters
-          let urlObj = new URL(origin);
-          urlObj.search = '';
-          origin = String(decodeURIComponent(urlObj.toString()));
-
           commonFunctionGetSiteDataByOrigin().then(async sites => {
             let crossLanguageSetting = storage.crossLanguage || 'off';
             let matchingSite = await commonFunctionFindMatchingSite(origin, crossLanguageSetting);
@@ -363,7 +358,7 @@ function main() {
 
               // Notify if enabled for the wiki:
               if (siteSetting === 'alert') {
-                let newURL = getNewURL(origin, matchingSite);
+                let newURL = commonFunctionGetNewURL(origin, matchingSite);
 
                 // When head elem is loaded, notify that another wiki is available
                 const docObserver = new MutationObserver((mutations, mutationInstance) => {

@@ -77,8 +77,9 @@ function redirectToBreezeWiki(storage, tabId, url) {
   function processRedirect(host) {
     // Extract article from URL
     const urlFormatted = new URL(url);
+    urlFormatted.search = '';
     const subdomain = urlFormatted.hostname.split(".")[0];
-    const article = url.split('fandom.com/wiki/')[1].replaceAll('%20', '_');
+    const article = String(urlFormatted).split('fandom.com/wiki/')[1].replaceAll('%20', '_');
 
     // Perform redirect
     if (article) {
@@ -158,30 +159,22 @@ async function main(url, tabId) {
     this[prop] = value;
   }
 
-  // Check if tab is actually available
-  // This is mainly to prevent background processes from triggering an event
-  let sites = [];
-
   chrome.storage.local.get((localStorage) => {
     chrome.storage.sync.get(async (syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
       if ((storage.power ?? 'on') === 'on') {
         let crossLanguageSetting = storage.crossLanguage || 'off';
         let matchingSite = await commonFunctionFindMatchingSite(url, crossLanguageSetting);
+
         if (matchingSite) {
           // Get user's settings for the wiki
           let settings = storage.wikiSettings || {};
           let id = matchingSite['id'];
           let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
 
-          // Remove query paramters
-          let urlObj = new URL(url);
-          urlObj.search = '';
-          url = String(decodeURIComponent(urlObj.toString()));
-
           // Check if redirects are enabled for the site
           if (siteSetting === 'redirect') {
-            let newURL = getNewURL(url, matchingSite);
+            let newURL = commonFunctionGetNewURL(url, matchingSite);
 
             // Perform redirect
             chrome.tabs.update(tabId, { url: newURL });

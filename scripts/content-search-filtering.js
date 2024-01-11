@@ -159,9 +159,9 @@ function escapeRegex(string) {
 }
 
 function replaceSearchResults(searchResultContainer, site, link) {
-  let originArticle = getOriginArticle(link, site);
-  let destinationArticle = getDestinationArticle(site, originArticle);
-  let newURL = getNewURL(link, site);
+  let originArticle = commonFunctionGetOriginArticle(link, site);
+  let destinationArticle = commonFunctionGetDestinationArticle(site, originArticle);
+  let newURL = commonFunctionGetNewURL(link, site);
 
   if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link')) {
     if (!searchResultContainer.classList.contains('iwb-detected')) {
@@ -186,9 +186,9 @@ function replaceSearchResults(searchResultContainer, site, link) {
     if (originArticle && originArticle !== site['origin_main_page']) {
       destinationArticleTitle = destinationArticle.replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticleTitle)) + '" on ' + site.destination + ' (EN)';
+        indieResultText.innerText = 'Look up "' + decodeURIComponent(destinationArticleTitle) + '" on ' + site.destination + ' (EN)';
       } else {
-        indieResultText.innerText = 'Look up "' + decodeURIComponent(decodeURIComponent(destinationArticleTitle)) + '" on ' + site.destination;
+        indieResultText.innerText = 'Look up "' + decodeURIComponent(destinationArticleTitle) + '" on ' + site.destination;
       }
     } else {
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
@@ -352,19 +352,15 @@ function filterSearchResults(searchResults, searchEngine, storage) {
             searchResultLink = searchResult.closest('a[href]').href;
           }
 
-          let urlObj = new URL(searchResultLink);
-          urlObj.search = '';
-          let link = String(decodeURIComponent(urlObj.toString()));
-
           if (searchEngine === 'google') {
             // Break if image result:
-            if (link.includes('imgurl=')) {
+            if (searchResultLink.includes('imgurl=')) {
               break;
             }
           }
 
           let crossLanguageSetting = storage.crossLanguage || 'off';
-          let matchingSite = await commonFunctionFindMatchingSite(link, crossLanguageSetting);
+          let matchingSite = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
           if (matchingSite) {
             // Get user's settings for the wiki
             let id = matchingSite['id'];
@@ -427,7 +423,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
                 if (searchFilterSetting === 'hide') {
                   countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
                 } else {
-                  countFiltered += replaceSearchResults(searchResultContainer, matchingSite, link);
+                  countFiltered += replaceSearchResults(searchResultContainer, matchingSite, searchResultLink);
                 }
               }
             }
