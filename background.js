@@ -205,9 +205,9 @@ async function main(url, tabId) {
           } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
             redirectToBreezeWiki(storage, tabId, url);
           }
+        } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
+          redirectToBreezeWiki(storage, tabId, url);
         }
-      } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
-        redirectToBreezeWiki(storage, tabId, url);
       }
     });
   });
