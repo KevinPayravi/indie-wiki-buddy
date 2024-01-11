@@ -1,6 +1,7 @@
+const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
+
 // Load wiki data objects, with each destination having its own object
 async function commonFunctionGetSiteDataByDestination() {
-  const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
   var sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
@@ -17,7 +18,6 @@ async function commonFunctionGetSiteDataByDestination() {
 
 // Load wiki data objects, with each origin having its own object
 async function commonFunctionGetSiteDataByOrigin() {
-  const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
   let sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {

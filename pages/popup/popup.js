@@ -1,5 +1,3 @@
-const LANGS = ["DE", "EN", "ES", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
-
 // Set power setting
 function setPower(setting) {
   chrome.storage.local.set({ 'power': setting });
