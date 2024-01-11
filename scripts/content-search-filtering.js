@@ -159,47 +159,9 @@ function escapeRegex(string) {
 }
 
 function replaceSearchResults(searchResultContainer, site, link) {
-  // Build new URL:
-  let originArticle = decodeURIComponent(link.split(site['origin_base_url'] + site['origin_content_path'])[1] || '');
-  let destinationArticle = site['destination_content_prefix'] + originArticle;
-  let newURL = '';
-  if (originArticle) {
-    // Check if main page
-    if (originArticle === site['origin_main_page']) {
-      switch (site['destination_platform']) {
-        case 'doku':
-          destinationArticle = '';
-          break;
-        default:
-          destinationArticle = site['destination_main_page'];
-      }
-    }
-
-    // Replace underscores with spaces as that performs better in search
-    destinationArticle = destinationArticle.replaceAll('_', ' ');
-
-    // If a Fextralife wiki, replace plus signs with spaces
-    // When there are multiple plus signs together, this regex will only replace only the first
-    if (site['origin_base_url'].includes('.wiki.fextralife.com')) {
-      destinationArticle = destinationArticle.replace(/(?<!\+)\+/g, ' ');
-    }
-
-    // Encode article
-    destinationArticle = encodeURIComponent(destinationArticle);
-
-    let searchParams = '';
-    switch (site['destination_platform']) {
-      case 'mediawiki':
-        searchParams = '?search=' + destinationArticle;
-        break;
-      case 'doku':
-        searchParams = 'start?do=search&q=' + destinationArticle;
-        break;
-    }
-    newURL = 'https://' + site['destination_base_url'] + site['destination_search_path'] + searchParams;
-  } else {
-    newURL = 'https://' + site['destination_base_url'];
-  }
+  let originArticle = getOriginArticle(link, site);
+  let destinationArticle = getDestinationArticle(site, originArticle);
+  let newURL = getNewURL(link, site);
 
   if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link')) {
     if (!searchResultContainer.classList.contains('iwb-detected')) {

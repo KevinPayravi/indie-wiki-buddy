@@ -76,6 +76,63 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
   return matchingSite;
 }
 
+function getOriginArticle(originURL, matchingSite) {
+  return decodeURIComponent(originURL.split(matchingSite['origin_base_url'] + matchingSite['origin_content_path'])[1] || '');
+}
+
+function getDestinationArticle(matchingSite, article) {
+  return matchingSite['destination_content_prefix'] + article;
+}
+
+function getNewURL(originURL, matchingSite) {
+  // Get article name from the end of the URL;
+  // We can't just take the last part of the path due to subpages;
+  // Instead, we take everything after the wiki's base URL + content path
+  let originArticle = getOriginArticle(originURL, matchingSite);
+  let destinationArticle = getDestinationArticle(matchingSite, originArticle);
+  // Set up URL to redirect user to based on wiki platform
+  let newURL = '';
+  if (originArticle) {
+    // Check if main page
+    if (originArticle === matchingSite['origin_main_page']) {
+      switch (matchingSite['destination_platform']) {
+        case 'doku':
+          destinationArticle = '';
+          break;
+        default:
+          destinationArticle = matchingSite['destination_main_page'];
+      }
+    }
+
+    // Replace underscores with spaces as that performs better in search
+    destinationArticle = destinationArticle.replaceAll('_', ' ');
+
+    // If a Fextralife wiki, replace plus signs with spaces
+    // When there are multiple plus signs together, this regex will only replace only the first
+    if (matchingSite['origin_base_url'].includes('.wiki.fextralife.com')) {
+      destinationArticle = destinationArticle.replace(/(?<!\+)\+/g, ' ');
+    }
+
+    // Encode article
+    destinationArticle = encodeURIComponent(destinationArticle);
+
+    let searchParams = '';
+    switch (matchingSite['destination_platform']) {
+      case 'mediawiki':
+        searchParams = '?search=' + destinationArticle;
+        break;
+      case 'doku':
+        searchParams = 'start?do=search&q=' + destinationArticle;
+        break;
+    }
+    newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_search_path"] + searchParams;
+  } else {
+    newURL = 'https://' + matchingSite["destination_base_url"];
+  }
+
+  return newURL;
+}
+
 // Temporary function to migrate user data to IWB version 3.0+
 async function commonFunctionMigrateToV3() {
   await chrome.storage.sync.get(async (storage) => {
