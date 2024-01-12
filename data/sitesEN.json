@@ -3190,6 +3190,24 @@
     ]
   },
   {
+    "id": "en-tinyrogues",
+    "origins_label": "Tiny Rogues Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tiny Rogues Fandom Wiki",
+        "origin_base_url": "tiny-rogues.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Tiny_Rogues_Wiki"
+      }
+    ],
+    "destination": "Tiny Rogues Wiki",
+    "destination_base_url": "roguepedia.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tinyrogueswiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/wiki/index.php"
+  },
+  {
     "id": "en-toontowncorporateclash",
     "origins_label": "Toontown Corporate Clash Fandom Wiki",
     "origins": [
