@@ -223,10 +223,10 @@ function replaceSearchResults(searchResultContainer, site, link) {
 
 function hideSearchResults(searchResultContainer, searchEngine, site, showBanner = 'on') {
   // Insert search result removal notice
-  if (showBanner === 'on' && !filteredWikis.includes(site.lang + ' ' + site.origin_group)) {
-    filteredWikis.push(site.lang + ' ' + site.origin_group);
+  if (showBanner === 'on' && !filteredWikis.includes(site.language + ' ' + site.origin)) {
+    filteredWikis.push(site.language + ' ' + site.origin);
 
-    let elementId = stringToId(site.lang + '-' + site.origin_group);
+    let elementId = stringToId(site.language + '-' + site.origin);
     hiddenWikisRevealed[elementId] = false;
 
     // Using aside to avoid conflicts with website CSS and listeners:
@@ -236,7 +236,7 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
     let searchRemovalNoticeLink = document.createElement('a');
     searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
     searchRemovalNoticeLink.textContent = site.destination;
-    searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin_group + (site.lang !== 'EN' ? ' (' + site.lang + ')' : '') + '. Look for results from ');
+    searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin + (site.language !== 'EN' ? ' (' + site.language + ')' : '') + '. Look for results from ');
     searchRemovalNoticePosttext = document.createTextNode(' instead.');
     searchRemovalNotice.appendChild(searchRemovalNoticePretext);
     searchRemovalNotice.appendChild(searchRemovalNoticeLink);
@@ -323,7 +323,7 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
   }
 
   if (!Array.from(searchResultContainer.classList).includes('iwb-hide')) {
-    let elementId = stringToId(site.lang + '-' + site.origin_group);
+    let elementId = stringToId(site.language + '-' + site.origin);
     searchResultContainer.classList.add('iwb-search-result-' + elementId);
     searchResultContainer.classList.add('iwb-hide');
     searchResultContainer.classList.add('iwb-detected');
