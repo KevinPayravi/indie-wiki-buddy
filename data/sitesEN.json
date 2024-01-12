@@ -610,6 +610,24 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-cityofheroes",
+    "origins_label": "City of Heroes Fandom Wiki",
+    "origins": [
+      {
+        "origin": "City of Heroes Fandom Wiki",
+        "origin_base_url": "cityofheroes.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "City_of_Heroes_Wiki"
+      }
+    ],
+    "destination": "Paragon Wiki Archive",
+    "destination_base_url": "archive.paragonwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "paragonwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php"
+  },
+  {
     "id": "en-commanderkeen",
     "origins_label": "Commander Keen Fandom Wiki",
     "origins": [
@@ -961,6 +979,24 @@
     "destination_icon": "dreamlightvalleywiki.png",
     "destination_main_page": "Dreamlight_Valley_Wiki",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-dungeonsanddragons",
+    "origins_label": "Dungeons and Dragons Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dungeons and Dragons Fandom Wiki",
+        "origin_base_url": "dungeons.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Dungeons and Dragons Wiki",
+    "destination_base_url": "dnd-wiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dungeonsanddragonswiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-dwarffortress",
@@ -1452,6 +1488,27 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-graalmilitary",
+    "origins_label": "GraalMilitary Fandom Wiki",
+    "origins": [
+      {
+        "origin": "GraalMilitary Fandom Wiki",
+        "origin_base_url": "graalmilitary.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "GraalMilitary_Wiki"
+      }
+    ],
+    "destination": "Graal Military Wiki",
+    "destination_base_url": "wiki.graalmilitary.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "graalmilitarywiki.png",
+    "destination_main_page": "GraalMilitary_Wiki",
+    "destination_search_path": "/wiki/Special:Search",
+    "tags": [
+      "miraheze"
+    ]
+  },
+  {
     "id": "en-granblue",
     "origins_label": "Granblue Fantasy Fandom Wiki",
     "origins": [
@@ -1468,6 +1525,27 @@
     "destination_icon": "granblue.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-greenday",
+    "origins_label": "Green Day Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Green Day Fandom Wiki",
+        "origin_base_url": "greenday.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Green_Day_Wiki"
+      }
+    ],
+    "destination": "Green Day Wiki",
+    "destination_base_url": "greenday.shoutwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "greendaywiki.png",
+    "destination_main_page": "Green_Day_Wiki",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "shoutwiki"
+    ]
   },
   {
     "id": "en-guildwars",
@@ -1729,6 +1807,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-interpalore",
+    "origins_label": "The Jordan Edward Baumann Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Jordan Edward Baumann Fandom Wiki",
+        "origin_base_url": "jordanb.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "INTerpalore Wiki",
+    "destination_base_url": "whenobjectsworks.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "interpalorewiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/wiki/Special:Search",
+    "tags": [
+      "miraheze"
+    ]
+  },
+  {
     "id": "en-jojo",
     "origins_label": "JoJo's Bizarre Wiki",
     "origins": [
@@ -1876,6 +1975,24 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-legendofthegalacticheroes",
+    "origins_label": "Legend of Galactic Heroes Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Legend of Galactic Heroes Fandom Wiki",
+        "origin_base_url": "legendofthegalacticheroes.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Legend_of_Galactic_Heroes_Wiki"
+      }
+    ],
+    "destination": "Gineipaedia",
+    "destination_base_url": "gineipaedia.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gineipaedia.png",
+    "destination_main_page": "Portal:Main",
+    "destination_search_path": "/w/index.php"
+  },
+  {
     "id": "en-lethalcompany",
     "origins_label": "Lethal Company Fandom Wiki",
     "origins": [
@@ -1977,6 +2094,12 @@
         "origin_base_url": "mario.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "MarioWiki"
+      },
+      {
+        "origin": "Donkey Kong Fandom Wiki",
+        "origin_base_url": "donkeykong.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Donkey_Kong_Wiki"
       }
     ],
     "destination": "Super Mario Wiki",
@@ -2709,6 +2832,24 @@
     ]
   },
   {
+    "id": "en-saga",
+    "origins_label": "SaGa Fandom Wiki",
+    "origins": [
+      {
+        "origin": "SaGa Fandom Wiki",
+        "origin_base_url": "saga.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "SaGa_Wiki"
+      }
+    ],
+    "destination": "SaGa Wiki",
+    "destination_base_url": "sagawiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sagawiki.png",
+    "destination_main_page": "SaGa_Wiki",
+    "destination_search_path": "/w/index.php"
+  },
+  {
     "id": "en-sailormoon",
     "origins_label": "Sailor Moon Fandom Wiki",
     "origins": [
@@ -2802,6 +2943,24 @@
     "destination_base_url": "segaretro.org",
     "destination_platform": "mediawiki",
     "destination_icon": "segaretro.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-sel",
+    "origins_label": "Serial Experiments Lain Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Serial Experiments Lain Fandom Wiki",
+        "origin_base_url": "sel.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Serial_Experiments_Lain_Wiki"
+      }
+    ],
+    "destination": "Serial Experiments Lain wiki",
+    "destination_base_url": "lain.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "serialexperimentslainwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
   },
@@ -3150,6 +3309,28 @@
     "destination_icon": "tearsofthemis.png",
     "destination_main_page": "Tears_of_Themis_Wiki",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-temtem",
+    "origins_label": "Temtem Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Temtem Fandom Wiki",
+        "origin_base_url": "temtem.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Temtem_Wiki"
+      }
+    ],
+    "destination": "Official Temtem Wiki",
+    "destination_base_url": "temtem.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "officialtemtemwiki.png",
+    "destination_main_page": "Temtem_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "en-terraria",
@@ -3699,6 +3880,24 @@
     "tags": [
       "telepedia"
     ]
+  },
+  {
+    "id": "en-wizard101",
+    "origins_label": "Wizard 101 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Wizard 101 Fandom Wiki",
+        "origin_base_url": "wizard101.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wizard101_Wiki"
+      }
+    ],
+    "destination": "Wizard101 Wiki",
+    "destination_base_url": "wiki.wizard101central.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wizard101wiki.png",
+    "destination_main_page": "Wizard101_Wiki",
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-wizardry",
