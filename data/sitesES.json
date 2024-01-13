@@ -54,6 +54,24 @@
     "destination_search_path": "/"
   },
   {
+    "id": "es-pokemon",
+    "origins_label": "Pokémon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pokémon_Wiki"
+      }
+    ],
+    "destination": "WikiDex",
+    "destination_base_url": "www.wikidex.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikidex.png",
+    "destination_main_page": "WikiDex",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "es-splatoon",
     "origins_label": "Splatoon Fandom Wiki",
     "origins": [
@@ -105,24 +123,6 @@
     "destination_platform": "mediawiki",
     "destination_icon": "touhouwiki.png",
     "destination_main_page": "Touhou_Wiki",
-    "destination_search_path": "/index.php"
-  },
-  {
-    "id": "es-pokemon",
-    "origins_label": "Pokémon Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Pokémon Fandom Wiki",
-        "origin_base_url": "pokemon.fandom.com/es",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Pokémon_Wiki"
-      }
-    ],
-    "destination": "WikiDex",
-    "destination_base_url": "www.wikidex.net",
-    "destination_platform": "mediawiki",
-    "destination_icon": "wikidex.png",
-    "destination_main_page": "WikiDex",
     "destination_search_path": "/index.php"
   }
 ]

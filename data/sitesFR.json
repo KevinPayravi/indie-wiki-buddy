@@ -18,24 +18,6 @@
     "destination_search_path": "/index.php"
   },
   {
-    "id": "fr-heroes",
-    "origins_label": "Heroes Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Heroes Fandom Wiki",
-        "origin_base_url": "heroes.fandom.com/fr",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Accueil_Heroes"
-      }
-    ],
-    "destination": "Heroes Wiki",
-    "destination_base_url": "fr.heroeswiki.ddns.net",
-    "destination_platform": "mediawiki",
-    "destination_icon": "heroeswiki.png",
-    "destination_main_page": "Accueil",
-    "destination_search_path": "/index.php"
-  },
-  {
     "id": "fr-fallout",
     "origins_label": "L'Abri Fallout Fandom Wiki",
     "origins": [
@@ -50,6 +32,24 @@
     "destination_base_url": "fallout-wiki.com",
     "destination_platform": "mediawiki",
     "destination_icon": "lesarchivesdevaulttec.png",
+    "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "fr-heroes",
+    "origins_label": "Heroes Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Heroes Fandom Wiki",
+        "origin_base_url": "heroes.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Accueil_Heroes"
+      }
+    ],
+    "destination": "Heroes Wiki",
+    "destination_base_url": "fr.heroeswiki.ddns.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "heroeswiki.png",
     "destination_main_page": "Accueil",
     "destination_search_path": "/index.php"
   },
