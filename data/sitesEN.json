@@ -2061,6 +2061,12 @@
         "origin_base_url": "mcpc.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Minecraft_Wiki"
+      },
+      {
+        "origin": "Minecraft PC Fandom Wiki",
+        "origin_base_url": "minecraftpc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Welcome_to_the_Minecraft_PC_Wiki"
       }
     ],
     "destination": "Minecraft Wiki",
