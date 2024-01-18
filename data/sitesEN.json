@@ -3053,6 +3053,24 @@
     "destination_search_path": "/wiki/index.php"
   },
   {
+    "id": "en-tcoaal",
+    "origins_label": "The Coffin of Andy and Leyley Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Coffin of Andy and Leyley Fandom Wiki",
+        "origin_base_url": "coffin-of-andy-and-leyley.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Coffin_of_Andy_%26_LeyLey_Wiki"
+      }
+    ],
+    "destination": "The Coffin of Andy and Leyley Wiki",
+    "destination_base_url": "tcoaal.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tcoaal.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-teamfortress",
     "origins_label": "Team Fortress Fandom Wiki",
     "origins": [
