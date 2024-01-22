@@ -3708,6 +3708,27 @@
     "destination_main_page": "Yume_Nikki_Fangames_Wiki",
     "destination_search_path": "/index.php"
   },
+    {
+    "id": "en-towerunite",
+    "origins_label": "Tower Unite Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tower Unite Fandom Wiki",
+        "origin_base_url": "tower-unite.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Tower_Unite_Wiki"
+      }
+    ],
+    "destination": "Tower Unite wiki.gg",
+    "destination_base_url": "towerunite.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "towerunitewiki.png",
+    "destination_main_page": "Tower_Unite_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
   {
     "id": "en-zelda",
     "origins_label": "Zelda Fandom Wiki",
