@@ -288,24 +288,6 @@
     "destination_search_path": "/w/index.php"
   },
   {
-    "id": "en-bz",
-    "origins_label": "B'z Fandom Wiki",
-    "origins": [
-      {
-        "origin": "B'z Fandom Wiki",
-        "origin_base_url": "bzrockcom.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Bz-rock.com_Wiki"
-      }
-    ],
-    "destination": "B'z Wiki",
-    "destination_base_url": "bzwiki.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "bzwiki.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
-  },
-  {
     "id": "en-bakugan",
     "origins_label": "Bakugan Fandom Wiki",
     "origins": [
@@ -515,6 +497,24 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-bz",
+    "origins_label": "B'z Fandom Wiki",
+    "origins": [
+      {
+        "origin": "B'z Fandom Wiki",
+        "origin_base_url": "bzrockcom.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bz-rock.com_Wiki"
+      }
+    ],
+    "destination": "B'z Wiki",
+    "destination_base_url": "bzwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bzwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-calamitymod",
     "origins_label": "Calamity Mod Fandom Wiki",
     "origins": [
@@ -706,27 +706,6 @@
     ]
   },
   {
-    "id": "en-necrodancer",
-    "origins_label": "Crypt of the NecroDancer Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Crypt of the NecroDancer Fandom Wiki",
-        "origin_base_url": "crypt-of-the-necrodancer.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Crypt_of_the_NecroDancer_Wiki"
-      }
-    ],
-    "destination": "Crypt of the NecroDancer Wiki",
-    "destination_base_url": "necrodancer.miraheze.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "cryptofthenecrodancerwiki.png",
-    "destination_main_page": "NecroDancer_Wiki:About",
-    "destination_search_path": "/wiki/Special:Search",
-    "tags": [
-      "miraheze"
-    ]
-  },
-  {
     "id": "en-daria",
     "origins_label": "Daria Fandom Wiki",
     "origins": [
@@ -861,24 +840,6 @@
     "destination_base_url": "wikimon.net",
     "destination_platform": "mediawiki",
     "destination_icon": "wikimon.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
-  },
-  {
-    "id": "en-terrypratchett",
-    "origins_label": "Discworld Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Discworld Fandom Wiki",
-        "origin_base_url": "discworld.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      }
-    ],
-    "destination": "Terry Pratchett Wiki",
-    "destination_base_url": "wiki.lspace.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "terrypratchettwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
   },
@@ -1038,24 +999,6 @@
     "destination_search_path": "/w/index.php"
   },
   {
-    "id": "en-osamusato",
-    "origins_label": "Eastern Mind Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Eastern Mind Fandom Wiki",
-        "origin_base_url": "easternmind.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Eastern_Mind_Wiki"
-      }
-    ],
-    "destination": "Osamu Sato Wiki",
-    "destination_base_url": "compu-lsd.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "osamusato.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
-  },
-  {
     "id": "en-elderscrolls",
     "origins_label": "Elder Scrolls Fandom & Fextra Wiki",
     "origins": [
@@ -1111,24 +1054,6 @@
     "destination_icon": "evawiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
-  },
-  {
-    "id": "en-fzero",
-    "origins_label": "F-Zero Fandom Wiki",
-    "origins": [
-      {
-        "origin": "F-Zero Fandom Wiki",
-        "origin_base_url": "fzero.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      }
-    ],
-    "destination": "F-Zero Wiki",
-    "destination_base_url": "mutecity.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "fzero.png",
-    "destination_main_page": "F-Zero_Wiki",
-    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-factorio",
@@ -1363,6 +1288,24 @@
     "destination_icon": "infosphere.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-fzero",
+    "origins_label": "F-Zero Fandom Wiki",
+    "origins": [
+      {
+        "origin": "F-Zero Fandom Wiki",
+        "origin_base_url": "fzero.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "F-Zero Wiki",
+    "destination_base_url": "mutecity.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fzero.png",
+    "destination_main_page": "F-Zero_Wiki",
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-galaxylife",
@@ -1786,24 +1729,6 @@
     "destination_search_path": "/index.php"
   },
   {
-    "id": "en-kemonofriends",
-    "origins_label": "Japari Library Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Japari Library Fandom Wiki",
-        "origin_base_url": "kemono-friends.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Japari_Library_Wiki"
-      }
-    ],
-    "destination": "Japari Library",
-    "destination_base_url": "japari-library.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "japarilibrary.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
-  },
-  {
     "id": "en-jojo",
     "origins_label": "JoJo's Bizarre Wiki",
     "origins": [
@@ -1837,6 +1762,24 @@
     "destination_platform": "mediawiki",
     "destination_icon": "kancollewiki.png",
     "destination_main_page": "Kancolle_Wiki",
+    "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-kemonofriends",
+    "origins_label": "Japari Library Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Japari Library Fandom Wiki",
+        "origin_base_url": "kemono-friends.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Japari_Library_Wiki"
+      }
+    ],
+    "destination": "Japari Library",
+    "destination_base_url": "japari-library.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "japarilibrary.png",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php"
   },
   {
@@ -2008,22 +1951,22 @@
     "destination_search_path": "/w/index.php"
   },
   {
-    "id": "en-riichimahjong",
-    "origins_label": "Mahjong Fandom Wiki",
+    "id": "en-mana",
+    "origins_label": "Wiki of Mana Fandom Wiki",
     "origins": [
       {
-        "origin": "Mahjong Fandom Wiki",
-        "origin_base_url": "mahjong.fandom.com",
+        "origin": "Wiki of Mana Fandom Wiki",
+        "origin_base_url": "mana.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Mahjong_Wiki"
+        "origin_main_page": "Wiki_of_Mana"
       }
     ],
-    "destination": "Japanese Mahjong Wiki",
-    "destination_base_url": "riichi.wiki",
+    "destination": "Wiki of Mana",
+    "destination_base_url": "wikiofmana.com",
     "destination_platform": "mediawiki",
-    "destination_icon": "japanesemahjongwiki.png",
+    "destination_icon": "wikiofmana.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-mario",
@@ -2118,6 +2061,12 @@
         "origin_base_url": "mcpc.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Minecraft_Wiki"
+      },
+      {
+        "origin": "Minecraft PC Fandom Wiki",
+        "origin_base_url": "minecraftpc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Welcome_to_the_Minecraft_PC_Wiki"
       }
     ],
     "destination": "Minecraft Wiki",
@@ -2189,6 +2138,27 @@
     "destination_icon": "mysterydungeon.png",
     "destination_main_page": "Mystery_Dungeon_Franchise_Wiki",
     "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-necrodancer",
+    "origins_label": "Crypt of the NecroDancer Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Crypt of the NecroDancer Fandom Wiki",
+        "origin_base_url": "crypt-of-the-necrodancer.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Crypt_of_the_NecroDancer_Wiki"
+      }
+    ],
+    "destination": "Crypt of the NecroDancer Wiki",
+    "destination_base_url": "necrodancer.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cryptofthenecrodancerwiki.png",
+    "destination_main_page": "NecroDancer_Wiki:About",
+    "destination_search_path": "/wiki/Special:Search",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-necromerger",
@@ -2290,22 +2260,22 @@
     ]
   },
   {
-    "id": "en-pathofexile",
-    "origins_label": "Path of Exile Fandom Wiki",
+    "id": "en-osamusato",
+    "origins_label": "Eastern Mind Fandom Wiki",
     "origins": [
       {
-        "origin": "Path of Exile Fandom Wiki",
-        "origin_base_url": "pathofexile.fandom.com",
+        "origin": "Eastern Mind Fandom Wiki",
+        "origin_base_url": "easternmind.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Path_of_Exile_Wiki"
+        "origin_main_page": "Eastern_Mind_Wiki"
       }
     ],
-    "destination": "Path of Exile Wiki",
-    "destination_base_url": "www.poewiki.net",
+    "destination": "Osamu Sato Wiki",
+    "destination_base_url": "compu-lsd.com",
     "destination_platform": "mediawiki",
-    "destination_icon": "pathofexile.png",
-    "destination_main_page": "Path_of_Exile_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_icon": "osamusato.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/wiki/index.php"
   },
   {
     "id": "en-pathfinder",
@@ -2324,6 +2294,24 @@
     "destination_icon": "pathfinder.png",
     "destination_main_page": "Pathfinder_Wiki",
     "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-pathofexile",
+    "origins_label": "Path of Exile Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Path of Exile Fandom Wiki",
+        "origin_base_url": "pathofexile.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Path_of_Exile_Wiki"
+      }
+    ],
+    "destination": "Path of Exile Wiki",
+    "destination_base_url": "www.poewiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pathofexile.png",
+    "destination_main_page": "Path_of_Exile_Wiki",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-pikmin",
@@ -2529,6 +2517,24 @@
     "destination_search_path": "/wiki/script-en/index.php"
   },
   {
+    "id": "en-rct",
+    "origins_label": "RollerCoaster Tycoon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "RollerCoaster Tycoon Fandom Wiki",
+        "origin_base_url": "rct.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "RollerCoaster_Tycoon_Wiki"
+      }
+    ],
+    "destination": "RollerCoaster Tycoon Wiki",
+    "destination_base_url": "rct.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rctwiki.png",
+    "destination_main_page": "RollerCoaster_Tycoon_Wiki",
+    "destination_search_path": "/w/index.php"
+  },
+  {
     "id": "en-rhythmdoctor",
     "origins_label": "Rhythm Doctor Fandom Wiki",
     "origins": [
@@ -2563,6 +2569,24 @@
     "destination_icon": "rhythmheavenwiki.png",
     "destination_main_page": "Home",
     "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "en-riichimahjong",
+    "origins_label": "Mahjong Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Mahjong Fandom Wiki",
+        "origin_base_url": "mahjong.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mahjong_Wiki"
+      }
+    ],
+    "destination": "Japanese Mahjong Wiki",
+    "destination_base_url": "riichi.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "japanesemahjongwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-rimworld",
@@ -2601,22 +2625,25 @@
     "destination_search_path": "/w/index.php"
   },
   {
-    "id": "en-rct",
-    "origins_label": "RollerCoaster Tycoon Fandom Wiki",
+    "id": "en-runescape",
+    "origins_label": "RuneScape Fandom Wiki",
     "origins": [
       {
-        "origin": "RollerCoaster Tycoon Fandom Wiki",
-        "origin_base_url": "rct.fandom.com",
+        "origin": "RuneScape Fandom Wiki",
+        "origin_base_url": "runescape.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "RollerCoaster_Tycoon_Wiki"
+        "origin_main_page": "RuneScape_Wiki"
       }
     ],
-    "destination": "RollerCoaster Tycoon Wiki",
-    "destination_base_url": "rct.wiki",
+    "destination": "RuneScape Wiki",
+    "destination_base_url": "runescape.wiki",
     "destination_platform": "mediawiki",
-    "destination_icon": "rctwiki.png",
-    "destination_main_page": "RollerCoaster_Tycoon_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_icon": "runescape.png",
+    "destination_main_page": "RuneScape_Wiki",
+    "destination_search_path": "/",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-runescapeclassic",
@@ -2634,27 +2661,6 @@
     "destination_platform": "mediawiki",
     "destination_icon": "runescapeclassic.png",
     "destination_main_page": "RuneScape_Classic_Wiki",
-    "destination_search_path": "/",
-    "tags": [
-      "official"
-    ]
-  },
-  {
-    "id": "en-runescape",
-    "origins_label": "RuneScape Fandom Wiki",
-    "origins": [
-      {
-        "origin": "RuneScape Fandom Wiki",
-        "origin_base_url": "runescape.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "RuneScape_Wiki"
-      }
-    ],
-    "destination": "RuneScape Wiki",
-    "destination_base_url": "runescape.wiki",
-    "destination_platform": "mediawiki",
-    "destination_icon": "runescape.png",
-    "destination_main_page": "RuneScape_Wiki",
     "destination_search_path": "/",
     "tags": [
       "official"
@@ -2851,42 +2857,6 @@
     "destination_search_path": "/w/index.php"
   },
   {
-    "id": "en-starcitizen",
-    "origins_label": "Star Citizen Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Star Citizen Fandom Wiki",
-        "origin_base_url": "starcitizen.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Star_Citizen_Wiki"
-      }
-    ],
-    "destination": "Star Citizen Wiki",
-    "destination_base_url": "starcitizen.tools",
-    "destination_platform": "mediawiki",
-    "destination_icon": "starcitizen.png",
-    "destination_main_page": "Star_Citizen_Wiki",
-    "destination_search_path": "/index.php"
-  },
-  {
-    "id": "en-sto",
-    "origins_label": "Star Trek Online Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Star Trek Online Fandom Wiki",
-        "origin_base_url": "sto.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      }
-    ],
-    "destination": "Star Trek Online Wiki",
-    "destination_base_url": "stowiki.net",
-    "destination_platform": "mediawiki",
-    "destination_icon": "sto.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
-  },
-  {
     "id": "en-starbound",
     "origins_label": "Starbound Fandom Wiki",
     "origins": [
@@ -2906,6 +2876,24 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-starcitizen",
+    "origins_label": "Star Citizen Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Star Citizen Fandom Wiki",
+        "origin_base_url": "starcitizen.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Star_Citizen_Wiki"
+      }
+    ],
+    "destination": "Star Citizen Wiki",
+    "destination_base_url": "starcitizen.tools",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starcitizen.png",
+    "destination_main_page": "Star_Citizen_Wiki",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-stardewvalley",
@@ -2970,6 +2958,24 @@
     "destination_icon": "starfy.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "https://www.starfywiki.org/index.php"
+  },
+  {
+    "id": "en-sto",
+    "origins_label": "Star Trek Online Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Star Trek Online Fandom Wiki",
+        "origin_base_url": "sto.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Star Trek Online Wiki",
+    "destination_base_url": "stowiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sto.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-suikoden",
@@ -3047,6 +3053,24 @@
     "destination_search_path": "/wiki/index.php"
   },
   {
+    "id": "en-tcoaal",
+    "origins_label": "The Coffin of Andy and Leyley Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Coffin of Andy and Leyley Fandom Wiki",
+        "origin_base_url": "coffin-of-andy-and-leyley.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Coffin_of_Andy_%26_LeyLey_Wiki"
+      }
+    ],
+    "destination": "The Coffin of Andy and Leyley Wiki",
+    "destination_base_url": "tcoaal.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tcoaal.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-teamfortress",
     "origins_label": "Team Fortress Fandom Wiki",
     "origins": [
@@ -3112,6 +3136,24 @@
       "wiki.gg",
       "official"
     ]
+  },
+  {
+    "id": "en-terrypratchett",
+    "origins_label": "Discworld Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Discworld Fandom Wiki",
+        "origin_base_url": "discworld.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Terry Pratchett Wiki",
+    "destination_base_url": "wiki.lspace.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrypratchettwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-thecyclefrontier",
@@ -3431,6 +3473,33 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-warcraft",
+    "origins_label": "World of Warcraft Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Wowpedia Fandom Wiki",
+        "origin_base_url": "wowpedia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wowpedia"
+      },
+      {
+        "origin": "WoWWiki Fandom Wiki (Archived)",
+        "origin_base_url": "wowwiki-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portal:Main"
+      }
+    ],
+    "destination": "Warcraft wiki.gg",
+    "destination_base_url": "warcraft.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "warcraftwiki.png",
+    "destination_main_page": "Warcraft_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-warhammer40k",
     "origins_label": "Warhammer 40,000 Fandom Wiki",
     "origins": [
@@ -3463,24 +3532,6 @@
     "destination_base_url": "www.weezerpedia.com",
     "destination_platform": "mediawiki",
     "destination_icon": "weezerpedia.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
-  },
-  {
-    "id": "en-mana",
-    "origins_label": "Wiki of Mana Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Wiki of Mana Fandom Wiki",
-        "origin_base_url": "mana.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Wiki_of_Mana"
-      }
-    ],
-    "destination": "Wiki of Mana",
-    "destination_base_url": "wikiofmana.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "wikiofmana.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php"
   },
@@ -3542,33 +3593,6 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wizardrywiki.png",
     "destination_main_page": "Wizardry_Wiki",
-    "destination_search_path": "/index.php",
-    "tags": [
-      "wiki.gg"
-    ]
-  },
-  {
-    "id": "en-warcraft",
-    "origins_label": "World of Warcraft Fandom Wikis",
-    "origins": [
-      {
-        "origin": "Wowpedia Fandom Wiki",
-        "origin_base_url": "wowpedia.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Wowpedia"
-      },
-      {
-        "origin": "WoWWiki Fandom Wiki (Archived)",
-        "origin_base_url": "wowwiki-archive.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Portal:Main"
-      }
-    ],
-    "destination": "Warcraft wiki.gg",
-    "destination_base_url": "warcraft.wiki.gg",
-    "destination_platform": "mediawiki",
-    "destination_icon": "warcraftwiki.png",
-    "destination_main_page": "Warcraft_Wiki",
     "destination_search_path": "/index.php",
     "tags": [
       "wiki.gg"

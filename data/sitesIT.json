@@ -1,21 +1,21 @@
 [
   {
-    "id": "it-pokemon",
-    "origins_label": "Analisi Pokémon Fandom Wiki",
+    "id": "it-earthbound",
+    "origins_label": "EarthBound Fandom Wiki",
     "origins": [
       {
-        "origin": "Analisi Pokémon Fandom Wiki",
-        "origin_base_url": "pokemon.fandom.com/it",
+        "origin": "EarthBound Fandom Wiki",
+        "origin_base_url": "earthbound.fandom.com/it",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Analisi_Pokémon_Wiki"
+        "origin_main_page": "EarthBound_Wiki"
       }
     ],
-    "destination": "Pokémon Central Wiki",
-    "destination_base_url": "wiki.pokemoncentral.it",
+    "destination": "WikiBound",
+    "destination_base_url": "it.wikibound.info",
     "destination_platform": "mediawiki",
-    "destination_icon": "pokemoncentral.png",
-    "destination_main_page": "Home",
-    "destination_search_path": "/index.php"
+    "destination_icon": "wikibound.png",
+    "destination_main_page": "Pagina_principale",
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "it-mario",
@@ -36,21 +36,21 @@
     "destination_search_path": "/index.php"
   },
   {
-    "id": "it-earthbound",
-    "origins_label": "EarthBound Fandom Wiki",
+    "id": "it-pokemon",
+    "origins_label": "Analisi Pokémon Fandom Wiki",
     "origins": [
       {
-        "origin": "EarthBound Fandom Wiki",
-        "origin_base_url": "earthbound.fandom.com/it",
+        "origin": "Analisi Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/it",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "EarthBound_Wiki"
+        "origin_main_page": "Analisi_Pokémon_Wiki"
       }
     ],
-    "destination": "WikiBound",
-    "destination_base_url": "it.wikibound.info",
+    "destination": "Pokémon Central Wiki",
+    "destination_base_url": "wiki.pokemoncentral.it",
     "destination_platform": "mediawiki",
-    "destination_icon": "wikibound.png",
-    "destination_main_page": "Pagina_principale",
-    "destination_search_path": "/w/index.php"
+    "destination_icon": "pokemoncentral.png",
+    "destination_main_page": "Home",
+    "destination_search_path": "/index.php"
   }
 ]
