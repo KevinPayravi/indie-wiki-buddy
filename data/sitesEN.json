@@ -3053,6 +3053,24 @@
     "destination_search_path": "/wiki/index.php"
   },
   {
+    "id": "en-tcoaal",
+    "origins_label": "The Coffin of Andy and Leyley Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Coffin of Andy and Leyley Fandom Wiki",
+        "origin_base_url": "coffin-of-andy-and-leyley.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Coffin_of_Andy_%26_LeyLey_Wiki"
+      }
+    ],
+    "destination": "The Coffin of Andy and Leyley Wiki",
+    "destination_base_url": "tcoaal.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tcoaal.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-teamfortress",
     "origins_label": "Team Fortress Fandom Wiki",
     "origins": [
@@ -3455,6 +3473,27 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-vtolvr",
+    "origins_label": "VTOL VR Fandom Wiki",
+    "origins": [
+      {
+        "origin": "VTOL VR Fandom Wiki",
+        "origin_base_url": "vtol-vr.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "VTOL_VR_Wiki"
+      }
+    ],
+    "destination": "VTOL VR wiki.gg",
+    "destination_base_url": "vtolvr.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "vtolvr.png",
+    "destination_main_page": "VTOL_VR_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-warcraft",
     "origins_label": "World of Warcraft Fandom Wikis",
     "origins": [
@@ -3689,6 +3728,27 @@
     "destination_icon": "yumenikkifanwiki.png",
     "destination_main_page": "Yume_Nikki_Fangames_Wiki",
     "destination_search_path": "/index.php"
+  },
+    {
+    "id": "en-towerunite",
+    "origins_label": "Tower Unite Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tower Unite Fandom Wiki",
+        "origin_base_url": "tower-unite.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Tower_Unite_Wiki"
+      }
+    ],
+    "destination": "Tower Unite wiki.gg",
+    "destination_base_url": "towerunite.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "towerunitewiki.png",
+    "destination_main_page": "Tower_Unite_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-zelda",

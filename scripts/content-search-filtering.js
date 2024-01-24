@@ -347,6 +347,19 @@ function filterSearchResults(searchResults, searchEngine, storage) {
           let searchResultLink = '';
           if (searchEngine === 'bing') {
             searchResultLink = searchResult.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '');
+
+            // Bing sometimes truncates links
+            // When this happens, we try to pull the article name from the link title
+            if (searchResultLink.endsWith('…')) {
+              let resultTitle = searchResult.closest('li')?.querySelector('h2 a')?.innerText || '';
+
+              let article = resultTitle.substring(0, resultTitle.indexOf('|')).trim() || '';
+              if (searchResultLink.includes('.fandom.com/') && searchResultLink.includes('/wiki/')) {
+                searchResultLink = searchResultLink.split('/wiki/')[0] + '/wiki/' + article;
+              } else if (searchResultLink.includes('.wiki.fextralife.com/')) {
+                searchResultLink = searchResultLink.split('.wiki.fextralife.com/')[0] + '.wiki.fextralife.com/' + article;
+              }
+            }
           } else {
             searchResultLink = searchResult.closest('a[href]').href;
           }
@@ -486,6 +499,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.endsWith('.bing.com')) {
           // Function to filter search results in Bing
           function filterBing() {
+            // Since Bing obfuscates links, we grab the link from the cite element that displays the plaintext link
             let searchResults = Array.from(document.querySelectorAll('.b_attribution>cite')).filter(el =>
               el.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '').includes('fandom.com')
               || el.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '').includes('fextralife.com')
