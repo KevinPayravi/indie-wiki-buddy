@@ -57,7 +57,10 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
     if (crossLanguageSetting === 'on') {
       matchingSites = sites.filter(el => site.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
     } else {
-      matchingSites = sites.filter(el => site.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path));
+      matchingSites = sites.filter(el =>
+        site.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
+        || site.replace(/^https?:\/\//, '') === el.origin_base_url
+      );
     }
     if (matchingSites.length > 0) {
       // Select match with longest base URL 
@@ -85,11 +88,6 @@ function commonFunctionGetDestinationArticle(matchingSite, article) {
 }
 
 function commonFunctionGetNewURL(originURL, matchingSite) {
-  // Remove query paramters
-  let urlObj = new URL(originURL);
-  urlObj.search = '';
-  originURL = String(decodeURIComponent(urlObj.toString()));
-
   // Get article name from the end of the URL;
   // We can't just take the last part of the path due to subpages;
   // Instead, we take everything after the wiki's base URL + content path
