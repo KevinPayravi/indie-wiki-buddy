@@ -11,6 +11,11 @@ Object.prototype.set = function (prop, value) {
   this[prop] = value;
 }
 
+function base64Decode(text) {
+  text = text.replace(/\s+/g, '').replace(/\-/g, '+').replace(/\_/g, '/');
+  return decodeURIComponent(Array.prototype.map.call(window.atob(text),function(c){return'%'+('00'+c.charCodeAt(0).toString(16)).slice(-2);}).join(''));
+}
+
 // Function to create an observer to watch for mutations on search pages
 // This is used for search engines that paginate via JavaScript,
 // or overwrite their results and remove IWB's elements
@@ -345,24 +350,7 @@ function filterSearchResults(searchResults, searchEngine, storage) {
         // Check that result isn't within another result
         if (!searchResult.closest('.iwb-detected')) {
           let searchResultLink = '';
-          if (searchEngine === 'bing') {
-            searchResultLink = searchResult.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '');
-
-            // Bing sometimes truncates links
-            // When this happens, we try to pull the article name from the link title
-            if (searchResultLink.endsWith('…')) {
-              let resultTitle = searchResult.closest('li')?.querySelector('h2 a')?.innerText || '';
-
-              let article = resultTitle.substring(0, resultTitle.indexOf('|')).trim() || '';
-              if (searchResultLink.includes('.fandom.com/') && searchResultLink.includes('/wiki/')) {
-                searchResultLink = searchResultLink.split('/wiki/')[0] + '/wiki/' + article;
-              } else if (searchResultLink.includes('.wiki.fextralife.com/')) {
-                searchResultLink = searchResultLink.split('.wiki.fextralife.com/')[0] + '.wiki.fextralife.com/' + article;
-              }
-            }
-          } else {
-            searchResultLink = searchResult.closest('a[href]').href;
-          }
+          searchResultLink = searchResult.closest('a[href]').href;
 
           if (searchEngine === 'google') {
             // Break if image result:
@@ -499,11 +487,25 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.endsWith('.bing.com')) {
           // Function to filter search results in Bing
           function filterBing() {
-            // Since Bing obfuscates links, we grab the link from the cite element that displays the plaintext link
-            let searchResults = Array.from(document.querySelectorAll('.b_attribution>cite')).filter(el =>
-              el.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '').includes('fandom.com')
-              || el.innerHTML.replaceAll('<strong>', '').replaceAll('</strong>', '').includes('fextralife.com')
-            );
+            let searchResultsEncoded = document.querySelectorAll('li.b_algo a');
+            let searchResults = [];
+            searchResultsEncoded.forEach((searchResult) => {
+              const encodedLink = new URL(searchResult.href);
+              if (encodedLink.href.includes('https://www.bing.com/ck/')) {
+                try {
+                  let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
+                  if (decodedLink.includes('fandom.com') || decodedLink.includes('fextralife.com')) {
+                    searchResult.href = decodedLink;
+                    searchResults.push(searchResult);
+                  }
+                } catch (e) {
+                  console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+                }
+              } else {
+                searchResults.push(searchResult);
+              }
+            });
+
             filterSearchResults(searchResults, 'bing', storage);
           }
 
