@@ -3207,7 +3207,10 @@
     "destination_platform": "mediawiki",
     "destination_icon": "thewanderinginnwiki.png",
     "destination_main_page": "The_Wandering_Inn_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-thoriummod",
@@ -3220,7 +3223,7 @@
         "origin_main_page": "Thorium_Mod_Wiki"
       }
     ],
-    "destination": "Thorium Mod Wiki",
+    "destination": "Thorium Mod wiki.gg",
     "destination_base_url": "thoriummod.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "thoriummodwiki.png",
