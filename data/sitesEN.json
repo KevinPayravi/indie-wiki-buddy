@@ -1850,7 +1850,7 @@
         "origin_main_page": "Kirby_Wiki"
       }
     ],
-    "destination": "Wikirby",
+    "destination": "WiKirby",
     "destination_base_url": "wikirby.com",
     "destination_platform": "mediawiki",
     "destination_icon": "wikirby.png",
@@ -3413,6 +3413,24 @@
     "tags": [
       "miraheze"
     ]
+  },
+  {
+    "id": "en-undertaleyellow",
+    "origins_label": "Undertale Yellow Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Undertale Yellow Fandom Wiki",
+        "origin_base_url": "undertaleyellow.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Undertale_Yellow_Wiki"
+      }
+    ],
+    "destination": "Undertale Yellow wiki.gg",
+    "destination_base_url": "undertaleyellow.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "undertaleyellowwiki.png",
+    "destination_main_page": "Undertale_Yellow_Wiki",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-unevendream",
