@@ -13,7 +13,7 @@ Object.prototype.set = function (prop, value) {
 
 function base64Decode(text) {
   text = text.replace(/\s+/g, '').replace(/\-/g, '+').replace(/\_/g, '/');
-  return decodeURIComponent(Array.prototype.map.call(window.atob(text),function(c){return'%'+('00'+c.charCodeAt(0).toString(16)).slice(-2);}).join(''));
+  return decodeURIComponent(Array.prototype.map.call(window.atob(text), function (c) { return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join(''));
 }
 
 // Function to create an observer to watch for mutations on search pages
@@ -189,6 +189,12 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let indieResultText = document.createElement('span');
     if (originArticle && originArticle !== site['origin_main_page']) {
       destinationArticleTitle = destinationArticle.replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
+      // If a Fextralife wiki, replace plus signs with spaces
+      // When there are multiple plus signs together, this regex will only replace only the first
+      if (link.includes('.wiki.fextralife.com')) {
+        destinationArticleTitle = destinationArticleTitle.replace(/(?<!\+)\+/g, ' ');
+      }
+  
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
         indieResultText.innerText = 'Look up "' + decodeURIComponent(destinationArticleTitle) + '" on ' + site.destination + ' (EN)';
       } else {
