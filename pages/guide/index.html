@@ -125,7 +125,7 @@
         </li>
         <br />
         <li>
-          <b><span aria-hidden="true">🔔</span> Desktop notifications when redirected to an indie wiki or BreezeWiki</b>
+          <b><span aria-hidden="true">🔔</span> Desktop notifications for redirections</b>
           <br />
           When this option is enabled, you will receive a desktop notification whenever you are
           automatically redirected to either an indie wiki or <a href="https://breezewiki.com/">BreezeWiki</a>.
@@ -134,6 +134,16 @@
           <br />
           If you aren't getting notifications when this is enabled, check your operating system's notification
           settings to ensure that your browser is allowed to send notifications.
+        </li>
+        <br />
+        <li>
+          <b><span aria-hidden="true">🔔</span> On search engines, show banner when Fandom/Fextralife results are hidden</b>
+          <br />
+          When this option is enabled, a banner will be inserted at the top of search engine results when Indie Wiki Buddy
+          has hidden results from Fandom/Fextralife wikis. This banner also lets you re-show the hidden results if you wish.
+          <br />
+          <br />
+          If you don't want to see any indication that Fandom/Fextralife results have been hidden, disable this option.
         </li>
         <br />
         <li>
@@ -152,21 +162,43 @@
         <li>
           <b><span aria-hidden="true">📁</span> Open changelog when Indie Wiki Buddy is updated</b>
           <br />
-          <i>Only accessible on full settings page</i>
-          <br />
           By default, when Indie Wiki Buddy is updated, the <a href="https://getindie.wiki/changelog/">changelog</a>
           will be opened in a new tab. Unchecking this option will disable opening the changelog.
         </li>
+      </ul>
+
+      <p>
+        You can also set your desired setting for <a href="https://breezewiki.com/">BreezeWiki</a>,
+        a separate service that renders Fandom wikis without ads or bloat.
+        Note, BreezeWiki currently only supports English wikis.
+      </p>
+      
+      <ul>
+        <li>
+          <b><img src="../../images/toggle-disabled.png" alt="" width="15"> BreezeWiki off</b>
+          <br />
+          Do not redirect Fandom to BreezeWiki.
+        </li>
         <br />
         <li>
-          <b><span aria-hidden="true">🌬️</span> Use BreezeWiki alternative frontend on Fandom</b>
+          <b><img src="../../images/toggle-alert.png" alt="" width="15"> Insert banner link to take you to BreezeWiki</b>
           <br />
-          This option will render Fandom wikis through <a href="https://breezewiki.com/">BreezeWiki</a>, an external
-          service that removes clutter, simplifies the page, and removes ads.
-          Occasionally, BreezeWiki or one of its mirrors may go down; when this happens, you can simply switch to
-          another working instance. This is off by default.
+          At the top of English Fandom wikis, a small banner will be inserted with a link to take you to the BreezeWiki wiki.
+        </li>
+        <br />
+        <li>
+          <b><img src="../../images/toggle-redirect.png" alt="" width="15"> Automatically redirect Fandom to BreezeWiki</b>
+          <br />
+          Visiting any English Fandom wiki will immediately redirect you to view it through BreezeWiki.
+          If automatic redirect to an independent wiki is enabled, the indepedent wiki will take priority.
         </li>
       </ul>
+
+      <p>
+        Once you've enabled a BreezeWiki option,
+        a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror.
+      </p>
+
       <h2>Individual wiki settings help</h2>
       <p>
         In the individual settings section of the <a href="../settings/index.html" target="_blank">settings</a> page, you can
@@ -178,16 +210,16 @@
       </p>
       <ul class="no-markers">
         <li>
-          <img src="./images/toggle-disabled.png" alt="" width="15">
+          <img src="../../images/toggle-disabled.png" alt="" width="15">
           <b>Disable</b>: You will be neither notified of nor redirected to the independent counterpart.
           You will still be directed to BreezeWiki if it is turned on.
         </li>
         <li>
-          <img src="./images/toggle-redirect.png" alt="" width="15">
+          <img src="../../images/toggle-redirect.png" alt="" width="15">
           <b>Redirect</b>: Be automatically redirected to the independent counterpart.
         </li>
         <li>
-          <img src="./images/toggle-alert.png" alt="" width="15">
+          <img src="../../images/toggle-alert.png" alt="" width="15">
           <b>Alert</b>: Have a display banner at the top notifying you that an independent wiki is available.
           This will appear on both Fandom and BreezeWiki pages.
         </li>
@@ -198,16 +230,16 @@
       </p>
       <ul class="no-markers">
         <li>
-          <img src="./images/toggle-disabled.png" alt="" width="15">
+          <img src="../../images/toggle-disabled.png" alt="" width="15">
           <b>Disable</b>: Search engine results are not affected.
         </li>
         <li>
-          <img src="./images/toggle-hide.png" alt="" width="15">
+          <img src="../../images/toggle-hide.png" alt="" width="15">
           <b>Hide</b>: Results are hidden in search engines.
           A banner will be shown near the top of the page to inform you, and allow you to re-reveal the hidden results.
         </li>
         <li>
-          <img src="./images/toggle-replace.png" alt="" width="15">
+          <img src="../../images/toggle-replace.png" alt="" width="15">
           <b>Replace</b>: The original non-indie result is disabled, and a button is injected above to take you to the
           indepedent wiki.
         </li>
