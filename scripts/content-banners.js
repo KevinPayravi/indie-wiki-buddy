@@ -27,7 +27,9 @@ function outputCSS() {
         font-size: 12px;
       }
       .indie-wiki-banner-exit {
-        float: right;
+        position: absolute;
+        right: 8px;
+        top: 4px;
         font-size: 20px;
         color: #333;
         cursor: pointer;
@@ -84,6 +86,11 @@ function outputBannerContainer() {
   if (!document.getElementById('indie-wiki-banner-container')) {
     const container = document.createElement('div');
     container.id = 'indie-wiki-banner-container';
+    let containerExit = document.createElement('div');
+    containerExit.classList.add('indie-wiki-banner-exit');
+    container.appendChild(containerExit);
+    containerExit.textContent = '✕';
+    containerExit.onclick = function () { this.parentElement.remove(); };
     document.body.insertAdjacentElement('beforeBegin', container);
   }
 }
@@ -185,11 +192,6 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   let banner = document.createElement('div');
   banner.id = 'indie-wiki-banner-redirect';
   banner.classList.add('indie-wiki-banner');
-  let bannerExit = document.createElement('div');
-  bannerExit.classList.add('indie-wiki-banner-exit');
-  banner.appendChild(bannerExit);
-  bannerExit.textContent = '✕';
-  bannerExit.onclick = function () { this.parentElement.remove(); };
 
   // Output control links container
   let bannerControls = document.createElement('div');
