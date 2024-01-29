@@ -2607,6 +2607,48 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-riskofrain",
+    "origins_label": "Risk of Rain Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Risk of Rain Fandom Wiki",
+        "origin_base_url": "riskofrain.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Risk of Rain wiki.gg",
+    "destination_base_url": "riskofrain.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "riskofrainwiki.png",
+    "destination_main_page": "Risk_of_Rain_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "en-riskofrain2",
+    "origins_label": "Risk of Rain 2 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Risk of Rain 2 Fandom Wiki",
+        "origin_base_url": "riskofrain2.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Risk_of_Rain_2_Wiki"
+      }
+    ],
+    "destination": "Risk of Rain 2 wiki.gg",
+    "destination_base_url": "riskofrain2.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "riskofrain2wiki.png",
+    "destination_main_page": "Risk_of_Rain_2_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-rollercoasters",
     "origins_label": "Roller Coaster Fandom Wiki",
     "origins": [
