@@ -3334,6 +3334,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-towerunite",
+    "origins_label": "Tower Unite Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tower Unite Fandom Wiki",
+        "origin_base_url": "tower-unite.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Tower_Unite_Wiki"
+      }
+    ],
+    "destination": "Tower Unite wiki.gg",
+    "destination_base_url": "towerunite.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "towerunitewiki.png",
+    "destination_main_page": "Tower_Unite_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-transformers",
     "origins_label": "Transformers Fandom Wiki",
     "origins": [
@@ -3470,6 +3491,45 @@
     "destination_search_path": "/wiki/index.php"
   },
   {
+    "id": "en-vaporwave",
+    "origins_label": "Vaporwave Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Vaporwave Fandom Wiki",
+        "origin_base_url": "vaporwave.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Vaporwave_Wiki"
+      }
+    ],
+    "destination": "vaporwave.wiki",
+    "destination_base_url": "vaporwave.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "vaporwavewiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-vtolvr",
+    "origins_label": "VTOL VR Fandom Wiki",
+    "origins": [
+      {
+        "origin": "VTOL VR Fandom Wiki",
+        "origin_base_url": "vtol-vr.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "VTOL_VR_Wiki"
+      }
+    ],
+    "destination": "VTOL VR wiki.gg",
+    "destination_base_url": "vtolvr.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "vtolvr.png",
+    "destination_main_page": "VTOL_VR_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-vvvvvv",
     "origins_label": "VVVVVV Fandom Wikis",
     "origins": [
@@ -3492,27 +3552,6 @@
     "destination_icon": "viki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php"
-  },
-  {
-    "id": "en-vtolvr",
-    "origins_label": "VTOL VR Fandom Wiki",
-    "origins": [
-      {
-        "origin": "VTOL VR Fandom Wiki",
-        "origin_base_url": "vtol-vr.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "VTOL_VR_Wiki"
-      }
-    ],
-    "destination": "VTOL VR wiki.gg",
-    "destination_base_url": "vtolvr.wiki.gg",
-    "destination_platform": "mediawiki",
-    "destination_icon": "vtolvr.png",
-    "destination_main_page": "VTOL_VR_Wiki",
-    "destination_search_path": "/index.php",
-    "tags": [
-      "wiki.gg"
-    ]
   },
   {
     "id": "en-warcraft",
@@ -3749,27 +3788,6 @@
     "destination_icon": "yumenikkifanwiki.png",
     "destination_main_page": "Yume_Nikki_Fangames_Wiki",
     "destination_search_path": "/index.php"
-  },
-    {
-    "id": "en-towerunite",
-    "origins_label": "Tower Unite Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Tower Unite Fandom Wiki",
-        "origin_base_url": "tower-unite.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Tower_Unite_Wiki"
-      }
-    ],
-    "destination": "Tower Unite wiki.gg",
-    "destination_base_url": "towerunite.wiki.gg",
-    "destination_platform": "mediawiki",
-    "destination_icon": "towerunitewiki.png",
-    "destination_main_page": "Tower_Unite_Wiki",
-    "destination_search_path": "/index.php",
-    "tags": [
-      "wiki.gg"
-    ]
   },
   {
     "id": "en-zelda",
