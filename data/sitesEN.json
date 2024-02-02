@@ -763,6 +763,24 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-darkanddarker",
+    "origins_label": "Dark and Darker Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dark and Darker Fandom Wiki",
+        "origin_base_url": "dark-and-darker.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dark_and_Darker_Wiki"
+      }
+    ],
+    "destination": "Dark and Darker Wiki",
+    "destination_base_url": "darkanddarker.wiki.spellsandguns.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "darkanddarkerwiki.png",
+    "destination_main_page": "Dark_and_Darker_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-darkestdungeon",
     "origins_label": "Darkest Dungeon Fandom Wiki",
     "origins": [
