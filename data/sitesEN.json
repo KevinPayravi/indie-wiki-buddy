@@ -378,6 +378,27 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-bellasara",
+    "origins_label": "The Bella Sara Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Bella Sara Fandom Wiki",
+        "origin_base_url": "thebellasara.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Bella_Sara_Wiki"
+      }
+    ],
+    "destination": "Bella Sara Wiki",
+    "destination_base_url": "bellasara.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bellasarawiki.png",
+    "destination_main_page": "The_Bella_Sara_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-bionicle",
     "origins_label": "Bionicle Fandom Wiki",
     "origins": [
@@ -981,6 +1002,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-dredge",
+    "origins_label": "DREDGE Fandom Wiki",
+    "origins": [
+      {
+        "origin": "DREDGE Fandom Wiki",
+        "origin_base_url": "dredge.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "DREDGE_Wiki"
+      }
+    ],
+    "destination": "DREDGE Wiki",
+    "destination_base_url": "dredge.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dredgewiki.png",
+    "destination_main_page": "DREDGE_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-dungeonsanddragons",
     "origins_label": "Dungeons and Dragons Fandom Wiki",
     "origins": [
@@ -1015,6 +1057,27 @@
     "destination_icon": "dwarffortresswiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-dyinglight",
+    "origins_label": "Dying Light Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dying Light Fandom Wiki",
+        "origin_base_url": "dyinglight.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dying_Light_Wiki"
+      }
+    ],
+    "destination": "Dying Light Wiki",
+    "destination_base_url": "dyinglight.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dyinglightwiki.png",
+    "destination_main_page": "Dying_Light_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-earthbound",
@@ -1975,6 +2038,48 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-lastorigin",
+    "origins_label": "Last Origin International Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Last Origin International Fandom Wiki",
+        "origin_base_url": "lastorigin.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Last_Origin_Wiki"
+      }
+    ],
+    "destination": "Last Origin Wiki",
+    "destination_base_url": "lastorigin.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lastoriginwiki.png",
+    "destination_main_page": "Last_Origin_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "en-leafblowerrevolution",
+    "origins_label": "Leaf Blower Revolution Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Leaf Blower Revolution Fandom Wiki",
+        "origin_base_url": "leaf-blower-revolution.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Leaf_Blower_Revolution_Wiki"
+      }
+    ],
+    "destination": "Leaf Blower Revolution Wiki",
+    "destination_base_url": "leafblowerrevolution.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "leafblowerrevolutionwiki.png",
+    "destination_main_page": "Leaf_Blower_Revolution_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-legendofthegalacticheroes",
     "origins_label": "Legend of Galactic Heroes Fandom Wiki",
     "origins": [
@@ -2399,6 +2504,27 @@
     "destination_icon": "osamusato.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/wiki/index.php"
+  },
+  {
+    "id": "en-palworld",
+    "origins_label": "Palworld Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Palworld Fandom Wiki",
+        "origin_base_url": "palworld.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Palworld_Wiki"
+      }
+    ],
+    "destination": "Palworld Wiki",
+    "destination_base_url": "palworld.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "palworldwiki.png",
+    "destination_main_page": "Palworld_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-pathfinder",
@@ -3040,6 +3166,27 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-spiritmod",
+    "origins_label": "Spirit Mod Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Spirit Mod Fandom Wiki",
+        "origin_base_url": "spiritmod.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Spirit_Mod_Wiki"
+      }
+    ],
+    "destination": "Spirit Mod Wiki",
+    "destination_base_url": "spiritmod.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "spiritmodwiki.png",
+    "destination_main_page": "Spirit_Mod_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-splatoon",
     "origins_label": "Splatoon Fandom Wiki",
     "origins": [
@@ -3195,6 +3342,27 @@
     "destination_icon": "gensopedia.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-sunhaven",
+    "origins_label": "Sun Haven Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sun Haven Fandom Wiki",
+        "origin_base_url": "sun-haven.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sun_Haven_Wiki"
+      }
+    ],
+    "destination": "Sun Haven Wiki",
+    "destination_base_url": "sunhaven.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sunhavenwiki.png",
+    "destination_main_page": "Sun_Haven_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-superautopets",
