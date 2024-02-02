@@ -1,26 +1,5 @@
 [
   {
-    "id": "fi-junapedia",
-    "origins_label": "Juna Fandom Wikia",
-    "origins": [
-      {
-        "origin": "Juna Fandom Wikia",
-        "origin_base_url": "junapedia.fandom.com/fi",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Juna_Wikia"
-      }
-    ],
-    "destination": "Junawiki",
-    "destination_base_url": "junat.shoutwiki.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "junawiki.png",
-    "destination_main_page": "Etusivu",
-    "destination_search_path": "/w/index.php",
-    "tags": [
-      "shoutwiki"
-    ]
-  },
-  {
     "id": "fi-starwars",
     "origins_label": "Jedipedia",
     "origins": [
@@ -35,6 +14,27 @@
     "destination_base_url": "www.jedipedia.fi",
     "destination_platform": "mediawiki",
     "destination_icon": "jedipedia.png",
+    "destination_main_page": "Etusivu",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "shoutwiki"
+    ]
+  },
+  {
+    "id": "fi-trains",
+    "origins_label": "Juna Fandom Wikia",
+    "origins": [
+      {
+        "origin": "Juna Fandom Wikia",
+        "origin_base_url": "junapedia.fandom.com/fi",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Juna_Wikia"
+      }
+    ],
+    "destination": "Junawiki",
+    "destination_base_url": "junat.shoutwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "junawiki.png",
     "destination_main_page": "Etusivu",
     "destination_search_path": "/w/index.php",
     "tags": [
