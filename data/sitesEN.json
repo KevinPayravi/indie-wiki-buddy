@@ -10,7 +10,7 @@
         "origin_main_page": "Acepedia"
       }
     ],
-    "destination": "Ace Combat wiki.gg",
+    "destination": "Ace Combat Wiki",
     "destination_base_url": "acecombat.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "acecombatwiki.png",
@@ -109,7 +109,7 @@
         "origin_main_page": "Animal_Crossing:_Pocket_Camp_Wiki"
       }
     ],
-    "destination": "Animal Crossing: Pocket Camp wiki.gg",
+    "destination": "Animal Crossing: Pocket Camp Wiki",
     "destination_base_url": "animalcrossingpocketcamp.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "animalcrossingpocketcampwiki.png",
@@ -167,7 +167,7 @@
         "origin_main_page": "ARK_Survival_Evolved_Wiki"
       }
     ],
-    "destination": "ARK wiki.gg",
+    "destination": "ARK Wiki",
     "destination_base_url": "ark.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "arkwiki.png",
@@ -189,7 +189,7 @@
         "origin_main_page": "Arknights_Wiki"
       }
     ],
-    "destination": "Arknights Terra wiki.gg",
+    "destination": "Arknights Terra Wiki",
     "destination_base_url": "arknights.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "arknightswiki.png",
@@ -252,7 +252,7 @@
         "origin_main_page": "Astroneer_Wiki"
       }
     ],
-    "destination": "Astroneer wiki.gg",
+    "destination": "Astroneer Wiki",
     "destination_base_url": "astroneer.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "astroneerwiki.png",
@@ -463,7 +463,7 @@
         "origin_main_page": "Book_of_Travels_Wiki"
       }
     ],
-    "destination": "Book of Travels wiki.gg",
+    "destination": "Book of Travels Wiki",
     "destination_base_url": "bookoftravels.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "bookoftravelswiki.png",
@@ -546,7 +546,7 @@
         "origin_main_page": "Calamity_Mod_Wiki"
       }
     ],
-    "destination": "Calamity Mod wiki.gg",
+    "destination": "Calamity Mod Wiki",
     "destination_base_url": "calamitymod.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "calamitymodwiki.png",
@@ -695,7 +695,7 @@
         "origin_main_page": "Cookie_Clicker_Wiki"
       }
     ],
-    "destination": "Cookie Clicker wiki.gg",
+    "destination": "Cookie Clicker Wiki",
     "destination_base_url": "cookieclicker.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "cookieclickerwiki.png",
@@ -773,7 +773,7 @@
         "origin_main_page": "Darkest_Dungeon_Wiki"
       }
     ],
-    "destination": "Darkest Dungeon wiki.gg",
+    "destination": "Darkest Dungeon Wiki",
     "destination_base_url": "darkestdungeon.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "darkestdungeonwiki.png",
@@ -795,7 +795,7 @@
         "origin_main_page": "Dead_Cells_Wiki"
       }
     ],
-    "destination": "Dead Cells wiki.gg",
+    "destination": "Dead Cells Wiki",
     "destination_base_url": "deadcells.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "deadcellswiki.png",
@@ -817,7 +817,7 @@
         "origin_main_page": "Deep_Rock_Galactic_Wiki"
       }
     ],
-    "destination": "Deep Rock Galactic wiki.gg",
+    "destination": "Deep Rock Galactic Wiki",
     "destination_base_url": "deeprockgalactic.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "deeprockgalacticwiki.png",
@@ -893,7 +893,7 @@
         "origin_main_page": "Don't_Starve_Wiki"
       }
     ],
-    "destination": "Don't Starve wiki.gg",
+    "destination": "Don't Starve Wiki",
     "destination_base_url": "dontstarve.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "dontstarvewiki.png",
@@ -1246,7 +1246,7 @@
         "origin_main_page": "%22Fear_and_Hunger:_the_Tormentpedia%22_Wiki"
       }
     ],
-    "destination": "Fear & Hunger wiki.gg",
+    "destination": "Fear & Hunger Wiki",
     "destination_base_url": "fearandhunger.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "fearhungerwiki.png",
@@ -1417,7 +1417,7 @@
         "origin_main_page": "Galaxy_Life_Wiki"
       }
     ],
-    "destination": "Galaxy Life wiki.gg",
+    "destination": "Galaxy Life Wiki",
     "destination_base_url": "galaxylife.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "galaxylifewiki.png",
@@ -1696,7 +1696,7 @@
         "origin_main_page": "Hearthstone_Wiki"
       }
     ],
-    "destination": "Hearthstone wiki.gg",
+    "destination": "Hearthstone Wiki",
     "destination_base_url": "hearthstone.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "hearthstonewiki.png",
@@ -1759,7 +1759,7 @@
         "origin_main_page": "HoloCure_Wiki"
       }
     ],
-    "destination": "HoloCure wiki.gg",
+    "destination": "HoloCure Wiki",
     "destination_base_url": "holocure.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "holocurewiki.png",
@@ -2315,7 +2315,7 @@
         "origin_main_page": "MultiVersus_Wiki"
       }
     ],
-    "destination": "MultiVersus wiki.gg",
+    "destination": "MultiVersus Wiki",
     "destination_base_url": "multiversus.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "multiversuswiki.png",
@@ -2399,7 +2399,7 @@
         "origin_main_page": "NecroMerger"
       }
     ],
-    "destination": "NecroMerger wiki.gg",
+    "destination": "NecroMerger Wiki",
     "destination_base_url": "necromerger.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "necromergerwiki.png",
@@ -2438,7 +2438,7 @@
         "origin_main_page": "Noita_Wiki"
       }
     ],
-    "destination": "Noita wiki.gg",
+    "destination": "Noita Wiki",
     "destination_base_url": "noita.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "noitawiki.png",
@@ -2612,7 +2612,7 @@
         "origin_main_page": "Main_Page"
       }
     ],
-    "destination": "Plants vs. Zombies wiki.gg",
+    "destination": "Plants vs. Zombies Wiki",
     "destination_base_url": "plantsvszombies.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "plantsvszombieswiki.png",
@@ -2696,7 +2696,7 @@
         "origin_main_page": "PLAYERUNKNOWNS_BATTLEGROUNDS_Wiki"
       }
     ],
-    "destination": "PUBG wiki.gg",
+    "destination": "PUBG Wiki",
     "destination_base_url": "pubg.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "pubgwiki.png",
@@ -2866,7 +2866,7 @@
         "origin_main_page": "Main_Page"
       }
     ],
-    "destination": "Risk of Rain wiki.gg",
+    "destination": "Risk of Rain Wiki",
     "destination_base_url": "riskofrain.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "riskofrainwiki.png",
@@ -2887,7 +2887,7 @@
         "origin_main_page": "Risk_of_Rain_2_Wiki"
       }
     ],
-    "destination": "Risk of Rain 2 wiki.gg",
+    "destination": "Risk of Rain 2 Wiki",
     "destination_base_url": "riskofrain2.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "riskofrain2wiki.png",
@@ -3022,7 +3022,7 @@
         "origin_main_page": "Satisfactory_Wiki"
       }
     ],
-    "destination": "Satisfactory wiki.gg",
+    "destination": "Satisfactory Wiki",
     "destination_base_url": "satisfactory.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "satisfactorywiki.png",
@@ -3044,7 +3044,7 @@
         "origin_main_page": "Sea_of_Thieves_Wiki"
       }
     ],
-    "destination": "Sea of Thieves wiki.gg",
+    "destination": "Sea of Thieves Wiki",
     "destination_base_url": "seaofthieves.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "seaofthieveswiki.png",
@@ -3137,7 +3137,7 @@
         "origin_main_page": "SIGNALIS_Wiki"
       }
     ],
-    "destination": "SIGNALIS wiki.gg",
+    "destination": "SIGNALIS Wiki",
     "destination_base_url": "signalis.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "signalis.png",
@@ -3375,7 +3375,7 @@
         "origin_main_page": "Super_Auto_Pets_Wiki"
       }
     ],
-    "destination": "Super Auto Pets wiki.gg",
+    "destination": "Super Auto Pets Wiki",
     "destination_base_url": "superautopets.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "superautopetswiki.png",
@@ -3517,7 +3517,7 @@
         "origin_main_page": "Terraria_Wiki"
       }
     ],
-    "destination": "Terraria wiki.gg",
+    "destination": "Terraria Wiki",
     "destination_base_url": "terraria.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "terrariawiki.png",
@@ -3614,7 +3614,7 @@
         "origin_main_page": "Thorium_Mod_Wiki"
       }
     ],
-    "destination": "Thorium Mod wiki.gg",
+    "destination": "Thorium Mod Wiki",
     "destination_base_url": "thoriummod.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "thoriummodwiki.png",
@@ -3654,7 +3654,7 @@
         "origin_main_page": "Toontown_Corporate_Clash_Wiki"
       }
     ],
-    "destination": "Toontown Corporate Clash wiki.gg",
+    "destination": "Toontown Corporate Clash Wiki",
     "destination_base_url": "corporateclash.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "toontowncorporateclashwiki.png",
@@ -3735,7 +3735,7 @@
         "origin_main_page": "Tower_Unite_Wiki"
       }
     ],
-    "destination": "Tower Unite wiki.gg",
+    "destination": "Tower Unite Wiki",
     "destination_base_url": "towerunite.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "towerunitewiki.png",
@@ -3837,7 +3837,7 @@
         "origin_main_page": "Undertale_Yellow_Wiki"
       }
     ],
-    "destination": "Undertale Yellow wiki.gg",
+    "destination": "Undertale Yellow Wiki",
     "destination_base_url": "undertaleyellow.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "undertaleyellowwiki.png",
@@ -3910,7 +3910,7 @@
         "origin_main_page": "VTOL_VR_Wiki"
       }
     ],
-    "destination": "VTOL VR wiki.gg",
+    "destination": "VTOL VR Wiki",
     "destination_base_url": "vtolvr.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "vtolvr.png",
@@ -3961,7 +3961,7 @@
         "origin_main_page": "Portal:Main"
       }
     ],
-    "destination": "Warcraft wiki.gg",
+    "destination": "Warcraft Wiki",
     "destination_base_url": "warcraft.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "warcraftwiki.png",
@@ -4078,7 +4078,7 @@
         "origin_main_page": "Main_Page"
       }
     ],
-    "destination": "Wizardry wiki.gg",
+    "destination": "Wizardry Wiki",
     "destination_base_url": "wizardry.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "wizardrywiki.png",
