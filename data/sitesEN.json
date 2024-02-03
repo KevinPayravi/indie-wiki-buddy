@@ -89,6 +89,12 @@
         "origin_base_url": "acwikipeaia.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Animal_Crossing_Wikipeada_Wiki"
+      },
+      {
+        "origin": "Animal Crossing Wiki - Neoseeker",
+        "origin_base_url": "animalcrossing.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Nookipedia",
@@ -332,6 +338,12 @@
         "origin_base_url": "banjokazooie.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Banjo-Kazooie_Wiki"
+      },
+      {
+        "origin": "Banjo-Kazooie Wiki - Neoseeker",
+        "origin_base_url": "banjokazooie.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Jiggywikki",
@@ -639,6 +651,12 @@
         "origin_base_url": "chrono.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Chronopedia"
+      },
+      {
+        "origin": "Chrono Wiki - Neoseeker",
+        "origin_base_url": "chrono.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Chrono Wiki",
@@ -873,6 +891,12 @@
         "origin_base_url": "destiny.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Destiny_Wiki"
+      },
+      {
+        "origin": "Destiny Wiki - Neoseeker",
+        "origin_base_url": "destiny.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Destinypedia",
@@ -909,6 +933,12 @@
         "origin_base_url": "digimon.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Digimon_Wiki"
+      },
+      {
+        "origin": "Digimon Wiki - Neoseeker",
+        "origin_base_url": "digimon.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Wikimon",
@@ -949,6 +979,12 @@
         "origin_base_url": "doom.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Doom_Wiki"
+      },
+      {
+        "origin": "Doom Wiki - Neoseeker",
+        "origin_base_url": "doom.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "The Doom Wiki",
@@ -1124,6 +1160,12 @@
         "origin_base_url": "earthbound.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Mother Wiki - Neoseeker",
+        "origin_base_url": "mother.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "WikiBound",
@@ -1163,6 +1205,19 @@
         "origin_content_path": "/",
         "origin_main_page": "Elder+Scrolls+Online+Wiki",
         "destination_content_prefix": "Online:"
+      },
+      {
+        "origin": "The Elder Scrolls Wiki - Neoseeker",
+        "origin_base_url": "elderscrolls.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Skyrim - Elder Scrolls V Wiki - Neoseeker",
+        "origin_base_url": "skyrim.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page",
+        "destination_content_prefix": "Skyrim:"
       }
     ],
     "destination": "Unofficial Elder Scrolls Pages",
@@ -1179,6 +1234,12 @@
       {
         "origin": "Evangelion Fandom Wiki",
         "origin_base_url": "evangelion.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Neon Genesis Evangelion Wiki - Neoseeker",
+        "origin_base_url": "evangelion.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
       }
@@ -1226,6 +1287,12 @@
         "origin_base_url": "fallout-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "The_Vault_Fallout_Wiki"
+      },
+      {
+        "origin": "Fallout Wiki - Neoseeker",
+        "origin_base_url": "fallout.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Independent Fallout Wiki",
@@ -1322,6 +1389,12 @@
         "origin_base_url": "fireemblem.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Fire_Emblem_Wiki"
+      },
+      {
+        "origin": "Fire Emblem Wiki - Neoseeker",
+        "origin_base_url": "fireemblem.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Fire Emblem Wiki",
@@ -1415,6 +1488,12 @@
         "origin_base_url": "futurama.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Futurama_Wiki"
+      },
+      {
+        "origin": "Futurama Wiki - Neoseeker",
+        "origin_base_url": "futurama.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "The Infosphere",
@@ -1431,6 +1510,12 @@
       {
         "origin": "F-Zero Fandom Wiki",
         "origin_base_url": "fzero.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "F-Zero Wiki - Neoseeker",
+        "origin_base_url": "fzero.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
       }
@@ -1577,6 +1662,12 @@
         "origin_base_url": "goldensun.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Golden_Sun_Wiki"
+      },
+      {
+        "origin": "Golden Sun Wiki - Neoseeker",
+        "origin_base_url": "goldensun.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Golden Sun Universe",
@@ -1676,6 +1767,12 @@
         "origin_base_url": "half-life.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Half-Life Wiki - Neoseeker",
+        "origin_base_url": "halflife.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Combine OverWiki",
@@ -1694,6 +1791,12 @@
         "origin_base_url": "halo.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Halo_Alpha"
+      },
+      {
+        "origin": "Halo Wiki - Neoseeker",
+        "origin_base_url": "halo.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Halopedia",
@@ -1730,6 +1833,12 @@
         "origin_base_url": "hearthstone.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Hearthstone_Wiki"
+      },
+      {
+        "origin": "Hearthstone Wiki - Neoseeker",
+        "origin_base_url": "hearthstone.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Hearthstone Wiki",
@@ -2046,6 +2155,12 @@
         "origin_base_url": "kingdomhearts.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Kingdom_Hearts_Wiki:Main_Page"
+      },
+      {
+        "origin": "Kingdom Hearts Wiki - Neoseeker",
+        "origin_base_url": "kingdomhearts.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Kingdom Hearts Wiki",
@@ -2064,6 +2179,12 @@
         "origin_base_url": "kirby.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Kirby_Wiki"
+      },
+      {
+        "origin": "Kirby Wiki - Neoseeker",
+        "origin_base_url": "kirby.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "WiKirby",
@@ -2181,6 +2302,12 @@
         "origin_base_url": "lotr.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Lord of the Rings Wiki - Neoseeker",
+        "origin_base_url": "lotr.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Tolkien Gateway",
@@ -2259,6 +2386,12 @@
         "origin_base_url": "donkeykong.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Donkey_Kong_Wiki"
+      },
+      {
+        "origin": "Mario Wiki - Neoseeker",
+        "origin_base_url": "mario.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Super Mario Wiki",
@@ -2295,6 +2428,12 @@
         "origin_base_url": "megamitensei.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Megami_Tensei_Wiki"
+      },
+      {
+        "origin": "Megami Tensei Wiki - Neoseeker",
+        "origin_base_url": "megamitensei.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Megami Tensei Wiki",
@@ -2349,6 +2488,12 @@
         "origin_base_url": "minecraftpc.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Welcome_to_the_Minecraft_PC_Wiki"
+      },
+      {
+        "origin": "Minecraft Wiki - Neoseeker",
+        "origin_base_url": "minecraft.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Minecraft Wiki",
@@ -2388,6 +2533,12 @@
         "origin_base_url": "mlp.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "My_Little_Pony_Friendship_is_Magic_Wiki"
+      },
+      {
+        "origin": "My Little Pony Wiki - Neoseeker",
+        "origin_base_url": "mylittlepony.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Equestripedia",
@@ -2625,6 +2776,12 @@
         "origin_base_url": "pikmin.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Pikmin_Wiki"
+      },
+      {
+        "origin": "Pikmin Wiki - Neoseeker",
+        "origin_base_url": "pikmin.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Pikipedia",
@@ -2691,6 +2848,12 @@
         "origin_base_url": "pokemon-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Azurilland_Wiki"
+      },
+      {
+        "origin": "Pokémon Wiki - Neoseeker",
+        "origin_base_url": "pokemon.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Bulbapedia",
@@ -2978,6 +3141,12 @@
         "origin_base_url": "runescape.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "RuneScape_Wiki"
+      },
+      {
+        "origin": "Runescape Wiki - Neoseeker",
+        "origin_base_url": "runescape.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "RuneScape Wiki",
@@ -3210,6 +3379,12 @@
         "origin_base_url": "simpsons.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Simpsons_Wiki"
+      },
+      {
+        "origin": "The Simpsons Wiki - Neoseeker",
+        "origin_base_url": "simpsons.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Wikisimpsons",
@@ -3569,6 +3744,12 @@
         "origin_base_url": "terraria-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Terraria_Wiki"
+      },
+      {
+        "origin": "Terraria Wiki - Neoseeker",
+        "origin_base_url": "terraria.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Terraria Wiki",
@@ -4013,6 +4194,18 @@
         "origin_base_url": "wowwiki-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Portal:Main"
+      },
+      {
+        "origin": "Warcraft Wiki - Neoseeker",
+        "origin_base_url": "warcraft.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "World of Warcraft Wiki - Neoseeker",
+        "origin_base_url": "wow.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Warcraft Wiki",
@@ -4034,6 +4227,12 @@
         "origin_base_url": "warhammer40k.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Warhammer_40k_Wiki"
+      },
+      {
+        "origin": "Warhammer Wiki - Neoseeker",
+        "origin_base_url": "warhammer.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Lexicanum",
@@ -4187,6 +4386,12 @@
         "origin_base_url": "yugioh.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Yu-Gi-Oh!_Wiki"
+      },
+      {
+        "origin": "Yu-Gi-Oh Wiki - Neoseeker",
+        "origin_base_url": "yugioh.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Yugipedia",
@@ -4267,6 +4472,12 @@
         "origin_base_url": "zelda-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Zeldapedia"
+      },
+      {
+        "origin": "Zelda Wiki - Neoseeker",
+        "origin_base_url": "zelda.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Zelda Wiki",
