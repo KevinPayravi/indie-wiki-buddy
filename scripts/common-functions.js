@@ -55,11 +55,11 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
   let matchingSite = commonFunctionGetSiteDataByOrigin().then(sites => {
     let matchingSites = [];
     if (crossLanguageSetting === 'on') {
-      matchingSites = sites.filter(el => site.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
+      matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url));
     } else {
       matchingSites = sites.filter(el =>
-        site.replace(/^https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
-        || site.replace(/^https?:\/\//, '') === el.origin_base_url
+        site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
+        || site.replace(/.*https?:\/\//, '') === el.origin_base_url
       );
     }
     if (matchingSites.length > 0) {
@@ -80,7 +80,8 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
 }
 
 function commonFunctionGetOriginArticle(originURL, matchingSite) {
-  return decodeURIComponent(originURL.split(matchingSite['origin_base_url'] + matchingSite['origin_content_path'])[1] || '');
+  let url = new URL(originURL);
+  return decodeURIComponent(String(url.pathname).split(matchingSite['origin_content_path'])[1] || '');
 }
 
 function commonFunctionGetDestinationArticle(matchingSite, article) {

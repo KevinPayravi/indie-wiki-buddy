@@ -347,103 +347,147 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
   return 0;
 }
 
-function filterSearchResults(searchResults, searchEngine, storage) {
-  commonFunctionGetSiteDataByOrigin().then(async sites => {
-    let countFiltered = 0;
+function getDistance(child, parent) {
+  let distance = 0;
 
-    for (let searchResult of searchResults) {
-      try {
-        // Check that result isn't within another result
-        if (!searchResult.closest('.iwb-detected')) {
-          let searchResultLink = '';
-          searchResultLink = searchResult.closest('a[href]').href;
+  while (parent !== child) {
+    child = child.parentNode;
+    distance++;
+    if (!child) break;
+  }
 
-          if (searchEngine === 'google') {
-            // Break if image result:
-            if (searchResultLink.includes('imgurl=')) {
-              break;
-            }
+  return distance;
+}
+
+function findClosestElement(target, elements) {
+  let closestElement = null;
+  let closestDistance = Infinity;
+
+  elements.forEach(element => {
+    const distance = element?.contains(target) ? getDistance(target, element) : Infinity;
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestElement = element;
+    }
+  });
+
+  return closestElement;
+}
+
+async function filterSearchResults(searchResults, searchEngine, storage) {
+  let countFiltered = 0;
+
+  for (let searchResult of searchResults) {
+    try {
+      // Check that result isn't within another result
+      if (!searchResult.closest('.iwb-detected')) {
+        searchResultLink = searchResult.href || '';
+
+        if (!searchResultLink) {
+          continue;
+        }
+
+        if (searchEngine === 'google') {
+          // Break if image result:
+          if (searchResultLink.includes('imgurl=')) {
+            break;
           }
 
-          let crossLanguageSetting = storage.crossLanguage || 'off';
-          let matchingSite = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
-          if (matchingSite) {
-            // Get user's settings for the wiki
-            let id = matchingSite['id'];
-            let searchFilterSetting = 'replace';
-            if (storage.searchEngineSettings && storage.searchEngineSettings[id]) {
-              searchFilterSetting = storage.searchEngineSettings[id];
-            } else if (storage.defaultSearchAction) {
-              searchFilterSetting = storage.defaultSearchAction;
+          // Skip if result doesn't include specific tags/attributes
+          // This helps avoid capturing unintended image results
+          if (!(
+            searchResult.querySelector('h1') ||
+            searchResult.querySelector('h3') ||
+            searchResult.querySelector('cite') ||
+            searchResult.querySelector("div[role='link']")))
+          {
+            searchResult.classList.add('iwb-detected');
+            continue;
+          }
+        }
+
+        let crossLanguageSetting = storage.crossLanguage || 'off';
+        let matchingSite = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
+        if (matchingSite) {
+          // Get user's settings for the wiki
+          let id = matchingSite['id'];
+          let searchFilterSetting = 'replace';
+          if (storage.searchEngineSettings && storage.searchEngineSettings[id]) {
+            searchFilterSetting = storage.searchEngineSettings[id];
+          } else if (storage.defaultSearchAction) {
+            searchFilterSetting = storage.defaultSearchAction;
+          }
+
+          if (searchFilterSetting !== 'disabled') {
+            // Output stylesheet if not already done
+            if (filteredWikis.length === 0) {
+              // Wait for head to be available
+              const headElement = document.querySelector('head');
+              if (headElement && !document.querySelector('.iwb-styles')) {
+                insertCSS();
+              } else {
+                const docObserver = new MutationObserver((mutations, mutationInstance) => {
+                  const headElement = document.querySelector('head');
+                  if (headElement && !document.querySelector('.iwb-styles')) {
+                    insertCSS();
+                    mutationInstance.disconnect();
+                  }
+                });
+                docObserver.observe(document, {
+                  childList: true,
+                  subtree: true
+                });
+              }
             }
 
-            if (searchFilterSetting !== 'disabled') {
-              // Output stylesheet if not already done
-              if (filteredWikis.length === 0) {
-                // Wait for head to be available
-                const headElement = document.querySelector('head');
-                if (headElement && !document.querySelector('.iwb-styles')) {
-                  insertCSS();
-                } else {
-                  const docObserver = new MutationObserver((mutations, mutationInstance) => {
-                    const headElement = document.querySelector('head');
-                    if (headElement && !document.querySelector('.iwb-styles')) {
-                      insertCSS();
-                      mutationInstance.disconnect();
-                    }
-                  });
-                  docObserver.observe(document, {
-                    childList: true,
-                    subtree: true
-                  });
-                }
-              }
+            let searchResultContainer = null;
 
-              let searchResultContainer = null;
-              switch (searchEngine) {
-                case 'google':
-                  searchResultContainer = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
-                  break;
-                case 'bing':
-                  searchResultContainer = searchResult.closest('li.b_algo');
-                  break;
-                case 'duckduckgo':
-                  searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
-                  break;
-                case 'brave':
-                  searchResultContainer = searchResult.closest('div.snippet');
-                  break;
-                case 'ecosia':
-                  searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
-                  break;
-                case 'startpage':
-                  searchResultContainer = searchResult.closest('div.w-gl__result');
-                  break;
-                case 'yahoo':
-                  searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
-                  break;
-                default:
-              }
+            switch (searchEngine) {
+              case 'google':
+                const closestJsController = searchResult.closest('div[jscontroller]');
+                const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
+                searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
+                break;
+              case 'bing':
+                searchResultContainer = searchResult.closest('li.b_algo');
+                break;
+              case 'duckduckgo':
+                searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
+                break;
+              case 'brave':
+                searchResultContainer = searchResult.closest('div.snippet');
+                break;
+              case 'ecosia':
+                searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
+                break;
+              case 'startpage':
+                searchResultContainer = searchResult.closest('div.w-gl__result');
+                break;
+              case 'yahoo':
+                searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+                break;
+              default:
+            }
 
-              if (searchResultContainer) {
-                if (searchFilterSetting === 'hide') {
-                  countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
-                } else {
-                  countFiltered += replaceSearchResults(searchResultContainer, matchingSite, searchResultLink);
-                }
+            if (searchResultContainer) {
+              if (searchFilterSetting === 'hide') {
+                countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
+              } else {
+                countFiltered += replaceSearchResults(searchResultContainer, matchingSite, searchResultLink);
               }
             }
           }
         }
-      } catch (e) {
-        console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
       }
-    };
-    addLocationObserver(main);
-    if (countFiltered > 0) {
-      chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
+    } catch (e) {
+      console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
     }
-  });
+  };
+  addLocationObserver(main);
+  if (countFiltered > 0) {
+    chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
+  }
 }
 
 function main(mutations = null, observer = null) {
@@ -459,7 +503,7 @@ function main(mutations = null, observer = null) {
         if (currentURL.hostname.includes('www.google.')) {
           // Function to filter search results in Google
           function filterGoogle() {
-            let searchResults = document.querySelectorAll("div[data-hveid] a[href*='fandom.com']:first-of-type:not([role='button']):not([target]), div[data-hveid] a[href*='fextralife.com']:first-of-type:not([role='button']):not([target])");
+            let searchResults = document.querySelectorAll("div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']), div[data-hveid] a[href*='.fextralife.com/']:first-of-type:not([role='button']):not([target='_self'])");
             filterSearchResults(searchResults, 'google', storage);
           }
 
@@ -496,19 +540,21 @@ function main(mutations = null, observer = null) {
             let searchResultsEncoded = document.querySelectorAll('li.b_algo a');
             let searchResults = [];
             searchResultsEncoded.forEach((searchResult) => {
-              const encodedLink = new URL(searchResult.href);
-              if (encodedLink.href.includes('https://www.bing.com/ck/')) {
-                try {
-                  let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                  if (decodedLink.includes('fandom.com') || decodedLink.includes('fextralife.com')) {
-                    searchResult.href = decodedLink;
-                    searchResults.push(searchResult);
+              if (searchResult.href) {
+                const encodedLink = new URL(searchResult.href);
+                if (encodedLink.href.includes('https://www.bing.com/ck/')) {
+                  try {
+                    let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
+                    if (decodedLink.includes('fandom.com') || decodedLink.includes('fextralife.com')) {
+                      searchResult.href = decodedLink;
+                      searchResults.push(searchResult);
+                    }
+                  } catch (e) {
+                    console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
                   }
-                } catch (e) {
-                  console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+                } else {
+                  searchResults.push(searchResult);
                 }
-              } else {
-                searchResults.push(searchResult);
               }
             });
 
@@ -545,7 +591,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('ecosia.org')) {
           // Function to filter search results in Ecosia
           function filterEcosia() {
-            let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
             filterSearchResults(searchResults, 'ecosia', storage);
           }
 
@@ -562,7 +608,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('startpage.com')) {
           // Function to filter search results in Startpage
           function filterStartpage() {
-            let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
             filterSearchResults(searchResults, 'startpage', storage);
           }
 
@@ -579,7 +625,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('yahoo.com')) {
           // Function to filter search results in Yahoo
           function filterYahoo() {
-            let searchResults = Array.from(document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
             filterSearchResults(searchResults, 'yahoo', storage);
           }
 
