@@ -122,7 +122,7 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
     let searchParams = '';
     switch (matchingSite['destination_platform']) {
       case 'mediawiki':
-        searchParams = '?search=' + destinationArticle;
+        searchParams = '?title=Special:Search&search=' + destinationArticle;
         break;
       case 'doku':
         searchParams = 'start?do=search&q=' + destinationArticle;
