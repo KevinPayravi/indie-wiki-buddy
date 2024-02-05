@@ -1,10 +1,10 @@
 [
   {
     "id": "fi-starwars",
-    "origins_label": "Jedipedia",
+    "origins_label": "Jedipedia Fandom Wiki",
     "origins": [
       {
-        "origin": "Jedipedia",
+        "origin": "Jedipedia Fandom Wiki",
         "origin_base_url": "starwars.fandom.com/fi",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Etusivu"
@@ -22,10 +22,10 @@
   },
   {
     "id": "fi-trains",
-    "origins_label": "Juna Fandom Wikia",
+    "origins_label": "Juna Fandom Wiki",
     "origins": [
       {
-        "origin": "Juna Fandom Wikia",
+        "origin": "Juna Fandom Wiki",
         "origin_base_url": "junapedia.fandom.com/fi",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Juna_Wikia"
