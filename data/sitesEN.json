@@ -5027,23 +5027,5 @@
     "destination_icon": "zeldapedia.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php"
-  },
-    {
-    "id": "en-lgbt",
-    "origins_label": "LGBTQIA+ Fandom Wiki",
-    "origins": [
-      {
-        "origin": "LGBTQIA+ Fandom Wiki",
-        "origin_base_url": "lgbtqia.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      }
-    ],
-    "destination": "LGBTQIA+ Wiki",
-    "destination_base_url": "www.lgbtqia.wiki",
-    "destination_platform": "mediawiki",
-    "destination_icon": "lgbtlogo.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
   }
 ]
