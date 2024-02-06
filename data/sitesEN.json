@@ -3718,10 +3718,10 @@
     ],
     "destination": "Severance Wiki",
     "destination_base_url": "severance.wiki",
-    "destination_platform": "doku",
+    "destination_platform": "dokuwiki",
     "destination_icon": "severancewiki.png",
     "destination_main_page": "Start",
-    "destination_search_path": "/"
+    "destination_search_path": "/doku.php"
   },
   {
     "id": "en-shroudoftheavatar",

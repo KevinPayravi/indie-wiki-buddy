@@ -12,10 +12,10 @@
     ],
     "destination": "Animal Crossing Wiki",
     "destination_base_url": "animalcrossingwiki.de",
-    "destination_platform": "doku",
+    "destination_platform": "dokuwiki",
     "destination_icon": "animalcrossingwiki.png",
     "destination_main_page": "start",
-    "destination_search_path": "/"
+    "destination_search_path": "/doku.php"
   },
   {
     "id": "de-detektivconan",

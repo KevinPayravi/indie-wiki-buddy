@@ -100,7 +100,7 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
     // Check if main page
     if (originArticle === matchingSite['origin_main_page']) {
       switch (matchingSite['destination_platform']) {
-        case 'doku':
+        case 'dokuwiki':
           destinationArticle = '';
           break;
         default:
@@ -125,8 +125,8 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
       case 'mediawiki':
         searchParams = '?title=Special:Search&search=' + destinationArticle;
         break;
-      case 'doku':
-        searchParams = 'start?do=search&q=' + destinationArticle;
+      case 'dokuwiki':
+        searchParams = '?do=search&q=' + destinationArticle;
         break;
     }
     newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_search_path"] + searchParams;
