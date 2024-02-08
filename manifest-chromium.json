@@ -319,5 +319,6 @@
     "https://breeze.whateveritworks.org/*"
   ],
   "optional_host_permissions": ["https://*/*"],
+  "minimum_chrome_version": "80",
   "manifest_version": 3
 }
