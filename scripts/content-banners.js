@@ -207,9 +207,10 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRestoreLink.textContent = '⎌ Restore banner';
   bannerControls.appendChild(bannerRestoreLink);
   bannerRestoreLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
-      response.wikiSettings.set(id, 'alert');
-      chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
+    chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
+      let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
+      wikiSettings.set(id, 'alert');
+      chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Banner restored';
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerRestoreLink.querySelector('.indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
@@ -227,9 +228,10 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerDisableLink.textContent = '✕ Disable banner for this wiki';
   bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
-      response.wikiSettings.set(id, 'disabled');
-      chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
+    chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
+      let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
+      wikiSettings.set(id, 'disabled');
+      chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Banner disabled';
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerDisableLink.querySelector('.indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
@@ -248,9 +250,10 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRedirectLink.textContent = '↪ Auto redirect this wiki';
   bannerControls.appendChild(bannerRedirectLink);
   bannerRedirectLink.onclick = function (e) {
-    chrome.storage.sync.get({ 'wikiSettings': {} }, (response) => {
-      response.wikiSettings.set(id, 'redirect');
-      chrome.storage.sync.set({ 'wikiSettings': response.wikiSettings });
+    chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
+      let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
+      wikiSettings.set(id, 'redirect');
+      chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Redirect enabled';
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerRedirectLink.querySelector('.indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
@@ -351,8 +354,9 @@ function main() {
               // Get user's settings for the wiki
               let id = matchingSite['id'];
               let siteSetting = 'alert';
-              if (storage.wikiSettings && storage.wikiSettings[id]) {
-                siteSetting = storage.wikiSettings[id];
+              let wikiSettings = await commonFunctionDecompressJSON(storage.wikiSettings || {});
+              if (wikiSettings[id]) {
+                siteSetting = wikiSettings[id];
               } else if (storage.defaultWikiAction) {
                 siteSetting = storage.defaultWikiAction;
               }

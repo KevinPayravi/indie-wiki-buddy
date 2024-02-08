@@ -13,7 +13,7 @@ Object.prototype.set = function (prop, value) {
 
 function base64Decode(text) {
   text = text.replace(/\s+/g, '').replace(/\-/g, '+').replace(/\_/g, '/');
-  return decodeURIComponent(Array.prototype.map.call(window.atob(text), function (c) { return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join(''));
+  return decodeURIComponent(Array.prototype.map.call(atob(text), function (c) { return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join(''));
 }
 
 // Function to create an observer to watch for mutations on search pages
@@ -413,8 +413,9 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
           // Get user's settings for the wiki
           let id = matchingSite['id'];
           let searchFilterSetting = 'replace';
-          if (storage.searchEngineSettings && storage.searchEngineSettings[id]) {
-            searchFilterSetting = storage.searchEngineSettings[id];
+          let searchEngineSettings = await commonFunctionDecompressJSON(storage.searchEngineSettings || {});
+          if (searchEngineSettings[id]) {
+            searchFilterSetting = searchEngineSettings[id];
           } else if (storage.defaultSearchAction) {
             searchFilterSetting = storage.defaultSearchAction;
           }

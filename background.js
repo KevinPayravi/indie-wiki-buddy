@@ -168,7 +168,7 @@ async function main(url, tabId) {
 
         if (matchingSite) {
           // Get user's settings for the wiki
-          let settings = storage.wikiSettings || {};
+          let settings = await commonFunctionDecompressJSON(storage.wikiSettings) || {};
           let id = matchingSite['id'];
           let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
 

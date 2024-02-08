@@ -1,4 +1,60 @@
 ﻿var LANGS = ["DE", "EN", "ES", "FI", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
+const BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+
+function b64decode(str) {
+  const binary_string = atob(str);
+  const len = binary_string.length;
+  const bytes = new Uint8Array(new ArrayBuffer(len));
+  for (let i = 0; i < len; i++) {
+    bytes[i] = binary_string.charCodeAt(i);
+  }
+  return bytes;
+}
+
+async function commonFunctionDecompressJSON(value) {
+  // Check if value is base64 encoded:
+  if (BASE64REGEX.test(value)) {
+    // Decode into blob
+    const stream = new Blob([b64decode(value)], {
+      type: "application/json",
+    }).stream();
+
+    // Decompress value
+    const decompressedReadableStream = stream.pipeThrough(
+      new DecompressionStream("gzip")
+    );
+
+    const resp = new Response(decompressedReadableStream);
+    const blob = await resp.blob();
+    const blobText = JSON.parse(await blob.text());
+    return blobText;
+  } else {
+    return value;
+  }
+}
+
+async function commonFunctionCompressJSON(value) {
+  const stream = new Blob([JSON.stringify(value)], {
+    type: 'application/json',
+  }).stream();
+
+  // Compress stream with gzip
+  const compressedReadableStream = stream.pipeThrough(
+    new CompressionStream("gzip")
+  );
+  const compressedResponse = new Response(compressedReadableStream);
+
+  // Convert response to blob and buffer
+  const blob = await compressedResponse.blob();
+  const buffer = await blob.arrayBuffer();
+
+  // Encode and return string 
+  return btoa(
+    String.fromCharCode(
+      ...new Uint8Array(buffer)
+    )
+  );
+}
 
 // Load wiki data objects, with each destination having its own object
 async function commonFunctionGetSiteDataByDestination() {
@@ -169,8 +225,8 @@ async function commonFunctionMigrateToV3() {
       // Migrate wiki settings to new searchEngineSettings and wikiSettings objects
       sites = await commonFunctionGetSiteDataByOrigin();
       let siteSettings = storage.siteSettings || {};
-      let searchEngineSettings = storage.searchEngineSettings || {};
-      let wikiSettings = storage.wikiSettings || {};
+      let searchEngineSettings = await commonFunctionDecompressJSON(storage.searchEngineSettings || {});
+      let wikiSettings = await commonFunctionDecompressJSON(storage.wikiSettings) || {};
 
       sites.forEach((site) => {
         if (!searchEngineSettings[site.id]) {
@@ -190,8 +246,8 @@ async function commonFunctionMigrateToV3() {
         }
       });
 
-      chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
-      chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
+      chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+      chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
 
       // Remove old object:
       chrome.storage.sync.remove('siteSettings');
