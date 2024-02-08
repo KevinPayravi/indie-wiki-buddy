@@ -213,10 +213,11 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
       chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Banner restored';
       e.target.classList.add('indie-wiki-banner-disabled');
-      bannerRestoreLink.querySelector('.indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
-      bannerRestoreLink.querySelector('.indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
-      bannerRestoreLink.querySelector('.indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
-      bannerRestoreLink.querySelector('.indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
+      bannerControls.querySelector('.indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
+      bannerControls.querySelector('.indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
+      bannerControls.querySelector('.indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
+      bannerControls.querySelector('.indie-wiki-banner-disable').classList.remove('indie-wiki-banner-hidden');
+      bannerControls.querySelector('.indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
     });
   }
 
@@ -234,11 +235,9 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
       chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Banner disabled';
       e.target.classList.add('indie-wiki-banner-disabled');
-      bannerDisableLink.querySelector('.indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
-      bannerDisableLink.querySelector('.indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
-      bannerDisableLink.querySelector('.indie-wiki-banner-restore').textContent = '⎌ Restore banner';
-      bannerDisableLink.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
-      bannerDisableLink.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
+      bannerControls.querySelector('.indie-wiki-banner-restore').textContent = '⎌ Restore banner';
+      bannerControls.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
+      bannerControls.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
     });
   }
 
@@ -256,11 +255,10 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
       chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Redirect enabled';
       e.target.classList.add('indie-wiki-banner-disabled');
-      bannerRedirectLink.querySelector('.indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
-      bannerRedirectLink.querySelector('.indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
-      bannerRedirectLink.querySelector('.indie-wiki-banner-restore').textContent = '⎌ Restore banner';
-      bannerRedirectLink.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
-      bannerRedirectLink.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
+      bannerControls.querySelector('.indie-wiki-banner-disable').classList.add('indie-wiki-banner-hidden');
+      bannerControls.querySelector('.indie-wiki-banner-restore').textContent = '⎌ Restore banner';
+      bannerControls.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
+      bannerControls.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
     });
   }
 
