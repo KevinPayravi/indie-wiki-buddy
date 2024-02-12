@@ -1556,6 +1556,27 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-farmingsimulator",
+    "origins_label": "Farming Simulator Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Farming Simulator Fandom Wiki",
+        "origin_base_url": "farmingsimulator.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Farming_Simulator_Wiki"
+      }
+    ],
+    "destination": "Farming Simulator Wiki",
+    "destination_base_url": "farmingsimulator.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "farmingsimulatorwiki.png",
+    "destination_main_page": "Farming_Simulator_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-fatalframe",
     "origins_label": "Fatal Frame Fandom Wiki",
     "origins": [
@@ -4595,6 +4616,27 @@
     "destination_icon": "transformers.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-trucksimulator",
+    "origins_label": "Truck Simulator Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Truck Simulator Fandom Wiki",
+        "origin_base_url": "truck-simulator.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Truck_Simulator_Wiki"
+      }
+    ],
+    "destination": "Truck Simulator Wiki",
+    "destination_base_url": "trucksimulator.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "trucksimulatorwiki.png",
+    "destination_main_page": "Truck_Simulator_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-twoworlds",
