@@ -1,0 +1,24 @@
+[
+  {
+    "id": "th-ark",
+    "origins_label": "ARK Survival Evolved Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ARK Survival Evolved Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/th",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      }
+    ],
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/th",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  }
+]

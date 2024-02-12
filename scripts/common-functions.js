@@ -1,4 +1,4 @@
-﻿var LANGS = ["DE", "EN", "ES", "FI", "FR", "IT", "KO", "PL", "PT", "RU", "TOK", "UK", "ZH"];
+﻿var LANGS = ["DE", "EN", "ES", "FI", "FR", "HU", "IT", "JA", "KO", "PL", "PT", "RU", "TH", "TOK", "UK", "ZH"];
 const BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 
 function b64decode(str) {

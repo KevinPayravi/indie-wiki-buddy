@@ -1,0 +1,87 @@
+[
+  {
+    "id": "ja-acecombat",
+    "origins_label": "ACES Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ACES Fandom Wiki",
+        "origin_base_url": "acecombat.fandom.com/ja",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ACES_WIKI"
+      }
+    ],
+    "destination": "ACES WIKI",
+    "destination_base_url": "acecombat.wiki.gg/ja",
+    "destination_platform": "mediawiki",
+    "destination_icon": "aceswiki.png",
+    "destination_main_page": "ACES_WIKI",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "ja-ark",
+    "origins_label": "ARK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/ja",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      }
+    ],
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/ja",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "ja-fridaynightfunkin",
+    "origins_label": "Friday Night Funkin' Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Friday Night Funkin' Fandom Wiki",
+        "origin_base_url": "fridaynightfunkin.fandom.com/ja",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Friday_Night_Funkin'_Wiki"
+      }
+    ],
+    "destination": "Friday Night Funkin Wiki",
+    "destination_base_url": "fridaynightfunkin.wiki.gg/ja",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fridaynightfunkinwiki.png",
+    "destination_main_page": "Friday_Night_Funkin'_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "ja-noita",
+    "origins_label": "Noita Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Noita Fandom Wiki",
+        "origin_base_url": "noita.fandom.com/ja",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Noita_Wiki"
+      }
+    ],
+    "destination": "Noita Wiki",
+    "destination_base_url": "noita.wiki.gg/ja",
+    "destination_platform": "mediawiki",
+    "destination_icon": "noitawiki.png",
+    "destination_main_page": "Noita_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  }
+]
