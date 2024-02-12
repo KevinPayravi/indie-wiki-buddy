@@ -114,12 +114,14 @@ function insertCSS() {
     .iwb-new-link img {
       width: 12px;
     }
-    .iwb-disavow > *:not([class^="iwb-"]) {
+    .iwb-disavow > *:not([class^="iwb-"]):not(.scs_child_rpr) {
       opacity: 60%;
       pointer-events: none;
       cursor: default;
     }
-    .iwb-disavow > a:not([class^="iwb-"]), .iwb-disavow > *:not([class^="iwb-"]) a, .iwb-disavow > *:not([class^="iwb-"]) a * {
+    .iwb-disavow > a:not([class^="iwb-"]):not(.scs_child_rpr),
+    .iwb-disavow > *:not([class^="iwb-"]):not(.scs_child_rpr) a,
+    .iwb-disavow > *:not([class^="iwb-"]):not(.scs_child_rpr) a * {
       text-decoration: line-through !important;
     }
 
@@ -538,7 +540,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.endsWith('.bing.com')) {
           // Function to filter search results in Bing
           function filterBing() {
-            let searchResultsEncoded = document.querySelectorAll('li.b_algo a');
+            let searchResultsEncoded = document.querySelectorAll('li.b_algo h2 a, li.b_algo .b_algoheader a');
             let searchResults = [];
             searchResultsEncoded.forEach((searchResult) => {
               if (searchResult.href) {
