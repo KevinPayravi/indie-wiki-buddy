@@ -175,6 +175,28 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-anvilempires",
+    "origins_label": "Anvil Empires Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Anvil Empires Fandom Wiki",
+        "origin_base_url": "anvil-empires.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Anvil_Empires_Wiki"
+      }
+    ],
+    "destination": "Anvil Empires Wiki",
+    "destination_base_url": "anvilempires.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "anvilempireswiki.png",
+    "destination_main_page": "Anvil_Empires_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
     "id": "en-apico",
     "origins_label": "Apico Fandom Wiki",
     "origins": [
@@ -870,6 +892,28 @@
     "destination_search_path": "/w/index.php",
     "tags": [
       "miraheze"
+    ]
+  },
+  {
+    "id": "en-coromon",
+    "origins_label": "Coromon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Coromon Fandom Wiki",
+        "origin_base_url": "coromon.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Coromon_Wiki"
+      }
+    ],
+    "destination": "Coromon Wiki",
+    "destination_base_url": "coromon.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "coromonwiki.png",
+    "destination_main_page": "Coromon_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
     ]
   },
   {
@@ -2767,7 +2811,7 @@
   },
   {
     "id": "en-myst",
-    "origins_label": "D'ni",
+    "origins_label": "D'ni Fandom Wiki",
     "origins": [
       {
         "origin": "D'ni Fandom Wiki",
@@ -3944,6 +3988,27 @@
     "destination_search_path": "https://www.starfywiki.org/index.php"
   },
   {
+    "id": "en-steamworld",
+    "origins_label": "SteamWorld Fandom Wiki",
+    "origins": [
+      {
+        "origin": "SteamWorld Fandom Wiki",
+        "origin_base_url": "steamworld.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "SteamWorld_Wiki"
+      }
+    ],
+    "destination": "SteamWorld Wiki",
+    "destination_base_url": "steamworld.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "steamworldwiki.png",
+    "destination_main_page": "SteamWorld_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-sto",
     "origins_label": "Star Trek Online Fandom Wiki",
     "origins": [
@@ -4261,27 +4326,6 @@
     "destination_icon": "thefinalswiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w139/index.php"
-  },
-  {
-    "id": "en-voidrainsuponherheart",
-    "origins_label": "The Void Rains Upon Her Heart Fandom Wiki",
-    "origins": [
-      {
-        "origin": "The Void Rains Upon Her Heart Fandom Wiki",
-        "origin_base_url": "the-void-rains-upon-her-heart.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "The_Void_Rains_Upon_Her_Heart_Wiki"
-      }
-    ],
-    "destination": "The Void Rains Upon Her Heart Wiki",
-    "destination_base_url": "tvruhh.wiki.gg",
-    "destination_platform": "mediawiki",
-    "destination_icon": "thevoidrainsuponherheartwiki.png",
-    "destination_main_page": "The_Void_Rains_Upon_Her_Heart_Wiki",
-    "destination_search_path": "/index.php",
-    "tags": [
-      "wiki.gg"
-    ]
   },
   {
     "id": "en-thewanderinginn",
@@ -4682,6 +4726,27 @@
     "destination_icon": "vaporwavewiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-voidrainsuponherheart",
+    "origins_label": "The Void Rains Upon Her Heart Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Void Rains Upon Her Heart Fandom Wiki",
+        "origin_base_url": "the-void-rains-upon-her-heart.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Void_Rains_Upon_Her_Heart_Wiki"
+      }
+    ],
+    "destination": "The Void Rains Upon Her Heart Wiki",
+    "destination_base_url": "tvruhh.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thevoidrainsuponherheartwiki.png",
+    "destination_main_page": "The_Void_Rains_Upon_Her_Heart_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-vtolvr",
