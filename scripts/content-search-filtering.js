@@ -487,7 +487,15 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
         // Handle re-ordering of results to move destination results up the page
         let matchingDest = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting, true);
         if (matchingDest) {
-          await _reorderDestinationSearchResult(resultsFirstChild, matchingDest, searchResult);
+          if (resultsFirstChild.contains(searchResult)) {
+            // If this search result is inside the first child of the results container (aka, it's the first result),
+            // and there is a matchingDest at this point, then an indie wiki is #1 on the search results page.
+            // Therefore, we should abandon the search re-ordering.
+            console.debug('Indie Wiki Buddy is not re-ordering results, as an indie wiki is already the first result.');
+            break;
+          } else {
+            await _reorderDestinationSearchResult(resultsFirstChild, matchingDest, searchResult);
+          }
         }
       } catch (e) {
         console.log('Indie Wiki Buddy failed to properly re-order search results with error: ' + e);
