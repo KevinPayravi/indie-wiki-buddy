@@ -452,7 +452,7 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
 }
 
 async function _reorderDestinationSearchResult(resultsFirstChild, matchingDest, searchResult) {
-  const searchContainer = searchResult.closest('#rso > div');
+  const searchContainer = searchResult.closest('#rso > div, #main > div');
 
   if (!resultsFirstChild || !searchContainer || searchContainer.classList.contains('iwb-reordered')) {
     return;
@@ -470,7 +470,8 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
     if (searchEngine !== 'google') return;
 
     // Get the first element in the results container
-    const resultsFirstChild = document.querySelector('#rso > div');
+    let resultsFirstChild = document.querySelector('#rso > div'); // desktop
+    if (!resultsFirstChild) resultsFirstChild = document.querySelector('#main > div:has(div[data-hveid])'); // FF mobile
     if (!resultsFirstChild) return;
 
     let crossLanguageSetting = storage.crossLanguage || 'off';
