@@ -74,36 +74,46 @@ async function commonFunctionGetSiteDataByDestination() {
 
 // Load wiki data objects, with each origin having its own object
 async function commonFunctionGetSiteDataByOrigin() {
-  let sites = [];
-  let promises = [];
-  for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-      .then((resp) => resp.json())
-      .then((jsonData) => {
-        jsonData.forEach((site) => {
-          site.origins.forEach((origin) => {
-            sites.push({
-              "id": site.id,
-              "origin": origin.origin,
-              "origin_base_url": origin.origin_base_url,
-              "origin_content_path": origin.origin_content_path,
-              "origin_main_page": origin.origin_main_page,
-              "destination": site.destination,
-              "destination_base_url": site.destination_base_url,
-              "destination_search_path": site.destination_search_path,
-              "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
-              "destination_platform": site.destination_platform,
-              "destination_icon": site.destination_icon,
-              "destination_main_page": site.destination_main_page,
-              "tags": site.tags || [],
-              "language": LANGS[i]
-            })
-          })
-        });
-      }));
-  }
-  await Promise.all(promises);
-  return sites;
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get({'allSitesByOrigin': []}, async (item) => {
+      let sites = item.allSitesByOrigin;
+      if (sites.length === 0) {
+        // Populate with the site data
+        let promises = [];
+        for (let i = 0; i < LANGS.length; i++) {
+          promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
+              .then((resp) => resp.json())
+              .then((jsonData) => {
+                jsonData.forEach((site) => {
+                  site.origins.forEach((origin) => {
+                    sites.push({
+                      "id": site.id,
+                      "origin": origin.origin,
+                      "origin_base_url": origin.origin_base_url,
+                      "origin_content_path": origin.origin_content_path,
+                      "origin_main_page": origin.origin_main_page,
+                      "destination": site.destination,
+                      "destination_base_url": site.destination_base_url,
+                      "destination_search_path": site.destination_search_path,
+                      "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
+                      "destination_platform": site.destination_platform,
+                      "destination_icon": site.destination_icon,
+                      "destination_main_page": site.destination_main_page,
+                      "tags": site.tags || [],
+                      "language": LANGS[i]
+                    })
+                  })
+                });
+              }));
+        }
+
+        await Promise.all(promises);
+        chrome.storage.local.set({allSitesByOrigin: sites});
+      }
+
+      resolve(sites);
+    });
+  })
 }
 
 // Given a URL, find closest match in our dataset
