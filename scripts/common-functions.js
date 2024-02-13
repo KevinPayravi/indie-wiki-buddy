@@ -48,7 +48,7 @@ async function commonFunctionCompressJSON(value) {
   const blob = await compressedResponse.blob();
   const buffer = await blob.arrayBuffer();
 
-  // Encode and return string 
+  // Encode and return string
   return btoa(
     String.fromCharCode(
       ...new Uint8Array(buffer)
@@ -107,26 +107,28 @@ async function commonFunctionGetSiteDataByOrigin() {
 }
 
 // Given a URL, find closest match in our dataset
-async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
+async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest = false) {
+  let base_url_key = dest ? 'destination_base_url' : 'origin_base_url';
+
   let matchingSite = commonFunctionGetSiteDataByOrigin().then(sites => {
     let matchingSites = [];
     if (crossLanguageSetting === 'on') {
-      matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url));
+      matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el[base_url_key]));
     } else {
       matchingSites = sites.filter(el =>
-        site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
-        || site.replace(/.*https?:\/\//, '') === el.origin_base_url
+         site.replace(/.*https?:\/\//, '').startsWith(dest ? el[base_url_key] : (el.origin_base_url + el.origin_content_path))
+        || site.replace(/.*https?:\/\//, '') === el[base_url_key]
       );
     }
     if (matchingSites.length > 0) {
-      // Select match with longest base URL 
+      // Select match with longest base URL
       let closestMatch = '';
       matchingSites.forEach(site => {
-        if (site.origin_base_url.length > closestMatch.length) {
-          closestMatch = site.origin_base_url;
+        if (site[base_url_key].length > closestMatch.length) {
+          closestMatch = site[base_url_key];
         }
       });
-      return matchingSites.find(site => site.origin_base_url === closestMatch);
+      return matchingSites.find(site => site[base_url_key] === closestMatch);
     } else {
       return null;
     }

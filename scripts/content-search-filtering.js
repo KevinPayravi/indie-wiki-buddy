@@ -196,7 +196,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
       if (link.includes('.wiki.fextralife.com')) {
         destinationArticleTitle = destinationArticleTitle.replace(/(?<!\+)\+/g, ' ');
       }
-  
+
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
         indieResultText.innerText = 'Look up "' + decodeURIComponent(destinationArticleTitle) + '" on ' + site.destination + ' (EN)';
       } else {
@@ -377,10 +377,128 @@ function findClosestElement(target, elements) {
   return closestElement;
 }
 
+async function _filterSearchResult(matchingSite, searchResult, searchEngine, countFiltered, storage) {
+  // Get user's settings for the wiki
+  let id = matchingSite['id'];
+  let searchFilterSetting = 'replace';
+  let searchEngineSettings = await commonFunctionDecompressJSON(storage.searchEngineSettings || {});
+  if (searchEngineSettings[id]) {
+    searchFilterSetting = searchEngineSettings[id];
+  } else if (storage.defaultSearchAction) {
+    searchFilterSetting = storage.defaultSearchAction;
+  }
+
+  if (searchFilterSetting !== 'disabled') {
+    // Output stylesheet if not already done
+    if (filteredWikis.length === 0) {
+      // Wait for head to be available
+      const headElement = document.querySelector('head');
+      if (headElement && !document.querySelector('.iwb-styles')) {
+        insertCSS();
+      } else {
+        const docObserver = new MutationObserver((mutations, mutationInstance) => {
+          const headElement = document.querySelector('head');
+          if (headElement && !document.querySelector('.iwb-styles')) {
+            insertCSS();
+            mutationInstance.disconnect();
+          }
+        });
+        docObserver.observe(document, {
+          childList: true,
+          subtree: true
+        });
+      }
+    }
+
+    let searchResultContainer = null;
+
+    switch (searchEngine) {
+      case 'google':
+        const closestJsController = searchResult.closest('div[jscontroller]');
+        const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
+        searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
+        break;
+      case 'bing':
+        searchResultContainer = searchResult.closest('li.b_algo');
+        break;
+      case 'duckduckgo':
+        searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
+        break;
+      case 'brave':
+        searchResultContainer = searchResult.closest('div.snippet');
+        break;
+      case 'ecosia':
+        searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
+        break;
+      case 'startpage':
+        searchResultContainer = searchResult.closest('div.w-gl__result');
+        break;
+      case 'yahoo':
+        searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+        break;
+      default:
+    }
+
+    if (searchResultContainer) {
+      if (searchFilterSetting === 'hide') {
+        countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
+      } else {
+        countFiltered += replaceSearchResults(searchResultContainer, matchingSite, searchResultLink);
+      }
+    }
+  }
+
+  return countFiltered;
+}
+
+async function _reorderDestinationSearchResult(resultsFirstChild, matchingDest, searchResult) {
+  const searchContainer = searchResult.closest('#rso > div');
+
+  if (!resultsFirstChild || !searchContainer || searchContainer.classList.contains('iwb-reordered')) {
+    return;
+  }
+
+  searchContainer.classList.add('iwb-reordered');
+  resultsFirstChild.insertAdjacentElement('beforebegin', searchContainer);
+}
+
+async function reorderSearchResults(searchResults, searchEngine, storage) {
+  if (!document.body.classList.contains('iwb-reorder')) {
+    document.body.classList.add('iwb-reorder');
+
+    // Only support Google for now
+    if (searchEngine !== 'google') return;
+
+    // Get the first element in the results container
+    const resultsFirstChild = document.querySelector('#rso > div');
+    if (!resultsFirstChild) return;
+
+    let crossLanguageSetting = storage.crossLanguage || 'off';
+
+    for (const searchResult of searchResults) {
+      try {
+        if (searchResult.closest('.iwb-detected')) {
+          continue;
+        }
+
+        const searchResultLink = searchResult.href || '';
+
+        // Handle re-ordering of results to move destination results up the page
+        let matchingDest = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting, true);
+        if (matchingDest) {
+          await _reorderDestinationSearchResult(resultsFirstChild, matchingDest, searchResult);
+        }
+      } catch (e) {
+        console.log('Indie Wiki Buddy failed to properly re-order search results with error: ' + e);
+      }
+    }
+  }
+}
+
 async function filterSearchResults(searchResults, searchEngine, storage) {
   let countFiltered = 0;
 
-  for (let searchResult of searchResults) {
+  for (const searchResult of searchResults) {
     try {
       // Check that result isn't within another result
       if (!searchResult.closest('.iwb-detected')) {
@@ -410,83 +528,17 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
         }
 
         let crossLanguageSetting = storage.crossLanguage || 'off';
-        let matchingSite = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
-        if (matchingSite) {
-          // Get user's settings for the wiki
-          let id = matchingSite['id'];
-          let searchFilterSetting = 'replace';
-          let searchEngineSettings = await commonFunctionDecompressJSON(storage.searchEngineSettings || {});
-          if (searchEngineSettings[id]) {
-            searchFilterSetting = searchEngineSettings[id];
-          } else if (storage.defaultSearchAction) {
-            searchFilterSetting = storage.defaultSearchAction;
-          }
 
-          if (searchFilterSetting !== 'disabled') {
-            // Output stylesheet if not already done
-            if (filteredWikis.length === 0) {
-              // Wait for head to be available
-              const headElement = document.querySelector('head');
-              if (headElement && !document.querySelector('.iwb-styles')) {
-                insertCSS();
-              } else {
-                const docObserver = new MutationObserver((mutations, mutationInstance) => {
-                  const headElement = document.querySelector('head');
-                  if (headElement && !document.querySelector('.iwb-styles')) {
-                    insertCSS();
-                    mutationInstance.disconnect();
-                  }
-                });
-                docObserver.observe(document, {
-                  childList: true,
-                  subtree: true
-                });
-              }
-            }
-
-            let searchResultContainer = null;
-
-            switch (searchEngine) {
-              case 'google':
-                const closestJsController = searchResult.closest('div[jscontroller]');
-                const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
-                searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
-                break;
-              case 'bing':
-                searchResultContainer = searchResult.closest('li.b_algo');
-                break;
-              case 'duckduckgo':
-                searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
-                break;
-              case 'brave':
-                searchResultContainer = searchResult.closest('div.snippet');
-                break;
-              case 'ecosia':
-                searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
-                break;
-              case 'startpage':
-                searchResultContainer = searchResult.closest('div.w-gl__result');
-                break;
-              case 'yahoo':
-                searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
-                break;
-              default:
-            }
-
-            if (searchResultContainer) {
-              if (searchFilterSetting === 'hide') {
-                countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
-              } else {
-                countFiltered += replaceSearchResults(searchResultContainer, matchingSite, searchResultLink);
-              }
-            }
-          }
+        // Handle source -> destination filtering
+        let matchingSource = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
+        if (matchingSource) {
+          countFiltered = await _filterSearchResult(matchingSource, searchResult, searchEngine, countFiltered, storage);
         }
       }
     } catch (e) {
       console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
     }
-  };
+  }
   addLocationObserver(main);
   if (countFiltered > 0) {
     chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
@@ -510,13 +562,20 @@ function main(mutations = null, observer = null) {
             filterSearchResults(searchResults, 'google', storage);
           }
 
+          function reorderGoogle() {
+            let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
+            reorderSearchResults(searchResults, 'google', storage);
+          }
+
           // Wait for document to be interactive/complete:
           if (['interactive', 'complete'].includes(document.readyState)) {
             filterGoogle();
+            reorderGoogle();
           } else {
             document.addEventListener('readystatechange', e => {
               if (['interactive', 'complete'].includes(document.readyState)) {
                 filterGoogle();
+                reorderGoogle();
               }
             }, { once: true });
           }
