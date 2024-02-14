@@ -2636,16 +2636,16 @@
   },
   {
     "id": "en-magicalmixturemill",
-    "origins_label": "The Magical Mixture Mill Fandom Wiki",
+    "origins_label": "Magical Mixture Mill Fandom Wiki",
     "origins": [
       {
-        "origin": "The Magical Mixture Mill Fandom Wiki",
+        "origin": "Magical Mixture Mill Fandom Wiki",
         "origin_base_url": "the-magical-mixture-mill.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "The_Magical_Mixture_Mill_Wiki"
       }
     ],
-    "destination": "The Magical Mixture Mill Wiki",
+    "destination": "Magical Mixture Mill Wiki",
     "destination_base_url": "themagicalmixturemill.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "themagicalmixturemillwiki.png",
@@ -3790,7 +3790,7 @@
         "origin_main_page": "Serial_Experiments_Lain_Wiki"
       }
     ],
-    "destination": "Serial Experiments Lain wiki",
+    "destination": "Serial Experiments Lain Wiki",
     "destination_base_url": "lain.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "serialexperimentslainwiki.png",
