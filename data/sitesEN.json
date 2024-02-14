@@ -4260,7 +4260,7 @@
         "origin_main_page": "Temtem_Wiki"
       }
     ],
-    "destination": "Official Temtem Wiki",
+    "destination": "Temtem Wiki",
     "destination_base_url": "temtem.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "officialtemtemwiki.png",
@@ -4310,7 +4310,7 @@
         "origin_main_page": "Terraria_Starlight_River_Wiki"
       }
     ],
-    "destination": "Starlight River Mod Wiki",
+    "destination": "Terraria Starlight River Mod Wiki",
     "destination_base_url": "starlightrivermod.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "starlightrivermodwiki.png",
