@@ -317,7 +317,7 @@
     }
   ],
   "optional_permissions": ["https://*/*"],
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "{cb31ec5d-c49a-4e5a-b240-16c767444f62}",
       "strict_min_version": "113.0"
