@@ -12,10 +12,32 @@
     ],
     "destination": "Animal Crossing Wiki",
     "destination_base_url": "animalcrossingwiki.de",
-    "destination_platform": "doku",
+    "destination_platform": "dokuwiki",
     "destination_icon": "animalcrossingwiki.png",
     "destination_main_page": "start",
-    "destination_search_path": "/"
+    "destination_search_path": "/doku.php"
+  },
+  {
+    "id": "de-ark",
+    "origins_label": "ARK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      }
+    ],
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "de-detektivconan",
@@ -88,5 +110,27 @@
     "destination_icon": "starcitizen.png",
     "destination_main_page": "Star_Citizen_Wiki",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "de-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Wiki"
+      }
+    ],
+    "destination": "Terraria Wiki",
+    "destination_base_url": "terraria.wiki.gg/de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   }
 ]

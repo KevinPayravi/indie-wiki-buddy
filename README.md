@@ -9,6 +9,7 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![DE wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=DE%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesDE.json)
 ![EN wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=EN%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesEN.json)
 ![ES wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ES%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesES.json)
+![FI wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FI%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFI.json)
 ![FR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFR.json)
 ![IT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=IT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesIT.json)
 ![KO wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=KO%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesKO.json)
@@ -83,7 +84,7 @@ Entries are formatted as follows:
 * `destination`: Name of the wiki being redirected to.
 * `destination_base_url`: Fully qualified domain name of the wiki being redirected to.
 * `destination_content_prefix`: A prefix that is prepended to article names before performing a search on the destination wiki. This can be useful if a wiki separates its content into different namespaces. For example, if we wanted to redirect a wiki about Super Mario Odyssey to a general Mario wiki that has Odyssey content in a namespace called `Odyssey`, we would set `destination_content_prefix` to `Odyssey:`.
-* `destination_platform`: The wiki's software. The current supported options are `mediawiki` and `doku`. If you are contributing a wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
+* `destination_platform`: The wiki's software. The current supported options are `mediawiki` and `dokuwiki`. If you are contributing a wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
 * `destination_icon`: The name of the wiki's favicon in the [favicons](favicons) folder.
 * `destination_main_page`: The title of the main page of the destination wiki.
 * `destination_search_path`: The URL path prefix for performing searches. On MediaWiki wikis, it is called the index.php entry point and can be found at Special:Version.

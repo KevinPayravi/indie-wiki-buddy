@@ -36,6 +36,93 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "es-ark",
+    "origins_label": "ARK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      }
+    ],
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "es-calamitymod",
+    "origins_label": "Calamity Mod Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Calamity Mod Fandom Wiki",
+        "origin_base_url": "calamitymod.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Calamity_Mod"
+      }
+    ],
+    "destination": "Wiki Calamity Mod Oficial",
+    "destination_base_url": "calamitymod.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikicalamitymodoficial.png",
+    "destination_main_page": "Wiki_Calamity_Mod_en_Español",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "es-coromon",
+    "origins_label": "Coromon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Coromon Fandom Wiki",
+        "origin_base_url": "coromon.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Coromon_Wiki"
+      }
+    ],
+    "destination": "Coromon Wiki",
+    "destination_base_url": "coromon.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "coromonwiki.png",
+    "destination_main_page": "Coromon_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "es-deeprockgalactic",
+    "origins_label": "Deep Rock Galactic Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Deep Rock Galactic Fandom Wiki",
+        "origin_base_url": "deeprockgalactic.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deep_Rock_Galactic_Wiki"
+      }
+    ],
+    "destination": "Deep Rock Galactic Wiki",
+    "destination_base_url": "deeprockgalactic.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deeprockgalacticwiki.png",
+    "destination_main_page": "Deep_Rock_Galactic_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "es-minecraft",
     "origins_label": "Minecraft Fandom Wiki",
     "origins": [
@@ -106,6 +193,28 @@
     "destination_icon": "smashpedia.png",
     "destination_main_page": "SmashPedia",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "es-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Terraria"
+      }
+    ],
+    "destination": "Terraria Wiki",
+    "destination_base_url": "terraria.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "es-touhou",

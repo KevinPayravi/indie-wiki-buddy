@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sites.forEach((site) => {
         wikiSettings[site.id] = document.options.defaultWikiAction.value;
       });
-      chrome.storage.sync.set({ 'wikiSettings': wikiSettings });
+      chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sites.forEach((site) => {
         searchEngineSettings[site.id] = document.options.defaultSearchAction.value;
       });
-      chrome.storage.sync.set({ 'searchEngineSettings': searchEngineSettings });
+      chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
     });
   });
 });
