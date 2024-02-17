@@ -2,9 +2,6 @@ const currentURL = new URL(document.location);
 let filteredWikis = [];
 let hiddenWikisRevealed = {};
 
-/** @type {MutationObserver | undefined} */
-let qwantObserver;
-
 // Create object prototypes for getting and setting attributes:
 Object.prototype.get = function (prop) {
   this[prop] = this[prop] || {};

@@ -6,14 +6,38 @@
       {
         "origin": "Animal Crossing Fandom Wiki",
         "origin_base_url": "animalcrossing.fandom.com/de",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Animal_Crossing_Wiki"
       }
     ],
     "destination": "Animal Crossing Wiki",
     "destination_base_url": "animalcrossingwiki.de",
-    "destination_content_path": "/",
-    "destination_platform": "doku",
-    "destination_icon": "animalcrossingwiki.png"
+    "destination_platform": "dokuwiki",
+    "destination_icon": "animalcrossingwiki.png",
+    "destination_main_page": "start",
+    "destination_search_path": "/doku.php"
+  },
+  {
+    "id": "de-ark",
+    "origins_label": "ARK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      }
+    ],
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "de-detektivconan",
@@ -22,14 +46,52 @@
       {
         "origin": "Detektiv Conan Fandom Wiki",
         "origin_base_url": "detektivconan.fandom.com",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Detektiv_Conan_Wiki"
       }
     ],
     "destination": "ConanWiki",
     "destination_base_url": "conanwiki.org",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "detektivconan.png"
+    "destination_icon": "detektivconan.png",
+    "destination_main_page": "Hauptseite",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "de-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "de.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
+  },
+  {
+    "id": "de-pokemon",
+    "origins_label": "Pokémon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pokémon_Wiki"
+      }
+    ],
+    "destination": "PokéWiki",
+    "destination_base_url": "www.pokewiki.de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pokewiki.png",
+    "destination_main_page": "Hauptseite",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "de-starcitizen",
@@ -38,13 +100,37 @@
       {
         "origin": "Star Citizen Fandom Wiki",
         "origin_base_url": "starcitizen.fandom.com/de",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Star_Citizen_Wiki"
       }
     ],
     "destination": "Star Citizen Wiki",
     "destination_base_url": "star-citizen.wiki",
-    "destination_content_path": "/",
     "destination_platform": "mediawiki",
-    "destination_icon": "starcitizen.png"
+    "destination_icon": "starcitizen.png",
+    "destination_main_page": "Star_Citizen_Wiki",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "de-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Wiki"
+      }
+    ],
+    "destination": "Terraria Wiki",
+    "destination_base_url": "terraria.wiki.gg/de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   }
 ]

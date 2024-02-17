@@ -1,0 +1,103 @@
+[
+  {
+    "id": "pt-acecombat",
+    "origins_label": "Ace Combat Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Ace Combat Fandom Wiki",
+        "origin_base_url": "acecombat.fandom.com/pt-br",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Página_principal"
+      }
+    ],
+    "destination": "Ace Combat Wiki",
+    "destination_base_url": "acecombat.wiki.gg/pt-br",
+    "destination_platform": "mediawiki",
+    "destination_icon": "acecombatwiki.png",
+    "destination_main_page": "Página_principal",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "pt-ark",
+    "origins_label": "ARK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/pt-br",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      }
+    ],
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/pt-br",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "pt-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/pt",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "pt.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
+  },
+  {
+    "id": "pt-runescape",
+    "origins_label": "Runescape Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Runescape Fandom Wiki",
+        "origin_base_url": "runescape.fandom.com/pt",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "RuneScape_Wiki"
+      }
+    ],
+    "destination": "Runescape Wiki",
+    "destination_base_url": "pt.runescape.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "runescape.png",
+    "destination_main_page": "RuneScape_Wiki",
+    "destination_search_path": "/"
+  },
+  {
+    "id": "pt-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com/pt",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Wiki"
+      }
+    ],
+    "destination": "Terraria Wiki",
+    "destination_base_url": "terraria.wiki.gg/pt",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  }
+]

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <link rel="icon" href="../../images/logo.png" />
+  <title>Indie Wiki Buddy settings</title>
+  <style>
+    /* ELEMENTS */
+    body {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #2b2a33;
+      font-family: Helvetica, Sans-Serif;
+      font-size: .9rem;
+      color: #000;
+    }
+
+    a {
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+      color: #005799;
+    }
+
+    a:visited {
+      color: #005799;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      color: #005799;
+      background-color: #005799;
+      margin: 1rem 0 .5rem 0;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      padding: .5rem 0;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: .8rem;
+      margin: 0;
+    }
+
+    fieldset {
+      background-color: #f5fbff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0 12px 12px 0;
+      margin: 0;
+      margin-bottom: .5em;
+      font-size: .9em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    fieldset+fieldset {
+      margin-top: 1rem;
+    }
+
+    fieldset>div {
+      margin: 0 .5rem;
+    }
+
+    fieldset>span {
+      display: block;
+    }
+
+    fieldset>div+span {
+      margin: .8rem 0 0 0;
+    }
+
+    legend {
+      font-weight: 600;
+      margin-bottom: .75em;
+    }
+
+    input,
+    label,
+    select {
+      cursor: pointer;
+    }
+
+    /* CONTAINERS AND LAYOUT */
+    .container {
+      background: #fff;
+    }
+
+    .two-col {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      padding-bottom: .5rem;
+    }
+
+    .two-col>div {
+      flex: 1;
+    }
+
+    @media (max-width: 600px) {
+      .two-col>div {
+        flex: 100%;
+      }
+    }
+
+    /* HEADER */
+    #header {
+      line-height: 1.5rem;
+      padding: .5rem 1rem;
+      box-sizing: border-box;
+      background-color: #005799;
+      color: #fff;
+      width: 100%;
+    }
+
+    #header .settingToggle label {
+      background-color: #fff;
+      border-radius: 20px;
+      height: fit-content;
+      width: fit-content;
+    }
+
+    #version {
+      float: right;
+      font-size: 1.2rem;
+      margin: .5rem 0;
+    }
+
+    #links {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1.5em;
+      background-color: #e5f4ff;
+      padding: .5rem 1rem;
+      white-space: nowrap;
+    }
+
+    #firstInstallInfo {
+      display: none;
+      text-align: center;
+    }
+
+    /* CONTENT */
+    #content {
+      background-color: #fff;
+      box-sizing: border-box;
+      padding: 1rem .75rem;
+    }
+
+    /* FOOTER */
+    #footer {
+      padding-bottom: 1.5rem;
+      text-align: center;
+      line-height: 1.6rem;
+      box-sizing: border-box;
+    }
+
+    #footer a {
+      padding: 5px 0px;
+      color: #005799;
+    }
+
+    /* NOTIFICATIONS */
+    #notificationBannerContainer {
+      background-color: #f8f3d6;
+      font-size: .9em;
+      line-height: 1.3em;
+    }
+
+    #notificationBannerContainer span {
+      padding: .5rem 1rem;
+      display: none;
+    }
+
+    #notificationBannerContainer span[style]~span[style] {
+      border-top: 1px solid #005799;
+    }
+
+    #notificationBannerReviewLinks {
+      display: flex;
+      column-gap: 1em;
+    }
+
+    /* SETTINGS SECTION */
+    .options {
+      box-sizing: border-box;
+      padding-bottom: .5rem;
+      user-select: none;
+      width: 100%;
+    }
+
+    .options label {
+      display: inline-block;
+    }
+
+    .radioGroup {
+      display: flex;
+    }
+    .radioGroup.horizontal {
+      flex-direction: row;
+      line-height: 1.5rem;
+      gap: .5em;
+    }
+    .radioGroup.vertical {
+      flex-direction: column;
+      gap: .5em;
+    }
+
+    .settingToggle {
+      width: fit-content;
+    }
+
+    .settingToggle img {
+      vertical-align: middle;
+    }
+
+    #searchFilteringSettings>div {
+      display: inline-block;
+    }
+
+    #breeezwikiLearnMore {
+      white-space: nowrap;
+    }
+
+    #breezewikiHost {
+      display: none;
+      padding: 0 0 0 1rem;
+    }
+
+    #breezewikiHost label {
+      cursor: default;
+    }
+
+    #breezewikiHost button {
+      background: #3174f1;
+      border: 1px solid #333333;
+      color: #fff;
+      border-radius: 5px;
+      padding: .3em;
+      font-size: .9em;
+    }
+
+    #breezewikiHost button:hover {
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid#3174f1;
+      color: #3174f1;
+    }
+
+    #breezewikiHost label+label {
+      margin-top: 8px;
+    }
+
+    #breezewikiCustomHost {
+      display: none;
+    }
+
+    #breezewikiCustomHostStatus {
+      font-size: .9em;
+    }
+
+    #legend div,
+    #legend span {
+      padding: 0 0 0 8px;
+    }
+
+    #legend div {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    #wikiFiltersContainer {
+      display: grid;
+      gap: 0.5em;
+      grid-template-columns: 1fr 1fr;
+      margin: 1em auto;
+      width: 30em;
+    }
+
+    #wikiFiltersContainer div {
+      text-align: right;
+      align-self: end;
+    }
+
+    .toggles {
+      font-size: 0.8rem;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .toggles img {
+      line-height: 1.2rem;
+    }
+
+    .toggles a img {
+      padding-right: .5rem;
+      vertical-align: middle;
+    }
+
+    .toggles label {
+      display: flex;
+      align-items: center;
+    }
+
+    .toggles input {
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .toggles>div {
+      display: flex;
+      flex-direction: row;
+      padding: 0 .5rem;
+      min-height: 20px;
+    }
+
+    .toggles .inputsContainer {
+      display: flex;
+      width: 150px;
+      justify-content: space-between;
+    }
+
+    .togglesHeader {
+      border-bottom: 1px solid #ccc;
+      background-color: #f5fbff;
+    }
+
+    .togglesHeader span {
+      flex: 1;
+      text-align: right;
+      font-style: italic;
+      margin-right: 1em;
+      padding: .75em 0;
+      white-space: break-spaces;
+    }
+
+    .toggles:not(.togglesHeader) span {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: .5em 0;
+    }
+
+    #toggles>div:hover {
+      background-color: #e8f0fe;
+    }
+
+    #togglesKeys button {
+      all: unset;
+      display: inline-flex;
+      vertical-align: middle;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 18px;
+      cursor: pointer;
+    }
+
+    button#setAllDisabled {
+      background-image: url('../../images/toggle-disabled.png');
+    }
+
+    button#setAllAlert {
+      background-image: url('../../images/toggle-alert.png');
+    }
+
+    button#setAllRedirect {
+      background-image: url('../../images/toggle-redirect.png');
+    }
+
+    button#setAllSearchEngineDisabled {
+      background-image: url('../../images/toggle-disabled.png');
+    }
+
+    button#setAllSearchEngineReplace {
+      background-image: url('../../images/toggle-replace.png');
+    }
+
+    button#setAllSearchEngineHide {
+      background-image: url('../../images/toggle-hide.png');
+    }
+
+    #togglesKeys button:focus {
+      outline: revert;
+    }
+
+    #togglesDefaults input[type=radio] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    #togglesDefaults input+label {
+      width: 100%;
+      height: 100%;
+      background-image: url('../../images/star-off.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 18px;
+    }
+
+    #togglesDefaults input:checked+label {
+      background-image: url('../../images/star-on.png');
+    }
+
+    #togglesDefaults label {
+      cursor: pointer;
+    }
+
+    #togglesKeys .inputsContainer button:hover::after,
+    #togglesDefaults .inputsContainer label:hover::after {
+      content: attr(data-title);
+      padding: 5px;
+      width: fit-content;
+      border: 1px solid #000;
+      position: absolute;
+      color: #fff;
+      background: #000;
+      z-index: 999999;
+      transform: translateX(calc(-100% - 5px));
+      top: 30px;
+    }
+
+    #togglesColumnLabels {
+      background-color: white;
+      padding: 5px 0;
+    }
+
+    #togglesColumnLabels>div>div {
+      display: flex;
+      width: 150px;
+    }
+
+    #togglesColumnLabels>div>div>div {
+      flex: 1 1 0;
+      font-weight: 600;
+      font-size: .9em;
+      white-space: break-spaces;
+      line-height: initial;
+      text-align: center;
+    }
+
+    .inputsContainer>label,
+    .inputsContainer>div {
+      width: 20px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .togglesHeader .inputsContainer>div:nth-child(4),
+    .toggles>div>div>label:nth-child(4) {
+      padding-left: 5px;
+      border-left: 1px solid #ccc;
+    }
+
+    .inputsContainer label:nth-child(1) input,
+    .inputsContainer label:nth-child(4) input {
+      accent-color: #3f3f3f;
+    }
+
+    /* CONTROL CLASSES */
+    .visuallyHidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    .text-sm {
+      font-size: .85em;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <span id="version"></span>
+      <h1>Indie Wiki Buddy</h1>
+    </div>
+    <div id="links">
+      <a href="../guide/index.html">Guide</a>
+      <a href="https://getindie.wiki" target="_blank">Website</a>
+      <a href="https://getindie.wiki/changelog/" target="_blank">Changelog</a>
+      <a href="https://getindie.wiki/#submit" target="_blank">Submit a Wiki</a>
+      <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source Code</a>
+    </div>
+    <div id="notificationBannerContainer">
+      <span id="notificationBannerOpera">
+        Opera users: By default, Opera will block extensions from running on search engines.
+        Search engine access can be enabled per-extension by going to "about:extensions"
+        and selecting the "Allow access to search page results" option under Indie Wiki Buddy.
+        <a id="operaPermsHideLink" href="#">Hide this message</a>
+      </span>
+      <span id="notificationBannerReview">
+        Enjoying Indie Wiki Buddy? Please leave a review!
+        <div id="notificationBannerReviewLinks">
+          <a id="reviewReminderChromeLink" target="_blank"
+            href="https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm">Chrome</a>
+          <div>|</div>
+          <a id="reviewReminderFirefoxLink" target="_blank"
+            href="https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/">Firefox</a>
+          <div>|</div>
+          <a id="reviewReminderHideLink" href="#">Hide this message</a>
+        </div>
+        <br />
+        Having issues or ideas for improvement? Please <a target="_blank" href="https://getindie.wiki/#contact">contact
+          me</a>!
+      </span>
+    </div>
+    <div id="content">
+      <div id="firstInstallInfo">
+        Thanks for installing Indie Wiki Buddy! Let's get you set up.
+        <br /><br />
+        Use the links above to see the full guide, submit new wikis, or contact the developer.
+        <br /><br />
+        In the settings below, you can toggle features on and off.
+        This includes the option to enable <a href="https://breezewiki.com/" target="_blank">BreezeWiki</a>,
+        an alternative frontend that renders Fandom wikis without ads or bloat.
+        <br /><br />
+        Below that, you can configure what happens when you visit each Fandom and Fextralife wiki that has an
+        independent alternative, as well as what happens to their results in search engines.
+        For visiting wikis, you can choose to be
+        <img src="../../images/toggle-alert.png" width="12" alt="" /> alerted (default)
+        or
+        <img src="../../images/toggle-redirect.png" width="12" alt="" />
+        automatically redirected.
+        On search engines, you can choose to
+        <img src="../../images/toggle-replace.png" width="12" alt="" /> replace (default)
+        or
+        <img src="../../images/toggle-hide.png" width="12" alt="" /> hide
+        search results.
+        <br /><br />
+        You can access these settings in the future via the extension's icon
+        <img src="../../images/logo-32.png" width="15" alt="icon of an arrow pointing to the right" />
+        at the top right of your browser. If you don't see the icon,
+        it may be in the extension dropdown, which can be opened via the jigsaw icon
+        <img src="../../images/jigsaw.png" width="15" alt="" /> (also at the top right of your browser).
+        <hr />
+      </div>
+      <form name="options" class="options">
+        <fieldset id="generalSettings">
+          <legend><span aria-hidden="true">⚙️</span> General settings</legend>
+          <div class="settingToggle">
+            <label>
+              <input id="powerCheckbox" type="checkbox" />
+              <span id="powerIcon" aria-hidden="true"></span>
+              <span id="powerText"></span>
+            </label>
+          </div>
+          <div class="settingToggle">
+            <label>
+              <input id="notificationsCheckbox" type="checkbox" />
+              <span id="notificationsIcon" aria-hidden="true"></span>
+              Desktop notifications for
+              redirections
+            </label>
+          </div>
+          <div class="settingToggle">
+            <label>
+              <input id="hiddenResultsBannerCheckbox" type="checkbox" />
+              <span id="hiddenResultsBannerIcon" aria-hidden="true"></span>
+              On search engines, show banner when
+              Fandom/Fextralife results are hidden
+            </label>
+          </div>
+          <div class="settingToggle">
+            <label>
+              <input id="crossLanguageCheckbox" type="checkbox" />
+              <span id="crossLanguageIcon" aria-hidden="true"></span>
+              Redirect non-English Fandom/Fextralife wikis to
+              indie English wikis when no same-language wiki exists
+            </label>
+          </div>
+          <div class="settingToggle">
+            <label>
+              <input id="openChangelogCheckbox" type="checkbox" />
+              <span id="openChangelogIcon" aria-hidden="true"></span>
+              Open changelog when Indie Wiki Buddy is updated
+            </label>
+          </div>
+        </fieldset>
+        <fieldset id="breezewikiSettings">
+          <legend>
+            <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore" href="https://breezewiki.com/"
+              target="_blank">learn more</a>)
+          </legend>
+          <div role="radiogroup">
+            <div class="radioGroup vertical">
+              <label>
+                <input id="breeezwikiSettingDisabledRadio" type="radio" name="breezewikiSetting" value="off" />
+                <img src="../../images/toggle-disabled.png" height="12" alt="" />
+                BreezeWiki off
+              </label>
+              <label>
+                <input id="breezewikiSettingBannerRadio" type="radio" name="breezewikiSetting" value="banner" />
+                <img src="../../images/toggle-alert.png" height="12" alt="" />
+                Insert banner link to take you to BreezeWiki
+              </label>
+              <label>
+                <input id="breezewikiSettingRedirectRadio" type="radio" name="breezewikiSetting" value="redirect" />
+                <img src="../../images/toggle-redirect.png" height="12" alt="" />
+                Automatically redirect Fandom to BreezeWiki
+              </label>
+            </div>
+          </div>
+          <div id="breezewikiHost" class="settingToggle">
+            <label>
+              BreezeWiki host:
+              <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+            </label>
+            <label id="breezewikiCustomHost">
+              Custom BreezeWiki domain:
+              <input type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="bw.example.com" size="30" />
+              <button id="setCustomBreezewikiDomain" type="button">
+                Set domain
+              </button>
+              <span id="breezewikiCustomHostStatus"></span>
+            </label>
+          </div>
+        </fieldset>
+        <h2>Individual wiki settings</h2>
+        <fieldset id="legend">
+          <legend>
+            <span aria-hidden="true">ℹ️</span> Icon legend
+          </legend>
+          <span class="text-sm">When visiting a Fandom or Fextralife wiki that has an independent alternative, IWB
+            can:</span>
+          <div>
+            <div>
+              <img src="../../images/toggle-disabled.png" width="16" height="16" alt="" /> Do nothing
+            </div>
+            <div>
+              <img src="../../images/toggle-alert.png" width="16" height="16" alt="" /> Display banner
+              linking to indie wiki
+            </div>
+            <div>
+              <img src="../../images/toggle-redirect.png" width="16" height="16" alt="" /> Redirect to
+              indie wiki
+            </div>
+          </div>
+          <span class="text-sm">When search engine results include a Fandom or Fextralife wiki that has an independent
+            alternative, IWB can:</span>
+          <div>
+            <div>
+              <img src="../../images/toggle-disabled.png" width="16" height="16" alt="" /> Do nothing
+            </div>
+            <div>
+              <img src="../../images/toggle-replace.png" width="16" height="16" alt="" /> Replace result with link
+              to indie wiki
+            </div>
+            <div>
+              <img src="../../images/toggle-hide.png" width="16" height="16" alt="" /> Hide the result
+            </div>
+          </div>
+        </fieldset>
+        <div id="wikiFiltersContainer">
+          <div id="langSelectCaption">Filter wikis by language:</div>
+          <select name="lang" id="langSelect">
+            <option value="ALL" selected>All languages</option>
+            <option value="DE">German / Deutsch (DE)</option>
+            <option value="EN">English (EN)</option>
+            <option value="ES">Spanish / Español (ES)</option>
+            <option value="FI">Finnish / suomi (FI)</option>
+            <option value="FR">French / Français (FR)</option>
+            <option value="HU">Hungarian / Magyar (HU)</option>
+            <option value="IT">Italian / Italiano (IT)</option>
+            <option value="JA">Japanese / 日本語 (JA)</option>
+            <option value="KO">Korean / 한국어 (KO)</option>
+            <option value="PL">Polish / Polski (PL)</option>
+            <option value="PT">Portuguese / Português (PT)</option>
+            <option value="RU">Russian / Русский язык (RU)</option>
+            <option value="TH">Thai / ภาษาไทย (TH)</option>
+            <option value="TOK">Toki Pona (TOK)</option>
+            <option value="UK">Ukrainian / Українська (UK)</option>
+            <option value="ZH">Chinese / 中文 (ZH)</option>
+            </select>
+          <div id="filterInputCaption">Filter wikis by name:</div>
+          <input id="filterInput" type="text" name="filterInput" placeholder="Enter wiki name..." />
+        </div>
+        <div class="sticky">
+          <div id="togglesColumnLabels" class="toggles">
+            <div>
+              <span></span>
+              <div>
+                <div>Wiki experience</div>
+                <div>Search experience</div>
+              </div>
+            </div>
+          </div>
+          <div id="togglesKeys" class="toggles togglesHeader">
+            <div>
+              <span>Click icon to set all wikis in column:</span>
+              <div class="inputsContainer">
+                <div>
+                  <button id="setAllDisabled" type="button" data-title="Do nothing when visiting non-indie wiki"
+                    aria-label="Do nothing when visiting non-indie wiki">
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllAlert" type="button" data-title="Show banner when indie wiki is available"
+                    aria-label="Show banner when indie wiki is available">
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllRedirect" type="button" data-title="Automatically redirect to indie wiki"
+                    aria-label="Automatically redirect to indie wiki">
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllSearchEngineDisabled" type="button" data-title="Do nothing on search engines"
+                    aria-label="Do nothing on search engines">
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllSearchEngineReplace" type="button" data-title="Replace non-indie search results"
+                    aria-label="Replace non-indie search results">
+                  </button>
+                </div>
+                <div>
+                  <button id="setAllSearchEngineHide" type="button"
+                    data-title="Hide non-indie wiki from search results">
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="togglesDefaults" class="toggles togglesHeader">
+          <div>
+            <span>Default for new wikis in future updates:</span>
+            <div class="inputsContainer">
+              <div>
+                <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled"
+                  aria-label="Do nothing" />
+                <label data-title="Do nothing when visiting non-indie wiki"
+                  for="defaultWikiActionDisabledRadio"></label>
+              </div>
+              <div>
+                <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert"
+                  aria-label="Display banner linking to indie wiki" />
+                <label data-title="Show banner when indie wiki is available" for="defaultWikiActionAlertRadio"></label>
+              </div>
+              <div>
+                <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect"
+                  aria-label="Redirect to indie wiki" />
+                <label data-title="Automatically redirect to indie wiki" for="defaultWikiActionRedirectRadio"></label>
+              </div>
+              <div>
+                <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled"
+                  aria-label="Do nothing" />
+                <label data-title="Do nothing on search engines" for="defaultSearchActionDisabledRadio"></label>
+              </div>
+              <div>
+                <input id="defaultSearchActionReplaceRadio" type="radio" name="defaultSearchAction" value="replace"
+                  aria-label="Replace non-indie results" />
+                <label data-title="Replace non-indie search results" for="defaultSearchActionReplaceRadio"></label>
+              </div>
+              <div>
+                <input id="defaultSearchActionHideRadio" type="radio" name="defaultSearchAction" value="hide"
+                  aria-label="Hide non-indie results" />
+                <label data-title="Hide non-indie wiki from search results" for="defaultSearchActionHideRadio"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="toggles" class="toggles"></div>
+      </form>
+      <hr />
+      <div id="footer">
+        <h2>Fun Stats</h2>
+        Alerted to indie wikis <span id="countAlerts"></span> times
+        <br />
+        Automatically redirected to indie wikis <span id="countRedirects"></span> times
+        <br />
+        Automatically redirected to BreezeWiki <span id="countBreezeWiki"></span> times
+        <br />
+        <span id="countSearchFilters"></span> search engine results filtered
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="../../scripts/common-functions.js"></script>
+<script type="text/javascript" src="../common-page-functions.js"></script>
+<script type="text/javascript" src="settings.js"></script>
+
+</html>

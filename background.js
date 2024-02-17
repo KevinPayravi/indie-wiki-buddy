@@ -1,72 +1,60 @@
+if (typeof importScripts !== 'undefined') {
+  importScripts('scripts/common-functions.js');
+}
+
 // Capture web requests
 chrome.webRequest.onBeforeSendHeaders.addListener(
-  function(event) {
-    main(event);
+  async (event) => {
+    if (event.documentLifecycle !== 'prerender') {
+      if (event.frameType === 'sub_frame') {
+        let tabInfo = await chrome.tabs.get(event.tabId);
+        main(tabInfo.url, event.tabId);
+      } else {
+        main(event.url, event.tabId);
+      }
+    }
   },
-  { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*'], types: ['main_frame'] }
+  { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*', , '*://*.neoseeker.com/wiki/*'], types: ['main_frame', 'sub_frame'] }
 );
 
 // Listen for user turning extension on or off, to update icon
-chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.action === 'updateIcon') {
     setPowerIcon(msg.value);
   }
 });
 
 // Listen for browser starting, to set initial icon state
-chrome.runtime.onStartup.addListener(function () {
-  chrome.storage.local.get({ 'power': 'on' }, function (item) {
+chrome.runtime.onStartup.addListener(() => {
+  chrome.storage.local.get({ 'power': 'on' }, (item) => {
     setPowerIcon(item.power);
   });
 });
 
 // Listen for extension installed/updating
-chrome.runtime.onInstalled.addListener(function (detail) {
+chrome.runtime.onInstalled.addListener(async (detail) => {
   // Set initial icon state
-  chrome.storage.local.get({ 'power': 'on' }, function (item) {
+  chrome.storage.local.get({ 'power': 'on' }, (item) => {
     setPowerIcon(item.power);
   });
 
   // If new install, open settings with starter guide
   if (detail.reason === 'install') {
-    chrome.tabs.create({ url: 'settings.html?newinstall=true' });
+    chrome.tabs.create({ url: 'pages/settings/index.html?newinstall=true' });
+  }
+
+  // If update, open changelog if setting is enabled
+  chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
+    if (item.openChangelog === 'on' && detail.reason === 'update') {
+      chrome.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true', active: false });
+    }
+  });
+
+  // Temporary functions for 3.0 migration
+  if (detail.reason === 'update') {
+    commonFunctionMigrateToV3();
   }
 });
-
-if (chrome.declarativeNetRequest) {
-  // In Manifest v3:
-  // Whenever stored settings change, update the header
-  // that is sent to BreezeWiki instances to inform them the user has IWB
-  updateDeclarativeRule();
-  chrome.storage.onChanged.addListener(event => updateDeclarativeRule());
-} else {
-  // In Manifest v2:
-  // On main frame BreezeWiki requests, update the header
-  // that is sent to BreezeWiki instances to inform them the user has IWB
-  chrome.webRequest.onBeforeSendHeaders.addListener(async (details) =>
-    addHeaderToRequest(details),
-    {
-      urls: [
-        '*://breezewiki.com/*',
-        '*://antifandom.com/*',
-        '*://bw.projectsegfau.lt/*',
-        '*://breeze.hostux.net/*',
-        '*://breezewiki.pussthecat.org/*',
-        '*://bw.vern.cc/*',
-        '*://breezewiki.esmailelbob.xyz/*',
-        '*://bw.artemislena.eu/*',
-        '*://bw.hamstro.dev/*',
-        '*://nerd.whatever.social/*',
-        '*://breeze.nohost.network/*',
-        '*://breeze.whateveritworks.org/*'
-      ],
-      types: [
-        'main_frame'
-      ]
-    },
-    ["blocking", "requestHeaders"]
-  );
-}
 
 function setPowerIcon(status) {
   const manifestVersion = chrome.runtime.getManifest().manifest_version;
@@ -85,82 +73,19 @@ function setPowerIcon(status) {
   }
 }
 
-function addHeaderToRequest(details) {
-  return new Promise((resolve) => {
-    chrome.storage.local.get(async (localStorage) => {
-      await chrome.storage.sync.get((syncStorage) => {
-        const storage = { ...syncStorage, ...localStorage };
-        const headerValue = JSON.stringify({
-          'power': storage.power,
-          'breezewiki': storage.breezewiki
-        });
-        details.requestHeaders.push({ name: 'x-indie-wiki', value: headerValue });
-        resolve({ requestHeaders: details.requestHeaders });
-      });
-    });
-  });
-}
-
-function updateDeclarativeRule() {
-  chrome.storage.local.get(function (localStorage) {
-    chrome.storage.sync.get(function (syncStorage) {
-      const storage = { ...syncStorage, ...localStorage };
-      const headerValue = JSON.stringify({
-        'power': storage.power ?? 'on',
-        'breezewiki': storage.breezewiki ?? 'off'
-      });
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1],
-        addRules: [
-          {
-            "id": 1,
-            "priority": 1,
-            "action": {
-              "type": "modifyHeaders",
-              "requestHeaders": [
-                {
-                  "operation": "set",
-                  "header": "x-indie-wiki",
-                  "value": headerValue
-                }
-              ]
-            },
-            "condition": {
-              "requestDomains": [
-                "breezewiki.com",
-                "antifandom.com",
-                "bw.projectsegfau.lt",
-                "breeze.hostux.net",
-                "breezewiki.pussthecat.org",
-                "bw.vern.cc",
-                "breezewiki.esmailelbob.xyz",
-                "bw.artemislena.eu",
-                "bw.hamstro.dev",
-                "nerd.whatever.social",
-                "breeze.nohost.network",
-                "breeze.whateveritworks.org"
-              ],
-              "resourceTypes": [
-                "main_frame"
-              ]
-            }
-          }
-        ]
-      });
-    });
-  });
-}
-
-function redirectToBreezeWiki(storage, eventInfo, url) {
+function redirectToBreezeWiki(storage, tabId, url) {
   function processRedirect(host) {
-    const subdomain = url.hostname.split(".")[0];
-    const article = url.href.split('fandom.com/wiki/')[1].replaceAll('%20', '_');
-
     // Extract article from URL
+    const urlFormatted = new URL(url);
+    urlFormatted.search = '';
+    const subdomain = urlFormatted.hostname.split(".")[0];
+    const article = String(urlFormatted).split('fandom.com/wiki/')[1].replaceAll('%20', '_');
+
+    // Perform redirect
     if (article) {
-      chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain + '/wiki/' + article });
+      chrome.tabs.update(tabId, { url: host + '/' + subdomain + '/wiki/' + article });
     } else {
-      chrome.tabs.update(eventInfo.tabId, { url: host + '/' + subdomain });
+      chrome.tabs.update(tabId, { url: host + '/' + subdomain });
     }
 
     // Increase BreezeWiki stat count
@@ -176,11 +101,11 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
         "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom."
       });
       // Self-clear notification after 6 seconds
-      setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
+      setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
     }
   }
 
-  if (url.href.includes('fandom.com/wiki/')) {
+  if (url.includes('fandom.com/wiki/') && !url.includes('fandom=allow')) {
     if (!(storage.breezewikiHost ?? null)) {
       fetch('https://bw.getindie.wiki/instances.json')
         .then((response) => {
@@ -212,147 +137,71 @@ function redirectToBreezeWiki(storage, eventInfo, url) {
           processRedirect(host);
         }).catch((e) => {
           console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
-          chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com'});
+          chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
         });
     } else {
-      processRedirect(storage.breezewikiHost);
+      if (storage.breezewikiHost === 'CUSTOM') {
+        processRedirect(storage.breezewikiCustomHost || 'https://breezewiki.com');
+      } else {
+        processRedirect(storage.breezewikiHost);
+      }
     }
   }
 }
 
-// Load website data
-async function getData() {
-  const LANGS = ["DE", "EN", "ES", "FR", "IT", "PL", "TOK"];
-  let sites = [];
-  let promises = [];
-  for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-      .then((resp) => resp.json())
-      .then(function (jsonData) {
-        jsonData.forEach((site) => {
-          site.origins.forEach((origin) => {
-            sites.push({
-              "id": site.id,
-              "origin": origin.origin,
-              "origin_base_url": origin.origin_base_url,
-              "origin_content_path": origin.origin_content_path,
-              "destination": site.destination,
-              "destination_base_url": site.destination_base_url,
-              "destination_content_path": site.destination_content_path,
-              "destination_content_prefix": (site.destination_content_prefix ? site.destination_content_prefix : ""),
-              "destination_platform": site.destination_platform,
-              "destination_icon": site.destination_icon,
-              "lang": LANGS[i]
-            })
-          })
-        });
-      }));
+async function main(url, tabId) {
+  // Create object prototypes for getting and setting attributes
+  Object.prototype.get = function (prop) {
+    this[prop] = this[prop] || {};
+    return this[prop];
+  };
+  Object.prototype.set = function (prop, value) {
+    this[prop] = value;
   }
-  await Promise.all(promises);
-  return sites;
-}
 
-async function main(eventInfo) {
-  // Store tab URL and remove any search parameters and section anchors
-  const url = new URL(eventInfo.url.replace(/(\?|#).*/i, ''));
+  chrome.storage.local.get((localStorage) => {
+    chrome.storage.sync.get(async (syncStorage) => {
+      const storage = { ...syncStorage, ...localStorage };
+      if ((storage.power ?? 'on') === 'on') {
+        let crossLanguageSetting = storage.crossLanguage || 'off';
+        let matchingSite = await commonFunctionFindMatchingSite(url, crossLanguageSetting);
 
-  // Check for Fandom or Fextralife in hostname and quit early if not
-  if (eventInfo.documentLifecycle !== 'prerender') {
-    // Create object prototypes for getting and setting attributes
-    Object.prototype.get = function (prop) {
-      this[prop] = this[prop] || {};
-      return this[prop];
-    };
-    Object.prototype.set = function (prop, value) {
-      this[prop] = value;
-    }
+        if (matchingSite) {
+          // Get user's settings for the wiki
+          let settings = await commonFunctionDecompressJSON(storage.wikiSettings) || {};
+          let id = matchingSite['id'];
+          let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
 
-    // Check if tab is actually available
-    // This is mainly to prevent background processes from triggering an event
-    let sites = [];
+          // Check if redirects are enabled for the site
+          if (siteSetting === 'redirect') {
+            let newURL = commonFunctionGetNewURL(url, matchingSite);
 
-    sites = await getData();
+            // Perform redirect
+            chrome.tabs.update(tabId, { url: newURL });
 
-    chrome.storage.local.get(function (localStorage) {
-      chrome.storage.sync.get(function (syncStorage) {
-        const storage = { ...syncStorage, ...localStorage };
-        if ((storage.power ?? 'on') === 'on') {
-          // Check if site is in our list of wikis:
-          let matchingSites = sites.filter(el => url.href.replace(/^https?:\/\//, '').startsWith(el.origin_base_url));
-          if (matchingSites.length > 0) {
-            // Select match with longest base URL 
-            let closestMatch = "";
-            matchingSites.forEach(site => {
-              if (site.origin_base_url.length > closestMatch.length) {
-                closestMatch = site.origin_base_url;
-              }
-            });
-            let site = matchingSites.find(site => site.origin_base_url === closestMatch);
-            if (site) {
-              // Get user's settings for the wiki
-              let settings = storage.siteSettings || {};
-              let id = site['id'];
-              let siteSetting = '';
-              if (settings.hasOwnProperty(id) && settings[id].hasOwnProperty('action')) {
-                siteSetting = settings[id].action;
-              } else if (storage.defaultActionSettings && storage.defaultActionSettings[site.language]) {
-                siteSetting = storage.defaultActionSettings[site.language];
-              } else {
-                siteSetting = 'alert';
-              }
-              // Check if redirects are enabled for the site
-              if (siteSetting === 'redirect') {
-                // Get article name from the end of the URL;
-                // We can't just take the last part of the path due to subpages;
-                // Instead, we take everything after the wiki's base URL + content path
-                let article = url.href.split(site['origin_base_url'] + site['origin_content_path'])[1];
-                // Set up URL to redirect user to based on wiki platform
-                if (article || (!article && !url.href.split(site['origin_base_url'] + '/')[1])) {
-                  let newURL = '';
-                  if (article) {
-                    let searchParams = '';
-                    switch (site['destination_platform']) {
-                      case 'mediawiki':
-                        searchParams = 'Special:Search/' + site['destination_content_prefix'] + article;
-                        break;
-                      case 'doku':
-                        searchParams = 'start?do=search&q=' + article;
-                        break;
-                    }
-                    newURL = 'https://' + site["destination_base_url"] + site["destination_content_path"] + searchParams;
-                  } else {
-                    newURL = 'https://' + site["destination_base_url"];
-                  }
+            // Increase redirect count
+            chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
 
-                  // Perform redirect
-                  chrome.tabs.update(eventInfo.tabId, { url: newURL });
-
-                  // Increase redirect count
-                  chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
-
-                  // Notify if enabled
-                  if ((storage.notifications ?? 'on') === 'on') {
-                    // Notify that user is being redirected
-                    let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
-                    chrome.notifications.create(notifID, {
-                      "type": "basic",
-                      "iconUrl": 'images/logo-48.png',
-                      "title": "You've been redirected!",
-                      "message": "Indie Wiki Buddy has sent you from " + site['origin'] + " to " + site['destination']
-                    });
-                    // Self-clear notification after 6 seconds
-                    setTimeout(function () { chrome.notifications.clear(notifID); }, 6000);
-                  }
-                }
-              } else if ((storage.breezewiki ?? 'off') === 'on') {
-                redirectToBreezeWiki(storage, eventInfo, url);
-              }
+            // Notify if enabled
+            if ((storage.notifications ?? 'on') === 'on') {
+              // Notify that user is being redirected
+              let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
+              chrome.notifications.create(notifID, {
+                "type": "basic",
+                "iconUrl": 'images/logo-48.png',
+                "title": "You've been redirected!",
+                "message": "Indie Wiki Buddy has sent you from " + matchingSite['origin'] + " to " + matchingSite['destination']
+              });
+              // Self-clear notification after 6 seconds
+              setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
             }
-          } else if ((storage.breezewiki ?? 'off') === 'on') {
-            redirectToBreezeWiki(storage, eventInfo, url);
+          } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
+            redirectToBreezeWiki(storage, tabId, url);
           }
+        } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
+          redirectToBreezeWiki(storage, tabId, url);
         }
-      });
+      }
     });
-  }
+  });
 }

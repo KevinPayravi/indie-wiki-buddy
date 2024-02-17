@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ko-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/ko",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "ko.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
+  },
+  {
+    "id": "ko-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com/ko",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Wiki"
+      }
+    ],
+    "destination": "Terraria Wiki",
+    "destination_base_url": "terraria.wiki.gg/ko",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  }
+]

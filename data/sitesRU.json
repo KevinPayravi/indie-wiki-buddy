@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ru-ark",
+    "origins_label": "ARK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      }
+    ],
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/ru",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "ru-calamitymod",
+    "origins_label": "Calamity Mod Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Calamity Mod Fandom Wiki",
+        "origin_base_url": "terraria-calamity-mod.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Calamity_Mod_вики"
+      }
+    ],
+    "destination": "Calamity Mod Wiki",
+    "destination_base_url": "calamitymod.wiki.gg/ru",
+    "destination_platform": "mediawiki",
+    "destination_icon": "calamitymodwiki.png",
+    "destination_main_page": "Calamity_Mod_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "ru-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Заглавная_страница"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "ru.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Заглавная_страница",
+    "destination_search_path": "/"
+  },
+  {
+    "id": "ru-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Wiki"
+      }
+    ],
+    "destination": "Terraria Wiki",
+    "destination_base_url": "terraria.wiki.gg/ru",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  }
+]

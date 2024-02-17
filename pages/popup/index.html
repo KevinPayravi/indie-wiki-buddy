@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <title>Indie Wiki Buddy</title>
+  <style>
+    /* ELEMENTS */
+    html {
+      max-width: 600px;
+    }
+
+    body {
+      width: max-content;
+      max-width: min(100%, 600px);
+      background-color: #005799;
+      margin: 0px;
+      font-family: Helvetica, Sans-Serif;
+      font-size: .9em;
+      color: #000;
+    }
+
+    a {
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+      color: #005799;
+    }
+
+    a:visited {
+      color: #005799;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      margin: 8px 0;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      color: #005799;
+      background-color: #005799;
+      margin: 1em 0;
+    }
+
+    fieldset {
+      background-color: #f5fbff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0 12px 12px 0;
+      margin: 0;
+      margin-bottom: .5em;
+      font-size: .9em;
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+    }
+
+    fieldset>div {
+      margin: 0 .5rem;
+    }
+
+    fieldset>span {
+      margin: .8rem 0 .4rem;
+      display: block;
+    }
+
+    legend {
+      font-weight: 600;
+      margin-bottom: .6em;
+    }
+
+    input,
+    label,
+    select {
+      cursor: pointer;
+    }
+
+    /* GENERIC CONTROL CLASSES */
+    .text-sm {
+      font-size: .85em;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    /* HEADER */
+    #header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 1.5em;
+      padding: .3em 1em;
+      box-sizing: border-box;
+      background-color: #005799;
+      color: #fff;
+      width: 100%;
+    }
+    #header div {
+      display: flex;
+      align-items: center;
+      gap: .5em;
+    }
+
+    /* NOTIFICATION BANNER */
+    #notificationBannerContainer {
+      background-color: #f8f3d6;
+      font-size: .9em;
+      line-height: 1.3em;
+    }
+
+    #notificationBannerContainer span {
+      padding: .5rem 1rem;
+      display: none;
+    }
+
+    #notificationBannerContainer span[style]~span[style] {
+      border-top: 1px solid #005799;
+    }
+
+    /* POWER TOGGLE */
+    #power {
+      cursor: pointer;
+      width: fit-content;
+      vertical-align: middle;
+      padding-top: .2em;
+    }
+
+    #power>label {
+      display: inline-block;
+      cursor: pointer;
+      background-color: #fff;
+      border-radius: 20px;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+    #power>label:hover {
+      outline: 2px solid #3174f1;
+    }
+
+    #power>input {
+      height: 0;
+      width: 0;
+      margin: 0;
+      border: none;
+      appearance: none;
+    }
+
+    #power img {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* CONTENT */
+    #content {
+      padding: .5em 1em;
+      background-color: #e5f4ff;
+      box-sizing: border-box;
+    }
+
+    #links {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1.5em;
+      background-color: #ceeaff;
+      padding: .5rem 1rem;
+      white-space: nowrap;
+    }
+
+    /* SETTINGS */
+    .options {
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      user-select: none;
+      width: 100%;
+    }
+
+    .options label {
+      display: inline-block;
+    }
+
+    .settingToggle {
+      cursor: pointer;
+      width: fit-content;
+      vertical-align: middle;
+    }
+
+    .radioGroup {
+      display: flex;
+    }
+    .radioGroup.horizontal {
+      flex-direction: row;
+      line-height: 1.5rem;
+      gap: .5em;
+    }
+    .radioGroup.vertical {
+      flex-direction: column;
+      gap: .5em;
+    }
+
+    #breeezwikiLearnMore {
+      white-space: nowrap;
+    }
+
+    #breezewikiHost {
+      display: none;
+      padding: 0 0 0 1rem;
+    }
+
+    #breezewikiHost label {
+      cursor: default;
+    }
+
+    #breezewikiHost button {
+      background: #3174f1;
+      border: 1px solid #333333;
+      color: #fff;
+      border-radius: 5px;
+      padding: .3em;
+      font-size: .9em;
+    }
+
+    #breezewikiHost button:hover {
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid#3174f1;
+      color: #3174f1;
+    }
+
+    #breezewikiHost label+label {
+      margin-top: 8px;
+    }
+
+    #breezewikiCustomHost {
+      display: none;
+    }
+
+    #breezewikiCustomHostStatus {
+      display: block;
+      padding-top: .4em;
+      font-size: .9em;
+    }
+
+    /* SETTINGS BUTTON */
+    #openSettingsButton {
+      border: 0;
+      background: #fff;
+      color: #3174f1;
+      border-radius: 5px;
+      padding: .2em .4em;
+      font-size: 1em;
+    }
+
+    #openSettingsButton:hover {
+      cursor: pointer;
+      outline: 2px solid#3174f1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header">
+    <h1>Indie Wiki Buddy</h1>
+    <div>
+      <div>
+        <button id="openSettingsButton">
+          Open All Settings
+        </button>
+      </div>
+      <div id="power">
+        <input id="powerCheckbox" type="checkbox" />
+        <label for="powerCheckbox">
+          <img id="powerImage" src="" alt="" width="20" />
+        </label>
+      </div>
+    </div>
+  </div>
+  <div id="links">
+    <a href="../guide/index.html" target="_blank">Guide</a>
+    <a href="https://getindie.wiki" target="_blank">Website</a>
+    <a href="https://getindie.wiki/changelog/" target="_blank">Changelog</a>
+    <a href="https://getindie.wiki/#submit" target="_blank">Submit a Wiki</a>
+    <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source Code</a>
+  </div>
+  <div id="notificationBannerContainer">
+    <span id="notificationBannerOpera">
+      Opera users: By default, Opera will block extensions from running on search engines.
+      Search engine access can be enabled per-extension by going to "about:extensions"
+      and selecting the "Allow access to search page results" option under Indie Wiki Buddy.
+      <a id="operaPermsHideLink" href="#">Hide this message</a>
+    </span>
+  </div>
+  <div id="content">
+    <form name="options" class="options">
+      <fieldset id="defaultSettings">
+        <legend><span aria-hidden="true">⚙️</span> Default behaviors (apply to all current and new wikis in future
+          updates)</legend>
+        <div role="radiogroup" aria-labelledby="defaultWikiActionLabel">
+          <span id="defaultWikiActionLabel">When visiting Fandom/Fextralife wikis:</span>
+          <div class="radioGroup horizontal">
+            <label>
+              <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled" />
+              <img src="../../images/toggle-disabled.png" height="12" alt="" />
+              Do nothing
+            </label>
+            <label>
+              <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert" />
+              <img src="../../images/toggle-alert.png" height="12" alt="" />
+              Show banner linking to indie wiki
+            </label>
+            <label>
+              <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect" />
+              <img src="../../images/toggle-redirect.png" height="12" alt="" />
+              Redirect to indie wiki
+            </label>
+          </div>
+        </div>
+        <div role="radiogroup" aria-labelledby="defaultSearchActionLabel">
+          <span id="defaultSearchActionLabel">On search engines, when you see non-indie results with indie alternatives:</span>
+          <div class="radioGroup horizontal">
+            <label>
+              <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled" />
+              <img src="../../images/toggle-disabled.png" height="12" alt="" />
+              Do nothing
+            </label>
+            <label>
+              <input id="defaultSearchActionAlertRadio" type="radio" name="defaultSearchAction" value="replace" />
+              <img src="../../images/toggle-replace.png" height="12" alt="" />
+              Replace non-indie results
+            </label>
+            <label>
+              <input id="defaultSearchActionRedirectRadio" type="radio" name="defaultSearchAction" value="hide" />
+              <img src="../../images/toggle-hide.png" height="12" alt="" />
+              Hide non-indie results
+            </label>
+          </div>
+        </div>
+        <div class="center">
+          Visit <a id="openSettingsLink" href="#">all settings</a> to change behavior per-wiki.
+          <br />
+          Clicking an option above will override any per-wiki customizations you may have.
+        </div>
+      </fieldset>
+      <fieldset id="generalSettings">
+        <legend><span aria-hidden="true">⚙️</span> General settings</legend>
+        <div class="settingToggle">
+          <label>
+            <input id="notificationsCheckbox" type="checkbox" />
+            <span id="notificationsIcon" aria-hidden="true"></span>
+            Desktop notifications for
+            redirections
+          </label>
+        </div>
+        <div class="settingToggle">
+          <label>
+            <input id="hiddenResultsBannerCheckbox" type="checkbox" />
+            <span id="hiddenResultsBannerIcon" aria-hidden="true"></span>
+            On search engines, show banner when
+            Fandom/Fextralife results are hidden
+          </label>
+        </div>
+        <div class="settingToggle">
+          <label>
+            <input id="crossLanguageCheckbox" type="checkbox" />
+            <span id="crossLanguageIcon" aria-hidden="true"></span>
+            Redirect non-English Fandom wikis to
+            indie English wikis there is no same-lang wiki
+          </label>
+        </div>
+        <div class="settingToggle">
+          <label>
+            <input id="openChangelogCheckbox" type="checkbox" />
+            <span id="openChangelogIcon" aria-hidden="true"></span>
+            Open changelog when Indie Wiki Buddy is updated
+          </label>
+        </div>
+      </fieldset>
+      <fieldset id="breezewikiSettings">
+        <legend>
+          <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore" href="https://breezewiki.com/"
+            target="_blank">learn more</a>)
+        </legend>
+        <div role="radiogroup">
+          <div class="radioGroup vertical">
+            <label>
+              <input id="breeezwikiSettingDisabledRadio" type="radio" name="breezewikiSetting" value="off" />
+              <img src="../../images/toggle-disabled.png" height="12" alt="" />
+              BreezeWiki off
+            </label>
+            <label>
+              <input id="breezewikiSettingBannerRadio" type="radio" name="breezewikiSetting" value="banner" />
+              <img src="../../images/toggle-alert.png" height="12" alt="" />
+              Insert banner link to take you to BreezeWiki
+            </label>
+            <label>
+              <input id="breezewikiSettingRedirectRadio" type="radio" name="breezewikiSetting" value="redirect" />
+              <img src="../../images/toggle-redirect.png" height="12" alt="" />
+              Automatically redirect Fandom to BreezeWiki
+            </label>
+          </div>
+        </div>
+        <div id="breezewikiHost" class="settingToggle">
+          <label>
+            BreezeWiki host:
+            <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+          </label>
+          <label id="breezewikiCustomHost">
+            Custom BreezeWiki domain:
+            <input disabled type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="See full settings page" size="30" />
+            <span id="breezewikiCustomHostStatus">Change custom domain on <a href="../settings/index.html" target="_blank">full settings page</a></span>
+          </label>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</body>
+<script type="text/javascript" src="../../scripts/common-functions.js"></script>
+<script type="text/javascript" src="../common-page-functions.js"></script>
+<script type="text/javascript" src="popup.js"></script>
+
+</html>

@@ -6,14 +6,16 @@
       {
         "origin": "amiibopedia Fandom Wiki",
         "origin_base_url": "amiibo.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Amiibopedia"
       }
     ],
     "destination": "amiibopedia",
     "destination_base_url": "es.amiibopedia.com",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "amiibopedia.png"
+    "destination_icon": "amiibopedia.png",
+    "destination_main_page": "Amiibopedia",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "es-animalcrossing",
@@ -22,46 +24,121 @@
       {
         "origin": "Animal Crossing Fandom Wiki",
         "origin_base_url": "animalcrossing.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portada"
       }
     ],
     "destination": "Animal Crossing Enciclopedia",
     "destination_base_url": "animalcrossing.wikidex.net",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "animalcrossing.png"
+    "destination_icon": "animalcrossing.png",
+    "destination_main_page": "Portada",
+    "destination_search_path": "/index.php"
   },
   {
-    "id": "es-supersmashbros",
-    "origins_label": "Smashpedia Fandom Wiki",
+    "id": "es-ark",
+    "origins_label": "ARK Fandom Wiki",
     "origins": [
       {
-        "origin": "Smashpedia Fandom Wiki",
-        "origin_base_url": "supersmashbros.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
       }
     ],
-    "destination": "SmashPedia",
-    "destination_base_url": "es.ssbwiki.com",
-    "destination_content_path": "/wiki/",
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/es",
     "destination_platform": "mediawiki",
-    "destination_icon": "smashpedia.png"
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
-    "id": "es-touhou",
-    "origins_label": "Touhou Fandom Wiki",
+    "id": "es-calamitymod",
+    "origins_label": "Calamity Mod Fandom Wiki",
     "origins": [
       {
-        "origin": "Touhou Fandom Wiki",
-        "origin_base_url": "touhou.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin": "Calamity Mod Fandom Wiki",
+        "origin_base_url": "calamitymod.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Calamity_Mod"
       }
     ],
-    "destination": "Touhou Wiki",
-    "destination_base_url": "es.touhouwiki.net",
-    "destination_content_path": "/wiki/",
+    "destination": "Wiki Calamity Mod Oficial",
+    "destination_base_url": "calamitymod.wiki.gg/es",
     "destination_platform": "mediawiki",
-    "destination_icon": "touhouwiki.png"
+    "destination_icon": "wikicalamitymodoficial.png",
+    "destination_main_page": "Wiki_Calamity_Mod_en_Español",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "es-coromon",
+    "origins_label": "Coromon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Coromon Fandom Wiki",
+        "origin_base_url": "coromon.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Coromon_Wiki"
+      }
+    ],
+    "destination": "Coromon Wiki",
+    "destination_base_url": "coromon.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "coromonwiki.png",
+    "destination_main_page": "Coromon_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "es-deeprockgalactic",
+    "origins_label": "Deep Rock Galactic Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Deep Rock Galactic Fandom Wiki",
+        "origin_base_url": "deeprockgalactic.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deep_Rock_Galactic_Wiki"
+      }
+    ],
+    "destination": "Deep Rock Galactic Wiki",
+    "destination_base_url": "deeprockgalactic.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deeprockgalacticwiki.png",
+    "destination_main_page": "Deep_Rock_Galactic_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "es-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "es.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
   },
   {
     "id": "es-pokemon",
@@ -70,13 +147,91 @@
       {
         "origin": "Pokémon Fandom Wiki",
         "origin_base_url": "pokemon.fandom.com/es",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pokémon_Wiki"
       }
     ],
     "destination": "WikiDex",
     "destination_base_url": "www.wikidex.net",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "wikidex.png"
+    "destination_icon": "wikidex.png",
+    "destination_main_page": "WikiDex",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "es-splatoon",
+    "origins_label": "Splatoon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Splatoon Fandom Wiki",
+        "origin_base_url": "splatoon.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Splatoon_Wiki"
+      }
+    ],
+    "destination": "Inkipedia ES",
+    "destination_base_url": "es.splatoonwiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "inkipedia.png",
+    "destination_main_page": "Página_principal",
+    "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "es-supersmashbros",
+    "origins_label": "Smashpedia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Smashpedia Fandom Wiki",
+        "origin_base_url": "supersmashbros.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Smashpedia"
+      }
+    ],
+    "destination": "SmashPedia",
+    "destination_base_url": "es.ssbwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "smashpedia.png",
+    "destination_main_page": "SmashPedia",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "es-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Terraria"
+      }
+    ],
+    "destination": "Terraria Wiki",
+    "destination_base_url": "terraria.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "es-touhou",
+    "origins_label": "Touhou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Touhou Fandom Wiki",
+        "origin_base_url": "touhou.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Página_principal"
+      }
+    ],
+    "destination": "Touhou Wiki",
+    "destination_base_url": "es.touhouwiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "touhouwiki.png",
+    "destination_main_page": "Touhou_Wiki",
+    "destination_search_path": "/index.php"
   }
 ]

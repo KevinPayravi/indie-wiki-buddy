@@ -1,35 +1,25 @@
 [
   {
-    "id": "it-pokemon",
-    "origins_label": "Analisi Pokémon Fandom Wiki",
+    "id": "it-ark",
+    "origins_label": "ARK Fandom Wiki",
     "origins": [
       {
-        "origin": "Analisi Pokémon Fandom Wiki",
-        "origin_base_url": "pokemon.fandom.com/it",
-        "origin_content_path": "/wiki/"
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark.fandom.com/it",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
       }
     ],
-    "destination": "Pokémon Central Wiki",
-    "destination_base_url": "wiki.pokemoncentral.it",
-    "destination_content_path": "/",
+    "destination": "ARK Wiki",
+    "destination_base_url": "ark.wiki.gg/it",
     "destination_platform": "mediawiki",
-    "destination_icon": "pokemoncentral.png"
-  },
-  {
-    "id": "it-mario",
-    "origins_label": "Mario Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Mario Fandom Wiki",
-        "origin_base_url": "mario.fandom.com/it",
-        "origin_content_path": "/wiki/"
-      }
-    ],
-    "destination": "Super Mario Wiki",
-    "destination_base_url": "www.mariowiki.it",
-    "destination_content_path": "/",
-    "destination_platform": "mediawiki",
-    "destination_icon": "supermariowiki.png"
+    "destination_icon": "arkwiki.png",
+    "destination_main_page": "ARK_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
   },
   {
     "id": "it-earthbound",
@@ -38,13 +28,51 @@
       {
         "origin": "EarthBound Fandom Wiki",
         "origin_base_url": "earthbound.fandom.com/it",
-        "origin_content_path": "/wiki/"
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "EarthBound_Wiki"
       }
     ],
     "destination": "WikiBound",
     "destination_base_url": "it.wikibound.info",
-    "destination_content_path": "/wiki/",
     "destination_platform": "mediawiki",
-    "destination_icon": "wikibound.png"
+    "destination_icon": "wikibound.png",
+    "destination_main_page": "Pagina_principale",
+    "destination_search_path": "/w/index.php"
+  },
+  {
+    "id": "it-mario",
+    "origins_label": "Mario Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Mario Fandom Wiki",
+        "origin_base_url": "mario.fandom.com/it",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mario_Wiki"
+      }
+    ],
+    "destination": "Super Mario Wiki",
+    "destination_base_url": "www.mariowiki.it",
+    "destination_platform": "mediawiki",
+    "destination_icon": "supermariowiki.png",
+    "destination_main_page": "Pagina_principale",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "it-pokemon",
+    "origins_label": "Analisi Pokémon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Analisi Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/it",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Analisi_Pokémon_Wiki"
+      }
+    ],
+    "destination": "Pokémon Central Wiki",
+    "destination_base_url": "wiki.pokemoncentral.it",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pokemoncentral.png",
+    "destination_main_page": "Home",
+    "destination_search_path": "/index.php"
   }
 ]

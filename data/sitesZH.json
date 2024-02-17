@@ -1,0 +1,133 @@
+[
+  {
+    "id": "zh-acecombat",
+    "origins_label": "空戰奇兵 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "空戰奇兵 Fandom Wiki",
+        "origin_base_url": "acecombat.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "首頁"
+      }
+    ],
+    "destination": "空戰奇兵 (Ace Combat) Wiki",
+    "destination_base_url": "acecombat.wiki.gg/zh",
+    "destination_platform": "mediawiki",
+    "destination_icon": "acecombatwiki.png",
+    "destination_main_page": "Ace_Combat_中文_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "zh-calamitymod",
+    "origins_label": "Calamity Mod Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Calamity Mod Fandom Wiki",
+        "origin_base_url": "terraria-calamity-mod.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Calamity_Mod_中文_Wiki"
+      }
+    ],
+    "destination": "Calamity Mod Wiki",
+    "destination_base_url": "calamitymod.wiki.gg/zh",
+    "destination_platform": "mediawiki",
+    "destination_icon": "calamitymodwiki.png",
+    "destination_main_page": "Calamity_Mod_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "zh-fridaynightfunkin",
+    "origins_label": "Friday Night Funkin' Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Friday Night Funkin' Fandom Wiki",
+        "origin_base_url": "fridaynightfunkin.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Friday_Night_Funkin'_Wiki"
+      }
+    ],
+    "destination": "Friday Night Funkin Wiki",
+    "destination_base_url": "fridaynightfunkin.wiki.gg/zh",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fridaynightfunkinwiki.png",
+    "destination_main_page": "Friday_Night_Funkin'_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "zh-minecraft",
+    "origins_label": "Minecraft Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      },
+      {
+        "origin": "Minecraft Fandom Wiki (Archived)",
+        "origin_base_url": "minecraft-archive.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "zh.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/"
+  },
+  {
+    "id": "zh-noita",
+    "origins_label": "Noita中文 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Noita中文 Fandom Wiki",
+        "origin_base_url": "noita.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Noita_Wiki"
+      }
+    ],
+    "destination": "Noita Wiki",
+    "destination_base_url": "noita.wiki.gg/zh",
+    "destination_platform": "mediawiki",
+    "destination_icon": "noitawiki.png",
+    "destination_main_page": "Noita_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "zh-terraria",
+    "origins_label": "Terraria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Terraria Fandom Wiki",
+        "origin_base_url": "terraria.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terraria_Wiki"
+      }
+    ],
+    "destination": "Terraria Wiki",
+    "destination_base_url": "terraria.wiki.gg/zh",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrariawiki.png",
+    "destination_main_page": "Terraria_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  }
+]
