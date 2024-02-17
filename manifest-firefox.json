@@ -9,6 +9,7 @@
     "scripting",
     "https://*.fandom.com/*",
     "https://*.fextralife.com/*",
+    "https://*.neoseeker.com/*",
     "https://breezewiki.com/*",
     "https://antifandom.com/*",
     "https://bw.projectsegfau.lt/*",
@@ -70,6 +71,7 @@
       "matches": [
         "https://*.fandom.com/*",
         "https://*.fextralife.com/*",
+        "https://*.neoseeker.com/*",
         "https://breezewiki.com/*",
         "https://antifandom.com/*",
         "https://bw.projectsegfau.lt/*",

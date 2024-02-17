@@ -506,7 +506,10 @@ function main(mutations = null, observer = null) {
         if (currentURL.hostname.includes('www.google.')) {
           // Function to filter search results in Google
           function filterGoogle() {
-            let searchResults = document.querySelectorAll("div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']), div[data-hveid] a[href*='.fextralife.com/']:first-of-type:not([role='button']):not([target='_self'])");
+            let searchResults = document.querySelectorAll(`
+              div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']),
+              div[data-hveid] a[href*='.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
+              div[data-hveid] a[href*='.neoseeker.com/']:first-of-type:not([role='button']):not([target='_self'])`);
             filterSearchResults(searchResults, 'google', storage);
           }
 
@@ -523,7 +526,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
           // Function to filter search results in DuckDuckGo
           function filterDuckDuckGo() {
-            let searchResults = document.querySelectorAll('h2>a[href*="fandom.com"], h2>a[href*="fextralife.com"]');
+            let searchResults = document.querySelectorAll('h2>a[href*="fandom.com"], h2>a[href*="fextralife.com"], h2>a[href*="neoseeker.com"]');
             filterSearchResults(searchResults, 'duckduckgo', storage);
           }
 
@@ -548,7 +551,7 @@ function main(mutations = null, observer = null) {
                 if (encodedLink.href.includes('https://www.bing.com/ck/')) {
                   try {
                     let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                    if (decodedLink.includes('fandom.com') || decodedLink.includes('fextralife.com')) {
+                    if (decodedLink.includes('fandom.com') || decodedLink.includes('fextralife.com') || decodedLink.includes('neoseeker.com')) {
                       searchResult.href = decodedLink;
                       searchResults.push(searchResult);
                     }
@@ -577,7 +580,10 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('search.brave.com')) {
           // Function to filter search results in Brave
           function filterBrave() {
-            let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el =>
+              el.innerHTML.includes('fandom.com') ||
+              el.innerHTML.includes('fextralife.com') ||
+              el.innerHTML.includes('neoseeker.com'));
             filterSearchResults(searchResults, 'brave', storage);
           }
 
@@ -594,7 +600,10 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('ecosia.org')) {
           // Function to filter search results in Ecosia
           function filterEcosia() {
-            let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el =>
+              el.href?.includes('fandom.com') ||
+              el.href?.includes('fextralife.com') ||
+              el.href?.includes('neoseeker.com'));
             filterSearchResults(searchResults, 'ecosia', storage);
           }
 
@@ -611,7 +620,10 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('startpage.com')) {
           // Function to filter search results in Startpage
           function filterStartpage() {
-            let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el =>
+              el.href?.includes('fandom.com') ||
+              el.href?.includes('fextralife.com') ||
+              el.href?.includes('neoseeker.com'));
             filterSearchResults(searchResults, 'startpage', storage);
           }
 
@@ -628,7 +640,10 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('yahoo.com')) {
           // Function to filter search results in Yahoo
           function filterYahoo() {
-            let searchResults = Array.from(document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)')).filter(el =>
+              el.href?.includes('fandom.com') ||
+              el.href?.includes('fextralife.com') ||
+              el.href?.includes('neoseeker.com'));
             filterSearchResults(searchResults, 'yahoo', storage);
           }
 
