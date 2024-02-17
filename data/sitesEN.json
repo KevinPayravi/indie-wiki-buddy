@@ -1391,7 +1391,7 @@
   },
   {
     "id": "en-earthbound",
-    "origins_label": "EarthBound Fandom Wiki & Mother Neoseeker Wiki",
+    "origins_label": "EarthBound Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "EarthBound Fandom Wiki",
@@ -1531,7 +1531,7 @@
   },
   {
     "id": "en-evangelion",
-    "origins_label": "Evangelion Fandom Wiki & Neon Genesis Evangelion Neoseeker Wiki",
+    "origins_label": "Evangelion Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Evangelion Fandom Wiki",
@@ -1576,7 +1576,7 @@
   },
   {
     "id": "en-fallout",
-    "origins_label": "Fallout Fandom Wiki (Nukapedia) & Fallout Neoseeker Wiki",
+    "origins_label": "Fallout Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Fallout Fandom Wiki (Nukapedia)",
@@ -2147,7 +2147,7 @@
   },
   {
     "id": "en-halflife",
-    "origins_label": "Half-Life & Portal Fandom Wiki and Half-Life Neoseeker Wiki",
+    "origins_label": "Half-Life Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Half-Life & Portal Fandom Wiki",
@@ -2171,7 +2171,7 @@
   },
   {
     "id": "en-halo",
-    "origins_label": "Halo Alpha Fandom Wiki & Halo Neoseeker Wiki",
+    "origins_label": "Halo Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Halo Alpha Fandom Wiki",
@@ -5084,7 +5084,7 @@
   },
   {
     "id": "en-warhammer40k",
-    "origins_label": "Warhammer 40,000 Fandom Wiki & Warhammer Neoseeker Wiki",
+    "origins_label": "Warhammer Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Warhammer 40,000 Fandom Wiki",
