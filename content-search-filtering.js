@@ -497,47 +497,15 @@ function main(mutations = null, observer = null) {
               filterSearchResults(searchResults, 'qwant', storage);
             }
 
-            function registerQwantObserver() {
-              const targetElement = document.querySelector('section[data-testid=containerWeb]');
-              if (qwantObserver || !(targetElement instanceof Node)) return;
-              // Create observer to watch for changes  in search results (Qwant does not reload the page when searching)
-              qwantObserver = new MutationObserver((mutationList, _) => {
-                for (const mutation of mutationList) {
-                  if (mutation.addedNodes.length > 0 && mutation.previousSibling != null) {
-                    // Reset list of filtered wikis
-                    filteredWikis = [];
-                  }
-                }
-              });
-  
-              qwantObserver.observe(targetElement, { childList: true, attributes: false, subtree: false });
-            }
-
             // Wait for document to be interactive/complete:
             if (['interactive', 'complete'].includes(document.readyState)) {
               filterQwant();
-              registerQwantObserver();
             } else {
               document.addEventListener('readystatechange', e => {
                 if (['interactive', 'complete'].includes(document.readyState)) {
                   filterQwant();
-                  registerQwantObserver();
                 }
               }, { once: true });
-            }
-
-            // Create observer to watch for changes in search results (Qwant does not reload the page when searching)
-            if (!observer) {
-              const observer = new MutationObserver((mutationList, _) => {
-                for (const mutation of mutationList) {
-                  if (mutation.addedNodes.length > 0 && mutation.previousSibling != null) {
-                    // Reset list of filtered wikis
-                    filteredWikis = [];
-                  }
-                }
-              });
-  
-              observer.observe(document.querySelector('section[data-testid=containerWeb]'), { childList: true, attributes: false, subtree: false });
             }
           } else if (currentURL.hostname.includes('startpage.com')) {
             // Function to filter search results in Startpage
