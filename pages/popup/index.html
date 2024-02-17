@@ -163,8 +163,12 @@
     }
 
     #links {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1.5em;
       background-color: #ceeaff;
       padding: .5rem 1rem;
+      white-space: nowrap;
     }
 
     /* SETTINGS */
@@ -196,6 +200,10 @@
     .radioGroup.vertical {
       flex-direction: column;
       gap: .5em;
+    }
+
+    #breeezwikiLearnMore {
+      white-space: nowrap;
     }
 
     #breezewikiHost {
@@ -273,14 +281,10 @@
   </div>
   <div id="links">
     <a href="../guide/index.html" target="_blank">Guide</a>
-    &nbsp;&nbsp;&nbsp;
     <a href="https://getindie.wiki" target="_blank">Website</a>
-    &nbsp;&nbsp;&nbsp;
     <a href="https://getindie.wiki/changelog/" target="_blank">Changelog</a>
-    &nbsp;&nbsp;&nbsp;
-    <a href="https://getindie.wiki/#submit" target="_blank">Submit&nbsp;a&nbsp;Wiki</a>
-    &nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source&nbsp;Code</a>
+    <a href="https://getindie.wiki/#submit" target="_blank">Submit a Wiki</a>
+    <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source Code</a>
   </div>
   <div id="notificationBannerContainer">
     <span id="notificationBannerOpera">
@@ -377,8 +381,8 @@
       </fieldset>
       <fieldset id="breezewikiSettings">
         <legend>
-          <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a href="https://breezewiki.com/"
-            target="_blank">learn&nbsp;more</a>)
+          <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore" href="https://breezewiki.com/"
+            target="_blank">learn more</a>)
         </legend>
         <div role="radiogroup">
           <div class="radioGroup vertical">

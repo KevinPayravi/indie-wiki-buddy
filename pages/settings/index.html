@@ -135,8 +135,12 @@
     }
 
     #links {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1.5em;
       background-color: #e5f4ff;
       padding: .5rem 1rem;
+      white-space: nowrap;
     }
 
     #firstInstallInfo {
@@ -180,6 +184,11 @@
       border-top: 1px solid #005799;
     }
 
+    #notificationBannerReviewLinks {
+      display: flex;
+      column-gap: 1em;
+    }
+
     /* SETTINGS SECTION */
     .options {
       box-sizing: border-box;
@@ -215,6 +224,10 @@
 
     #searchFilteringSettings>div {
       display: inline-block;
+    }
+
+    #breeezwikiLearnMore {
+      white-space: nowrap;
     }
 
     #breezewikiHost {
@@ -265,9 +278,17 @@
       gap: 5px;
     }
 
-    #langSelectContainer, #filterInputContainer {
-      margin: 1em 0;
-      text-align: center;
+    #wikiFiltersContainer {
+      display: grid;
+      gap: 0.5em;
+      grid-template-columns: 1fr 1fr;
+      margin: 1em auto;
+      width: 30em;
+    }
+
+    #wikiFiltersContainer div {
+      text-align: right;
+      align-self: end;
     }
 
     .toggles {
@@ -482,14 +503,10 @@
     </div>
     <div id="links">
       <a href="../guide/index.html">Guide</a>
-      &nbsp;&nbsp;&nbsp;
       <a href="https://getindie.wiki" target="_blank">Website</a>
-      &nbsp;&nbsp;&nbsp;
       <a href="https://getindie.wiki/changelog/" target="_blank">Changelog</a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="https://getindie.wiki/#submit" target="_blank">Submit&nbsp;a&nbsp;Wiki</a>
-      &nbsp;&nbsp;&nbsp;
-      <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source&nbsp;Code</a>
+      <a href="https://getindie.wiki/#submit" target="_blank">Submit a Wiki</a>
+      <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source Code</a>
     </div>
     <div id="notificationBannerContainer">
       <span id="notificationBannerOpera">
@@ -500,15 +517,16 @@
       </span>
       <span id="notificationBannerReview">
         Enjoying Indie Wiki Buddy? Please leave a review!
+        <div id="notificationBannerReviewLinks">
+          <a id="reviewReminderChromeLink" target="_blank"
+            href="https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm">Chrome</a>
+          <div>|</div>
+          <a id="reviewReminderFirefoxLink" target="_blank"
+            href="https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/">Firefox</a>
+          <div>|</div>
+          <a id="reviewReminderHideLink" href="#">Hide this message</a>
+        </div>
         <br />
-        <a id="reviewReminderChromeLink" target="_blank"
-          href="https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm">Chrome</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a id="reviewReminderFirefoxLink" target="_blank"
-          href="https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/">Firefox</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a id="reviewReminderHideLink" href="#">Hide this message</a>
-        <br /><br />
         Having issues or ideas for improvement? Please <a target="_blank" href="https://getindie.wiki/#contact">contact
           me</a>!
       </span>
@@ -587,8 +605,8 @@
         </fieldset>
         <fieldset id="breezewikiSettings">
           <legend>
-            <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a href="https://breezewiki.com/"
-              target="_blank">learn&nbsp;more</a>)
+            <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore" href="https://breezewiki.com/"
+              target="_blank">learn more</a>)
           </legend>
           <div role="radiogroup">
             <div class="radioGroup vertical">
@@ -659,8 +677,8 @@
             </div>
           </div>
         </fieldset>
-        <div id="langSelectContainer">
-          Filter wikis by language:&nbsp;
+        <div id="wikiFiltersContainer">
+          <div id="langSelectCaption">Filter wikis by language:</div>
           <select name="lang" id="langSelect">
             <option value="ALL" selected>All languages</option>
             <option value="DE">German / Deutsch (DE)</option>
@@ -679,13 +697,9 @@
             <option value="TOK">Toki Pona (TOK)</option>
             <option value="UK">Ukrainian / Українська (UK)</option>
             <option value="ZH">Chinese / 中文 (ZH)</option>
-          </select>
-        </div>
-        <div id="filterInputContainer">
-          <label>
-            Filter wikis by name:
-            <input id="filterInput" type="text" name="filterInput" placeholder="Enter wiki name..." />
-          </label>
+            </select>
+          <div id="filterInputCaption">Filter wikis by name:</div>
+          <input id="filterInput" type="text" name="filterInput" placeholder="Enter wiki name..." />
         </div>
         <div class="sticky">
           <div id="togglesColumnLabels" class="toggles">
