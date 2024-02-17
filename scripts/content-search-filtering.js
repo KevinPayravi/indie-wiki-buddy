@@ -1,5 +1,4 @@
 const currentURL = new URL(document.location);
-let filteredWikis = [];
 let hiddenWikisRevealed = {};
 
 // Create object prototypes for getting and setting attributes:
@@ -235,11 +234,9 @@ function replaceSearchResults(searchResultContainer, site, link) {
 }
 
 function hideSearchResults(searchResultContainer, searchEngine, site, showBanner = 'on') {
-  // Insert search result removal notice
-  if (showBanner === 'on' && !filteredWikis.includes(site.language + ' ' + site.origin)) {
-    filteredWikis.push(site.language + ' ' + site.origin);
-
-    let elementId = stringToId(site.language + '-' + site.origin);
+  // Insert search result removal notice, if enabled and not already injected
+  let elementId = stringToId(site.language + '-' + site.origin);
+  if (showBanner === 'on' && !document.getElementById('iwb-notice-' + elementId)) {
     hiddenWikisRevealed[elementId] = false;
 
     // Using aside to avoid conflicts with website CSS and listeners:
@@ -385,8 +382,10 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
 
   for (let searchResult of searchResults) {
     try {
-      // Check that result isn't within another result
-      if (!searchResult.closest('.iwb-detected')) {
+      // Check that result isn't within another result,
+      // and if it is, check that the redirect button is still there
+      // (some search engines will re-render and overwrite the button)
+      if (!searchResult.closest('.iwb-detected') || !searchResult.closest('.iwb-detected').querySelector('.iwb-new-link-container')) {
         searchResultLink = searchResult.href || '';
 
         if (!searchResultLink) {
@@ -427,12 +426,12 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
 
           if (searchFilterSetting !== 'disabled') {
             // Output stylesheet if not already done
-            if (filteredWikis.length === 0) {
-              // Wait for head to be available
+            if (!document.querySelector('.iwb-styles')) {
               const headElement = document.querySelector('head');
-              if (headElement && !document.querySelector('.iwb-styles')) {
+              if (headElement) {
                 insertCSS();
               } else {
+                // If head element doesn't exist, wait for it via MutationObserver
                 const docObserver = new MutationObserver((mutations, mutationInstance) => {
                   const headElement = document.querySelector('head');
                   if (headElement && !document.querySelector('.iwb-styles')) {
