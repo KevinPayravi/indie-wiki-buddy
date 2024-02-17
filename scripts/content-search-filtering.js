@@ -487,7 +487,11 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
       console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
     }
   };
+
+  // Add location observer to check for additional mutations
   addLocationObserver(main);
+
+  // If any results were filtered, update search filter count
   if (countFiltered > 0) {
     chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
   }
@@ -508,8 +512,8 @@ function main(mutations = null, observer = null) {
           function filterGoogle() {
             let searchResults = document.querySelectorAll(`
               div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']),
-              div[data-hveid] a[href*='.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
-              div[data-hveid] a[href*='.neoseeker.com/']:first-of-type:not([role='button']):not([target='_self'])`);
+              div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
+              div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`);
             filterSearchResults(searchResults, 'google', storage);
           }
 
@@ -526,7 +530,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
           // Function to filter search results in DuckDuckGo
           function filterDuckDuckGo() {
-            let searchResults = document.querySelectorAll('h2>a[href*="fandom.com"], h2>a[href*="fextralife.com"], h2>a[href*="neoseeker.com"]');
+            let searchResults = document.querySelectorAll('h2>a[href*=".fandom.com"], h2>a[href*=".wiki.fextralife.com"], h2>a[href*=".neoseeker.com/wiki/"]');
             filterSearchResults(searchResults, 'duckduckgo', storage);
           }
 
@@ -551,7 +555,7 @@ function main(mutations = null, observer = null) {
                 if (encodedLink.href.includes('https://www.bing.com/ck/')) {
                   try {
                     let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                    if (decodedLink.includes('fandom.com') || decodedLink.includes('fextralife.com') || decodedLink.includes('neoseeker.com')) {
+                    if (decodedLink.includes('.fandom.com') || decodedLink.includes('.wiki.fextralife.com') || decodedLink.includes('.neoseeker.com/wiki/')) {
                       searchResult.href = decodedLink;
                       searchResults.push(searchResult);
                     }
@@ -581,9 +585,9 @@ function main(mutations = null, observer = null) {
           // Function to filter search results in Brave
           function filterBrave() {
             let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el =>
-              el.innerHTML.includes('fandom.com') ||
-              el.innerHTML.includes('fextralife.com') ||
-              el.innerHTML.includes('neoseeker.com'));
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
             filterSearchResults(searchResults, 'brave', storage);
           }
 
@@ -601,9 +605,9 @@ function main(mutations = null, observer = null) {
           // Function to filter search results in Ecosia
           function filterEcosia() {
             let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el =>
-              el.href?.includes('fandom.com') ||
-              el.href?.includes('fextralife.com') ||
-              el.href?.includes('neoseeker.com'));
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
             filterSearchResults(searchResults, 'ecosia', storage);
           }
 
@@ -621,9 +625,9 @@ function main(mutations = null, observer = null) {
           // Function to filter search results in Startpage
           function filterStartpage() {
             let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el =>
-              el.href?.includes('fandom.com') ||
-              el.href?.includes('fextralife.com') ||
-              el.href?.includes('neoseeker.com'));
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
             filterSearchResults(searchResults, 'startpage', storage);
           }
 
@@ -641,9 +645,9 @@ function main(mutations = null, observer = null) {
           // Function to filter search results in Yahoo
           function filterYahoo() {
             let searchResults = Array.from(document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)')).filter(el =>
-              el.href?.includes('fandom.com') ||
-              el.href?.includes('fextralife.com') ||
-              el.href?.includes('neoseeker.com'));
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
             filterSearchResults(searchResults, 'yahoo', storage);
           }
 
