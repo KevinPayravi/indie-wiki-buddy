@@ -61,6 +61,7 @@
         "https://search.brave.com/search*",
         "https://*.duckduckgo.com/*",
         "https://*.ecosia.org/*",
+        "https://*.qwant.com/*",
         "https://*.startpage.com/*",
         "https://*.search.yahoo.com/*",
         "https://www.google.com/search*",
