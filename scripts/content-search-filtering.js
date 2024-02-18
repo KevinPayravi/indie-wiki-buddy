@@ -706,7 +706,6 @@ function main(mutations = null, observer = null) {
                     const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
                     const match = searchResult.href.match(embeddedUrlRegex);
                     const extractedURL = decodeURIComponent(match && match[1]); 
-                    console.log(extractedURL);
 
                     if (extractedURL.includes('.fandom.com') || extractedURL.includes('.wiki.fextralife.com') || extractedURL.includes('.neoseeker.com/wiki/')) {
                       searchResult.href = extractedURL;
