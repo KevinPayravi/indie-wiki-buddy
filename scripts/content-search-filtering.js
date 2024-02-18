@@ -696,10 +696,31 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('yahoo.com')) {
           // Function to filter search results in Yahoo
           function filterYahoo() {
-            let searchResults = Array.from(document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
+            let searchResultsEncoded = document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)');
+            let searchResults = [];
+            searchResultsEncoded.forEach((searchResult) => {
+              if (searchResult.href) {
+                if (searchResult.href.includes('https://r.search.yahoo.com/')) {
+                  try {
+                    // Extract the URL between "RU=" and "/RK="
+                    const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
+                    const match = searchResult.href.match(embeddedUrlRegex);
+                    const extractedURL = decodeURIComponent(match && match[1]); 
+                    console.log(extractedURL);
+
+                    if (extractedURL.includes('.fandom.com') || extractedURL.includes('.wiki.fextralife.com') || extractedURL.includes('.neoseeker.com/wiki/')) {
+                      searchResult.href = extractedURL;
+                      searchResults.push(searchResult);
+                    }
+                  } catch (e) {
+                    console.log('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
+                  }
+                } else {
+                  searchResults.push(searchResult);
+                }
+              }
+            });
+
             filterSearchResults(searchResults, 'yahoo', storage);
           }
 
