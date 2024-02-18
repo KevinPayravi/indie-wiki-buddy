@@ -480,7 +480,7 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
                 searchResultContainer = searchResult.closest('div.w-gl__result');
                 break;
               case 'yandex':
-                searchResultContainer = searchResult.closest('.serp-item');
+                searchResultContainer = searchResult.closest('.serp-item, .MMOrganicSnippet, .viewer-snippet');
                 break;
               case 'yahoo':
                 searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
@@ -676,7 +676,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
           // Function to filter search results in Yandex
           function filterYandex() {
-            let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link')).filter(el =>
+            let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el =>
               el.href?.includes('.fandom.com') ||
               el.href?.includes('.wiki.fextralife.com') ||
               el.href?.includes('.neoseeker.com/wiki/'));
