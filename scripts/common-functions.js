@@ -113,9 +113,10 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
     if (crossLanguageSetting === 'on') {
       matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url));
     } else {
-      matchingSites = sites.filter(el =>
-        site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
-        || site.replace(/.*https?:\/\//, '') === el.origin_base_url
+      matchingSites = sites.filter(el => {
+          return site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
+          || site.replace(/.*https?:\/\//, '').replace(/\/$/, '') === el.origin_base_url
+        }
       );
     }
     if (matchingSites.length > 0) {

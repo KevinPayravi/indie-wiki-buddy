@@ -18,14 +18,14 @@ function base64Decode(text) {
 // Function to create an observer to watch for mutations on search pages
 // This is used for search engines that paginate via JavaScript,
 // or overwrite their results and remove IWB's elements
-function addLocationObserver(callback) {
+function addDOMChangeObserver(callback) {
   const config = {
     attributes: false,
     childList: true,
     subtree: true
   }
-  const observer = new MutationObserver(callback);
-  observer.observe(document.body, config);
+  const domObserver = new MutationObserver(callback);
+  domObserver.observe(document.body, config);
 }
 
 function insertCSS() {
@@ -322,6 +322,10 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
       case 'startpage':
         document.querySelector('#main').prepend(searchRemovalNotice);
         break;
+      case 'yandex':
+        var searchResultsContainer = document.querySelector('#search-result') || document.querySelector('.main__content .content');
+        searchResultsContainer?.prepend(searchRemovalNotice);
+        break;
       case 'yahoo':
         if (document.querySelector('#web > ol')) {
           var li = document.createElement('li');
@@ -475,6 +479,9 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
               case 'startpage':
                 searchResultContainer = searchResult.closest('div.w-gl__result');
                 break;
+              case 'yandex':
+                searchResultContainer = searchResult.closest('.serp-item');
+                break;
               case 'yahoo':
                 searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
                 break;
@@ -497,7 +504,7 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
   };
 
   // Add location observer to check for additional mutations
-  addLocationObserver(main);
+  addDOMChangeObserver(main);
 
   // If any results were filtered, update search filter count
   if (countFiltered > 0) {
@@ -663,6 +670,26 @@ function main(mutations = null, observer = null) {
             document.addEventListener('readystatechange', e => {
               if (['interactive', 'complete'].includes(document.readyState)) {
                 filterStartpage();
+              }
+            }, { once: true });
+          }
+        } else if (currentURL.hostname.includes('yandex.com')) {
+          // Function to filter search results in Yandex
+          function filterYandex() {
+            let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'yandex', storage);
+          }
+
+          // Wait for document to be interactive/complete:
+          if (['interactive', 'complete'].includes(document.readyState)) {
+            filterYandex();
+          } else {
+            document.addEventListener('readystatechange', e => {
+              if (['interactive', 'complete'].includes(document.readyState)) {
+                filterYandex();
               }
             }, { once: true });
           }
