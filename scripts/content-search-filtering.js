@@ -673,7 +673,7 @@ function main(mutations = null, observer = null) {
               }
             }, { once: true });
           }
-        } else if (currentURL.hostname.includes('yandex.com')) {
+        } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
           // Function to filter search results in Yandex
           function filterYandex() {
             let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link')).filter(el =>
