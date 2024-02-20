@@ -3470,7 +3470,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "bulbapedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-portal",
