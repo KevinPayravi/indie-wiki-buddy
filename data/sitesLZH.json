@@ -1,0 +1,20 @@
+[
+  {
+    "id": "lzh-minecraft",
+    "origins_label": "礦藝大典",
+    "origins": [
+      {
+        "origin": "礦藝大典",
+        "origin_base_url": "minecraft.fandom.com",
+        "origin_content_path": "/lzh/wiki/",
+        "origin_main_page": "礦藝大典"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "lzh.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "礦藝大典",
+    "destination_search_path": "/"
+  }
+]
