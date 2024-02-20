@@ -14,7 +14,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
       }
     }
   },
-  { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*'], types: ['main_frame', 'sub_frame'] }
+  { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*', '*://*.neoseeker.com/wiki/*'], types: ['main_frame', 'sub_frame'] }
 );
 
 // Listen for user turning extension on or off, to update icon

@@ -1,5 +1,4 @@
 const currentURL = new URL(document.location);
-let filteredWikis = [];
 let hiddenWikisRevealed = {};
 
 // Create object prototypes for getting and setting attributes:
@@ -19,14 +18,14 @@ function base64Decode(text) {
 // Function to create an observer to watch for mutations on search pages
 // This is used for search engines that paginate via JavaScript,
 // or overwrite their results and remove IWB's elements
-function addLocationObserver(callback) {
+function addDOMChangeObserver(callback) {
   const config = {
     attributes: false,
     childList: true,
     subtree: true
   }
-  const observer = new MutationObserver(callback);
-  observer.observe(document.body, config);
+  const domObserver = new MutationObserver(callback);
+  domObserver.observe(document.body, config);
 }
 
 function insertCSS() {
@@ -235,11 +234,9 @@ function replaceSearchResults(searchResultContainer, site, link) {
 }
 
 function hideSearchResults(searchResultContainer, searchEngine, site, showBanner = 'on') {
-  // Insert search result removal notice
-  if (showBanner === 'on' && !filteredWikis.includes(site.language + ' ' + site.origin)) {
-    filteredWikis.push(site.language + ' ' + site.origin);
-
-    let elementId = stringToId(site.language + '-' + site.origin);
+  // Insert search result removal notice, if enabled and not already injected
+  let elementId = stringToId(site.language + '-' + site.origin);
+  if (showBanner === 'on' && !document.getElementById('iwb-notice-' + elementId)) {
     hiddenWikisRevealed[elementId] = false;
 
     // Using aside to avoid conflicts with website CSS and listeners:
@@ -319,8 +316,15 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
       case 'ecosia':
         document.querySelector('body').prepend(searchRemovalNotice);
         break;
+      case 'qwant':
+        document.querySelector('div[data-testid=sectionWeb]').prepend(searchRemovalNotice);
+        break;
       case 'startpage':
         document.querySelector('#main').prepend(searchRemovalNotice);
+        break;
+      case 'yandex':
+        var searchResultsContainer = document.querySelector('#search-result') || document.querySelector('.main__content .content');
+        searchResultsContainer?.prepend(searchRemovalNotice);
         break;
       case 'yahoo':
         if (document.querySelector('#web > ol')) {
@@ -390,12 +394,12 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
 
   if (searchFilterSetting !== 'disabled') {
     // Output stylesheet if not already done
-    if (filteredWikis.length === 0) {
-      // Wait for head to be available
+    if (!document.querySelector('.iwb-styles')) {
       const headElement = document.querySelector('head');
-      if (headElement && !document.querySelector('.iwb-styles')) {
+      if (headElement) {
         insertCSS();
       } else {
+        // If head element doesn't exist, wait for it via MutationObserver
         const docObserver = new MutationObserver((mutations, mutationInstance) => {
           const headElement = document.querySelector('head');
           if (headElement && !document.querySelector('.iwb-styles')) {
@@ -430,8 +434,17 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
       case 'ecosia':
         searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
         break;
+      case 'qwant':
+        if (searchResult.closest('div[data-testid=webResult]')) {
+          cssQuery = 'div[data-testid=webResult]';
+          searchResultContainer = searchResult.closest(cssQuery).parentElement;
+        }
+        break;
       case 'startpage':
         searchResultContainer = searchResult.closest('div.w-gl__result');
+        break;
+      case 'yandex':
+        searchResultContainer = searchResult.closest('.serp-item, .MMOrganicSnippet, .viewer-snippet');
         break;
       case 'yahoo':
         searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
@@ -550,8 +563,12 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
     } catch (e) {
       console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
     }
-  }
-  addLocationObserver(main);
+  };
+
+  // Add location observer to check for additional mutations
+  addDOMChangeObserver(main);
+
+  // If any results were filtered, update search filter count
   if (countFiltered > 0) {
     chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
   }
@@ -570,7 +587,10 @@ function main(mutations = null, observer = null) {
         if (currentURL.hostname.includes('www.google.')) {
           // Function to filter search results in Google
           function filterGoogle() {
-            let searchResults = document.querySelectorAll("div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']), div[data-hveid] a[href*='.fextralife.com/']:first-of-type:not([role='button']):not([target='_self'])");
+            let searchResults = document.querySelectorAll(`
+              div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']),
+              div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
+              div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`);
             filterSearchResults(searchResults, 'google', storage);
           }
 
@@ -594,7 +614,7 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
           // Function to filter search results in DuckDuckGo
           function filterDuckDuckGo() {
-            let searchResults = document.querySelectorAll('h2>a[href*="fandom.com"], h2>a[href*="fextralife.com"]');
+            let searchResults = document.querySelectorAll('h2>a[href*=".fandom.com"], h2>a[href*=".wiki.fextralife.com"], h2>a[href*=".neoseeker.com/wiki/"]');
             filterSearchResults(searchResults, 'duckduckgo', storage);
           }
 
@@ -619,7 +639,7 @@ function main(mutations = null, observer = null) {
                 if (encodedLink.href.includes('https://www.bing.com/ck/')) {
                   try {
                     let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                    if (decodedLink.includes('fandom.com') || decodedLink.includes('fextralife.com')) {
+                    if (decodedLink.includes('.fandom.com') || decodedLink.includes('.wiki.fextralife.com') || decodedLink.includes('.neoseeker.com/wiki/')) {
                       searchResult.href = decodedLink;
                       searchResults.push(searchResult);
                     }
@@ -648,7 +668,10 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('search.brave.com')) {
           // Function to filter search results in Brave
           function filterBrave() {
-            let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el => el.innerHTML.includes('fandom.com') || el.innerHTML.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
             filterSearchResults(searchResults, 'brave', storage);
           }
 
@@ -665,7 +688,10 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('ecosia.org')) {
           // Function to filter search results in Ecosia
           function filterEcosia() {
-            let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
             filterSearchResults(searchResults, 'ecosia', storage);
           }
 
@@ -679,10 +705,30 @@ function main(mutations = null, observer = null) {
               }
             }, { once: true });
           }
+        } else if (currentURL.hostname.includes('qwant.com')) {
+          // Function to filter search results in Qwant
+          function filterQwant() {
+            let searchResults = Array.from(document.querySelectorAll('a[data-testid=serTitle]')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+            filterSearchResults(searchResults, 'qwant', storage);
+          }
+
+          // Wait for document to be interactive/complete:
+          if (['interactive', 'complete'].includes(document.readyState)) {
+            filterQwant();
+          } else {
+            document.addEventListener('readystatechange', e => {
+              if (['interactive', 'complete'].includes(document.readyState)) {
+                filterQwant();
+              }
+            }, { once: true });
+          }
         } else if (currentURL.hostname.includes('startpage.com')) {
           // Function to filter search results in Startpage
           function filterStartpage() {
-            let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
+            let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
             filterSearchResults(searchResults, 'startpage', storage);
           }
 
@@ -696,10 +742,53 @@ function main(mutations = null, observer = null) {
               }
             }, { once: true });
           }
+        } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
+          // Function to filter search results in Yandex
+          function filterYandex() {
+            let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'yandex', storage);
+          }
+
+          // Wait for document to be interactive/complete:
+          if (['interactive', 'complete'].includes(document.readyState)) {
+            filterYandex();
+          } else {
+            document.addEventListener('readystatechange', e => {
+              if (['interactive', 'complete'].includes(document.readyState)) {
+                filterYandex();
+              }
+            }, { once: true });
+          }
         } else if (currentURL.hostname.includes('yahoo.com')) {
           // Function to filter search results in Yahoo
           function filterYahoo() {
-            let searchResults = Array.from(document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)')).filter(el => el.href?.includes('fandom.com') || el.href?.includes('fextralife.com'));
+            let searchResultsEncoded = document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)');
+            let searchResults = [];
+            searchResultsEncoded.forEach((searchResult) => {
+              if (searchResult.href) {
+                if (searchResult.href.includes('https://r.search.yahoo.com/')) {
+                  try {
+                    // Extract the URL between "RU=" and "/RK="
+                    const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
+                    const match = searchResult.href.match(embeddedUrlRegex);
+                    const extractedURL = decodeURIComponent(match && match[1]);
+
+                    if (extractedURL.includes('.fandom.com') || extractedURL.includes('.wiki.fextralife.com') || extractedURL.includes('.neoseeker.com/wiki/')) {
+                      searchResult.href = extractedURL;
+                      searchResults.push(searchResult);
+                    }
+                  } catch (e) {
+                    console.log('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
+                  }
+                } else {
+                  searchResults.push(searchResult);
+                }
+              }
+            });
+
             filterSearchResults(searchResults, 'yahoo', storage);
           }
 

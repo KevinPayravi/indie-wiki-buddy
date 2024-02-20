@@ -11,12 +11,17 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![ES wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ES%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesES.json)
 ![FI wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FI%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFI.json)
 ![FR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFR.json)
+![HU wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=HU%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesHU.json)
 ![IT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=IT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesIT.json)
+![JA wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=JA%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesJA.json)
 ![KO wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=KO%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesKO.json)
+![LZH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=LZH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesLZH.json)
 ![PL wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PL%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPL.json)
 ![PT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPT.json)
 ![RU wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=RU%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesRU.json)
+![TH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTH.json)
 ![TOK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TOK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTOK.json)
+![UK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=UK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesUK.json)
 ![ZH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ZH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesZH.json)
 
 ![Mozilla Add-on](https://img.shields.io/amo/v/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20version&logo=firefox)
@@ -33,7 +38,7 @@ Large, corporate-run wiki farms have enabled hundreds of great wikis and communi
 
 When visiting a wiki on a large corporate wiki farm such as Fandom, Indie Wiki Buddy will notify and/or automatically redirect you if a quality, independent alternative is available. You can customize your experience per-wiki.
 
-In addition, search results in Google, Bing, DuckDuckGo, Yahoo, Brave Search, Ecosia, and Startpage can also be filtered, replacing non-independent wikis with text inviting you to visit the independent counterpart.
+In addition, search results in Google, Bing, DuckDuckGo, Yahoo, Brave Search, Ecosia, Startpage, Qwant, and Yandex can also be filtered, replacing non-independent wikis with text inviting you to visit the independent counterpart.
 
 Indie Wiki Buddy also supports [BreezeWiki](https://breezewiki.com/), a service that renders Fandom wikis without ads or bloat. This helps give you a more enjoyable reading experience on Fandom when an independent wiki isn't available.
 
