@@ -11,6 +11,9 @@ chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
 chrome.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
   setCrossLanguage(item.crossLanguage, false);
 });
+chrome.storage.sync.get({ 'reorderResults': 'on' }, (item) => {
+  setReorder(item.reorderResults, false);
+});
 chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
   setOpenChangelog(item.openChangelog, false);
 });
@@ -85,6 +88,19 @@ function setCrossLanguage(setting, storeSetting = true) {
   }
 }
 
+// Set re-order setting
+function setReorder(setting, storeSetting = true) {
+  if (storeSetting) {
+    chrome.storage.sync.set({ 'reorderResults': setting });
+  }
+
+  if (setting === 'on') {
+    document.getElementById('reorderResultsCheckbox').checked = true;
+  } else {
+    document.getElementById('reorderResultsCheckbox').checked = false;
+  }
+}
+
 // Set open changelog setting
 function setOpenChangelog(setting, storeSetting = true) {
   if (storeSetting) {
@@ -126,6 +142,15 @@ document.getElementById('crossLanguageCheckbox').addEventListener('change', () =
       setCrossLanguage('off');
     } else {
       setCrossLanguage('on');
+    }
+  });
+});
+document.getElementById('reorderResultsCheckbox').addEventListener('change', () => {
+  chrome.storage.sync.get({ 'reorderResults': 'on' }, (item) => {
+    if (item.reorderResults === 'on') {
+      setReorder('off');
+    } else {
+      setReorder('on');
     }
   });
 });
@@ -312,7 +337,7 @@ async function loadBreezewikiOptions() {
       if (host !== 'CUSTOM' && !hostOptions.some(item => item.instance === host)) {
         host = hostOptions[Math.floor(Math.random() * hostOptions.length)].instance;
       }
-      
+
       populateBreezewikiHosts(hostOptions, host, customHost);
 
       // Store BreezeWiki host details

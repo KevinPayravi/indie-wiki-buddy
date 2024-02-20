@@ -463,6 +463,9 @@ async function _reorderDestinationSearchResult(resultsFirstChild, matchingDest, 
 }
 
 async function reorderSearchResults(searchResults, searchEngine, storage) {
+  const reorderResultsSetting = storage.reorderResults || 'on';
+  if (reorderResultsSetting === 'off') return;
+
   if (!document.body.classList.contains('iwb-reorder')) {
     document.body.classList.add('iwb-reorder');
 
