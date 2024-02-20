@@ -5247,7 +5247,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wizard101wiki.png",
     "destination_main_page": "Wizard101_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/index.php"
   },
   {
     "id": "en-wizardry",
