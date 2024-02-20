@@ -3530,6 +3530,27 @@
     "destination_search_path": "/w/index.php"
   },
   {
+    "id": "en-projectwingman",
+    "origins_label": "Project Wingman Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Project Wingman Fandom Wiki",
+        "origin_base_url": "projectwingman.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Project_Wingman_Wiki"
+      }
+    ],
+    "destination": "Project Wingman Wiki",
+    "destination_base_url": "projectwingman.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "projectwingmanwiki.png",
+    "destination_main_page": "Project_Wingman_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-projectzomboid",
     "origins_label": "Project Zomboid Fandom Wiki",
     "origins": [
