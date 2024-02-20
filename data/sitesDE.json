@@ -132,5 +132,23 @@
       "wiki.gg",
       "official"
     ]
+  },
+  {
+    "id": "de-tombraider",
+    "origins_label": "Tomb Raider Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tomb Raider Fandom Wiki",
+        "origin_base_url": "tombraider.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Tomb_Raider_Wiki"
+      }
+    ],
+    "destination": "WikiRaider",
+    "destination_base_url": "www.wikiraider.de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikiraiderde.png",
+    "destination_main_page": "Hauptseite",
+    "destination_search_path": "/index.php"
   }
 ]
