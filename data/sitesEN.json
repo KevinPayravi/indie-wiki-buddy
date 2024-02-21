@@ -1138,7 +1138,7 @@
       }
     ],
     "destination": "Detective Conan Wiki",
-    "destination_base_url": "www.detectiveconanworld.com/wiki",
+    "destination_base_url": "www.detectiveconanworld.com",
     "destination_platform": "mediawiki",
     "destination_icon": "detectiveconan.png",
     "destination_main_page": "Main_Page",
@@ -4251,7 +4251,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "starfy.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "https://www.starfywiki.org/index.php"
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-steamworld",
@@ -5088,7 +5088,7 @@
   },
   {
     "id": "en-warcraft",
-    "origins_label": "World of Warcraft Fandom & Neoseeker Wikis",
+    "origins_label": "Warcraft Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Wowpedia Fandom Wiki",
