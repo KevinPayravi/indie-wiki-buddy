@@ -279,7 +279,7 @@
         "scripts/common-functions.js",
         "scripts/content-search-filtering.js"
       ],
-      "run_at": "document_start"
+      "run_at": "document_end"
     },
     {
       "matches": [

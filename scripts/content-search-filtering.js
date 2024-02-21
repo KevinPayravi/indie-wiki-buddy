@@ -597,18 +597,8 @@ function main(mutations = null, observer = null) {
           reorderSearchResults(searchResults, 'google', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterGoogle();
-          reorderGoogle();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterGoogle();
-              reorderGoogle();
-            }
-          }, { once: true });
-        }
+        filterGoogle();
+        reorderGoogle();
       } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
         // Function to filter search results in DuckDuckGo
         function filterDuckDuckGo() {
@@ -616,17 +606,8 @@ function main(mutations = null, observer = null) {
           filterSearchResults(searchResults, 'duckduckgo', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterDuckDuckGo();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterDuckDuckGo();
-            }
-          }, { once: true });
-        }
-      } else if (currentURL.hostname.endsWith('.bing.com')) {
+        filterDuckDuckGo();
+    } else if (currentURL.hostname.endsWith('.bing.com')) {
         // Function to filter search results in Bing
         function filterBing() {
           let searchResultsEncoded = document.querySelectorAll('li.b_algo h2 a, li.b_algo .b_algoheader a');
@@ -653,16 +634,7 @@ function main(mutations = null, observer = null) {
           filterSearchResults(searchResults, 'bing', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterBing();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterBing();
-            }
-          }, { once: true });
-        }
+        filterBing();
       } else if (currentURL.hostname.includes('search.brave.com')) {
         // Function to filter search results in Brave
         function filterBrave() {
@@ -673,16 +645,7 @@ function main(mutations = null, observer = null) {
           filterSearchResults(searchResults, 'brave', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterBrave();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterBrave();
-            }
-          }, { once: true });
-        }
+        filterBrave();
       } else if (currentURL.hostname.includes('ecosia.org')) {
         // Function to filter search results in Ecosia
         function filterEcosia() {
@@ -693,16 +656,7 @@ function main(mutations = null, observer = null) {
           filterSearchResults(searchResults, 'ecosia', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterEcosia();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterEcosia();
-            }
-          }, { once: true });
-        }
+        filterEcosia();
       } else if (currentURL.hostname.includes('qwant.com')) {
         // Function to filter search results in Qwant
         function filterQwant() {
@@ -710,16 +664,7 @@ function main(mutations = null, observer = null) {
           filterSearchResults(searchResults, 'qwant', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterQwant();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterQwant();
-            }
-          }, { once: true });
-        }
+        filterQwant();
       } else if (currentURL.hostname.includes('startpage.com')) {
         // Function to filter search results in Startpage
         function filterStartpage() {
@@ -730,16 +675,7 @@ function main(mutations = null, observer = null) {
           filterSearchResults(searchResults, 'startpage', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterStartpage();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterStartpage();
-            }
-          }, { once: true });
-        }
+        filterStartpage();
       } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
         // Function to filter search results in Yandex
         function filterYandex() {
@@ -750,16 +686,7 @@ function main(mutations = null, observer = null) {
           filterSearchResults(searchResults, 'yandex', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterYandex();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterYandex();
-            }
-          }, { once: true });
-        }
+        filterYandex();
       } else if (currentURL.hostname.includes('yahoo.com')) {
         // Function to filter search results in Yahoo
         function filterYahoo() {
@@ -790,16 +717,7 @@ function main(mutations = null, observer = null) {
           filterSearchResults(searchResults, 'yahoo', storage);
         }
 
-        // Wait for document to be interactive/complete:
-        if (['interactive', 'complete'].includes(document.readyState)) {
-          filterYahoo();
-        } else {
-          document.addEventListener('readystatechange', e => {
-            if (['interactive', 'complete'].includes(document.readyState)) {
-              filterYahoo();
-            }
-          }, { once: true });
-        }
+        filterYahoo();
       }
     }
   });
