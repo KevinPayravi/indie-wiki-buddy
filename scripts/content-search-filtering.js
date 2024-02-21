@@ -742,7 +742,10 @@ function main(mutations = null, observer = null) {
         } else if (currentURL.hostname.includes('kagi.com')) {
           // Function to filter search results in Kagi
           function filterKagi() {
-            let searchResults = document.querySelectorAll('h3>a[href*=".fandom.com"], h3>a[href*=".wiki.fextralife.com"], h3>a[href*=".neoseeker.com/wiki/"]');
+            let searchResults = Array.from(document.querySelectorAll('h3>a, a.__sri-url')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
             filterSearchResults(searchResults, 'kagi', storage);
           }
 
