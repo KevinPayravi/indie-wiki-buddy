@@ -335,6 +335,9 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
           document.querySelector('#main-algo').prepend(searchRemovalNotice);
         }
         break;
+      case 'kagi':
+        document.querySelector('#main').prepend(searchRemovalNotice);
+        break;
       default:
     }
   }
@@ -484,6 +487,9 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
                 break;
               case 'yahoo':
                 searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+                break;
+              case 'kagi':
+                searchResultContainer = searchResult.closest('div.search-result, div.__srgi');
                 break;
               default:
             }
@@ -730,6 +736,23 @@ function main(mutations = null, observer = null) {
             document.addEventListener('readystatechange', e => {
               if (['interactive', 'complete'].includes(document.readyState)) {
                 filterYahoo();
+              }
+            }, { once: true });
+          }
+        } else if (currentURL.hostname.includes('kagi.com')) {
+          // Function to filter search results in Kagi
+          function filterKagi() {
+            let searchResults = document.querySelectorAll('h3>a[href*=".fandom.com"], h3>a[href*=".wiki.fextralife.com"], h3>a[href*=".neoseeker.com/wiki/"]');
+            filterSearchResults(searchResults, 'kagi', storage);
+          }
+
+          // Wait for document to be interactive/complete:
+          if (['interactive', 'complete'].includes(document.readyState)) {
+            filterKagi();
+          } else {
+            document.addEventListener('readystatechange', e => {
+              if (['interactive', 'complete'].includes(document.readyState)) {
+                filterKagi();
               }
             }, { once: true });
           }

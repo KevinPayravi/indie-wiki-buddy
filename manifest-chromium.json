@@ -84,6 +84,7 @@
         "https://*.ya.ru/*",
         "https://*.startpage.com/*",
         "https://*.search.yahoo.com/*",
+        "https://kagi.com/search*",
         "https://www.google.com/search*",
         "https://www.google.ad/search*",
         "https://www.google.ae/search*",
