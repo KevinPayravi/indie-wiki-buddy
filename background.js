@@ -2,6 +2,24 @@ if (typeof importScripts !== 'undefined') {
   importScripts('scripts/common-functions.js');
 }
 
+let cachedStorage = {};
+
+async function updateCachedStorage() {
+  let localStorage = await chrome.storage.local.get();
+  let syncStorage = await chrome.storage.sync.get();
+  cachedStorage = {...localStorage, ...syncStorage};
+}
+
+async function getCachedStorage() {
+  if (Object.keys(cachedStorage).length === 0) {
+    await updateCachedStorage();
+  }
+  return cachedStorage;
+}
+
+// Cache Chrome's storage in memory so that we don't need to make repeated calls
+updateCachedStorage();
+
 // Capture web requests
 chrome.webRequest.onBeforeSendHeaders.addListener(
   async (event) => {
@@ -21,6 +39,11 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.action === 'updateIcon') {
     setPowerIcon(msg.value);
+  } else if (msg.action === 'getStorage') {
+    getCachedStorage().then((res) => {
+      sendResponse(res)
+    });
+    return true;
   }
 });
 
@@ -30,6 +53,11 @@ chrome.runtime.onStartup.addListener(() => {
     setPowerIcon(item.power);
   });
 });
+
+// Listen for changes to stored data, and updated our cached data
+chrome.storage.onChanged.addListener(() => {
+  updateCachedStorage();
+})
 
 // Listen for extension installed/updating
 chrome.runtime.onInstalled.addListener(async (detail) => {
@@ -159,49 +187,46 @@ async function main(url, tabId) {
     this[prop] = value;
   }
 
-  chrome.storage.local.get((localStorage) => {
-    chrome.storage.sync.get(async (syncStorage) => {
-      const storage = { ...syncStorage, ...localStorage };
-      if ((storage.power ?? 'on') === 'on') {
-        let crossLanguageSetting = storage.crossLanguage || 'off';
-        let matchingSite = await commonFunctionFindMatchingSite(url, crossLanguageSetting);
+  let storage = await getCachedStorage();
 
-        if (matchingSite) {
-          // Get user's settings for the wiki
-          let settings = await commonFunctionDecompressJSON(storage.wikiSettings) || {};
-          let id = matchingSite['id'];
-          let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
+  if ((storage.power ?? 'on') === 'on') {
+    let crossLanguageSetting = storage.crossLanguage || 'off';
+    let matchingSite = await commonFunctionFindMatchingSite(url, crossLanguageSetting);
 
-          // Check if redirects are enabled for the site
-          if (siteSetting === 'redirect') {
-            let newURL = commonFunctionGetNewURL(url, matchingSite);
+    if (matchingSite) {
+      // Get user's settings for the wiki
+      let settings = await commonFunctionDecompressJSON(storage.wikiSettings) || {};
+      let id = matchingSite['id'];
+      let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
 
-            // Perform redirect
-            chrome.tabs.update(tabId, { url: newURL });
+      // Check if redirects are enabled for the site
+      if (siteSetting === 'redirect') {
+        let newURL = commonFunctionGetNewURL(url, matchingSite);
 
-            // Increase redirect count
-            chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
+        // Perform redirect
+        chrome.tabs.update(tabId, { url: newURL });
 
-            // Notify if enabled
-            if ((storage.notifications ?? 'on') === 'on') {
-              // Notify that user is being redirected
-              let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
-              chrome.notifications.create(notifID, {
-                "type": "basic",
-                "iconUrl": 'images/logo-48.png',
-                "title": "You've been redirected!",
-                "message": "Indie Wiki Buddy has sent you from " + matchingSite['origin'] + " to " + matchingSite['destination']
-              });
-              // Self-clear notification after 6 seconds
-              setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
-            }
-          } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
-            redirectToBreezeWiki(storage, tabId, url);
-          }
-        } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
-          redirectToBreezeWiki(storage, tabId, url);
+        // Increase redirect count
+        chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
+
+        // Notify if enabled
+        if ((storage.notifications ?? 'on') === 'on') {
+          // Notify that user is being redirected
+          let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
+          chrome.notifications.create(notifID, {
+            "type": "basic",
+            "iconUrl": 'images/logo-48.png',
+            "title": "You've been redirected!",
+            "message": "Indie Wiki Buddy has sent you from " + matchingSite['origin'] + " to " + matchingSite['destination']
+          });
+          // Self-clear notification after 6 seconds
+          setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
         }
+      } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
+        redirectToBreezeWiki(storage, tabId, url);
       }
-    });
-  });
+    } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
+      redirectToBreezeWiki(storage, tabId, url);
+    }
+  }
 }

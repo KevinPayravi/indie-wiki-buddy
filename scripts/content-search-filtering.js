@@ -578,233 +578,230 @@ function main(mutations = null, observer = null) {
   if (observer) {
     observer.disconnect();
   }
-  chrome.storage.local.get((localStorage) => {
-    chrome.storage.sync.get((syncStorage) => {
-      const storage = { ...syncStorage, ...localStorage };
-      // Check if extension is on:
-      if ((storage.power ?? 'on') === 'on') {
-        // Determine which search engine we're on
-        if (currentURL.hostname.includes('www.google.')) {
-          // Function to filter search results in Google
-          function filterGoogle() {
-            let searchResults = document.querySelectorAll(`
-              div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']),
-              div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
-              div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`);
-            filterSearchResults(searchResults, 'google', storage);
-          }
+  chrome.runtime.sendMessage({action: 'getStorage'}).then((storage) => {
+    // Check if extension is on:
+    if ((storage.power ?? 'on') === 'on') {
+      // Determine which search engine we're on
+      if (currentURL.hostname.includes('www.google.')) {
+        // Function to filter search results in Google
+        function filterGoogle() {
+          let searchResults = document.querySelectorAll(`
+            div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']),
+            div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
+            div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`);
+          filterSearchResults(searchResults, 'google', storage);
+        }
 
-          function reorderGoogle() {
-            let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
-            reorderSearchResults(searchResults, 'google', storage);
-          }
+        function reorderGoogle() {
+          let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
+          reorderSearchResults(searchResults, 'google', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterGoogle();
-            reorderGoogle();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterGoogle();
-                reorderGoogle();
-              }
-            }, { once: true });
-          }
-        } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
-          // Function to filter search results in DuckDuckGo
-          function filterDuckDuckGo() {
-            let searchResults = document.querySelectorAll('h2>a[href*=".fandom.com"], h2>a[href*=".wiki.fextralife.com"], h2>a[href*=".neoseeker.com/wiki/"]');
-            filterSearchResults(searchResults, 'duckduckgo', storage);
-          }
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterGoogle();
+          reorderGoogle();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterGoogle();
+              reorderGoogle();
+            }
+          }, { once: true });
+        }
+      } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
+        // Function to filter search results in DuckDuckGo
+        function filterDuckDuckGo() {
+          let searchResults = document.querySelectorAll('h2>a[href*=".fandom.com"], h2>a[href*=".wiki.fextralife.com"], h2>a[href*=".neoseeker.com/wiki/"]');
+          filterSearchResults(searchResults, 'duckduckgo', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterDuckDuckGo();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterDuckDuckGo();
-              }
-            }, { once: true });
-          }
-        } else if (currentURL.hostname.endsWith('.bing.com')) {
-          // Function to filter search results in Bing
-          function filterBing() {
-            let searchResultsEncoded = document.querySelectorAll('li.b_algo h2 a, li.b_algo .b_algoheader a');
-            let searchResults = [];
-            searchResultsEncoded.forEach((searchResult) => {
-              if (searchResult.href) {
-                const encodedLink = new URL(searchResult.href);
-                if (encodedLink.href.includes('https://www.bing.com/ck/')) {
-                  try {
-                    let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                    if (decodedLink.includes('.fandom.com') || decodedLink.includes('.wiki.fextralife.com') || decodedLink.includes('.neoseeker.com/wiki/')) {
-                      searchResult.href = decodedLink;
-                      searchResults.push(searchResult);
-                    }
-                  } catch (e) {
-                    console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterDuckDuckGo();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterDuckDuckGo();
+            }
+          }, { once: true });
+        }
+      } else if (currentURL.hostname.endsWith('.bing.com')) {
+        // Function to filter search results in Bing
+        function filterBing() {
+          let searchResultsEncoded = document.querySelectorAll('li.b_algo h2 a, li.b_algo .b_algoheader a');
+          let searchResults = [];
+          searchResultsEncoded.forEach((searchResult) => {
+            if (searchResult.href) {
+              const encodedLink = new URL(searchResult.href);
+              if (encodedLink.href.includes('https://www.bing.com/ck/')) {
+                try {
+                  let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
+                  if (decodedLink.includes('.fandom.com') || decodedLink.includes('.wiki.fextralife.com') || decodedLink.includes('.neoseeker.com/wiki/')) {
+                    searchResult.href = decodedLink;
+                    searchResults.push(searchResult);
                   }
-                } else {
-                  searchResults.push(searchResult);
+                } catch (e) {
+                  console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
                 }
+              } else {
+                searchResults.push(searchResult);
               }
-            });
+            }
+          });
 
-            filterSearchResults(searchResults, 'bing', storage);
-          }
+          filterSearchResults(searchResults, 'bing', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterBing();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterBing();
-              }
-            }, { once: true });
-          }
-        } else if (currentURL.hostname.includes('search.brave.com')) {
-          // Function to filter search results in Brave
-          function filterBrave() {
-            let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
-            filterSearchResults(searchResults, 'brave', storage);
-          }
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterBing();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterBing();
+            }
+          }, { once: true });
+        }
+      } else if (currentURL.hostname.includes('search.brave.com')) {
+        // Function to filter search results in Brave
+        function filterBrave() {
+          let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el =>
+            el.href?.includes('.fandom.com') ||
+            el.href?.includes('.wiki.fextralife.com') ||
+            el.href?.includes('.neoseeker.com/wiki/'));
+          filterSearchResults(searchResults, 'brave', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterBrave();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterBrave();
-              }
-            }, { once: true });
-          }
-        } else if (currentURL.hostname.includes('ecosia.org')) {
-          // Function to filter search results in Ecosia
-          function filterEcosia() {
-            let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
-            filterSearchResults(searchResults, 'ecosia', storage);
-          }
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterBrave();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterBrave();
+            }
+          }, { once: true });
+        }
+      } else if (currentURL.hostname.includes('ecosia.org')) {
+        // Function to filter search results in Ecosia
+        function filterEcosia() {
+          let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el =>
+            el.href?.includes('.fandom.com') ||
+            el.href?.includes('.wiki.fextralife.com') ||
+            el.href?.includes('.neoseeker.com/wiki/'));
+          filterSearchResults(searchResults, 'ecosia', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterEcosia();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterEcosia();
-              }
-            }, { once: true });
-          }
-        } else if (currentURL.hostname.includes('qwant.com')) {
-          // Function to filter search results in Qwant
-          function filterQwant() {
-            let searchResults = Array.from(document.querySelectorAll('a[data-testid=serTitle]')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
-            filterSearchResults(searchResults, 'qwant', storage);
-          }
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterEcosia();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterEcosia();
+            }
+          }, { once: true });
+        }
+      } else if (currentURL.hostname.includes('qwant.com')) {
+        // Function to filter search results in Qwant
+        function filterQwant() {
+          let searchResults = Array.from(document.querySelectorAll('a[data-testid=serTitle]')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+          filterSearchResults(searchResults, 'qwant', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterQwant();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterQwant();
-              }
-            }, { once: true });
-          }
-        } else if (currentURL.hostname.includes('startpage.com')) {
-          // Function to filter search results in Startpage
-          function filterStartpage() {
-            let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
-            filterSearchResults(searchResults, 'startpage', storage);
-          }
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterQwant();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterQwant();
+            }
+          }, { once: true });
+        }
+      } else if (currentURL.hostname.includes('startpage.com')) {
+        // Function to filter search results in Startpage
+        function filterStartpage() {
+          let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el =>
+            el.href?.includes('.fandom.com') ||
+            el.href?.includes('.wiki.fextralife.com') ||
+            el.href?.includes('.neoseeker.com/wiki/'));
+          filterSearchResults(searchResults, 'startpage', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterStartpage();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterStartpage();
-              }
-            }, { once: true });
-          }
-        } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
-          // Function to filter search results in Yandex
-          function filterYandex() {
-            let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
-            filterSearchResults(searchResults, 'yandex', storage);
-          }
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterStartpage();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterStartpage();
+            }
+          }, { once: true });
+        }
+      } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
+        // Function to filter search results in Yandex
+        function filterYandex() {
+          let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el =>
+            el.href?.includes('.fandom.com') ||
+            el.href?.includes('.wiki.fextralife.com') ||
+            el.href?.includes('.neoseeker.com/wiki/'));
+          filterSearchResults(searchResults, 'yandex', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterYandex();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterYandex();
-              }
-            }, { once: true });
-          }
-        } else if (currentURL.hostname.includes('yahoo.com')) {
-          // Function to filter search results in Yahoo
-          function filterYahoo() {
-            let searchResultsEncoded = document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)');
-            let searchResults = [];
-            searchResultsEncoded.forEach((searchResult) => {
-              if (searchResult.href) {
-                if (searchResult.href.includes('https://r.search.yahoo.com/')) {
-                  try {
-                    // Extract the URL between "RU=" and "/RK="
-                    const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
-                    const match = searchResult.href.match(embeddedUrlRegex);
-                    const extractedURL = decodeURIComponent(match && match[1]);
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterYandex();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterYandex();
+            }
+          }, { once: true });
+        }
+      } else if (currentURL.hostname.includes('yahoo.com')) {
+        // Function to filter search results in Yahoo
+        function filterYahoo() {
+          let searchResultsEncoded = document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)');
+          let searchResults = [];
+          searchResultsEncoded.forEach((searchResult) => {
+            if (searchResult.href) {
+              if (searchResult.href.includes('https://r.search.yahoo.com/')) {
+                try {
+                  // Extract the URL between "RU=" and "/RK="
+                  const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
+                  const match = searchResult.href.match(embeddedUrlRegex);
+                  const extractedURL = decodeURIComponent(match && match[1]);
 
-                    if (extractedURL.includes('.fandom.com') || extractedURL.includes('.wiki.fextralife.com') || extractedURL.includes('.neoseeker.com/wiki/')) {
-                      searchResult.href = extractedURL;
-                      searchResults.push(searchResult);
-                    }
-                  } catch (e) {
-                    console.log('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
+                  if (extractedURL.includes('.fandom.com') || extractedURL.includes('.wiki.fextralife.com') || extractedURL.includes('.neoseeker.com/wiki/')) {
+                    searchResult.href = extractedURL;
+                    searchResults.push(searchResult);
                   }
-                } else {
-                  searchResults.push(searchResult);
+                } catch (e) {
+                  console.log('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
                 }
+              } else {
+                searchResults.push(searchResult);
               }
-            });
+            }
+          });
 
-            filterSearchResults(searchResults, 'yahoo', storage);
-          }
+          filterSearchResults(searchResults, 'yahoo', storage);
+        }
 
-          // Wait for document to be interactive/complete:
-          if (['interactive', 'complete'].includes(document.readyState)) {
-            filterYahoo();
-          } else {
-            document.addEventListener('readystatechange', e => {
-              if (['interactive', 'complete'].includes(document.readyState)) {
-                filterYahoo();
-              }
-            }, { once: true });
-          }
+        // Wait for document to be interactive/complete:
+        if (['interactive', 'complete'].includes(document.readyState)) {
+          filterYahoo();
+        } else {
+          document.addEventListener('readystatechange', e => {
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filterYahoo();
+            }
+          }, { once: true });
         }
       }
-    });
+    }
   });
 }
 

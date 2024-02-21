@@ -324,66 +324,63 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
 }
 
 function main() {
-  chrome.storage.local.get((localStorage) => {
-    chrome.storage.sync.get((syncStorage) => {
-      const storage = { ...syncStorage, ...localStorage };
-      // Check if extension is on:
-      if ((storage.power ?? 'on') === 'on') {
-        // Check if there is a pathname, to ensure we're looking at an article
-        if (currentURL.pathname.length > 1) {
-          processBreezeWikiBanner(storage);
+  chrome.runtime.sendMessage({action: 'getStorage'}).then((storage) => {
+    // Check if extension is on:
+    if ((storage.power ?? 'on') === 'on') {
+      // Check if there is a pathname, to ensure we're looking at an article
+      if (currentURL.pathname.length > 1) {
+        processBreezeWikiBanner(storage);
 
-          let origin = currentURL.toString();
+        let origin = currentURL.toString();
 
-          // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
-          if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(currentURL.hostname))) {
-            origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
-            if (currentURL.search.includes('?q=')) {
-              origin = 'https://' + origin + currentURL.search.substring(3).split('&')[0];
-            } else {
-              origin = 'https://' + origin + currentURL.pathname.split('/')[3];
+        // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
+        if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(currentURL.hostname))) {
+          origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
+          if (currentURL.search.includes('?q=')) {
+            origin = 'https://' + origin + currentURL.search.substring(3).split('&')[0];
+          } else {
+            origin = 'https://' + origin + currentURL.pathname.split('/')[3];
+          }
+        }
+
+        commonFunctionGetSiteDataByOrigin().then(async sites => {
+          let crossLanguageSetting = storage.crossLanguage || 'off';
+          let matchingSite = await commonFunctionFindMatchingSite(origin, crossLanguageSetting);
+          if (matchingSite) {
+            // Get user's settings for the wiki
+            let id = matchingSite['id'];
+            let siteSetting = 'alert';
+            let wikiSettings = await commonFunctionDecompressJSON(storage.wikiSettings || {});
+            if (wikiSettings[id]) {
+              siteSetting = wikiSettings[id];
+            } else if (storage.defaultWikiAction) {
+              siteSetting = storage.defaultWikiAction;
+            }
+
+            // Notify if enabled for the wiki:
+            if (siteSetting === 'alert') {
+              let newURL = commonFunctionGetNewURL(origin, matchingSite);
+
+              // When head elem is loaded, notify that another wiki is available
+              const docObserver = new MutationObserver((mutations, mutationInstance) => {
+                const headElement = document.querySelector('head');
+                if (headElement) {
+                  try {
+                    displayRedirectBanner(newURL, matchingSite['id'], matchingSite['destination'], matchingSite['language'], matchingSite['tags'], storage);
+                  } finally {
+                    mutationInstance.disconnect();
+                  }
+                }
+              });
+              docObserver.observe(document, {
+                childList: true,
+                subtree: true
+              });
             }
           }
-
-          commonFunctionGetSiteDataByOrigin().then(async sites => {
-            let crossLanguageSetting = storage.crossLanguage || 'off';
-            let matchingSite = await commonFunctionFindMatchingSite(origin, crossLanguageSetting);
-            if (matchingSite) {
-              // Get user's settings for the wiki
-              let id = matchingSite['id'];
-              let siteSetting = 'alert';
-              let wikiSettings = await commonFunctionDecompressJSON(storage.wikiSettings || {});
-              if (wikiSettings[id]) {
-                siteSetting = wikiSettings[id];
-              } else if (storage.defaultWikiAction) {
-                siteSetting = storage.defaultWikiAction;
-              }
-
-              // Notify if enabled for the wiki:
-              if (siteSetting === 'alert') {
-                let newURL = commonFunctionGetNewURL(origin, matchingSite);
-
-                // When head elem is loaded, notify that another wiki is available
-                const docObserver = new MutationObserver((mutations, mutationInstance) => {
-                  const headElement = document.querySelector('head');
-                  if (headElement) {
-                    try {
-                      displayRedirectBanner(newURL, matchingSite['id'], matchingSite['destination'], matchingSite['language'], matchingSite['tags'], storage);
-                    } finally {
-                      mutationInstance.disconnect();
-                    }
-                  }
-                });
-                docObserver.observe(document, {
-                  childList: true,
-                  subtree: true
-                });
-              }
-            }
-          });
-        }
+        });
       }
-    });
+    }
   });
 }
 
