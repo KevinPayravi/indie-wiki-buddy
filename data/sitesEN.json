@@ -449,6 +449,27 @@
     ]
   },
   {
+    "id": "en-backpackhero",
+    "origins_label": "Backpack Hero Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Backpack Hero Fandom Wiki",
+        "origin_base_url": "backpack-hero.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Backpack_Hero_Wiki"
+      }
+    ],
+    "destination": "Backpack Hero Wiki",
+    "destination_base_url": "backpackhero.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "backpackherowiki.png",
+    "destination_main_page": "Backpack_Hero_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-bakugan",
     "origins_label": "Bakugan Fandom Wiki",
     "origins": [
@@ -1506,6 +1527,28 @@
     "destination_search_path": "/index.php",
     "tags": [
       "wiki.gg"
+    ]
+  },
+  {
+    "id": "en-enterthegungeon",
+    "origins_label": "Enter the Gungeon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Enter the Gungeon Fandom Wiki",
+        "origin_base_url": "enterthegungeon.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Enter_the_Gungeon_Wiki"
+      }
+    ],
+    "destination": "Enter the Gungeon Wiki",
+    "destination_base_url": "enterthegungeon.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "enterthegungeonwiki.png",
+    "destination_main_page": "Enter_the_Gungeon_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
     ]
   },
   {
@@ -4797,6 +4840,27 @@
     "destination_platform": "mediawiki",
     "destination_icon": "towerclimbwiki.png",
     "destination_main_page": "TowerClimb_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "en-towerfall",
+    "origins_label": "TowerFall Fandom Wiki",
+    "origins": [
+      {
+        "origin": "TowerFall Fandom Wiki",
+        "origin_base_url": "towerfall.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "TowerFall_Wiki"
+      }
+    ],
+    "destination": "TowerFall Wiki",
+    "destination_base_url": "towerfall.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "towerfallwiki.png",
+    "destination_main_page": "TowerFall_Wiki",
     "destination_search_path": "/index.php",
     "tags": [
       "wiki.gg"
