@@ -660,7 +660,7 @@ document.addEventListener('DOMContentLoaded', () => {
       chrome.scripting.registerContentScripts([{
         id: `content-search-filtering-${customSearchEngine.hostname}`,
         matches: [customSearchEngine + '*'],
-        js: [ 'scripts/common-functions.js', 'scripts/content-search-filtering.js' ],
+        js: [ '/scripts/common-functions.js', '/scripts/content-search-filtering.js' ],
         runAt: "document_start"
       }]);
 
