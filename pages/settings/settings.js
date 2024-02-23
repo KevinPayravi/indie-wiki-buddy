@@ -383,6 +383,43 @@ async function loadOptions(lang, textFilter = '') {
   });
 }
 
+function displayCustomSearchEngine(customSearchEngineHostname, customSearchEnginePreset) {
+  let customSearchEnginesList = document.getElementById('customSearchEnginesList');
+
+  let listItem = document.createElement('div');
+  listItem.classList.add('customSearchEngine');
+
+  let customSearchEngineHostnameLabel = document.createElement('span');
+  customSearchEngineHostnameLabel.classList.add('customSearchEngineHostname');
+  customSearchEngineHostnameLabel.innerText = customSearchEngineHostname;
+
+  let customSearchEnginePresetLabel = document.createElement('span');
+  customSearchEnginePresetLabel.classList.add('customSearchEnginePreset');
+  customSearchEnginePresetLabel.innerText = document.getElementById('newCustomSearchEnginePreset')
+    .querySelector(`option[value="${customSearchEnginePreset}"]`).innerText;
+
+  let customSearchEngineDeleteButton = document.createElement('button');
+  customSearchEngineDeleteButton.classList.add('customSearchEngineDelete');
+  customSearchEngineDeleteButton.innerText = 'Delete';
+  customSearchEngineDeleteButton.addEventListener('click', () => {
+    listItem.remove();
+
+    chrome.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
+      let customSearchEngines = item.customSearchEngines;
+      delete customSearchEngines[customSearchEngineHostname];
+      chrome.storage.sync.set({ 'customSearchEngines': customSearchEngines });
+    });
+
+    chrome.scripting.unregisterContentScripts({ ids: [`content-search-filtering-${customSearchEngineHostname}`] });
+  });
+
+  listItem.appendChild(customSearchEngineHostnameLabel);
+  listItem.appendChild(customSearchEnginePresetLabel);
+  listItem.appendChild(customSearchEngineDeleteButton);
+
+  customSearchEnginesList.appendChild(listItem);
+}
+
 // Set power setting
 function setPower(setting, storeSetting = true) {
   if (storeSetting) {
@@ -594,6 +631,68 @@ document.addEventListener('DOMContentLoaded', () => {
   document.options.addEventListener("submit", function(e) {
     e.preventDefault();
     return false;
+  });
+
+  // Add event listener for adding custom search engine
+  function addCustomSearchEngine() {
+    let customSearchEngine = document.getElementById('newCustomSearchEngineDomain').value;
+
+    // Add "https://" if not already present
+    if (!customSearchEngine.includes('://')) {
+      customSearchEngine = 'https://' + customSearchEngine;
+    }
+    customSearchEngine = new URL(customSearchEngine);
+
+    // Check not already added
+    let hostnames = document.querySelectorAll('.customSearchEngineHostname');
+    for (let i = 0; i < hostnames.length; i++) {
+      if (hostnames[i].innerText === customSearchEngine.hostname) {
+        return;
+      }
+    }
+
+    console.log(customSearchEngine.hostname);
+    chrome.permissions.request({
+      origins: [ `${customSearchEngine}*` ]
+    }, (granted) => {
+      console.log(granted);
+      // Callback is true if the user granted the permissions.
+      if (!granted) return;
+
+      chrome.scripting.registerContentScripts([{
+        id: `content-search-filtering-${customSearchEngine.hostname}`,
+        matches: [customSearchEngine + '*'],
+        js: [ 'scripts/common-functions.js', 'scripts/content-search-filtering.js' ],
+        runAt: "document_start"
+      }]);
+
+      let customSearchEnginePreset = document.getElementById('newCustomSearchEnginePreset').value;
+
+      chrome.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
+        let customSearchEngines = item.customSearchEngines;
+        customSearchEngines[customSearchEngine.hostname] = customSearchEnginePreset;
+        chrome.storage.sync.set({ 'customSearchEngines': customSearchEngines });
+      });
+
+      displayCustomSearchEngine(customSearchEngine.hostname, customSearchEnginePreset);
+
+      document.getElementById('newCustomSearchEngineDomain').value = '';
+    });
+  }
+
+  document.getElementById('addCustomSearchEngine').addEventListener('click', () => {
+    addCustomSearchEngine();
+  });
+  document.getElementById('newCustomSearchEngineDomain').onkeyup = function(e) {
+    if (e.key === 'Enter') {
+      addCustomSearchEngine();
+    }
+  }
+
+  chrome.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
+    Object.keys(item.customSearchEngines).forEach((key) => {
+      displayCustomSearchEngine(key, item.customSearchEngines[key]);
+    });
   });
 
   // Add event listeners for default action selections
