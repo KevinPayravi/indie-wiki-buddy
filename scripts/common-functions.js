@@ -119,6 +119,7 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
         }
       );
     }
+
     if (matchingSites.length > 0) {
       // Select match with longest base URL 
       let closestMatch = '';
