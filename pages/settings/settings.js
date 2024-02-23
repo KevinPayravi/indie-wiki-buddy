@@ -651,11 +651,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    console.log(customSearchEngine.hostname);
     chrome.permissions.request({
       origins: [ `${customSearchEngine}*` ]
     }, (granted) => {
-      console.log(granted);
       // Callback is true if the user granted the permissions.
       if (!granted) return;
 
