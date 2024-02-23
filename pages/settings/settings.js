@@ -572,8 +572,8 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.scripting.registerContentScripts([{
           id: 'content-banners',
           matches: [breezewikiCustomDomain + '/*'],
-          js: ['scripts/content-banners.js'],
-          runAt: "document_start"
+          js: ['/scripts/common-functions.js', '/scripts/content-banners.js', '/scripts/content-breezewiki.js'],
+          runAt: "document_idle"
         }]);
         chrome.storage.sync.set({ 'breezewikiCustomHost': breezewikiCustomDomain });
         document.getElementById('breezewikiCustomHostStatus').innerText = 'Successfully added';
