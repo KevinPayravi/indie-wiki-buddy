@@ -396,68 +396,6 @@ function setPower(setting, storeSetting = true) {
   });
 }
 
-// Set notifications setting
-function setNotifications(setting, storeSetting = true) {
-  if (storeSetting) {
-    chrome.storage.sync.set({ 'notifications': setting });
-  }
-  const notificationsIcon = document.getElementById('notificationsIcon');
-  if (setting === 'on') {
-    document.getElementById('notificationsCheckbox').checked = true;
-    notificationsIcon.innerText = '🔔';
-  } else {
-    document.getElementById('notificationsCheckbox').checked = false;
-    notificationsIcon.innerText = '🔕';
-  }
-}
-
-// Set search results hidden banner setting
-function setHiddenResultsBanner(setting, storeSetting = true) {
-  if (storeSetting) {
-    chrome.storage.sync.set({ 'hiddenResultsBanner': setting });
-  }
-  const hiddenResultsBannerIcon = document.getElementById('hiddenResultsBannerIcon');
-  if (setting === 'on') {
-    document.getElementById('hiddenResultsBannerCheckbox').checked = true;
-    hiddenResultsBannerIcon.innerText = '🔔';
-  } else {
-    document.getElementById('hiddenResultsBannerCheckbox').checked = false;
-    hiddenResultsBannerIcon.innerText = '🔕';
-  }
-}
-
-// Set cross-language setting
-function setCrossLanguage(setting, storeSetting = true) {
-  if (storeSetting) {
-    chrome.storage.sync.set({ 'crossLanguage': setting });
-  }
-
-  const crossLanguageIcon = document.getElementById('crossLanguageIcon');
-  if (setting === 'on') {
-    document.getElementById('crossLanguageCheckbox').checked = true;
-    crossLanguageIcon.innerText = '🌐';
-  } else {
-    document.getElementById('crossLanguageCheckbox').checked = false;
-    crossLanguageIcon.innerText = '⚪️';
-  }
-}
-
-// Set open changelog setting
-function setOpenChangelog(setting, storeSetting = true) {
-  if (storeSetting) {
-    chrome.storage.sync.set({ 'openChangelog': setting });
-  }
-
-  const openChangelogIcon = document.getElementById('openChangelogIcon');
-  if (setting === 'on') {
-    document.getElementById('openChangelogCheckbox').checked = true;
-    openChangelogIcon.innerText = '📂';
-  } else {
-    document.getElementById('openChangelogCheckbox').checked = false;
-    openChangelogIcon.innerText = '📁';
-  }
-}
-
 async function migrateData() {
   commonFunctionMigrateToV3();
 }
