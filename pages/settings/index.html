@@ -204,11 +204,13 @@
     .radioGroup {
       display: flex;
     }
+
     .radioGroup.horizontal {
       flex-direction: row;
       line-height: 1.5rem;
       gap: .5em;
     }
+
     .radioGroup.vertical {
       flex-direction: column;
       gap: .5em;
@@ -279,16 +281,31 @@
     }
 
     #wikiFiltersContainer {
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    #wikiFiltersContainer>div {
       display: grid;
       gap: 0.5em;
       grid-template-columns: 1fr 1fr;
       margin: 1em auto;
-      width: 30em;
+      max-width: 30em;
     }
 
-    #wikiFiltersContainer div {
+    #wikiFiltersContainer>div>div {
       text-align: right;
       align-self: end;
+    }
+
+    @media (max-width: 35em) {
+      #wikiFiltersContainer>div {
+        grid-template-columns: 1fr;
+      }
+
+      #wikiFiltersContainer>div>div {
+        text-align: center;
+      }
     }
 
     .toggles {
@@ -605,8 +622,8 @@
         </fieldset>
         <fieldset id="breezewikiSettings">
           <legend>
-            <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore" href="https://breezewiki.com/"
-              target="_blank">learn more</a>)
+            <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore"
+              href="https://breezewiki.com/" target="_blank">learn more</a>)
           </legend>
           <div role="radiogroup">
             <div class="radioGroup vertical">
@@ -634,7 +651,8 @@
             </label>
             <label id="breezewikiCustomHost">
               Custom BreezeWiki domain:
-              <input type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="bw.example.com" size="30" />
+              <input type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="bw.example.com"
+                size="30" />
               <button id="setCustomBreezewikiDomain" type="button">
                 Set domain
               </button>
@@ -647,7 +665,8 @@
           <legend>
             <span aria-hidden="true">ℹ️</span> Icon legend
           </legend>
-          <span class="text-sm">When visiting Fandom, Fextralife, or Neoseeker wikis with an independent alternative, IWB
+          <span class="text-sm">When visiting Fandom, Fextralife, or Neoseeker wikis with an independent alternative,
+            IWB
             can:</span>
           <div>
             <div>
@@ -678,29 +697,33 @@
           </div>
         </fieldset>
         <div id="wikiFiltersContainer">
-          <div id="langSelectCaption">Filter wikis by language:</div>
-          <select name="lang" id="langSelect">
-            <option value="ALL" selected>All languages</option>
-            <option value="DE">[DE] German / Deutsch</option>
-            <option value="EN">[EN] English</option>
-            <option value="ES">[ES] Spanish / Español</option>
-            <option value="FI">[FI] Finnish / suomi</option>
-            <option value="FR">[FR] French / Français</option>
-            <option value="HU">[HU] Hungarian / Magyar</option>
-            <option value="IT">[IT] Italian / Italiano</option>
-            <option value="JA">[JA] Japanese / 日本語</option>
-            <option value="KO">[KO] Korean / 한국어</option>
-            <option value="LZH">[LZH] Classical Chinese / 文言文</option>
-            <option value="PL">[PL] Polish / Polski</option>
-            <option value="PT">[PT] Portuguese / Português</option>
-            <option value="RU">[RU] Russian / Русский язык</option>
-            <option value="TH">[TH] Thai / ภาษาไทย</option>
-            <option value="TOK">[TOK] Toki Pona</option>
-            <option value="UK">[UK] Ukrainian / Українська</option>
-            <option value="ZH">[ZH] Chinese / 中文</option>
+          <div>
+            <div id="langSelectCaption">Filter wikis by language:</div>
+            <select name="lang" id="langSelect">
+              <option value="ALL" selected>All languages</option>
+              <option value="DE">[DE] German / Deutsch</option>
+              <option value="EN">[EN] English</option>
+              <option value="ES">[ES] Spanish / Español</option>
+              <option value="FI">[FI] Finnish / suomi</option>
+              <option value="FR">[FR] French / Français</option>
+              <option value="HU">[HU] Hungarian / Magyar</option>
+              <option value="IT">[IT] Italian / Italiano</option>
+              <option value="JA">[JA] Japanese / 日本語</option>
+              <option value="KO">[KO] Korean / 한국어</option>
+              <option value="LZH">[LZH] Classical Chinese / 文言文</option>
+              <option value="PL">[PL] Polish / Polski</option>
+              <option value="PT">[PT] Portuguese / Português</option>
+              <option value="RU">[RU] Russian / Русский язык</option>
+              <option value="TH">[TH] Thai / ภาษาไทย</option>
+              <option value="TOK">[TOK] Toki Pona</option>
+              <option value="UK">[UK] Ukrainian / Українська</option>
+              <option value="ZH">[ZH] Chinese / 中文</option>
             </select>
-          <div id="filterInputCaption">Filter wikis by name:</div>
-          <input id="filterInput" type="text" name="filterInput" placeholder="Enter wiki name..." />
+          </div>
+          <div>
+            <div id="filterInputCaption">Filter wikis by name:</div>
+            <input id="filterInput" type="text" name="filterInput" placeholder="Enter wiki name..." />
+          </div>
         </div>
         <div class="sticky">
           <div id="togglesColumnLabels" class="toggles">
