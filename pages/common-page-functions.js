@@ -2,9 +2,10 @@
 chrome.storage.local.get({ 'power': 'on' }, (item) => {
   setPower(item.power, false);
 });
-chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
-  setNotifications(item.notifications, false);
-});
+// SAFARI-DIFF (Safari currently does not support notifications)
+// chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
+//   setNotifications(item.notifications, false);
+// });
 chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
   setHiddenResultsBanner(item.hiddenResultsBanner, false);
 });
@@ -39,20 +40,21 @@ document.getElementById('powerCheckbox').addEventListener('change', () => {
   });
 });
 
+// SAFARI-DIFF (Safari currently does not support notifications)
 // Set notifications setting
-function setNotifications(setting, storeSetting = true) {
-  if (storeSetting) {
-    chrome.storage.sync.set({ 'notifications': setting });
-  }
-  const notificationsIcon = document.getElementById('notificationsIcon');
-  if (setting === 'on') {
-    document.getElementById('notificationsCheckbox').checked = true;
-    notificationsIcon.innerText = '🔔';
-  } else {
-    document.getElementById('notificationsCheckbox').checked = false;
-    notificationsIcon.innerText = '🔕';
-  }
-}
+// function setNotifications(setting, storeSetting = true) {
+//   if (storeSetting) {
+//     chrome.storage.sync.set({ 'notifications': setting });
+//   }
+//   const notificationsIcon = document.getElementById('notificationsIcon');
+//   if (setting === 'on') {
+//     document.getElementById('notificationsCheckbox').checked = true;
+//     notificationsIcon.innerText = '🔔';
+//   } else {
+//     document.getElementById('notificationsCheckbox').checked = false;
+//     notificationsIcon.innerText = '🔕';
+//   }
+// }
 
 // Set search results hidden banner setting
 function setHiddenResultsBanner(setting, storeSetting = true) {
@@ -102,15 +104,16 @@ function setOpenChangelog(setting, storeSetting = true) {
 }
 
 // Event listeners for general setting toggles
-document.getElementById('notificationsCheckbox').addEventListener('change', () => {
-  chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
-    if (item.notifications === 'on') {
-      setNotifications('off');
-    } else {
-      setNotifications('on');
-    }
-  });
-});
+// SAFARI-DIFF (Safari currently does not support notifications)
+// document.getElementById('notificationsCheckbox').addEventListener('change', () => {
+//   chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
+//     if (item.notifications === 'on') {
+//       setNotifications('off');
+//     } else {
+//       setNotifications('on');
+//     }
+//   });
+// });
 document.getElementById('hiddenResultsBannerCheckbox').addEventListener('change', () => {
   chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
     if (item.hiddenResultsBanner === 'on') {

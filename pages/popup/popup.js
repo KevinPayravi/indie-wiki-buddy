@@ -11,9 +11,10 @@ function setPower(setting) {
   });
 }
 
-async function migrateData() {
-  commonFunctionMigrateToV3();
-}
+// SAFARI-DIFF (not needed since Safari started with v3)
+// async function migrateData() {
+//   commonFunctionMigrateToV3();
+// }
 
 // Set power setting
 function setPower(setting, storeSetting = true) {
@@ -125,5 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// SAFARI-DIFF (not needed since Safari started with v3)
 // Run v3 data migration:
-migrateData();
+// migrateData();

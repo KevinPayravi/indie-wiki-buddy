@@ -2,20 +2,27 @@ if (typeof importScripts !== 'undefined') {
   importScripts('scripts/common-functions.js');
 }
 
+// SAFARI-DIFF
 // Capture web requests
-chrome.webRequest.onBeforeSendHeaders.addListener(
-  async (event) => {
-    if (event.documentLifecycle !== 'prerender') {
-      if (event.frameType === 'sub_frame') {
-        let tabInfo = await chrome.tabs.get(event.tabId);
-        main(tabInfo.url, event.tabId);
-      } else {
-        main(event.url, event.tabId);
-      }
-    }
-  },
-  { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*', '*://*.neoseeker.com/wiki/*'], types: ['main_frame', 'sub_frame'] }
-);
+// webRequest.onBeforeSendHeaders is unavailable for Safari on iOS,
+// so we use tabs.onUpdated instead
+// chrome.webRequest.onBeforeSendHeaders.addListener(
+//   async (event) => {
+//     if (event.documentLifecycle !== 'prerender') {
+//       if (event.frameType === 'sub_frame') {
+//         let tabInfo = await chrome.tabs.get(event.tabId);
+//         main(tabInfo.url, event.tabId);
+//       } else {
+//         main(event.url, event.tabId);
+//       }
+//     }
+//   },
+//   { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*', '*://*.neoseeker.com/wiki/*'], types: ['main_frame', 'sub_frame'] }
+// );
+function onTabUpdated(_tabId, _changeInfo, tab) {
+  main(tab.url, tab.id);
+}
+chrome.tabs.onUpdated.addListener(onTabUpdated);
 
 // Listen for user turning extension on or off, to update icon
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
@@ -51,9 +58,10 @@ chrome.runtime.onInstalled.addListener(async (detail) => {
   });
 
   // Temporary functions for 3.0 migration
-  if (detail.reason === 'update') {
-    commonFunctionMigrateToV3();
-  }
+  // SAFARI-DIFF (not needed since Safari started with v3)
+  // if (detail.reason === 'update') {
+  //   commonFunctionMigrateToV3();
+  // }
 });
 
 function setPowerIcon(status) {
@@ -91,18 +99,19 @@ function redirectToBreezeWiki(storage, tabId, url) {
     // Increase BreezeWiki stat count
     chrome.storage.sync.set({ 'countBreezeWiki': (storage.countBreezeWiki ?? 0) + 1 });
 
-    if ((storage.notifications ?? 'on') === 'on') {
-      // Notify that user is being redirected to BreezeWiki
-      let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
-      chrome.notifications.create(notifID, {
-        "type": "basic",
-        "iconUrl": 'images/logo-48.png',
-        "title": "You've been redirected to BreezeWiki!",
-        "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom."
-      });
-      // Self-clear notification after 6 seconds
-      setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
-    }
+    // SAFARI-DIFF (Safari currently does not support notifications)
+    // if ((storage.notifications ?? 'on') === 'on') {
+    //   // Notify that user is being redirected to BreezeWiki
+    //   let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
+    //   chrome.notifications.create(notifID, {
+    //     "type": "basic",
+    //     "iconUrl": 'images/logo-48.png',
+    //     "title": "You've been redirected to BreezeWiki!",
+    //     "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom."
+    //   });
+    //   // Self-clear notification after 6 seconds
+    //   setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
+    // }
   }
 
   if (url.includes('fandom.com/wiki/') && !url.includes('fandom=allow')) {
@@ -150,15 +159,6 @@ function redirectToBreezeWiki(storage, tabId, url) {
 }
 
 async function main(url, tabId) {
-  // Create object prototypes for getting and setting attributes
-  Object.prototype.get = function (prop) {
-    this[prop] = this[prop] || {};
-    return this[prop];
-  };
-  Object.prototype.set = function (prop, value) {
-    this[prop] = value;
-  }
-
   chrome.storage.local.get((localStorage) => {
     chrome.storage.sync.get(async (syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
@@ -182,19 +182,20 @@ async function main(url, tabId) {
             // Increase redirect count
             chrome.storage.sync.set({ 'countRedirects': (storage.countRedirects ?? 0) + 1 });
 
+            // SAFARI-DIFF (Safari currently does not support notifications)
             // Notify if enabled
-            if ((storage.notifications ?? 'on') === 'on') {
-              // Notify that user is being redirected
-              let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
-              chrome.notifications.create(notifID, {
-                "type": "basic",
-                "iconUrl": 'images/logo-48.png',
-                "title": "You've been redirected!",
-                "message": "Indie Wiki Buddy has sent you from " + matchingSite['origin'] + " to " + matchingSite['destination']
-              });
-              // Self-clear notification after 6 seconds
-              setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
-            }
+            // if ((storage.notifications ?? 'on') === 'on') {
+            //   // Notify that user is being redirected
+            //   let notifID = 'independent-wiki-redirector-notification-' + Math.floor(Math.random() * 1E16);
+            //   chrome.notifications.create(notifID, {
+            //     "type": "basic",
+            //     "iconUrl": 'images/logo-48.png',
+            //     "title": "You've been redirected!",
+            //     "message": "Indie Wiki Buddy has sent you from " + matchingSite['origin'] + " to " + matchingSite['destination']
+            //   });
+            //   // Self-clear notification after 6 seconds
+            //   setTimeout(() => { chrome.notifications.clear(notifID); }, 6000);
+            // }
           } else if ((storage.breezewiki ?? 'off') === 'on' || (storage.breezewiki ?? 'off') === 'redirect') {
             redirectToBreezeWiki(storage, tabId, url);
           }

@@ -1,15 +1,6 @@
 const breezewikiRegex = /breezewiki\.com$|antifandom\.com$|bw\.artemislena\.eu$|breezewiki\.catsarch\.com$|breezewiki\.esmailelbob\.xyz$|breezewiki\.frontendfriendly\.xyz$|bw\.hamstro\.dev$|breeze\.hostux\.net$|breezewiki\.hyperreal\.coffee$|breeze\.mint\.lgbt$|breezewiki\.nadeko\.net$|nerd\.whatever\.social$|breeze\.nohost\.network$|z\.opnxng\.com$|bw\.projectsegfau\.lt$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breeze\.whateveritworks\.org$|breezewiki\.woodland\.cafe$/;
 const currentURL = new URL(document.location);
 
-// Create object prototypes for getting and setting attributes:
-Object.prototype.get = function (prop) {
-  this[prop] = this[prop] || {};
-  return this[prop];
-};
-Object.prototype.set = function (prop, value) {
-  this[prop] = value;
-}
-
 function outputCSS() {
   if (!document.getElementById('iwb-banner-styles')) {
     styleString = `
@@ -209,7 +200,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRestoreLink.onclick = function (e) {
     chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
       let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
-      wikiSettings.set(id, 'alert');
+      wikiSettings[id] = 'alert';
       chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Banner restored';
       e.target.classList.add('indie-wiki-banner-disabled');
@@ -231,7 +222,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerDisableLink.onclick = function (e) {
     chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
       let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
-      wikiSettings.set(id, 'disabled');
+      wikiSettings[id] = 'disabled';
       chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Banner disabled';
       e.target.classList.add('indie-wiki-banner-disabled');
@@ -251,7 +242,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRedirectLink.onclick = function (e) {
     chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
       let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
-      wikiSettings.set(id, 'redirect');
+      wikiSettings[id] = 'redirect';
       chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       e.target.textContent = '✓ Redirect enabled';
       e.target.classList.add('indie-wiki-banner-disabled');

@@ -12,48 +12,77 @@ function b64decode(str) {
 }
 
 async function commonFunctionDecompressJSON(value) {
-  // Check if value is base64 encoded:
   if (BASE64REGEX.test(value)) {
-    // Decode into blob
-    const stream = new Blob([b64decode(value)], {
-      type: "application/json",
-    }).stream();
+    // Decode base64-encoded data
+    const compressedData = atob(value);
 
-    // Decompress value
-    const decompressedReadableStream = stream.pipeThrough(
-      new DecompressionStream("gzip")
+    // Convert compressed data to Uint8Array
+    const uint8Array = new Uint8Array(Array.from(compressedData).map(char => char.charCodeAt(0)));
+
+    // Decompress Uint8Array using DecompressionStream API
+    const decompressedChunks = [];
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(uint8Array);
+        controller.close();
+      }
+    });
+
+    const decompressionStream = new DecompressionStream('gzip');
+    const reader = stream.pipeThrough(decompressionStream).getReader();
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      decompressedChunks.push(value);
+    }
+
+    // Concatenate decompressed chunks into single Uint8Array
+    const decompressedData = new Uint8Array(
+      decompressedChunks.reduce((acc, chunk) => acc.concat(Array.from(chunk)), [])
     );
 
-    const resp = new Response(decompressedReadableStream);
-    const blob = await resp.blob();
-    const blobText = JSON.parse(await blob.text());
-    return blobText;
+    // Convert Uint8Array to string
+    const textDecoder = new TextDecoder();
+    return JSON.parse(textDecoder.decode(decompressedData));
   } else {
     return value;
   }
 }
 
 async function commonFunctionCompressJSON(value) {
-  const stream = new Blob([JSON.stringify(value)], {
-    type: 'application/json',
-  }).stream();
+  // Convert JSON to string
+  const jsonString = JSON.stringify(value);
 
-  // Compress stream with gzip
-  const compressedReadableStream = stream.pipeThrough(
-    new CompressionStream("gzip")
+  // Convert string to Uint8Array
+  const textEncoder = new TextEncoder();
+  const uint8Array = textEncoder.encode(jsonString);
+
+  // Compress Uint8Array using CompressionStream API
+  const compressedChunks = [];
+  const stream = new ReadableStream({
+    start(controller) {
+      controller.enqueue(uint8Array);
+      controller.close();
+    }
+  });
+
+  const compressionStream = new CompressionStream('gzip');
+  const reader = stream.pipeThrough(compressionStream).getReader();
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    compressedChunks.push(value);
+  }
+
+  // Concatenate compressed chunks into single Uint8Array
+  const compressedData = new Uint8Array(
+    compressedChunks.reduce((acc, chunk) => acc.concat(Array.from(chunk)), [])
   );
-  const compressedResponse = new Response(compressedReadableStream);
 
-  // Convert response to blob and buffer
-  const blob = await compressedResponse.blob();
-  const buffer = await blob.arrayBuffer();
-
-  // Encode and return string 
-  return btoa(
-    String.fromCharCode(
-      ...new Uint8Array(buffer)
-    )
-  );
+  // Encode compressed data to base64
+  return btoa(String.fromCharCode.apply(null, compressedData));
 }
 
 // Load wiki data objects, with each destination having its own object

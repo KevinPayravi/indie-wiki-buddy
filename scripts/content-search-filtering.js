@@ -1,15 +1,6 @@
 const currentURL = new URL(document.location);
 let hiddenWikisRevealed = {};
 
-// Create object prototypes for getting and setting attributes:
-Object.prototype.get = function (prop) {
-  this[prop] = this[prop] || {};
-  return this[prop];
-};
-Object.prototype.set = function (prop, value) {
-  this[prop] = value;
-}
-
 function base64Decode(text) {
   text = text.replace(/\s+/g, '').replace(/\-/g, '+').replace(/\_/g, '/');
   return decodeURIComponent(Array.prototype.map.call(atob(text), function (c) { return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join(''));
