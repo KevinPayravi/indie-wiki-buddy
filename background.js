@@ -150,15 +150,6 @@ function redirectToBreezeWiki(storage, tabId, url) {
 }
 
 async function main(url, tabId) {
-  // Create object prototypes for getting and setting attributes
-  Object.prototype.get = function (prop) {
-    this[prop] = this[prop] || {};
-    return this[prop];
-  };
-  Object.prototype.set = function (prop, value) {
-    this[prop] = value;
-  }
-
   chrome.storage.local.get((localStorage) => {
     chrome.storage.sync.get(async (syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };

@@ -1,14 +1,5 @@
 var sites = [];
 
-// Create object prototypes for getting and setting attributes:
-Object.prototype.get = function (prop) {
-  this[prop] = this[prop] || {};
-  return this[prop];
-};
-Object.prototype.set = function (prop, value) {
-  this[prop] = value;
-}
-
 // Clear wiki toggles
 // Used when switching languages
 function resetOptions() {
@@ -192,7 +183,7 @@ async function loadOptions(lang, textFilter = '') {
           chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
             let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
             var key = input.target.getAttribute('data-wiki-key');
-            wikiSettings.set(key, 'disabled');
+            wikiSettings[key] = 'disabled';
             chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
           });
         });
@@ -200,7 +191,7 @@ async function loadOptions(lang, textFilter = '') {
           chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
             let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
             var key = input.target.getAttribute('data-wiki-key');
-            wikiSettings.set(key, 'alert');
+            wikiSettings[key] = 'alert';
             chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
           });
         });
@@ -208,7 +199,7 @@ async function loadOptions(lang, textFilter = '') {
           chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
             let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
             var key = input.target.getAttribute('data-wiki-key');
-            wikiSettings.set(key, 'redirect');
+            wikiSettings[key] = 'redirect';
             chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
           });
         });
@@ -216,7 +207,7 @@ async function loadOptions(lang, textFilter = '') {
           chrome.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
             let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
             var key = input.target.getAttribute('data-wiki-key');
-            searchEngineSettings.set(key, 'disabled');
+            searchEngineSettings[key] = 'disabled';
             chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
           });
         });
@@ -224,7 +215,7 @@ async function loadOptions(lang, textFilter = '') {
           chrome.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
             let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
             var key = input.target.getAttribute('data-wiki-key');
-            searchEngineSettings.set(key, 'replace');
+            searchEngineSettings[key] = 'replace';
             chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
           });
         });
@@ -232,7 +223,7 @@ async function loadOptions(lang, textFilter = '') {
           chrome.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
             let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
             var key = input.target.getAttribute('data-wiki-key');
-            searchEngineSettings.set(key, 'hide');
+            searchEngineSettings[key] = 'hide';
             chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
           });
         });
@@ -325,7 +316,7 @@ async function loadOptions(lang, textFilter = '') {
         const toggles = document.querySelectorAll('#toggles input.toggleRedirect');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          wikiSettings.set(toggles[i].getAttribute('data-wiki-key'), 'redirect');
+          wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'redirect';
         }
         chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       });
@@ -335,7 +326,7 @@ async function loadOptions(lang, textFilter = '') {
         const toggles = document.querySelectorAll('#toggles input.toggleAlert');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          wikiSettings.set(toggles[i].getAttribute('data-wiki-key'), 'alert');
+          wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'alert';
         }
         chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       });
@@ -345,7 +336,7 @@ async function loadOptions(lang, textFilter = '') {
         const toggles = document.querySelectorAll('#toggles input.toggleDisable');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          wikiSettings.set(toggles[i].getAttribute('data-wiki-key'), 'disabled');
+          wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'disabled';
         }
         chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       });
@@ -355,7 +346,7 @@ async function loadOptions(lang, textFilter = '') {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineDisabled');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          searchEngineSettings.set(toggles[i].getAttribute('data-wiki-key'), 'disabled');
+          searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'disabled';
         }
         chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
       });
@@ -365,7 +356,7 @@ async function loadOptions(lang, textFilter = '') {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineHide');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          searchEngineSettings.set(toggles[i].getAttribute('data-wiki-key'), 'hide');
+          searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'hide';
         }
         chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
       });
@@ -375,7 +366,7 @@ async function loadOptions(lang, textFilter = '') {
         const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineReplace');
         for (var i = 0; i < toggles.length; i++) {
           toggles[i].checked = true;
-          searchEngineSettings.set(toggles[i].getAttribute('data-wiki-key'), 'replace');
+          searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'replace';
         }
         chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
       });
