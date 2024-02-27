@@ -312,7 +312,7 @@ async function loadBreezewikiOptions() {
       if (host !== 'CUSTOM' && !hostOptions.some(item => item.instance === host)) {
         host = hostOptions[Math.floor(Math.random() * hostOptions.length)].instance;
       }
-      
+
       populateBreezewikiHosts(hostOptions, host, customHost);
 
       // Store BreezeWiki host details
