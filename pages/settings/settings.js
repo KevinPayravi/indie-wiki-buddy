@@ -31,8 +31,8 @@ async function loadOptions(lang, textFilter = '') {
   sites = sites.filter((site) => (
     (lang === 'ALL' || site.language === lang) &&
     (site.origins_label.toLowerCase().includes(textFilter) ||
-    site.destination.toLowerCase().includes(textFilter) ||
-    site.destination_base_url.toLowerCase().includes(textFilter))
+      site.destination.toLowerCase().includes(textFilter) ||
+      site.destination_base_url.toLowerCase().includes(textFilter))
   ));
 
   chrome.storage.local.get((localStorage) => {
@@ -514,14 +514,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.getElementById('setCustomBreezewikiDomain').addEventListener('click', () => {
-   setCustomBreezewikiDomain();
+    setCustomBreezewikiDomain();
   });
-  document.getElementById('customBreezewikiHost').onkeyup = function(e) {
+  document.getElementById('customBreezewikiHost').onkeyup = function (e) {
     if (e.key === 'Enter') {
       setCustomBreezewikiDomain();
     }
   }
-  document.options.addEventListener("submit", function(e) {
+  document.options.addEventListener("submit", function (e) {
     e.preventDefault();
     return false;
   });

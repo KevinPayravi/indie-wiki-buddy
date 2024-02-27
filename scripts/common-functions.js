@@ -143,9 +143,9 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
       matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url));
     } else {
       matchingSites = sites.filter(el => {
-          return site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
+        return site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
           || site.replace(/.*https?:\/\//, '').replace(/\/$/, '') === el.origin_base_url
-        }
+      }
       );
     }
 
