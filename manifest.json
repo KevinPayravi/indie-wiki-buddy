@@ -366,6 +366,5 @@
     "https://breezewiki.woodland.cafe/*"
   ],
   "optional_host_permissions": ["https://*/*"],
-  "minimum_chrome_version": "88",
   "manifest_version": 3
 }
