@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Shared (App)
 //
-//  Created by Kevin Payravi on 2/25/24.
+//  Created by Kevin Payravi on 2/29/24.
 //
 
 import WebKit
@@ -28,7 +28,7 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         self.webView.navigationDelegate = self
 
 #if os(iOS)
-        self.webView.scrollView.isScrollEnabled = false
+        self.webView.scrollView.isScrollEnabled = true
 #endif
 
         self.webView.configuration.userContentController.add(self, name: "controller")

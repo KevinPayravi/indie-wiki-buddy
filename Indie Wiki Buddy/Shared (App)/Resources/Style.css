@@ -6,12 +6,11 @@
 
 :root {
     color-scheme: light dark;
-
     --spacing: 20px;
 }
 
 html {
-    height: 100%;
+    padding: 1em .25em;
 }
 
 body {
@@ -58,4 +57,9 @@ body.state-off :is(.state-on, .state-unknown) {
 
 button {
     font-size: 1em;
+}
+
+.screenshot {
+    width: 98%;
+    margin: 0 auto;
 }

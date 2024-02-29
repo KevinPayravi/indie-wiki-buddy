@@ -7,86 +7,88 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FADF5B292B8B1264000A7F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5B282B8B1264000A7F3C /* AppDelegate.swift */; };
-		FADF5B2B2B8B1264000A7F3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5B2A2B8B1264000A7F3C /* SceneDelegate.swift */; };
-		FADF5B2E2B8B1264000A7F3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B2C2B8B1264000A7F3C /* LaunchScreen.storyboard */; };
-		FADF5B312B8B1264000A7F3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B2F2B8B1264000A7F3C /* Main.storyboard */; };
-		FADF5B3A2B8B1264000A7F3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5B392B8B1264000A7F3C /* AppDelegate.swift */; };
-		FADF5B3D2B8B1264000A7F3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B3B2B8B1264000A7F3C /* Main.storyboard */; };
-		FADF5B452B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FADF5B442B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FADF5B4F2B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FADF5B4E2B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FADF5B552B8B1264000A7F3C /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B182B8B1263000A7F3C /* Main.html */; };
-		FADF5B562B8B1264000A7F3C /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B182B8B1263000A7F3C /* Main.html */; };
-		FADF5B572B8B1264000A7F3C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B1A2B8B1263000A7F3C /* Icon.png */; };
-		FADF5B582B8B1264000A7F3C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B1A2B8B1263000A7F3C /* Icon.png */; };
-		FADF5B592B8B1264000A7F3C /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B1B2B8B1263000A7F3C /* Style.css */; };
-		FADF5B5A2B8B1264000A7F3C /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B1B2B8B1263000A7F3C /* Style.css */; };
-		FADF5B5B2B8B1264000A7F3C /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B1C2B8B1263000A7F3C /* Script.js */; };
-		FADF5B5C2B8B1264000A7F3C /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B1C2B8B1263000A7F3C /* Script.js */; };
-		FADF5B5D2B8B1264000A7F3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5B1D2B8B1263000A7F3C /* ViewController.swift */; };
-		FADF5B5E2B8B1264000A7F3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5B1D2B8B1263000A7F3C /* ViewController.swift */; };
-		FADF5B5F2B8B1264000A7F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B1E2B8B1264000A7F3C /* Assets.xcassets */; };
-		FADF5B602B8B1264000A7F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B1E2B8B1264000A7F3C /* Assets.xcassets */; };
-		FADF5B612B8B1264000A7F3C /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5B202B8B1264000A7F3C /* SafariWebExtensionHandler.swift */; };
-		FADF5B622B8B1264000A7F3C /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5B202B8B1264000A7F3C /* SafariWebExtensionHandler.swift */; };
-		FADF5B7E2B8B1264000A7F3C /* favicons in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B742B8B1264000A7F3C /* favicons */; };
-		FADF5B7F2B8B1264000A7F3C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B752B8B1264000A7F3C /* LICENSE */; };
-		FADF5B802B8B1264000A7F3C /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B762B8B1264000A7F3C /* background.js */; };
-		FADF5B812B8B1264000A7F3C /* images in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B772B8B1264000A7F3C /* images */; };
-		FADF5B822B8B1264000A7F3C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B782B8B1264000A7F3C /* README.md */; };
-		FADF5B832B8B1264000A7F3C /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B792B8B1264000A7F3C /* scripts */; };
-		FADF5B842B8B1264000A7F3C /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B7A2B8B1264000A7F3C /* manifest.json */; };
-		FADF5B852B8B1264000A7F3C /* .. in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B7B2B8B1264000A7F3C /* .. */; };
-		FADF5B862B8B1264000A7F3C /* data in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B7C2B8B1264000A7F3C /* data */; };
-		FADF5B872B8B1264000A7F3C /* pages in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B7D2B8B1264000A7F3C /* pages */; };
-		FADF5B882B8B1264000A7F3C /* favicons in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B742B8B1264000A7F3C /* favicons */; };
-		FADF5B892B8B1264000A7F3C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B752B8B1264000A7F3C /* LICENSE */; };
-		FADF5B8A2B8B1264000A7F3C /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B762B8B1264000A7F3C /* background.js */; };
-		FADF5B8B2B8B1264000A7F3C /* images in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B772B8B1264000A7F3C /* images */; };
-		FADF5B8C2B8B1264000A7F3C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B782B8B1264000A7F3C /* README.md */; };
-		FADF5B8D2B8B1264000A7F3C /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B792B8B1264000A7F3C /* scripts */; };
-		FADF5B8E2B8B1264000A7F3C /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B7A2B8B1264000A7F3C /* manifest.json */; };
-		FADF5B8F2B8B1264000A7F3C /* .. in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B7B2B8B1264000A7F3C /* .. */; };
-		FADF5B902B8B1264000A7F3C /* data in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B7C2B8B1264000A7F3C /* data */; };
-		FADF5B912B8B1264000A7F3C /* pages in Resources */ = {isa = PBXBuildFile; fileRef = FADF5B7D2B8B1264000A7F3C /* pages */; };
+		FA3BE9712B90629D004856BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9702B90629D004856BA /* AppDelegate.swift */; };
+		FA3BE9732B90629D004856BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9722B90629D004856BA /* SceneDelegate.swift */; };
+		FA3BE9762B90629D004856BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9742B90629D004856BA /* LaunchScreen.storyboard */; };
+		FA3BE9792B90629D004856BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9772B90629D004856BA /* Main.storyboard */; };
+		FA3BE9822B90629D004856BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9812B90629D004856BA /* AppDelegate.swift */; };
+		FA3BE9852B90629D004856BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9832B90629D004856BA /* Main.storyboard */; };
+		FA3BE98D2B90629D004856BA /* Indie Wiki Buddy Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA3BE98C2B90629D004856BA /* Indie Wiki Buddy Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FA3BE9972B90629D004856BA /* Indie Wiki Buddy Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FA3BE9962B90629D004856BA /* Indie Wiki Buddy Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FA3BE99D2B90629D004856BA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9602B90629B004856BA /* Main.html */; };
+		FA3BE99E2B90629D004856BA /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9602B90629B004856BA /* Main.html */; };
+		FA3BE99F2B90629D004856BA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9622B90629B004856BA /* Icon.png */; };
+		FA3BE9A02B90629D004856BA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9622B90629B004856BA /* Icon.png */; };
+		FA3BE9A12B90629D004856BA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9632B90629B004856BA /* Style.css */; };
+		FA3BE9A22B90629D004856BA /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9632B90629B004856BA /* Style.css */; };
+		FA3BE9A32B90629D004856BA /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9642B90629B004856BA /* Script.js */; };
+		FA3BE9A42B90629D004856BA /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9642B90629B004856BA /* Script.js */; };
+		FA3BE9A52B90629D004856BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9652B90629B004856BA /* ViewController.swift */; };
+		FA3BE9A62B90629D004856BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9652B90629B004856BA /* ViewController.swift */; };
+		FA3BE9A72B90629D004856BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9662B90629D004856BA /* Assets.xcassets */; };
+		FA3BE9A82B90629D004856BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9662B90629D004856BA /* Assets.xcassets */; };
+		FA3BE9A92B90629D004856BA /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9682B90629D004856BA /* SafariWebExtensionHandler.swift */; };
+		FA3BE9AA2B90629D004856BA /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9682B90629D004856BA /* SafariWebExtensionHandler.swift */; };
+		FA3BE9C62B90629D004856BA /* favicons in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BC2B90629D004856BA /* favicons */; };
+		FA3BE9C72B90629D004856BA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BD2B90629D004856BA /* LICENSE */; };
+		FA3BE9C82B90629D004856BA /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BE2B90629D004856BA /* background.js */; };
+		FA3BE9C92B90629D004856BA /* images in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BF2B90629D004856BA /* images */; };
+		FA3BE9CA2B90629D004856BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C02B90629D004856BA /* README.md */; };
+		FA3BE9CB2B90629D004856BA /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C12B90629D004856BA /* scripts */; };
+		FA3BE9CC2B90629D004856BA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C22B90629D004856BA /* manifest.json */; };
+		FA3BE9CD2B90629D004856BA /* Indie Wiki Buddy.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C32B90629D004856BA /* Indie Wiki Buddy.xcodeproj */; };
+		FA3BE9CE2B90629D004856BA /* data in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C42B90629D004856BA /* data */; };
+		FA3BE9CF2B90629D004856BA /* pages in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C52B90629D004856BA /* pages */; };
+		FA3BE9D02B90629D004856BA /* favicons in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BC2B90629D004856BA /* favicons */; };
+		FA3BE9D12B90629D004856BA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BD2B90629D004856BA /* LICENSE */; };
+		FA3BE9D22B90629D004856BA /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BE2B90629D004856BA /* background.js */; };
+		FA3BE9D32B90629D004856BA /* images in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BF2B90629D004856BA /* images */; };
+		FA3BE9D42B90629D004856BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C02B90629D004856BA /* README.md */; };
+		FA3BE9D52B90629D004856BA /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C12B90629D004856BA /* scripts */; };
+		FA3BE9D62B90629D004856BA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C22B90629D004856BA /* manifest.json */; };
+		FA3BE9D72B90629D004856BA /* Indie Wiki Buddy.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C32B90629D004856BA /* Indie Wiki Buddy.xcodeproj */; };
+		FA3BE9D82B90629D004856BA /* data in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C42B90629D004856BA /* data */; };
+		FA3BE9D92B90629D004856BA /* pages in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C52B90629D004856BA /* pages */; };
+		FA8AC1E72B907A4C0076177E /* IWBPermissions.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8AC1E62B907A4C0076177E /* IWBPermissions.png */; };
+		FA8AC1E82B907A4C0076177E /* IWBPermissions.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8AC1E62B907A4C0076177E /* IWBPermissions.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FADF5B462B8B1264000A7F3C /* PBXContainerItemProxy */ = {
+		FA3BE98E2B90629D004856BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FADF5B122B8B1263000A7F3C /* Project object */;
+			containerPortal = FA3BE95A2B90629B004856BA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FADF5B432B8B1264000A7F3C;
+			remoteGlobalIDString = FA3BE98B2B90629D004856BA;
 			remoteInfo = "Indie Wiki Buddy Extension (iOS)";
 		};
-		FADF5B502B8B1264000A7F3C /* PBXContainerItemProxy */ = {
+		FA3BE9982B90629D004856BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FADF5B122B8B1263000A7F3C /* Project object */;
+			containerPortal = FA3BE95A2B90629B004856BA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FADF5B4D2B8B1264000A7F3C;
+			remoteGlobalIDString = FA3BE9952B90629D004856BA;
 			remoteInfo = "Indie Wiki Buddy Extension (macOS)";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FADF5B682B8B1264000A7F3C /* Embed Foundation Extensions */ = {
+		FA3BE9B02B90629D004856BA /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				FADF5B452B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex in Embed Foundation Extensions */,
+				FA3BE98D2B90629D004856BA /* Indie Wiki Buddy Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B6F2B8B1264000A7F3C /* Embed Foundation Extensions */ = {
+		FA3BE9B72B90629D004856BA /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				FADF5B4F2B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex in Embed Foundation Extensions */,
+				FA3BE9972B90629D004856BA /* Indie Wiki Buddy Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,64 +96,65 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FADF5B192B8B1263000A7F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
-		FADF5B1A2B8B1263000A7F3C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		FADF5B1B2B8B1263000A7F3C /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
-		FADF5B1C2B8B1263000A7F3C /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		FADF5B1D2B8B1263000A7F3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FADF5B1E2B8B1264000A7F3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FADF5B202B8B1264000A7F3C /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		FADF5B252B8B1264000A7F3C /* Indie Wiki Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indie Wiki Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FADF5B282B8B1264000A7F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FADF5B2A2B8B1264000A7F3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FADF5B2D2B8B1264000A7F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FADF5B302B8B1264000A7F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FADF5B322B8B1264000A7F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FADF5B372B8B1264000A7F3C /* Indie Wiki Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indie Wiki Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FADF5B392B8B1264000A7F3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FADF5B3C2B8B1264000A7F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FADF5B3E2B8B1264000A7F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FADF5B3F2B8B1264000A7F3C /* Indie Wiki Buddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Indie Wiki Buddy.entitlements"; sourceTree = "<group>"; };
-		FADF5B442B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Indie Wiki Buddy Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FADF5B492B8B1264000A7F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FADF5B4E2B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Indie Wiki Buddy Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FADF5B532B8B1264000A7F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FADF5B542B8B1264000A7F3C /* Indie Wiki Buddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Indie Wiki Buddy.entitlements"; sourceTree = "<group>"; };
-		FADF5B742B8B1264000A7F3C /* favicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = favicons; path = ../../favicons; sourceTree = "<group>"; };
-		FADF5B752B8B1264000A7F3C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
-		FADF5B762B8B1264000A7F3C /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../background.js; sourceTree = "<group>"; };
-		FADF5B772B8B1264000A7F3C /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = ../../images; sourceTree = "<group>"; };
-		FADF5B782B8B1264000A7F3C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		FADF5B792B8B1264000A7F3C /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../../scripts; sourceTree = "<group>"; };
-		FADF5B7A2B8B1264000A7F3C /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../manifest.json; sourceTree = "<group>"; };
-		FADF5B7B2B8B1264000A7F3C /* .. */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ..; path = ../..; sourceTree = "<group>"; };
-		FADF5B7C2B8B1264000A7F3C /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = ../../data; sourceTree = "<group>"; };
-		FADF5B7D2B8B1264000A7F3C /* pages */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pages; path = ../../pages; sourceTree = "<group>"; };
+		FA3BE9612B90629B004856BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		FA3BE9622B90629B004856BA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FA3BE9632B90629B004856BA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		FA3BE9642B90629B004856BA /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		FA3BE9652B90629B004856BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA3BE9662B90629D004856BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA3BE9682B90629D004856BA /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		FA3BE96D2B90629D004856BA /* Indie Wiki Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indie Wiki Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3BE9702B90629D004856BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA3BE9722B90629D004856BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FA3BE9752B90629D004856BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA3BE9782B90629D004856BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA3BE97A2B90629D004856BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3BE97F2B90629D004856BA /* Indie Wiki Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Indie Wiki Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3BE9812B90629D004856BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA3BE9842B90629D004856BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA3BE9862B90629D004856BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3BE9872B90629D004856BA /* Indie Wiki Buddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Indie Wiki Buddy.entitlements"; sourceTree = "<group>"; };
+		FA3BE98C2B90629D004856BA /* Indie Wiki Buddy Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Indie Wiki Buddy Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3BE9912B90629D004856BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3BE9962B90629D004856BA /* Indie Wiki Buddy Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Indie Wiki Buddy Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA3BE99B2B90629D004856BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3BE99C2B90629D004856BA /* Indie Wiki Buddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Indie Wiki Buddy.entitlements"; sourceTree = "<group>"; };
+		FA3BE9BC2B90629D004856BA /* favicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = favicons; path = ../../favicons; sourceTree = "<group>"; };
+		FA3BE9BD2B90629D004856BA /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
+		FA3BE9BE2B90629D004856BA /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../background.js; sourceTree = "<group>"; };
+		FA3BE9BF2B90629D004856BA /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = ../../images; sourceTree = "<group>"; };
+		FA3BE9C02B90629D004856BA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		FA3BE9C12B90629D004856BA /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../../scripts; sourceTree = "<group>"; };
+		FA3BE9C22B90629D004856BA /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../manifest.json; sourceTree = "<group>"; };
+		FA3BE9C32B90629D004856BA /* Indie Wiki Buddy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Indie Wiki Buddy.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		FA3BE9C42B90629D004856BA /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = ../../data; sourceTree = "<group>"; };
+		FA3BE9C52B90629D004856BA /* pages */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pages; path = ../../pages; sourceTree = "<group>"; };
+		FA8AC1E62B907A4C0076177E /* IWBPermissions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IWBPermissions.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FADF5B222B8B1264000A7F3C /* Frameworks */ = {
+		FA3BE96A2B90629D004856BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B342B8B1264000A7F3C /* Frameworks */ = {
+		FA3BE97C2B90629D004856BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B412B8B1264000A7F3C /* Frameworks */ = {
+		FA3BE9892B90629D004856BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B4B2B8B1264000A7F3C /* Frameworks */ = {
+		FA3BE9932B90629D004856BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -161,113 +164,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FADF5B112B8B1263000A7F3C = {
+		FA3BE9592B90629B004856BA = {
 			isa = PBXGroup;
 			children = (
-				FADF5B162B8B1263000A7F3C /* Shared (App) */,
-				FADF5B1F2B8B1264000A7F3C /* Shared (Extension) */,
-				FADF5B272B8B1264000A7F3C /* iOS (App) */,
-				FADF5B382B8B1264000A7F3C /* macOS (App) */,
-				FADF5B482B8B1264000A7F3C /* iOS (Extension) */,
-				FADF5B522B8B1264000A7F3C /* macOS (Extension) */,
-				FADF5B262B8B1264000A7F3C /* Products */,
+				FA3BE95E2B90629B004856BA /* Shared (App) */,
+				FA3BE9672B90629D004856BA /* Shared (Extension) */,
+				FA3BE96F2B90629D004856BA /* iOS (App) */,
+				FA3BE9802B90629D004856BA /* macOS (App) */,
+				FA3BE9902B90629D004856BA /* iOS (Extension) */,
+				FA3BE99A2B90629D004856BA /* macOS (Extension) */,
+				FA3BE96E2B90629D004856BA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FADF5B162B8B1263000A7F3C /* Shared (App) */ = {
+		FA3BE95E2B90629B004856BA /* Shared (App) */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B1D2B8B1263000A7F3C /* ViewController.swift */,
-				FADF5B1E2B8B1264000A7F3C /* Assets.xcassets */,
-				FADF5B172B8B1263000A7F3C /* Resources */,
+				FA3BE9652B90629B004856BA /* ViewController.swift */,
+				FA3BE9662B90629D004856BA /* Assets.xcassets */,
+				FA3BE95F2B90629B004856BA /* Resources */,
 			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
 		};
-		FADF5B172B8B1263000A7F3C /* Resources */ = {
+		FA3BE95F2B90629B004856BA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B182B8B1263000A7F3C /* Main.html */,
-				FADF5B1A2B8B1263000A7F3C /* Icon.png */,
-				FADF5B1B2B8B1263000A7F3C /* Style.css */,
-				FADF5B1C2B8B1263000A7F3C /* Script.js */,
+				FA3BE9602B90629B004856BA /* Main.html */,
+				FA8AC1E62B907A4C0076177E /* IWBPermissions.png */,
+				FA3BE9622B90629B004856BA /* Icon.png */,
+				FA3BE9632B90629B004856BA /* Style.css */,
+				FA3BE9642B90629B004856BA /* Script.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FADF5B1F2B8B1264000A7F3C /* Shared (Extension) */ = {
+		FA3BE9672B90629D004856BA /* Shared (Extension) */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B732B8B1264000A7F3C /* Resources */,
-				FADF5B202B8B1264000A7F3C /* SafariWebExtensionHandler.swift */,
+				FA3BE9BB2B90629D004856BA /* Resources */,
+				FA3BE9682B90629D004856BA /* SafariWebExtensionHandler.swift */,
 			);
 			path = "Shared (Extension)";
 			sourceTree = "<group>";
 		};
-		FADF5B262B8B1264000A7F3C /* Products */ = {
+		FA3BE96E2B90629D004856BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B252B8B1264000A7F3C /* Indie Wiki Buddy.app */,
-				FADF5B372B8B1264000A7F3C /* Indie Wiki Buddy.app */,
-				FADF5B442B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex */,
-				FADF5B4E2B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex */,
+				FA3BE96D2B90629D004856BA /* Indie Wiki Buddy.app */,
+				FA3BE97F2B90629D004856BA /* Indie Wiki Buddy.app */,
+				FA3BE98C2B90629D004856BA /* Indie Wiki Buddy Extension.appex */,
+				FA3BE9962B90629D004856BA /* Indie Wiki Buddy Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FADF5B272B8B1264000A7F3C /* iOS (App) */ = {
+		FA3BE96F2B90629D004856BA /* iOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B282B8B1264000A7F3C /* AppDelegate.swift */,
-				FADF5B2A2B8B1264000A7F3C /* SceneDelegate.swift */,
-				FADF5B2C2B8B1264000A7F3C /* LaunchScreen.storyboard */,
-				FADF5B2F2B8B1264000A7F3C /* Main.storyboard */,
-				FADF5B322B8B1264000A7F3C /* Info.plist */,
+				FA3BE9702B90629D004856BA /* AppDelegate.swift */,
+				FA3BE9722B90629D004856BA /* SceneDelegate.swift */,
+				FA3BE9742B90629D004856BA /* LaunchScreen.storyboard */,
+				FA3BE9772B90629D004856BA /* Main.storyboard */,
+				FA3BE97A2B90629D004856BA /* Info.plist */,
 			);
 			path = "iOS (App)";
 			sourceTree = "<group>";
 		};
-		FADF5B382B8B1264000A7F3C /* macOS (App) */ = {
+		FA3BE9802B90629D004856BA /* macOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B392B8B1264000A7F3C /* AppDelegate.swift */,
-				FADF5B3B2B8B1264000A7F3C /* Main.storyboard */,
-				FADF5B3E2B8B1264000A7F3C /* Info.plist */,
-				FADF5B3F2B8B1264000A7F3C /* Indie Wiki Buddy.entitlements */,
+				FA3BE9812B90629D004856BA /* AppDelegate.swift */,
+				FA3BE9832B90629D004856BA /* Main.storyboard */,
+				FA3BE9862B90629D004856BA /* Info.plist */,
+				FA3BE9872B90629D004856BA /* Indie Wiki Buddy.entitlements */,
 			);
 			path = "macOS (App)";
 			sourceTree = "<group>";
 		};
-		FADF5B482B8B1264000A7F3C /* iOS (Extension) */ = {
+		FA3BE9902B90629D004856BA /* iOS (Extension) */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B492B8B1264000A7F3C /* Info.plist */,
+				FA3BE9912B90629D004856BA /* Info.plist */,
 			);
 			path = "iOS (Extension)";
 			sourceTree = "<group>";
 		};
-		FADF5B522B8B1264000A7F3C /* macOS (Extension) */ = {
+		FA3BE99A2B90629D004856BA /* macOS (Extension) */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B532B8B1264000A7F3C /* Info.plist */,
-				FADF5B542B8B1264000A7F3C /* Indie Wiki Buddy.entitlements */,
+				FA3BE99B2B90629D004856BA /* Info.plist */,
+				FA3BE99C2B90629D004856BA /* Indie Wiki Buddy.entitlements */,
 			);
 			path = "macOS (Extension)";
 			sourceTree = "<group>";
 		};
-		FADF5B732B8B1264000A7F3C /* Resources */ = {
+		FA3BE9BB2B90629D004856BA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FADF5B742B8B1264000A7F3C /* favicons */,
-				FADF5B752B8B1264000A7F3C /* LICENSE */,
-				FADF5B762B8B1264000A7F3C /* background.js */,
-				FADF5B772B8B1264000A7F3C /* images */,
-				FADF5B782B8B1264000A7F3C /* README.md */,
-				FADF5B792B8B1264000A7F3C /* scripts */,
-				FADF5B7A2B8B1264000A7F3C /* manifest.json */,
-				FADF5B7B2B8B1264000A7F3C /* .. */,
-				FADF5B7C2B8B1264000A7F3C /* data */,
-				FADF5B7D2B8B1264000A7F3C /* pages */,
+				FA3BE9BC2B90629D004856BA /* favicons */,
+				FA3BE9BD2B90629D004856BA /* LICENSE */,
+				FA3BE9BE2B90629D004856BA /* background.js */,
+				FA3BE9BF2B90629D004856BA /* images */,
+				FA3BE9C02B90629D004856BA /* README.md */,
+				FA3BE9C12B90629D004856BA /* scripts */,
+				FA3BE9C22B90629D004856BA /* manifest.json */,
+				FA3BE9C32B90629D004856BA /* Indie Wiki Buddy.xcodeproj */,
+				FA3BE9C42B90629D004856BA /* data */,
+				FA3BE9C52B90629D004856BA /* pages */,
 			);
 			name = Resources;
 			path = "Shared (Extension)";
@@ -276,51 +280,51 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FADF5B242B8B1264000A7F3C /* Indie Wiki Buddy (iOS) */ = {
+		FA3BE96C2B90629D004856BA /* Indie Wiki Buddy (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FADF5B692B8B1264000A7F3C /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy (iOS)" */;
+			buildConfigurationList = FA3BE9B12B90629D004856BA /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy (iOS)" */;
 			buildPhases = (
-				FADF5B212B8B1264000A7F3C /* Sources */,
-				FADF5B222B8B1264000A7F3C /* Frameworks */,
-				FADF5B232B8B1264000A7F3C /* Resources */,
-				FADF5B682B8B1264000A7F3C /* Embed Foundation Extensions */,
+				FA3BE9692B90629D004856BA /* Sources */,
+				FA3BE96A2B90629D004856BA /* Frameworks */,
+				FA3BE96B2B90629D004856BA /* Resources */,
+				FA3BE9B02B90629D004856BA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FADF5B472B8B1264000A7F3C /* PBXTargetDependency */,
+				FA3BE98F2B90629D004856BA /* PBXTargetDependency */,
 			);
 			name = "Indie Wiki Buddy (iOS)";
 			productName = "Indie Wiki Buddy (iOS)";
-			productReference = FADF5B252B8B1264000A7F3C /* Indie Wiki Buddy.app */;
+			productReference = FA3BE96D2B90629D004856BA /* Indie Wiki Buddy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FADF5B362B8B1264000A7F3C /* Indie Wiki Buddy (macOS) */ = {
+		FA3BE97E2B90629D004856BA /* Indie Wiki Buddy (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FADF5B702B8B1264000A7F3C /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy (macOS)" */;
+			buildConfigurationList = FA3BE9B82B90629D004856BA /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy (macOS)" */;
 			buildPhases = (
-				FADF5B332B8B1264000A7F3C /* Sources */,
-				FADF5B342B8B1264000A7F3C /* Frameworks */,
-				FADF5B352B8B1264000A7F3C /* Resources */,
-				FADF5B6F2B8B1264000A7F3C /* Embed Foundation Extensions */,
+				FA3BE97B2B90629D004856BA /* Sources */,
+				FA3BE97C2B90629D004856BA /* Frameworks */,
+				FA3BE97D2B90629D004856BA /* Resources */,
+				FA3BE9B72B90629D004856BA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FADF5B512B8B1264000A7F3C /* PBXTargetDependency */,
+				FA3BE9992B90629D004856BA /* PBXTargetDependency */,
 			);
 			name = "Indie Wiki Buddy (macOS)";
 			productName = "Indie Wiki Buddy (macOS)";
-			productReference = FADF5B372B8B1264000A7F3C /* Indie Wiki Buddy.app */;
+			productReference = FA3BE97F2B90629D004856BA /* Indie Wiki Buddy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FADF5B432B8B1264000A7F3C /* Indie Wiki Buddy Extension (iOS) */ = {
+		FA3BE98B2B90629D004856BA /* Indie Wiki Buddy Extension (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FADF5B652B8B1264000A7F3C /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy Extension (iOS)" */;
+			buildConfigurationList = FA3BE9AD2B90629D004856BA /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy Extension (iOS)" */;
 			buildPhases = (
-				FADF5B402B8B1264000A7F3C /* Sources */,
-				FADF5B412B8B1264000A7F3C /* Frameworks */,
-				FADF5B422B8B1264000A7F3C /* Resources */,
+				FA3BE9882B90629D004856BA /* Sources */,
+				FA3BE9892B90629D004856BA /* Frameworks */,
+				FA3BE98A2B90629D004856BA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -328,16 +332,16 @@
 			);
 			name = "Indie Wiki Buddy Extension (iOS)";
 			productName = "Indie Wiki Buddy Extension (iOS)";
-			productReference = FADF5B442B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex */;
+			productReference = FA3BE98C2B90629D004856BA /* Indie Wiki Buddy Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		FADF5B4D2B8B1264000A7F3C /* Indie Wiki Buddy Extension (macOS) */ = {
+		FA3BE9952B90629D004856BA /* Indie Wiki Buddy Extension (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FADF5B6C2B8B1264000A7F3C /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy Extension (macOS)" */;
+			buildConfigurationList = FA3BE9B42B90629D004856BA /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy Extension (macOS)" */;
 			buildPhases = (
-				FADF5B4A2B8B1264000A7F3C /* Sources */,
-				FADF5B4B2B8B1264000A7F3C /* Frameworks */,
-				FADF5B4C2B8B1264000A7F3C /* Resources */,
+				FA3BE9922B90629D004856BA /* Sources */,
+				FA3BE9932B90629D004856BA /* Frameworks */,
+				FA3BE9942B90629D004856BA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -345,34 +349,34 @@
 			);
 			name = "Indie Wiki Buddy Extension (macOS)";
 			productName = "Indie Wiki Buddy Extension (macOS)";
-			productReference = FADF5B4E2B8B1264000A7F3C /* Indie Wiki Buddy Extension.appex */;
+			productReference = FA3BE9962B90629D004856BA /* Indie Wiki Buddy Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FADF5B122B8B1263000A7F3C /* Project object */ = {
+		FA3BE95A2B90629B004856BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					FADF5B242B8B1264000A7F3C = {
+					FA3BE96C2B90629D004856BA = {
 						CreatedOnToolsVersion = 15.2;
 					};
-					FADF5B362B8B1264000A7F3C = {
+					FA3BE97E2B90629D004856BA = {
 						CreatedOnToolsVersion = 15.2;
 					};
-					FADF5B432B8B1264000A7F3C = {
+					FA3BE98B2B90629D004856BA = {
 						CreatedOnToolsVersion = 15.2;
 					};
-					FADF5B4D2B8B1264000A7F3C = {
+					FA3BE9952B90629D004856BA = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = FADF5B152B8B1263000A7F3C /* Build configuration list for PBXProject "Indie Wiki Buddy" */;
+			buildConfigurationList = FA3BE95D2B90629B004856BA /* Build configuration list for PBXProject "Indie Wiki Buddy" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -380,163 +384,165 @@
 				en,
 				Base,
 			);
-			mainGroup = FADF5B112B8B1263000A7F3C;
-			productRefGroup = FADF5B262B8B1264000A7F3C /* Products */;
+			mainGroup = FA3BE9592B90629B004856BA;
+			productRefGroup = FA3BE96E2B90629D004856BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FADF5B242B8B1264000A7F3C /* Indie Wiki Buddy (iOS) */,
-				FADF5B362B8B1264000A7F3C /* Indie Wiki Buddy (macOS) */,
-				FADF5B432B8B1264000A7F3C /* Indie Wiki Buddy Extension (iOS) */,
-				FADF5B4D2B8B1264000A7F3C /* Indie Wiki Buddy Extension (macOS) */,
+				FA3BE96C2B90629D004856BA /* Indie Wiki Buddy (iOS) */,
+				FA3BE97E2B90629D004856BA /* Indie Wiki Buddy (macOS) */,
+				FA3BE98B2B90629D004856BA /* Indie Wiki Buddy Extension (iOS) */,
+				FA3BE9952B90629D004856BA /* Indie Wiki Buddy Extension (macOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FADF5B232B8B1264000A7F3C /* Resources */ = {
+		FA3BE96B2B90629D004856BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADF5B572B8B1264000A7F3C /* Icon.png in Resources */,
-				FADF5B2E2B8B1264000A7F3C /* LaunchScreen.storyboard in Resources */,
-				FADF5B552B8B1264000A7F3C /* Main.html in Resources */,
-				FADF5B5B2B8B1264000A7F3C /* Script.js in Resources */,
-				FADF5B5F2B8B1264000A7F3C /* Assets.xcassets in Resources */,
-				FADF5B312B8B1264000A7F3C /* Main.storyboard in Resources */,
-				FADF5B592B8B1264000A7F3C /* Style.css in Resources */,
+				FA3BE99F2B90629D004856BA /* Icon.png in Resources */,
+				FA3BE9762B90629D004856BA /* LaunchScreen.storyboard in Resources */,
+				FA3BE99D2B90629D004856BA /* Main.html in Resources */,
+				FA8AC1E72B907A4C0076177E /* IWBPermissions.png in Resources */,
+				FA3BE9A32B90629D004856BA /* Script.js in Resources */,
+				FA3BE9A72B90629D004856BA /* Assets.xcassets in Resources */,
+				FA3BE9792B90629D004856BA /* Main.storyboard in Resources */,
+				FA3BE9A12B90629D004856BA /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B352B8B1264000A7F3C /* Resources */ = {
+		FA3BE97D2B90629D004856BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADF5B582B8B1264000A7F3C /* Icon.png in Resources */,
-				FADF5B5A2B8B1264000A7F3C /* Style.css in Resources */,
-				FADF5B3D2B8B1264000A7F3C /* Main.storyboard in Resources */,
-				FADF5B5C2B8B1264000A7F3C /* Script.js in Resources */,
-				FADF5B602B8B1264000A7F3C /* Assets.xcassets in Resources */,
-				FADF5B562B8B1264000A7F3C /* Main.html in Resources */,
+				FA3BE9A02B90629D004856BA /* Icon.png in Resources */,
+				FA3BE9A22B90629D004856BA /* Style.css in Resources */,
+				FA3BE9852B90629D004856BA /* Main.storyboard in Resources */,
+				FA3BE9A42B90629D004856BA /* Script.js in Resources */,
+				FA8AC1E82B907A4C0076177E /* IWBPermissions.png in Resources */,
+				FA3BE9A82B90629D004856BA /* Assets.xcassets in Resources */,
+				FA3BE99E2B90629D004856BA /* Main.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B422B8B1264000A7F3C /* Resources */ = {
+		FA3BE98A2B90629D004856BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADF5B8B2B8B1264000A7F3C /* images in Resources */,
-				FADF5B912B8B1264000A7F3C /* pages in Resources */,
-				FADF5B8E2B8B1264000A7F3C /* manifest.json in Resources */,
-				FADF5B892B8B1264000A7F3C /* LICENSE in Resources */,
-				FADF5B8C2B8B1264000A7F3C /* README.md in Resources */,
-				FADF5B902B8B1264000A7F3C /* data in Resources */,
-				FADF5B8D2B8B1264000A7F3C /* scripts in Resources */,
-				FADF5B8F2B8B1264000A7F3C /* .. in Resources */,
-				FADF5B8A2B8B1264000A7F3C /* background.js in Resources */,
-				FADF5B882B8B1264000A7F3C /* favicons in Resources */,
+				FA3BE9D32B90629D004856BA /* images in Resources */,
+				FA3BE9D92B90629D004856BA /* pages in Resources */,
+				FA3BE9D62B90629D004856BA /* manifest.json in Resources */,
+				FA3BE9D12B90629D004856BA /* LICENSE in Resources */,
+				FA3BE9D42B90629D004856BA /* README.md in Resources */,
+				FA3BE9D82B90629D004856BA /* data in Resources */,
+				FA3BE9D52B90629D004856BA /* scripts in Resources */,
+				FA3BE9D72B90629D004856BA /* Indie Wiki Buddy.xcodeproj in Resources */,
+				FA3BE9D22B90629D004856BA /* background.js in Resources */,
+				FA3BE9D02B90629D004856BA /* favicons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B4C2B8B1264000A7F3C /* Resources */ = {
+		FA3BE9942B90629D004856BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADF5B812B8B1264000A7F3C /* images in Resources */,
-				FADF5B872B8B1264000A7F3C /* pages in Resources */,
-				FADF5B842B8B1264000A7F3C /* manifest.json in Resources */,
-				FADF5B7F2B8B1264000A7F3C /* LICENSE in Resources */,
-				FADF5B822B8B1264000A7F3C /* README.md in Resources */,
-				FADF5B862B8B1264000A7F3C /* data in Resources */,
-				FADF5B832B8B1264000A7F3C /* scripts in Resources */,
-				FADF5B852B8B1264000A7F3C /* .. in Resources */,
-				FADF5B802B8B1264000A7F3C /* background.js in Resources */,
-				FADF5B7E2B8B1264000A7F3C /* favicons in Resources */,
+				FA3BE9C92B90629D004856BA /* images in Resources */,
+				FA3BE9CF2B90629D004856BA /* pages in Resources */,
+				FA3BE9CC2B90629D004856BA /* manifest.json in Resources */,
+				FA3BE9C72B90629D004856BA /* LICENSE in Resources */,
+				FA3BE9CA2B90629D004856BA /* README.md in Resources */,
+				FA3BE9CE2B90629D004856BA /* data in Resources */,
+				FA3BE9CB2B90629D004856BA /* scripts in Resources */,
+				FA3BE9CD2B90629D004856BA /* Indie Wiki Buddy.xcodeproj in Resources */,
+				FA3BE9C82B90629D004856BA /* background.js in Resources */,
+				FA3BE9C62B90629D004856BA /* favicons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FADF5B212B8B1264000A7F3C /* Sources */ = {
+		FA3BE9692B90629D004856BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADF5B5D2B8B1264000A7F3C /* ViewController.swift in Sources */,
-				FADF5B292B8B1264000A7F3C /* AppDelegate.swift in Sources */,
-				FADF5B2B2B8B1264000A7F3C /* SceneDelegate.swift in Sources */,
+				FA3BE9A52B90629D004856BA /* ViewController.swift in Sources */,
+				FA3BE9712B90629D004856BA /* AppDelegate.swift in Sources */,
+				FA3BE9732B90629D004856BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B332B8B1264000A7F3C /* Sources */ = {
+		FA3BE97B2B90629D004856BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADF5B5E2B8B1264000A7F3C /* ViewController.swift in Sources */,
-				FADF5B3A2B8B1264000A7F3C /* AppDelegate.swift in Sources */,
+				FA3BE9A62B90629D004856BA /* ViewController.swift in Sources */,
+				FA3BE9822B90629D004856BA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B402B8B1264000A7F3C /* Sources */ = {
+		FA3BE9882B90629D004856BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADF5B612B8B1264000A7F3C /* SafariWebExtensionHandler.swift in Sources */,
+				FA3BE9A92B90629D004856BA /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FADF5B4A2B8B1264000A7F3C /* Sources */ = {
+		FA3BE9922B90629D004856BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADF5B622B8B1264000A7F3C /* SafariWebExtensionHandler.swift in Sources */,
+				FA3BE9AA2B90629D004856BA /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FADF5B472B8B1264000A7F3C /* PBXTargetDependency */ = {
+		FA3BE98F2B90629D004856BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FADF5B432B8B1264000A7F3C /* Indie Wiki Buddy Extension (iOS) */;
-			targetProxy = FADF5B462B8B1264000A7F3C /* PBXContainerItemProxy */;
+			target = FA3BE98B2B90629D004856BA /* Indie Wiki Buddy Extension (iOS) */;
+			targetProxy = FA3BE98E2B90629D004856BA /* PBXContainerItemProxy */;
 		};
-		FADF5B512B8B1264000A7F3C /* PBXTargetDependency */ = {
+		FA3BE9992B90629D004856BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FADF5B4D2B8B1264000A7F3C /* Indie Wiki Buddy Extension (macOS) */;
-			targetProxy = FADF5B502B8B1264000A7F3C /* PBXContainerItemProxy */;
+			target = FA3BE9952B90629D004856BA /* Indie Wiki Buddy Extension (macOS) */;
+			targetProxy = FA3BE9982B90629D004856BA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FADF5B182B8B1263000A7F3C /* Main.html */ = {
+		FA3BE9602B90629B004856BA /* Main.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FADF5B192B8B1263000A7F3C /* Base */,
+				FA3BE9612B90629B004856BA /* Base */,
 			);
 			name = Main.html;
 			sourceTree = "<group>";
 		};
-		FADF5B2C2B8B1264000A7F3C /* LaunchScreen.storyboard */ = {
+		FA3BE9742B90629D004856BA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FADF5B2D2B8B1264000A7F3C /* Base */,
+				FA3BE9752B90629D004856BA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		FADF5B2F2B8B1264000A7F3C /* Main.storyboard */ = {
+		FA3BE9772B90629D004856BA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FADF5B302B8B1264000A7F3C /* Base */,
+				FA3BE9782B90629D004856BA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FADF5B3B2B8B1264000A7F3C /* Main.storyboard */ = {
+		FA3BE9832B90629D004856BA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FADF5B3C2B8B1264000A7F3C /* Base */,
+				FA3BE9842B90629D004856BA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -544,7 +550,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FADF5B632B8B1264000A7F3C /* Debug */ = {
+		FA3BE9AB2B90629D004856BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -605,7 +611,7 @@
 			};
 			name = Debug;
 		};
-		FADF5B642B8B1264000A7F3C /* Release */ = {
+		FA3BE9AC2B90629D004856BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -658,12 +664,11 @@
 			};
 			name = Release;
 		};
-		FADF5B662B8B1264000A7F3C /* Debug */ = {
+		FA3BE9AE2B90629D004856BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QWRLUA85QC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Indie Wiki Buddy Extension";
@@ -689,12 +694,11 @@
 			};
 			name = Debug;
 		};
-		FADF5B672B8B1264000A7F3C /* Release */ = {
+		FA3BE9AF2B90629D004856BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QWRLUA85QC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Indie Wiki Buddy Extension";
@@ -721,7 +725,7 @@
 			};
 			name = Release;
 		};
-		FADF5B6A2B8B1264000A7F3C /* Debug */ = {
+		FA3BE9B22B90629D004856BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -729,16 +733,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QWRLUA85QC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Indie Wiki Buddy";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -759,7 +763,7 @@
 			};
 			name = Debug;
 		};
-		FADF5B6B2B8B1264000A7F3C /* Release */ = {
+		FA3BE9B32B90629D004856BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -767,16 +771,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QWRLUA85QC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Indie Wiki Buddy";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -798,7 +802,7 @@
 			};
 			name = Release;
 		};
-		FADF5B6D2B8B1264000A7F3C /* Debug */ = {
+		FA3BE9B52B90629D004856BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Indie Wiki Buddy.entitlements";
@@ -829,7 +833,7 @@
 			};
 			name = Debug;
 		};
-		FADF5B6E2B8B1264000A7F3C /* Release */ = {
+		FA3BE9B62B90629D004856BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Indie Wiki Buddy.entitlements";
@@ -860,7 +864,7 @@
 			};
 			name = Release;
 		};
-		FADF5B712B8B1264000A7F3C /* Debug */ = {
+		FA3BE9B92B90629D004856BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -895,7 +899,7 @@
 			};
 			name = Debug;
 		};
-		FADF5B722B8B1264000A7F3C /* Release */ = {
+		FA3BE9BA2B90629D004856BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -933,52 +937,52 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FADF5B152B8B1263000A7F3C /* Build configuration list for PBXProject "Indie Wiki Buddy" */ = {
+		FA3BE95D2B90629B004856BA /* Build configuration list for PBXProject "Indie Wiki Buddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FADF5B632B8B1264000A7F3C /* Debug */,
-				FADF5B642B8B1264000A7F3C /* Release */,
+				FA3BE9AB2B90629D004856BA /* Debug */,
+				FA3BE9AC2B90629D004856BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FADF5B652B8B1264000A7F3C /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy Extension (iOS)" */ = {
+		FA3BE9AD2B90629D004856BA /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy Extension (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FADF5B662B8B1264000A7F3C /* Debug */,
-				FADF5B672B8B1264000A7F3C /* Release */,
+				FA3BE9AE2B90629D004856BA /* Debug */,
+				FA3BE9AF2B90629D004856BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FADF5B692B8B1264000A7F3C /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy (iOS)" */ = {
+		FA3BE9B12B90629D004856BA /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FADF5B6A2B8B1264000A7F3C /* Debug */,
-				FADF5B6B2B8B1264000A7F3C /* Release */,
+				FA3BE9B22B90629D004856BA /* Debug */,
+				FA3BE9B32B90629D004856BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FADF5B6C2B8B1264000A7F3C /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy Extension (macOS)" */ = {
+		FA3BE9B42B90629D004856BA /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy Extension (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FADF5B6D2B8B1264000A7F3C /* Debug */,
-				FADF5B6E2B8B1264000A7F3C /* Release */,
+				FA3BE9B52B90629D004856BA /* Debug */,
+				FA3BE9B62B90629D004856BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FADF5B702B8B1264000A7F3C /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy (macOS)" */ = {
+		FA3BE9B82B90629D004856BA /* Build configuration list for PBXNativeTarget "Indie Wiki Buddy (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FADF5B712B8B1264000A7F3C /* Debug */,
-				FADF5B722B8B1264000A7F3C /* Release */,
+				FA3BE9B92B90629D004856BA /* Debug */,
+				FA3BE9BA2B90629D004856BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FADF5B122B8B1263000A7F3C /* Project object */;
+	rootObject = FA3BE95A2B90629B004856BA /* Project object */;
 }

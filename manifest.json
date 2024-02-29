@@ -365,6 +365,18 @@
     "https://breeze.whateveritworks.org/*",
     "https://breezewiki.woodland.cafe/*"
   ],
-  "optional_host_permissions": ["https://*/*"],
+  "optional_permissions": [
+    "https://*/*"
+  ],
+  "browser_specific_settings": {
+    "safari": {
+        "strict_min_version": "17.0"
+    }
+  },
+  "options_ui": {
+    "page": "pages/popup/index.html"
+  },
+  "homepage_url": "https://getindie.wiki",
+  "default_locale": "en",
   "manifest_version": 3
 }
