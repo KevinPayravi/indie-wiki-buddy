@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <link rel="icon" href="../../images/logo.png" />
+  <title>Indie Wiki Buddy Search Engine Update</title>
+  <style>
+    /* ELEMENTS */
+    body {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #2b2a33;
+      font-family: Helvetica, Sans-Serif;
+      font-size: .9em;
+    }
+
+    a {
+      text-decoration-style: dotted;
+      text-decoration-thickness: 1px;
+      color: #005799;
+    }
+
+    a:visited {
+      color: #005799;
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      color: #005799;
+      background-color: #005799;
+      margin: .5em 0px;
+    }
+
+    h1 {
+      font-size: 1.3rem;
+      padding: .5em 0;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      text-align: center;
+      padding: .5em 0 0 0;
+      margin: 0;
+    }
+
+    p {
+      padding: 1em;
+      margin: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 1em 1em 1em -.5em;
+    }
+
+    .container {
+      background: #fff;
+    }
+
+    /* HEADER */
+    #header {
+      text-align: center;
+      line-height: 1.5em;
+      padding: .5em 1em;
+      box-sizing: border-box;
+      background-color: #005799;
+      color: #fff;
+      width: 100%;
+    }
+
+    #links {
+      background-color: #e5f4ff;
+      padding: .5em 1em;
+    }
+
+    /* CONTENT */
+    #content {
+      background-color: #fff;
+      box-sizing: border-box;
+      padding-bottom: 1.5em;
+    }
+
+    .gallery {
+      width: fit-content;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      gap: 2em;
+      padding: 1em;
+      text-align: center;
+    }
+    .gallery div {
+      border: 2px solid #005799;
+      border-radius: 5px;
+      padding: 1em;
+    }
+    .gallery img {
+      padding-bottom: 1em;
+    }
+    .gallery span {
+      font-weight: 600;
+    }
+    @media (max-width: 500px) {
+      .gallery {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>Indie Wiki Buddy</h1>
+      <h1>Search Engine Permissions Change!</h1>
+    </div>
+    <div id="content">
+      <p>
+        Apologies for this one-time notice, but it's important!
+      </p>
+      <div class="gallery">
+        <div>
+          <img src="../../images/search-engines-opt-out.png" alt="Google, Bing, and DuckDuckGo" height="150">
+          <br />
+          <span>
+            Enabled by default
+          </span>
+        </div>
+        <div>
+          <img src="../../images/search-engines-opt-in.png" alt="Yahoo, Brave, Ecosia, Startpage, Qwant, Kagi, and Yandex" height="150">
+          <br />
+          <span>
+            Disabled and opt-in
+          </span>
+        </div>
+      </div>
+      <p>
+        Starting with version 3.7.0,
+        <b>Indie Wiki Buddy now only has permission to filter search results on
+        Google, Bing, and DuckDuckGo by-default</b>.
+        <br /><br />
+        If you would like to re-enable Indie Wiki Buddy's search filtering on any other search engines
+        (that includes Yahoo!, Brave, Ecosia, Startpage, Qwant, Kagi, and Yandex),
+        or if you would like to disable Indie Wiki Buddy's access to Google, Bing, or DuckDuckGo,
+        you can do so on the <b><a href="../settings/index.html">settings page</a></b>.
+        <br /><br />
+        This change is being done to be more privacy-friendly.
+        Indie Wiki Buddy now supports 10 search engines, but most users only use one or two,
+        so it makes sense to have most search engines be opt-in.
+        <br /><br />
+        In addition, when we add support for more search engines in future updates,
+        you won't have to deal with those annoying requests for new permissions
+        since they will be opt-in!
+        <br /><br />
+        As always, if you have any questions, don't hesitate to
+        <a href="https://getindie.wiki/#contact">get in touch</a>. Thank you!
+      </p>
+      </div>
+  </div>
+</body>
+
+</html>
