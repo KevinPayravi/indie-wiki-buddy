@@ -5,8 +5,8 @@
     "origins": [
       {
         "origin": "礦藝大典",
-        "origin_base_url": "minecraft.fandom.com",
-        "origin_content_path": "/lzh/wiki/",
+        "origin_base_url": "minecraft.fandom.com/lzh",
+        "origin_content_path": "/wiki/",
         "origin_main_page": "礦藝大典"
       }
     ],

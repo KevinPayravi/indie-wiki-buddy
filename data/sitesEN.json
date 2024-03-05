@@ -1,5 +1,23 @@
 [
   {
+    "id": "en-2xko",
+    "origins_label": "2XKO Fandom Wiki",
+    "origins": [
+      {
+        "origin": "2XKO Fandom Wiki",
+        "origin_base_url": "2xko.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "2XKO_Wiki"
+      }
+    ],
+    "destination": "2XKO Wiki",
+    "destination_base_url": "2xko.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "2xkowiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/mw/index.php"
+  },
+  {
     "id": "en-acecombat",
     "origins_label": "Ace Combat Fandom Wiki",
     "origins": [
@@ -453,6 +471,27 @@
     "destination_main_page": "Backpack_Battles_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "en-backpackhero",
+    "origins_label": "Backpack Hero Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Backpack Hero Fandom Wiki",
+        "origin_base_url": "backpack-hero.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Backpack_Hero_Wiki"
+      }
+    ],
+    "destination": "Backpack Hero Wiki",
+    "destination_base_url": "backpackhero.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "backpackherowiki.png",
+    "destination_main_page": "Backpack_Hero_Wiki",
+    "destination_search_path": "/index.php",
     "tags": [
       "wiki.gg"
     ]
@@ -1160,7 +1199,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "detectiveconan.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-digimon",
@@ -1185,6 +1224,24 @@
     "destination_icon": "wikimon.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-doctorwho",
+    "origins_label": "Tardis Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tardis Fandom Wiki",
+        "origin_base_url": "tardis.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Doctor_Who_Wiki"
+      }
+    ],
+    "destination": "Tardis (Doctor Who) Wiki",
+    "destination_base_url": "tardis.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tardiswiki.png",
+    "destination_main_page": "Doctor_Who_Wiki",
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-dogcraft",
@@ -1529,6 +1586,28 @@
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
+    ]
+  },
+  {
+    "id": "en-enterthegungeon",
+    "origins_label": "Enter the Gungeon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Enter the Gungeon Fandom Wiki",
+        "origin_base_url": "enterthegungeon.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Enter_the_Gungeon_Wiki"
+      }
+    ],
+    "destination": "Enter the Gungeon Wiki",
+    "destination_base_url": "enterthegungeon.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "enterthegungeonwiki.png",
+    "destination_main_page": "Enter_the_Gungeon_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg",
+      "official"
     ]
   },
   {
@@ -4307,7 +4386,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "starfy.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "https://www.starfywiki.org/index.php"
+    "destination_search_path": "/index.php"
   },
   {
     "id": "en-steamworld",
@@ -4870,6 +4949,27 @@
     ]
   },
   {
+    "id": "en-towerfall",
+    "origins_label": "TowerFall Fandom Wiki",
+    "origins": [
+      {
+        "origin": "TowerFall Fandom Wiki",
+        "origin_base_url": "towerfall.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "TowerFall_Wiki"
+      }
+    ],
+    "destination": "TowerFall Wiki",
+    "destination_base_url": "towerfall.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "towerfallwiki.png",
+    "destination_main_page": "TowerFall_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-towerunite",
     "origins_label": "Tower Unite Fandom Wiki",
     "origins": [
@@ -5160,7 +5260,7 @@
   },
   {
     "id": "en-warcraft",
-    "origins_label": "World of Warcraft Fandom & Neoseeker Wikis",
+    "origins_label": "Warcraft Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Wowpedia Fandom Wiki",
@@ -5323,7 +5423,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wizard101wiki.png",
     "destination_main_page": "Wizard101_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/wiki/index.php"
   },
   {
     "id": "en-wizardry",

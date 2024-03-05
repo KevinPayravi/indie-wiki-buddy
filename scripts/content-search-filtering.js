@@ -1,15 +1,6 @@
 const currentURL = new URL(document.location);
 let hiddenWikisRevealed = {};
 
-// Create object prototypes for getting and setting attributes:
-Object.prototype.get = function (prop) {
-  this[prop] = this[prop] || {};
-  return this[prop];
-};
-Object.prototype.set = function (prop, value) {
-  this[prop] = value;
-}
-
 function base64Decode(text) {
   text = text.replace(/\s+/g, '').replace(/\-/g, '+').replace(/\_/g, '/');
   return decodeURIComponent(Array.prototype.map.call(atob(text), function (c) { return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join(''));
@@ -335,6 +326,9 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
           document.querySelector('#main-algo').prepend(searchRemovalNotice);
         }
         break;
+      case 'kagi':
+        document.querySelector('#main').prepend(searchRemovalNotice);
+        break;
       default:
     }
   }
@@ -447,6 +441,9 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
       break;
     case 'yahoo':
       searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+      break;
+    case 'kagi':
+      searchResultContainer = searchResult.closest('div.search-result, div.__srgi');
       break;
     default:
   }
@@ -737,8 +734,20 @@ function main(mutations = null, observer = null) {
         }
 
         filterYahoo();
-      }
+      } else if (currentURL.hostname.includes('kagi.com')) {
+        // Function to filter search results in Kagi
+        function filterKagi() {
+            let searchResults = Array.from(document.querySelectorAll('h3>a, a.__sri-url')).filter(el =>
+                el.href?.includes('.fandom.com') ||
+                el.href?.includes('.wiki.fextralife.com') ||
+                el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'kagi', storage);
+        }
+
+        filterKagi();
     }
+
+  }
   });
 }
 

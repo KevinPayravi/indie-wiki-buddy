@@ -1,5 +1,5 @@
 ﻿var LANGS = ["DE", "EN", "ES", "FI", "FR", "HU", "IT", "JA", "LZH", "KO", "PL", "PT", "RU", "TH", "TOK", "UK", "ZH"];
-const BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+var BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 
 function b64decode(str) {
   const binary_string = atob(str);
@@ -129,9 +129,10 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest =
     } else {
       matchingSites = sites.filter(el =>
          site.replace(/.*https?:\/\//, '').startsWith(dest ? el[base_url_key] : (el.origin_base_url + el.origin_content_path))
-        || site.replace(/.*https?:\/\//, '') === el[base_url_key]
+        || site.replace(/.*https?:\/\//, '').replace(/\/$/, '') === el[base_url_key]
       );
     }
+
     if (matchingSites.length > 0) {
       // Select match with longest base URL
       let closestMatch = '';
