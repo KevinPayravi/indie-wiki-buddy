@@ -392,79 +392,79 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
     searchFilterSetting = storage.defaultSearchAction;
   }
 
-  if (searchFilterSetting !== 'disabled') {
-    // Output stylesheet if not already done
-    if (!document.querySelector('.iwb-styles')) {
-      const headElement = document.querySelector('head');
-      if (headElement) {
-        insertCSS();
-      } else {
-        // If head element doesn't exist, wait for it via MutationObserver
-        const docObserver = new MutationObserver((mutations, mutationInstance) => {
-          const headElement = document.querySelector('head');
-          if (headElement && !document.querySelector('.iwb-styles')) {
-            insertCSS();
-            mutationInstance.disconnect();
-          }
-        });
-        docObserver.observe(document, {
-          childList: true,
-          subtree: true
-        });
-      }
-    }
-
-    let searchResultContainer = null;
-
-    switch (searchEngine) {
-      case 'google':
-        const closestJsController = searchResult.closest('div[jscontroller]');
-        const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
-        searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
-        break;
-      case 'bing':
-        searchResultContainer = searchResult.closest('li.b_algo');
-        break;
-      case 'duckduckgo':
-        searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
-        break;
-      case 'brave':
-        searchResultContainer = searchResult.closest('div.snippet');
-        break;
-      case 'ecosia':
-        searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
-        break;
-      case 'qwant':
-        if (searchResult.closest('div[data-testid=webResult]')) {
-          cssQuery = 'div[data-testid=webResult]';
-          searchResultContainer = searchResult.closest(cssQuery).parentElement;
+  // Output stylesheet if not already done
+  if (!document.querySelector('.iwb-styles')) {
+    const headElement = document.querySelector('head');
+    if (headElement) {
+      insertCSS();
+    } else {
+      // If head element doesn't exist, wait for it via MutationObserver
+      const docObserver = new MutationObserver((mutations, mutationInstance) => {
+        const headElement = document.querySelector('head');
+        if (headElement && !document.querySelector('.iwb-styles')) {
+          insertCSS();
+          mutationInstance.disconnect();
         }
-        break;
-      case 'startpage':
-        searchResultContainer = searchResult.closest('div.w-gl__result');
-        break;
-      case 'yandex':
-        searchResultContainer = searchResult.closest('.serp-item, .MMOrganicSnippet, .viewer-snippet');
-        break;
-      case 'yahoo':
-        searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
-        break;
-      default:
+      });
+      docObserver.observe(document, {
+        childList: true,
+        subtree: true
+      });
     }
+  }
 
-    if (searchResultContainer) {
-      // If this page from Fandom is the same as a re-ordered page, filter it out
-      let originArticle = commonFunctionGetOriginArticle(searchResult.href, matchingSite);
-      let destinationArticle = commonFunctionGetDestinationArticle(matchingSite, originArticle);
+  let searchResultContainer = null;
 
-      if (reorderedHrefs.find((href) => href.match(
-        new RegExp(
-          `http(s)*://${matchingSite['destination_base_url']}${matchingSite['destination_content_path']}${encodeURIComponent(destinationArticle)}`
-        )
-      ))) {
-        countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, 'off');
-        console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResult.href} because we re-ordered an indie wiki result with a matching article`);
-      } else if (searchFilterSetting === 'hide') {
+  switch (searchEngine) {
+    case 'google':
+      const closestJsController = searchResult.closest('div[jscontroller]');
+      const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
+      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
+      break;
+    case 'bing':
+      searchResultContainer = searchResult.closest('li.b_algo');
+      break;
+    case 'duckduckgo':
+      searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
+      break;
+    case 'brave':
+      searchResultContainer = searchResult.closest('div.snippet');
+      break;
+    case 'ecosia':
+      searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
+      break;
+    case 'qwant':
+      if (searchResult.closest('div[data-testid=webResult]')) {
+        cssQuery = 'div[data-testid=webResult]';
+        searchResultContainer = searchResult.closest(cssQuery).parentElement;
+      }
+      break;
+    case 'startpage':
+      searchResultContainer = searchResult.closest('div.w-gl__result');
+      break;
+    case 'yandex':
+      searchResultContainer = searchResult.closest('.serp-item, .MMOrganicSnippet, .viewer-snippet');
+      break;
+    case 'yahoo':
+      searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+      break;
+    default:
+  }
+
+  if (searchResultContainer) {
+    // If this page from Fandom is the same as a re-ordered page, filter it out
+    let originArticle = commonFunctionGetOriginArticle(searchResult.href, matchingSite);
+    let destinationArticle = commonFunctionGetDestinationArticle(matchingSite, originArticle);
+
+    if (reorderedHrefs.find((href) => href.match(
+      new RegExp(
+        `http(s)*://${matchingSite['destination_base_url']}${matchingSite['destination_content_path']}${encodeURIComponent(destinationArticle)}`
+      )
+    ))) {
+      countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, 'off');
+      console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResult.href} because we re-ordered an indie wiki result with a matching article`);
+    } else if (searchFilterSetting !== 'disabled') {
+      if (searchFilterSetting === 'hide') {
         // Else, if the user has the preference set to hide search results, hide it indiscriminately
         countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
       } else {
