@@ -16,6 +16,7 @@
     "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"

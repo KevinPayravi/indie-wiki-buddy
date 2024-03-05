@@ -92,6 +92,8 @@ async function populateSiteDataByOrigin() {
                 "destination_base_url": site.destination_base_url,
                 "destination_search_path": site.destination_search_path,
                 "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
+                // /w/index.php?title= is the default path for a new MediaWiki install, change as accordingly in config JSON files
+                "destination_content_path": site.destination_content_path || "/w/index.php?title=",
                 "destination_platform": site.destination_platform,
                 "destination_icon": site.destination_icon,
                 "destination_main_page": site.destination_main_page,

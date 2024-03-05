@@ -16,6 +16,7 @@
     "destination_icon": "acecombatwiki.png",
     "destination_main_page": "Ace_Combat_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -139,6 +140,7 @@
     "destination_icon": "animalcrossingpocketcampwiki.png",
     "destination_main_page": "Animal_Crossing:_Pocket_Camp_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -197,6 +199,7 @@
     "destination_icon": "anvilempireswiki.png",
     "destination_main_page": "Anvil_Empires_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -225,6 +228,7 @@
     "destination_icon": "apexlegendswiki.png",
     "destination_main_page": "Apex_Legends_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -268,6 +272,7 @@
     "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -290,6 +295,7 @@
     "destination_icon": "arknightswiki.png",
     "destination_main_page": "Arknights_Terra_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -377,6 +383,7 @@
     "destination_icon": "astroneerwiki.png",
     "destination_main_page": "Astroneer_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -399,6 +406,7 @@
     "destination_icon": "atelierwiki.png",
     "destination_main_page": "Atelier_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -444,6 +452,7 @@
     "destination_icon": "backpackbattleswiki.png",
     "destination_main_page": "Backpack_Battles_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -543,6 +552,7 @@
     "destination_icon": "battlebitwiki.png",
     "destination_main_page": "BattleBit_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -583,6 +593,7 @@
     "destination_icon": "bellasarawiki.png",
     "destination_main_page": "The_Bella_Sara_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -658,6 +669,7 @@
     "destination_icon": "bookoftravelswiki.png",
     "destination_main_page": "Book_of_Travels_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -759,6 +771,7 @@
     "destination_icon": "calamitymodwiki.png",
     "destination_main_page": "Calamity_Mod_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -914,6 +927,7 @@
     "destination_icon": "cookieclickerwiki.png",
     "destination_main_page": "Cookie_Clicker_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -956,6 +970,7 @@
     "destination_icon": "coromonwiki.png",
     "destination_main_page": "Coromon_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -1053,6 +1068,7 @@
     "destination_icon": "darkestdungeonwiki.png",
     "destination_main_page": "Darkest_Dungeon_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -1075,6 +1091,7 @@
     "destination_icon": "deadcellswiki.png",
     "destination_main_page": "Dead_Cells_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -1097,6 +1114,7 @@
     "destination_icon": "deeprockgalacticwiki.png",
     "destination_main_page": "Deep_Rock_Galactic_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -1203,6 +1221,7 @@
     "destination_icon": "dontstarvewiki.png",
     "destination_main_page": "Don't_Starve_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -1328,6 +1347,7 @@
     "destination_icon": "dredgewiki.png",
     "destination_main_page": "DREDGE_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -1385,6 +1405,7 @@
     "destination_icon": "dyinglightwiki.png",
     "destination_main_page": "Dying_Light_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -1430,6 +1451,7 @@
     "destination_icon": "eiyudenchroniclewiki.png",
     "destination_main_page": "Eiyuden_Chronicle_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -1504,6 +1526,7 @@
     "destination_icon": "enawiki.png",
     "destination_main_page": "ENA_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -1639,6 +1662,7 @@
     "destination_icon": "farmingsimulatorwiki.png",
     "destination_main_page": "Farming_Simulator_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -1678,6 +1702,7 @@
     "destination_icon": "fearhungerwiki.png",
     "destination_main_page": "%22Fear_and_Hunger:_the_Tormentpedia%22_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -1766,6 +1791,7 @@
     "destination_icon": "fridaynightfunkinwiki.png",
     "destination_main_page": "Friday_Night_Funkin'_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -1910,6 +1936,7 @@
     "destination_icon": "galaxylifewiki.png",
     "destination_main_page": "Galaxy_Life_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -2234,6 +2261,7 @@
     "destination_icon": "hearthstonewiki.png",
     "destination_main_page": "Hearthstone_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -2297,6 +2325,7 @@
     "destination_icon": "holocurewiki.png",
     "destination_main_page": "HoloCure_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -2436,6 +2465,7 @@
     "destination_icon": "instarsandtimewiki.png",
     "destination_main_page": "In_Stars_and_Time_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -2637,6 +2667,7 @@
     "destination_icon": "lastoriginwiki.png",
     "destination_main_page": "Last_Origin_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -2658,6 +2689,7 @@
     "destination_icon": "leafblowerrevolutionwiki.png",
     "destination_main_page": "Leaf_Blower_Revolution_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -2778,6 +2810,7 @@
     "destination_icon": "themagicalmixturemillwiki.png",
     "destination_main_page": "The_Magical_Mixture_Mill_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -2908,6 +2941,7 @@
     "destination_icon": "mindhackwiki.png",
     "destination_main_page": "MINDHACK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -2958,7 +2992,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png",
     "destination_main_page": "Minecraft_Wiki",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-minicraft",
@@ -2977,6 +3012,7 @@
     "destination_icon": "minicraftwiki.png",
     "destination_main_page": "Minicraft_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -2999,6 +3035,7 @@
     "destination_icon": "multiversuswiki.png",
     "destination_main_page": "MultiVersus_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3110,6 +3147,7 @@
     "destination_icon": "necromergerwiki.png",
     "destination_main_page": "NecroMerger_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3149,6 +3187,7 @@
     "destination_icon": "noitawiki.png",
     "destination_main_page": "Noita_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3188,6 +3227,7 @@
     "destination_icon": "oldschoolrunescape.png",
     "destination_main_page": "Old_School_RuneScape_Wiki",
     "destination_search_path": "/",
+    "destination_content_path": "/w/",
     "tags": [
       "official"
     ]
@@ -3209,6 +3249,7 @@
     "destination_icon": "omegastrikerswiki.png",
     "destination_main_page": "Omega_Strikers_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -3249,6 +3290,7 @@
     "destination_icon": "paliawiki.png",
     "destination_main_page": "Palia_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -3271,6 +3313,7 @@
     "destination_icon": "palworldwiki.png",
     "destination_main_page": "Palworld_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3328,6 +3371,7 @@
     "destination_icon": "pathologicwiki.png",
     "destination_main_page": "Pathologic_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3349,6 +3393,7 @@
     "destination_icon": "peglinwiki.png",
     "destination_main_page": "Peglin_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -3438,6 +3483,7 @@
     "destination_icon": "plantsvszombieswiki.png",
     "destination_main_page": "Plants_vs._Zombies_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3546,6 +3592,7 @@
     "destination_icon": "projectwingmanwiki.png",
     "destination_main_page": "Project_Wingman_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3588,6 +3635,7 @@
     "destination_icon": "pubgwiki.png",
     "destination_main_page": "PUBG_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -3764,6 +3812,7 @@
     "destination_icon": "riskofrainwiki.png",
     "destination_main_page": "Risk_of_Rain_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3785,6 +3834,7 @@
     "destination_icon": "riskofrain2wiki.png",
     "destination_main_page": "Risk_of_Rain_2_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -3830,6 +3880,7 @@
     "destination_icon": "runescape.png",
     "destination_main_page": "RuneScape_Wiki",
     "destination_search_path": "/",
+    "destination_content_path": "/w/",
     "tags": [
       "official"
     ]
@@ -3926,6 +3977,7 @@
     "destination_icon": "satisfactorywiki.png",
     "destination_main_page": "Satisfactory_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -3969,6 +4021,7 @@
     "destination_icon": "seaofthieveswiki.png",
     "destination_main_page": "Sea_of_Thieves_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4062,6 +4115,7 @@
     "destination_icon": "signalis.png",
     "destination_main_page": "SIGNALIS_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4107,6 +4161,7 @@
     "destination_icon": "sonsoftheforestwiki.png",
     "destination_main_page": "Sons_of_the_Forest_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4128,6 +4183,7 @@
     "destination_icon": "spiritmodwiki.png",
     "destination_main_page": "Spirit_Mod_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4270,6 +4326,7 @@
     "destination_icon": "steamworldwiki.png",
     "destination_main_page": "SteamWorld_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4309,6 +4366,7 @@
     "destination_icon": "sugaryspirewiki.png",
     "destination_main_page": "Sugary_Spire_Wiki:Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -4349,6 +4407,7 @@
     "destination_icon": "sunhavenwiki.png",
     "destination_main_page": "Sun_Haven_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4370,6 +4429,7 @@
     "destination_icon": "superautopetswiki.png",
     "destination_main_page": "Super_Auto_Pets_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4484,6 +4544,7 @@
     "destination_icon": "officialtemtemwiki.png",
     "destination_main_page": "Temtem_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -4518,6 +4579,7 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -4540,6 +4602,7 @@
     "destination_icon": "starlightrivermodwiki.png",
     "destination_main_page": "Starlight_River_Mod_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -4637,6 +4700,7 @@
     "destination_icon": "thoriummodwiki.png",
     "destination_main_page": "Thorium_Mod_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -4659,6 +4723,7 @@
     "destination_icon": "timberbornwiki.png",
     "destination_main_page": "Timberborn_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -4717,6 +4782,7 @@
     "destination_icon": "toontowncorporateclashwiki.png",
     "destination_main_page": "Toontown_Corporate_Clash_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4798,6 +4864,7 @@
     "destination_icon": "towerclimbwiki.png",
     "destination_main_page": "TowerClimb_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4819,6 +4886,7 @@
     "destination_icon": "towerunitewiki.png",
     "destination_main_page": "Tower_Unite_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4858,6 +4926,7 @@
     "destination_icon": "trucksimulatorwiki.png",
     "destination_main_page": "Truck_Simulator_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -4942,6 +5011,7 @@
     "destination_icon": "underminewiki.png",
     "destination_main_page": "UnderMine_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -4963,8 +5033,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "undertaleyellowwiki.png",
     "destination_main_page": "Undertale_Yellow_Wiki",
-    "destination_search_path": "/index.php"
-  },
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"},
   {
     "id": "en-unevendream",
     "origins_label": "Uneven Dream Fandom Wiki",
@@ -5037,6 +5107,7 @@
     "destination_icon": "thevoidrainsuponherheartwiki.png",
     "destination_main_page": "The_Void_Rains_Upon_Her_Heart_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -5058,6 +5129,7 @@
     "destination_icon": "vtolvr.png",
     "destination_main_page": "VTOL_VR_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -5121,6 +5193,7 @@
     "destination_icon": "warcraftwiki.png",
     "destination_main_page": "Warcraft_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -5184,6 +5257,7 @@
     "destination_icon": "wildfrostwiki.png",
     "destination_main_page": "Wildfrost_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
@@ -5205,6 +5279,7 @@
     "destination_icon": "willyousnailwiki.png",
     "destination_main_page": "Will_You_Snail_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -5227,6 +5302,7 @@
     "destination_icon": "witchhatatelierwiki.png",
     "destination_main_page": "Witch_Hat_Atelier_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "telepedia"
     ]
@@ -5266,6 +5342,7 @@
     "destination_icon": "wizardrywiki.png",
     "destination_main_page": "Wizardry_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]

@@ -381,7 +381,7 @@ function findClosestElement(target, elements) {
   return closestElement;
 }
 
-async function _filterSearchResult(matchingSite, searchResult, searchEngine, countFiltered, storage) {
+async function _filterSearchResult(matchingSite, searchResult, searchEngine, countFiltered, storage, reorderedHrefs) {
   // Get user's settings for the wiki
   let id = matchingSite['id'];
   let searchFilterSetting = 'replace';
@@ -453,7 +453,19 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
     }
 
     if (searchResultContainer) {
-      if (searchFilterSetting === 'hide') {
+      // If this page from Fandom is the same as a re-ordered page, filter it out
+      let originArticle = commonFunctionGetOriginArticle(searchResult.href, matchingSite);
+      let destinationArticle = commonFunctionGetDestinationArticle(matchingSite, originArticle);
+
+      if (reorderedHrefs.find((href) => href.match(
+        new RegExp(
+          `http(s)*://${matchingSite['destination_base_url']}${matchingSite['destination_content_path']}${encodeURIComponent(destinationArticle)}`
+        )
+      ))) {
+        countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, 'off');
+        console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResult.href} because we re-ordered an indie wiki result with a matching article`);
+      } else if (searchFilterSetting === 'hide') {
+        // Else, if the user has the preference set to hide search results, hide it indiscriminately
         countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
       } else {
         countFiltered += replaceSearchResults(searchResultContainer, matchingSite, searchResultLink);
@@ -477,7 +489,9 @@ async function _reorderDestinationSearchResult(resultsFirstChild, matchingDest, 
 
 async function reorderSearchResults(searchResults, searchEngine, storage) {
   const reorderResultsSetting = storage.reorderResults || 'on';
-  if (reorderResultsSetting === 'off') return;
+  if (reorderResultsSetting === 'off') return [];
+
+  let reorderedHrefs = [];
 
   if (!document.body.classList.contains('iwb-reorder')) {
     document.body.classList.add('iwb-reorder');
@@ -511,6 +525,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
             break;
           } else {
             await _reorderDestinationSearchResult(resultsFirstChild, matchingDest, searchResult);
+            reorderedHrefs.push(searchResultLink);
           }
         }
       } catch (e) {
@@ -518,9 +533,11 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
       }
     }
   }
+
+  return reorderedHrefs;
 }
 
-async function filterSearchResults(searchResults, searchEngine, storage) {
+async function filterSearchResults(searchResults, searchEngine, storage, reorderedHrefs = []) {
   let countFiltered = 0;
 
   for (const searchResult of searchResults) {
@@ -557,7 +574,7 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
         // Handle source -> destination filtering
         let matchingSource = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
         if (matchingSource) {
-          countFiltered = await _filterSearchResult(matchingSource, searchResult, searchEngine, countFiltered, storage);
+          countFiltered = await _filterSearchResult(matchingSource, searchResult, searchEngine, countFiltered, storage, reorderedHrefs);
         }
       }
     } catch (e) {
@@ -584,21 +601,23 @@ function main(mutations = null, observer = null) {
       // Determine which search engine we're on
       if (currentURL.hostname.includes('www.google.')) {
         // Function to filter search results in Google
-        function filterGoogle() {
+        function filterGoogle(reorderedHrefs) {
           let searchResults = document.querySelectorAll(`
             div[data-hveid] a[href*='.fandom.com/']:first-of-type:not([role='button']):not([target='_self']),
             div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
             div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`);
-          filterSearchResults(searchResults, 'google', storage);
+          filterSearchResults(searchResults, 'google', storage, reorderedHrefs);
         }
 
-        function reorderGoogle() {
+        async function reorderGoogle() {
           let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
-          reorderSearchResults(searchResults, 'google', storage);
+          return await reorderSearchResults(searchResults, 'google', storage);
         }
 
-        filterGoogle();
-        reorderGoogle();
+        reorderGoogle().then((r) => {
+          // Filtering happens after re-ordering, so that we can filter anything that matches what we re-ordered
+          filterGoogle(r);
+        });
       } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
         // Function to filter search results in DuckDuckGo
         function filterDuckDuckGo() {
