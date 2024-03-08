@@ -204,11 +204,13 @@
     .radioGroup {
       display: flex;
     }
+
     .radioGroup.horizontal {
       flex-direction: row;
       line-height: 1.5rem;
       gap: .5em;
     }
+
     .radioGroup.vertical {
       flex-direction: column;
       gap: .5em;
@@ -313,16 +315,31 @@
     }
 
     #wikiFiltersContainer {
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    #wikiFiltersContainer>div {
       display: grid;
       gap: 0.5em;
       grid-template-columns: 1fr 1fr;
       margin: 1em auto;
-      width: 30em;
+      max-width: 30em;
     }
 
-    #wikiFiltersContainer div {
+    #wikiFiltersContainer>div>div {
       text-align: right;
       align-self: end;
+    }
+
+    @media (max-width: 35em) {
+      #wikiFiltersContainer>div {
+        grid-template-columns: 1fr;
+      }
+
+      #wikiFiltersContainer>div>div {
+        text-align: center;
+      }
     }
 
     .toggles {
@@ -575,8 +592,8 @@
         This includes the option to enable <a href="https://breezewiki.com/" target="_blank">BreezeWiki</a>,
         an alternative frontend that renders Fandom wikis without ads or bloat.
         <br /><br />
-        Below that, you can configure what happens when you visit each Fandom and Fextralife wiki that has an
-        independent alternative, as well as what happens to their results in search engines.
+        Below that, you can individually configure what happens when you visit Fandom, Fextralife, and Neoseeker
+        wikis that have an independent alternative, as well as what happens to their results in search engines.
         For visiting wikis, you can choose to be
         <img src="../../images/toggle-alert.png" width="12" alt="" /> alerted (default)
         or
@@ -618,14 +635,14 @@
               <input id="hiddenResultsBannerCheckbox" type="checkbox" />
               <span id="hiddenResultsBannerIcon" aria-hidden="true"></span>
               On search engines, show banner when
-              Fandom/Fextralife results are hidden
+              non-indie results are hidden
             </label>
           </div>
           <div class="settingToggle">
             <label>
               <input id="crossLanguageCheckbox" type="checkbox" />
               <span id="crossLanguageIcon" aria-hidden="true"></span>
-              Redirect non-English Fandom/Fextralife wikis to
+              Redirect non-English Fandom wikis to
               indie English wikis when no same-language wiki exists
             </label>
           </div>
@@ -639,8 +656,8 @@
         </fieldset>
         <fieldset id="breezewikiSettings">
           <legend>
-            <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore" href="https://breezewiki.com/"
-              target="_blank">learn more</a>)
+            <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore"
+              href="https://breezewiki.com/" target="_blank">learn more</a>)
           </legend>
           <div role="radiogroup">
             <div class="radioGroup vertical">
@@ -668,7 +685,8 @@
             </label>
             <label id="breezewikiCustomHost">
               Custom BreezeWiki domain:
-              <input type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="bw.example.com" size="30" />
+              <input type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="bw.example.com"
+                size="30" />
               <button id="setCustomBreezewikiDomain" type="button">
                 Set domain
               </button>
@@ -697,7 +715,8 @@
           <legend>
             <span aria-hidden="true">ℹ️</span> Icon legend
           </legend>
-          <span class="text-sm">When visiting a Fandom or Fextralife wiki that has an independent alternative, IWB
+          <span class="text-sm">When visiting Fandom, Fextralife, or Neoseeker wikis with an independent alternative,
+            IWB
             can:</span>
           <div>
             <div>
@@ -712,8 +731,8 @@
               indie wiki
             </div>
           </div>
-          <span class="text-sm">When search engine results include a Fandom or Fextralife wiki that has an independent
-            alternative, IWB can:</span>
+          <span class="text-sm">When search engine results include Fandom, Fextralife, or Neoseeker wikis
+            with an independent alternative, IWB can:</span>
           <div>
             <div>
               <img src="../../images/toggle-disabled.png" width="16" height="16" alt="" /> Do nothing
@@ -728,29 +747,33 @@
           </div>
         </fieldset>
         <div id="wikiFiltersContainer">
-          <div id="langSelectCaption">Filter wikis by language:</div>
-          <select name="lang" id="langSelect">
-            <option value="ALL" selected>All languages</option>
-            <option value="DE">German / Deutsch (DE)</option>
-            <option value="EN">English (EN)</option>
-            <option value="ES">Spanish / Español (ES)</option>
-            <option value="FI">Finnish / suomi (FI)</option>
-            <option value="FR">French / Français (FR)</option>
-            <option value="HU">Hungarian / Magyar (HU)</option>
-            <option value="IT">Italian / Italiano (IT)</option>
-            <option value="JA">Japanese / 日本語 (JA)</option>
-            <option value="KO">Korean / 한국어 (KO)</option>
-            <option value="LZH">Classical Chinese / 文言文 (LZH)</option>
-            <option value="PL">Polish / Polski (PL)</option>
-            <option value="PT">Portuguese / Português (PT)</option>
-            <option value="RU">Russian / Русский язык (RU)</option>
-            <option value="TH">Thai / ภาษาไทย (TH)</option>
-            <option value="TOK">Toki Pona (TOK)</option>
-            <option value="UK">Ukrainian / Українська (UK)</option>
-            <option value="ZH">Chinese / 中文 (ZH)</option>
+          <div>
+            <div id="langSelectCaption">Filter wikis by language:</div>
+            <select name="lang" id="langSelect">
+              <option value="ALL" selected>All languages</option>
+              <option value="DE">[DE] German / Deutsch</option>
+              <option value="EN">[EN] English</option>
+              <option value="ES">[ES] Spanish / Español</option>
+              <option value="FI">[FI] Finnish / suomi</option>
+              <option value="FR">[FR] French / Français</option>
+              <option value="HU">[HU] Hungarian / Magyar</option>
+              <option value="IT">[IT] Italian / Italiano</option>
+              <option value="JA">[JA] Japanese / 日本語</option>
+              <option value="KO">[KO] Korean / 한국어</option>
+              <option value="LZH">[LZH] Classical Chinese / 文言文</option>
+              <option value="PL">[PL] Polish / Polski</option>
+              <option value="PT">[PT] Portuguese / Português</option>
+              <option value="RU">[RU] Russian / Русский язык</option>
+              <option value="TH">[TH] Thai / ภาษาไทย</option>
+              <option value="TOK">[TOK] Toki Pona</option>
+              <option value="UK">[UK] Ukrainian / Українська</option>
+              <option value="ZH">[ZH] Chinese / 中文</option>
             </select>
-          <div id="filterInputCaption">Filter wikis by name:</div>
-          <input id="filterInput" type="text" name="filterInput" placeholder="Enter wiki name..." />
+          </div>
+          <div>
+            <div id="filterInputCaption">Filter wikis by name:</div>
+            <input id="filterInput" type="text" name="filterInput" placeholder="Enter wiki name..." />
+          </div>
         </div>
         <div class="sticky">
           <div id="togglesColumnLabels" class="toggles">

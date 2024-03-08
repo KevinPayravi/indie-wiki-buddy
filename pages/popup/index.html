@@ -98,6 +98,7 @@
       color: #fff;
       width: 100%;
     }
+
     #header div {
       display: flex;
       align-items: center;
@@ -137,6 +138,7 @@
       height: 30px;
       text-align: center;
     }
+
     #power>label:hover {
       outline: 2px solid #3174f1;
     }
@@ -192,11 +194,13 @@
     .radioGroup {
       display: flex;
     }
+
     .radioGroup.horizontal {
       flex-direction: row;
       line-height: 1.5rem;
       gap: .5em;
     }
+
     .radioGroup.vertical {
       flex-direction: column;
       gap: .5em;
@@ -300,7 +304,7 @@
         <legend><span aria-hidden="true">⚙️</span> Default behaviors (apply to all current and new wikis in future
           updates)</legend>
         <div role="radiogroup" aria-labelledby="defaultWikiActionLabel">
-          <span id="defaultWikiActionLabel">When visiting Fandom/Fextralife wikis:</span>
+          <span id="defaultWikiActionLabel">When visiting Fandom, Fextralife, and Neoseeker wikis:</span>
           <div class="radioGroup horizontal">
             <label>
               <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled" />
@@ -320,7 +324,8 @@
           </div>
         </div>
         <div role="radiogroup" aria-labelledby="defaultSearchActionLabel">
-          <span id="defaultSearchActionLabel">On search engines, when you see non-indie results with indie alternatives:</span>
+          <span id="defaultSearchActionLabel">On search engines, when you see non-indie results with indie
+            alternatives:</span>
           <div class="radioGroup horizontal">
             <label>
               <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled" />
@@ -360,7 +365,7 @@
             <input id="hiddenResultsBannerCheckbox" type="checkbox" />
             <span id="hiddenResultsBannerIcon" aria-hidden="true"></span>
             On search engines, show banner when
-            Fandom/Fextralife results are hidden
+            non-indie results are hidden
           </label>
         </div>
         <div class="settingToggle">
@@ -381,8 +386,8 @@
       </fieldset>
       <fieldset id="breezewikiSettings">
         <legend>
-          <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore" href="https://breezewiki.com/"
-            target="_blank">learn more</a>)
+          <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore"
+            href="https://breezewiki.com/" target="_blank">learn more</a>)
         </legend>
         <div role="radiogroup">
           <div class="radioGroup vertical">
@@ -410,8 +415,10 @@
           </label>
           <label id="breezewikiCustomHost">
             Custom BreezeWiki domain:
-            <input disabled type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="See full settings page" size="30" />
-            <span id="breezewikiCustomHostStatus">Change custom domain on <a href="../settings/index.html" target="_blank">full settings page</a></span>
+            <input disabled type="text" id="customBreezewikiHost" name="customBreezewikiHost"
+              placeholder="See full settings page" size="30" />
+            <span id="breezewikiCustomHostStatus">Change custom domain on <a href="../settings/index.html"
+                target="_blank">full settings page</a></span>
           </label>
         </div>
       </fieldset>

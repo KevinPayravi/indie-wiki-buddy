@@ -1,5 +1,23 @@
 [
   {
+    "id": "en-2xko",
+    "origins_label": "2XKO Fandom Wiki",
+    "origins": [
+      {
+        "origin": "2XKO Fandom Wiki",
+        "origin_base_url": "2xko.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "2XKO_Wiki"
+      }
+    ],
+    "destination": "2XKO Wiki",
+    "destination_base_url": "2xko.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "2xkowiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/mw/index.php"
+  },
+  {
     "id": "en-acecombat",
     "origins_label": "Ace Combat Fandom Wiki",
     "origins": [
@@ -1188,6 +1206,24 @@
     "destination_icon": "wikimon.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
+  },
+  {
+    "id": "en-doctorwho",
+    "origins_label": "Tardis Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tardis Fandom Wiki",
+        "origin_base_url": "tardis.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Doctor_Who_Wiki"
+      }
+    ],
+    "destination": "Tardis (Doctor Who) Wiki",
+    "destination_base_url": "tardis.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tardiswiki.png",
+    "destination_main_page": "Doctor_Who_Wiki",
+    "destination_search_path": "/w/index.php"
   },
   {
     "id": "en-dogcraft",

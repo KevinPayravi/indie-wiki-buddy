@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.tabs.create({ 'url': chrome.runtime.getURL('pages/settings/index.html') });
     window.close();
   });
-  
+
   // Add event listener for BreezeWiki host select
   const breezewikiHostSelect = document.getElementById('breezewikiHostSelect');
   breezewikiHostSelect.addEventListener('change', () => {
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
   });
 
-  document.options.addEventListener("submit", function(e) {
+  document.options.addEventListener("submit", function (e) {
     e.preventDefault();
     return false;
   });

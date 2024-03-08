@@ -1,15 +1,6 @@
 const currentURL = new URL(document.location);
 let hiddenWikisRevealed = {};
 
-// Create object prototypes for getting and setting attributes:
-Object.prototype.get = function (prop) {
-  this[prop] = this[prop] || {};
-  return this[prop];
-};
-Object.prototype.set = function (prop, value) {
-  this[prop] = value;
-}
-
 function base64Decode(text) {
   text = text.replace(/\s+/g, '').replace(/\-/g, '+').replace(/\_/g, '/');
   return decodeURIComponent(Array.prototype.map.call(atob(text), function (c) { return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join(''));
@@ -195,7 +186,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
       if (link.includes('.wiki.fextralife.com')) {
         destinationArticleTitle = destinationArticleTitle.replace(/(?<!\+)\+/g, ' ');
       }
-  
+
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
         indieResultText.innerText = 'Look up "' + decodeURIComponent(destinationArticleTitle) + '" on ' + site.destination + ' (EN)';
       } else {
@@ -417,8 +408,7 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
             searchResult.querySelector('h1') ||
             searchResult.querySelector('h3') ||
             searchResult.querySelector('cite') ||
-            searchResult.querySelector("div[role='link']")))
-          {
+            searchResult.querySelector("div[role='link']"))) {
             searchResult.classList.add('iwb-detected');
             continue;
           }
@@ -723,7 +713,7 @@ function main(mutations = null, observer = null) {
                     // Extract the URL between "RU=" and "/RK="
                     const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
                     const match = searchResult.href.match(embeddedUrlRegex);
-                    const extractedURL = decodeURIComponent(match && match[1]); 
+                    const extractedURL = decodeURIComponent(match && match[1]);
 
                     if (extractedURL.includes('.fandom.com') || extractedURL.includes('.wiki.fextralife.com') || extractedURL.includes('.neoseeker.com/wiki/')) {
                       searchResult.href = extractedURL;

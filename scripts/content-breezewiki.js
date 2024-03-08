@@ -1,9 +1,9 @@
 // Hide Indie Wiki Buddy promo banner
 const bwTopBanners = document.querySelectorAll('.bw-top-banner');
 bwTopBanners.forEach((banner) => {
-	if (banner.innerText.includes('affiliated browser extension')) {
-		banner.style.display = 'none';
-	}
+  if (banner.innerText.includes('affiliated browser extension')) {
+    banner.style.display = 'none';
+  }
 });
 
 // Append "fandom allow" query param to Fandom links
@@ -12,5 +12,5 @@ const bwFandomLinks = document.querySelectorAll('a[href*=".fandom.com"]');
 bwFandomLinks.forEach((link) => {
   const url = new URL(link);
   url.searchParams.append('fandom', 'allow');
-	link.href = url;
+  link.href = url;
 });
