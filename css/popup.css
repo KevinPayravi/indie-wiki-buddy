@@ -1,81 +1,21 @@
 /* ELEMENTS */
 html {
-  max-width: 600px;
+  max-width: var(--popup-width);
 }
 
 body {
   width: max-content;
-  max-width: min(100%, 600px);
-  background-color: #005799;
+  max-width: min(100%, var(--popup-width));
   margin: 0px;
-  font-family: Helvetica, Sans-Serif;
-  font-size: .9em;
-  color: #000;
-}
-
-a {
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  color: #005799;
-}
-
-a:visited {
-  color: #005799;
-}
-
-h1 {
-  font-size: 1.3rem;
-  margin: 8px 0;
-}
-
-hr {
-  height: 1px;
-  border: none;
-  color: #005799;
-  background-color: #005799;
-  margin: 1em 0;
-}
-
-fieldset {
-  background-color: #f5fbff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 0 12px 12px 0;
-  margin: 0;
-  margin-bottom: .5em;
-  font-size: .9em;
-  display: flex;
-  flex-direction: column;
-  gap: .5em;
-}
-
-fieldset>div {
-  margin: 0 .5rem;
+  padding: 0px;
 }
 
 fieldset>span {
   margin: .8rem 0 .4rem;
-  display: block;
 }
 
 legend {
-  font-weight: 600;
   margin-bottom: .6em;
-}
-
-input,
-label,
-select {
-  cursor: pointer;
-}
-
-/* GENERIC CONTROL CLASSES */
-.text-sm {
-  font-size: .85em;
-}
-
-.center {
-  text-align: center;
 }
 
 /* HEADER */
@@ -83,34 +23,13 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  line-height: 1.5em;
   padding: .3em 1em;
-  box-sizing: border-box;
-  background-color: #005799;
-  color: #fff;
-  width: 100%;
 }
 
 #header div {
   display: flex;
   align-items: center;
   gap: .5em;
-}
-
-/* NOTIFICATION BANNER */
-#notificationBannerContainer {
-  background-color: #f8f3d6;
-  font-size: .9em;
-  line-height: 1.3em;
-}
-
-#notificationBannerContainer span {
-  padding: .5rem 1rem;
-  display: none;
-}
-
-#notificationBannerContainer span[style]~span[style] {
-  border-top: 1px solid #005799;
 }
 
 /* POWER TOGGLE */
@@ -124,7 +43,7 @@ select {
 #power>label {
   display: inline-block;
   cursor: pointer;
-  background-color: #fff;
+  background-color: var(--base-color-secondary);
   border-radius: 20px;
   width: 30px;
   height: 30px;
@@ -132,7 +51,7 @@ select {
 }
 
 #power>label:hover {
-  outline: 2px solid #3174f1;
+  outline: 2px solid var(--accent-color);
 }
 
 #power>input {
@@ -152,100 +71,24 @@ select {
 /* CONTENT */
 #content {
   padding: .5em 1em;
-  background-color: #e5f4ff;
-  box-sizing: border-box;
-}
-
-#links {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 1.5em;
-  background-color: #ceeaff;
-  padding: .5rem 1rem;
-  white-space: nowrap;
 }
 
 /* SETTINGS */
-.options {
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  user-select: none;
-  width: 100%;
-}
-
-.options label {
-  display: inline-block;
-}
-
 .settingToggle {
   cursor: pointer;
-  width: fit-content;
   vertical-align: middle;
-}
-
-.radioGroup {
-  display: flex;
-}
-
-.radioGroup.horizontal {
-  flex-direction: row;
-  line-height: 1.5rem;
-  gap: .5em;
-}
-
-.radioGroup.vertical {
-  flex-direction: column;
-  gap: .5em;
-}
-
-#breeezwikiLearnMore {
-  white-space: nowrap;
-}
-
-#breezewikiHost {
-  display: none;
-  padding: 0 0 0 1rem;
-}
-
-#breezewikiHost label {
-  cursor: default;
-}
-
-#breezewikiHost button {
-  background: #3174f1;
-  border: 1px solid #333333;
-  color: #fff;
-  border-radius: 5px;
-  padding: .3em;
-  font-size: .9em;
-}
-
-#breezewikiHost button:hover {
-  cursor: pointer;
-  background: #ffffff;
-  border: 1px solid#3174f1;
-  color: #3174f1;
-}
-
-#breezewikiHost label+label {
-  margin-top: 8px;
-}
-
-#breezewikiCustomHost {
-  display: none;
 }
 
 #breezewikiCustomHostStatus {
   display: block;
   padding-top: .4em;
-  font-size: .9em;
 }
 
 /* SETTINGS BUTTON */
 #openSettingsButton {
   border: 0;
-  background: #fff;
-  color: #3174f1;
+  background: var(--base-color-secondary);
+  color: var(--accent-color);
   border-radius: 5px;
   padding: .2em .4em;
   font-size: 1em;
@@ -253,5 +96,5 @@ select {
 
 #openSettingsButton:hover {
   cursor: pointer;
-  outline: 2px solid#3174f1;
+  outline: 2px solid var(--accent-color);
 }
