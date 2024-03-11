@@ -4456,6 +4456,24 @@
     ]
   },
   {
+    "id": "en-spacestation13",
+    "origins_label": "Space Station 13 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Space Station 13 Fandom Wiki",
+        "origin_base_url": "spacestation13.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Space_Station_13_Wiki"
+      }
+    ],
+    "destination": "Space Station 13 Wiki",
+    "destination_base_url": "wiki.ss13.co",
+    "destination_platform": "mediawiki",
+    "destination_icon": "spacestation13wiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
     "id": "en-spiritmod",
     "origins_label": "Spirit Mod Fandom Wiki",
     "origins": [
