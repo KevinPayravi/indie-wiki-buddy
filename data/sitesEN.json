@@ -47,6 +47,12 @@
         "origin_base_url": "advancewars.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Advance_Wars_Wiki"
+      },
+      {
+        "origin": "Advance Wars Neoseeker Wiki",
+        "origin_base_url": "advancewars.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Wars Wiki",
