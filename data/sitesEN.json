@@ -361,6 +361,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-ashestown",
+    "origins_label": "Ashes.town Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Ashes.town Fandom Wiki",
+        "origin_base_url": "ashestown.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ashes.town_Wiki"
+      }
+    ],
+    "destination": "Ashes.Town Wiki",
+    "destination_base_url": "ashestown.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ashestownwiki.png",
+    "destination_main_page": "Ashes.town_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-assaultlily",
     "origins_label": "Assault Lily Fandom Wikis",
     "origins": [
