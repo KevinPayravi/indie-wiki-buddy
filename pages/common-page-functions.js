@@ -39,6 +39,23 @@ document.getElementById('powerCheckbox').addEventListener('change', () => {
   });
 });
 
+// Add event listeners for search engine toggles
+document.getElementById('googleCheckbox').addEventListener('change', (event) => {
+  if(event.target.checked) {
+    commonFunctionRequestSearchEngineAccess('google')
+  } else {
+    commonFunctionRemoveSearchEngineAccess('google')
+  }
+});
+// Add event listeners for search engine toggles
+document.getElementById('yandexCheckbox').addEventListener('change', (event) => {
+  if(event.target.checked) {
+    commonFunctionRequestSearchEngineAccess('yandex')
+  } else {
+    commonFunctionRemoveSearchEngineAccess('yandex')
+  }
+});
+
 // Set notifications setting
 function setNotifications(setting, storeSetting = true) {
   if (storeSetting) {
