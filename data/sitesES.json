@@ -195,6 +195,28 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "es-teamfortress",
+    "origins_label": "Team Fortress Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Team Fortress Fandom Wiki",
+        "origin_base_url": "team-fortress.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Team_Fortress"
+      }
+    ],
+    "destination": "Team Fortress Wiki",
+    "destination_base_url": "wiki.teamfortress.com",
+    "destination_content_suffix": "/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "teamfortress.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "es-terraria",
     "origins_label": "Terraria Fandom Wiki",
     "origins": [
