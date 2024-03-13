@@ -92,6 +92,7 @@ async function commonFunctionGetSiteDataByOrigin() {
               "destination_base_url": site.destination_base_url,
               "destination_search_path": site.destination_search_path,
               "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
+              "destination_content_suffix": origin.destination_content_suffix || site.destination_content_suffix || "",
               "destination_platform": site.destination_platform,
               "destination_icon": site.destination_icon,
               "destination_main_page": site.destination_main_page,
@@ -143,7 +144,7 @@ function commonFunctionGetOriginArticle(originURL, matchingSite) {
 }
 
 function commonFunctionGetDestinationArticle(matchingSite, article) {
-  return matchingSite['destination_content_prefix'] + article;
+  return matchingSite['destination_content_prefix'] + article + matchingSite['destination_content_suffix'];
 }
 
 function commonFunctionGetNewURL(originURL, matchingSite) {
@@ -162,7 +163,7 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
           destinationArticle = '';
           break;
         default:
-          destinationArticle = matchingSite['destination_main_page'];
+          destinationArticle = matchingSite['destination_main_page'] + matchingSite['destination_content_suffix'];
       }
     }
 

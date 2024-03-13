@@ -154,6 +154,13 @@ function escapeRegex(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+function removeSubstringIfAtEnd(str, sub) {
+  if (sub && str.endsWith(sub)) {
+      return str.slice(0, -sub.length);
+  }
+  return str;
+}
+
 function replaceSearchResults(searchResultContainer, site, link) {
   let originArticle = commonFunctionGetOriginArticle(link, site);
   let destinationArticle = commonFunctionGetDestinationArticle(site, originArticle);
@@ -180,7 +187,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && originArticle !== site['origin_main_page']) {
-      destinationArticleTitle = destinationArticle.replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
+      let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, site['destination_content_suffix']).replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
       // If a Fextralife wiki, replace plus signs with spaces
       // When there are multiple plus signs together, this regex will only replace only the first
       if (link.includes('.wiki.fextralife.com')) {
