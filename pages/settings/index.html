@@ -269,6 +269,40 @@
       font-size: .9em;
     }
 
+    #customSearchEnginesContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    #customSearchEnginesList>div {
+      display: flex;
+      flex-direction: row;
+      padding: 0.5em .5em;
+      min-height: 20px;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    #customSearchEnginesList>div:hover {
+      background-color: #e8f0fe;
+    }
+
+    .customSearchEngineHostname {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #customSearchEnginesAdd {
+      display: flex;
+      gap: 0.5em;
+    }
+
+    #customSearchEnginesAdd input {
+      width: 25em;
+    }
+
     #legend div,
     #legend span {
       padding: 0 0 0 8px;
@@ -666,6 +700,22 @@
               </button>
               <span id="breezewikiCustomHostStatus"></span>
             </label>
+          </div>
+        </fieldset>
+        <fieldset id="customSearchEngines">
+          <legend>
+            <span aria-hidden="true">🔍</span> Custom search engines
+          </legend>
+          <div id="customSearchEnginesContainer">
+            <div id="customSearchEnginesList"></div>
+            <div id="customSearchEnginesAdd">
+              <input type="text" id="newCustomSearchEngineDomain" placeholder="Search engine domain (e.g. search.example.org)" />
+              <select id="newCustomSearchEnginePreset">
+                <option value="searxng">SearXNG</option>
+                <option value="whoogle">Whoogle</option>
+              </select>
+              <button id="addCustomSearchEngine">Add</button>
+            </div>
           </div>
         </fieldset>
         <h2>Individual wiki settings</h2>

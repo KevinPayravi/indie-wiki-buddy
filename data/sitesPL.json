@@ -41,6 +41,28 @@
     "destination_search_path": "/wiki/script-pl/index.php"
   },
   {
+    "id": "pl-teamfortress",
+    "origins_label": "Team Fortress Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Team Fortress Fandom Wiki",
+        "origin_base_url": "teamfortress.fandom.com/pl",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Team_Fortress_Wiki"
+      }
+    ],
+    "destination": "Team Fortress Wiki",
+    "destination_base_url": "wiki.teamfortress.com",
+    "destination_content_suffix": "/pl",
+    "destination_platform": "mediawiki",
+    "destination_icon": "teamfortress.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "pl-terraria",
     "origins_label": "Terraria Fandom Wiki",
     "origins": [
