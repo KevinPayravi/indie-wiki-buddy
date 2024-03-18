@@ -336,6 +336,12 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
       case 'kagi':
         document.querySelector('#main').prepend(searchRemovalNotice);
         break;
+      case 'searxng':
+        document.querySelector('#results').prepend(searchRemovalNotice);
+        break;
+      case 'whoogle':
+        document.querySelector('#main').prepend(searchRemovalNotice);
+        break;
       default:
     }
   }
@@ -487,6 +493,12 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
                 break;
               case 'kagi':
                 searchResultContainer = searchResult.closest('div.search-result, div.__srgi');
+                break;
+              case 'searxng':
+                searchResultContainer = searchResult.closest('article');
+                break;
+              case 'whoogle':
+                searchResultContainer = searchResult.closest('#main>div>div, details>div>div>div>div>div>div.has-favicon');
                 break;
               default:
             }
@@ -755,6 +767,46 @@ function main(mutations = null, observer = null) {
                 filterKagi();
               }
             }, { once: true });
+          }
+        } else if (storage.customSearchEngines) {
+          function filterSearXNG() {
+            let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'searxng', storage);
+          }
+
+          function filterWhoogle() {
+            let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'whoogle', storage);
+          }
+
+          function filter(searchEngine) {
+            if (searchEngine === 'searxng') {
+              filterSearXNG();
+            } else if (searchEngine === 'whoogle') {
+              filterWhoogle();
+            }
+          }
+
+          let customSearchEngines = storage.customSearchEngines;
+          if (customSearchEngines[currentURL.hostname]) {
+            let customSearchEnginePreset = customSearchEngines[currentURL.hostname];
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filter(customSearchEnginePreset);
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (['interactive', 'complete'].includes(document.readyState)) {
+                  filter(customSearchEnginePreset);
+                }
+              }, { once: true });
+            }
           }
         }
       }
