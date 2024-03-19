@@ -910,6 +910,27 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "en-chicory",
+    "origins_label": "Chicory: A Colorful Tale Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Chicory: A Colorful Tale Fandom Wiki",
+        "origin_base_url": "chicory-a-colorful-tale.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Chicory:_A_Colorful_Tale_Wiki"
+      }
+    ],
+    "destination": "Chicory: A Colorful Tale Wiki",
+    "destination_base_url": "wiki.chicory.pizza",
+    "destination_platform": "mediawiki",
+    "destination_icon": "chicory.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "miraheze"
+    ]
+  },
+  {
     "id": "en-chipschallenge",
     "origins_label": "Chip's Challenge Fandom Wiki",
     "origins": [
