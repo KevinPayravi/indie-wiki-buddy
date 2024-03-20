@@ -154,6 +154,13 @@ function escapeRegex(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+function removeSubstringIfAtEnd(str, sub) {
+  if (sub && str.endsWith(sub)) {
+      return str.slice(0, -sub.length);
+  }
+  return str;
+}
+
 function replaceSearchResults(searchResultContainer, site, link) {
   let originArticle = commonFunctionGetOriginArticle(link, site);
   let destinationArticle = commonFunctionGetDestinationArticle(site, originArticle);
@@ -180,7 +187,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && originArticle !== site['origin_main_page']) {
-      destinationArticleTitle = destinationArticle.replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
+      let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, site['destination_content_suffix']).replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
       // If a Fextralife wiki, replace plus signs with spaces
       // When there are multiple plus signs together, this regex will only replace only the first
       if (link.includes('.wiki.fextralife.com')) {
@@ -327,6 +334,12 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
         }
         break;
       case 'kagi':
+        document.querySelector('#main').prepend(searchRemovalNotice);
+        break;
+      case 'searxng':
+        document.querySelector('#results').prepend(searchRemovalNotice);
+        break;
+      case 'whoogle':
         document.querySelector('#main').prepend(searchRemovalNotice);
         break;
       default:
@@ -480,6 +493,12 @@ async function filterSearchResults(searchResults, searchEngine, storage) {
                 break;
               case 'kagi':
                 searchResultContainer = searchResult.closest('div.search-result, div.__srgi');
+                break;
+              case 'searxng':
+                searchResultContainer = searchResult.closest('article');
+                break;
+              case 'whoogle':
+                searchResultContainer = searchResult.closest('#main>div>div, details>div>div>div>div>div>div.has-favicon');
                 break;
               default:
             }
@@ -748,6 +767,46 @@ function main(mutations = null, observer = null) {
                 filterKagi();
               }
             }, { once: true });
+          }
+        } else if (storage.customSearchEngines) {
+          function filterSearXNG() {
+            let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'searxng', storage);
+          }
+
+          function filterWhoogle() {
+            let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el =>
+              el.href?.includes('.fandom.com') ||
+              el.href?.includes('.wiki.fextralife.com') ||
+              el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'whoogle', storage);
+          }
+
+          function filter(searchEngine) {
+            if (searchEngine === 'searxng') {
+              filterSearXNG();
+            } else if (searchEngine === 'whoogle') {
+              filterWhoogle();
+            }
+          }
+
+          let customSearchEngines = storage.customSearchEngines;
+          if (customSearchEngines[currentURL.hostname]) {
+            let customSearchEnginePreset = customSearchEngines[currentURL.hostname];
+
+            // Wait for document to be interactive/complete:
+            if (['interactive', 'complete'].includes(document.readyState)) {
+              filter(customSearchEnginePreset);
+            } else {
+              document.addEventListener('readystatechange', e => {
+                if (['interactive', 'complete'].includes(document.readyState)) {
+                  filter(customSearchEnginePreset);
+                }
+              }, { once: true });
+            }
           }
         }
       }

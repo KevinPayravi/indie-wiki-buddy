@@ -158,6 +158,22 @@
             </label>
           </div>
         </fieldset>
+        <fieldset id="customSearchEngines">
+          <legend>
+            <span aria-hidden="true">🔍</span> Custom search engines
+          </legend>
+          <div id="customSearchEnginesContainer">
+            <div id="customSearchEnginesList"></div>
+            <div id="customSearchEnginesAdd">
+              <input type="text" id="newCustomSearchEngineDomain" placeholder="Search engine domain (e.g. search.example.org)" />
+              <select id="newCustomSearchEnginePreset">
+                <option value="searxng">SearXNG</option>
+                <option value="whoogle">Whoogle</option>
+              </select>
+              <button id="addCustomSearchEngine">Add</button>
+            </div>
+          </div>
+        </fieldset>
         <h2>Individual wiki settings</h2>
         <fieldset id="legend">
           <legend>
