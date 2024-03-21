@@ -48,7 +48,7 @@ async function commonFunctionCompressJSON(value) {
   const blob = await compressedResponse.blob();
   const buffer = await blob.arrayBuffer();
 
-  // Encode and return string 
+  // Encode and return string
   return btoa(
     String.fromCharCode(
       ...new Uint8Array(buffer)
@@ -72,64 +72,77 @@ async function commonFunctionGetSiteDataByDestination() {
   return sites;
 }
 
-// Load wiki data objects, with each origin having its own object
-async function commonFunctionGetSiteDataByOrigin() {
+async function populateSiteDataByOrigin() {
+  // Populate with the site data
   let sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
     promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-      .then((resp) => resp.json())
-      .then((jsonData) => {
-        jsonData.forEach((site) => {
-          site.origins.forEach((origin) => {
-            sites.push({
-              "id": site.id,
-              "origin": origin.origin,
-              "origin_base_url": origin.origin_base_url,
-              "origin_content_path": origin.origin_content_path,
-              "origin_main_page": origin.origin_main_page,
-              "destination": site.destination,
-              "destination_base_url": site.destination_base_url,
-              "destination_search_path": site.destination_search_path,
-              "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
-              "destination_content_suffix": origin.destination_content_suffix || site.destination_content_suffix || "",
-              "destination_platform": site.destination_platform,
-              "destination_icon": site.destination_icon,
-              "destination_main_page": site.destination_main_page,
-              "tags": site.tags || [],
-              "language": LANGS[i]
+        .then((resp) => resp.json())
+        .then((jsonData) => {
+          jsonData.forEach((site) => {
+            site.origins.forEach((origin) => {
+              sites.push({
+                "id": site.id,
+                "origin": origin.origin,
+                "origin_base_url": origin.origin_base_url,
+                "origin_content_path": origin.origin_content_path,
+                "origin_main_page": origin.origin_main_page,
+                "destination": site.destination,
+                "destination_base_url": site.destination_base_url,
+                "destination_search_path": site.destination_search_path,
+                "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
+                // /w/index.php?title= is the default path for a new MediaWiki install, change as accordingly in config JSON files
+                "destination_content_path": site.destination_content_path || "/w/index.php?title=",
+                "destination_content_suffix": origin.destination_content_suffix || site.destination_content_suffix || "",
+                "destination_platform": site.destination_platform,
+                "destination_icon": site.destination_icon,
+                "destination_main_page": site.destination_main_page,
+                "tags": site.tags || [],
+                "language": LANGS[i]
+              })
             })
-          })
-        });
-      }));
+          });
+        }));
   }
+
   await Promise.all(promises);
-  return sites;
+  window.iwb_siteDataByOrigin = sites;
+  return window.iwb_siteDataByOrigin;
+}
+
+// Load wiki data objects, with each origin having its own object
+async function commonFunctionGetSiteDataByOrigin() {
+  if (!window.iwb_siteDataByOrigin || window.iwb_siteDataByOrigin.length === 0) {
+    await populateSiteDataByOrigin();
+  }
+  return window.iwb_siteDataByOrigin;
 }
 
 // Given a URL, find closest match in our dataset
-async function commonFunctionFindMatchingSite(site, crossLanguageSetting) {
+async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest = false) {
+  let base_url_key = dest ? 'destination_base_url' : 'origin_base_url';
+
   let matchingSite = commonFunctionGetSiteDataByOrigin().then(sites => {
     let matchingSites = [];
     if (crossLanguageSetting === 'on') {
-      matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url));
+      matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el[base_url_key]));
     } else {
-      matchingSites = sites.filter(el => {
-        return site.replace(/.*https?:\/\//, '').startsWith(el.origin_base_url + el.origin_content_path)
-          || site.replace(/.*https?:\/\//, '').replace(/\/$/, '') === el.origin_base_url
-      }
+      matchingSites = sites.filter(el =>
+         site.replace(/.*https?:\/\//, '').startsWith(dest ? el[base_url_key] : (el.origin_base_url + el.origin_content_path))
+        || site.replace(/.*https?:\/\//, '').replace(/\/$/, '') === el[base_url_key]
       );
     }
 
     if (matchingSites.length > 0) {
-      // Select match with longest base URL 
+      // Select match with longest base URL
       let closestMatch = '';
       matchingSites.forEach(site => {
-        if (site.origin_base_url.length > closestMatch.length) {
-          closestMatch = site.origin_base_url;
+        if (site[base_url_key].length > closestMatch.length) {
+          closestMatch = site[base_url_key];
         }
       });
-      return matchingSites.find(site => site.origin_base_url === closestMatch);
+      return matchingSites.find(site => site[base_url_key] === closestMatch);
     } else {
       return null;
     }
