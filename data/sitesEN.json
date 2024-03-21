@@ -1335,13 +1335,19 @@
   },
   {
     "id": "en-doctorwho",
-    "origins_label": "Tardis Fandom Wiki",
+    "origins_label": "Tardis Fandom & Doctor Who (Neoseeker) Wikis",
     "origins": [
       {
         "origin": "Tardis Fandom Wiki",
         "origin_base_url": "tardis.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Doctor_Who_Wiki"
+      },
+      {
+        "origin": "Doctor Who Neoseeker Wiki",
+        "origin_base_url": "doctorwho.neoseeker.com/wiki/",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Tardis (Doctor Who) Wiki",
