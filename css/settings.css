@@ -1,0 +1,291 @@
+/* ELEMENTS */
+legend {
+  margin-bottom: .75em;
+}
+
+/* HEADER */
+#version {
+  float: right;
+  font-size: 1.2rem;
+  margin: .5rem 0;
+}
+
+#firstInstallInfo {
+  display: none;
+  text-align: center;
+}
+
+/* CONTENT */
+#content {
+  padding: 1rem .75rem;
+}
+
+.site-container {
+  background: var(--base-color-secondary);
+}
+
+/* NOTIFICATIONS */
+#notificationBannerReviewLinks {
+  display: flex;
+  column-gap: 1em;
+}
+
+/* SETTINGS SECTION */
+#searchFilteringSettings>div {
+  display: inline-block;
+}
+
+#legend div,
+#legend span {
+  padding: 0 0 0 8px;
+}
+
+#legend div {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* WIKI FILTERS */
+#wikiFiltersContainer {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+#wikiFiltersContainer>div {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 1fr 1fr;
+  margin: 1em auto;
+  max-width: 30em;
+}
+
+#wikiFiltersContainer>div>div {
+  text-align: right;
+  align-self: end;
+}
+
+@media (max-width: 35em) {
+  #wikiFiltersContainer>div {
+    grid-template-columns: 1fr;
+  }
+
+  #wikiFiltersContainer>div>div {
+    text-align: center;
+  }
+}
+
+/** TOGGLE OPTIONS **/
+.toggles {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  position: relative;
+}
+
+.toggles img {
+  line-height: 1.2rem;
+}
+
+.toggles a img {
+  padding-right: .5rem;
+  vertical-align: middle;
+}
+
+.toggles label {
+  display: flex;
+  align-items: center;
+}
+
+.toggles input {
+  cursor: pointer;
+  margin: 0;
+}
+
+.toggles>div {
+  display: flex;
+  flex-direction: row;
+  padding: 0 .5rem;
+  min-height: 20px;
+}
+
+.toggles .inputsContainer {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.togglesHeader {
+  border-bottom: 1px solid var(--base-color-outline);
+  background-color: var(--base-color-primary);
+}
+
+.togglesHeader span {
+  flex: 1;
+  text-align: right;
+  font-style: italic;
+  margin-right: 1em;
+  padding: .75em 0;
+  white-space: break-spaces;
+}
+
+.toggles:not(.togglesHeader) span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: .5em 0;
+}
+
+#toggles>div:hover {
+  background-color: var(--base-color-primary-dark);
+}
+
+#togglesKeys button {
+  all: unset;
+  display: inline-flex;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--default-icon-size);
+  cursor: pointer;
+}
+
+button#setAllDisabled {
+  background-image: url('../../images/toggle-disabled.png');
+}
+
+button#setAllAlert {
+  background-image: url('../../images/toggle-alert.png');
+}
+
+button#setAllRedirect {
+  background-image: url('../../images/toggle-redirect.png');
+}
+
+button#setAllSearchEngineDisabled {
+  background-image: url('../../images/toggle-disabled.png');
+}
+
+button#setAllSearchEngineReplace {
+  background-image: url('../../images/toggle-replace.png');
+}
+
+button#setAllSearchEngineHide {
+  background-image: url('../../images/toggle-hide.png');
+}
+
+#togglesKeys button:focus {
+  outline: revert;
+}
+
+#togglesDefaults input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#togglesDefaults input+label {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../images/star-off.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--default-icon-size);
+}
+
+#togglesDefaults input:checked+label {
+  background-image: url('../../images/star-on.png');
+}
+
+#togglesDefaults label {
+  cursor: pointer;
+}
+
+#togglesKeys .inputsContainer button:hover::after,
+#togglesDefaults .inputsContainer label:hover::after {
+  content: attr(data-title);
+  padding: 5px;
+  width: fit-content;
+  border: 1px solid var(--base-color-outline-dark);
+  position: absolute;
+  color: #fff;
+  background: var(--base-color-dark);
+  z-index: 999999;
+  transform: translateX(calc(-100% - 5px));
+  top: 30px;
+}
+
+#togglesColumnLabels {
+  background-color: var(--base-color-secondary);
+  padding: 5px 0;
+}
+
+#togglesColumnLabels>div>div {
+  display: flex;
+  width: 150px;
+}
+
+#togglesColumnLabels>div>div>div {
+  flex: 1 1 0;
+  font-weight: 600;
+  font-size: .9em;
+  white-space: break-spaces;
+  line-height: initial;
+  text-align: center;
+}
+
+.inputsContainer>label,
+.inputsContainer>div {
+  width: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.togglesHeader .inputsContainer>div:nth-child(4),
+.toggles>div>div>label:nth-child(4) {
+  padding-left: 5px;
+  border-left: 1px solid var(--base-color-outline-light);
+}
+
+.inputsContainer label:nth-child(1) input,
+.inputsContainer label:nth-child(4) input {
+  accent-color: var(--disabled-color);
+}
+
+/** CUSTOM SEARCH ENGINE **/
+#customSearchEnginesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+#customSearchEnginesList>div {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5em .5em;
+  min-height: 20px;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#customSearchEnginesList>div:hover {
+  background-color: #e8f0fe;
+}
+
+.customSearchEngineHostname {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#customSearchEnginesAdd {
+  display: flex;
+  gap: 0.5em;
+}
+
+#customSearchEnginesAdd input {
+  width: 25em;
+}

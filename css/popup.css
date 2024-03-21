@@ -1,0 +1,100 @@
+/* ELEMENTS */
+html {
+  max-width: var(--popup-width);
+}
+
+body {
+  width: max-content;
+  max-width: min(100%, var(--popup-width));
+  margin: 0px;
+  padding: 0px;
+}
+
+fieldset>span {
+  margin: .8rem 0 .4rem;
+}
+
+legend {
+  margin-bottom: .6em;
+}
+
+/* HEADER */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .3em 1em;
+}
+
+#header div {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+
+/* POWER TOGGLE */
+#power {
+  cursor: pointer;
+  width: fit-content;
+  vertical-align: middle;
+  padding-top: .2em;
+}
+
+#power>label {
+  display: inline-block;
+  cursor: pointer;
+  background-color: var(--base-color-secondary);
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+#power>label:hover {
+  outline: 2px solid var(--accent-color);
+}
+
+#power>input {
+  height: 0;
+  width: 0;
+  margin: 0;
+  border: none;
+  appearance: none;
+}
+
+#power img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* CONTENT */
+#content {
+  padding: .5em 1em;
+}
+
+/* SETTINGS */
+.settingToggle {
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+#breezewikiCustomHostStatus {
+  display: block;
+  padding-top: .4em;
+}
+
+/* SETTINGS BUTTON */
+#openSettingsButton {
+  border: 0;
+  background: var(--base-color-secondary);
+  color: var(--accent-color);
+  border-radius: 5px;
+  padding: .2em .4em;
+  font-size: 1em;
+}
+
+#openSettingsButton:hover {
+  cursor: pointer;
+  outline: 2px solid var(--accent-color);
+}

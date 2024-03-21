@@ -295,6 +295,7 @@ async function loadOptions(lang, textFilter = '') {
         wikiInfo.appendChild(wikiLink);
         wikiInfo.appendChild(document.createTextNode(' (from ' + sites[i].origins_label + ')'));
         let siteContainer = document.createElement("div");
+        siteContainer.classList.add('site-container')
 
         // Output inputs container:
         let inputsContainer = document.createElement('div');
