@@ -1345,7 +1345,7 @@
       },
       {
         "origin": "Doctor Who Neoseeker Wiki",
-        "origin_base_url": "doctorwho.neoseeker.com/wiki/",
+        "origin_base_url": "doctorwho.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
       }
