@@ -58,9 +58,10 @@
     ],
     "destination": "Lethal Company Wiki",
     "destination_base_url": "lethal.miraheze.org",
+    "destination_content_suffix": "/ru",
     "destination_platform": "mediawiki",
     "destination_icon": "lethalcompany.png",
-    "destination_main_page": "Main_Page/ru",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "tags": [
       "miraheze"
