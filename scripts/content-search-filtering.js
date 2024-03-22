@@ -492,15 +492,32 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
   return countFiltered;
 }
 
-async function _reorderDestinationSearchResult(resultsFirstChild, matchingDest, searchResult) {
-  const searchContainer = searchResult.closest('#rso > div, #main > div');
+async function _reorderDestinationSearchResult(resultsFirstChild, searchResult) {
+  // Find containing element for the search result
+  const closestJsController = searchResult.closest('div[jscontroller]');
+  const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
+  searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
 
-  if (!resultsFirstChild || !searchContainer || searchContainer.classList.contains('iwb-reordered')) {
+  // Find the element holding the search results,
+  // to prepend the destination wiki result
+  let searchResultsList = document.querySelector('#search') || document.querySelector('#topstuff');
+  if (!searchResultsList) {
+    if (document.querySelector('#main')) {
+      var el = document.querySelector('#main');
+      if (el.querySelector('#main > div[data-hveid]')) {
+        searchResultsList = el.querySelector('div[data-hveid]');
+      } else {
+        searchResultsList = el.querySelector('div div[data-hveid]').parentElement;
+      }
+    };
+  }
+ 
+  if (!resultsFirstChild || !searchResultContainer || searchResultContainer.classList.contains('iwb-reordered')) {
     return;
   }
 
-  searchContainer.classList.add('iwb-reordered');
-  resultsFirstChild.insertAdjacentElement('beforebegin', searchContainer);
+  searchResultContainer.classList.add('iwb-reordered');
+  searchResultsList.prepend(searchResultContainer);
 }
 
 async function reorderSearchResults(searchResults, searchEngine, storage) {
@@ -516,8 +533,11 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
     if (searchEngine !== 'google') return;
 
     // Get the first element in the results container
-    let resultsFirstChild = document.querySelector('#rso > div'); // desktop
-    if (!resultsFirstChild) resultsFirstChild = document.querySelector('#main > div:has(div[data-hveid])'); // FF mobile
+    let resultsFirstChild = document.querySelector('#rso div[data-hveid].g') ||
+    document.querySelector('#main div[data-hveid].g') ||
+    document.querySelector('#rso div[data-hveid]') ||
+    document.querySelector('#main div[data-hveid]');
+    
     if (!resultsFirstChild) return;
 
     let crossLanguageSetting = storage.crossLanguage || 'off';
@@ -540,7 +560,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
             console.debug('Indie Wiki Buddy is not re-ordering results, as an indie wiki is already the first result.');
             break;
           } else {
-            await _reorderDestinationSearchResult(resultsFirstChild, matchingDest, searchResult);
+            await _reorderDestinationSearchResult(resultsFirstChild, searchResult);
             reorderedHrefs.push(searchResultLink);
           }
         }
