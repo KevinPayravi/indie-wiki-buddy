@@ -1,6 +1,6 @@
 {
   "name": "Indie Wiki Buddy",
-  "version": "3.6.1",
+  "version": "3.6.2",
   "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
   "permissions": [
     "storage",
@@ -280,7 +280,7 @@
         "scripts/common-functions.js",
         "scripts/content-search-filtering.js"
       ],
-      "run_at": "document_start"
+      "run_at": "document_end"
     },
     {
       "matches": [

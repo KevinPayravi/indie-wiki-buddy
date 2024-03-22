@@ -16,6 +16,7 @@
     "destination_icon": "acecombatwiki.png",
     "destination_main_page": "Ace_Combat_中文_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -37,6 +38,7 @@
     "destination_icon": "calamitymodwiki.png",
     "destination_main_page": "Calamity_Mod_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -59,6 +61,7 @@
     "destination_icon": "fridaynightfunkinwiki.png",
     "destination_main_page": "Friday_Night_Funkin'_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -85,7 +88,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png",
     "destination_main_page": "Minecraft_Wiki",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "zh-noita",
@@ -104,6 +108,7 @@
     "destination_icon": "noitawiki.png",
     "destination_main_page": "Noita_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -125,6 +130,7 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"

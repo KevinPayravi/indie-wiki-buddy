@@ -16,6 +16,7 @@
     "destination_icon": "acecombatwiki.png",
     "destination_main_page": "Página_principal",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -37,6 +38,7 @@
     "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -58,7 +60,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png",
     "destination_main_page": "Minecraft_Wiki",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "pt-runescape",
@@ -76,7 +79,30 @@
     "destination_platform": "mediawiki",
     "destination_icon": "runescape.png",
     "destination_main_page": "RuneScape_Wiki",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
+    "id": "pt-teamfortress",
+    "origins_label": "Team Fortress Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Team Fortress Fandom Wiki",
+        "origin_base_url": "team-fortress.fandom.com/pt-br",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Página_principal"
+      }
+    ],
+    "destination": "Team Fortress Wiki",
+    "destination_base_url": "wiki.teamfortress.com",
+    "destination_content_suffix": "/pt-br",
+    "destination_platform": "mediawiki",
+    "destination_icon": "teamfortress.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "pt-terraria",
@@ -95,6 +121,7 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"

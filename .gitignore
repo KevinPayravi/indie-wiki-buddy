@@ -3,3 +3,4 @@
 .vscode/*
 *.py
 *.pyc
+.idea/

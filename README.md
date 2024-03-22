@@ -38,7 +38,7 @@ Large, corporate-run wiki farms have enabled hundreds of great wikis and communi
 
 When visiting a wiki on a large corporate wiki farm such as Fandom, Indie Wiki Buddy will notify and/or automatically redirect you if a quality, independent alternative is available. You can customize your experience per-wiki.
 
-In addition, search results in Google, Bing, DuckDuckGo, Yahoo, Brave Search, Ecosia, Startpage, Qwant, Yandex, and Kagi can also be filtered, replacing non-independent wikis with text inviting you to visit the independent counterpart.
+In addition, search results in Google, Bing, DuckDuckGo, Yahoo, Brave Search, Ecosia, Startpage, Qwant, Yandex, Kagi, SearXNG, and Whoogle can also be filtered, replacing non-independent wikis with text inviting you to visit the independent counterpart.
 
 Indie Wiki Buddy also supports [BreezeWiki](https://breezewiki.com/), a service that renders Fandom wikis without ads or bloat. This helps give you a more enjoyable reading experience on Fandom when an independent wiki isn't available.
 
@@ -89,6 +89,7 @@ Entries are formatted as follows:
 * `destination`: Name of the wiki being redirected to.
 * `destination_base_url`: Fully qualified domain name of the wiki being redirected to.
 * `destination_content_prefix`: A prefix that is prepended to article names before performing a search on the destination wiki. This can be useful if a wiki separates its content into different namespaces. For example, if we wanted to redirect a wiki about Super Mario Odyssey to a general Mario wiki that has Odyssey content in a namespace called `Odyssey`, we would set `destination_content_prefix` to `Odyssey:`.
+* `destination_content_suffix`: A suffix that is added to the end of article names before performing a search on the destination wiki. This is typically used when a multilingual wiki separates its languages by suffixes (e.g. `/es`, `/pt`, etc.). Team Fortress Wiki is an example that uses this.
 * `destination_platform`: The wiki's software. The current supported options are `mediawiki` and `dokuwiki`. If you are contributing a wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
 * `destination_icon`: The name of the wiki's favicon in the [favicons](favicons) folder.
 * `destination_main_page`: The title of the main page of the destination wiki.
