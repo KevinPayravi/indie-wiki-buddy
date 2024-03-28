@@ -2442,6 +2442,28 @@
       "official"
     ]
   },
+    {
+    "id": "en-guiltygear",
+    "origins_label": "Guilty Gear Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Guilty Gear Fandom Wiki",
+        "origin_base_url": "guiltygear.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Guilty_Gear_Wiki"
+      }
+    ],
+    "destination": "Guilty Gear Wiki",
+    "destination_base_url": "guiltygear.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "guiltygearwiki.png",
+    "destination_main_page": "Guilty_Gear_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
   {
     "id": "en-habbo",
     "origins_label": "Habbo Fandom Wiki",
