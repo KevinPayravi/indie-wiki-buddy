@@ -15,7 +15,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "amiibopedia.png",
     "destination_main_page": "Amiibopedia",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-animalcrossing",
@@ -33,7 +34,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "animalcrossing.png",
     "destination_main_page": "Portada",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-ark",
@@ -161,7 +163,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikidex.png",
     "destination_main_page": "WikiDex",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-splatoon",
@@ -179,7 +182,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "inkipedia.png",
     "destination_main_page": "Página_principal",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-supersmashbros",
@@ -197,7 +201,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "smashpedia.png",
     "destination_main_page": "SmashPedia",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-teamfortress",
@@ -217,6 +222,7 @@
     "destination_icon": "teamfortress.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
@@ -260,6 +266,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "touhouwiki.png",
     "destination_main_page": "Touhou_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   }
 ]
