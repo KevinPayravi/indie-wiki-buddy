@@ -1,4 +1,19 @@
 const searchEngineOrigins = {
+    bing: [
+        "https://*.bing.com/search*"
+    ],
+    brave: [
+        "https://search.brave.com/search*"
+    ],
+    duckduckgo: [
+        "https://*.duckduckgo.com/*"
+    ],
+    ecosia: [
+        "https://*.ecosia.org/*",
+    ],
+    kagi: [
+        "https://kagi.com/search*",
+    ],
     google: [
         "https://www.google.com/search*",
         "https://www.google.ad/search*",
@@ -191,6 +206,15 @@ const searchEngineOrigins = {
         "https://www.google.co.zw/search*",
         "https://www.google.cat/search*"
     ],
+    qwant: [
+        "https://*.qwant.com/*"
+    ],
+    startpage: [
+        "https://*.startpage.com/*"
+    ],
+    yahoo: [
+        "https://*.search.yahoo.com/*"
+    ],
     yandex: [
         "https://*.ya.ru/*",
         "https://*.yandex.az/*",
@@ -219,7 +243,10 @@ function commonFunctionRequestSearchEngineAccess(searchEngine) {
         origins: searchEngineOrigins[searchEngine]
     }, (granted) => {
         // Callback is true if the user granted the permissions.
-        if (!granted) return;
+        if (!granted) {
+            document.querySelector(`[data-search-engine="${searchEngine}"`).checked = false;
+            return false;
+        }
 
         chrome.scripting.registerContentScripts([{
             id: `content-search-filtering-${searchEngine}`,

@@ -42,21 +42,18 @@ document.getElementById('powerCheckbox').addEventListener('change', () => {
   });
 });
 
-// Add event listeners for search engine toggles
-document.getElementById('googleCheckbox').addEventListener('change', (event) => {
-  if(event.target.checked) {
-    commonFunctionRequestSearchEngineAccess('google')
-  } else {
-    commonFunctionRemoveSearchEngineAccess('google')
-  }
-});
-// Add event listeners for search engine toggles
-document.getElementById('yandexCheckbox').addEventListener('change', (event) => {
-  if(event.target.checked) {
-    commonFunctionRequestSearchEngineAccess('yandex')
-  } else {
-    commonFunctionRemoveSearchEngineAccess('yandex')
-  }
+const searchEngineToggles = document.querySelectorAll('.searchEngineToggles label');
+console.log(searchEngineToggles);
+searchEngineToggles.forEach((engine) => {
+  let engineInput = engine.querySelector('input');
+  let engineName = engineInput.getAttribute('data-search-engine');
+  engine.addEventListener('change', () => {
+    if (engineInput.checked) {
+      commonFunctionRequestSearchEngineAccess(engineName);
+    } else {
+      commonFunctionRemoveSearchEngineAccess(engineName);
+    }
+  });
 });
 
 // Set notifications setting
