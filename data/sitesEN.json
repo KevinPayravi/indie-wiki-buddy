@@ -85,6 +85,27 @@
     ]
   },
   {
+    "id": "en-againstthestorm",
+    "origins_label": "Against the Storm Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Against the Storm Fandom Wiki",
+        "origin_base_url": "against-the-storm.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Against_the_Storm_Wiki"
+      }
+    ],
+    "destination": "Against the Storm Wiki",
+    "destination_base_url": "hoodedhorse.com/wiki/Against_the_Storm",
+    "destination_platform": "mediawiki",
+    "destination_icon": "againstthestorm.png",
+    "destination_main_page": "Against_the_Storm_Official_Wiki",
+    "destination_search_path": "/index.php",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-akudamadrive",
     "origins_label": "Akudama Drive Fandom Wiki",
     "origins": [
