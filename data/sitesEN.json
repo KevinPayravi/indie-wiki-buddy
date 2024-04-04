@@ -3199,7 +3199,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "maplestory.png",
     "destination_main_page": "MapleStory_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-mario",
