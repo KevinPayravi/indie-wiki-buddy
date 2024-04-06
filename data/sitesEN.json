@@ -5980,7 +5980,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wynncraftwiki.png",
     "destination_main_page": "Wynncraft_Wiki",
-    "destination_search_page": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-xenharmonic",
