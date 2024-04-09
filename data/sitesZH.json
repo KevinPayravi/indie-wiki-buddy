@@ -114,6 +114,31 @@
     ]
   },
   {
+    "id": "zh-pokemon",
+    "origins_label": "Pokémon Fandom Wiki",
+    "origins": [
+      {
+        "origins": "Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pokemon"
+      },
+      {
+        "origins": "Pokémon Fandom Wiki (Zh-Hk)",
+        "origins_base_url": "pokemon.fandom.com/zh-hk",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "寵物小精靈百科"
+      }
+    ],
+    "destination": "52Poké Wiki",
+    "destination_base_url": "wiki.52poke.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "52pokewiki.png",
+    "destination_main_page": "主页",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "zh-terraria",
     "origins_label": "Terraria Fandom Wiki",
     "origins": [
