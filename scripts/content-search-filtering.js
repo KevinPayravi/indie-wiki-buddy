@@ -511,7 +511,7 @@ async function _reorderDestinationSearchResult(resultsFirstChild, searchResult) 
       }
     };
   }
- 
+
   if (!resultsFirstChild || !searchResultContainer || searchResultContainer.classList.contains('iwb-reordered')) {
     return;
   }
@@ -537,7 +537,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
     document.querySelector('#main div[data-hveid].g') ||
     document.querySelector('#rso div[data-hveid]') ||
     document.querySelector('#main div[data-hveid]');
-    
+
     if (!resultsFirstChild) return;
 
     let crossLanguageSetting = storage.crossLanguage || 'off';
@@ -647,6 +647,10 @@ function main(mutations = null, observer = null) {
 
         async function reorderGoogle() {
           let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
+
+          // Remove any matches that are not "standard" search results - this could've been done with :has() but limited browser support right now
+          searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header'));
+
           return await reorderSearchResults(searchResults, 'google', storage);
         }
 
