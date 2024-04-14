@@ -4130,6 +4130,24 @@
       "miraheze"
     ]
   },
+    {
+    "id": "en-ramm",
+    "origins_label": "Rammstein Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Rammstein Fandom Wiki",
+        "origin_base_url": "rammstein.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rammstein_Wiki"
+      },
+    ],
+    "destination": "RammWiki",
+    "destination_base_url": "rammwiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ramm.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php"
+  },
   {
     "id": "en-rayman",
     "origins_label": "Rayman Fandom Wiki",
