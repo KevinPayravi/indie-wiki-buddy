@@ -3595,6 +3595,24 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php"
   },
+    {
+    "id": "en-NineInchNails",
+    "origins_label": "Nine Inch Nails Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Nine Inch Nails Fandom Wiki",
+        "origin_base_url": "nin.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+    ],
+    "destination": "NinWiki",
+    "destination_base_url": "www.nin.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nineinchnails.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
   {
     "id": "en-noita",
     "origins_label": "Noita Fandom Wiki",
