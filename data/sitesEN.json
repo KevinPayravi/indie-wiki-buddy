@@ -3596,7 +3596,7 @@
     "destination_search_path": "/index.php"
   },
     {
-    "id": "en-NineInchNails",
+    "id": "en-nineinchnails",
     "origins_label": "Nine Inch Nails Fandom Wiki",
     "origins": [
       {
@@ -4149,7 +4149,7 @@
     ]
   },
     {
-    "id": "en-ramm",
+    "id": "en-rammstein",
     "origins_label": "Rammstein Fandom Wiki",
     "origins": [
       {
@@ -5844,7 +5844,7 @@
     "origins_label": "When They Cry Fandom Wiki",
     "origins": [
       {
-        "origin": " Higurashi no Naku Koro Ni Fandom Wiki",
+        "origin": "Higurashi no Naku Koro Ni Fandom Wiki",
         "origin_base_url": "whentheycry.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Higurashi_no_Naku_Koro_Ni_Wiki"
