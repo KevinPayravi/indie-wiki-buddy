@@ -3407,6 +3407,12 @@
         "origin_main_page": "Minecraft_Bedrock_Wiki"
       },
       {
+        "origin": "Mine-craft Fandom Wiki",
+        "origin_base_url": "mine-craft.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      },
+      {
         "origin": "Minecraft Wiki - Neoseeker",
         "origin_base_url": "minecraft.neoseeker.com",
         "origin_content_path": "/wiki/",
