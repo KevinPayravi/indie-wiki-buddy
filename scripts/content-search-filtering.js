@@ -584,7 +584,7 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
   for (const searchResult of searchResults) {
     try {
       // Check that result isn't within another result
-      if (!searchResult.closest('.iwb-detected')) {
+      if (!searchResult.closest('.iwb-detected') || !searchResult.closest('.iwb-detected')?.querySelector('.iwb-new-link')) {
         searchResultLink = searchResult.href || '';
 
         if (!searchResultLink) {
