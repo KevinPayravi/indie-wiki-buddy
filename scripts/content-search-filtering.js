@@ -624,7 +624,7 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
   };
 
   // Add location observer to check for additional mutations
-  addDOMChangeObserver(main, searchEngine, storage);
+  addDOMChangeObserver(startFiltering, searchEngine, storage);
 
   // If any results were filtered, update search filter count
   if (countFiltered > 0) {
@@ -632,10 +632,11 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
   }
 }
 
-function main(searchEngine, storage, mutations = null, observer = null) {
+function startFiltering(searchEngine, storage, mutations = null, observer = null) {
   if (observer) {
     observer.disconnect();
   }
+
   // Check if extension is on:
   if ((storage.power ?? 'on') === 'on') {
     // Determine which search engine we're on
@@ -841,7 +842,7 @@ function checkIfEnabled(searchEngine) {
   extensionAPI.runtime.sendMessage({action: 'getStorage'}, (storage) => {
     searchEngineToggles = storage.searchEngineToggles || {};
     if (searchEngineToggles[searchEngine] === 'on' || !searchEngineToggles.hasOwnProperty(searchEngine)) {
-      main(searchEngine, storage);
+      startFiltering(searchEngine, storage);
     }
   });
 }
