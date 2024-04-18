@@ -452,7 +452,7 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
       }
       break;
     case 'startpage':
-      searchResultContainer = searchResult.closest('div.w-gl__result');
+      searchResultContainer = searchResult.closest('div.result, div.w-gl__result');
       break;
     case 'yandex':
       searchResultContainer = searchResult.closest('li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
