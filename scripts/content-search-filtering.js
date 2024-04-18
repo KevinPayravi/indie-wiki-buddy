@@ -9,13 +9,18 @@ function base64Decode(text) {
 // Function to create an observer to watch for mutations on search pages
 // This is used for search engines that paginate via JavaScript,
 // or overwrite their results and remove IWB's elements
-function addDOMChangeObserver(callback) {
+function addDOMChangeObserver(callback, searchEngine, storage) {
   const config = {
     attributes: false,
     childList: true,
     subtree: true
   }
-  const domObserver = new MutationObserver(callback);
+
+  const wrappedCallback = (mutations, observer) => {
+    callback(searchEngine, storage, mutations, observer);
+  };
+  
+  const domObserver = new MutationObserver(wrappedCallback);
   domObserver.observe(document.body, config);
 }
 
@@ -166,11 +171,16 @@ function replaceSearchResults(searchResultContainer, site, link) {
   let destinationArticle = commonFunctionGetDestinationArticle(site, originArticle);
   let newURL = commonFunctionGetNewURL(link, site);
 
+  console.log(originArticle);
+  console.log(destinationArticle);
+  console.log(newURL);
+
   if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link')) {
     if (!searchResultContainer.classList.contains('iwb-detected')) {
       searchResultContainer.classList.add('iwb-detected');
       searchResultContainer.classList.add('iwb-disavow');
     }
+    console.log('here we goooo!');
     // Using aside to avoid conflicts with website CSS and listeners:
     let indieContainer = document.createElement('aside');
     indieContainer.classList.add('iwb-new-link-container');
@@ -435,6 +445,7 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
       searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
       break;
     case 'brave':
+      console.log('filtering brave!!');
       searchResultContainer = searchResult.closest('div.snippet');
       break;
     case 'ecosia':
@@ -459,11 +470,11 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
       searchResultContainer = searchResult.closest('div.search-result, div.__srgi');
       break;
     case 'searxng':
-        searchResultContainer = searchResult.closest('article');
-        break;
+      searchResultContainer = searchResult.closest('article');
+      break;
     case 'whoogle':
-        searchResultContainer = searchResult.closest('#main>div>div, details>div>div>div>div>div>div.has-favicon');
-        break;
+      searchResultContainer = searchResult.closest('#main>div>div, details>div>div>div>div>div>div.has-favicon');
+      break;
     default:
   }
 
@@ -619,7 +630,7 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
   };
 
   // Add location observer to check for additional mutations
-  addDOMChangeObserver(main);
+  addDOMChangeObserver(main, searchEngine, storage);
 
   // If any results were filtered, update search filter count
   if (countFiltered > 0) {
@@ -629,6 +640,7 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
 
 function main(searchEngine, storage, mutations = null, observer = null) {
   if (observer) {
+    console.log('disconnecting observer');
     observer.disconnect();
   }
   // Check if extension is on:
