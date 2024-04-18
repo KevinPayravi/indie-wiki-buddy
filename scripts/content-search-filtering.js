@@ -837,7 +837,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 }
 
 // Check if user has enabled filtering for the current search engine
-// If so, call main function to start filtering process
+// If so, call startFiltering function to start filtering process
 function checkIfEnabled(searchEngine) {
   extensionAPI.runtime.sendMessage({action: 'getStorage'}, (storage) => {
     searchEngineToggles = storage.searchEngineToggles || {};
