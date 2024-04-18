@@ -46,6 +46,11 @@ a:visited {
   color: var(--text-link-color);
 }
 
+fieldset hr {
+  color: var(--base-color-outline-light);
+  background-color: var(--base-color-outline-light);
+  margin: 2px;
+}
 hr {
   height: 1px;
   border: none;
@@ -196,6 +201,9 @@ select {
 
 .options label {
   display: inline-block;
+}
+.searchEngineToggles label {
+  white-space: nowrap;
 }
 
 .settingToggle {

@@ -112,14 +112,6 @@
           </div>
           <div class="settingToggle">
             <label>
-              <input id="reorderResultsCheckbox" type="checkbox" />
-              <img src="../../images/toggle-replace.png" height="12" alt="" />
-              Move indie wiki results to the top of
-              search results on Google
-            </label>
-          </div>
-          <div class="settingToggle">
-            <label>
               <input id="openChangelogCheckbox" type="checkbox" />
               <span id="openChangelogIcon" aria-hidden="true"></span>
               Open changelog when Indie Wiki Buddy is updated
@@ -127,7 +119,7 @@
           </div>
         </fieldset>
         <fieldset id="generalSettings">
-          <legend><span aria-hidden="true">🔍</span> Search engine settings</legend>
+          <legend><span aria-hidden="true">🔍</span> Search engine filtering settings</legend>
           <div class="settingToggle searchEngineToggles">
             <label>
               <input id="googleCheckbox" data-search-engine="google" type="checkbox" />
@@ -154,8 +146,8 @@
               Kagi
             </label>
             <label>
-              <input id="qwuantCheckbox" data-search-engine="qwant" type="checkbox" />
-              Qwuant
+              <input id="qwantCheckbox" data-search-engine="qwant" type="checkbox" />
+              Qwant
             </label>
             <label>
               <input id="startpageCheckbox" data-search-engine="startpage" type="checkbox" />
@@ -168,6 +160,15 @@
             <label>
               <input id="yandexCheckbox" data-search-engine="yandex" type="checkbox" />
               Yandex
+            </label>
+          </div>
+          <hr>
+          <div class="settingToggle">
+            <label>
+              <input id="reorderResultsCheckbox" type="checkbox" />
+              <img src="../../images/toggle-replace.png" height="12" alt="" />
+              Move indie wiki results to the top of
+              search results on Google
             </label>
           </div>
         </fieldset>
@@ -395,7 +396,7 @@
   </div>
 </body>
 <script type="text/javascript" src="../../scripts/common-functions.js"></script>
-<script type="text/javascript" src="../search-engine-permissions.js"></script>
+<script type="text/javascript" src="../../scripts/common-search-permissions.js"></script>
 <script type="text/javascript" src="../common-page-functions.js"></script>
 <script type="text/javascript" src="settings.js"></script>
 

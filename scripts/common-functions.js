@@ -1,5 +1,6 @@
 ﻿var LANGS = ["DE", "EN", "ES", "FI", "FR", "HU", "IT", "JA", "LZH", "KO", "PL", "PT", "RU", "TH", "TOK", "UK", "ZH"];
 var BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+const extensionAPI = typeof browser === "undefined" ? chrome : browser;
 
 function b64decode(str) {
   const binary_string = atob(str);
@@ -61,7 +62,7 @@ async function commonFunctionGetSiteDataByDestination() {
   var sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
+    promises.push(fetch(extensionAPI.runtime.getURL('data/sites' + LANGS[i] + '.json'))
       .then((resp) => resp.json())
       .then((jsonData) => {
         jsonData.forEach((site) => site.language = LANGS[i]);
@@ -77,7 +78,7 @@ async function populateSiteDataByOrigin() {
   let sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(chrome.runtime.getURL('data/sites' + LANGS[i] + '.json'))
+    promises.push(fetch(extensionAPI.runtime.getURL('data/sites' + LANGS[i] + '.json'))
         .then((resp) => resp.json())
         .then((jsonData) => {
           jsonData.forEach((site) => {
@@ -211,7 +212,7 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
 
 // Temporary function to migrate user data to IWB version 3.0+
 async function commonFunctionMigrateToV3() {
-  await chrome.storage.sync.get(async (storage) => {
+  await extensionAPI.storage.sync.get(async (storage) => {
     if (!storage.v3migration) {
       let defaultWikiAction = storage.defaultWikiAction || 'alert';
       let defaultSearchAction = storage.defaultSearchAction || 'replace';
@@ -221,7 +222,7 @@ async function commonFunctionMigrateToV3() {
         if (storage.defaultActionSettings && storage.defaultActionSettings['EN']) {
           defaultWikiAction = storage.defaultActionSettings['EN'];
         }
-        chrome.storage.sync.set({ 'defaultWikiAction': defaultWikiAction });
+        extensionAPI.storage.sync.set({ 'defaultWikiAction': defaultWikiAction });
       }
       if (!storage.defaultSearchAction) {
         if (storage.defaultSearchFilterSettings && storage.defaultSearchFilterSettings['EN']) {
@@ -231,12 +232,12 @@ async function commonFunctionMigrateToV3() {
             defaultSearchAction = 'replace';
           }
         }
-        chrome.storage.sync.set({ 'defaultSearchAction': defaultSearchAction });
+        extensionAPI.storage.sync.set({ 'defaultSearchAction': defaultSearchAction });
       }
 
       // Remove old objects:
-      chrome.storage.sync.remove('defaultActionSettings');
-      chrome.storage.sync.remove('defaultSearchFilterSettings');
+      extensionAPI.storage.sync.remove('defaultActionSettings');
+      extensionAPI.storage.sync.remove('defaultSearchFilterSettings');
 
       // Migrate wiki settings to new searchEngineSettings and wikiSettings objects
       sites = await commonFunctionGetSiteDataByOrigin();
@@ -262,14 +263,14 @@ async function commonFunctionMigrateToV3() {
         }
       });
 
-      chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
-      chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+      extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+      extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
 
       // Remove old object:
-      chrome.storage.sync.remove('siteSettings');
+      extensionAPI.storage.sync.remove('siteSettings');
 
       // Mark v3 migration as complete:
-      chrome.storage.sync.set({ 'v3migration': 'done' });
+      extensionAPI.storage.sync.set({ 'v3migration': 'done' });
     }
   });
 }

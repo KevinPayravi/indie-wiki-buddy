@@ -183,7 +183,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFavicon.alt = '';
     indieResultFavicon.width = '12';
     indieResultFavicon.height = '12';
-    indieResultFavicon.src = chrome.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
+    indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && originArticle !== site['origin_main_page']) {
@@ -623,19 +623,19 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
 
   // If any results were filtered, update search filter count
   if (countFiltered > 0) {
-    chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
+    extensionAPI.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
   }
 }
 
-function main(mutations = null, observer = null) {
+function main(searchEngine, storage, mutations = null, observer = null) {
   if (observer) {
     observer.disconnect();
   }
-  chrome.runtime.sendMessage({action: 'getStorage'}).then((storage) => {
-    // Check if extension is on:
-    if ((storage.power ?? 'on') === 'on') {
-      // Determine which search engine we're on
-      if (currentURL.hostname.includes('www.google.')) {
+  // Check if extension is on:
+  if ((storage.power ?? 'on') === 'on') {
+    // Determine which search engine we're on
+    switch (searchEngine) {
+      case 'google':
         // Function to filter search results in Google
         function filterGoogle(reorderedHrefs) {
           let searchResults = document.querySelectorAll(`
@@ -654,7 +654,8 @@ function main(mutations = null, observer = null) {
           // Filtering happens after re-ordering, so that we can filter anything that matches what we re-ordered
           filterGoogle(r);
         });
-      } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
+        break;
+      case 'duckduckgo':
         // Function to filter search results in DuckDuckGo
         function filterDuckDuckGo() {
           let searchResults = document.querySelectorAll('h2>a[href*=".fandom.com"], h2>a[href*=".wiki.fextralife.com"], h2>a[href*=".neoseeker.com/wiki/"]');
@@ -662,7 +663,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterDuckDuckGo();
-      } else if (currentURL.hostname.endsWith('.bing.com')) {
+        break;
+      case 'bing':
         // Function to filter search results in Bing
         function filterBing() {
           let searchResultsEncoded = document.querySelectorAll('li.b_algo h2 a, li.b_algo .b_algoheader a');
@@ -690,7 +692,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterBing();
-      } else if (currentURL.hostname.includes('search.brave.com')) {
+        break;
+      case 'brave':
         // Function to filter search results in Brave
         function filterBrave() {
           let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el =>
@@ -701,7 +704,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterBrave();
-      } else if (currentURL.hostname.includes('ecosia.org')) {
+        break;
+      case 'ecosia':
         // Function to filter search results in Ecosia
         function filterEcosia() {
           let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el =>
@@ -712,7 +716,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterEcosia();
-      } else if (currentURL.hostname.includes('qwant.com')) {
+        break;
+      case 'qwant':
         // Function to filter search results in Qwant
         function filterQwant() {
           let searchResults = Array.from(document.querySelectorAll('a[data-testid=serTitle]')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
@@ -720,7 +725,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterQwant();
-      } else if (currentURL.hostname.includes('startpage.com')) {
+        break;
+      case 'startpage':
         // Function to filter search results in Startpage
         function filterStartpage() {
           let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el =>
@@ -731,7 +737,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterStartpage();
-      } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
+        break;
+      case 'yandex':
         // Function to filter search results in Yandex
         function filterYandex() {
           let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el =>
@@ -742,7 +749,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterYandex();
-      } else if (currentURL.hostname.includes('yahoo.com')) {
+        break;
+      case 'yahoo':
         // Function to filter search results in Yahoo
         function filterYahoo() {
           let searchResultsEncoded = document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)');
@@ -773,7 +781,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterYahoo();
-      } else if (currentURL.hostname.includes('kagi.com')) {
+        break;
+      case 'kagi':
         // Function to filter search results in Kagi
         function filterKagi() {
           let searchResults = Array.from(document.querySelectorAll('h3>a, a.__sri-url')).filter(el =>
@@ -784,39 +793,73 @@ function main(mutations = null, observer = null) {
         }
 
         filterKagi();
-      } else if (storage.customSearchEngines) {
-        function filterSearXNG() {
-          let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
-          filterSearchResults(searchResults, 'searxng', storage);
-        }
+        break;
+      default:
+        if (storage.customSearchEngines) {
+          function filterSearXNG() {
+            let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el =>
+                el.href?.includes('.fandom.com') ||
+                el.href?.includes('.wiki.fextralife.com') ||
+                el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'searxng', storage);
+          }
 
-        function filterWhoogle() {
-          let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
-          filterSearchResults(searchResults, 'whoogle', storage);
-        }
+          function filterWhoogle() {
+            let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el =>
+                el.href?.includes('.fandom.com') ||
+                el.href?.includes('.wiki.fextralife.com') ||
+                el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'whoogle', storage);
+          }
 
-        function filter(searchEngine) {
-          if (searchEngine === 'searxng') {
-            filterSearXNG();
-          } else if (searchEngine === 'whoogle') {
-            filterWhoogle();
+          function filter(searchEngine) {
+            if (searchEngine === 'searxng') {
+              filterSearXNG();
+            } else if (searchEngine === 'whoogle') {
+              filterWhoogle();
+            }
+          }
+
+          let customSearchEngines = storage.customSearchEngines;
+          if (customSearchEngines[currentURL.hostname]) {
+            let customSearchEnginePreset = customSearchEngines[currentURL.hostname];
+            filter(customSearchEnginePreset);
           }
         }
+    }
+  }
+}
 
-        let customSearchEngines = storage.customSearchEngines;
-        if (customSearchEngines[currentURL.hostname]) {
-          let customSearchEnginePreset = customSearchEngines[currentURL.hostname];
-          filter(customSearchEnginePreset);
-        }
-      }
+// Check if user has enabled filtering for the current search engine
+// If so, call main function to start filtering process
+function checkIfEnabled(searchEngine) {
+  extensionAPI.runtime.sendMessage({action: 'getStorage'}, (storage) => {
+    searchEngineToggles = storage.searchEngineToggles || {};
+    if (searchEngineToggles[searchEngine] === 'on' || !searchEngineToggles.hasOwnProperty(searchEngine)) {
+      main(searchEngine, storage);
     }
   });
 }
 
-main();
+// Figure out which search engine we're on
+if (currentURL.hostname.includes('www.google.')) {
+  checkIfEnabled('google');
+} else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
+  checkIfEnabled('duckduckgo');
+} else if (currentURL.hostname.endsWith('.bing.com')) {
+  checkIfEnabled('bing');
+} else if (currentURL.hostname.includes('search.brave.com')) {
+  checkIfEnabled('brave');
+} else if (currentURL.hostname.includes('ecosia.org')) {
+  checkIfEnabled('ecosia');
+} else if (currentURL.hostname.includes('qwant.com')) {
+  checkIfEnabled('qwant');
+} else if (currentURL.hostname.includes('startpage.com')) {
+  checkIfEnabled('startpage');
+} else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
+  checkIfEnabled('yandex');
+} else if (currentURL.hostname.includes('yahoo.com')) {
+  checkIfEnabled('yahoo');
+} else if (currentURL.hostname.includes('kagi.com')) {
+  checkIfEnabled('kagi');
+}
