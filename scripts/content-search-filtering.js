@@ -393,7 +393,7 @@ function findClosestElement(target, elements) {
   return closestElement;
 }
 
-async function _filterSearchResult(matchingSite, searchResult, searchEngine, countFiltered, storage, reorderedHrefs) {
+async function filterSearchResult(matchingSite, searchResult, searchEngine, countFiltered, storage, reorderedHrefs) {
   // Get user's settings for the wiki
   let id = matchingSite['id'];
   let searchFilterSetting = 'replace';
@@ -497,7 +497,7 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
   return countFiltered;
 }
 
-async function _reorderDestinationSearchResult(resultsFirstChild, searchResult) {
+async function reorderDestinationSearchResult(resultsFirstChild, searchResult) {
   // Find containing element for the search result
   const closestJsController = searchResult.closest('div[jscontroller]');
   const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
@@ -565,7 +565,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
             console.debug('Indie Wiki Buddy is not re-ordering results, as an indie wiki is already the first result.');
             break;
           } else {
-            await _reorderDestinationSearchResult(resultsFirstChild, searchResult);
+            await reorderDestinationSearchResult(resultsFirstChild, searchResult);
             reorderedHrefs.push(searchResultLink);
           }
         }
@@ -615,7 +615,7 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
         // Handle source -> destination filtering
         let matchingSource = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
         if (matchingSource) {
-          countFiltered = await _filterSearchResult(matchingSource, searchResult, searchEngine, countFiltered, storage, reorderedHrefs);
+          countFiltered = await filterSearchResult(matchingSource, searchResult, searchEngine, countFiltered, storage, reorderedHrefs);
         }
       }
     } catch (e) {
