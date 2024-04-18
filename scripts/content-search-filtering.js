@@ -171,16 +171,11 @@ function replaceSearchResults(searchResultContainer, site, link) {
   let destinationArticle = commonFunctionGetDestinationArticle(site, originArticle);
   let newURL = commonFunctionGetNewURL(link, site);
 
-  console.log(originArticle);
-  console.log(destinationArticle);
-  console.log(newURL);
-
   if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link')) {
     if (!searchResultContainer.classList.contains('iwb-detected')) {
       searchResultContainer.classList.add('iwb-detected');
       searchResultContainer.classList.add('iwb-disavow');
     }
-    console.log('here we goooo!');
     // Using aside to avoid conflicts with website CSS and listeners:
     let indieContainer = document.createElement('aside');
     indieContainer.classList.add('iwb-new-link-container');
@@ -445,7 +440,6 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
       searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
       break;
     case 'brave':
-      console.log('filtering brave!!');
       searchResultContainer = searchResult.closest('div.snippet');
       break;
     case 'ecosia':
@@ -640,7 +634,6 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
 
 function main(searchEngine, storage, mutations = null, observer = null) {
   if (observer) {
-    console.log('disconnecting observer');
     observer.disconnect();
   }
   // Check if extension is on:
