@@ -1661,6 +1661,12 @@
         "origin_main_page": "The_Elder_Scrolls_Wiki"
       },
       {
+        "origin": "The Elder Scrolls Fandom Wiki",
+        "origin_base_url": "the-elder-scrolls.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Elder_Scrolls_Wiki"
+      },
+      {
         "origin": "Skyrim Fandom Wiki",
         "origin_base_url": "skyrim.fandom.com",
         "origin_content_path": "/wiki/",
@@ -1680,6 +1686,13 @@
         "origin_content_path": "/",
         "origin_main_page": "Elder+Scrolls+Online+Wiki",
         "destination_content_prefix": "Online:"
+      },
+      {
+        "origin": "Skyrim Fextralife Wiki",
+        "origin_base_url": "skyrim.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Skyrim+Wiki",
+        "destination_content_prefix": "Skyrim:"
       },
       {
         "origin": "The Elder Scrolls Wiki - Neoseeker",
