@@ -38,7 +38,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "dragonquest.png",
     "destination_main_page": "Wiki_Dragon_Quest",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "fr-fallout",
@@ -56,7 +57,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "lesarchivesdevaulttec.png",
     "destination_main_page": "Accueil",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "fr-heroes",
@@ -117,7 +119,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "pokepedia.png",
     "destination_main_page": "Portail:Accueil",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "fr-terraria",

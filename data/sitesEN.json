@@ -15,7 +15,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "2xkowiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/mw/index.php"
+    "destination_search_path": "/mw/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-acecombat",
@@ -61,7 +62,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "warswiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-adventurezone",
@@ -80,6 +82,7 @@
     "destination_icon": "adventurezonewiki.png",
     "destination_main_page": "The_Adventure_Zone_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -101,6 +104,7 @@
     "destination_icon": "akudamadrivewiki.png",
     "destination_main_page": "Akudama_Drive_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -145,7 +149,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "nookipedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-animalcrossingpocketcamp",
@@ -185,7 +190,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "anothereden.png",
     "destination_main_page": "Another_Eden_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-answeredprayers",
@@ -204,7 +210,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "answeredprayerswiki.png",
     "destination_main_page": "Answered_Prayers_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-anvilempires",
@@ -274,6 +281,7 @@
     "destination_icon": "apicowiki.png",
     "destination_main_page": "Welcome_to_the_APICO_Wiki!",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze",
       "official"
@@ -340,7 +348,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "arms.png",
     "destination_main_page": "Home",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-ashesofcreation",
@@ -364,7 +373,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "ashesofcreationwiki.png",
     "destination_main_page": "Ashes_of_Creation_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-ashestown",
@@ -383,6 +393,7 @@
     "destination_icon": "ashestownwiki.png",
     "destination_main_page": "Ashes.town_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -409,7 +420,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "assaultlilywiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-astroneer",
@@ -478,7 +490,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "azurlanewiki.png",
     "destination_main_page": "Azur_Lane_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-backpackbattles",
@@ -519,6 +532,7 @@
     "destination_icon": "backpackherowiki.png",
     "destination_main_page": "Backpack_Hero_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -539,7 +553,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "bakugan.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-baldursgate3",
@@ -557,7 +572,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "baldursgate3.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-banjokazooie",
@@ -581,7 +597,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "jiggywikki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-barotrauma",
@@ -599,7 +616,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "barotrauma.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/baro-wiki/index.php"
+    "destination_search_path": "/baro-wiki/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-battlebit",
@@ -640,7 +658,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "battlestarwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-bellasara",
@@ -680,7 +699,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "biosector01.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-blazblue",
@@ -698,7 +718,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "blazblue.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-bluearchive",
@@ -716,7 +737,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "bluearchive.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-boardgameonline",
@@ -735,6 +760,7 @@
     "destination_icon": "boardgameonlinewiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -779,7 +805,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "braingirlwiki.png",
     "destination_main_page": "Braingirl_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-brandonsanderson",
@@ -803,7 +830,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "coppermind.png",
     "destination_main_page": "Coppermind:Welcome",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-brawlhalla",
@@ -822,6 +850,7 @@
     "destination_icon": "brawlhallawiki.png",
     "destination_main_page": "Brawlhalla_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -842,7 +871,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "brotatowiki.png",
     "destination_main_page": "Brotato_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-bz",
@@ -856,11 +886,12 @@
       }
     ],
     "destination": "B'z Wiki",
-    "destination_base_url": "bzwiki.com",
+    "destination_base_url": "www.bzwiki.com",
     "destination_platform": "mediawiki",
     "destination_icon": "bzwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-calamitymod",
@@ -888,12 +919,12 @@
   {
     "id": "en-carrion",
     "origins_label": "Carrion Fandom Wiki",
-    "origins":[
+    "origins": [
       {
-      "origin": "Carrion Fandom Wiki",
-      "origin_base_url": "carrion.fandom.com",
-      "origin_content_path": "/wiki/",
-      "origin_main_page": "Carrion_Wiki"
+        "origin": "Carrion Fandom Wiki",
+        "origin_base_url": "carrion.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Carrion_Wiki"
       }
     ],
     "destination": "Carrion Wiki",
@@ -923,7 +954,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "celeste.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-cerasus",
@@ -942,7 +977,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "cerasuswiki.png",
     "destination_main_page": "Cerasus_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-chicory",
@@ -961,6 +997,7 @@
     "destination_icon": "chicory.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -981,7 +1018,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "chipschallenge.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-chrono",
@@ -1005,7 +1043,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "chrono.png",
     "destination_main_page": "Chrono_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-cityofheroes",
@@ -1023,7 +1062,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "paragonwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-commanderkeen",
@@ -1041,7 +1081,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "commanderkeenwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-commodore64",
@@ -1059,7 +1100,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "c64.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-conwaysgameoflife",
@@ -1077,7 +1119,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "lifewiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-cookieclicker",
@@ -1118,6 +1161,7 @@
     "destination_icon": "cookiepedia.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -1161,7 +1205,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "creatureswiki.png",
     "destination_main_page": "Creatures_Wiki_Homepage",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-criticalrole",
@@ -1180,6 +1225,7 @@
     "destination_icon": "criticalrole.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -1200,7 +1246,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "daria.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-darkanddarker",
@@ -1218,7 +1268,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "darkanddarkerwiki.png",
     "destination_main_page": "Dark_and_Darker_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-darkestdungeon",
@@ -1311,7 +1362,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "destinypedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-detectiveconan",
@@ -1325,11 +1377,12 @@
       }
     ],
     "destination": "Detective Conan Wiki",
-    "destination_base_url": "www.detectiveconanworld.com/wiki",
+    "destination_base_url": "www.detectiveconanworld.com",
     "destination_platform": "mediawiki",
     "destination_icon": "detectiveconan.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-digimon",
@@ -1353,7 +1406,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikimon.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-doctorwho",
@@ -1377,7 +1431,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "tardiswiki.png",
     "destination_main_page": "Doctor_Who_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-dogcraft",
@@ -1395,7 +1450,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "dogcraftwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-dontstarve",
@@ -1442,7 +1498,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "doomwiki.png",
     "destination_main_page": "Entryway",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-dotflow",
@@ -1461,7 +1518,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "dotflowwiki.png",
     "destination_main_page": "Dotflow_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-dragalialost",
@@ -1479,7 +1537,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "dragalialost.png",
     "destination_main_page": "Dragalia_Lost_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-drawntolife",
@@ -1497,7 +1556,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wapopedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/en/"
   },
   {
     "id": "en-dreamlightvalley",
@@ -1521,7 +1581,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "dreamlightvalleywiki.png",
     "destination_main_page": "Dreamlight_Valley_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-dredge",
@@ -1561,7 +1622,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "dungeonsanddragonswiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-dwarffortress",
@@ -1579,7 +1641,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "dwarffortresswiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-dyinglight",
@@ -1625,7 +1688,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikibound.png",
     "destination_main_page": "WikiBound",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-eiyudenchronicle",
@@ -1713,7 +1777,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "uesp.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-ena",
@@ -1754,6 +1819,7 @@
     "destination_icon": "enterthegungeonwiki.png",
     "destination_main_page": "Enter_the_Gungeon_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -1776,6 +1842,7 @@
     "destination_icon": "erepublikwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/",
     "tags": "official"
   },
   {
@@ -1795,6 +1862,7 @@
     "destination_icon": "essentialsenginewiki.png",
     "destination_main_page": "Essentials_Engine_wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -1821,7 +1889,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "evawiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-factorio",
@@ -1840,6 +1909,7 @@
     "destination_icon": "factorio.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -1872,7 +1942,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "fallout.png",
     "destination_main_page": "Fallout_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-famicom",
@@ -1890,7 +1961,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "famiwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-farmingsimulator",
@@ -1930,7 +2002,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "zerowiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-fearandhunger",
@@ -1971,6 +2044,7 @@
     "destination_icon": "findeverythingwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -1997,7 +2071,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "fireemblem.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-frackinuniverse",
@@ -2016,6 +2091,7 @@
     "destination_icon": "frackinuniversewiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze",
       "official"
@@ -2037,7 +2113,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "freespacewiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-fridaynightfunkin",
@@ -2113,7 +2190,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "friendsatthetable.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/view/"
   },
   {
     "id": "en-fromargonavis",
@@ -2132,6 +2210,7 @@
     "destination_icon": "fromargonaviswiki.png",
     "destination_main_page": "from_ARGONAVIS_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -2158,7 +2237,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "infosphere.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-fzero",
@@ -2182,7 +2262,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "fzero.png",
     "destination_main_page": "F-Zero_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-galaxylife",
@@ -2228,7 +2309,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "awikioficeandfire.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-genfanad",
@@ -2246,7 +2328,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "genfanadwiki.png",
     "destination_main_page": "Genfanad_Wiki",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-gex",
@@ -2265,6 +2348,7 @@
     "destination_icon": "gexpedia.png",
     "destination_main_page": "Gexpedia",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -2291,7 +2375,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "giganticwiki.png",
     "destination_main_page": "Gigantic_Wiki:Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-girlsfrontline",
@@ -2309,7 +2397,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "iopwiki.png",
     "destination_main_page": "IOP_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-girlslasttour",
@@ -2328,6 +2417,7 @@
     "destination_icon": "girlslasttourwiki.png",
     "destination_main_page": "Girls'_Last_Tour_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -2348,7 +2438,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikizilla.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-goldensun",
@@ -2372,7 +2463,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "goldensun.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-graalmilitary",
@@ -2391,6 +2483,7 @@
     "destination_icon": "graalmilitarywiki.png",
     "destination_main_page": "GraalMilitary_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -2411,7 +2504,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "granblue.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-greenday",
@@ -2430,6 +2524,7 @@
     "destination_icon": "greendaywiki.png",
     "destination_main_page": "Green_Day_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "shoutwiki"
     ]
@@ -2451,11 +2546,12 @@
     "destination_icon": "guildwarswiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
   },
-    {
+  {
     "id": "en-guiltygear",
     "origins_label": "Guilty Gear Fandom Wiki",
     "origins": [
@@ -2493,7 +2589,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "habboxwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-halflife",
@@ -2517,7 +2614,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "combine.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-halo",
@@ -2541,7 +2639,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "halopedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-hannabarbera",
@@ -2559,7 +2658,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "hannabarberawiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-hearthstone",
@@ -2627,7 +2727,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "heroeswiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-hollowknight",
@@ -2651,7 +2752,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "hollowknight.png",
     "destination_main_page": "Hollow_Knight_Wiki",
-    "destination_search_path": "/mw/index.php"
+    "destination_search_path": "/mw/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-holocure",
@@ -2691,7 +2793,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "hololive.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-homm3",
@@ -2709,7 +2815,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "heroes3wiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-honeyworkspremiumlive",
@@ -2728,6 +2835,7 @@
     "destination_icon": "honeyworkspremiumlivewiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -2749,6 +2857,7 @@
     "destination_icon": "houkaigakuen2wiki.png",
     "destination_main_page": "Houkai_Gakuen_2_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -2770,6 +2879,7 @@
     "destination_icon": "hyperrogue.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official",
       "miraheze"
@@ -2792,6 +2902,7 @@
     "destination_icon": "idolish7.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -2812,7 +2923,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "projectimas.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-instarsandtime",
@@ -2853,6 +2965,7 @@
     "destination_icon": "interpalorewiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -2873,7 +2986,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "jojo.png",
     "destination_main_page": "JoJo_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-kancolle",
@@ -2891,7 +3005,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "kancollewiki.png",
     "destination_main_page": "Kancolle_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-kemonofriends",
@@ -2909,7 +3024,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "japarilibrary.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-kentuckyroutezero",
@@ -2927,7 +3043,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "highway0.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/~donald/zero/index.php"
+    "destination_search_path": "/~donald/zero/index.php",
+    "destination_content_path": "/~donald/zero/"
   },
   {
     "id": "en-kerbalspaceprogram",
@@ -2946,6 +3063,7 @@
     "destination_icon": "kerbalspaceprogramwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
@@ -2972,7 +3090,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "khwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-kirby",
@@ -2996,7 +3115,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikirby.png",
     "destination_main_page": "Kirby_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-knucklecracker",
@@ -3010,11 +3130,12 @@
       }
     ],
     "destination": "Knuckle Cracker Wiki",
-    "destination_base_url": "knucklecracker.com/wiki",
+    "destination_base_url": "knucklecracker.com",
     "destination_platform": "dokuwiki",
     "destination_icon": "knucklecrackerwiki.png",
     "destination_main_page": "start",
-    "destination_search_path": "/doku.php"
+    "destination_search_path": "/wiki/doku.php",
+    "destination_content_path": "/wiki/doku.php?id="
   },
   {
     "id": "en-koeitecmo",
@@ -3032,7 +3153,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "koeitecmowiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-lastorigin",
@@ -3094,7 +3216,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "gineipaedia.png",
     "destination_main_page": "Portal:Main",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-lethalcompany",
@@ -3113,6 +3236,7 @@
     "destination_icon": "lethalcompany.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -3139,7 +3263,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "tolkiengateway.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-mabinogi",
@@ -3157,7 +3282,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "mabinogiworldwiki.png",
     "destination_main_page": "Wiki_Home",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/view/"
   },
   {
     "id": "en-madokamagica",
@@ -3175,7 +3301,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "puellamagi.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-magicalmixturemill",
@@ -3216,7 +3343,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikiofmana.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-maplestory",
@@ -3265,7 +3393,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "supermariowiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-mcci",
@@ -3283,7 +3412,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "mcciwiki.png",
     "destination_main_page": "Home",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-megamitensei",
@@ -3307,7 +3437,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "megamitenseiwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-melvoridle",
@@ -3325,7 +3456,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "melvoridlewiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-micronations",
@@ -3343,7 +3475,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "microwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-mii",
@@ -3361,7 +3494,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "miiwiki.png",
     "destination_main_page": "Mii_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-mindhack",
@@ -3457,6 +3591,7 @@
     "destination_icon": "minetestwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -3529,6 +3664,7 @@
     "destination_icon": "equestripedia.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -3549,7 +3685,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "guildofarchivists.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-mysterydungeon",
@@ -3573,7 +3710,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "mysterydungeon.png",
     "destination_main_page": "Mystery_Dungeon_Franchise_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-necrodancer",
@@ -3592,6 +3730,7 @@
     "destination_icon": "cryptofthenecrodancerwiki.png",
     "destination_main_page": "NecroDancer_Wiki:About",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -3634,7 +3773,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "nethack.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-noita",
@@ -3674,7 +3814,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "obeymewiki.png",
     "destination_main_page": "Main",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-oldschoolrunescape",
@@ -3737,7 +3878,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "osamusato.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-palia",
@@ -3800,7 +3942,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "pathfinder.png",
     "destination_main_page": "Pathfinder_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-pathofexile",
@@ -3818,7 +3961,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "pathofexile.png",
     "destination_main_page": "Path_of_Exile_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-pathologic",
@@ -3877,11 +4021,12 @@
       }
     ],
     "destination": "PHIGHTING! Wiki",
-    "destination_base_url": "phighting.miraheze.org",
+    "destination_base_url": "phighting.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "phightingwiki.png",
     "destination_main_page": "PHIGHTING!_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze",
       "official"
@@ -3909,7 +4054,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "pikipedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-pizzatower",
@@ -3928,6 +4074,7 @@
     "destination_icon": "pizzatowerwiki.png",
     "destination_main_page": "Pizza_Tower_Wiki:Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -3982,7 +4129,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "bulbapedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-portal",
@@ -4000,7 +4148,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "portalwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-prisonarchitect",
@@ -4019,6 +4168,7 @@
     "destination_icon": "prisonarchitectwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -4039,7 +4189,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "sekaipedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-projectwingman",
@@ -4080,6 +4234,7 @@
     "destination_icon": "pzwiki.png",
     "destination_main_page": "Special:MyLanguage/Project_Zomboid_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
@@ -4100,7 +4255,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "protochromawiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/view/"
   },
   {
     "id": "en-pubg",
@@ -4141,7 +4297,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "puyonexus.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/mediawiki/index.php"
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-rainworld",
@@ -4166,6 +4323,7 @@
     "destination_icon": "rainworld.png",
     "destination_main_page": "Rain_World_Wiki",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official",
       "miraheze"
@@ -4187,7 +4345,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "rayman.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/script-en/index.php"
+    "destination_search_path": "/wiki/script-en/index.php",
+    "destination_content_path": "/wiki/en/"
   },
   {
     "id": "en-rct",
@@ -4205,7 +4364,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "rctwiki.png",
     "destination_main_page": "RollerCoaster_Tycoon_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-rhythmdoctor",
@@ -4223,7 +4386,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "rhythmdoctorwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/page/"
   },
   {
     "id": "en-rhythmheaven",
@@ -4240,8 +4404,9 @@
     "destination_base_url": "rhwiki.net",
     "destination_platform": "mediawiki",
     "destination_icon": "rhythmheavenwiki.png",
-    "destination_main_page": "Home",
-    "destination_search_path": "/w/index.php"
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-riichimahjong",
@@ -4259,7 +4424,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "japanesemahjongwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-rimworld",
@@ -4277,7 +4443,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "rimworldwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-riskofrain",
@@ -4339,7 +4506,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "coasterpedia.png",
     "destination_main_page": "Coasterpedia_The_Roller_Coaster_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-runescape",
@@ -4386,6 +4554,7 @@
     "destination_icon": "runescapeclassic.png",
     "destination_main_page": "RuneScape_Classic_Wiki",
     "destination_search_path": "/",
+    "destination_content_path": "/w/",
     "tags": [
       "official"
     ]
@@ -4406,7 +4575,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "sagawiki.png",
     "destination_main_page": "SaGa_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-sailormoon",
@@ -4424,7 +4594,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikimoon.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-salemmmo",
@@ -4442,7 +4613,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "salemwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/page/"
   },
   {
     "id": "en-sanrio",
@@ -4460,7 +4632,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "sanriowiki.png",
     "destination_main_page": "Sanrio_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-satisfactory",
@@ -4502,6 +4675,7 @@
     "destination_icon": "ovalkwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php?title=",
     "tags": [
       "official"
     ]
@@ -4544,7 +4718,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "segaretro.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-sel",
@@ -4562,7 +4737,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "serialexperimentslainwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-severanceseries",
@@ -4580,7 +4756,8 @@
     "destination_platform": "dokuwiki",
     "destination_icon": "severancewiki.png",
     "destination_main_page": "Start",
-    "destination_search_path": "/doku.php"
+    "destination_search_path": "/doku.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-shroudoftheavatar",
@@ -4598,7 +4775,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "sotawiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/sota/"
   },
   {
     "id": "en-signalis",
@@ -4644,7 +4822,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikisimpsons.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-songsofsyx",
@@ -4663,6 +4842,7 @@
     "destination_icon": "songsofsyxwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/",
     "tags": [
       "official"
     ]
@@ -4705,7 +4885,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "spacestation13wiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-spiritmod",
@@ -4745,7 +4926,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "inkipedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-starbound",
@@ -4764,6 +4946,7 @@
     "destination_icon": "starbounder.png",
     "destination_main_page": "Starbound_Wiki",
     "destination_search_path": "/mediawiki/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -4784,7 +4967,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "starcitizen.png",
     "destination_main_page": "Star_Citizen_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-stardewvalley",
@@ -4803,6 +4987,7 @@
     "destination_icon": "stardew.png",
     "destination_main_page": "Stardew_Valley_Wiki",
     "destination_search_path": "/mediawiki/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -4830,7 +5015,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "starfieldwiki.png",
     "destination_main_page": "Home",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-starfy",
@@ -4848,7 +5034,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "starfy.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "https://www.starfywiki.org/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-steamworld",
@@ -4888,7 +5075,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "sto.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-sugaryspire",
@@ -4929,7 +5117,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "gensopedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-sunhaven",
@@ -4997,7 +5186,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "smashwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-tallyhall",
@@ -5014,8 +5204,9 @@
     "destination_base_url": "www.hiddeninthesand.com",
     "destination_platform": "mediawiki",
     "destination_icon": "tallyhallmanac.png",
-    "destination_main_page": "Tally_Hallmanac",
-    "destination_search_path": "/wiki/index.php"
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-tcoaal",
@@ -5025,7 +5216,7 @@
         "origin": "The Coffin of Andy and Leyley Fandom Wiki",
         "origin_base_url": "coffin-of-andy-and-leyley.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "The_Coffin_of_Andy_%26_LeyLey_Wiki"
+        "origin_main_page": "The_Coffin_of_Andy_&_LeyLey_Wiki"
       }
     ],
     "destination": "The Coffin of Andy and Leyley Wiki",
@@ -5033,7 +5224,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "tcoaal.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-teamfortress",
@@ -5052,6 +5244,7 @@
     "destination_icon": "teamfortress.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
@@ -5072,7 +5265,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "tearsofthemis.png",
     "destination_main_page": "Tears_of_Themis_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-temtem",
@@ -5171,7 +5365,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "terrypratchettwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-thecyclefrontier",
@@ -5189,7 +5384,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "tcfwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-thefinals",
@@ -5207,7 +5403,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "thefinalswiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w139/index.php"
+    "destination_search_path": "/w139/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-thewanderinginn",
@@ -5226,6 +5423,7 @@
     "destination_icon": "thewanderinginnwiki.png",
     "destination_main_page": "The_Wandering_Inn_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -5246,7 +5444,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "thismightbeawiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-thoriummod",
@@ -5310,7 +5509,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "tinyrogueswiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-tombraider",
@@ -5328,7 +5528,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikiraider.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-toontowncorporateclash",
@@ -5369,6 +5570,7 @@
     "destination_icon": "toontownrewrittenwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -5390,6 +5592,7 @@
     "destination_icon": "tornwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
@@ -5410,7 +5613,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "touhouwiki.png",
     "destination_main_page": "Touhou_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-towerclimb",
@@ -5451,6 +5655,7 @@
     "destination_icon": "towerfallwiki.png",
     "destination_main_page": "TowerFall_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -5493,7 +5698,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "transformers.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-travellerrpg",
@@ -5511,7 +5717,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "travellerwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-trucksimulator",
@@ -5557,7 +5764,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "twoworldswiki.png",
     "destination_main_page": "Two_Worlds_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-ubfunkeys",
@@ -5575,7 +5783,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "ubfunkeyswiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php?title="
   },
   {
     "id": "en-ultrakill",
@@ -5594,6 +5803,7 @@
     "destination_icon": "ultrawiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -5638,7 +5848,11 @@
     "destination_icon": "undertaleyellowwiki.png",
     "destination_main_page": "Undertale_Yellow_Wiki",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/"},
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
   {
     "id": "en-unevendream",
     "origins_label": "Uneven Dream Fandom Wiki",
@@ -5656,7 +5870,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "unevendreamwiki.png",
     "destination_main_page": "Uneven_Dream_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-unrealworld",
@@ -5674,7 +5889,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "unrealworldwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/index.php?title="
   },
   {
     "id": "en-vaporwave",
@@ -5692,7 +5908,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "vaporwavewiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-vendettaonline",
@@ -5710,7 +5927,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "vendettawiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-voidrainsuponherheart",
@@ -5778,7 +5996,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "viki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-warcraft",
@@ -5842,7 +6061,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "lexicanum.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/mediawiki/index.php"
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-weezer",
@@ -5860,7 +6080,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "weezerpedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-wildfrost",
@@ -5879,7 +6100,7 @@
     "destination_icon": "wildfrostwiki.png",
     "destination_main_page": "Wildfrost_Wiki",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -5941,11 +6162,12 @@
       }
     ],
     "destination": "Wizard101 Wiki",
-    "destination_base_url": "wiki.wizard101central.com",
+    "destination_base_url": "wiki.wizard101central.com/wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "wizard101wiki.png",
     "destination_main_page": "Wizard101_Wiki",
-    "destination_search_path": "/wiki/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-wizardry",
@@ -5985,7 +6207,11 @@
     "destination_platform": "mediawiki",
     "destination_icon": "worldtrigger.png",
     "destination_main_page": "Welcome_to_the_World_Trigger_Wiki",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-wvyern",
@@ -6003,7 +6229,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wyvernsource.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-wynncraft",
@@ -6043,7 +6270,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "xenharmonicwiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-yugioh",
@@ -6103,7 +6331,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "yugipedia.png",
     "destination_main_page": "Yugipedia",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-yume2kki",
@@ -6122,7 +6351,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "yume2kkiwiki.png",
     "destination_main_page": "Yume_2kki_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-yumenikki",
@@ -6141,7 +6371,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "yumenikkiwiki.png",
     "destination_main_page": "Yume_Nikki_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-yumenikkifangames",
@@ -6159,7 +6390,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "yumenikkifanwiki.png",
     "destination_main_page": "Yume_Nikki_Fangames_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-zelda",
@@ -6189,6 +6421,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "zeldapedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   }
 ]

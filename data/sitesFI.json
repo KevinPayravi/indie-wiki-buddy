@@ -16,6 +16,7 @@
     "destination_icon": "jedipedia.png",
     "destination_main_page": "Etusivu",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "shoutwiki"
     ]
@@ -37,6 +38,7 @@
     "destination_icon": "junawiki.png",
     "destination_main_page": "Etusivu",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "shoutwiki"
     ]

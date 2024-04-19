@@ -38,7 +38,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "rayman.png",
     "destination_main_page": "Strona_główna",
-    "destination_search_path": "/wiki/script-pl/index.php"
+    "destination_search_path": "/wiki/script-pl/index.php",
+    "destination_content_path": "/wiki/pl/"
   },
   {
     "id": "pl-teamfortress",
@@ -58,6 +59,7 @@
     "destination_icon": "teamfortress.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
