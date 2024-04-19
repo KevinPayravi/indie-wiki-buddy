@@ -622,14 +622,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.getElementById('addCustomSearchEngine').addEventListener('click', () => {
-    addCustomSearchEngine();
-  });
-  document.getElementById('newCustomSearchEngineDomain').onkeyup = function(e) {
-    if (e.key === 'Enter') {
-      addCustomSearchEngine();
-    }
-  }
+  ///////////////////////////////////////////////////////////////
+  // Custom search engines are currently disabled 
+  // due to content scripts being unregistered on-update.
+  ///////////////////////////////////////////////////////////////
+  // document.getElementById('addCustomSearchEngine').addEventListener('click', () => {
+  //   addCustomSearchEngine();
+  // });
+  // document.getElementById('newCustomSearchEngineDomain').onkeyup = function(e) {
+  //   if (e.key === 'Enter') {
+  //     addCustomSearchEngine();
+  //   }
+  // }
 
   extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
     Object.keys(item.customSearchEngines).forEach((key) => {
