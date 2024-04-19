@@ -101,13 +101,10 @@ function setHiddenResultsBanner(setting, storeSetting = true) {
   if (storeSetting) {
     extensionAPI.storage.sync.set({ 'hiddenResultsBanner': setting });
   }
-  const hiddenResultsBannerIcon = document.getElementById('hiddenResultsBannerIcon');
   if (setting === 'on') {
     document.getElementById('hiddenResultsBannerCheckbox').checked = true;
-    hiddenResultsBannerIcon.innerText = '🔔';
   } else {
     document.getElementById('hiddenResultsBannerCheckbox').checked = false;
-    hiddenResultsBannerIcon.innerText = '🔕';
   }
 }
 
