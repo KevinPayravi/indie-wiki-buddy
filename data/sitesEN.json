@@ -2705,7 +2705,7 @@
   "destination_platform": "mediawiki",
   "destination_icon": "helldiverswiki.png",
   "destination_main_page": "Helldivers_Wiki",
-  "destination_search_path": "/index.php"
+  "destination_search_path": "/index.php",
   "destination_content_path": "/wiki/",
   "tags": [
     "wiki.gg"
