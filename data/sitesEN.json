@@ -5798,14 +5798,15 @@
       }
     ],
     "destination": "ULTRAWIKI",
-    "destination_base_url": "ultrakill.miraheze.org",
+    "destination_base_url": "ultrakill.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "ultrawiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
-      "miraheze"
+      "wiki.gg",
+      "official"
     ]
   },
   {
