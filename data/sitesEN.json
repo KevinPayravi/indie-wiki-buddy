@@ -6424,5 +6424,27 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-bugfables",
+    "origins_label": "Bug Fables Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bug Fables Fandom Wiki",
+        "origin_base_url": "bugfables.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bug_Fables_Wiki"
+      }
+    ],
+    "destination": "Bug Fables Wiki",
+    "destination_base_url": "bugfables.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bugfables.png",
+    "destination_main_page": "Bug_Fables_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   }
 ]
