@@ -6426,7 +6426,7 @@
     "destination_content_path": "/wiki/"
   },
   {
-    "id": "en-bug-fables",
+    "id": "en-bugfables",
     "origins_label": "Bug Fables Fandom Wiki",
     "origins": [
       {
@@ -6442,6 +6442,9 @@
     "destination_icon": "bugfables.png",
     "destination_main_page": "Bug_Fables_Wiki",
     "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/"
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   }
 ]
