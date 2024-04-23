@@ -105,14 +105,6 @@
         </div>
         <div class="settingToggle">
           <label>
-            <input id="hiddenResultsBannerCheckbox" type="checkbox" />
-            <span id="hiddenResultsBannerIcon" aria-hidden="true"></span>
-            On search engines, show banner when
-            non-indie results are hidden
-          </label>
-        </div>
-        <div class="settingToggle">
-          <label>
             <input id="crossLanguageCheckbox" type="checkbox" />
             <span id="crossLanguageIcon" aria-hidden="true"></span>
             Redirect non-English Fandom wikis to
@@ -121,17 +113,71 @@
         </div>
         <div class="settingToggle">
           <label>
-            <input id="reorderResultsCheckbox" type="checkbox" />
-            <img src="../../images/toggle-replace.png" height="12" alt="" />
-            Move indie wiki results to the top of
-            search results on Google
+            <input id="openChangelogCheckbox" type="checkbox" />
+            <span id="openChangelogIcon" aria-hidden="true"></span>
+            Open changelog when Indie Wiki Buddy is updated
+          </label>
+        </div>
+      </fieldset>
+      <fieldset id="generalSettings">
+        <legend><span aria-hidden="true">🔍</span> Search engine filtering </legend>
+        <div class="settingToggle searchEngineToggles">
+          <label>
+            <input id="googleCheckbox" data-search-engine="google" type="checkbox" />
+            Google
+          </label>
+          <label>
+            <input id="bingCheckbox" data-search-engine="bing" type="checkbox" />
+            Bing
+          </label>
+          <label>
+            <input id="duckduckgoCheckbox" data-search-engine="duckduckgo" type="checkbox" />
+            DuckDuckGo
+          </label>
+          <label>
+            <input id="braveCheckbox" data-search-engine="brave" type="checkbox" />
+            Brave
+          </label>
+          <label>
+            <input id="ecosiaCheckbox" data-search-engine="ecosia" type="checkbox" />
+            Ecosia
+          </label>
+          <label>
+            <input id="kagiCheckbox" data-search-engine="kagi" type="checkbox" />
+            Kagi
+          </label>
+          <label>
+            <input id="qwantCheckbox" data-search-engine="qwant" type="checkbox" />
+            Qwant
+          </label>
+          <label>
+            <input id="startpageCheckbox" data-search-engine="startpage" type="checkbox" />
+            Startpage
+          </label>
+          <label>
+            <input id="yahooCheckbox" data-search-engine="yahoo" type="checkbox" />
+            Yahoo
+          </label>
+          <label>
+            <input id="yandexCheckbox" data-search-engine="yandex" type="checkbox" />
+            Yandex
+          </label>
+        </div>
+        <hr>
+        <div class="settingToggle">
+          <label>
+            <input id="hiddenResultsBannerCheckbox" type="checkbox" />
+            <img src="../../images/toggle-banner.png" height="12" alt="" />
+            On search engines, show banner when
+            non-indie results are hidden
           </label>
         </div>
         <div class="settingToggle">
           <label>
-            <input id="openChangelogCheckbox" type="checkbox" />
-            <span id="openChangelogIcon" aria-hidden="true"></span>
-            Open changelog when Indie Wiki Buddy is updated
+            <input id="reorderResultsCheckbox" type="checkbox" />
+            <img src="../../images/toggle-move-up.png" height="12" alt="" />
+            On Google, move indie wiki results to the top of
+            search results
           </label>
         </div>
       </fieldset>

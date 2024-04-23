@@ -9,13 +9,18 @@ function base64Decode(text) {
 // Function to create an observer to watch for mutations on search pages
 // This is used for search engines that paginate via JavaScript,
 // or overwrite their results and remove IWB's elements
-function addDOMChangeObserver(callback) {
+function addDOMChangeObserver(callback, searchEngine, storage) {
   const config = {
     attributes: false,
     childList: true,
     subtree: true
   }
-  const domObserver = new MutationObserver(callback);
+
+  const wrappedCallback = (mutations, observer) => {
+    callback(searchEngine, storage, mutations, observer);
+  };
+  
+  const domObserver = new MutationObserver(wrappedCallback);
   domObserver.observe(document.body, config);
 }
 
@@ -183,7 +188,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFavicon.alt = '';
     indieResultFavicon.width = '12';
     indieResultFavicon.height = '12';
-    indieResultFavicon.src = chrome.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
+    indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && originArticle !== site['origin_main_page']) {
@@ -388,7 +393,7 @@ function findClosestElement(target, elements) {
   return closestElement;
 }
 
-async function _filterSearchResult(matchingSite, searchResult, searchEngine, countFiltered, storage, reorderedHrefs) {
+async function filterSearchResult(matchingSite, searchResult, searchEngine, countFiltered, storage, reorderedHrefs) {
   // Get user's settings for the wiki
   let id = matchingSite['id'];
   let searchFilterSetting = 'replace';
@@ -447,10 +452,10 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
       }
       break;
     case 'startpage':
-      searchResultContainer = searchResult.closest('div.w-gl__result');
+      searchResultContainer = searchResult.closest('div.result, div.w-gl__result');
       break;
     case 'yandex':
-      searchResultContainer = searchResult.closest('.serp-item, .MMOrganicSnippet, .viewer-snippet');
+      searchResultContainer = searchResult.closest('li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
       break;
     case 'yahoo':
       searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
@@ -459,11 +464,11 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
       searchResultContainer = searchResult.closest('div.search-result, div.__srgi');
       break;
     case 'searxng':
-        searchResultContainer = searchResult.closest('article');
-        break;
+      searchResultContainer = searchResult.closest('article');
+      break;
     case 'whoogle':
-        searchResultContainer = searchResult.closest('#main>div>div, details>div>div>div>div>div>div.has-favicon');
-        break;
+      searchResultContainer = searchResult.closest('#main>div>div, details>div>div>div>div>div>div.has-favicon');
+      break;
     default:
   }
 
@@ -492,7 +497,7 @@ async function _filterSearchResult(matchingSite, searchResult, searchEngine, cou
   return countFiltered;
 }
 
-async function _reorderDestinationSearchResult(resultsFirstChild, searchResult) {
+async function reorderDestinationSearchResult(resultsFirstChild, searchResult) {
   // Find containing element for the search result
   const closestJsController = searchResult.closest('div[jscontroller]');
   const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
@@ -560,7 +565,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
             console.debug('Indie Wiki Buddy is not re-ordering results, as an indie wiki is already the first result.');
             break;
           } else {
-            await _reorderDestinationSearchResult(resultsFirstChild, searchResult);
+            await reorderDestinationSearchResult(resultsFirstChild, searchResult);
             reorderedHrefs.push(searchResultLink);
           }
         }
@@ -579,7 +584,7 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
   for (const searchResult of searchResults) {
     try {
       // Check that result isn't within another result
-      if (!searchResult.closest('.iwb-detected')) {
+      if (!searchResult.closest('.iwb-detected') || !searchResult.closest('.iwb-detected')?.querySelector('.iwb-new-link')) {
         searchResultLink = searchResult.href || '';
 
         if (!searchResultLink) {
@@ -610,7 +615,7 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
         // Handle source -> destination filtering
         let matchingSource = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
         if (matchingSource) {
-          countFiltered = await _filterSearchResult(matchingSource, searchResult, searchEngine, countFiltered, storage, reorderedHrefs);
+          countFiltered = await filterSearchResult(matchingSource, searchResult, searchEngine, countFiltered, storage, reorderedHrefs);
         }
       }
     } catch (e) {
@@ -619,23 +624,24 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
   };
 
   // Add location observer to check for additional mutations
-  addDOMChangeObserver(main);
+  addDOMChangeObserver(startFiltering, searchEngine, storage);
 
   // If any results were filtered, update search filter count
   if (countFiltered > 0) {
-    chrome.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
+    extensionAPI.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
   }
 }
 
-function main(mutations = null, observer = null) {
+function startFiltering(searchEngine, storage, mutations = null, observer = null) {
   if (observer) {
     observer.disconnect();
   }
-  chrome.runtime.sendMessage({action: 'getStorage'}).then((storage) => {
-    // Check if extension is on:
-    if ((storage.power ?? 'on') === 'on') {
-      // Determine which search engine we're on
-      if (currentURL.hostname.includes('www.google.')) {
+
+  // Check if extension is on:
+  if ((storage.power ?? 'on') === 'on') {
+    // Determine which search engine we're on
+    switch (searchEngine) {
+      case 'google':
         // Function to filter search results in Google
         function filterGoogle(reorderedHrefs) {
           let searchResults = document.querySelectorAll(`
@@ -658,7 +664,8 @@ function main(mutations = null, observer = null) {
           // Filtering happens after re-ordering, so that we can filter anything that matches what we re-ordered
           filterGoogle(r);
         });
-      } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
+        break;
+      case 'duckduckgo':
         // Function to filter search results in DuckDuckGo
         function filterDuckDuckGo() {
           let searchResults = document.querySelectorAll('h2>a[href*=".fandom.com"], h2>a[href*=".wiki.fextralife.com"], h2>a[href*=".neoseeker.com/wiki/"]');
@@ -666,7 +673,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterDuckDuckGo();
-      } else if (currentURL.hostname.endsWith('.bing.com')) {
+        break;
+      case 'bing':
         // Function to filter search results in Bing
         function filterBing() {
           let searchResultsEncoded = document.querySelectorAll('li.b_algo h2 a, li.b_algo .b_algoheader a');
@@ -694,7 +702,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterBing();
-      } else if (currentURL.hostname.includes('search.brave.com')) {
+        break;
+      case 'brave':
         // Function to filter search results in Brave
         function filterBrave() {
           let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el =>
@@ -705,7 +714,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterBrave();
-      } else if (currentURL.hostname.includes('ecosia.org')) {
+        break;
+      case 'ecosia':
         // Function to filter search results in Ecosia
         function filterEcosia() {
           let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el =>
@@ -716,7 +726,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterEcosia();
-      } else if (currentURL.hostname.includes('qwant.com')) {
+        break;
+      case 'qwant':
         // Function to filter search results in Qwant
         function filterQwant() {
           let searchResults = Array.from(document.querySelectorAll('a[data-testid=serTitle]')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
@@ -724,7 +735,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterQwant();
-      } else if (currentURL.hostname.includes('startpage.com')) {
+        break;
+      case 'startpage':
         // Function to filter search results in Startpage
         function filterStartpage() {
           let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el =>
@@ -735,10 +747,11 @@ function main(mutations = null, observer = null) {
         }
 
         filterStartpage();
-      } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
+        break;
+      case 'yandex':
         // Function to filter search results in Yandex
         function filterYandex() {
-          let searchResults = Array.from(document.querySelectorAll('.serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el =>
+          let searchResults = Array.from(document.querySelectorAll('li[data-cid] a.link, li[data-cid] a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el =>
               el.href?.includes('.fandom.com') ||
               el.href?.includes('.wiki.fextralife.com') ||
               el.href?.includes('.neoseeker.com/wiki/'));
@@ -746,7 +759,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterYandex();
-      } else if (currentURL.hostname.includes('yahoo.com')) {
+        break;
+      case 'yahoo':
         // Function to filter search results in Yahoo
         function filterYahoo() {
           let searchResultsEncoded = document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)');
@@ -777,7 +791,8 @@ function main(mutations = null, observer = null) {
         }
 
         filterYahoo();
-      } else if (currentURL.hostname.includes('kagi.com')) {
+        break;
+      case 'kagi':
         // Function to filter search results in Kagi
         function filterKagi() {
           let searchResults = Array.from(document.querySelectorAll('h3>a, a.__sri-url')).filter(el =>
@@ -788,39 +803,73 @@ function main(mutations = null, observer = null) {
         }
 
         filterKagi();
-      } else if (storage.customSearchEngines) {
-        function filterSearXNG() {
-          let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
-          filterSearchResults(searchResults, 'searxng', storage);
-        }
+        break;
+      default:
+        if (storage.customSearchEngines) {
+          function filterSearXNG() {
+            let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el =>
+                el.href?.includes('.fandom.com') ||
+                el.href?.includes('.wiki.fextralife.com') ||
+                el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'searxng', storage);
+          }
 
-        function filterWhoogle() {
-          let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
-          filterSearchResults(searchResults, 'whoogle', storage);
-        }
+          function filterWhoogle() {
+            let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el =>
+                el.href?.includes('.fandom.com') ||
+                el.href?.includes('.wiki.fextralife.com') ||
+                el.href?.includes('.neoseeker.com/wiki/'));
+            filterSearchResults(searchResults, 'whoogle', storage);
+          }
 
-        function filter(searchEngine) {
-          if (searchEngine === 'searxng') {
-            filterSearXNG();
-          } else if (searchEngine === 'whoogle') {
-            filterWhoogle();
+          function filter(searchEngine) {
+            if (searchEngine === 'searxng') {
+              filterSearXNG();
+            } else if (searchEngine === 'whoogle') {
+              filterWhoogle();
+            }
+          }
+
+          let customSearchEngines = storage.customSearchEngines;
+          if (customSearchEngines[currentURL.hostname]) {
+            let customSearchEnginePreset = customSearchEngines[currentURL.hostname];
+            filter(customSearchEnginePreset);
           }
         }
+    }
+  }
+}
 
-        let customSearchEngines = storage.customSearchEngines;
-        if (customSearchEngines[currentURL.hostname]) {
-          let customSearchEnginePreset = customSearchEngines[currentURL.hostname];
-          filter(customSearchEnginePreset);
-        }
-      }
+// Check if user has enabled filtering for the current search engine
+// If so, call startFiltering function to start filtering process
+function checkIfEnabled(searchEngine) {
+  extensionAPI.runtime.sendMessage({action: 'getStorage'}, (storage) => {
+    searchEngineToggles = storage.searchEngineToggles || {};
+    if (searchEngineToggles[searchEngine] === 'on' || !searchEngineToggles.hasOwnProperty(searchEngine)) {
+      startFiltering(searchEngine, storage);
     }
   });
 }
 
-main();
+// Figure out which search engine we're on
+if (currentURL.hostname.includes('www.google.')) {
+  checkIfEnabled('google');
+} else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
+  checkIfEnabled('duckduckgo');
+} else if (currentURL.hostname.endsWith('.bing.com')) {
+  checkIfEnabled('bing');
+} else if (currentURL.hostname.includes('search.brave.com')) {
+  checkIfEnabled('brave');
+} else if (currentURL.hostname.includes('ecosia.org')) {
+  checkIfEnabled('ecosia');
+} else if (currentURL.hostname.includes('qwant.com')) {
+  checkIfEnabled('qwant');
+} else if (currentURL.hostname.includes('startpage.com')) {
+  checkIfEnabled('startpage');
+} else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
+  checkIfEnabled('yandex');
+} else if (currentURL.hostname.includes('yahoo.com')) {
+  checkIfEnabled('yahoo');
+} else if (currentURL.hostname.includes('kagi.com')) {
+  checkIfEnabled('kagi');
+}
