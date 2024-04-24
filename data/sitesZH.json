@@ -125,7 +125,7 @@
       },
       {
         "origins": "Pokémon Fandom Wiki (Zh-Hk)",
-        "origins_base_url": "pokemon.fandom.com/zh-hk",
+        "origin_base_url": "pokemon.fandom.com/zh-hk",
         "origin_content_path": "/wiki/",
         "origin_main_page": "寵物小精靈百科"
       }
