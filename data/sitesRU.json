@@ -45,6 +45,47 @@
       "official"
     ]
   },
+    {
+    "id": "ru-halflife",
+    "origins-label": "Half-Life Fandom Wiki",
+      "origins": [
+        {
+        "origin": "Half-Life Fandom Wiki",
+        "origin_base_url": "halflife.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Заглавная_страница",
+        }
+      ],
+      "destination": "Combine OverWiki",
+      "destination_base_url": "combineoverwiki.net",
+      "destination_content_suffix": "/ru",
+      "destination_platform": "mediawiki",
+      "destination_icon": "combine.png",
+      "destination_main_page": "Main_Page",
+      "destination_search_path": "/index.php"
+  },
+  {
+    "id": "ru-lethalcompany",
+    "origins_label": "Lethal Company Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Lethal Company Fandom Wiki",
+        "origin_base_url": "lethal-company.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Lethal_Company_Wiki"
+      }
+    ],
+    "destination": "Lethal Company Wiki",
+    "destination_base_url": "lethal.miraheze.org",
+    "destination_content_suffix": "/ru",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lethalcompany.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "miraheze"
+    ],
+  },
   {
     "id": "ru-minecraft",
     "origins_label": "Minecraft Fandom Wiki",

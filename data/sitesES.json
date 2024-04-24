@@ -128,6 +128,25 @@
       "wiki.gg"
     ]
   },
+    {
+    "id": "es-halflife",
+    "origins-label": "Half-Life & Portal Fandom Wiki",
+      "origins": [
+        {
+        "origin": "Half-Life & Portal Fandom Wiki",
+        "origin_base_url": "halflife.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portada",
+        }
+      ],
+      "destination": "Combine OverWiki",
+      "destination_base_url": "combineoverwiki.net",
+      "destination_content_suffix": "/es",
+      "destination_platform": "mediawiki",
+      "destination_icon": "combine.png",
+      "destination_main_page": "Main_Page",
+      "destination_search_path": "/index.php"
+  },
   {
     "id": "es-minecraft",
     "origins_label": "Minecraft Fandom Wiki",

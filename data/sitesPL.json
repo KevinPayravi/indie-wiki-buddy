@@ -22,6 +22,25 @@
       "official"
     ]
   },
+      {
+    "id": "pl-halflife",
+    "origins-label": "Half-Life Fandom Wiki",
+      "origins": [
+        {
+        "origin": "Half-Life Fandom Wiki",
+        "origin_base_url": "half-life.fandom.com/pl",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Half-Life_Wiki",
+        }
+      ],
+      "destination": "Combine OverWiki",
+      "destination_base_url": "combineoverwiki.net",
+      "destination_content_suffix": "/pl",
+      "destination_platform": "mediawiki",
+      "destination_icon": "combine.png",
+      "destination_main_page": "Main_Page",
+      "destination_search_path": "/index.php"
+  },
   {
     "id": "pl-rayman",
     "origins_label": "Rayman Fandom Wiki",
