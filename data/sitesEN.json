@@ -1369,13 +1369,13 @@
         "origin_base_url": "darkestdungeon.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Darkest_Dungeon_Wiki"
-      }
+      },
       {
         "origin": "Darkest Dungeon 2 Wiki - Fextralife",
         "origin_base_url": "darkestdungeon2.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Darkest+Dungeon+2+Wiki"
-      }
+      },
     ],
     "destination": "Darkest Dungeon Wiki",
     "destination_base_url": "darkestdungeon.wiki.gg",
@@ -1450,19 +1450,19 @@
         "origin_base_url": "destiny.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
-      }
+      },
       {
         "origin": "Destiny Wiki - Fextralife",
         "origin_base_url": "destiny.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Destiny+Wiki"
-      }
+      },
       {
         "origin": "Destiny 2 Wiki - Fextralife",
         "origin_base_url": "destiny2.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Destiny+2+Wiki"
-      }
+      },
     ],
     "destination": "Destinypedia",
     "destination_base_url": "www.destinypedia.com",
@@ -2080,19 +2080,19 @@
         "origin_base_url": "fallout.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
-      }
+      },
       {
         "origin": "Fallout 4 Wiki - Fextralife",
         "origin_base_url": "fallout4.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Fallout+4+Wiki"
-      }
+      },
       {
         "origin": "Fallout 76 Wiki - Fextralife",
         "origin_base_url": "fallout76.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Fallout+76+Wiki"
-      }
+      },
     ],
     "destination": "Independent Fallout Wiki",
     "destination_base_url": "fallout.wiki",
@@ -2902,13 +2902,13 @@
         "origin_base_url": "hollowknight.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Hollow+Knight+Wiki"
-      }
+      },
       {
         "origin": "Hollow Knight Silksong Fextralife Wiki",
         "origin_base_url": "hollowknightsilksong.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Hollow+Knight+Silksong+Wiki"
-      }
+      },
     ],
     "destination": "Hollow Knight Wiki",
     "destination_base_url": "hollowknight.wiki",
@@ -3745,13 +3745,13 @@
         "origin_base_url": "minecraft.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
-      }
+      },
       {
         "origin": "Minecraft Dungeons Wiki - Fextralife",
         "origin_base_url": "minecraftdungeons.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Minecraft+Dungeons+Wiki"
-      }
+      },
     ],
     "destination": "Minecraft Wiki",
     "destination_base_url": "minecraft.wiki",
@@ -6785,13 +6785,13 @@
         "origin_base_url": "zelda.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
-      }
+      },
       {
         "origin": "Zelda Tears of the Kingdom Wiki - Fextralife",
         "origin_base_url": "zeldatearsofthekingdom.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Zelda+Tears+of+the+Kingdom+Wiki"
-      }
+      },
     ],
     "destination": "Zelda Wiki",
     "destination_base_url": "zeldawiki.wiki",
