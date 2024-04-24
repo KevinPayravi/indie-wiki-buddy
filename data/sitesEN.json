@@ -1,5 +1,5 @@
 [
-    {
+  {
     "id": "en-2xko",
     "origins_label": "2XKO Fandom Wiki",
     "origins": [
@@ -3241,7 +3241,7 @@
       "miraheze"
     ]
   },
-      {
+  {
     "id": "en-linkinpark",
     "origins_label": "Linkin Park Fandom Wiki",
     "origins": [
@@ -3250,7 +3250,7 @@
         "origin_base_url": "linkinpark.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Linkin_Park_Wiki"
-      },
+      }
     ],
     "destination": "Linkinpedia",
     "destination_base_url": "linkinpedia.com",
@@ -3794,7 +3794,7 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
   },
-    {
+  {
     "id": "en-nineinchnails",
     "origins_label": "Nine Inch Nails Fandom Wiki",
     "origins": [
@@ -3803,7 +3803,7 @@
         "origin_base_url": "nin.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
-      },
+      }
     ],
     "destination": "NinWiki",
     "destination_base_url": "www.nin.wiki",
@@ -4365,7 +4365,7 @@
       "miraheze"
     ]
   },
-    {
+  {
     "id": "en-rammstein",
     "origins_label": "Rammstein Fandom Wiki",
     "origins": [
@@ -4374,7 +4374,7 @@
         "origin_base_url": "rammstein.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Rammstein_Wiki"
-      },
+      }
     ],
     "destination": "RammWiki",
     "destination_base_url": "rammwiki.net",
@@ -6119,7 +6119,7 @@
     "destination_search_path": "/mediawiki/index.php",
     "destination_content_path": "/wiki/"
   },
-    {
+  {
     "id": "en-whentheycry",
     "origins_label": "When They Cry Fandom Wiki",
     "origins": [
@@ -6128,14 +6128,14 @@
         "origin_base_url": "whentheycry.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Higurashi_no_Naku_Koro_Ni_Wiki"
-      },
+      }
     ],
     "destination": "When They Cry Wiki",
     "destination_base_url": "wiki.whentheycry.org",
     "destination_platform": "miraheze",
     "destination_icon": "whentheycry.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
     "tags": [
       "miraheze"
     ]

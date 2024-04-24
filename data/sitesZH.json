@@ -66,24 +66,24 @@
       "wiki.gg"
     ]
   },
-    {
+  {
     "id": "zh-halflife",
     "origins-label": "Half-Life Fandom Wiki",
-      "origins": [
-        {
+    "origins": [
+      {
         "origin": "Half-Life Fandom Wiki",
         "origin_base_url": "hlforever.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "首頁",
-        }
-      ],
-      "destination": "Combine OverWiki",
-      "destination_base_url": "combineoverwiki.net",
-      "destination_content_suffix": "/zh-hans",
-      "destination_platform": "mediawiki",
-      "destination_icon": "combine.png",
-      "destination_main_page": "Main_Page",
-      "destination_search_path": "/index.php"
+        "origin_main_page": "首頁"
+      }
+    ],
+    "destination": "Combine OverWiki",
+    "destination_base_url": "combineoverwiki.net",
+    "destination_content_suffix": "/zh-hans",
+    "destination_platform": "mediawiki",
+    "destination_icon": "combine.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "zh-minecraft",
