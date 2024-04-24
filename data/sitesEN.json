@@ -576,6 +576,29 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-ballisticng",
+    "origins_label": "BallisticNG Fandom Wiki",
+    "origins": [
+      {
+        "origin": "BallisticNG Fandom Wiki",
+        "origin_base_url": "ballisticng.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "BallisticNG_Wiki"
+      }
+    ],
+    "destination": "BallisticNG Wiki",
+    "destination_base_url": "ballisticng.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ballisticngwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "miraheze",
+      "official"
+    ]
+  },
+  {
     "id": "en-banjokazooie",
     "origins_label": "Banjo-Kazooie Fandom & Neoseeker Wikis",
     "origins": [
@@ -873,6 +896,28 @@
     "destination_main_page": "Brotato_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-bugfables",
+    "origins_label": "Bug Fables Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bug Fables Fandom Wiki",
+        "origin_base_url": "bugfables.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bug_Fables_Wiki"
+      }
+    ],
+    "destination": "Bug Fables Wiki",
+    "destination_base_url": "bugfables.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bugfables.png",
+    "destination_main_page": "Bug_Fables_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-bz",
@@ -1184,6 +1229,29 @@
     "destination_main_page": "Coromon_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
+    "id": "en-crabchampions",
+    "origins_label": "Crab Champions Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Crab Champions Fandom Wiki",
+        "origin_base_url": "crabchampions.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Crab_Champions_Wiki"
+      }
+    ],
+    "destination": "Crab Champions Wiki",
+    "destination_base_url": "crabchampions.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "crabchampionswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Crab_Champions_Wiki",
     "tags": [
       "wiki.gg",
       "official"
@@ -1502,6 +1570,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-dota2",
+    "origins_label": "Dota 2 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dota 2 Fandom Wiki",
+        "origin_base_url": "dota2.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dota_2_Wiki"
+      }
+    ],
+    "destination": "Liquipedia Dota 2 Wiki",
+    "destination_base_url": "liquipedia.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "liquipediadota2wiki.png",
+    "destination_content_path": "/dota2/",
+    "destination_search_path": "/dota2/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-dotflow",
     "origins_label": "Dotflow Fandom Wiki",
     "origins": [
@@ -1690,6 +1777,25 @@
     "destination_main_page": "WikiBound",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-eastward",
+    "origins_label": "Eastward Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Eastward Fandom Wiki",
+        "origin_base_url": "eastward.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Eastward_Wiki"
+      }
+    ],
+    "destination": "Eastward Wiki",
+    "destination_base_url": "eastwardwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "eastwardwiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_main_page": "Eastward_Wiki"
   },
   {
     "id": "en-eiyudenchronicle",
@@ -3795,6 +3901,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-nightmarereaper",
+    "origins_label": "Nightmare Reaper Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Nightmare Reaper Fandom Wiki",
+        "origin_base_url": "nightmare-reaper.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Nightmare_Reaper_Wiki"
+      }
+    ],
+    "destination": "Nightmare Reaper Wiki",
+    "destination_base_url": "nightmarereaper.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nightmarereaperwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Nightmare_Reaper_Wiki",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-nineinchnails",
     "origins_label": "Nine Inch Nails Fandom Wiki",
     "origins": [
@@ -4066,6 +4194,28 @@
     "tags": [
       "miraheze",
       "official"
+    ]
+  },
+  {
+    "id": "en-picross",
+    "origins_label": "Picross Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Picross Fandom Wiki",
+        "origin_base_url": "picross.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Picross_Wiki"
+      }
+    ],
+    "destination": "Picross Wiki",
+    "destination_base_url": "picross.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "picrosswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Picross_Wiki",
+    "tags": [
+      "miraheze"
     ]
   },
   {
@@ -4423,6 +4573,25 @@
     "tags": [
       "miraheze"
     ]
+  },
+  {
+    "id": "en-remnant2",
+    "origins_label": "Remnant 2 Fextralife Wiki",
+    "origins": [
+      {
+        "origin": "Remnant 2 Fextralife Wiki",
+        "origin_base_url": "remnant2.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Remnant+2+Wiki"
+      }
+    ],
+    "destination": "Remnant 2 Wiki",
+    "destination_base_url": "remnant.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "theremnant2wiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-rhythmdoctor",
@@ -4814,6 +4983,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-shinycolors",
+    "origins_label": "Shiny Colors Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Shiny Colors Fandom Wiki",
+        "origin_base_url": "shinycolors.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Shiny_Colors_Wiki"
+      }
+    ],
+    "destination": "Shiny Colors Wiki",
+    "destination_base_url": "shinycolors.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "shinycolorswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-shroudoftheavatar",
     "origins_label": "Shroud of the Avatar Fandom Wiki",
     "origins": [
@@ -5090,6 +5278,28 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "https://www.starfywiki.org/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-starsector",
+    "origins_label": "StarSector Fandom Wiki",
+    "origins": [
+      {
+        "origin": "StarSector Fandom Wiki",
+        "origin_base_url": "starsector.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Starsector_Wiki"
+      }
+    ],
+    "destination": "Starsector Wiki",
+    "destination_base_url": "starsector.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starsectorwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Starsector_Wiki",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-steamworld",
@@ -5948,6 +6158,28 @@
     "destination_content_path": "/wiki/index.php?title="
   },
   {
+    "id": "en-utanoprincesama",
+    "origins_label": "Uta no Prince-sama Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Uta no Prince-sama Fandom Wiki",
+        "origin_base_url": "utanoprincesama.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Uta_no_Prince-sama_Wiki"
+      }
+    ],
+    "destination": "Uta no Prince-sama Wiki",
+    "destination_base_url": "utanoprincesama.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "utanoprincesama.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Uta_no_Prince-sama_Wiki",
+    "tags": [
+      "miraheze"
+    ]
+  },
+  {
     "id": "en-vaporwave",
     "origins_label": "Vaporwave Fandom Wiki",
     "origins": [
@@ -6120,6 +6352,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-weezer",
+    "origins_label": "Weezer Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Weezer Fandom Wiki",
+        "origin_base_url": "weezer.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Weezer_Wiki"
+      }
+    ],
+    "destination": "Weezerpedia",
+    "destination_base_url": "www.weezerpedia.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "weezerpedia.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-whentheycry",
     "origins_label": "When They Cry Fandom Wiki",
     "origins": [
@@ -6139,25 +6390,6 @@
     "tags": [
       "miraheze"
     ]
-  },
-  {
-    "id": "en-weezer",
-    "origins_label": "Weezer Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Weezer Fandom Wiki",
-        "origin_base_url": "weezer.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Weezer_Wiki"
-      }
-    ],
-    "destination": "Weezerpedia",
-    "destination_base_url": "www.weezerpedia.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "weezerpedia.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-wildfrost",
@@ -6499,27 +6731,5 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
-  },
-  {
-    "id": "en-bugfables",
-    "origins_label": "Bug Fables Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Bug Fables Fandom Wiki",
-        "origin_base_url": "bugfables.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Bug_Fables_Wiki"
-      }
-    ],
-    "destination": "Bug Fables Wiki",
-    "destination_base_url": "bugfables.miraheze.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "bugfables.png",
-    "destination_main_page": "Bug_Fables_Wiki",
-    "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/",
-    "tags": [
-      "miraheze"
-    ]
   }
 ]
