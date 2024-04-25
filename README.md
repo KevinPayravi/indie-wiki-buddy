@@ -76,7 +76,12 @@ Entries are formatted as follows:
   "destination_icon": "example.png",
   "destination_main_page": "Main_Page",
   "destination_search_path": "/index.php",
-  "destination_content_path": "/wiki/"
+  "destination_content_path": "/wiki/",
+  "tags": [
+    "official",
+    "miraheze",
+    "wiki.gg"
+  ]
 }
 ```
 
@@ -96,6 +101,6 @@ Entries are formatted as follows:
 * `destination_main_page`: The title of the main page of the destination wiki.
 * `destination_search_path`: The URL path prefix for performing searches. On MediaWiki wikis, it is called the index.php entry point and can be found at Special:Version.
 * `destination_content_path`: The URL path prefix for article links on the destination wiki. On MediaWiki wikis, it can be found at Special:Version.
-
+* `tags`: An optional array of tags. We currently support `official`, `miraheze`, and `wiki.gg` (the latter two of which are hosts). If none of these apply, leave the `tags` property out.
 
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
