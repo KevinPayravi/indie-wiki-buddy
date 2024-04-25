@@ -116,7 +116,7 @@ legend {
 
 .togglesHeader {
   border-bottom: 1px solid var(--base-color-outline);
-  background-color: var(--base-color-primary);
+  background-color: var(--base-color-secondary);
 }
 
 .togglesHeader span {
