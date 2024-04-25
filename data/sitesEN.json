@@ -770,6 +770,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-bitcraft",
+    "origins_label": "BitCraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "BitCraft Fandom Wiki",
+        "origin_base_url": "bitcraft.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "BitCraft_Wiki"
+      }
+    ],
+    "destination": "BitCraft Wiki",
+    "destination_base_url": "bitcraft.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bitcraftwiki.png",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "BitCraft_Wiki",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-blazblue",
     "origins_label": "BlazBlue Fandom Wiki",
     "origins": [
@@ -1318,9 +1340,9 @@
     "destination_base_url": "crabchampions.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "crabchampionswiki.png",
-    "destination_content_path": "/wiki/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Crab_Champions_Wiki",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -2867,6 +2889,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-brutalorchestra",
+    "origins_label": "Brutal Orchestra Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Brutal Orchestra Fandom Wiki",
+        "origin_base_url": "hbbrutalorchestra.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Brutal_Orchestra_Wiki"
+      }
+    ],
+    "destination": "Brutal Orchestra Wiki",
+    "destination_base_url": "brutalorchestra.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "brutalorchestrawiki.png",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Brutal_Orchestra_Wiki",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-hearthstone",
     "origins_label": "Hearthstone Fandom & Neoseeker Wikis",
     "origins": [
@@ -4021,9 +4065,9 @@
     "destination_base_url": "nightmarereaper.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "nightmarereaperwiki.png",
-    "destination_content_path": "/wiki/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Nightmare_Reaper_Wiki",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -5420,9 +5464,9 @@
     "destination_base_url": "starsector.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "starsectorwiki.png",
-    "destination_content_path": "/wiki/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Starsector_Wiki",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -5917,9 +5961,9 @@
     "destination_base_url": "titanfall.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "titanfallwiki.png",
-    "destination_content_path": "/wiki/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Titanfall_Wiki",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -6665,6 +6709,28 @@
     "destination_icon": "wizardrywiki.png",
     "destination_main_page": "Wizardry_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
+    "id": "en-worldofbabel",
+    "origins_label": "World of Babel Fandom Wiki",
+    "origins": [
+      {
+        "origin": "World of Babel Fandom Wiki",
+        "origin_base_url": "world-of-babel.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "World_of_Babel_Wiki"
+      }
+    ],
+    "destination": "World of Babel Wiki",
+    "destination_base_url": "worldofbabel.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "worldofbabelwiki.png",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "World_of_Babel_Wiki",
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
