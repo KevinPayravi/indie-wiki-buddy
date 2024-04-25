@@ -130,7 +130,7 @@
   },
   {
     "id": "es-halflife",
-    "origins-label": "Half-Life & Portal Fandom Wiki",
+    "origins_label": "Half-Life & Portal Fandom Wiki",
     "origins": [
       {
         "origin": "Half-Life & Portal Fandom Wiki",

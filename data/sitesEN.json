@@ -146,9 +146,9 @@
     "destination_base_url": "alphaver.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "alphaverwiki.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/index.php",
     "destination_main_page": "AlphaVer_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -634,9 +634,9 @@
     "destination_base_url": "ballisticng.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "ballisticngwiki.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/index.php",
     "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze",
       "official"
@@ -784,8 +784,8 @@
     "destination_base_url": "bitcraft.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "bitcraftwiki.png",
-    "destination_search_path": "/index.php",
     "destination_main_page": "BitCraft_Wiki",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
@@ -965,9 +965,9 @@
     "destination_base_url": "brightershoreswiki.org",
     "destination_platform": "mediawiki",
     "destination_icon": "brightershoreswiki.png",
-    "destination_content_path": "/w/",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/",
-    "destination_main_page": "Main_Page"
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-brotato",
@@ -1340,8 +1340,8 @@
     "destination_base_url": "crabchampions.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "crabchampionswiki.png",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Crab_Champions_Wiki",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
@@ -1693,9 +1693,9 @@
     "destination_base_url": "liquipedia.net",
     "destination_platform": "mediawiki",
     "destination_icon": "liquipediadota2wiki.png",
-    "destination_content_path": "/dota2/",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/dota2/index.php",
-    "destination_main_page": "Main_Page"
+    "destination_content_path": "/dota2/"
   },
   {
     "id": "en-dotflow",
@@ -1902,9 +1902,9 @@
     "destination_base_url": "eastwardwiki.com",
     "destination_platform": "mediawiki",
     "destination_icon": "eastwardwiki.png",
-    "destination_content_path": "/",
+    "destination_main_page": "Eastward_Wiki",
     "destination_search_path": "/mediawiki/index.php",
-    "destination_main_page": "Eastward_Wiki"
+    "destination_content_path": "/"
   },
   {
     "id": "en-eiyudenchronicle",
@@ -2903,8 +2903,8 @@
     "destination_base_url": "brutalorchestra.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "brutalorchestrawiki.png",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Brutal_Orchestra_Wiki",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
@@ -4065,8 +4065,8 @@
     "destination_base_url": "nightmarereaper.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "nightmarereaperwiki.png",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Nightmare_Reaper_Wiki",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
@@ -4211,9 +4211,9 @@
     "destination_base_url": "pacificdrive.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "pacificdrivewiki.png",
-    "destination_content_path": "/view/",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "destination_main_page": "Main_Page"
+    "destination_content_path": "/view/"
   },
   {
     "id": "en-palia",
@@ -4381,9 +4381,9 @@
     "destination_base_url": "picross.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "picrosswiki.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/index.php",
     "destination_main_page": "Picross_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -4759,9 +4759,9 @@
     "destination_base_url": "remnant.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "theremnant2wiki.png",
-    "destination_content_path": "/",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "destination_main_page": "Main_Page"
+    "destination_content_path": "/"
   },
   {
     "id": "en-rhythmdoctor",
@@ -5167,9 +5167,9 @@
     "destination_base_url": "shinycolors.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "shinycolorswiki.png",
-    "destination_content_path": "/wiki/",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Main_Page"
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-shroudoftheavatar",
@@ -5464,8 +5464,8 @@
     "destination_base_url": "starsector.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "starsectorwiki.png",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Starsector_Wiki",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
@@ -5961,8 +5961,8 @@
     "destination_base_url": "titanfall.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "titanfallwiki.png",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Titanfall_Wiki",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
@@ -6364,9 +6364,9 @@
     "destination_base_url": "utanoprincesama.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "utanoprincesama.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/index.php",
     "destination_main_page": "Uta_no_Prince-sama_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
@@ -6577,9 +6577,9 @@
     "destination_base_url": "wiki.wesnoth.org",
     "destination_platform": "mediawiki",
     "destination_icon": "thebattleforwesnothwiki.png",
-    "destination_content_path": "/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -6729,8 +6729,8 @@
     "destination_base_url": "worldofbabel.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "worldofbabelwiki.png",
-    "destination_search_path": "/index.php",
     "destination_main_page": "World_of_Babel_Wiki",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"

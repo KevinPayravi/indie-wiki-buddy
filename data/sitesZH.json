@@ -59,9 +59,9 @@
     "destination_base_url": "cookie.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "cookiewiki.png",
-    "destination_content_path": "/",
+    "destination_main_page": "首页",
     "destination_search_path": "/index.php",
-    "destination_main_page": "首页"
+    "destination_content_path": "/"
   },
   {
     "id": "zh-fridaynightfunkin",
@@ -87,7 +87,7 @@
   },
   {
     "id": "zh-halflife",
-    "origins-label": "Half-Life Fandom Wiki",
+    "origins_label": "Half-Life Fandom Wiki",
     "origins": [
       {
         "origin": "Half-Life Fandom Wiki",
