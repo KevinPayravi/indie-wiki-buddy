@@ -900,6 +900,31 @@
     ]
   },
   {
+    "id": "en-brightershores",
+    "origins_label": "Brighter Shores Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Brighter-Shores Fandom Wiki",
+        "origin_base_url": "brighter-shores.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Brighter_Shores_Wiki"
+      },
+      {
+        "origin": "Brighter Shores Fandom Wiki",
+        "origin_base_url": "brightershores.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Brighter_Shores_Wiki"
+      }
+    ],
+    "destination": "Brighter Shores Wiki",
+    "destination_base_url": "brightershoreswiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "brightershoreswiki.png",
+    "destination_content_path": "/w/",
+    "destination_search_path": "/",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-brotato",
     "origins_label": "Brotato Fandom Wiki",
     "origins": [
@@ -1456,7 +1481,7 @@
         "origin_base_url": "destiny.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Destiny+Wiki"
-      }
+      },
       {
         "origin": "Destiny 2 Wiki - Fextralife",
         "origin_base_url": "destiny2.wiki.fextralife.com",
