@@ -142,7 +142,7 @@
         "origin_main_page": "AlphaVer_Wiki"
       }
     ],
-    "destination": "Alphaver Wiki",
+    "destination": "AlphaVer Wiki",
     "destination_base_url": "alphaver.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "alphaverwiki.png",
