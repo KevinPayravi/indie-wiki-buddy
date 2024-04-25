@@ -540,6 +540,8 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
     // Get the first element in the results container
     let resultsFirstChild = document.querySelector('#rso div[data-hveid].g') ||
     document.querySelector('#main div[data-hveid].g') ||
+    document.querySelector('#rso div[data-hveid] div[data-dsrp]') ||
+    document.querySelector('#main div[data-hveid] div[data-dsrp]') ||
     document.querySelector('#rso div[data-hveid]') ||
     document.querySelector('#main div[data-hveid]');
 
