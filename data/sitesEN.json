@@ -104,6 +104,7 @@
     "destination_icon": "againstthestorm.png",
     "destination_main_page": "Against_the_Storm_Official_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -3467,7 +3468,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "linkinpedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-lotr",
@@ -3582,7 +3584,7 @@
         "origin": "MapleWiki",
         "origin_base_url": "maplestory.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "MapleStory_Wiki"
+        "origin_main_page": "Template:MapleWiki"
       }
     ],
     "destination": "MapleStory Wiki",
@@ -3601,7 +3603,7 @@
         "origin": "Mario Fandom Wiki",
         "origin_base_url": "mario.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "MarioWiki"
+        "origin_main_page": "Mario_Wiki"
       },
       {
         "origin": "Donkey Kong Fandom Wiki",
@@ -3768,12 +3770,6 @@
         "origin_base_url": "mcpc.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Minecraft_Wiki"
-      },
-      {
-        "origin": "Minecraft PC Fandom Wiki",
-        "origin_base_url": "minecraftpc.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Welcome_to_the_Minecraft_PC_Wiki"
       },
       {
         "origin": "Minecraft Bedrock Fandom Wiki",
@@ -4048,7 +4044,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "nineinchnails.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-noita",
@@ -6556,10 +6553,11 @@
     ],
     "destination": "When They Cry Wiki",
     "destination_base_url": "wiki.whentheycry.org",
-    "destination_platform": "miraheze",
+    "destination_platform": "mediawiki",
     "destination_icon": "whentheycry.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "miraheze"
     ]
