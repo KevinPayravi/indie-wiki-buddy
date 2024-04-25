@@ -6974,5 +6974,27 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-unturned",
+    "origins_label": "Unturned Bunker Wiki",
+    "origins": [
+      {
+        "origin": "Unturned Bunker Wiki",
+        "origin_base_url": "unturned.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Unturned_Bunker_Wiki"
+      }
+    ],
+    "destination": "Unturned Wiki",
+    "destination_base_url": "unturned.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "unturned.png",
+    "destination_main_page": "Unturned_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
   }
 ]
