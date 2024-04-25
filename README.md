@@ -75,7 +75,8 @@ Entries are formatted as follows:
   "destination_platform": "mediawiki",
   "destination_icon": "example.png",
   "destination_main_page": "Main_Page",
-  "destination_search_path": "/index.php"
+  "destination_search_path": "/index.php",
+  "destination_content_path": "/wiki/"
 }
 ```
 
@@ -94,6 +95,7 @@ Entries are formatted as follows:
 * `destination_icon`: The name of the wiki's favicon in the [favicons](favicons) folder.
 * `destination_main_page`: The title of the main page of the destination wiki.
 * `destination_search_path`: The URL path prefix for performing searches. On MediaWiki wikis, it is called the index.php entry point and can be found at Special:Version.
+* `destination_content_path`: The URL path prefix for article links on the destination wiki. On MediaWiki wikis, it can be found at Special:Version.
 
 
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
