@@ -131,6 +131,28 @@
     ]
   },
   {
+    "id": "en-alphaver",
+    "origins_label": "AlphaVer Fandom Wiki",
+    "origins": [
+      {
+        "origin": "AlphaVer Fandom Wiki",
+        "origin_base_url": "alphaver.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "AlphaVer_Wiki"
+      }
+    ],
+    "destination": "Alphaver Wiki",
+    "destination_base_url": "alphaver.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "alphaverwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "AlphaVer_Wiki",
+    "tags": [
+      "miraheze"
+    ]
+  },
+  {
     "id": "en-animalcrossing",
     "origins_label": "Animal Crossing Fandom & Neoseeker Wikis",
     "origins": [
@@ -4134,6 +4156,25 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-pacificdrive",
+    "origins_label": "Pacific Drive Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pacific Drive Fandom Wiki",
+        "origin_base_url": "pacific-drive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pacific_Drive_Wiki"
+      }
+    ],
+    "destination": "Pacific Drive Wiki",
+    "destination_base_url": "pacificdrive.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pacificdrivewiki.png",
+    "destination_content_path": "/view/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-palia",
     "origins_label": "Palia Fandom Wiki",
     "origins": [
@@ -5865,6 +5906,28 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-titanfall",
+    "origins_label": "Titanfall Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Titanfall Fandom Wiki",
+        "origin_base_url": "titanfall.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Titanfall_Wiki"
+      }
+    ],
+    "destination": "Titanfall Wiki",
+    "destination_base_url": "titanfall.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "titanfallwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Titanfall_Wiki",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-tombraider",
     "origins_label": "Tomb Raider Fandom Wiki",
     "origins": [
@@ -6457,6 +6520,28 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-wesnoth",
+    "origins_label": "Wesnoth Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Wesnoth Fandom Wiki",
+        "origin_base_url": "wesnoth.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wesnoth_Wiki"
+      }
+    ],
+    "destination": "The Battle for Wesnoth Wiki",
+    "destination_base_url": "wiki.wesnoth.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thebattleforwesnothwiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-whentheycry",
