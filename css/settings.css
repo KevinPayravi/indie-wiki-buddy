@@ -89,6 +89,7 @@ legend {
 .toggles a img {
   padding-right: .5rem;
   vertical-align: middle;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
 .toggles label {
