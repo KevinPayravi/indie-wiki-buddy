@@ -6977,10 +6977,10 @@
   },
   {
     "id": "en-unturned",
-    "origins_label": "Unturned Bunker Wiki",
+    "origins_label": "Unturned Bunker Fandom Wiki",
     "origins": [
       {
-        "origin": "Unturned Bunker Wiki",
+        "origin": "Unturned Bunker Fandom Wiki",
         "origin_base_url": "unturned.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Unturned_Bunker_Wiki"
@@ -6994,6 +6994,7 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
+      "official",
       "wiki.gg"
     ]
   }
