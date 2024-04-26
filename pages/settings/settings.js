@@ -279,6 +279,7 @@ async function loadOptions(lang, textFilter = '') {
         let icon = document.createElement("img");
         icon.src = '../../favicons/' + sites[i].language.toLowerCase() + '/' + sites[i].destination_icon;
         icon.alt = 'Visit ' + sites[i].destination;
+        icon.width = '16';
         iconLink.appendChild(icon);
         wikiInfo.appendChild(iconLink);
         if (lang === 'ALL') {
