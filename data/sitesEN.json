@@ -219,6 +219,28 @@
     ]
   },
   {
+    "id": "en-animatronics",
+    "origins_label": "Chuck E. Cheese Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Chuck E. Cheese Fandom Wiki",
+        "origin_base_url": "chucke.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Chuck_E._Cheese_Wiki"
+      }
+    ],
+    "destination": "Cheese-E-Pedia",
+    "destination_base_url": "cheeseepedia.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cheeseepedia.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
+    ]
+  },
+  {
     "id": "en-anothereden",
     "origins_label": "Another Eden Fandom Wiki",
     "origins": [
