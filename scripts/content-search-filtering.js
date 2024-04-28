@@ -549,6 +549,10 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
 
     let crossLanguageSetting = storage.crossLanguage || 'off';
 
+    // Re-order search results
+    // This is so that higher results are re-ordered to the top last
+    searchResults = searchResults.reverse();
+    
     for (const searchResult of searchResults) {
       try {
         if (searchResult.closest('.iwb-detected')) {
