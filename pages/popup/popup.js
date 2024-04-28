@@ -1,16 +1,3 @@
-// Set power setting
-function setPower(setting) {
-  extensionAPI.storage.local.set({ 'power': setting });
-  var powerImage = document.getElementById('powerImage');
-  powerImage.src = '../../images/power-' + setting + '.png';
-  powerImage.alt = 'Indie Wiki Buddy is ' + setting;
-
-  extensionAPI.runtime.sendMessage({
-    action: 'updateIcon',
-    value: setting
-  });
-}
-
 async function migrateData() {
   commonFunctionMigrateToV3();
 }
