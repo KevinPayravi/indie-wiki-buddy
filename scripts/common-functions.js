@@ -108,16 +108,22 @@ async function populateSiteDataByOrigin() {
   }
 
   await Promise.all(promises);
-  window.iwb_siteDataByOrigin = sites;
-  return window.iwb_siteDataByOrigin;
+
+  if (typeof window !== 'undefined') {
+    window.iwb_siteDataByOrigin = sites;
+  }
+
+  return sites;
 }
 
 // Load wiki data objects, with each origin having its own object
 async function commonFunctionGetSiteDataByOrigin() {
-  if (!window.iwb_siteDataByOrigin || window.iwb_siteDataByOrigin.length === 0) {
-    await populateSiteDataByOrigin();
+  if (typeof window === 'undefined' || !window.iwb_siteDataByOrigin || window.iwb_siteDataByOrigin.length === 0) {
+    let sites = await populateSiteDataByOrigin();
+    return sites;
+  } else {
+    return window.iwb_siteDataByOrigin;
   }
-  return window.iwb_siteDataByOrigin;
 }
 
 // Given a URL, find closest match in our dataset
