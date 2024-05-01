@@ -660,7 +660,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
           let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
 
           // Remove any matches that are not "standard" search results - this could've been done with :has() but limited browser support right now
-          searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header'));
+          searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header, div[jsname]'));
 
           return await reorderSearchResults(searchResults, 'google', storage);
         }
