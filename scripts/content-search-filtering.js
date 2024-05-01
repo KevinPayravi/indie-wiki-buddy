@@ -580,7 +580,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
     }
   }
 
-  return reorderedHrefs.reverse();
+  return reorderedHrefs;
 }
 
 async function filterSearchResults(searchResults, searchEngine, storage, reorderedHrefs = []) {
