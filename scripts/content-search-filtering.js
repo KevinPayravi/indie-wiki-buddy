@@ -548,6 +548,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
     if (!resultsFirstChild) return;
 
     let crossLanguageSetting = storage.crossLanguage || 'off';
+    let resultsToSort = [];
 
     for (const searchResult of searchResults) {
       try {
@@ -569,11 +570,23 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
               console.debug('Indie Wiki Buddy is not re-ordering results, as an indie wiki is already the first result.');
               break;
             } else {
-              await reorderDestinationSearchResult(resultsFirstChild, searchResult);
-              reorderedHrefs.push(searchResultLink);
+              resultsToSort.push(searchResult);
             }
           }
         }
+      } catch (e) {
+        console.log('Indie Wiki Buddy failed to properly re-order search results with error: ' + e);
+      }
+    }
+
+    // Reverse order of resultsToSort,
+    // to restore top-down order.
+    resultsToSort = resultsToSort.reverse();
+
+    for (const searchResult of resultsToSort) {
+      try {
+        await reorderDestinationSearchResult(resultsFirstChild, searchResult);
+        reorderedHrefs.push(searchResultLink);
       } catch (e) {
         console.log('Indie Wiki Buddy failed to properly re-order search results with error: ' + e);
       }
