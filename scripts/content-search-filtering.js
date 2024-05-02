@@ -586,7 +586,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
     for (const searchResult of resultsToSort) {
       try {
         await reorderDestinationSearchResult(resultsFirstChild, searchResult);
-        reorderedHrefs.push(searchResultLink);
+        reorderedHrefs.push(searchResult.href);
       } catch (e) {
         console.log('Indie Wiki Buddy failed to properly re-order search results with error: ' + e);
       }
@@ -673,7 +673,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
           let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
 
           // Remove any matches that are not "standard" search results - this could've been done with :has() but limited browser support right now
-          searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header, div[jsname]'));
+          searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols]'));
 
           return await reorderSearchResults(searchResults, 'google', storage);
         }
