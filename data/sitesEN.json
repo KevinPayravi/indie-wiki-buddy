@@ -3798,13 +3798,19 @@
   },
   {
     "id": "en-micronations",
-    "origins_label": "MicroNations Fandom Wiki",
+    "origins_label": "MicroNations Fandom Wikis",
     "origins": [
       {
         "origin": "MicroNations Fandom Wiki",
         "origin_base_url": "micronations.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Micronations Fandom Wiki",
+        "origin_base_url": "microcountries.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Micronations_Wiki"
       }
     ],
     "destination": "MicroWiki",
@@ -3907,6 +3913,12 @@
         "origin_base_url": "minecraftstorymode.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Minecraft_Story_Mode_Wiki"
+      },
+      {
+        "origin": "Minecraft Dungeons Fandom Wiki",
+        "origin_base_url": "minecraftdungeons-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft:_Dungeons_Wiki"
       }
     ],
     "destination": "Minecraft Wiki",
@@ -4331,13 +4343,25 @@
   },
   {
     "id": "en-pathfinder",
-    "origins_label": "Pathfinder Fandom Wiki",
+    "origins_label": "Pathfinder Fandom & Fextra Wikis",
     "origins": [
       {
         "origin": "Pathfinder Fandom Wiki",
         "origin_base_url": "pathfinder.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Pathfinder_Wiki"
+      },
+      {
+        "origin": "Pathfinder Kingmaker Fextralife Wiki",
+        "origin_base_url": "pathfinderkingmaker.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Pathfinder:+Kingmaker+Wiki"
+      },
+      {
+        "origin": "Pathfinder Wrath of the Righteous Fextralife Wiki",
+        "origin_base_url": "pathfinderwrathoftherighteous.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Pathfinder:+Wrath+of+the+Righteous+Wiki"
       }
     ],
     "destination": "PathfinderWiki",
