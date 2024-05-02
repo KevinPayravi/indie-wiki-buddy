@@ -5153,7 +5153,7 @@
     "destination_icon": "scpslwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/index.php?title="
+    "destination_content_path": "/index.php?title=",
     "tags": [
       "official"
     ]
