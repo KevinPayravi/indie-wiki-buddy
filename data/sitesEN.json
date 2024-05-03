@@ -1606,6 +1606,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-dfo",
+    "origins_label": "Dungeon Fighter Online Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dungeon Fighter Online Fandom Wiki",
+        "origin_base_url": "dfo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dungeon_Fighter_Online_Wiki"
+      }
+    ],
+    "destination": "DFO World Wiki",
+    "destination_base_url": "wiki.dfo.world",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dfoworldwiki.png",
+    "destination_content_path": "/view/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-digimon",
     "origins_label": "Digimon Fandom & Neoseeker Wikis",
     "origins": [
