@@ -6003,6 +6003,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-thepolice",
+    "origins_label": "The Police Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Police Fandom Wiki",
+        "origin_base_url": "the-police.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Police_Wiki"
+      }
+    ],
+    "destination": "The Police Wiki",
+    "destination_base_url": "thepolicewiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thepolice.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "index.php?search=",
+    "destination_content_path": "/Police_wiki/index.php?title="
+  },
+  {
     "id": "en-thewanderinginn",
     "origins_label": "The Wandering Inn Fandom Wiki",
     "origins": [
