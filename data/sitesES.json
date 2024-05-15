@@ -15,7 +15,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "amiibopedia.png",
     "destination_main_page": "Amiibopedia",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-animalcrossing",
@@ -33,7 +34,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "animalcrossing.png",
     "destination_main_page": "Portada",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-ark",
@@ -52,6 +54,7 @@
     "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -74,6 +77,7 @@
     "destination_icon": "wikicalamitymodoficial.png",
     "destination_main_page": "Wiki_Calamity_Mod_en_Español",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -96,6 +100,7 @@
     "destination_icon": "coromonwiki.png",
     "destination_main_page": "Coromon_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -118,9 +123,30 @@
     "destination_icon": "deeprockgalacticwiki.png",
     "destination_main_page": "Deep_Rock_Galactic_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
+  },
+  {
+    "id": "es-halflife",
+    "origins_label": "Half-Life & Portal Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Half-Life & Portal Fandom Wiki",
+        "origin_base_url": "halflife.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portada"
+      }
+    ],
+    "destination": "Combine OverWiki",
+    "destination_base_url": "combineoverwiki.net",
+    "destination_content_suffix": "/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "combine.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-minecraft",
@@ -138,7 +164,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png",
     "destination_main_page": "Minecraft_Wiki",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "es-pokemon",
@@ -156,7 +183,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikidex.png",
     "destination_main_page": "WikiDex",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-splatoon",
@@ -174,7 +202,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "inkipedia.png",
     "destination_main_page": "Página_principal",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "es-supersmashbros",
@@ -192,7 +221,31 @@
     "destination_platform": "mediawiki",
     "destination_icon": "smashpedia.png",
     "destination_main_page": "SmashPedia",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "es-teamfortress",
+    "origins_label": "Team Fortress Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Team Fortress Fandom Wiki",
+        "origin_base_url": "team-fortress.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Team_Fortress"
+      }
+    ],
+    "destination": "Team Fortress Wiki",
+    "destination_base_url": "wiki.teamfortress.com",
+    "destination_content_suffix": "/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "teamfortress.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "es-terraria",
@@ -211,6 +264,7 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -232,6 +286,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "touhouwiki.png",
     "destination_main_page": "Touhou_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   }
 ]

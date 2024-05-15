@@ -15,7 +15,8 @@
     "destination_platform": "dokuwiki",
     "destination_icon": "animalcrossingwiki.png",
     "destination_main_page": "start",
-    "destination_search_path": "/doku.php"
+    "destination_search_path": "/doku.php",
+    "destination_content_path": "/"
   },
   {
     "id": "de-ark",
@@ -34,6 +35,7 @@
     "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -55,7 +57,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "detektivconan.png",
     "destination_main_page": "Hauptseite",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "de-minecraft",
@@ -73,7 +76,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png",
     "destination_main_page": "Minecraft_Wiki",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "de-pokemon",
@@ -91,7 +95,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "pokewiki.png",
     "destination_main_page": "Hauptseite",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "de-starcitizen",
@@ -109,7 +114,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "starcitizen.png",
     "destination_main_page": "Star_Citizen_Wiki",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "de-terraria",
@@ -128,6 +134,7 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -149,6 +156,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikiraiderde.png",
     "destination_main_page": "Hauptseite",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   }
 ]

@@ -1,16 +1,3 @@
-// Set power setting
-function setPower(setting) {
-  chrome.storage.local.set({ 'power': setting });
-  var powerImage = document.getElementById('powerImage');
-  powerImage.src = '../../images/power-' + setting + '.png';
-  powerImage.alt = 'Indie Wiki Buddy is ' + setting;
-
-  chrome.runtime.sendMessage({
-    action: 'updateIcon',
-    value: setting
-  });
-}
-
 // SAFARI-DIFF (not needed since Safari started with v3)
 // async function migrateData() {
 //   commonFunctionMigrateToV3();
@@ -19,7 +6,7 @@ function setPower(setting) {
 // Set power setting
 function setPower(setting, storeSetting = true) {
   if (storeSetting) {
-    chrome.storage.local.set({ 'power': setting });
+    extensionAPI.storage.local.set({ 'power': setting });
   }
   var powerImage = document.getElementById('powerImage');
   powerImage.src = '../../images/power-' + setting + '.png';
@@ -30,14 +17,14 @@ function setPower(setting, storeSetting = true) {
     document.getElementById('powerCheckbox').checked = false;
   }
 
-  chrome.runtime.sendMessage({
+  extensionAPI.runtime.sendMessage({
     action: 'updateIcon',
     value: setting
   });
 }
 
 // Set default action setting
-chrome.storage.sync.get(['defaultWikiAction'], (item) => {
+extensionAPI.storage.sync.get(['defaultWikiAction'], (item) => {
   if (item.defaultWikiAction === 'disabled') {
     document.options.defaultWikiAction.value = 'disabled';
   } else if (item.defaultWikiAction === 'redirect') {
@@ -47,7 +34,7 @@ chrome.storage.sync.get(['defaultWikiAction'], (item) => {
   }
 });
 // Set default search engine setting
-chrome.storage.sync.get(['defaultSearchAction'], (item) => {
+extensionAPI.storage.sync.get(['defaultSearchAction'], (item) => {
   if (item.defaultSearchAction === 'disabled') {
     document.options.defaultSearchAction.value = 'disabled';
   } else if (item.defaultSearchAction === 'hide') {
@@ -62,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // If running Opera, show note about search engine access
   if (navigator.userAgent.match(/OPR\//)) {
     const notificationBannerOpera = document.getElementById('notificationBannerOpera');
-    chrome.storage.local.get({ 'hideOperaPermissionsNote': false }, (item) => {
+    extensionAPI.storage.local.get({ 'hideOperaPermissionsNote': false }, (item) => {
       if (!item.hideOperaPermissionsNote) {
         notificationBannerOpera.style.display = 'block';
 
         document.getElementById('operaPermsHideLink').addEventListener('click', () => {
-          chrome.storage.local.set({ 'hideOperaPermissionsNote': true });
+          extensionAPI.storage.local.set({ 'hideOperaPermissionsNote': true });
           notificationBannerOpera.style.display = 'none';
         });
       }
@@ -76,11 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Listener for settings links:
   document.getElementById('openSettingsButton').addEventListener('click', () => {
-    chrome.tabs.create({ 'url': chrome.runtime.getURL('pages/settings/index.html') });
+    extensionAPI.tabs.create({ 'url': extensionAPI.runtime.getURL('pages/settings/index.html') });
     window.close();
   });
   document.getElementById('openSettingsLink').addEventListener('click', () => {
-    chrome.tabs.create({ 'url': chrome.runtime.getURL('pages/settings/index.html') });
+    extensionAPI.tabs.create({ 'url': extensionAPI.runtime.getURL('pages/settings/index.html') });
     window.close();
   });
 
@@ -92,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       document.getElementById('breezewikiCustomHost').style.display = 'none';
     }
-    chrome.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
+    extensionAPI.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
   });
 
   document.options.addEventListener("submit", function (e) {
@@ -102,26 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
     el.addEventListener('change', async () => {
-      chrome.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
+      extensionAPI.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
 
       let wikiSettings = {};
       sites = await commonFunctionGetSiteDataByDestination();
       sites.forEach((site) => {
         wikiSettings[site.id] = document.options.defaultWikiAction.value;
       });
-      chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+      extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
     el.addEventListener('change', async () => {
-      chrome.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
+      extensionAPI.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
 
       let searchEngineSettings = {};
       sites = await commonFunctionGetSiteDataByDestination();
       sites.forEach((site) => {
         searchEngineSettings[site.id] = document.options.defaultSearchAction.value;
       });
-      chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+      extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
     });
   });
 });

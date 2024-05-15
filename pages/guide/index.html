@@ -6,83 +6,8 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="../../images/logo.png" />
   <title>Indie Wiki Buddy settings</title>
-  <style>
-    /* ELEMENTS */
-    body {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #2b2a33;
-      font-family: Helvetica, Sans-Serif;
-      font-size: .9em;
-    }
-
-    a {
-      text-decoration-style: dotted;
-      text-decoration-thickness: 1px;
-      color: #005799;
-    }
-
-    a:visited {
-      color: #005799;
-    }
-
-    hr {
-      height: 1px;
-      border: none;
-      color: #005799;
-      background-color: #005799;
-      margin: .5em 0px;
-    }
-
-    h1 {
-      font-size: 1.3rem;
-      padding: .5em 0;
-      margin: 0;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      text-align: center;
-      padding: .5em 0 0 0;
-      margin: 0;
-    }
-
-    p {
-      margin: 1em;
-    }
-
-    ul {
-      list-style-type: none;
-      margin: 1em 1em 1em -.5em;
-    }
-
-    .container {
-      background: #fff;
-    }
-
-    /* HEADER */
-    #header {
-      line-height: 1.5em;
-      padding: .5em 1em;
-      box-sizing: border-box;
-      background-color: #005799;
-      color: #fff;
-      width: 100%;
-    }
-
-    #links {
-      background-color: #e5f4ff;
-      padding: .5em 1em;
-    }
-
-    /* CONTENT */
-    #content {
-      background-color: #fff;
-      box-sizing: border-box;
-      padding-bottom: 1.5em;
-    }
-  </style>
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
+  <link rel="stylesheet" href="../../css/guide.css" type="text/css">
 </head>
 
 <body>
@@ -101,8 +26,7 @@
         <br /><br />
         When you visit a wiki on a large, corporate-run wiki host, this extension can notify or automatically redirect
         you to quality independent wikis when they're available.
-        Search results in Google, Bing, DuckDuckGo, Yahoo, Brave Search, Ecosia, Startpage, Qwant, Yandex, and Kagi can
-        also be filtered,
+        Search results in Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex can also be filtered,
         replacing non-independent wikis with links to independent counterpart (or hiding them completely).
         <br /><br />
         We currently redirect from Fandom, Fextralife, and Neoseeker wikis to independent counterparts.
@@ -116,11 +40,11 @@
       </p>
       <h2>Global settings help</h2>
       <p>
-        There are several global settings:
+        There are several general settings:
       </p>
       <ul>
         <li>
-          <b><span aria-hidden="true">🔋</span> Extension is on/off</b>
+          <b><span aria-hidden="true">🔋</span> Extension is on / off</b>
           <br />
           Enable/disable all Indie Wiki Buddy functionality at the click of a button.
         </li>
@@ -135,18 +59,6 @@
           <br />
           If you aren't getting notifications when this is enabled, check your operating system's notification
           settings to ensure that your browser is allowed to send notifications.
-        </li>
-        <br />
-        <li>
-          <b><span aria-hidden="true">🔔</span> On search engines, show banner when non-indie results are hidden</b>
-          <br />
-          When this option is enabled, a banner will be inserted at the top of search engine results when Indie Wiki
-          Buddy
-          has hidden results from Fandom, Fextralife, or Neoseeker wikis.
-          This banner also lets you re-show the hidden results if you wish.
-          <br />
-          <br />
-          If you don't want to see any indication that results have been hidden, disable this option.
         </li>
         <br />
         <li>
@@ -165,8 +77,47 @@
         <li>
           <b><span aria-hidden="true">📁</span> Open changelog when Indie Wiki Buddy is updated</b>
           <br />
-          By default, when Indie Wiki Buddy is updated, the <a href="https://getindie.wiki/changelog/">changelog</a>
-          will be opened in a new tab. Unchecking this option will disable opening the changelog.
+          Enable this option to have Indie Wiki Buddy's <a href="https://getindie.wiki/changelog/">changelog</a>
+          opened in a new tab whenever it updates, so you can stay up-to-date on the latest changes.
+        </li>
+      </ul>
+      <p>
+        You can also configure your settings for filtering results in search engines:
+      </p>
+      <ul>
+        <li>
+          <b><img src="../../images/toggles.png" height="12" alt="" /> Toggle filtering per search engine</b>
+          <br />
+          By default, filtering is enabled for all search engines.
+          Filtering is done based on the user's selected settings for each wiki.
+          The default filtering setting for all wikis is to replace
+          non-indie search results with buttons linking to indie counterparts.
+          <br /><br />
+          The current supported search engines are
+          Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex.
+        </li>
+        <br />
+        <li>
+          <b><img src="../../images/toggle-banner.png" height="12" alt="" /> On search engines, show banner when non-indie results are hidden</b>
+          <br />
+          When this option is enabled,
+          a banner will be inserted at the top of search engine results when Indie Wiki Buddy
+          has hidden results from Fandom, Fextralife, or Neoseeker wikis.
+          This banner also lets you re-show the hidden results if you wish.
+          <br />
+          <br />
+          If you don't want to see any indication that results have been hidden, disable this option.
+        </li>
+        <br />
+        <li>
+          <b><img src="../../images/toggle-move-up.png" height="12" alt="" /> On Google, move indie wiki results to the top of
+            the page</b>
+          <br />
+          By default, Indie Wiki Buddy will re-order the results page on Google to move indie wiki results to the top,
+          if they are further down the first page of results. This allows you to find the pages you're looking for on indie wikis
+          quicker.
+          <br /><br />
+          This feature is currently only available for Google, as it can be complex to maintain reliably.
         </li>
       </ul>
 
@@ -203,6 +154,7 @@
       <p>
         Once you've enabled a BreezeWiki option,
         a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror.
+        If your selected BreezeWiki host goes down, you can come back to these settings and switch your host.
       </p>
 
       <h2>Individual wiki settings help</h2>

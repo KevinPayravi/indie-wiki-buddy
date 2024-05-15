@@ -16,6 +16,7 @@
     "destination_icon": "acecombatwiki.png",
     "destination_main_page": "Ace_Combat_中文_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
@@ -37,10 +38,30 @@
     "destination_icon": "calamitymodwiki.png",
     "destination_main_page": "Calamity_Mod_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
     ]
+  },
+  {
+    "id": "zh-cookie",
+    "origins_label": "Cookie Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cookie Fandom Wiki",
+        "origin_base_url": "cookie.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "首页"
+      }
+    ],
+    "destination": "Cookie☆Wiki",
+    "destination_base_url": "cookie.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cookiewiki.png",
+    "destination_main_page": "首页",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "zh-fridaynightfunkin",
@@ -59,9 +80,29 @@
     "destination_icon": "fridaynightfunkinwiki.png",
     "destination_main_page": "Friday_Night_Funkin'_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
+  },
+  {
+    "id": "zh-halflife",
+    "origins_label": "Half-Life Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Half-Life Fandom Wiki",
+        "origin_base_url": "hlforever.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "首頁"
+      }
+    ],
+    "destination": "Combine OverWiki",
+    "destination_base_url": "combineoverwiki.net",
+    "destination_content_suffix": "/zh-hans",
+    "destination_platform": "mediawiki",
+    "destination_icon": "combine.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "zh-minecraft",
@@ -85,7 +126,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png",
     "destination_main_page": "Minecraft_Wiki",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "zh-noita",
@@ -104,9 +146,35 @@
     "destination_icon": "noitawiki.png",
     "destination_main_page": "Noita_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
     ]
+  },
+  {
+    "id": "zh-pokemon",
+    "origins_label": "Pokémon Fandom Wikis",
+    "origins": [
+      {
+        "origins": "Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pokemon"
+      },
+      {
+        "origins": "Pokémon Fandom Wiki (Zh-Hk)",
+        "origin_base_url": "pokemon.fandom.com/zh-hk",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "寵物小精靈百科"
+      }
+    ],
+    "destination": "52Poké Wiki",
+    "destination_base_url": "wiki.52poke.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "52pokewiki.png",
+    "destination_main_page": "主页",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "zh-terraria",
@@ -125,6 +193,7 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"

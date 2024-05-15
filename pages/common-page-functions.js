@@ -1,21 +1,24 @@
 // Set setting toggle values on-load:
-chrome.storage.local.get({ 'power': 'on' }, (item) => {
+extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
   setPower(item.power, false);
 });
 // SAFARI-DIFF (Safari currently does not support notifications)
-// chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
+// extensionAPI.storage.sync.get({ 'notifications': 'on' }, (item) => {
 //   setNotifications(item.notifications, false);
 // });
 chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
   setHiddenResultsBanner(item.hiddenResultsBanner, false);
 });
-chrome.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
+extensionAPI.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
   setCrossLanguage(item.crossLanguage, false);
 });
-chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
+extensionAPI.storage.sync.get({ 'reorderResults': 'on' }, (item) => {
+  setReorder(item.reorderResults, false);
+});
+extensionAPI.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
   setOpenChangelog(item.openChangelog, false);
 });
-chrome.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
+extensionAPI.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
   // Account for legacy 'on' setting for BreezeWiki
   if (item.breezewiki === 'on') {
     setBreezeWiki('redirect');
@@ -31,7 +34,7 @@ chrome.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
 
 // Add event listener for power toggle
 document.getElementById('powerCheckbox').addEventListener('change', () => {
-  chrome.storage.local.get({ 'power': 'on' }, (item) => {
+  extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
     if (item.power === 'on') {
       setPower('off');
     } else {
@@ -40,11 +43,49 @@ document.getElementById('powerCheckbox').addEventListener('change', () => {
   });
 });
 
+// Event listeners for toggling search engines
+const searchEngineToggles = document.querySelectorAll('.searchEngineToggles label');
+searchEngineToggles.forEach((engine) => {
+  let engineInput = engine.querySelector('input');
+  let engineName = engineInput.getAttribute('data-search-engine');
+  engine.addEventListener('change', () => {
+    if (engineInput.checked) {
+      extensionAPI.storage.sync.get({'searchEngineToggles': {}}, (settings) => {
+        settings.searchEngineToggles[engineName] = 'on';
+        extensionAPI.storage.sync.set({
+          'searchEngineToggles': settings.searchEngineToggles
+        });
+      });
+      engineInput.checked = true;
+    } else {
+      extensionAPI.storage.sync.get( { 'searchEngineToggles': {} }, (settings) => {
+        settings.searchEngineToggles[engineName] = 'off';
+        extensionAPI.storage.sync.set({
+          'searchEngineToggles': settings.searchEngineToggles
+        });
+      });
+      engineInput.checked = false;
+    }
+  });
+});
+document.querySelectorAll('.searchEngineToggles input').forEach((el) => {
+  const searchEngineName = el.getAttribute('data-search-engine');
+  extensionAPI.storage.sync.get({
+      'searchEngineToggles': {}
+  }, (settings) => {
+    if (settings.searchEngineToggles[searchEngineName] === 'on' || !settings.searchEngineToggles.hasOwnProperty(searchEngineName)) {
+      el.checked = true;
+    } else {
+      el.checked = false;
+    }
+  });
+});
+
 // SAFARI-DIFF (Safari currently does not support notifications)
 // Set notifications setting
 // function setNotifications(setting, storeSetting = true) {
 //   if (storeSetting) {
-//     chrome.storage.sync.set({ 'notifications': setting });
+//     extensionAPI.storage.sync.set({ 'notifications': setting });
 //   }
 //   const notificationsIcon = document.getElementById('notificationsIcon');
 //   if (setting === 'on') {
@@ -59,22 +100,19 @@ document.getElementById('powerCheckbox').addEventListener('change', () => {
 // Set search results hidden banner setting
 function setHiddenResultsBanner(setting, storeSetting = true) {
   if (storeSetting) {
-    chrome.storage.sync.set({ 'hiddenResultsBanner': setting });
+    extensionAPI.storage.sync.set({ 'hiddenResultsBanner': setting });
   }
-  const hiddenResultsBannerIcon = document.getElementById('hiddenResultsBannerIcon');
   if (setting === 'on') {
     document.getElementById('hiddenResultsBannerCheckbox').checked = true;
-    hiddenResultsBannerIcon.innerText = '🔔';
   } else {
     document.getElementById('hiddenResultsBannerCheckbox').checked = false;
-    hiddenResultsBannerIcon.innerText = '🔕';
   }
 }
 
 // Set cross-language setting
 function setCrossLanguage(setting, storeSetting = true) {
   if (storeSetting) {
-    chrome.storage.sync.set({ 'crossLanguage': setting });
+    extensionAPI.storage.sync.set({ 'crossLanguage': setting });
   }
 
   const crossLanguageIcon = document.getElementById('crossLanguageIcon');
@@ -87,10 +125,23 @@ function setCrossLanguage(setting, storeSetting = true) {
   }
 }
 
+// Set re-order setting
+function setReorder(setting, storeSetting = true) {
+  if (storeSetting) {
+    extensionAPI.storage.sync.set({ 'reorderResults': setting });
+  }
+
+  if (setting === 'on') {
+    document.getElementById('reorderResultsCheckbox').checked = true;
+  } else {
+    document.getElementById('reorderResultsCheckbox').checked = false;
+  }
+}
+
 // Set open changelog setting
 function setOpenChangelog(setting, storeSetting = true) {
   if (storeSetting) {
-    chrome.storage.sync.set({ 'openChangelog': setting });
+    extensionAPI.storage.sync.set({ 'openChangelog': setting });
   }
 
   const openChangelogIcon = document.getElementById('openChangelogIcon');
@@ -103,10 +154,10 @@ function setOpenChangelog(setting, storeSetting = true) {
   }
 }
 
-// Event listeners for general setting toggles
 // SAFARI-DIFF (Safari currently does not support notifications)
+// Event listeners for general setting toggles
 // document.getElementById('notificationsCheckbox').addEventListener('change', () => {
-//   chrome.storage.sync.get({ 'notifications': 'on' }, (item) => {
+//   extensionAPI.storage.sync.get({ 'notifications': 'on' }, (item) => {
 //     if (item.notifications === 'on') {
 //       setNotifications('off');
 //     } else {
@@ -115,7 +166,7 @@ function setOpenChangelog(setting, storeSetting = true) {
 //   });
 // });
 document.getElementById('hiddenResultsBannerCheckbox').addEventListener('change', () => {
-  chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
+  extensionAPI.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
     if (item.hiddenResultsBanner === 'on') {
       setHiddenResultsBanner('off');
     } else {
@@ -124,7 +175,7 @@ document.getElementById('hiddenResultsBannerCheckbox').addEventListener('change'
   });
 });
 document.getElementById('crossLanguageCheckbox').addEventListener('change', () => {
-  chrome.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
+  extensionAPI.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
     if (item.crossLanguage === 'on') {
       setCrossLanguage('off');
     } else {
@@ -132,8 +183,17 @@ document.getElementById('crossLanguageCheckbox').addEventListener('change', () =
     }
   });
 });
+document.getElementById('reorderResultsCheckbox').addEventListener('change', () => {
+  extensionAPI.storage.sync.get({ 'reorderResults': 'on' }, (item) => {
+    if (item.reorderResults === 'on') {
+      setReorder('off');
+    } else {
+      setReorder('on');
+    }
+  });
+});
 document.getElementById('openChangelogCheckbox').addEventListener('change', () => {
-  chrome.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
+  extensionAPI.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
     if (item.openChangelog === 'on') {
       setOpenChangelog('off');
     } else {
@@ -144,7 +204,7 @@ document.getElementById('openChangelogCheckbox').addEventListener('change', () =
 document.querySelectorAll('[name="breezewikiSetting"]').forEach((el) => {
   el.addEventListener('change', async () => {
     const settingValue = document.options.breezewikiSetting.value;
-    chrome.storage.sync.set({ 'breezewiki': settingValue });
+    extensionAPI.storage.sync.set({ 'breezewiki': settingValue });
     setBreezeWiki(settingValue);
     if (settingValue !== 'off') {
       loadBreezewikiOptions();
@@ -161,7 +221,7 @@ function setBreezeWiki(setting, storeSetting = true) {
 
   // Store BreezeWiki setting
   if (storeSetting) {
-    chrome.storage.sync.set({ 'breezewiki': setting });
+    extensionAPI.storage.sync.set({ 'breezewiki': setting });
   }
 
   // Set BreezeWiki value on radio group
@@ -171,7 +231,7 @@ function setBreezeWiki(setting, storeSetting = true) {
   const breezewikiHost = document.getElementById('breezewikiHost');
   if (setting !== 'off') {
     breezewikiHost.style.display = 'block';
-    chrome.storage.sync.get({ 'breezewikiHost': null }, (host) => {
+    extensionAPI.storage.sync.get({ 'breezewikiHost': null }, (host) => {
       if (!host.breezewikiHost) {
         fetch('https://bw.getindie.wiki/instances.json')
           .then((response) => {
@@ -181,7 +241,7 @@ function setBreezeWiki(setting, storeSetting = true) {
             throw new Error('Indie Wiki Buddy failed to get BreezeWiki data.');
           }).then((breezewikiHosts) => {
             breezewikiHosts = breezewikiHosts.filter(host =>
-              chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
+              extensionAPI.runtime.getManifest().version.localeCompare(host.iwb_version,
                 undefined,
                 { numeric: true, sensitivity: 'base' }
               ) >= 0
@@ -198,16 +258,16 @@ function setBreezeWiki(setting, storeSetting = true) {
                 console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
               }
             }
-            chrome.storage.sync.set({ 'breezewikiHost': host.breezewikiHost });
-            chrome.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
-            chrome.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
+            extensionAPI.storage.sync.set({ 'breezewikiHost': host.breezewikiHost });
+            extensionAPI.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
+            extensionAPI.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
             document.getElementById('breezewikiHostSelect').value = host.breezewikiHost;
           }).catch((e) => {
             console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
 
             // If fetch fails and no host is set, default to breezewiki.com:
             if (!host) {
-              chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
+              extensionAPI.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
             }
           });
       } else {
@@ -259,7 +319,7 @@ function populateBreezewikiHosts(breezewikiHosts, selectedHost, customHostName) 
 // Populate BreezeWiki dropdown when enabled
 async function loadBreezewikiOptions() {
   // Load BreezeWiki options:
-  chrome.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost', 'breezewikiCustomHost'], (item) => {
+  extensionAPI.storage.sync.get(['breezewikiHostOptions', 'breezewikiHostFetchTimestamp', 'breezewikiHost', 'breezewikiCustomHost'], (item) => {
     let hostOptions = item.breezewikiHostOptions;
     let hostFetchTimestamp = item.breezewikiHostFetchTimestamp;
     let host = item.breezewikiHost;
@@ -276,7 +336,7 @@ async function loadBreezewikiOptions() {
           throw new Error('Indie Wiki Buddy failed to get BreezeWiki data.');
         }).then((breezewikiHosts) => {
           breezewikiHosts = breezewikiHosts.filter(host =>
-            chrome.runtime.getManifest().version.localeCompare(host.iwb_version,
+            extensionAPI.runtime.getManifest().version.localeCompare(host.iwb_version,
               undefined,
               { numeric: true, sensitivity: 'base' }
             ) >= 0
@@ -299,15 +359,15 @@ async function loadBreezewikiOptions() {
           populateBreezewikiHosts(breezewikiHosts, host, customHost);
 
           // Store BreezeWiki host details
-          chrome.storage.sync.set({ 'breezewikiHost': host });
-          chrome.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
-          chrome.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
+          extensionAPI.storage.sync.set({ 'breezewikiHost': host });
+          extensionAPI.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
+          extensionAPI.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
         }).catch((e) => {
           console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
 
           // If fetch fails and no host is set, default to breezewiki.com:
           if (!host) {
-            chrome.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
+            extensionAPI.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
           }
         });
     } else {
@@ -319,7 +379,7 @@ async function loadBreezewikiOptions() {
       populateBreezewikiHosts(hostOptions, host, customHost);
 
       // Store BreezeWiki host details
-      chrome.storage.sync.set({ 'breezewikiHost': host });
+      extensionAPI.storage.sync.set({ 'breezewikiHost': host });
     }
   });
 }

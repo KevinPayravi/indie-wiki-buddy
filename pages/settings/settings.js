@@ -35,8 +35,8 @@ async function loadOptions(lang, textFilter = '') {
       site.destination_base_url.toLowerCase().includes(textFilter))
   ));
 
-  chrome.storage.local.get((localStorage) => {
-    chrome.storage.sync.get(async (syncStorage) => {
+  extensionAPI.storage.local.get((localStorage) => {
+    extensionAPI.storage.sync.get(async (syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
       let wikiSettings = await commonFunctionDecompressJSON(storage.wikiSettings || {});
       let searchEngineSettings = await commonFunctionDecompressJSON(storage.searchEngineSettings || {});
@@ -44,7 +44,7 @@ async function loadOptions(lang, textFilter = '') {
       let defaultSearchAction = storage.defaultSearchAction || null;
 
       // Load defaults for newly added wikis:
-      chrome.storage.sync.get(['defaultWikiAction'], (item) => {
+      extensionAPI.storage.sync.get(['defaultWikiAction'], (item) => {
         if (item.defaultWikiAction === 'disabled') {
           document.options.defaultWikiAction.value = 'disabled';
         } else if (item.defaultWikiAction === 'redirect') {
@@ -53,7 +53,7 @@ async function loadOptions(lang, textFilter = '') {
           document.options.defaultWikiAction.value = 'alert';
         }
       });
-      chrome.storage.sync.get(['defaultSearchAction'], (item) => {
+      extensionAPI.storage.sync.get(['defaultSearchAction'], (item) => {
         if (item.defaultSearchAction === 'disabled') {
           document.options.defaultSearchAction.value = 'disabled';
         } else if (item.defaultSearchAction === 'hide') {
@@ -180,51 +180,51 @@ async function loadOptions(lang, textFilter = '') {
 
         // Add listeners for when user clicks control:
         inputDisabled.addEventListener('click', (input) => {
-          chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
+          extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
             let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
             var key = input.target.getAttribute('data-wiki-key');
             wikiSettings[key] = 'disabled';
-            chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+            extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
           });
         });
         inputAlert.addEventListener('click', (input) => {
-          chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
+          extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
             let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
             var key = input.target.getAttribute('data-wiki-key');
             wikiSettings[key] = 'alert';
-            chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+            extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
           });
         });
         inputRedirect.addEventListener('click', (input) => {
-          chrome.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
+          extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
             let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
             var key = input.target.getAttribute('data-wiki-key');
             wikiSettings[key] = 'redirect';
-            chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+            extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
           });
         });
         inputSearchEngineDisabled.addEventListener('click', (input) => {
-          chrome.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
+          extensionAPI.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
             let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
             var key = input.target.getAttribute('data-wiki-key');
             searchEngineSettings[key] = 'disabled';
-            chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+            extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
           });
         });
         inputSearchEngineReplace.addEventListener('click', (input) => {
-          chrome.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
+          extensionAPI.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
             let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
             var key = input.target.getAttribute('data-wiki-key');
             searchEngineSettings[key] = 'replace';
-            chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+            extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
           });
         });
         inputSearchEngineHide.addEventListener('click', (input) => {
-          chrome.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
+          extensionAPI.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
             let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
             var key = input.target.getAttribute('data-wiki-key');
             searchEngineSettings[key] = 'hide';
-            chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+            extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
           });
         });
 
@@ -279,6 +279,7 @@ async function loadOptions(lang, textFilter = '') {
         let icon = document.createElement("img");
         icon.src = '../../favicons/' + sites[i].language.toLowerCase() + '/' + sites[i].destination_icon;
         icon.alt = 'Visit ' + sites[i].destination;
+        icon.width = '16';
         iconLink.appendChild(icon);
         wikiInfo.appendChild(iconLink);
         if (lang === 'ALL') {
@@ -295,6 +296,7 @@ async function loadOptions(lang, textFilter = '') {
         wikiInfo.appendChild(wikiLink);
         wikiInfo.appendChild(document.createTextNode(' (from ' + sites[i].origins_label + ')'));
         let siteContainer = document.createElement("div");
+        siteContainer.classList.add('site-container')
 
         // Output inputs container:
         let inputsContainer = document.createElement('div');
@@ -318,7 +320,7 @@ async function loadOptions(lang, textFilter = '') {
           toggles[i].checked = true;
           wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'redirect';
         }
-        chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+        extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       });
 
       const setAllAlert = document.getElementById('setAllAlert');
@@ -328,7 +330,7 @@ async function loadOptions(lang, textFilter = '') {
           toggles[i].checked = true;
           wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'alert';
         }
-        chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+        extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       });
 
       const setAllDisabled = document.getElementById('setAllDisabled');
@@ -338,7 +340,7 @@ async function loadOptions(lang, textFilter = '') {
           toggles[i].checked = true;
           wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'disabled';
         }
-        chrome.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+        extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
       });
 
       const setAllSearchEngineDisabled = document.getElementById('setAllSearchEngineDisabled');
@@ -348,7 +350,7 @@ async function loadOptions(lang, textFilter = '') {
           toggles[i].checked = true;
           searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'disabled';
         }
-        chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+        extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
       });
 
       const setAllSearchEngineHide = document.getElementById('setAllSearchEngineHide');
@@ -358,7 +360,7 @@ async function loadOptions(lang, textFilter = '') {
           toggles[i].checked = true;
           searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'hide';
         }
-        chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+        extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
       });
 
       const setAllSearchEngineReplace = document.getElementById('setAllSearchEngineReplace');
@@ -368,16 +370,63 @@ async function loadOptions(lang, textFilter = '') {
           toggles[i].checked = true;
           searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'replace';
         }
-        chrome.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+        extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
       });
     });
   });
 }
 
+function displayCustomSearchEngine(customSearchEngineHostname, customSearchEnginePreset) {
+  let customSearchEnginesList = document.getElementById('customSearchEnginesList');
+
+  let listItem = document.createElement('div');
+  listItem.classList.add('customSearchEngine');
+
+  let customSearchEngineHostnameLabel = document.createElement('span');
+  customSearchEngineHostnameLabel.classList.add('customSearchEngineHostname');
+  customSearchEngineHostnameLabel.innerText = customSearchEngineHostname;
+
+  let customSearchEnginePresetLabel = document.createElement('span');
+  customSearchEnginePresetLabel.classList.add('customSearchEnginePreset');
+  customSearchEnginePresetLabel.innerText = document.getElementById('newCustomSearchEnginePreset')
+    .querySelector(`option[value="${customSearchEnginePreset}"]`).innerText;
+
+  let customSearchEngineDeleteButton = document.createElement('button');
+  customSearchEngineDeleteButton.classList.add('customSearchEngineDelete');
+  customSearchEngineDeleteButton.innerText = 'Delete';
+  customSearchEngineDeleteButton.addEventListener('click', () => {
+    listItem.remove();
+
+    extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
+      let customSearchEngines = item.customSearchEngines;
+      delete customSearchEngines[customSearchEngineHostname];
+      extensionAPI.storage.sync.set({ 'customSearchEngines': customSearchEngines });
+    });
+
+    let customSearchEngine = customSearchEngineHostname;
+    // Add "https://" if not already present
+    if (!customSearchEngine.includes('://')) {
+      customSearchEngine = 'https://' + customSearchEngine;
+    }
+    customSearchEngine = new URL(customSearchEngine);
+    extensionAPI.permissions.remove({
+      origins: [ `${customSearchEngine}*` ]
+    });
+
+    extensionAPI.scripting.unregisterContentScripts({ ids: [`content-search-filtering-${customSearchEngineHostname}`] });
+  });
+
+  listItem.appendChild(customSearchEngineHostnameLabel);
+  listItem.appendChild(customSearchEnginePresetLabel);
+  listItem.appendChild(customSearchEngineDeleteButton);
+
+  customSearchEnginesList.appendChild(listItem);
+}
+
 // Set power setting
 function setPower(setting, storeSetting = true) {
   if (storeSetting) {
-    chrome.storage.local.set({ 'power': setting });
+    extensionAPI.storage.local.set({ 'power': setting });
   }
   const powerText = document.getElementById('powerText');
   powerText.textContent = 'Extension is ' + setting;
@@ -390,7 +439,7 @@ function setPower(setting, storeSetting = true) {
     powerIcon.innerText = '🪫';
   }
 
-  chrome.runtime.sendMessage({
+  extensionAPI.runtime.sendMessage({
     action: 'updateIcon',
     value: setting
   });
@@ -411,12 +460,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // If running Opera, show note about search engine access
   if (navigator.userAgent.match(/OPR\//)) {
     const notificationBannerOpera = document.getElementById('notificationBannerOpera');
-    chrome.storage.local.get({ 'hideOperaPermissionsNote': false }, (item) => {
+    extensionAPI.storage.local.get({ 'hideOperaPermissionsNote': false }, (item) => {
       if (!item.hideOperaPermissionsNote) {
         notificationBannerOpera.style.display = 'block';
 
         document.getElementById('operaPermsHideLink').addEventListener('click', () => {
-          chrome.storage.local.set({ 'hideOperaPermissionsNote': true });
+          extensionAPI.storage.local.set({ 'hideOperaPermissionsNote': true });
           notificationBannerOpera.style.display = 'none';
         });
       }
@@ -425,13 +474,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Count number of times settings have been opened
   // Purposefully using local storage instead of sync
-  chrome.storage.local.get({ 'countSettingsOpened': 0 }, (item) => {
+  extensionAPI.storage.local.get({ 'countSettingsOpened': 0 }, (item) => {
     const countSettingsOpened = item.countSettingsOpened;
-    chrome.storage.local.set({ 'countSettingsOpened': countSettingsOpened + 1 });
+    extensionAPI.storage.local.set({ 'countSettingsOpened': countSettingsOpened + 1 });
 
     // Show review reminder every 5 opens,
     // and if the banner hasn't been previously dismissed
-    chrome.storage.local.get({ 'hideReviewReminder': false }, (item) => {
+    extensionAPI.storage.local.get({ 'hideReviewReminder': false }, (item) => {
       if (!item.hideReviewReminder && ((countSettingsOpened - 1) % 5 === 0)) {
         const notificationBannerReview = document.getElementById('notificationBannerReview');
 
@@ -440,13 +489,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Disable future review reminders if user clicks links:
         document.getElementById('reviewReminderChromeLink').addEventListener('click', () => {
-          chrome.storage.local.set({ 'hideReviewReminder': true });
+          extensionAPI.storage.local.set({ 'hideReviewReminder': true });
         });
         document.getElementById('reviewReminderFirefoxLink').addEventListener('click', () => {
-          chrome.storage.local.set({ 'hideReviewReminder': true });
+          extensionAPI.storage.local.set({ 'hideReviewReminder': true });
         });
         document.getElementById('reviewReminderHideLink').addEventListener('click', () => {
-          chrome.storage.local.set({ 'hideReviewReminder': true });
+          extensionAPI.storage.local.set({ 'hideReviewReminder': true });
           notificationBannerReview.style.display = 'none';
         });
       }
@@ -454,11 +503,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Adding version to popup:
-  const version = chrome.runtime.getManifest().version;
+  const version = extensionAPI.runtime.getManifest().version;
   document.getElementById('version').textContent = 'v' + version;
 
   // Get user's last set language
-  chrome.storage.sync.get({ 'lang': 'EN' }, (item) => {
+  extensionAPI.storage.sync.get({ 'lang': 'EN' }, (item) => {
     langSelect.value = item.lang;
     const filterInput = document.getElementById('filterInput').value;
     loadOptions(item.lang, filterInput);
@@ -466,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add event listener for language select
   const langSelect = document.getElementById("langSelect");
   langSelect.addEventListener('change', () => {
-    chrome.storage.sync.set({ 'lang': langSelect.value });
+    extensionAPI.storage.sync.set({ 'lang': langSelect.value });
     const filterInput = document.getElementById('filterInput').value;
     loadOptions(langSelect.value, filterInput);
   });
@@ -480,7 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       document.getElementById('breezewikiCustomHost').style.display = 'none';
     }
-    chrome.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
+    extensionAPI.storage.sync.set({ 'breezewikiHost': breezewikiHostSelect.value });
   });
 
   function setCustomBreezewikiDomain() {
@@ -494,18 +543,18 @@ document.addEventListener('DOMContentLoaded', () => {
     breezewikiCustomDomain = breezewikiCustomDomain.protocol + "//" + breezewikiCustomDomain.hostname
     breezewikiCustomDomain = breezewikiCustomDomain.toString();
 
-    chrome.permissions.request({
+    extensionAPI.permissions.request({
       origins: [breezewikiCustomDomain + '/*']
     }, (granted) => {
       // The callback argument will be true if the user granted the permissions.
       if (granted) {
-        chrome.scripting.registerContentScripts([{
+        extensionAPI.scripting.registerContentScripts([{
           id: 'content-banners',
           matches: [breezewikiCustomDomain + '/*'],
           js: ['/scripts/common-functions.js', '/scripts/content-banners.js', '/scripts/content-breezewiki.js'],
           runAt: "document_idle"
         }]);
-        chrome.storage.sync.set({ 'breezewikiCustomHost': breezewikiCustomDomain });
+        extensionAPI.storage.sync.set({ 'breezewikiCustomHost': breezewikiCustomDomain });
         document.getElementById('breezewikiCustomHostStatus').innerText = 'Successfully added';
       } else {
         document.getElementById('breezewikiCustomHostStatus').innerText = 'Failed to set host';
@@ -526,15 +575,83 @@ document.addEventListener('DOMContentLoaded', () => {
     return false;
   });
 
+  // Add event listener for adding custom search engine
+  function addCustomSearchEngine() {
+    let customSearchEngine = document.getElementById('newCustomSearchEngineDomain').value;
+
+    // Add "https://" if not already present
+    if (!customSearchEngine.includes('://')) {
+      customSearchEngine = 'https://' + customSearchEngine;
+    }
+    customSearchEngine = new URL(customSearchEngine);
+
+    // Check not already added
+    let hostnames = document.querySelectorAll('.customSearchEngineHostname');
+    for (let i = 0; i < hostnames.length; i++) {
+      if (hostnames[i].innerText === customSearchEngine.hostname) {
+        return;
+      }
+    }
+
+    extensionAPI.permissions.request({
+      origins: [ `${customSearchEngine}*` ]
+    }, (granted) => {
+      // Callback is true if the user granted the permissions.
+      if (!granted) return;
+
+      try {
+        extensionAPI.scripting.registerContentScripts([{
+          id: `content-search-filtering-${customSearchEngine.hostname}`,
+          matches: [customSearchEngine + '*'],
+          js: [ '/scripts/common-functions.js', '/scripts/content-search-filtering.js' ],
+          runAt: "document_start"
+        }]);
+      } catch(e) {
+        (`Could not register content script for ${customSearchEngine}.`)
+      }
+
+      let customSearchEnginePreset = document.getElementById('newCustomSearchEnginePreset').value;
+
+      extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
+        let customSearchEngines = item.customSearchEngines;
+        customSearchEngines[customSearchEngine.hostname] = customSearchEnginePreset;
+        extensionAPI.storage.sync.set({ 'customSearchEngines': customSearchEngines });
+      });
+
+      displayCustomSearchEngine(customSearchEngine.hostname, customSearchEnginePreset);
+
+      document.getElementById('newCustomSearchEngineDomain').value = '';
+    });
+  }
+
+  ///////////////////////////////////////////////////////////////
+  // Custom search engines are currently disabled 
+  // due to content scripts being unregistered on-update.
+  ///////////////////////////////////////////////////////////////
+  // document.getElementById('addCustomSearchEngine').addEventListener('click', () => {
+  //   addCustomSearchEngine();
+  // });
+  // document.getElementById('newCustomSearchEngineDomain').onkeyup = function(e) {
+  //   if (e.key === 'Enter') {
+  //     addCustomSearchEngine();
+  //   }
+  // }
+
+  extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
+    Object.keys(item.customSearchEngines).forEach((key) => {
+      displayCustomSearchEngine(key, item.customSearchEngines[key]);
+    });
+  });
+
   // Add event listeners for default action selections
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
     el.addEventListener('change', () => {
-      chrome.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
+      extensionAPI.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
     el.addEventListener('change', () => {
-      chrome.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
+      extensionAPI.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
     });
   });
 
@@ -545,19 +662,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Get and display stat counts
-  chrome.storage.sync.get({ 'countAlerts': 0 }, (item) => {
+  extensionAPI.storage.sync.get({ 'countAlerts': 0 }, (item) => {
     var key = Object.keys(item)[0];
     document.getElementById('countAlerts').textContent = item[key];
   });
-  chrome.storage.sync.get({ 'countRedirects': 0 }, (item) => {
+  extensionAPI.storage.sync.get({ 'countRedirects': 0 }, (item) => {
     var key = Object.keys(item)[0];
     document.getElementById('countRedirects').textContent = item[key];
   });
-  chrome.storage.sync.get({ 'countSearchFilters': 0 }, (item) => {
+  extensionAPI.storage.sync.get({ 'countSearchFilters': 0 }, (item) => {
     var key = Object.keys(item)[0];
     document.getElementById('countSearchFilters').textContent = item[key];
   });
-  chrome.storage.sync.get({ 'countBreezeWiki': 0 }, (item) => {
+  extensionAPI.storage.sync.get({ 'countBreezeWiki': 0 }, (item) => {
     var key = Object.keys(item)[0];
     document.getElementById('countBreezeWiki').textContent = item[key];
   });

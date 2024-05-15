@@ -1,0 +1,297 @@
+/** CSS VARIABLES **/
+:root {
+  --body-max-width: 700px;
+  --popup-width: 600px;
+
+  --base-color-primary: #f5fbff;
+  --base-color-primary-dark: #e8f0fe;
+  --base-color-secondary: #fff;
+  --base-color-dark: #2b2a33;
+  --base-color-outline-light: #ccc;
+  --base-color-outline-dark: #222;
+
+  --primary-color: #005799;
+  --secondary-color: #ceeaff;
+  --accent-color: #3174f1;
+  --accent-color-dark: #205ed0;
+  --notification-color: #f8f3d6;
+  --disabled-color: #3f3f3f;
+
+  --text-color-primary: #000;
+  --text-color-white: #fff;
+  --text-link-color: #005799;
+
+  --header-padding: .5em 1em;
+  --default-icon-size: 18px;
+}
+
+/* ELEMENTS */
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--base-color-dark);
+  font-family: Helvetica, Sans-Serif;
+  font-size: .9rem;
+  color: var(--text-color-primary);
+}
+
+a {
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  color: var(--text-link-color);
+}
+
+a:visited {
+  color: var(--text-link-color);
+}
+
+fieldset hr {
+  color: var(--base-color-outline-light);
+  background-color: var(--base-color-outline-light);
+  margin: 2px;
+}
+hr {
+  height: 1px;
+  border: none;
+  color: var(--primary-color);
+  background-color: var(--primary-color);
+  margin: 1rem 0 .5rem 0;
+}
+
+h1 {
+  font-size: 1.3rem;
+  padding: .5em 0;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: .5em 0 0 0;
+  margin: 0;
+}
+
+/* CONTAINERS AND LAYOUT */
+.two-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding-bottom: .5rem;
+}
+
+.two-col>div {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .two-col>div {
+    flex: 100%;
+  }
+}
+
+p {
+  margin: 1em;
+}
+
+/* HEADER */
+#header {
+  box-sizing: border-box;
+  padding: var(--header-padding);
+  width: 100%;
+
+  line-height: 1.5em;
+
+  background-color: var(--primary-color);
+  color: var(--text-color-white);
+}
+
+#links {
+  display: flex;
+  column-gap: 1.5em;
+  flex-wrap: wrap;
+  padding: var(--header-padding);
+
+  white-space: nowrap;
+  
+  background-color: var(--secondary-color);
+}
+
+/* CONTENT */
+#content {
+  background-color: var(--base-color-primary);
+  box-sizing: border-box;
+}
+
+/* FOOTER */
+#footer {
+  padding-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.6rem;
+  box-sizing: border-box;
+}
+
+#footer a {
+  padding: 5px 0px;
+  color: var(--primary-color);
+}
+
+/* NOTIFICATIONS */
+#notificationBannerContainer {
+  background-color: var(--notification-color);
+  font-size: .9em;
+  line-height: 1.3em;
+}
+
+#notificationBannerContainer span {
+  padding: .5rem 1rem;
+  display: none;
+}
+
+#notificationBannerContainer span[style]~span[style] {
+  border-top: 1px solid var(--primary-color);
+}
+
+/* SETTINGS SECTION */
+fieldset {
+  background-color: var(--base-color-secondary);
+  border: 1px solid var(--base-color-outline-light);
+  border-radius: 5px;
+  padding: 0 12px 12px 0;
+  margin: 0;
+  margin-bottom: .5em;
+  font-size: .9em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+fieldset+fieldset {
+  margin-top: 1rem;
+}
+
+fieldset>div {
+  margin: 0 .5rem;
+}
+
+fieldset>span {
+  display: block;
+}
+
+fieldset>div+span {
+  margin: .8rem 0 0 0;
+}
+
+legend {
+  font-weight: 600;
+}
+
+input,
+label,
+select {
+  cursor: pointer;
+}
+
+.options {
+  box-sizing: border-box;
+  padding-bottom: .5rem;
+  user-select: none;
+  width: 100%;
+}
+
+.options label {
+  display: inline-block;
+}
+.searchEngineToggles label {
+  white-space: nowrap;
+}
+
+.settingToggle {
+  width: fit-content;
+}
+
+.settingToggle img {
+  vertical-align: middle;
+}
+
+.radioGroup {
+  display: flex;
+}
+
+.radioGroup.horizontal {
+  flex-direction: row;
+  line-height: 1.5rem;
+  gap: .5em;
+}
+
+.radioGroup.vertical {
+  flex-direction: column;
+  gap: .5em;
+}
+
+/* BREEZEWIKI */
+#breeezwikiLearnMore {
+  white-space: nowrap;
+}
+
+#breezewikiHost {
+  display: none;
+  padding: 0 0 0 1rem;
+}
+
+#breezewikiHost label {
+  cursor: default;
+}
+
+#breezewikiHost button {
+  background: var(--accent-color);
+  border: none;
+  color: var(--text-color-white);
+  border-radius: 5px;
+  padding: .3em;
+  font-size: .9em;
+}
+
+#breezewikiHost button:hover {
+  cursor: pointer;
+  background: var(--accent-color-dark);
+}
+
+#breezewikiHost label+label {
+  margin-top: 8px;
+}
+
+#breezewikiCustomHost {
+  display: none;
+}
+
+#breezewikiCustomHostStatus {
+  font-size: .9em;
+}
+
+/* CONTROL CLASSES */
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.text-sm {
+  font-size: .85em;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.center {
+  text-align: center;
+}

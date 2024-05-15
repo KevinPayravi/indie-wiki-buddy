@@ -16,6 +16,7 @@
     "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -38,9 +39,51 @@
     "destination_icon": "calamitymodwiki.png",
     "destination_main_page": "Calamity_Mod_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
+    ]
+  },
+  {
+    "id": "ru-halflife",
+    "origins_label": "Half-Life Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Half-Life Fandom Wiki",
+        "origin_base_url": "halflife.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Заглавная_страница"
+      }
+    ],
+    "destination": "Combine OverWiki",
+    "destination_base_url": "combineoverwiki.net",
+    "destination_content_suffix": "/ru",
+    "destination_platform": "mediawiki",
+    "destination_icon": "combine.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
+  },
+  {
+    "id": "ru-lethalcompany",
+    "origins_label": "Lethal Company Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Lethal Company Fandom Wiki",
+        "origin_base_url": "lethal-company.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Lethal_Company_Wiki"
+      }
+    ],
+    "destination": "Lethal Company Wiki",
+    "destination_base_url": "lethal.miraheze.org",
+    "destination_content_suffix": "/ru",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lethalcompany.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "miraheze"
     ]
   },
   {
@@ -59,7 +102,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png",
     "destination_main_page": "Заглавная_страница",
-    "destination_search_path": "/"
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "ru-terraria",
@@ -78,6 +122,7 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"

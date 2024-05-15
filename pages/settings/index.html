@@ -6,510 +6,8 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="../../images/logo.png" />
   <title>Indie Wiki Buddy settings</title>
-  <style>
-    /* ELEMENTS */
-    body {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #2b2a33;
-      font-family: Helvetica, Sans-Serif;
-      font-size: .9rem;
-      color: #000;
-    }
-
-    a {
-      text-decoration-style: dotted;
-      text-decoration-thickness: 1px;
-      color: #005799;
-    }
-
-    a:visited {
-      color: #005799;
-    }
-
-    hr {
-      height: 1px;
-      border: none;
-      color: #005799;
-      background-color: #005799;
-      margin: 1rem 0 .5rem 0;
-    }
-
-    h1 {
-      font-size: 1.3rem;
-      padding: .5rem 0;
-      margin: 0;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      text-align: center;
-      padding: .8rem;
-      margin: 0;
-    }
-
-    fieldset {
-      background-color: #f5fbff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 0 12px 12px 0;
-      margin: 0;
-      margin-bottom: .5em;
-      font-size: .9em;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5em;
-    }
-
-    fieldset+fieldset {
-      margin-top: 1rem;
-    }
-
-    fieldset>div {
-      margin: 0 .5rem;
-    }
-
-    fieldset>span {
-      display: block;
-    }
-
-    fieldset>div+span {
-      margin: .8rem 0 0 0;
-    }
-
-    legend {
-      font-weight: 600;
-      margin-bottom: .75em;
-    }
-
-    input,
-    label,
-    select {
-      cursor: pointer;
-    }
-
-    /* CONTAINERS AND LAYOUT */
-    .container {
-      background: #fff;
-    }
-
-    .two-col {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      padding-bottom: .5rem;
-    }
-
-    .two-col>div {
-      flex: 1;
-    }
-
-    @media (max-width: 600px) {
-      .two-col>div {
-        flex: 100%;
-      }
-    }
-
-    /* HEADER */
-    #header {
-      line-height: 1.5rem;
-      padding: .5rem 1rem;
-      box-sizing: border-box;
-      background-color: #005799;
-      color: #fff;
-      width: 100%;
-    }
-
-    #header .settingToggle label {
-      background-color: #fff;
-      border-radius: 20px;
-      height: fit-content;
-      width: fit-content;
-    }
-
-    #version {
-      float: right;
-      font-size: 1.2rem;
-      margin: .5rem 0;
-    }
-
-    #links {
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: 1.5em;
-      background-color: #e5f4ff;
-      padding: .5rem 1rem;
-      white-space: nowrap;
-    }
-
-    #firstInstallInfo {
-      display: none;
-      text-align: center;
-    }
-
-    /* CONTENT */
-    #content {
-      background-color: #fff;
-      box-sizing: border-box;
-      padding: 1rem .75rem;
-    }
-
-    /* FOOTER */
-    #footer {
-      padding-bottom: 1.5rem;
-      text-align: center;
-      line-height: 1.6rem;
-      box-sizing: border-box;
-    }
-
-    #footer a {
-      padding: 5px 0px;
-      color: #005799;
-    }
-
-    /* NOTIFICATIONS */
-    #notificationBannerContainer {
-      background-color: #f8f3d6;
-      font-size: .9em;
-      line-height: 1.3em;
-    }
-
-    #notificationBannerContainer span {
-      padding: .5rem 1rem;
-      display: none;
-    }
-
-    #notificationBannerContainer span[style]~span[style] {
-      border-top: 1px solid #005799;
-    }
-
-    #notificationBannerReviewLinks {
-      display: flex;
-      column-gap: 1em;
-    }
-
-    /* SETTINGS SECTION */
-    .options {
-      box-sizing: border-box;
-      padding-bottom: .5rem;
-      user-select: none;
-      width: 100%;
-    }
-
-    .options label {
-      display: inline-block;
-    }
-
-    .radioGroup {
-      display: flex;
-    }
-
-    .radioGroup.horizontal {
-      flex-direction: row;
-      line-height: 1.5rem;
-      gap: .5em;
-    }
-
-    .radioGroup.vertical {
-      flex-direction: column;
-      gap: .5em;
-    }
-
-    .settingToggle {
-      width: fit-content;
-    }
-
-    .settingToggle img {
-      vertical-align: middle;
-    }
-
-    #searchFilteringSettings>div {
-      display: inline-block;
-    }
-
-    #breeezwikiLearnMore {
-      white-space: nowrap;
-    }
-
-    #breezewikiHost {
-      display: none;
-      padding: 0 0 0 1rem;
-    }
-
-    #breezewikiHost label {
-      cursor: default;
-    }
-
-    #breezewikiHost button {
-      background: #3174f1;
-      border: 1px solid #333333;
-      color: #fff;
-      border-radius: 5px;
-      padding: .3em;
-      font-size: .9em;
-    }
-
-    #breezewikiHost button:hover {
-      cursor: pointer;
-      background: #ffffff;
-      border: 1px solid#3174f1;
-      color: #3174f1;
-    }
-
-    #breezewikiHost label+label {
-      margin-top: 8px;
-    }
-
-    #breezewikiCustomHost {
-      display: none;
-    }
-
-    #breezewikiCustomHostStatus {
-      font-size: .9em;
-    }
-
-    #legend div,
-    #legend span {
-      padding: 0 0 0 8px;
-    }
-
-    #legend div {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    #wikiFiltersContainer {
-      width: fit-content;
-      margin: 0 auto;
-    }
-
-    #wikiFiltersContainer>div {
-      display: grid;
-      gap: 0.5em;
-      grid-template-columns: 1fr 1fr;
-      margin: 1em auto;
-      max-width: 30em;
-    }
-
-    #wikiFiltersContainer>div>div {
-      text-align: right;
-      align-self: end;
-    }
-
-    @media (max-width: 35em) {
-      #wikiFiltersContainer>div {
-        grid-template-columns: 1fr;
-      }
-
-      #wikiFiltersContainer>div>div {
-        text-align: center;
-      }
-    }
-
-    .toggles {
-      font-size: 0.8rem;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .toggles img {
-      line-height: 1.2rem;
-    }
-
-    .toggles a img {
-      padding-right: .5rem;
-      vertical-align: middle;
-    }
-
-    .toggles label {
-      display: flex;
-      align-items: center;
-    }
-
-    .toggles input {
-      cursor: pointer;
-      margin: 0;
-    }
-
-    .toggles>div {
-      display: flex;
-      flex-direction: row;
-      padding: 0 .5rem;
-      min-height: 20px;
-    }
-
-    .toggles .inputsContainer {
-      display: flex;
-      width: 150px;
-      justify-content: space-between;
-    }
-
-    .togglesHeader {
-      border-bottom: 1px solid #ccc;
-      background-color: #f5fbff;
-    }
-
-    .togglesHeader span {
-      flex: 1;
-      text-align: right;
-      font-style: italic;
-      margin-right: 1em;
-      padding: .75em 0;
-      white-space: break-spaces;
-    }
-
-    .toggles:not(.togglesHeader) span {
-      flex: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding: .5em 0;
-    }
-
-    #toggles>div:hover {
-      background-color: #e8f0fe;
-    }
-
-    #togglesKeys button {
-      all: unset;
-      display: inline-flex;
-      vertical-align: middle;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 18px;
-      cursor: pointer;
-    }
-
-    button#setAllDisabled {
-      background-image: url('../../images/toggle-disabled.png');
-    }
-
-    button#setAllAlert {
-      background-image: url('../../images/toggle-alert.png');
-    }
-
-    button#setAllRedirect {
-      background-image: url('../../images/toggle-redirect.png');
-    }
-
-    button#setAllSearchEngineDisabled {
-      background-image: url('../../images/toggle-disabled.png');
-    }
-
-    button#setAllSearchEngineReplace {
-      background-image: url('../../images/toggle-replace.png');
-    }
-
-    button#setAllSearchEngineHide {
-      background-image: url('../../images/toggle-hide.png');
-    }
-
-    #togglesKeys button:focus {
-      outline: revert;
-    }
-
-    #togglesDefaults input[type=radio] {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    #togglesDefaults input+label {
-      width: 100%;
-      height: 100%;
-      background-image: url('../../images/star-off.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 18px;
-    }
-
-    #togglesDefaults input:checked+label {
-      background-image: url('../../images/star-on.png');
-    }
-
-    #togglesDefaults label {
-      cursor: pointer;
-    }
-
-    #togglesKeys .inputsContainer button:hover::after,
-    #togglesDefaults .inputsContainer label:hover::after {
-      content: attr(data-title);
-      padding: 5px;
-      width: fit-content;
-      border: 1px solid #000;
-      position: absolute;
-      color: #fff;
-      background: #000;
-      z-index: 999999;
-      transform: translateX(calc(-100% - 5px));
-      top: 30px;
-    }
-
-    #togglesColumnLabels {
-      background-color: white;
-      padding: 5px 0;
-    }
-
-    #togglesColumnLabels>div>div {
-      display: flex;
-      width: 150px;
-    }
-
-    #togglesColumnLabels>div>div>div {
-      flex: 1 1 0;
-      font-weight: 600;
-      font-size: .9em;
-      white-space: break-spaces;
-      line-height: initial;
-      text-align: center;
-    }
-
-    .inputsContainer>label,
-    .inputsContainer>div {
-      width: 20px;
-      display: flex;
-      text-align: center;
-      justify-content: center;
-    }
-
-    .togglesHeader .inputsContainer>div:nth-child(4),
-    .toggles>div>div>label:nth-child(4) {
-      padding-left: 5px;
-      border-left: 1px solid #ccc;
-    }
-
-    .inputsContainer label:nth-child(1) input,
-    .inputsContainer label:nth-child(4) input {
-      accent-color: #3f3f3f;
-    }
-
-    /* CONTROL CLASSES */
-    .visuallyHidden {
-      position: absolute !important;
-      width: 1px !important;
-      height: 1px !important;
-      padding: 0 !important;
-      margin: -1px !important;
-      overflow: hidden !important;
-      clip: rect(0, 0, 0, 0) !important;
-      white-space: nowrap !important;
-      border: 0 !important;
-    }
-
-    .text-sm {
-      font-size: .85em;
-    }
-
-    .sticky {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-  </style>
+  <link rel="stylesheet" href="../../css/common.css" type="text/css">
+  <link rel="stylesheet" href="../../css/settings.css" type="text/css">
 </head>
 
 <body>
@@ -598,14 +96,6 @@
           </div> -->
           <div class="settingToggle">
             <label>
-              <input id="hiddenResultsBannerCheckbox" type="checkbox" />
-              <span id="hiddenResultsBannerIcon" aria-hidden="true"></span>
-              On search engines, show banner when
-              non-indie results are hidden
-            </label>
-          </div>
-          <div class="settingToggle">
-            <label>
               <input id="crossLanguageCheckbox" type="checkbox" />
               <span id="crossLanguageIcon" aria-hidden="true"></span>
               Redirect non-English Fandom wikis to
@@ -617,6 +107,66 @@
               <input id="openChangelogCheckbox" type="checkbox" />
               <span id="openChangelogIcon" aria-hidden="true"></span>
               Open changelog when Indie Wiki Buddy is updated
+            </label>
+          </div>
+        </fieldset>
+        <fieldset id="generalSettings">
+          <legend><span aria-hidden="true">🔍</span> Search engine filtering </legend>
+          <div class="settingToggle searchEngineToggles">
+            <label>
+              <input id="googleCheckbox" data-search-engine="google" type="checkbox" />
+              Google
+            </label>
+            <label>
+              <input id="bingCheckbox" data-search-engine="bing" type="checkbox" />
+              Bing
+            </label>
+            <label>
+              <input id="duckduckgoCheckbox" data-search-engine="duckduckgo" type="checkbox" />
+              DuckDuckGo
+            </label>
+            <label>
+              <input id="braveCheckbox" data-search-engine="brave" type="checkbox" />
+              Brave
+            </label>
+            <label>
+              <input id="ecosiaCheckbox" data-search-engine="ecosia" type="checkbox" />
+              Ecosia
+            </label>
+            <label>
+              <input id="kagiCheckbox" data-search-engine="kagi" type="checkbox" />
+              Kagi
+            </label>
+            <label>
+              <input id="qwantCheckbox" data-search-engine="qwant" type="checkbox" />
+              Qwant
+            </label>
+            <label>
+              <input id="startpageCheckbox" data-search-engine="startpage" type="checkbox" />
+              Startpage
+            </label>
+            <label>
+              <input id="yahooCheckbox" data-search-engine="yahoo" type="checkbox" />
+              Yahoo
+            </label>
+            <label>
+              <input id="yandexCheckbox" data-search-engine="yandex" type="checkbox" />
+              Yandex
+            </label>
+          </div>
+          <hr>
+          <div class="settingToggle">
+            <label>
+              <input id="hiddenResultsBannerCheckbox" type="checkbox" />
+              <img src="../../images/toggle-banner.png" height="12" alt="" />
+              On search engines, show banner when non-indie results are hidden
+            </label>
+          </div>
+          <div class="settingToggle">
+            <label>
+              <input id="reorderResultsCheckbox" type="checkbox" />
+              <img src="../../images/toggle-move-up.png" height="12" alt="" />
+              On Google, move indie wiki results to the top of the page
             </label>
           </div>
         </fieldset>
@@ -661,6 +211,26 @@
             </label>
           </div>
         </fieldset>
+        <!--
+          Custom search engines are currently disabled 
+          due to content scripts being unregistered on-update.
+        -->
+        <!-- <fieldset id="customSearchEngines">
+          <legend>
+            <span aria-hidden="true">🔍</span> Custom search engines
+          </legend>
+          <div id="customSearchEnginesContainer">
+            <div id="customSearchEnginesList"></div>
+            <div id="customSearchEnginesAdd">
+              <input type="text" id="newCustomSearchEngineDomain" placeholder="Search engine domain (e.g. search.example.org)" />
+              <select id="newCustomSearchEnginePreset">
+                <option value="searxng">SearXNG</option>
+                <option value="whoogle">Whoogle</option>
+              </select>
+              <button id="addCustomSearchEngine">Add</button>
+            </div>
+          </div>
+        </fieldset> -->
         <h2>Individual wiki settings</h2>
         <fieldset id="legend">
           <legend>

@@ -16,6 +16,7 @@
     "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
@@ -37,7 +38,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "wikibound.png",
     "destination_main_page": "Pagina_principale",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "it-mario",
@@ -55,7 +57,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "supermariowiki.png",
     "destination_main_page": "Pagina_principale",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "it-pokemon",
@@ -73,6 +76,26 @@
     "destination_platform": "mediawiki",
     "destination_icon": "pokemoncentral.png",
     "destination_main_page": "Home",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
+    "id": "it-startrek",
+    "origins_label": "Memory Alpha Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Memory Alpha Fandom Wiki",
+        "origin_base_url": "memory-alpha.fandom.com/it",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pagina_principale"
+      }
+    ],
+    "destination": "WikiTrek",
+    "destination_base_url": "wikitrek.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikitrek.png",
+    "destination_main_page": "Pagina_principale",
+    "destination_search_path": "/wt/index.php",
+    "destination_content_path": "/wiki/"
   }
 ]

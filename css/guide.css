@@ -1,0 +1,10 @@
+/* ELEMENTS */
+ul {
+  list-style-type: none;
+  margin: 1em 1em 1em -.5em;
+}
+
+/* CONTENT */
+#content {
+  padding-bottom: 1.5em;
+}

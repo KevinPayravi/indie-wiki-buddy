@@ -16,10 +16,30 @@
     "destination_icon": "arkwiki.png",
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
     ]
+  },
+  {
+    "id": "pl-halflife",
+    "origins_label": "Half-Life Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Half-Life Fandom Wiki",
+        "origin_base_url": "half-life.fandom.com/pl",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Half-Life_Wiki"
+      }
+    ],
+    "destination": "Combine OverWiki",
+    "destination_base_url": "combineoverwiki.net",
+    "destination_content_suffix": "/pl",
+    "destination_platform": "mediawiki",
+    "destination_icon": "combine.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php"
   },
   {
     "id": "pl-rayman",
@@ -37,7 +57,31 @@
     "destination_platform": "mediawiki",
     "destination_icon": "rayman.png",
     "destination_main_page": "Strona_główna",
-    "destination_search_path": "/wiki/script-pl/index.php"
+    "destination_search_path": "/wiki/script-pl/index.php",
+    "destination_content_path": "/wiki/pl/"
+  },
+  {
+    "id": "pl-teamfortress",
+    "origins_label": "Team Fortress Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Team Fortress Fandom Wiki",
+        "origin_base_url": "teamfortress.fandom.com/pl",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Team_Fortress_Wiki"
+      }
+    ],
+    "destination": "Team Fortress Wiki",
+    "destination_base_url": "wiki.teamfortress.com",
+    "destination_content_suffix": "/pl",
+    "destination_platform": "mediawiki",
+    "destination_icon": "teamfortress.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "pl-terraria",
@@ -56,6 +100,7 @@
     "destination_icon": "terrariawiki.png",
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg",
       "official"
