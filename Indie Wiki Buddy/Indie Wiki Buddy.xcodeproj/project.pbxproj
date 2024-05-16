@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A82A6FF2BF5B49A009007D7 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 4A82A6FE2BF5B49A009007D7 /* css */; };
+		4A82A7002BF5B49A009007D7 /* css in Resources */ = {isa = PBXBuildFile; fileRef = 4A82A6FE2BF5B49A009007D7 /* css */; };
 		FA3BE9712B90629D004856BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9702B90629D004856BA /* AppDelegate.swift */; };
 		FA3BE9732B90629D004856BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BE9722B90629D004856BA /* SceneDelegate.swift */; };
 		FA3BE9762B90629D004856BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9742B90629D004856BA /* LaunchScreen.storyboard */; };
@@ -94,6 +96,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A82A6FE2BF5B49A009007D7 /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = ../../css; sourceTree = "<group>"; };
 		FA3BE9612B90629B004856BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
 		FA3BE9622B90629B004856BA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FA3BE9632B90629B004856BA /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 		FA3BE9BB2B90629D004856BA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4A82A6FE2BF5B49A009007D7 /* css */,
 				FA3BE9BC2B90629D004856BA /* favicons */,
 				FA3BE9BD2B90629D004856BA /* LICENSE */,
 				FA3BE9BE2B90629D004856BA /* background.js */,
@@ -427,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A82A6FF2BF5B49A009007D7 /* css in Resources */,
 				FA3BE9D32B90629D004856BA /* images in Resources */,
 				FA3BE9D92B90629D004856BA /* pages in Resources */,
 				FA3BE9D62B90629D004856BA /* manifest.json in Resources */,
@@ -443,6 +448,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A82A7002BF5B49A009007D7 /* css in Resources */,
 				FA3BE9C92B90629D004856BA /* images in Resources */,
 				FA3BE9CF2B90629D004856BA /* pages in Resources */,
 				FA3BE9CC2B90629D004856BA /* manifest.json in Resources */,
@@ -663,6 +669,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 39SZK2C73D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Indie Wiki Buddy Extension";
@@ -693,6 +700,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 39SZK2C73D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Indie Wiki Buddy Extension";
@@ -727,6 +735,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 39SZK2C73D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Indie Wiki Buddy";
@@ -765,6 +774,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 39SZK2C73D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Indie Wiki Buddy";
