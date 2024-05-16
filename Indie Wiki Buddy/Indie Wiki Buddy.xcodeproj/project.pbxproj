@@ -36,7 +36,6 @@
 		FA3BE9CA2B90629D004856BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C02B90629D004856BA /* README.md */; };
 		FA3BE9CB2B90629D004856BA /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C12B90629D004856BA /* scripts */; };
 		FA3BE9CC2B90629D004856BA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C22B90629D004856BA /* manifest.json */; };
-		FA3BE9CD2B90629D004856BA /* Indie Wiki Buddy.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C32B90629D004856BA /* Indie Wiki Buddy.xcodeproj */; };
 		FA3BE9CE2B90629D004856BA /* data in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C42B90629D004856BA /* data */; };
 		FA3BE9CF2B90629D004856BA /* pages in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C52B90629D004856BA /* pages */; };
 		FA3BE9D02B90629D004856BA /* favicons in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9BC2B90629D004856BA /* favicons */; };
@@ -46,7 +45,6 @@
 		FA3BE9D42B90629D004856BA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C02B90629D004856BA /* README.md */; };
 		FA3BE9D52B90629D004856BA /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C12B90629D004856BA /* scripts */; };
 		FA3BE9D62B90629D004856BA /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C22B90629D004856BA /* manifest.json */; };
-		FA3BE9D72B90629D004856BA /* Indie Wiki Buddy.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C32B90629D004856BA /* Indie Wiki Buddy.xcodeproj */; };
 		FA3BE9D82B90629D004856BA /* data in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C42B90629D004856BA /* data */; };
 		FA3BE9D92B90629D004856BA /* pages in Resources */ = {isa = PBXBuildFile; fileRef = FA3BE9C52B90629D004856BA /* pages */; };
 		FA8AC1E72B907A4C0076177E /* IWBPermissions.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8AC1E62B907A4C0076177E /* IWBPermissions.png */; };
@@ -126,7 +124,6 @@
 		FA3BE9C02B90629D004856BA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		FA3BE9C12B90629D004856BA /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../../scripts; sourceTree = "<group>"; };
 		FA3BE9C22B90629D004856BA /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../manifest.json; sourceTree = "<group>"; };
-		FA3BE9C32B90629D004856BA /* Indie Wiki Buddy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "Indie Wiki Buddy.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		FA3BE9C42B90629D004856BA /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = ../../data; sourceTree = "<group>"; };
 		FA3BE9C52B90629D004856BA /* pages */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pages; path = ../../pages; sourceTree = "<group>"; };
 		FA8AC1E62B907A4C0076177E /* IWBPermissions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IWBPermissions.png; sourceTree = "<group>"; };
@@ -269,7 +266,6 @@
 				FA3BE9C02B90629D004856BA /* README.md */,
 				FA3BE9C12B90629D004856BA /* scripts */,
 				FA3BE9C22B90629D004856BA /* manifest.json */,
-				FA3BE9C32B90629D004856BA /* Indie Wiki Buddy.xcodeproj */,
 				FA3BE9C42B90629D004856BA /* data */,
 				FA3BE9C52B90629D004856BA /* pages */,
 			);
@@ -438,7 +434,6 @@
 				FA3BE9D42B90629D004856BA /* README.md in Resources */,
 				FA3BE9D82B90629D004856BA /* data in Resources */,
 				FA3BE9D52B90629D004856BA /* scripts in Resources */,
-				FA3BE9D72B90629D004856BA /* Indie Wiki Buddy.xcodeproj in Resources */,
 				FA3BE9D22B90629D004856BA /* background.js in Resources */,
 				FA3BE9D02B90629D004856BA /* favicons in Resources */,
 			);
@@ -455,7 +450,6 @@
 				FA3BE9CA2B90629D004856BA /* README.md in Resources */,
 				FA3BE9CE2B90629D004856BA /* data in Resources */,
 				FA3BE9CB2B90629D004856BA /* scripts in Resources */,
-				FA3BE9CD2B90629D004856BA /* Indie Wiki Buddy.xcodeproj in Resources */,
 				FA3BE9C82B90629D004856BA /* background.js in Resources */,
 				FA3BE9C62B90629D004856BA /* favicons in Resources */,
 			);
