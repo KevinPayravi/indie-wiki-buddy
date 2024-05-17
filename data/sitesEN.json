@@ -1573,7 +1573,7 @@
   },
   {
     "id": "en-destiny",
-    "origins_label": "Destiny Fandom, Neoseeker & Fextra Wikis",
+    "origins_label": "Destiny Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Destiny Fandom Wiki",
@@ -2216,7 +2216,7 @@
   },
   {
     "id": "en-fallout",
-    "origins_label": "Fallout Fandom, Neoseeker & Fextralife Wikis",
+    "origins_label": "Fallout Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Fallout Fandom Wiki (Nukapedia)",
@@ -3905,7 +3905,7 @@
   },
   {
     "id": "en-minecraft",
-    "origins_label": "Minecraft Fandom, Neoseeker, & Fextra Wikis",
+    "origins_label": "Minecraft Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Minecraft Fandom Wiki",
@@ -4646,11 +4646,17 @@
   },
   {
     "id": "en-portal",
-    "origins_label": "Portal Fandom Wiki",
+    "origins_label": "Portal Fandom Wikis",
     "origins": [
       {
         "origin": "Portal Fandom Wiki",
         "origin_base_url": "portals.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portal_Wiki"
+      },
+      {
+        "origin": "Portal Fandom Wiki",
+        "origin_base_url": "portal-valve.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Portal_Wiki"
       }
@@ -7248,7 +7254,7 @@
   },
   {
     "id": "en-zelda",
-    "origins_label": "Zelda Fandom, Neoseeker, & Fextra Wikis",
+    "origins_label": "Zelda Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Zelda Fandom Wiki",
