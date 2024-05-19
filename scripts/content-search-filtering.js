@@ -479,7 +479,7 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
 
     if (reorderedHrefs.find((href) => href.match(
       new RegExp(
-        `http(s)*://${matchingSite['destination_base_url']}${matchingSite['destination_content_path']}${encodeURIComponent(destinationArticle)}`
+        `http(s)*://${matchingSite['destination_base_url']}${matchingSite['destination_content_path']}${encodeURIComponent(destinationArticle)}$`
       )
     ))) {
       countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, 'off');
