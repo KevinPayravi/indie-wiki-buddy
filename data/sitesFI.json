@@ -1,5 +1,25 @@
 [
   {
+    "id": "fi-portal",
+    "origins_label": "Portal Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Portal Fandom Wiki",
+        "origin_base_url": "portal.fandom.com/fi",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portal_Wiki"
+      }
+    ],
+    "destination": "Portal Wiki",
+    "destination_base_url": "theportalwiki.com",
+    "destination_content_suffix": "/fi",
+    "destination_platform": "mediawiki",
+    "destination_icon": "portalwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "fi-starwars",
     "origins_label": "Jedipedia Fandom Wiki",
     "origins": [
