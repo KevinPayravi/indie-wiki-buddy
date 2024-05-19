@@ -1312,6 +1312,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-contentwarning",
+    "origins_label": "Content Warning Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Content Warning Fandom Wiki",
+        "origin_base_url": "content-warning.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Content_Warning_Wiki"
+      }
+    ],
+    "destination": "Content Warning Wiki",
+    "destination_base_url": "contentwarning.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "contentwarningwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-conwaysgameoflife",
     "origins_label": "Conway's Game of Life Fandom Wiki",
     "origins": [
