@@ -118,6 +118,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "de-stardewvalley",
+    "origins_label": "Stardew Valley Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Stardew Valley Fandom Wiki",
+        "origin_base_url": "stardewvalley.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Stardew_Valley_Wiki"
+      }
+    ],
+    "destination": "Stardew Valley Wiki",
+    "destination_base_url": "de.stardewvalleywiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "stardewvalley.png",
+    "destination_main_page": "Stardew_Valley_Wiki",
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_content_path": "/"
+  },
+  {
     "id": "de-terraria",
     "origins_label": "Terraria Fandom Wiki",
     "origins": [
