@@ -143,7 +143,7 @@
     "destination_base_url": "pt.uesp.net",
     "destination_platform": "mediawiki",
     "destination_icon": "uesp.png",
-    "destination_main_page": "Main_Page",
+    "destination_main_page": "Página_Principal",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
   }
