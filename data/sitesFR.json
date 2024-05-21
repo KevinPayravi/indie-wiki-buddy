@@ -72,12 +72,12 @@
       }
     ],
     "destination": "La Garde de Nuit Wiki",
-    "destination_base_url": "www.lagardedenuit.com",
+    "destination_base_url": "www.lagardedenuit.com/wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "gameofthrones.png",
     "destination_main_page": "Accueil",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/"
+    "destination_content_path": "/index.php?title="
   },
   {
     "id": "fr-heroes",
