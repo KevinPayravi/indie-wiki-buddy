@@ -4929,13 +4929,31 @@
   },
   {
     "id": "en-rayman",
-    "origins_label": "Rayman Fandom Wiki",
+    "origins_label": "Rayman Fandom Wikis",
     "origins": [
       {
         "origin": "Rayman Fandom Wiki",
         "origin_base_url": "rayman.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Special:LanguageWikisIndex"
+      },
+      {
+        "origin": "Raymanpedia Fandom Wiki",
+        "origin_base_url": "raymanpedia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Raymanpedia_Wiki"
+      },
+      {
+        "origin": "Rayman Game Fandom Wiki",
+        "origin_base_url": "rayman-game.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rayman_Game_Wiki"
+      },
+      {
+        "origin": "Rayman Fandom Wiki",
+        "origin_base_url": "ubisoftrayman.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rayman_Wiki"
       }
     ],
     "destination": "RayWiki",
