@@ -4434,25 +4434,13 @@
   },
   {
     "id": "en-pathfinder",
-    "origins_label": "Pathfinder Fandom & Fextra Wikis",
+    "origins_label": "Pathfinder Fandom Wiki",
     "origins": [
       {
         "origin": "Pathfinder Fandom Wiki",
         "origin_base_url": "pathfinder.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Pathfinder_Wiki"
-      },
-      {
-        "origin": "Pathfinder Kingmaker Fextralife Wiki",
-        "origin_base_url": "pathfinderkingmaker.wiki.fextralife.com",
-        "origin_content_path": "/",
-        "origin_main_page": "Pathfinder:+Kingmaker+Wiki"
-      },
-      {
-        "origin": "Pathfinder Wrath of the Righteous Fextralife Wiki",
-        "origin_base_url": "pathfinderwrathoftherighteous.wiki.fextralife.com",
-        "origin_content_path": "/",
-        "origin_main_page": "Pathfinder:+Wrath+of+the+Righteous+Wiki"
       }
     ],
     "destination": "PathfinderWiki",
