@@ -2221,6 +2221,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-eveonline",
+    "origins_label": "EVE Online Fandom Wiki",
+    "origins": [
+      {
+        "origin": "EVE Fandom Wiki",
+        "origin_base_url": "eve.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "EVE University Wiki",
+    "destination_base_url": "wiki.eveuniversity.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "eveonline.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
     "id": "en-factorio",
     "origins_label": "Factorio Fandom Wiki",
     "origins": [
