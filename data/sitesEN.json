@@ -902,6 +902,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-blood",
+    "origins_label": "Blood 1997 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Blood 1997 Fandom Wiki",
+        "origin_base_url": "blood-1997.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bloodpedia"
+      }
+    ],
+    "destination": "Blood Wiki",
+    "destination_base_url": "blood-wiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bloodwiki.png",
+    "destination_content_path": "/index.php?title=",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-bluearchive",
     "origins_label": "Blue Archive Fandom Wiki",
     "origins": [
