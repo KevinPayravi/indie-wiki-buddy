@@ -45,6 +45,25 @@
     ]
   },
   {
+    "id": "pt-gameofthrones",
+    "origins_label": "Game of Thrones Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Game of Thrones Fandom Wiki",
+        "origin_base_url": "gameofthrones.fandom.com/pt-br",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Game_of_Thrones_Wiki"
+      }
+    ],
+    "destination": "Gelo e Fogo Wiki",
+    "destination_base_url": "wiki.geloefogo.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gameofthrones.png",
+    "destination_main_page": "Página_principali",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
+  },
+  {
     "id": "pt-minecraft",
     "origins_label": "Minecraft Fandom Wiki",
     "origins": [
@@ -127,5 +146,24 @@
       "wiki.gg",
       "official"
     ]
+  },
+  {
+    "id": "pt-elderscrolls",
+    "origins_label": "Elder Scrolls Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Elder Scrolls Fandom Wiki",
+        "origin_base_url": "elderscrolls.fandom.com/pt",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Página_principal"
+      }
+    ],
+    "destination": "Unofficial Elder Scrolls Pages",
+    "destination_base_url": "pt.uesp.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "uesp.png",
+    "destination_main_page": "Página_Principal",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   }
 ]

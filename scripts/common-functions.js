@@ -116,32 +116,32 @@ async function populateSiteDataByOrigin() {
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
     promises.push(fetch(extensionAPI.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-        .then((resp) => resp.json())
-        .then((jsonData) => {
-          jsonData.forEach((site) => {
-            site.origins.forEach((origin) => {
-              sites.push({
-                "id": site.id,
-                "origin": origin.origin,
-                "origin_base_url": origin.origin_base_url,
-                "origin_content_path": origin.origin_content_path,
-                "origin_main_page": origin.origin_main_page,
-                "destination": site.destination,
-                "destination_base_url": site.destination_base_url,
-                "destination_search_path": site.destination_search_path,
-                "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
-                // /w/index.php?title= is the default path for a new MediaWiki install, change as accordingly in config JSON files
-                "destination_content_path": site.destination_content_path || "/w/index.php?title=",
-                "destination_content_suffix": origin.destination_content_suffix || site.destination_content_suffix || "",
-                "destination_platform": site.destination_platform,
-                "destination_icon": site.destination_icon,
-                "destination_main_page": site.destination_main_page,
-                "tags": site.tags || [],
-                "language": LANGS[i]
-              })
+      .then((resp) => resp.json())
+      .then((jsonData) => {
+        jsonData.forEach((site) => {
+          site.origins.forEach((origin) => {
+            sites.push({
+              "id": site.id,
+              "origin": origin.origin,
+              "origin_base_url": origin.origin_base_url,
+              "origin_content_path": origin.origin_content_path,
+              "origin_main_page": origin.origin_main_page,
+              "destination": site.destination,
+              "destination_base_url": site.destination_base_url,
+              "destination_search_path": site.destination_search_path,
+              "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
+              // /w/index.php?title= is the default path for a new MediaWiki install, change as accordingly in config JSON files
+              "destination_content_path": site.destination_content_path || "/w/index.php?title=",
+              "destination_content_suffix": origin.destination_content_suffix || site.destination_content_suffix || "",
+              "destination_platform": site.destination_platform,
+              "destination_icon": site.destination_icon,
+              "destination_main_page": site.destination_main_page,
+              "tags": site.tags || [],
+              "language": LANGS[i]
             })
-          });
-        }));
+          })
+        });
+      }));
   }
 
   await Promise.all(promises);
@@ -173,7 +173,7 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest =
       matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el[base_url_key]));
     } else {
       matchingSites = sites.filter(el =>
-         site.replace(/.*https?:\/\//, '').startsWith(dest ? el[base_url_key] : (el.origin_base_url + el.origin_content_path))
+        site.replace(/.*https?:\/\//, '').startsWith(dest ? el[base_url_key] : (el.origin_base_url + el.origin_content_path))
         || site.replace(/.*https?:\/\//, '').replace(/\/$/, '') === el[base_url_key]
       );
     }
@@ -196,8 +196,9 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest =
 }
 
 function commonFunctionGetOriginArticle(originURL, matchingSite) {
-  let url = new URL(originURL);
-  return decodeURIComponent(String(url.pathname).split(matchingSite['origin_content_path'])[1] || '');
+  let url = new URL('https://' + originURL.replace(/.*https?:\/\//, ''));
+  const path = decodeURIComponent(decodeURIComponent(String(url.pathname.split('&')[0]).split(matchingSite['origin_content_path'])[1] || ''));
+  return path;
 }
 
 function commonFunctionGetDestinationArticle(matchingSite, article) {

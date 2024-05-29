@@ -59,6 +59,25 @@
     "destination_main_page": "Accueil",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },  
+  {
+    "id": "fr-gameofthrones",
+    "origins_label": "Game of Thrones Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Game of Thrones Fandom Wiki",
+        "origin_base_url": "gameofthrones.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Game_of_Thrones"
+      }
+    ],
+    "destination": "La Garde de Nuit Wiki",
+    "destination_base_url": "www.lagardedenuit.com/wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gameofthrones.png",
+    "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php?title="
   },
   {
     "id": "fr-heroes",

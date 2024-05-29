@@ -1,5 +1,33 @@
 [
   {
+    "id": "en-100orangejuice",
+    "origins_label": "100% Orange Juice Fandom Wikis",
+    "origins": [
+      {
+        "origin": "100% Orange Juice Fandom Wiki",
+        "origin_base_url": "100orangejuice.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "100%_Orange_Juice_Wiki"
+      },
+      {
+        "origin": "100% Orange Juice Fandom Wiki (Archive)",
+        "origin_base_url": "onehundredpercentorangejuice-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "100%_Orange_Juice_Wiki"
+      }
+    ],
+    "destination": "100% Orange Juice Wiki",
+    "destination_base_url": "orangejuice.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "100orangejuicewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/",
+    "destination_main_page": "100%_Orange_Juice_Wiki",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-2xko",
     "origins_label": "2XKO Fandom Wiki",
     "origins": [
@@ -278,6 +306,28 @@
     "destination_main_page": "Answered_Prayers_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-antiidle",
+    "origins_label": "Anti-Idle: The Game Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Anti-Idle: The Game Fandom Wiki",
+        "origin_base_url": "aitg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Anti-Idle:_The_Game_Wikia"
+      }
+    ],
+    "destination": "Anti-Idle: The Game Wiki",
+    "destination_base_url": "aitg.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "antiidlethegame.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "miraheze"
+    ]
   },
   {
     "id": "en-anvilempires",
@@ -773,6 +823,25 @@
     ]
   },
   {
+    "id": "en-bemani",
+    "origins_label": "Konami Music Video Game Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Konami Music Video Game Fandom Wiki",
+        "origin_base_url": "bemani.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "RemyWiki",
+    "destination_base_url": "remywiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "remywiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-bionicle",
     "origins_label": "Bionicle Fandom Wiki",
     "origins": [
@@ -831,6 +900,25 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-blood",
+    "origins_label": "Blood 1997 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Blood 1997 Fandom Wiki",
+        "origin_base_url": "blood-1997.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bloodpedia"
+      }
+    ],
+    "destination": "Blood Wiki",
+    "destination_base_url": "blood-wiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bloodwiki.png",
+    "destination_content_path": "/index.php?title=",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-bluearchive",
@@ -1284,6 +1372,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-contentwarning",
+    "origins_label": "Content Warning Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Content Warning Fandom Wiki",
+        "origin_base_url": "content-warning.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Content_Warning_Wiki"
+      }
+    ],
+    "destination": "Content Warning Wiki",
+    "destination_base_url": "contentwarning.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "contentwarningwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-conwaysgameoflife",
     "origins_label": "Conway's Game of Life Fandom Wiki",
     "origins": [
@@ -1551,7 +1661,7 @@
   },
   {
     "id": "en-destiny",
-    "origins_label": "Destiny Fandom, Neoseeker & Fextra Wikis",
+    "origins_label": "Destiny Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Destiny Fandom Wiki",
@@ -1863,6 +1973,28 @@
     "destination_content_path": "/wiki/",
     "tags": [
       "wiki.gg"
+    ]
+  },
+  {
+    "id": "en-dungeonrampage",
+    "origins_label": "Dungeon Rampage Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dungeon Rampage Fandom Wiki",
+        "origin_base_url": "dungeonrampage.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dungeon_Rampage_Wiki"
+      }
+    ],
+    "destination": "Dungeon Rampage Wiki",
+    "destination_base_url": "dungeonrampage.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dungeonrampage.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "miraheze"
     ]
   },
   {
@@ -2194,7 +2326,7 @@
   },
   {
     "id": "en-fallout",
-    "origins_label": "Fallout Fandom, Neoseeker & Fextralife Wikis",
+    "origins_label": "Fallout Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Fallout Fandom Wiki (Nukapedia)",
@@ -2608,12 +2740,6 @@
         "origin_base_url": "iceandfire.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "A_Song_of_Ice_and_Fire_Wiki"
-      },
-      {
-        "origin": "Westeros Fandom Wiki",
-        "origin_base_url": "gameofthrones.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Wiki_of_Westeros"
       }
     ],
     "destination": "A Wiki of Ice and Fire",
@@ -3883,7 +4009,7 @@
   },
   {
     "id": "en-minecraft",
-    "origins_label": "Minecraft Fandom, Neoseeker, & Fextra Wikis",
+    "origins_label": "Minecraft Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Minecraft Fandom Wiki",
@@ -4214,6 +4340,25 @@
     ]
   },
   {
+    "id": "en-nucleartechmod",
+    "origins_label": "HBM's Nuclear Tech Fandom Wiki",
+    "origins": [
+      {
+        "origin": "HBM's Nuclear Tech Fandom Wiki",
+        "origin_base_url": "ntm.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "HBM's_Nuclear_Tech_Wiki"
+      }
+    ],
+    "destination": "HBM's Nuclear Tech Wiki",
+    "destination_base_url": "nucleartech.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nucleartechwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-obeyme",
     "origins_label": "Obey Me! Fandom Wiki",
     "origins": [
@@ -4297,6 +4442,28 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-oxygennotincluded",
+    "origins_label": "Oxygen Not Included Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Oxygen Not Included Fandom Wiki",
+        "origin_base_url": "oxygennotincluded.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Oxygen_Not_Included_Wiki"
+      }
+    ],
+    "destination": "Oxygen Not Included Wiki",
+    "destination_base_url": "oxygennotincluded.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "oxygennotincluded.png",
+    "destination_main_page": "Oxygen_Not_Included_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-pacificdrive",
     "origins_label": "Pacific Drive Fandom Wiki",
     "origins": [
@@ -4362,25 +4529,13 @@
   },
   {
     "id": "en-pathfinder",
-    "origins_label": "Pathfinder Fandom & Fextra Wikis",
+    "origins_label": "Pathfinder Fandom Wiki",
     "origins": [
       {
         "origin": "Pathfinder Fandom Wiki",
         "origin_base_url": "pathfinder.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Pathfinder_Wiki"
-      },
-      {
-        "origin": "Pathfinder Kingmaker Fextralife Wiki",
-        "origin_base_url": "pathfinderkingmaker.wiki.fextralife.com",
-        "origin_content_path": "/",
-        "origin_main_page": "Pathfinder:+Kingmaker+Wiki"
-      },
-      {
-        "origin": "Pathfinder Wrath of the Righteous Fextralife Wiki",
-        "origin_base_url": "pathfinderwrathoftherighteous.wiki.fextralife.com",
-        "origin_content_path": "/",
-        "origin_main_page": "Pathfinder:+Wrath+of+the+Righteous+Wiki"
       }
     ],
     "destination": "PathfinderWiki",
@@ -4602,13 +4757,25 @@
   },
   {
     "id": "en-portal",
-    "origins_label": "Portal Fandom Wiki",
+    "origins_label": "Portal Fandom Wikis",
     "origins": [
       {
         "origin": "Portal Fandom Wiki",
         "origin_base_url": "portals.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Portal_Wiki"
+      },
+      {
+        "origin": "Portal-Valve Fandom Wiki",
+        "origin_base_url": "portal-valve.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portal_Wiki"
+      },
+      {
+        "origin": "Portal Info Fandom Wiki",
+        "origin_base_url": "portalinfo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Aperture_Science"
       }
     ],
     "destination": "Portal Wiki",
@@ -4845,13 +5012,31 @@
   },
   {
     "id": "en-rayman",
-    "origins_label": "Rayman Fandom Wiki",
+    "origins_label": "Rayman Fandom Wikis",
     "origins": [
       {
         "origin": "Rayman Fandom Wiki",
         "origin_base_url": "rayman.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Special:LanguageWikisIndex"
+      },
+      {
+        "origin": "Raymanpedia Fandom Wiki",
+        "origin_base_url": "raymanpedia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Raymanpedia_Wiki"
+      },
+      {
+        "origin": "Rayman Game Fandom Wiki",
+        "origin_base_url": "rayman-game.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rayman_Game_Wiki"
+      },
+      {
+        "origin": "Rayman Fandom Wiki",
+        "origin_base_url": "ubisoftrayman.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rayman_Wiki"
       }
     ],
     "destination": "RayWiki",
@@ -6447,6 +6632,25 @@
     ]
   },
   {
+    "id": "en-umamusume",
+    "origins_label": "Uma Musume Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Uma Musume Fandom Wiki",
+        "origin_base_url": "umamusume.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Uma_Musume_Wiki"
+      }
+    ],
+    "destination": "Umamusume Wiki",
+    "destination_base_url": "umamusu.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "umamusumewiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-undermine",
     "origins_label": "UnderMine Fandom Wiki",
     "origins": [
@@ -7204,7 +7408,7 @@
   },
   {
     "id": "en-zelda",
-    "origins_label": "Zelda Fandom, Neoseeker, & Fextra Wikis",
+    "origins_label": "Zelda Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Zelda Fandom Wiki",
