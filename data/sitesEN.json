@@ -4766,13 +4766,13 @@
         "origin_main_page": "Portal_Wiki"
       },
       {
-        "origin": "Portal Fandom Wiki",
+        "origin": "Portal-Valve Fandom Wiki",
         "origin_base_url": "portal-valve.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Portal_Wiki"
       },
       {
-        "origin": "Portal Fandom Wiki",
+        "origin": "Portal Info Fandom Wiki",
         "origin_base_url": "portalinfo.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Aperture_Science"
