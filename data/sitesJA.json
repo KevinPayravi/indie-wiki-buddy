@@ -67,6 +67,25 @@
     ]
   },
   {
+    "id": "ja-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/ja",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "ja.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "ja-noita",
     "origins_label": "Noita Fandom Wiki",
     "origins": [
@@ -89,22 +108,22 @@
     ]
   },
   {
-    "id": "ja-minecraft",
-    "origins_label": "Minecraft Fandom Wiki",
+    "id": "ja-pokemon",
+    "origins_label": "Pokémon Fandom Wiki",
     "origins": [
       {
-        "origin": "Minecraft Fandom Wiki",
-        "origin_base_url": "minecraft.fandom.com/ja",
+        "origin": "Pokémon Fandom Wiki",
+        "origin_base_url": "pokemon.fandom.com/ja",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Minecraft_Wiki"
+        "origin_main_page": "ポケットモンスター_Wiki"
       }
     ],
-    "destination": "Minecraft Wiki",
-    "destination_base_url": "ja.minecraft.wiki",
+    "destination": "ポケモンWiki",
+    "destination_base_url": "wiki.ポケモン.com",
     "destination_platform": "mediawiki",
-    "destination_icon": "minecraftwiki.png",
-    "destination_main_page": "Minecraft_Wiki",
-    "destination_search_path": "/",
-    "destination_content_path": "/w/"
+    "destination_icon": "pokemonwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "メインページ"
   }
 ]
