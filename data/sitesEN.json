@@ -308,6 +308,28 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-antiidle",
+    "origins_label": "Anti–Idle: The Game Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Anti–Idle: The Game Fandom Wiki",
+        "origin_base_url": "aitg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Anti-Idle:_The_Game_Wikia"
+      }
+    ],
+    "destination": "Anti-Idle: The Game Wiki",
+    "destination_base_url": "aitg.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "antiidlethegame.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "miraheze"
+    ]
+  },
+  {
     "id": "en-anvilempires",
     "origins_label": "Anvil Empires Fandom Wiki",
     "origins": [
