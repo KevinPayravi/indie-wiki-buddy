@@ -2658,12 +2658,6 @@
         "origin_base_url": "iceandfire.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "A_Song_of_Ice_and_Fire_Wiki"
-      },
-      {
-        "origin": "Westeros Fandom Wiki",
-        "origin_base_url": "gameofthrones.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Wiki_of_Westeros"
       }
     ],
     "destination": "A Wiki of Ice and Fire",
