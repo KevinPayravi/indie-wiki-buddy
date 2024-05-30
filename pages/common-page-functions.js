@@ -1,7 +1,4 @@
 // Set setting toggle values on-load:
-extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
-  setPower(item.power, false);
-});
 extensionAPI.storage.sync.get({ 'notifications': 'on' }, (item) => {
   setNotifications(item.notifications, false);
 });
@@ -29,17 +26,6 @@ extensionAPI.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
   if (item.breezewiki !== 'off') {
     loadBreezewikiOptions();
   }
-});
-
-// Add event listener for power toggle
-document.getElementById('powerCheckbox').addEventListener('change', () => {
-  extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
-    if (item.power === 'on') {
-      setPower('off');
-    } else {
-      setPower('on');
-    }
-  });
 });
 
 // Event listeners for toggling search engines
