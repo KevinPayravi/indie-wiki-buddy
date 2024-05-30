@@ -1701,13 +1701,19 @@
   },
   {
     "id": "en-doctorwho",
-    "origins_label": "Tardis Fandom & Doctor Who Neoseeker Wikis",
+    "origins_label": "Whoniverse Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Tardis Fandom Wiki",
         "origin_base_url": "tardis.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Doctor_Who_Wiki"
+      },
+      {
+        "origin": "Torchwood Archive Fandom Wiki",
+        "origin_base_url": "torchwood-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Torchwood_Archive_Wiki"
       },
       {
         "origin": "Doctor Who Neoseeker Wiki",
