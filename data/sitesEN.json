@@ -1720,6 +1720,24 @@
         "origin_base_url": "doctorwho.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "The Sarah Jane Adventures Fandom Wiki",
+        "origin_base_url": "thesarahjaneadventures.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Sarah_Jane_Adventures_Wiki"
+      },
+      {
+        "origin": "Doctor Who Fandom Wiki",
+        "origin_base_url": "doctorwhotv.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Doctor_Who_Wiki"
+      },
+      {
+        "origin": "Doctor Who The Time Traveling Tardis Fandom Wiki",
+        "origin_base_url": "doctorwhothetimetravlingtardis.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Doctor_Who"
       }
     ],
     "destination": "Tardis (Doctor Who) Wiki",
