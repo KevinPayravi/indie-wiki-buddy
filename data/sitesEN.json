@@ -65,7 +65,9 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
-      "wiki.gg"
+      "wiki.gg",
+      "official"
+    ]
     ]
   },
   {
@@ -3213,25 +3215,6 @@
     "tags": [
       "wiki.gg"
     ]
-  },
-  {
-    "id": "en-heroes",
-    "origins_label": "Heroes Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Heroes Fandom Wiki",
-        "origin_base_url": "heroes.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Heroes_Wiki"
-      }
-    ],
-    "destination": "Heroes Wiki",
-    "destination_base_url": "heroeswiki.ddns.net",
-    "destination_platform": "mediawiki",
-    "destination_icon": "heroeswiki.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-hollowknight",
