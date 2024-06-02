@@ -47,6 +47,28 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-abioticfactor",
+    "origins_label": "Abiotic Factor Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Abiotic Factor Fandom Wiki",
+        "origin_base_url": "abiotic-factor.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Abiotic_Factor_Wiki"
+      }
+    ],
+    "destination": "Abiotic Factor Wiki",
+    "destination_base_url": "abioticfactor.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "abioticfactor.png",
+    "destination_main_page": "Abiotic_Factor_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-acecombat",
     "origins_label": "Ace Combat Fandom Wiki",
     "origins": [
@@ -1761,7 +1783,7 @@
   },
   {
     "id": "en-doctorwho",
-    "origins_label": "Tardis Fandom & Doctor Who (Neoseeker) Wikis",
+    "origins_label": "Doctor Who Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Tardis Fandom Wiki",
@@ -1770,10 +1792,34 @@
         "origin_main_page": "Doctor_Who_Wiki"
       },
       {
+        "origin": "Torchwood Archive Fandom Wiki",
+        "origin_base_url": "torchwood-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Torchwood_Archive_Wiki"
+      },
+      {
         "origin": "Doctor Who Neoseeker Wiki",
         "origin_base_url": "doctorwho.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "The Sarah Jane Adventures Fandom Wiki",
+        "origin_base_url": "thesarahjaneadventures.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Sarah_Jane_Adventures_Wiki"
+      },
+      {
+        "origin": "Doctor Who Fandom Wiki",
+        "origin_base_url": "doctorwhotv.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Doctor_Who_Wiki"
+      },
+      {
+        "origin": "Doctor Who The Time Traveling Tardis Fandom Wiki",
+        "origin_base_url": "doctorwhothetimetravlingtardis.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Doctor_Who"
       }
     ],
     "destination": "Tardis (Doctor Who) Wiki",
@@ -2298,6 +2344,25 @@
     "destination_base_url": "wiki.evageeks.org",
     "destination_platform": "mediawiki",
     "destination_icon": "evawiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
+    "id": "en-eveonline",
+    "origins_label": "EVE Online Fandom Wiki",
+    "origins": [
+      {
+        "origin": "EVE Fandom Wiki",
+        "origin_base_url": "eve.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "EVE University Wiki",
+    "destination_base_url": "wiki.eveuniversity.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "eveonline.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
