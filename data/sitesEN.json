@@ -1822,6 +1822,12 @@
         "origin_base_url": "doctorwhothetimetravlingtardis.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Doctor_Who"
+      },
+      {
+        "origin": "K9tv Fandom Wiki",
+        "origin_base_url": "k9tv.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "K9tv_Wiki"
       }
     ],
     "destination": "Tardis (Doctor Who) Wiki",
