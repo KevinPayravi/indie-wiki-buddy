@@ -160,8 +160,15 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest =
 
 function commonFunctionGetOriginArticle(originURL, matchingSite) {
   let url = new URL('https://' + originURL.replace(/.*https?:\/\//, ''));
-  const path = decodeURIComponent(decodeURIComponent(String(url.pathname.split('&')[0]).split(matchingSite['origin_content_path'])[1] || ''));
-  return path;
+  let article = String(url.pathname).split(matchingSite['origin_content_path'])[1] || '';
+
+  // If a Fextralife wiki, replace plus signs with spaces
+  // When there are multiple plus signs together, this regex will only replace only the first
+  if (originURL.includes('.wiki.fextralife.com')) {
+    article = article.replace(/(?<!\+)\+/g, ' ');
+  }
+
+  return article;
 }
 
 function commonFunctionGetDestinationArticle(matchingSite, article) {
@@ -190,15 +197,10 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
 
     // Replace underscores with spaces as that performs better in search
     destinationArticle = destinationArticle.replaceAll('_', ' ');
-
-    // If a Fextralife wiki, replace plus signs with spaces
-    // When there are multiple plus signs together, this regex will only replace only the first
-    if (matchingSite['origin_base_url'].includes('.wiki.fextralife.com')) {
-      destinationArticle = destinationArticle.replace(/(?<!\+)\+/g, ' ');
-    }
-
     // Encode article
-    destinationArticle = encodeURIComponent(destinationArticle);
+    // We decode + encode to ensure we don't double-encode,
+    // in the event a string is already encoded
+    destinationArticle = encodeURIComponent(decodeURIComponent(destinationArticle));
 
     let searchParams = '';
     switch (matchingSite['destination_platform']) {

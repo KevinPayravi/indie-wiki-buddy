@@ -154,11 +154,6 @@ function stringToId(string) {
   return string.replaceAll(' ', '-').replaceAll("'", '').replace(/\W/g, '').toLowerCase();
 }
 
-// Function to escape string to use in regex
-function escapeRegex(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
 function removeSubstringIfAtEnd(str, sub) {
   if (sub && str.endsWith(sub)) {
     return str.slice(0, -sub.length);
@@ -193,16 +188,14 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let indieResultText = document.createElement('span');
     if (originArticle && originArticle !== site['origin_main_page']) {
       let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, site['destination_content_suffix']).replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
-      // If a Fextralife wiki, replace plus signs with spaces
-      // When there are multiple plus signs together, this regex will only replace only the first
-      if (link.includes('.wiki.fextralife.com')) {
-        destinationArticleTitle = destinationArticleTitle.replace(/(?<!\+)\+/g, ' ');
-      }
+      
+      // Decode article
+      destinationArticleTitle = decodeURIComponent(destinationArticleTitle);
 
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-        indieResultText.innerText = 'Look up "' + decodeURIComponent(destinationArticleTitle) + '" on ' + site.destination + ' (EN)';
+        indieResultText.innerText = 'Look up "' + destinationArticleTitle + '" on ' + site.destination + ' (EN)';
       } else {
-        indieResultText.innerText = 'Look up "' + decodeURIComponent(destinationArticleTitle) + '" on ' + site.destination;
+        indieResultText.innerText = 'Look up "' + destinationArticleTitle + '" on ' + site.destination;
       }
     } else {
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
@@ -480,16 +473,18 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
 
   if (searchResultContainer) {
     // If this page from Fandom is the same as a re-ordered page, filter it out
-    let searchResultLink = searchResult.href;
+    let searchResultLink = searchResult.getAttribute('data-iwb-href') || searchResult.href;
     let originArticle = commonFunctionGetOriginArticle(searchResultLink, matchingSite);
     let destinationArticle = commonFunctionGetDestinationArticle(matchingSite, originArticle);
+
     if (reorderedHrefs.find((href) => href.match(
+      // Match for destination URL with content path and article name
       new RegExp(
-        `http(s)*://${matchingSite['destination_base_url']}${matchingSite['destination_content_path']}${encodeURIComponent(destinationArticle)}$`
+        `http(s)?://${matchingSite['destination_base_url']}${matchingSite['destination_content_path']}${decodeURI(destinationArticle)}$`
       )
     ))) {
       countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, 'off');
-      console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResult.href} because we re-ordered an indie wiki result with a matching article`);
+      console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
     } else if (searchFilterSetting !== 'disabled') {
       if (searchFilterSetting === 'hide') {
         // Else, if the user has the preference set to hide search results, hide it indiscriminately
@@ -540,11 +535,11 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
       document.querySelector('#main div[data-hveid]');
 
     // Get the first Fandom/Fextralife/Neoseeker result, if it exists
-    const firstNonIndieResult = document.querySelector(`
+    const nonIndieResults = document.querySelectorAll(`
       div[data-hveid] a[href*='.fandom.com/'][href*='/wiki/']:first-of-type:not([role='button']):not([target='_self']),
       div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
       div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`);
-
+    const firstNonIndieResult = Array.from(nonIndieResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'))[0];
     if (!resultsFirstChild || !firstNonIndieResult) return;
 
     searchResults.some((result, i) => {
@@ -567,7 +562,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
           continue;
         }
 
-        const searchResultLink = searchResult.href || '';
+        const searchResultLink = searchResult.getAttribute('data-iwb-href') || searchResult.href || '';
 
         // Handle re-ordering of results to move destination results up the page
         let matchingDest = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting, true);
@@ -597,7 +592,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
     for (const searchResult of resultsToSort) {
       try {
         await reorderDestinationSearchResult(firstNonIndieResult, searchResult);
-        reorderedHrefs.push(searchResult.href);
+        reorderedHrefs.push(searchResult.getAttribute('data-iwb-href') || searchResult.href);
       } catch (e) {
         console.log('Indie Wiki Buddy failed to properly re-order search results with error: ' + e);
       }
@@ -614,7 +609,7 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
     try {
       // Check that result isn't within another result
       if (!searchResult.closest('.iwb-detected') || !searchResult.closest('.iwb-detected')?.querySelector('.iwb-new-link')) {
-        let searchResultLink = searchResult.href || '';
+        let searchResultLink = searchResult.getAttribute('data-iwb-href') || searchResult.href || '';
 
         if (!searchResultLink) {
           continue;
@@ -670,6 +665,22 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
     // Determine which search engine we're on
     switch (searchEngine) {
       case 'google':
+        // Query Google results and rewrite HREFs when Google uses middleman links (i.e. google.com/url?q=)
+        let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
+        searchResults.forEach((searchResult) => {
+          if (searchResult.href) {
+            const link = new URL(searchResult.href);
+            if (link.href.includes('https://www.google.com/url')) {
+              try {
+                const destinationLink = link.searchParams.get('url') || link.searchParams.get('q');
+                searchResult.setAttribute('data-iwb-href', destinationLink);
+              } catch (e) {
+                console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+              }
+            }
+          }
+        });
+
         // Function to filter search results in Google
         function filterGoogle(reorderedHrefs) {
           let searchResults = document.querySelectorAll(`
@@ -682,7 +693,6 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         async function reorderGoogle() {
           let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
-
           // Remove any matches that are not "standard" search results - this could've been done with :has() but limited browser support right now
           searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'));
 
@@ -715,7 +725,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
                 try {
                   let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
                   if (decodedLink.includes('.fandom.com') || decodedLink.includes('.wiki.fextralife.com') || decodedLink.includes('.neoseeker.com/wiki/')) {
-                    searchResult.href = decodedLink;
+                    searchResult.setAttribute('data-iwb-href', decodedLink);
                     searchResults.push(searchResult);
                   }
                 } catch (e) {
@@ -804,7 +814,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
                   const extractedURL = decodeURIComponent(match && match[1]);
 
                   if (extractedURL.includes('.fandom.com') || extractedURL.includes('.wiki.fextralife.com') || extractedURL.includes('.neoseeker.com/wiki/')) {
-                    searchResult.href = extractedURL;
+                    searchResult.setAttribute('data-iwb-href', extractedURL);
                     searchResults.push(searchResult);
                   }
                 } catch (e) {

@@ -2529,14 +2529,14 @@
         "origin": "Fear & Hunger Fandom Wiki",
         "origin_base_url": "fearandhunger.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "%22Fear_and_Hunger:_the_Tormentpedia%22_Wiki"
+        "origin_main_page": "\"Fear_and_Hunger:_the_Tormentpedia\"_Wiki"
       }
     ],
     "destination": "Fear & Hunger Wiki",
     "destination_base_url": "fearandhunger.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "fearhungerwiki.png",
-    "destination_main_page": "%22Fear_and_Hunger:_the_Tormentpedia%22_Wiki",
+    "destination_main_page": "\"Fear_and_Hunger:_the_Tormentpedia\"_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "tags": [

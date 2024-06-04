@@ -315,7 +315,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
 }
 
 function main() {
-  extensionAPI.runtime.sendMessage({action: 'getStorage'}, (storage) => {
+  extensionAPI.runtime.sendMessage({ action: 'getStorage' }, (storage) => {
     // Check if extension is on:
     if ((storage.power ?? 'on') === 'on') {
       // Check if there is a pathname, to ensure we're looking at an article
@@ -328,7 +328,7 @@ function main() {
         if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(currentURL.hostname))) {
           origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
           if (currentURL.search.includes('?q=')) {
-            origin = 'https://' + origin + currentURL.search.substring(3).split('&')[0];
+            origin = 'https://' + origin + currentURL.search.substring(3);
           } else {
             origin = 'https://' + origin + currentURL.pathname.split('/')[3];
           }
