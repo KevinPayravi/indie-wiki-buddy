@@ -769,7 +769,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'qwant':
         // Function to filter search results in Qwant
         function filterQwant() {
-          let searchResults = Array.from(document.querySelectorAll('a[data-testid=serTitle]')).filter(el => el.href.includes('fandom.com') || el.href.includes('fextralife.com'));
+          let searchResults = Array.from(document.querySelectorAll('a.external')).filter(el => el.href.includes('.fandom.com') || el.href.includes('.wiki.fextralife.com'));
           filterSearchResults(searchResults, 'qwant', storage);
         }
 
