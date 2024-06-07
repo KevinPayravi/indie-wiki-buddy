@@ -186,7 +186,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
-    if (originArticle && originArticle !== site['origin_main_page']) {
+    if (originArticle && decodeURIComponent(originArticle) !== site['origin_main_page']) {
       let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, site['destination_content_suffix']).replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
       
       // Decode article

@@ -185,7 +185,7 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
   let newURL = '';
   if (originArticle) {
     // Check if main page
-    if (originArticle === matchingSite['origin_main_page']) {
+    if (decodeURIComponent(originArticle) === matchingSite['origin_main_page']) {
       switch (matchingSite['destination_platform']) {
         case 'dokuwiki':
           destinationArticle = '';
