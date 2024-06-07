@@ -1396,11 +1396,17 @@
   },
   {
     "id": "en-contentwarning",
-    "origins_label": "Content Warning Fandom Wiki",
+    "origins_label": "Content Warning Fandom Wikis",
     "origins": [
       {
         "origin": "Content Warning Fandom Wiki",
         "origin_base_url": "content-warning.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Content_Warning_Wiki"
+      },
+      {
+        "origin": "Content Warning Landfall Fandom Wiki",
+        "origin_base_url": "content-warning-landfall.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Content_Warning_Wiki"
       }
