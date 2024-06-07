@@ -445,6 +445,22 @@ function setPower(setting, storeSetting = true) {
   });
 }
 
+// Set setting toggle values on-load:
+extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
+  setPower(item.power, false);
+});
+
+// Add event listener for power toggle
+document.getElementById('powerCheckbox').addEventListener('change', () => {
+  extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
+    if (item.power === 'on') {
+      setPower('off');
+    } else {
+      setPower('on');
+    }
+  });
+});
+
 // SAFARI-DIFF (not needed since Safari started with v3)
 // async function migrateData() {
 //   commonFunctionMigrateToV3();

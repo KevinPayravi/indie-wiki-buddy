@@ -6,7 +6,7 @@ extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
 // extensionAPI.storage.sync.get({ 'notifications': 'on' }, (item) => {
 //   setNotifications(item.notifications, false);
 // });
-chrome.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
+extensionAPI.storage.sync.get({ 'hiddenResultsBanner': 'on' }, (item) => {
   setHiddenResultsBanner(item.hiddenResultsBanner, false);
 });
 extensionAPI.storage.sync.get({ 'crossLanguage': 'off' }, (item) => {
@@ -30,17 +30,6 @@ extensionAPI.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
   if (item.breezewiki !== 'off') {
     loadBreezewikiOptions();
   }
-});
-
-// Add event listener for power toggle
-document.getElementById('powerCheckbox').addEventListener('change', () => {
-  extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
-    if (item.power === 'on') {
-      setPower('off');
-    } else {
-      setPower('on');
-    }
-  });
 });
 
 // Event listeners for toggling search engines

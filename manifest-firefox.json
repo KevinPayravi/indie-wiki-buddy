@@ -4,8 +4,31 @@
   "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
   "permissions": [
     "storage",
-    "tabs",
-    "scripting"
+    "webRequest",
+    "notifications",
+    "scripting",
+    "https://*.fandom.com/*",
+    "https://*.fextralife.com/*",
+    "https://*.neoseeker.com/*",
+    "https://breezewiki.com/*",
+    "https://antifandom.com/*",
+    "https://bw.artemislena.eu/*",
+    "https://breezewiki.catsarch.com/*",
+    "https://breezewiki.esmailelbob.xyz/*",
+    "https://breezewiki.frontendfriendly.xyz/*",
+    "https://bw.hamstro.dev/*",
+    "https://breeze.hostux.net/*",
+    "https://breezewiki.hyperreal.coffee/*",
+    "https://breeze.mint.lgbt/*",
+    "https://breezewiki.nadeko.net/*",
+    "https://nerd.whatever.social/*",
+    "https://breeze.nohost.network/*",
+    "https://z.opnxng.com/*",
+    "https://bw.projectsegfau.lt/*",
+    "https://breezewiki.pussthecat.org/*",
+    "https://bw.vern.cc/*",
+    "https://breeze.whateveritworks.org/*",
+    "https://breezewiki.woodland.cafe/*"
   ],
   "icons": {
     "16": "images/logo-16.png",
@@ -14,7 +37,7 @@
     "64": "images/logo-64.png",
     "128": "images/logo-128.png"
   },
-  "action": {
+  "browser_action": {
     "default_popup": "pages/popup/index.html",
     "default_icon": {
       "16": "images/logo-16.png",
@@ -25,36 +48,92 @@
     }
   },
   "web_accessible_resources": [
-    {
-      "resources": [
-        "favicons/*",
-        "data/sitesDE.json",
-        "data/sitesEN.json",
-        "data/sitesES.json",
-        "data/sitesFI.json",
-        "data/sitesFR.json",
-        "data/sitesHU.json",
-        "data/sitesIT.json",
-        "data/sitesJA.json",
-        "data/sitesKO.json",
-        "data/sitesLZH.json",
-        "data/sitesPL.json",
-        "data/sitesPT.json",
-        "data/sitesRU.json",
-        "data/sitesTH.json",
-        "data/sitesTOK.json",
-        "data/sitesUK.json",
-        "data/sitesZH.json"
-      ],
-      "matches": [
-        "https://*/*"
-      ]
-    }
+    "favicons/*",
+    "data/sitesDE.json",
+    "data/sitesEN.json",
+    "data/sitesES.json",
+    "data/sitesFI.json",
+    "data/sitesFR.json",
+    "data/sitesHU.json",
+    "data/sitesIT.json",
+    "data/sitesJA.json",
+    "data/sitesKO.json",
+    "data/sitesLZH.json",
+    "data/sitesPL.json",
+    "data/sitesPT.json",
+    "data/sitesRU.json",
+    "data/sitesTH.json",
+    "data/sitesTOK.json",
+    "data/sitesUK.json",
+    "data/sitesZH.json"
   ],
   "background": {
-    "service_worker": "background.js"
+    "scripts": [
+      "scripts/common-functions.js",
+      "background.js"
+    ],
+    "persistent": true
   },
   "content_scripts": [
+    {
+      "matches": [
+        "https://*.fandom.com/*",
+        "https://*.fextralife.com/*",
+        "https://*.neoseeker.com/*",
+        "https://breezewiki.com/*",
+        "https://antifandom.com/*",
+        "https://bw.artemislena.eu/*",
+        "https://breezewiki.catsarch.com/*",
+        "https://breezewiki.esmailelbob.xyz/*",
+        "https://breezewiki.frontendfriendly.xyz/*",
+        "https://bw.hamstro.dev/*",
+        "https://breeze.hostux.net/*",
+        "https://breezewiki.hyperreal.coffee/*",
+        "https://breeze.mint.lgbt/*",
+        "https://breezewiki.nadeko.net/*",
+        "https://nerd.whatever.social/*",
+        "https://breeze.nohost.network/*",
+        "https://z.opnxng.com/*",
+        "https://bw.projectsegfau.lt/*",
+        "https://breezewiki.pussthecat.org/*",
+        "https://bw.vern.cc/*",
+        "https://breeze.whateveritworks.org/*",
+        "https://breezewiki.woodland.cafe/*"
+      ],
+      "js": [
+        "scripts/common-functions.js",
+        "scripts/content-banners.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://breezewiki.com/*",
+        "https://antifandom.com/*",
+        "https://bw.artemislena.eu/*",
+        "https://breezewiki.catsarch.com/*",
+        "https://breezewiki.esmailelbob.xyz/*",
+        "https://breezewiki.frontendfriendly.xyz/*",
+        "https://bw.hamstro.dev/*",
+        "https://breeze.hostux.net/*",
+        "https://breezewiki.hyperreal.coffee/*",
+        "https://breeze.mint.lgbt/*",
+        "https://breezewiki.nadeko.net/*",
+        "https://nerd.whatever.social/*",
+        "https://breeze.nohost.network/*",
+        "https://z.opnxng.com/*",
+        "https://bw.projectsegfau.lt/*",
+        "https://breezewiki.pussthecat.org/*",
+        "https://bw.vern.cc/*",
+        "https://breeze.whateveritworks.org/*",
+        "https://breezewiki.woodland.cafe/*"
+      ],
+      "js": [
+        "scripts/common-functions.js",
+        "scripts/content-breezewiki.js"
+      ],
+      "run_at": "document_end"
+    },
     {
       "matches": [
         "https://*.bing.com/search*",
@@ -280,103 +359,17 @@
         "scripts/content-search-filtering.js"
       ],
       "run_at": "document_end"
-    },
-    {
-      "matches": [
-        "https://*.fandom.com/*",
-        "https://*.fextralife.com/*",
-        "https://*.neoseeker.com/*",
-        "https://breezewiki.com/*",
-        "https://antifandom.com/*",
-        "https://bw.artemislena.eu/*",
-        "https://breezewiki.catsarch.com/*",
-        "https://breezewiki.esmailelbob.xyz/*",
-        "https://breezewiki.frontendfriendly.xyz/*",
-        "https://bw.hamstro.dev/*",
-        "https://breeze.hostux.net/*",
-        "https://breezewiki.hyperreal.coffee/*",
-        "https://breeze.mint.lgbt/*",
-        "https://breezewiki.nadeko.net/*",
-        "https://nerd.whatever.social/*",
-        "https://breeze.nohost.network/*",
-        "https://z.opnxng.com/*",
-        "https://bw.projectsegfau.lt/*",
-        "https://breezewiki.pussthecat.org/*",
-        "https://bw.vern.cc/*",
-        "https://breeze.whateveritworks.org/*",
-        "https://breezewiki.woodland.cafe/*"
-      ],
-      "js": [
-        "scripts/common-functions.js",
-        "scripts/content-banners.js"
-      ],
-      "run_at": "document_start"
-    },
-    {
-      "matches": [
-        "https://breezewiki.com/*",
-        "https://antifandom.com/*",
-        "https://bw.artemislena.eu/*",
-        "https://breezewiki.catsarch.com/*",
-        "https://breezewiki.esmailelbob.xyz/*",
-        "https://breezewiki.frontendfriendly.xyz/*",
-        "https://bw.hamstro.dev/*",
-        "https://breeze.hostux.net/*",
-        "https://breezewiki.hyperreal.coffee/*",
-        "https://breeze.mint.lgbt/*",
-        "https://breezewiki.nadeko.net/*",
-        "https://nerd.whatever.social/*",
-        "https://breeze.nohost.network/*",
-        "https://z.opnxng.com/*",
-        "https://bw.projectsegfau.lt/*",
-        "https://breezewiki.pussthecat.org/*",
-        "https://bw.vern.cc/*",
-        "https://breeze.whateveritworks.org/*",
-        "https://breezewiki.woodland.cafe/*"
-      ],
-      "js": [
-        "scripts/common-functions.js",
-        "scripts/content-breezewiki.js"
-      ],
-      "run_at": "document_end"
     }
   ],
-  "host_permissions": [
-    "https://*.fandom.com/*",
-    "https://*.fextralife.com/*",
-    "https://*.neoseeker.com/*",
-    "https://breezewiki.com/*",
-    "https://antifandom.com/*",
-    "https://bw.artemislena.eu/*",
-    "https://breezewiki.catsarch.com/*",
-    "https://breezewiki.esmailelbob.xyz/*",
-    "https://breezewiki.frontendfriendly.xyz/*",
-    "https://bw.hamstro.dev/*",
-    "https://breeze.hostux.net/*",
-    "https://breezewiki.hyperreal.coffee/*",
-    "https://breeze.mint.lgbt/*",
-    "https://breezewiki.nadeko.net/*",
-    "https://nerd.whatever.social/*",
-    "https://breeze.nohost.network/*",
-    "https://z.opnxng.com/*",
-    "https://bw.projectsegfau.lt/*",
-    "https://breezewiki.pussthecat.org/*",
-    "https://bw.vern.cc/*",
-    "https://breeze.whateveritworks.org/*",
-    "https://breezewiki.woodland.cafe/*"
-  ],
-  "optional_permissions": [
-    "https://*/*"
-  ],
+  "optional_permissions": ["https://*/*"],
   "browser_specific_settings": {
-    "safari": {
-        "strict_min_version": "17.0"
+    "gecko": {
+      "id": "{cb31ec5d-c49a-4e5a-b240-16c767444f62}",
+      "strict_min_version": "113.0"
+    },
+    "gecko_android": {
+      "strict_min_version": "120.0"
     }
   },
-  "options_ui": {
-    "page": "pages/popup/index.html"
-  },
-  "homepage_url": "https://getindie.wiki",
-  "default_locale": "en",
-  "manifest_version": 3
+  "manifest_version": 2
 }

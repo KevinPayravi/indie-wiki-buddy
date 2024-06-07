@@ -59,7 +59,7 @@
     "destination_base_url": "wiki.geloefogo.com",
     "destination_platform": "mediawiki",
     "destination_icon": "gameofthrones.png",
-    "destination_main_page": "Página_principali",
+    "destination_main_page": "Página_principal",
     "destination_search_path": "/index.php",
     "destination_content_path": "/index.php/"
   },
