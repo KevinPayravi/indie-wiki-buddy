@@ -280,6 +280,9 @@
         "scripts/common-functions.js",
         "scripts/content-search-filtering.js"
       ],
+      "css": [
+        "css/content-search-filtering.css"
+      ],
       "run_at": "document_end"
     },
     {
@@ -310,6 +313,9 @@
       "js": [
         "scripts/common-functions.js",
         "scripts/content-banners.js"
+      ],
+      "css": [
+        "css/content-banners.css"
       ],
       "run_at": "document_start"
     },
