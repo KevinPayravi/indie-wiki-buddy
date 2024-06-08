@@ -535,18 +535,12 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
       document.querySelector('#main div[data-hveid]');
 
     // Get the first Fandom/Fextralife/Neoseeker result, if it exists
-    const nonIndieResults = document.querySelectorAll(`
-      div[data-hveid] a[href*='.fandom.com/'][href*='/wiki/']:first-of-type:not([role='button']):not([target='_self']),
-      div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
-      div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`);
+    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
     const firstNonIndieResult = Array.from(nonIndieResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'))[0];
     if (!resultsFirstChild || !firstNonIndieResult) return;
 
     searchResults.some((result, i) => {
-      if (result.matches(`
-        div[data-hveid] a[href*='.fandom.com/'][href*='/wiki/']:first-of-type:not([role='button']):not([target='_self']),
-        div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
-        div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`)) {
+      if (isNonIndieSite(result.href)) {
         searchResults.splice(0, i + 1);
         return true;
       }
@@ -655,6 +649,11 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
   }
 }
 
+// Detects whether a given link is to a supported non-indie wikifarm site
+function isNonIndieSite(link) {
+  return link?.includes('.fandom.com') || link?.includes('.wiki.fextralife.com') || link?.includes('.neoseeker.com/wiki/');
+}
+
 function startFiltering(searchEngine, storage, mutations = null, observer = null) {
   if (observer) {
     observer.disconnect();
@@ -675,7 +674,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
                 const destinationLink = link.searchParams.get('url') || link.searchParams.get('q');
                 searchResult.setAttribute('data-iwb-href', destinationLink);
               } catch (e) {
-                console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+                console.log('Indie Wiki Buddy failed to parse Google link with error: ', e);
               }
             }
           }
@@ -683,10 +682,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         // Function to filter search results in Google
         function filterGoogle(reorderedHrefs) {
-          let searchResults = document.querySelectorAll(`
-          div[data-hveid] a[href*='.fandom.com/'][href*='/wiki/']:first-of-type:not([role='button']):not([target='_self']),
-          div[data-hveid] a[href*='.wiki.fextralife.com/']:first-of-type:not([role='button']):not([target='_self']),
-          div[data-hveid] a[href*='.neoseeker.com/wiki/']:first-of-type:not([role='button']):not([target='_self'])`);
+          let searchResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
 
           filterSearchResults(searchResults, 'google', storage, reorderedHrefs);
         }
@@ -704,15 +700,17 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
           filterGoogle(r);
         });
         break;
+      
       case 'duckduckgo':
         // Function to filter search results in DuckDuckGo
         function filterDuckDuckGo() {
-          let searchResults = document.querySelectorAll('h2>a[href*=".fandom.com"], h2>a[href*=".wiki.fextralife.com"], h2>a[href*=".neoseeker.com/wiki/"]');
+          let searchResults = Array.from(document.querySelectorAll('h2>a')).filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'duckduckgo', storage);
         }
 
         filterDuckDuckGo();
         break;
+      
       case 'bing':
         // Function to filter search results in Bing
         function filterBing() {
@@ -724,7 +722,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
               if (encodedLink.href.includes('https://www.bing.com/ck/')) {
                 try {
                   let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                  if (decodedLink.includes('.fandom.com') || decodedLink.includes('.wiki.fextralife.com') || decodedLink.includes('.neoseeker.com/wiki/')) {
+                  if (isNonIndieSite(decodedLink)) {
                     searchResult.setAttribute('data-iwb-href', decodedLink);
                     searchResults.push(searchResult);
                   }
@@ -742,63 +740,57 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterBing();
         break;
+      
       case 'brave':
         // Function to filter search results in Brave
         function filterBrave() {
-          let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el =>
-            el.href?.includes('.fandom.com') ||
-            el.href?.includes('.wiki.fextralife.com') ||
-            el.href?.includes('.neoseeker.com/wiki/'));
+          let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'brave', storage);
         }
 
         filterBrave();
         break;
+      
       case 'ecosia':
         // Function to filter search results in Ecosia
         function filterEcosia() {
-          let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el =>
-            el.href?.includes('.fandom.com') ||
-            el.href?.includes('.wiki.fextralife.com') ||
-            el.href?.includes('.neoseeker.com/wiki/'));
+          let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'ecosia', storage);
         }
 
         filterEcosia();
         break;
+      
       case 'qwant':
         // Function to filter search results in Qwant
         function filterQwant() {
-          let searchResults = Array.from(document.querySelectorAll('a.external')).filter(el => el.href.includes('.fandom.com') || el.href.includes('.wiki.fextralife.com'));
+          let searchResults = Array.from(document.querySelectorAll('a.external')).filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'qwant', storage);
         }
 
         filterQwant();
         break;
+      
       case 'startpage':
         // Function to filter search results in Startpage
         function filterStartpage() {
-          let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el =>
-            el.href?.includes('.fandom.com') ||
-            el.href?.includes('.wiki.fextralife.com') ||
-            el.href?.includes('.neoseeker.com/wiki/'));
+          let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'startpage', storage);
         }
 
         filterStartpage();
         break;
+      
       case 'yandex':
         // Function to filter search results in Yandex
         function filterYandex() {
-          let searchResults = Array.from(document.querySelectorAll('li[data-cid] a.link, li[data-cid] a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el =>
-            el.href?.includes('.fandom.com') ||
-            el.href?.includes('.wiki.fextralife.com') ||
-            el.href?.includes('.neoseeker.com/wiki/'));
+          let searchResults = Array.from(document.querySelectorAll('li[data-cid] a.link, li[data-cid] a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'yandex', storage);
         }
 
         filterYandex();
         break;
+      
       case 'yahoo':
         // Function to filter search results in Yahoo
         function filterYahoo() {
@@ -813,7 +805,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
                   const match = searchResult.href.match(embeddedUrlRegex);
                   const extractedURL = decodeURIComponent(match && match[1]);
 
-                  if (extractedURL.includes('.fandom.com') || extractedURL.includes('.wiki.fextralife.com') || extractedURL.includes('.neoseeker.com/wiki/')) {
+                  if (isNonIndieSite(extractedURL)) {
                     searchResult.setAttribute('data-iwb-href', extractedURL);
                     searchResults.push(searchResult);
                   }
@@ -831,33 +823,26 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterYahoo();
         break;
+      
       case 'kagi':
         // Function to filter search results in Kagi
         function filterKagi() {
-          let searchResults = Array.from(document.querySelectorAll('h3>a, a.__sri-url')).filter(el =>
-            el.href?.includes('.fandom.com') ||
-            el.href?.includes('.wiki.fextralife.com') ||
-            el.href?.includes('.neoseeker.com/wiki/'));
+          let searchResults = Array.from(document.querySelectorAll('h3>a, a.__sri-url')).filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'kagi', storage);
         }
 
         filterKagi();
         break;
+      
       default:
         if (storage.customSearchEngines) {
           function filterSearXNG() {
-            let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
+            let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el => isNonIndieSite(el.href));
             filterSearchResults(searchResults, 'searxng', storage);
           }
 
           function filterWhoogle() {
-            let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el =>
-              el.href?.includes('.fandom.com') ||
-              el.href?.includes('.wiki.fextralife.com') ||
-              el.href?.includes('.neoseeker.com/wiki/'));
+            let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el => isNonIndieSite(el.href));
             filterSearchResults(searchResults, 'whoogle', storage);
           }
 
