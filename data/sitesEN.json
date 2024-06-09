@@ -4762,6 +4762,28 @@
     ]
   },
   {
+    "id": "en-plagueinc",
+    "origins_label": "Plague Inc. Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Plague Inc. Fandom Wiki",
+        "origin_base_url": "plagueinc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Plague_Inc._Wiki"
+      }
+    ],
+    "destination": "Plague Inc. Wiki",
+    "destination_base_url": "plagueinc.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "plagueincwiki.png",
+    "destination_main_page": "Plague_Inc._Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-plantsvszombies",
     "origins_label": "Plants vs. Zombies Fandom Wiki",
     "origins": [
