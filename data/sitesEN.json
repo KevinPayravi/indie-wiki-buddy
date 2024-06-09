@@ -5701,6 +5701,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-spacestation14",
+    "origins_label": "Space Station 14 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Space Station 14 Fandom Wiki",
+        "origin_base_url": "space-station-14.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Space_Station_14_Wiki"
+      }
+    ],
+    "destination": "Space Station 14 Wiki",
+    "destination_base_url": "wiki.spacestation14.io",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ss14.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-spiritmod",
     "origins_label": "Spirit Mod Fandom Wiki",
     "origins": [
