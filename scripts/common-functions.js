@@ -199,8 +199,14 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
     destinationArticle = destinationArticle.replaceAll('_', ' ');
     // Encode article
     // We decode + encode to ensure we don't double-encode,
-    // in the event a string is already encoded
-    destinationArticle = encodeURIComponent(decodeURIComponent(destinationArticle));
+    // in the event a string is already encoded.
+    // We wrap in a try-catch as decoding can sometimes fail if destination article
+    // does have special characters (e.g. %) in the title.
+    try {
+      destinationArticle = encodeURIComponent(decodeURIComponent(destinationArticle));
+    } catch {
+      destinationArticle = encodeURIComponent(destinationArticle);
+    }
 
     let searchParams = '';
     switch (matchingSite['destination_platform']) {
