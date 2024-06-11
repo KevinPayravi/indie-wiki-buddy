@@ -1,78 +1,6 @@
 const breezewikiRegex = /breezewiki\.com$|antifandom\.com$|bw\.artemislena\.eu$|breezewiki\.catsarch\.com$|breezewiki\.esmailelbob\.xyz$|breezewiki\.frontendfriendly\.xyz$|bw\.hamstro\.dev$|breeze\.hostux\.net$|breezewiki\.hyperreal\.coffee$|breeze\.mint\.lgbt$|breezewiki\.nadeko\.net$|nerd\.whatever\.social$|breeze\.nohost\.network$|z\.opnxng\.com$|bw\.projectsegfau\.lt$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breeze\.whateveritworks\.org$|breezewiki\.woodland\.cafe$/;
 const currentURL = new URL(document.location);
 
-function outputCSS() {
-  if (!document.getElementById('iwb-banner-styles')) {
-    styleString = `
-      #indie-wiki-banner-container {
-        font-family: sans-serif;
-        width: 100%;
-        z-index: 2147483647;
-        position: sticky;
-        top: 0;
-        text-align: center;
-      }
-      .indie-wiki-banner {
-        background-color: #acdae2;
-        padding: 8px 10px;
-        font-size: 12px;
-      }
-      .indie-wiki-banner-exit {
-        position: absolute;
-        right: 8px;
-        top: 4px;
-        font-size: 20px;
-        color: #333;
-        cursor: pointer;
-      }
-      .indie-wiki-banner-controls {
-        padding-bottom: 5px;
-      }
-      .indie-wiki-banner-big-text {
-        font-size: 14px;
-        line-height: 24px;
-        margin-top: 5px;
-      }
-      .indie-wiki-banner-big-text .indie-wiki-banner-link{
-        font-size: 16px;
-      }
-      .indie-wiki-banner-link {
-        font-weight: 600;
-        color: #000080;
-        cursor: pointer;
-        padding: 0 10px;
-        display: block;
-        width: fit-content;
-        margin: 0 auto;
-      }
-      .indie-wiki-banner-link:hover {
-        text-decoration: underline;
-        color: #000080;
-      }
-      .indie-wiki-banner-link-small {
-        display: inline-block;
-        font-size: 12px;
-        min-width: 180px;
-      }
-      .indie-wiki-banner-disabled {
-        color: #333;
-        cursor: default;
-      }
-      .indie-wiki-banner-disabled:hover {
-        text-decoration: none;
-      }
-      .indie-wiki-banner-hidden {
-        display: none;
-      }
-    `
-
-    style = document.createElement('style');
-    style.id = 'iwb-banner-styles';
-    style.textContent = styleString;
-    document.head.append(style);
-  }
-}
-
 function outputBannerContainer() {
   if (!document.getElementById('indie-wiki-banner-container')) {
     const container = document.createElement('div');
@@ -140,8 +68,6 @@ function processBreezeWikiBanner(storage) {
 
 
 function displayBreezewikiBanner(newUrl) {
-  outputCSS();
-
   // Output banner
   let banner = document.createElement('div');
   banner.id = 'indie-wiki-banner-bw';
@@ -177,8 +103,6 @@ function displayBreezewikiBanner(newUrl) {
 }
 
 function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage, tags, storage) {
-  outputCSS();
-
   // Output banner
   let banner = document.createElement('div');
   banner.id = 'indie-wiki-banner-redirect';
