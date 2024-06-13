@@ -78,7 +78,7 @@ function displayBreezewikiBanner(newUrl) {
   let bannerWikiLink = document.createElement('a');
   bannerWikiLink.classList.add('indie-wiki-banner-link');
   bannerWikiLink.href = newUrl;
-  bannerWikiLink.textContent = 'View this Fandom wiki through BreezeWiki';
+  bannerWikiLink.textContent = extensionAPI.i18n.getMessage('bannerBreezeWiki');
   bannerText.appendChild(bannerWikiLink);
   banner.appendChild(bannerText);
 
@@ -119,18 +119,18 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRestoreLink.classList.add('indie-wiki-banner-link');
   bannerRestoreLink.classList.add('indie-wiki-banner-link-small');
   bannerRestoreLink.classList.add('indie-wiki-banner-hidden');
-  bannerRestoreLink.textContent = '⎌ Restore banner';
+  bannerRestoreLink.textContent = extensionAPI.i18n.getMessage('bannerRestore');
   bannerControls.appendChild(bannerRestoreLink);
   bannerRestoreLink.onclick = function (e) {
     extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
       let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
       wikiSettings[id] = 'alert';
       extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-      e.target.textContent = '✓ Banner restored';
+      e.target.textContent = extensionAPI.i18n.getMessage('bannerRestoreDone');
       e.target.classList.add('indie-wiki-banner-disabled');
-      bannerControls.querySelector('.indie-wiki-banner-redirect').textContent = '↪ Auto redirect this wiki';
+      bannerControls.querySelector('.indie-wiki-banner-redirect').textContent = extensionAPI.i18n.getMessage('bannerRedirect');
       bannerControls.querySelector('.indie-wiki-banner-redirect').classList.remove('indie-wiki-banner-disabled');
-      bannerControls.querySelector('.indie-wiki-banner-disable').textContent = '✕ Disable banner for this wiki';
+      bannerControls.querySelector('.indie-wiki-banner-disable').textContent = extensionAPI.i18n.getMessage('bannerDisable');
       bannerControls.querySelector('.indie-wiki-banner-disable').classList.remove('indie-wiki-banner-hidden');
       bannerControls.querySelector('.indie-wiki-banner-disable').classList.remove('indie-wiki-banner-disabled');
     });
@@ -141,16 +141,16 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerDisableLink.classList.add('indie-wiki-banner-disable');
   bannerDisableLink.classList.add('indie-wiki-banner-link');
   bannerDisableLink.classList.add('indie-wiki-banner-link-small');
-  bannerDisableLink.textContent = '✕ Disable banner for this wiki';
+  bannerDisableLink.textContent = extensionAPI.i18n.getMessage('bannerDisable');
   bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
     extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
       let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
       wikiSettings[id] = 'disabled';
       extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-      e.target.textContent = '✓ Banner disabled';
+      e.target.textContent = extensionAPI.i18n.getMessage('bannerDisableDone');
       e.target.classList.add('indie-wiki-banner-disabled');
-      bannerControls.querySelector('.indie-wiki-banner-restore').textContent = '⎌ Restore banner';
+      bannerControls.querySelector('.indie-wiki-banner-restore').textContent = extensionAPI.i18n.getMessage('bannerRestore');
       bannerControls.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
       bannerControls.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
     });
@@ -161,17 +161,17 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRedirectLink.classList.add('indie-wiki-banner-redirect');
   bannerRedirectLink.classList.add('indie-wiki-banner-link');
   bannerRedirectLink.classList.add('indie-wiki-banner-link-small');
-  bannerRedirectLink.textContent = '↪ Auto redirect this wiki';
+  bannerRedirectLink.textContent = extensionAPI.i18n.getMessage('bannerRedirect');
   bannerControls.appendChild(bannerRedirectLink);
   bannerRedirectLink.onclick = function (e) {
     extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
       let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
       wikiSettings[id] = 'redirect';
       extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-      e.target.textContent = '✓ Redirect enabled';
+      e.target.textContent = extensionAPI.i18n.getMessage('bannerRedirectDone');
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerControls.querySelector('.indie-wiki-banner-disable').classList.add('indie-wiki-banner-hidden');
-      bannerControls.querySelector('.indie-wiki-banner-restore').textContent = '⎌ Restore banner';
+      bannerControls.querySelector('.indie-wiki-banner-restore').textContent = extensionAPI.i18n.getMessage('bannerRestore');
       bannerControls.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-hidden');
       bannerControls.querySelector('.indie-wiki-banner-restore').classList.remove('indie-wiki-banner-disabled');
     });
@@ -183,24 +183,29 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   banner.appendChild(bannerText);
 
   // Build descriptor
-  let descriptor = 'an independent';
+  let descriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependent');
   if (tags.includes('wiki.gg')) {
-    descriptor = 'a wiki.gg';
+    descriptor = tags.includes('official')
+      ? extensionAPI.i18n.getMessage('bannerDescriptorWikiggOfficial')
+      : extensionAPI.i18n.getMessage('bannerDescriptorWikigg')
   }
-  if (tags.includes('official')) {
-    descriptor = 'an official ' + descriptor.split(" ").slice(-1);
+  if (tags.includes('official') && !tags.includes('wiki.gg')) {
+    descriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependentOfficial');
   }
 
   if (destinationLanguage === 'EN' && location.href.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-    bannerText.textContent = 'There is ' + descriptor + ' wiki covering this topic in English!';
+    bannerText.textContent = extensionAPI.i18n.getMessage('bannerText', [
+      descriptor,
+      extensionAPI.i18n.getMessage('bannerLanguageEnglish')
+    ]);
   } else {
-    bannerText.textContent = 'There is ' + descriptor + ' wiki covering this topic!';
+    bannerText.textContent = extensionAPI.i18n.getMessage('bannerText', [descriptor]);
   }
   let bannerWikiLink = document.createElement('a');
   bannerWikiLink.classList.add('indie-wiki-banner-link');
   bannerText.appendChild(bannerWikiLink);
   bannerWikiLink.href = newUrl;
-  bannerWikiLink.textContent = 'Visit ' + destinationName + ' →';
+  bannerWikiLink.textContent = extensionAPI.i18n.getMessage('bannerText', [destinationName]);
 
   // Function to insert banner into DOM before body element
   function addBannerToDOM() {
