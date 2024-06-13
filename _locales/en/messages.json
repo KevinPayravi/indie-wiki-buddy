@@ -637,5 +637,221 @@
         "content": "$2"
       }
     }
+  },
+  "guideTitle": {
+    "message": "Indie Wiki Buddy guide",
+    "description": "Title of the guide"
+  },
+  "guideBackToSettings": {
+    "message": "⇦ Back to Settings",
+    "description": "Button to return to the settings page"
+  },
+  "guideOverview": {
+    "message": "Overview",
+    "description": "Overview section"
+  },
+  "guideOverviewPara1": {
+    "message": "Indie Wiki Buddy provides a suite of features to help you discover independent wikis and improve your general wiki reading experience."
+  },
+  "guideOverviewPara2": {
+    "message": "When you visit a wiki on a large, corporate-run wiki host, this extension can notify or automatically redirect you to quality independent wikis when they're available. Search results in Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex can also be filtered, replacing non-independent wikis with links to independent counterpart (or hiding them completely)."
+  },
+  "guideOverviewPara3": {
+    "message": "We currently redirect from Fandom, Fextralife, and Neoseeker wikis to independent counterparts."
+  },
+  "guideOverviewPara4": {
+    "message": "Indie Wiki Buddy also supports $BreezeWiki$, a separate service that renders Fandom wikis without ads or bloat. This helps give you a more enjoyable reading experience when an independent wiki isn't available.",
+    "placeholders": {
+      "BreezeWiki": {
+        "content": "$1",
+        "example": "BreezeWiki"
+      }
+    }
+  },
+  "guideOverviewPara5": {
+    "message": "All these features can be toggled on or off, and you can set your preferences per-wiki as well. You're in full control!"
+  },
+  "guideGlobalSettingsHelp": {
+    "message": "Global settings help",
+    "description": "Global settings help section"
+  },
+  "guideGlobalSettingsHelpIntro": {
+    "message": "There are several general settings:",
+    "description": "Introduction paragraph of the general settings help"
+  },
+  "guideExtensionOnOff": {
+    "message": "Extension is on / off",
+    "description": "Extension on/off toggle"
+  },
+  "guideExtensionOnOffHelp": {
+    "message": "Enable/disable all Indie Wiki Buddy functionality at the click of a button."
+  },
+  "guideNotificationsHelp1": {
+    "message": "When this option is enabled, you will receive a desktop notification whenever you are automatically redirected to either an indie wiki or $BreezeWiki$. This is on by default.",
+    "placeholders": {
+      "BreezeWiki": {
+        "content": "$1",
+        "example": "BreezeWiki"
+      }
+    }
+  },
+  "guideNotificationsHelp2": {
+    "message": "If you aren't getting notifications when this is enabled, check your operating system's notification settings to ensure that your browser is allowed to send notifications."
+  },
+  "guideCrossLanguageHelp1": {
+    "message": "By default, Indie Wiki Buddy will keep users within the same language (e.g. only redirecting Spanish Fandom wikis to Spanish indie wikis). However, multilingual speakers may want to also use the many independent English wikis that are available. Enabling this option will redirect from non-English Fandom wikis to independent English wikis when one isn't available in the same language."
+  },
+  "guideCrossLanguageHelp2": {
+    "message": "Unfortunately this feature does not currently work for Fextralife wikis."
+  },
+  "guideChangelogHelp": {
+    "message": "Enable this option to have Indie Wiki Buddy's $linkStart$changelog$linkEnd$ opened in a new tab whenever it updates, so you can stay up-to-date on the latest changes.",
+    "placeholders": {
+      "linkStart": {
+        "content": "$1"
+      },
+      "linkEnd": {
+        "content": "$2"
+      }
+    }
+  },
+  "guideGlobalSettingsHelpSearch": {
+    "message": "You can also configure your settings for filtering results in search engines:"
+  },
+  "guideTogglePerSearchEngine": {
+    "message": "Toggle filtering per search engine"
+  },
+  "guideTogglePerSearchEngineHelp1": {
+    "message": "By default, filtering is enabled for all search engines. Filtering is done based on the user's selected settings for each wiki. The default filtering setting for all wikis is to replace non-indie search results with buttons linking to indie counterparts."
+  },
+  "guideTogglePerSearchEngineHelp2": {
+    "message": "The current supported search engines are Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex."
+  },
+  "guideHiddenResultsBannerHelp1": {
+    "message": "When this option is enabled, a banner will be inserted at the top of search engine results when Indie Wiki Buddy has hidden results from Fandom, Fextralife, or Neoseeker wikis. This banner also lets you re-show the hidden results if you wish."
+  },
+  "guideHiddenResultsBannerHelp2": {
+    "message": "If you don't want to see any indication that results have been hidden, disable this option."
+  },
+  "guideReorderResultsHelp1": {
+    "message": "By default, Indie Wiki Buddy will re-order the results page on Google to move indie wiki results above the first non-indie (Fandom / Fextralife / Neoseeker) result, if they are further down the first page of results. This allows you to find the pages you're looking for on indie wikis quicker."
+  },
+  "guideReorderResultsHelp2": {
+    "message": "This feature is currently only available for Google, as it can be complex to maintain reliably."
+  },
+  "guideBreezeWiki": {
+    "message": "You can also set your desired setting for $BreezeWiki$, a separate service that renders Fandom wikis without ads or bloat. Note, BreezeWiki currently only supports English wikis.",
+    "description": "BreezeWiki section",
+    "placeholders": {
+      "BreezeWiki": {
+        "content": "$1",
+        "example": "BreezeWiki"
+      }
+    }
+  },
+  "guideBreezeWikiDisabledHelp": {
+    "message": "Do not redirect Fandom to BreezeWiki."
+  },
+  "guideBreezeWikiBannerHelp": {
+    "message": "At the top of English Fandom wikis, a small banner will be inserted with a link to take you to the BreezeWiki wiki."
+  },
+  "guideBreezeWikiRedirectHelp": {
+    "message": "Visiting any English Fandom wiki will immediately redirect you to view it through BreezeWiki. If automatic redirect to an independent wiki is enabled, the indepedent wiki will take priority."
+  },
+  "guideBreezeWikiHostHelp": {
+    "message": "Once you've enabled a BreezeWiki option, a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror. If your selected BreezeWiki host goes down, you can come back to these settings and switch your host."
+  },
+  "guideWikiHelp": {
+    "message": "Individual wiki settings help",
+    "description": "Individual wiki settings help section"
+  },
+  "guideWikiHelpPara1": {
+    "message": "In the individual settings section of the settings page, you can configure your settings per-wiki. You can refer to the legend or hover over the icons to learn what each column controls."
+  },
+  "guideWikiHelpPara2": {
+    "message": "The first set of radio buttons controls what happens when you visit the listed non-indie wikis."
+  },
+  "guideDisable": {
+    "message": "Disable"
+  },
+  "guideDisableVisitHelp": {
+    "message": ": You will be neither notified of nor redirected to the independent counterpart. You will still be directed to BreezeWiki if it is turned on."
+  },
+  "guideRedirect": {
+    "message": "Redirect"
+  },
+  "guideRedirectHelp": {
+    "message": ": Be automatically redirected to the independent counterpart."
+  },
+  "guideAlert": {
+    "message": "Alert"
+  },
+  "guideAlertHelp": {
+    "message": ": Have a display banner at the top notifying you that an independent wiki is available. This will appear on both Fandom and BreezeWiki pages."
+  },
+  "guideWikiHelpPara3": {
+    "message": "The second set of radio buttons controls what happens to the non-indie wiki on Google, Bing, DuckDuckGo, and other search engines."
+  },
+  "guideDisableSearchHelp": {
+    "message": ": Search engine results are not affected."
+  },
+  "guideHide": {
+    "message": "Hide"
+  },
+  "guideHideHelp": {
+    "message": ": Results are hidden in search engines. A banner will be shown near the top of the page to inform you, and allow you to re-reveal the hidden results."
+  },
+  "guideReplace": {
+    "message": "Replace"
+  },
+  "guideReplaceHelp": {
+    "message": ": The original non-indie result is disabled, and a button is injected above to take you to the independent wiki."
+  },
+  "guideWikiHelpPara4": {
+    "message": "In the table header, clicking on the icons will apply that setting to all wikis in the table. In the second row, the stars represent the default settings for wikis that are added in future updates. By default, all wikis will be set to alert, with search engine replacement enabled."
+  },
+  "guideFeedback": {
+    "message": "Have questions or feedback?",
+    "description": "Feedback section"
+  },
+  "guideFeedbackPara1": {
+    "message": "If you're stuck or have questions, please don't hesitate to get in touch via the $linkStart$contact details$linkEnd$ at the bottom of Indie Wiki Buddy website.",
+    "placeholders": {
+      "linkStart": {
+        "content": "$1"
+      },
+      "linkEnd": {
+        "content": "$2"
+      }
+    }
+  },
+  "guideFeedbackPara2": {
+    "message": "Suggestions for improvements to the extension are also welcome!"
+  },
+  "notificationTitle": {
+    "message": "You've been redirected!",
+    "description": "Notification title for being redirected"
+  },
+  "notificationMessage": {
+    "message": "Indie Wiki Buddy has sent you from $origin$ to $destination$!",
+    "description": "Notification message for being redirected",
+    "placeholders": {
+      "origin": {
+        "content": "$1",
+        "example": "Minecraft Fandom Wiki"
+      },
+      "destination": {
+        "content": "$2",
+        "example": "Minecraft Wiki"
+      }
+    }
+  },
+  "notificationTitleBreezeWiki": {
+    "message": "You've been redirected to BreezeWiki!",
+    "description": "Notification title for being redirected to BreezeWiki"
+  },
+  "notificationMessageBreezeWiki": {
+    "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom.",
+    "description": "Notification message for being redirected to BreezeWiki"
   }
 }

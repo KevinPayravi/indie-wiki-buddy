@@ -146,8 +146,8 @@ function redirectToBreezeWiki(storage, tabId, url) {
       extensionAPI.notifications.create(notifID, {
         "type": "basic",
         "iconUrl": 'images/logo-48.png',
-        "title": "You've been redirected to BreezeWiki!",
-        "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom."
+        "title": extensionAPI.i18n.getMessage('notificationTitleBreezeWiki'),
+        "message": extensionAPI.i18n.getMessage('notificationMessageBreezeWiki')
       });
       // Self-clear notification after 6 seconds
       setTimeout(() => { extensionAPI.notifications.clear(notifID); }, 6000);
@@ -228,8 +228,8 @@ async function main(url, tabId) {
           extensionAPI.notifications.create(notifID, {
             "type": "basic",
             "iconUrl": 'images/logo-48.png',
-            "title": "You've been redirected!",
-            "message": "Indie Wiki Buddy has sent you from " + matchingSite['origin'] + " to " + matchingSite['destination']
+            "title": extensionAPI.i18n.getMessage('notificationTitle'),
+            "message": extensionAPI.i18n.getMessage('notificationMessage', [matchingSite['origin'], matchingSite['destination']])
           });
           // Self-clear notification after 6 seconds
           setTimeout(() => { extensionAPI.notifications.clear(notifID); }, 6000);
