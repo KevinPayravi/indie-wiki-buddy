@@ -850,12 +850,6 @@
     "origins_label": "Konami Music Fandom Wikis",
     "origins": [
       {
-        "origin": "Konami Music Video Game Fandom Wiki",
-        "origin_base_url": "bemani.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      },
-      {
         "origin": "Beatmania Fandom Wiki",
         "origin_base_url": "beatmania.fandom.com",
         "origin_content_path": "/wiki/",
@@ -872,6 +866,12 @@
         "origin_base_url": "jubeat.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Jubeat_Wiki"
+      },
+      {
+        "origin": "Konami Music Video Game Fandom Wiki",
+        "origin_base_url": "bemani.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "RemyWiki",
@@ -5616,6 +5616,12 @@
     "origins_label": "Sega Music Fandom Wikis",
     "origins": [
       {
+        "origin": "Chunithm Fandom Wiki",
+        "origin_base_url": "chunithm.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
         "origin": "Maimai International Fandom Wiki",
         "origin_base_url": "maimai-intl.fandom.com",
         "origin_content_path": "/wiki/",
@@ -5626,12 +5632,6 @@
         "origin_base_url": "maimaieng.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Maimai_International_Wiki"
-      },
-      {
-        "origin": "Chunithm Fandom Wiki",
-        "origin_base_url": "chunithm.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
       },
       {
         "origin": "O.N.G.E.K.I. Fandom Wiki",
