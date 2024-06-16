@@ -5290,6 +5290,35 @@
     ]
   },
   {
+    "id": "en-robloxpressure",
+    "origins_label": "Pressure Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Pressure Fandom Wiki",
+        "origin_base_url": "pressure.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pressure_Wiki"
+      },
+      {
+        "origin": "Pressure Roblox Fandom Wiki",
+        "origin_base_url": "pressure-roblox.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pressure_Wiki"
+      }
+    ],
+    "destination": "Pressure Wiki",
+    "destination_base_url": "urbanshade.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pressurewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Pressure_Wiki",
+    "tags": [
+      "miraheze",
+      "official"
+    ]
+  },
+  {
     "id": "en-rollercoasters",
     "origins_label": "Roller Coaster Fandom Wiki",
     "origins": [
