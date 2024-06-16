@@ -847,13 +847,31 @@
   },
   {
     "id": "en-bemani",
-    "origins_label": "Konami Music Video Game Fandom Wiki",
+    "origins_label": "Konami Music Fandom Wikis",
     "origins": [
       {
         "origin": "Konami Music Video Game Fandom Wiki",
         "origin_base_url": "bemani.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Beatmania Fandom Wiki",
+        "origin_base_url": "beatmania.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Beatmania_Wiki"
+      },
+      {
+        "origin": "Dance Dance Revolution Fandom Wiki",
+        "origin_base_url": "dancedancerevolution.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dance_Dance_Revolution_(DDR)_Wiki"
+      },
+      {
+        "origin": "jubeat Fandom Wiki",
+        "origin_base_url": "jubeat.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Jubeat_Wiki"
       }
     ],
     "destination": "RemyWiki",
