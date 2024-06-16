@@ -5612,6 +5612,43 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-segamusic",
+    "origins_label": "Sega Music Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Maimai International Fandom Wiki",
+        "origin_base_url": "maimai-intl.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Maimai_(International_Version)_Wiki"
+      },
+      {
+        "origin": "maimai International Fandom Wiki",
+        "origin_base_url": "maimaieng.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Maimai_International_Wiki"
+      },
+      {
+        "origin": "Chunithm Fandom Wiki",
+        "origin_base_url": "chunithm.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "O.N.G.E.K.I. Fandom Wiki",
+        "origin_base_url": "ongeki.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "O.N.G.E.K.I._Wiki"
+      }
+    ],
+    "destination": "SilentBlue RemyWiki",
+    "destination_base_url": "silentblue.remywiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "silentblueremywiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-sel",
     "origins_label": "Serial Experiments Lain Fandom Wiki",
     "origins": [
