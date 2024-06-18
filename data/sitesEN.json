@@ -428,11 +428,17 @@
   },
   {
     "id": "en-ark",
-    "origins_label": "ARK Fandom Wiki",
+    "origins_label": "ARK Fandom Wikis",
     "origins": [
       {
         "origin": "ARK Fandom Wiki",
         "origin_base_url": "ark.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      },
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark-survival-evolved-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "ARK_Survival_Evolved_Wiki"
       }
@@ -2829,7 +2835,7 @@
   },
   {
     "id": "en-gameofthrones",
-    "origins_label": "Game of Thrones Fandom Wikis",
+    "origins_label": "Game of Thrones Fandom Wiki",
     "origins": [
       {
         "origin": "A Song of Ice and Fire Fandom Wiki",
