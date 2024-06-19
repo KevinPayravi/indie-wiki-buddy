@@ -270,6 +270,29 @@
     ]
   },
   {
+    "id": "en-animalwell",
+    "origins_label": "Animal Well Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Animal Well Fandom Wiki",
+        "origin_base_url": "animal-well.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Animal_Well_Wiki"
+      }
+    ],
+    "destination": "Animal Well Wiki",
+    "destination_base_url": "animalwell.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "animalwell.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
+  {
     "id": "en-animatronics",
     "origins_label": "Chuck E. Cheese Fandom Wiki",
     "origins": [
@@ -428,11 +451,17 @@
   },
   {
     "id": "en-ark",
-    "origins_label": "ARK Fandom Wiki",
+    "origins_label": "ARK Fandom Wikis",
     "origins": [
       {
         "origin": "ARK Fandom Wiki",
         "origin_base_url": "ark.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "ARK_Survival_Evolved_Wiki"
+      },
+      {
+        "origin": "ARK Fandom Wiki",
+        "origin_base_url": "ark-survival-evolved-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "ARK_Survival_Evolved_Wiki"
       }
@@ -2829,7 +2858,7 @@
   },
   {
     "id": "en-gameofthrones",
-    "origins_label": "Game of Thrones Fandom Wikis",
+    "origins_label": "Game of Thrones Fandom Wiki",
     "origins": [
       {
         "origin": "A Song of Ice and Fire Fandom Wiki",

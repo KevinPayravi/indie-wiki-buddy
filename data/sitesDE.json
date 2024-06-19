@@ -61,6 +61,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "de-lethalcompany",
+    "origins_label": "Lethal Company Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Lethal Company Fandom Wiki",
+        "origin_base_url": "lethal-company.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Lethal_Company_Wiki"
+      }
+    ],
+    "destination": "Lethal Company Wiki",
+    "destination_base_url": "lethal.miraheze.org",
+    "destination_content_suffix": "/de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lethalcompany.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "miraheze"
+    ]
+  },
+  {
     "id": "de-minecraft",
     "origins_label": "Minecraft Fandom Wiki",
     "origins": [
