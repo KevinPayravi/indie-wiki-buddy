@@ -4937,6 +4937,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+  "id": "en-pou",
+  "origins_label": "Pou Fandom Wikis",
+  "origins": [
+    {
+      "origin": "Pou Fandom Wiki",
+      "origin_base_url": "pou.fandom.com",
+      "origin_content_path": "/wiki/",
+      "origin_main_page": "Pou_Wiki"
+    }
+  ],
+  "destination": "Poupedia",
+  "destination_base_url": "poupedia.com",
+  "destination_platform": "mediawiki",
+  "destination_icon": "poupedia.png",
+  "destination_main_page": "Main_Page",
+  "destination_search_path": "/index.php",
+  "destination_content_path": "/wiki/",
+  "tags": [
+    "miraheze"
+    ]
+  },
+  {
     "id": "en-prisonarchitect",
     "origins_label": "Prison Architect Fandom Wiki",
     "origins": [
