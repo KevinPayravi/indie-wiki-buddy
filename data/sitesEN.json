@@ -3996,6 +3996,30 @@
         "origin_base_url": "mario.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Mario & Luigi Fandom Wiki",
+        "origin_base_url": "marioluigi.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mario_%26_Luigi_Wiki"
+      },
+      {
+        "origin": "Paper Mario Fandom Wiki",
+        "origin_base_url": "papermario.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Mario Kart Racing Fandom Wiki",
+        "origin_base_url": "mariokart.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mario_Kart_Racing_Wiki:Main_Menu"
+      },
+      {
+        "origin": "Mario Party Fandom Wiki",
+        "origin_base_url": "diceblock.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mario_Party_Wiki"
       }
     ],
     "destination": "Super Mario Wiki",
