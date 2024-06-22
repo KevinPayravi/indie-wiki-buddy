@@ -84,6 +84,28 @@
     ]
   },
   {
+    "id": "es-clashofclans",
+    "origins_label": "Clash of Clans Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Calamity Mod Fandom Wiki",
+        "origin_base_url": "clashofclans.fandom.com/es",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Clash_of_Clans_en_Español"
+      }
+    ],
+    "destination": "Wiki Clash of Clans",
+    "destination_base_url": "clashofclans.wiki.gg/es",
+    "destination_platform": "mediawiki",
+    "destination_icon": "clashofclans.png",
+    "destination_main_page": "Wiki_Clash_of_Clans_en_Español",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "es-coromon",
     "origins_label": "Coromon Fandom Wiki",
     "origins": [
