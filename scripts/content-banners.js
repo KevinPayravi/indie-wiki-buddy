@@ -205,7 +205,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerWikiLink.classList.add('indie-wiki-banner-link');
   bannerText.appendChild(bannerWikiLink);
   bannerWikiLink.href = newUrl;
-  bannerWikiLink.textContent = extensionAPI.i18n.getMessage('bannerText', [destinationName]);
+  bannerWikiLink.textContent = extensionAPI.i18n.getMessage('bannerVisit', [destinationName]);
 
   // Function to insert banner into DOM before body element
   function addBannerToDOM() {
