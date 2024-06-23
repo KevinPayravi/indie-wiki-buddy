@@ -6100,6 +6100,28 @@
     ]
   },
   {
+    "id": "en-starstable",
+    "origins_label": "Jorvikpedia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Jorvikpedia Fandom Wiki",
+        "origin_base_url": "jorvikipedia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Jorvikpedia_Wiki"
+      }
+    ],
+    "destination": "Star Stable Wiki",
+    "destination_base_url": "starstable.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starstablewiki.png",
+    "destination_main_page": "Star_Stable_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-steamworld",
     "origins_label": "SteamWorld Fandom Wiki",
     "origins": [
