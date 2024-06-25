@@ -6679,6 +6679,28 @@
     "destination_content_path": "/index.php/"
   },
   {
+    "id": "en-toontown",
+    "origins_label": "Toontown Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Toontown Fandom Wiki",
+        "origin_base_url": "toontown.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Toontown Wiki",
+    "destination_base_url": "toontown.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "toontown.png",
+    "destination_main_page": "Toontown_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-toontowncorporateclash",
     "origins_label": "Toontown Corporate Clash Fandom Wiki",
     "origins": [
