@@ -726,13 +726,19 @@
   },
   {
     "id": "en-baldursgate3",
-    "origins_label": "Baldur's Gate 3 Fextralife Wiki",
+    "origins_label": "Baldur's Gate 3 Fandom & Fextralife Wikis",
     "origins": [
       {
         "origin": "Baldur's Gate 3 Fextralife Wiki",
         "origin_base_url": "baldursgate3.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Baldur's Gate 3 Wiki"
+      },
+      {
+        "origin": "Baldur's Gate 3 Fandom Wiki",
+        "origin_base_url": "baldurs-gate-3-guide.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Baldur's_Gate_3_Guide_Wiki"
       }
     ],
     "destination": "Baldur's Gate 3 Wiki",
@@ -6677,6 +6683,28 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/index.php/"
+  },
+  {
+    "id": "en-toontown",
+    "origins_label": "Toontown Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Toontown Fandom Wiki",
+        "origin_base_url": "toontown.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Toontown Wiki",
+    "destination_base_url": "toontown.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "toontown.png",
+    "destination_main_page": "Toontown_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-toontowncorporateclash",
