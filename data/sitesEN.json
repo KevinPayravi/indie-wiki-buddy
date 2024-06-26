@@ -726,13 +726,19 @@
   },
   {
     "id": "en-baldursgate3",
-    "origins_label": "Baldur's Gate 3 Fextralife Wiki",
+    "origins_label": "Baldur's Gate 3 Fandom & Fextralife Wikis",
     "origins": [
       {
         "origin": "Baldur's Gate 3 Fextralife Wiki",
         "origin_base_url": "baldursgate3.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Baldur's Gate 3 Wiki"
+      },
+      {
+        "origin": "Baldur's Gate 3 Fandom Wiki",
+        "origin_base_url": "baldurs-gate-3-guide.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Baldur's_Gate_3_Guide_Wiki"
       }
     ],
     "destination": "Baldur's Gate 3 Wiki",
