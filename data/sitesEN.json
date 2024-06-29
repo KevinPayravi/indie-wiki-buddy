@@ -152,6 +152,7 @@
     "destination_main_page": "Against_the_Storm_Official_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/",
+    "destination_host": "Hooded Horse",
     "tags": [
       "official"
     ]
