@@ -25,17 +25,29 @@
     "message": "an independent",
     "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
   },
-  "bannerDescriptorWikigg": {
-    "message": "a wiki.gg",
-    "description": "Descriptor used for a wiki.gg wiki"
+  "bannerDescriptorWikifarm": {
+    "message": "a $host$",
+    "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "wiki.gg"
+      }
+    }
   },
   "bannerDescriptorIndependentOfficial": {
     "message": "an official independent",
     "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
   },
-  "bannerDescriptorWikiggOfficial": {
-    "message": "an official wiki.gg",
-    "description": "Descriptor used for an official wiki.gg wiki. See the bannerText message for more information."
+  "bannerDescriptorWikifarmOfficial": {
+    "message": "an official $host$",
+    "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "wiki.gg"
+      }
+    }
   },
   "bannerLanguageEnglish": {
     "message": " in English",

@@ -37,7 +37,7 @@
     "destination_main_page": "Etusivu",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "shoutwiki"
+    "destination_host": "ShoutWiki"
   },
   {
     "id": "fi-trains",
@@ -57,6 +57,6 @@
     "destination_main_page": "Etusivu",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "shoutwiki"
+    "destination_host": "ShoutWiki"
   }
 ]

@@ -99,6 +99,7 @@ async function populateSiteDataByOrigin() {
               "destination_platform": site.destination_platform,
               "destination_icon": site.destination_icon,
               "destination_main_page": site.destination_main_page,
+              "destination_host": site.destination_host,
               "tags": site.tags || [],
               "language": LANGS[i]
             })

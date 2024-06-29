@@ -102,7 +102,7 @@ function displayBreezewikiBanner(newUrl) {
   addBannerToDOM();
 }
 
-function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage, tags, storage) {
+function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage, host, tags, storage) {
   // Output banner
   let banner = document.createElement('div');
   banner.id = 'indie-wiki-banner-redirect';
@@ -184,12 +184,13 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
 
   // Build descriptor
   let descriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependent');
-  if (tags.includes('wiki.gg')) {
-    descriptor = tags.includes('official')
-      ? extensionAPI.i18n.getMessage('bannerDescriptorWikiggOfficial')
-      : extensionAPI.i18n.getMessage('bannerDescriptorWikigg')
-  }
-  if (tags.includes('official') && !tags.includes('wiki.gg')) {
+  if (host) {
+    if (tags.includes('official')) {
+      descriptor = extensionAPI.i18n.getMessage('bannerDescriptorWikifarmOfficial', [host]);
+    } else {
+      descriptor = extensionAPI.i18n.getMessage('bannerDescriptorWikifarm', [host])
+    }
+  } else if (tags.includes('official')) {
     descriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependentOfficial');
   }
 
@@ -286,7 +287,7 @@ function main() {
                 const headElement = document.querySelector('head');
                 if (headElement) {
                   try {
-                    displayRedirectBanner(newURL, matchingSite['id'], matchingSite['destination'], matchingSite['language'], matchingSite['tags'], storage);
+                    displayRedirectBanner(newURL, matchingSite['id'], matchingSite['destination'], matchingSite['language'], matchingSite['destination_host'], matchingSite['tags'], storage);
                   } finally {
                     mutationInstance.disconnect();
                   }
