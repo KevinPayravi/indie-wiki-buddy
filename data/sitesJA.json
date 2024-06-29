@@ -17,9 +17,7 @@
     "destination_main_page": "ACES_WIKI",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "ja-ark",
@@ -39,8 +37,8 @@
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },
@@ -62,9 +60,7 @@
     "destination_main_page": "Friday_Night_Funkin'_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "ja-minecraft",
@@ -103,9 +99,7 @@
     "destination_main_page": "Noita_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "ja-pokemon",

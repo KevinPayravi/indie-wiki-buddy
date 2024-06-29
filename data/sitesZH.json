@@ -17,9 +17,7 @@
     "destination_main_page": "Ace_Combat_中文_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "zh-calamitymod",
@@ -39,8 +37,8 @@
     "destination_main_page": "Calamity_Mod_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },
@@ -81,9 +79,7 @@
     "destination_main_page": "Friday_Night_Funkin'_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "zh-halflife",
@@ -147,9 +143,7 @@
     "destination_main_page": "Noita_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "zh-pokemon",
@@ -194,8 +188,8 @@
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   }
