@@ -77,7 +77,7 @@ async function loadOptions(lang, textFilter = '') {
         inputDisabled.classList = 'toggleDisable';
         inputDisabled.type = "radio";
         inputDisabled.name = key + '-wiki-action';
-        inputDisabled.title = 'Do nothing for ' + sites[i].origins_label + ' on search engines';
+        inputDisabled.title = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
         inputDisabled.lang = sites[i].language;
         inputDisabled.setAttribute('data-wiki-key', key);
 
@@ -87,7 +87,7 @@ async function loadOptions(lang, textFilter = '') {
         inputAlert.classList = 'toggleAlert';
         inputAlert.type = "radio";
         inputAlert.name = key + '-wiki-action';
-        inputAlert.title = 'Show banner on ' + sites[i].origins_label + ' linking to ' + sites[i].destination;
+        inputAlert.title = extensionAPI.i18n.getMessage('settingsAlertFor', [sites[i].origins_label, sites[i].destination]);
         inputAlert.lang = sites[i].language;
         inputAlert.setAttribute('data-wiki-key', key);
 
@@ -97,7 +97,7 @@ async function loadOptions(lang, textFilter = '') {
         inputRedirect.classList = 'toggleRedirect';
         inputRedirect.type = "radio";
         inputRedirect.name = key + '-wiki-action';
-        inputRedirect.title = 'Automatically redirect ' + sites[i].origins_label + ' to ' + sites[i].destination;
+        inputRedirect.title = extensionAPI.i18n.getMessage('settingsRedirectFor', [sites[i].origins_label, sites[i].destination]);
         inputRedirect.lang = sites[i].language;
         inputRedirect.setAttribute('data-wiki-key', key);
 
@@ -107,7 +107,7 @@ async function loadOptions(lang, textFilter = '') {
         inputSearchEngineDisabled.classList = 'toggleSearchEngineDisabled';
         inputSearchEngineDisabled.type = "radio";
         inputSearchEngineDisabled.name = key + '-search-engine-action';
-        inputSearchEngineDisabled.title = 'Do nothing for ' + sites[i].origins_label;
+        inputSearchEngineDisabled.title = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
         inputSearchEngineDisabled.lang = sites[i].language;
         inputSearchEngineDisabled.setAttribute('data-wiki-key', key);
 
@@ -117,7 +117,7 @@ async function loadOptions(lang, textFilter = '') {
         inputSearchEngineReplace.classList = 'toggleSearchEngineReplace';
         inputSearchEngineReplace.type = "radio";
         inputSearchEngineReplace.name = key + '-search-engine-action';
-        inputSearchEngineReplace.title = 'Replace ' + sites[i].origins_label + ' search engine results with ' + sites[i].destination;
+        inputSearchEngineReplace.title = extensionAPI.i18n.getMessage('settingsReplaceFor', [sites[i].origins_label, sites[i].destination]);
         inputSearchEngineReplace.lang = sites[i].language;
         inputSearchEngineReplace.setAttribute('data-wiki-key', key);
 
@@ -127,7 +127,7 @@ async function loadOptions(lang, textFilter = '') {
         inputSearchEngineHide.classList = 'toggleSearchEngineHide';
         inputSearchEngineHide.type = "radio";
         inputSearchEngineHide.name = key + '-search-engine-action';
-        inputSearchEngineHide.title = 'Hide ' + sites[i].origins_label + ' from search engine results';
+        inputSearchEngineHide.title = extensionAPI.i18n.getMessage('settingsHideFor', [sites[i].origins_label]);
         inputSearchEngineHide.lang = sites[i].language;
         inputSearchEngineHide.setAttribute('data-wiki-key', key);
 
@@ -231,42 +231,42 @@ async function loadOptions(lang, textFilter = '') {
         // Output wiki disable radio button:
         let inputDisabledText = document.createElement('span');
         inputDisabledText.classList.add('visuallyHidden');
-        inputDisabledText.textContent = 'Disable action for ' + sites[i].origins_label;
+        inputDisabledText.textContent = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
         labelDisabled.appendChild(inputDisabled);
         labelDisabled.appendChild(inputDisabledText);
 
         // Output wiki alert radio button:
         let inputAlertText = document.createElement('span');
         inputAlertText.classList.add('visuallyHidden');
-        inputAlertText.textContent = 'Show a banner on ' + sites[i].origins_label + ' linking to ' + sites[i].destination;
+        inputAlertText.textContent = extensionAPI.i18n.getMessage('settingsAlertFor', [sites[i].origins_label, sites[i].destination]);
         labelAlert.appendChild(inputAlert);
         labelAlert.appendChild(inputAlertText);
 
         // Output wiki redirect radio button:
         let inputRedirectText = document.createElement('span');
         inputRedirectText.classList.add('visuallyHidden');
-        inputRedirectText.textContent = 'Automatically redirect ' + sites[i].origins_label + ' to ' + sites[i].destination;
+        inputRedirectText.textContent = extensionAPI.i18n.getMessage('settingsRedirectFor', [sites[i].origins_label, sites[i].destination]);
         labelRedirect.appendChild(inputRedirect);
         labelRedirect.appendChild(inputRedirectText);
 
         // Output search engine disable radio button:
         let inputSearchEngineDisabledText = document.createElement('span');
         inputSearchEngineDisabledText.classList.add('visuallyHidden');
-        inputSearchEngineDisabledText.textContent = 'Do nothing for ' + sites[i].origins_label + ' on search engines';
+        inputSearchEngineDisabledText.textContent = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
         labelSearchEngineDisabled.appendChild(inputSearchEngineDisabled);
         labelSearchEngineDisabled.appendChild(inputSearchEngineDisabledText);
 
         // Output search engine replace radio button:
         let inputSearchEngineReplaceText = document.createElement('span');
         inputSearchEngineReplaceText.classList.add('visuallyHidden');
-        inputSearchEngineReplaceText.textContent = 'Replace ' + sites[i].origins_label + ' search engine results with ' + sites[i].destination;
+        inputSearchEngineReplaceText.textContent = extensionAPI.i18n.getMessage('settingsReplaceFor', [sites[i].origins_label, sites[i].destination]);
         labelSearchEngineReplace.appendChild(inputSearchEngineReplace);
         labelSearchEngineReplace.appendChild(inputSearchEngineReplaceText);
 
         // Output search engine hide radio button:
         let inputSearchEngineHideText = document.createElement('span');
         inputSearchEngineHideText.classList.add('visuallyHidden');
-        inputSearchEngineHideText.textContent = 'Hide ' + sites[i].origins_label + ' from search engines';
+        inputSearchEngineHideText.textContent = extensionAPI.i18n.getMessage('settingsHideFor', [sites[i].origins_label]);
         labelSearchEngineHide.appendChild(inputSearchEngineHide);
         labelSearchEngineHide.appendChild(inputSearchEngineHideText);
 
@@ -294,7 +294,7 @@ async function loadOptions(lang, textFilter = '') {
         wikiLink.target = '_blank';
         wikiLink.appendChild(document.createTextNode(sites[i].destination));
         wikiInfo.appendChild(wikiLink);
-        wikiInfo.appendChild(document.createTextNode(' (from ' + sites[i].origins_label + ')'));
+        wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [sites[i].origins_label])));
         let siteContainer = document.createElement("div");
         siteContainer.classList.add('site-container')
 
@@ -393,7 +393,7 @@ function displayCustomSearchEngine(customSearchEngineHostname, customSearchEngin
 
   let customSearchEngineDeleteButton = document.createElement('button');
   customSearchEngineDeleteButton.classList.add('customSearchEngineDelete');
-  customSearchEngineDeleteButton.innerText = 'Delete';
+  customSearchEngineDeleteButton.innerText = extensionAPI.i18n.getMessage('settingsCustomWikiDelete');
   customSearchEngineDeleteButton.addEventListener('click', () => {
     listItem.remove();
 
@@ -429,12 +429,13 @@ function setPower(setting, storeSetting = true) {
     extensionAPI.storage.local.set({ 'power': setting });
   }
   const powerText = document.getElementById('powerText');
-  powerText.textContent = 'Extension is ' + setting;
   const powerIcon = document.getElementById('powerIcon');
   if (setting === 'on') {
+    powerText.textContent = extensionAPI.i18n.getMessage('settingsExtensionOn');
     document.getElementById('powerCheckbox').checked = true;
     powerIcon.innerText = '🔋';
   } else {
+    powerText.textContent = extensionAPI.i18n.getMessage('settingsExtensionOff');
     document.getElementById('powerCheckbox').checked = false;
     powerIcon.innerText = '🪫';
   }
@@ -570,9 +571,9 @@ document.addEventListener('DOMContentLoaded', () => {
           runAt: "document_idle"
         }]);
         extensionAPI.storage.sync.set({ 'breezewikiCustomHost': breezewikiCustomDomain });
-        document.getElementById('breezewikiCustomHostStatus').innerText = 'Successfully added';
+        document.getElementById('breezewikiCustomHostStatus').innerText = extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostSetSuccessful');
       } else {
-        document.getElementById('breezewikiCustomHostStatus').innerText = 'Failed to set host';
+        document.getElementById('breezewikiCustomHostStatus').innerText = extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostSetFailed');
       }
     });
   }
@@ -640,7 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   ///////////////////////////////////////////////////////////////
-  // Custom search engines are currently disabled 
+  // Custom search engines are currently disabled
   // due to content scripts being unregistered on-update.
   ///////////////////////////////////////////////////////////////
   // document.getElementById('addCustomSearchEngine').addEventListener('click', () => {

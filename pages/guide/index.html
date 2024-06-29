@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="UTF-8" />
   <link rel="icon" href="../../images/logo.png" />
-  <title>Indie Wiki Buddy settings</title>
+  <title data-msg="guideTitle"></title>
   <link rel="stylesheet" href="../../css/common.css" type="text/css">
   <link rel="stylesheet" href="../../css/guide.css" type="text/css">
 </head>
@@ -13,213 +13,157 @@
 <body>
   <div id="container">
     <div id="header">
-      <h1>Indie Wiki Buddy guide</h1>
+      <h1 data-msg="guideTitle"></h1>
     </div>
     <div id="links">
-      <a href="../settings/index.html">⇦ Back to Settings</a>
+      <a href="../settings/index.html" data-msg="guideBackToSettings"></a>
     </div>
     <div id="content">
-      <h2>Overview</h2>
-      <p>
-        Indie Wiki Buddy provides a suite of features to help you discover independent wikis and improve your general
-        wiki reading experience.
-        <br /><br />
-        When you visit a wiki on a large, corporate-run wiki host, this extension can notify or automatically redirect
-        you to quality independent wikis when they're available.
-        Search results in Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex
-        can also be filtered, replacing non-independent wikis with links to independent counterpart
-        (or hiding them completely).
-        <br /><br />
-        We currently redirect from Fandom, Fextralife, and Neoseeker wikis to independent counterparts.
-        <br /><br />
-        Indie Wiki Buddy also supports <a href="https://breezewiki.com/">BreezeWiki</a>, a separate service that renders
-        Fandom wikis without ads or bloat.
-        This helps give you a more enjoyable reading experience when an independent wiki isn't available.
-        <br /><br />
-        All these features can be toggled on or off, and you can set your preferences per-wiki as well. You're in full
-        control!
+      <h2 data-msg="guideOverview"></h2>
+      <p data-msg="guideOverviewPara1"></p>
+      <p data-msg="guideOverviewPara2"></p>
+      <p data-msg="guideOverviewPara3"></p>
+      <p
+        data-msg="guideOverviewPara4"
+        data-msg-ph-1="<a href='https://breezewiki.com/'>BreezeWiki</a>">
       </p>
-      <h2>Global settings help</h2>
-      <p>
-        There are several general settings:
-      </p>
+      <p data-msg="guideOverviewPara5"></p>
+      <h2 data-msg="guideGlobalSettingsHelp"></h2>
+      <p data-msg="guideGlobalSettingsHelpIntro"></p>
       <ul>
         <li>
-          <b><span aria-hidden="true">🔋</span> Extension is on / off</b>
+          <b><span aria-hidden="true">🔋</span>&nbsp;<span data-msg="guideExtensionOnOff"></span></b>
           <br />
-          Enable/disable all Indie Wiki Buddy functionality at the click of a button.
+          <span data-msg="guideExtensionOnOffHelp"></span>
         </li>
         <br />
         <li>
-          <b><span aria-hidden="true">🔔</span> Desktop notifications for redirections</b>
+          <b><span aria-hidden="true">🔔</span>&nbsp;<span data-msg="settingsNotifications"></span></b>
           <br />
-          When this option is enabled, you will receive a desktop notification whenever you are
-          automatically redirected to either an indie wiki or <a href="https://breezewiki.com/">BreezeWiki</a>.
-          This is on by default.
+          <span data-msg="guideNotificationsHelp1" data-msg-ph-1="<a href='https://breezewiki.com/'>BreezeWiki</a>"></span>
           <br />
           <br />
-          If you aren't getting notifications when this is enabled, check your operating system's notification
-          settings to ensure that your browser is allowed to send notifications.
+          <span data-msg="guideNotificationsHelp2"></span>
         </li>
         <br />
         <li>
-          <b><span aria-hidden="true">🌐</span> Redirect non-English Fandom wikis to
-            indie English wikis there is no same-lang wiki</b>
+          <b><span aria-hidden="true">🌐</span>&nbsp;<span data-msg="settingsCrossLanguage"></span></b>
           <br />
-          By default, Indie Wiki Buddy will keep users within the same language
-          (e.g. only redirecting Spanish Fandom wikis to Spanish indie wikis).
-          However, multilingual speakers may want to also use the many independent English wikis that are available.
-          Enabling this option will redirect from non-English Fandom wikis
-          to independent English wikis when one isn't available in the same language.
+          <span data-msg="guideCrossLanguageHelp1"></span>
           <br /><br />
-          Unfortunately this feature does not currently work for Fextralife wikis.
+          <span data-msg="guideCrossLanguageHelp2"></span>
         </li>
         <br />
         <li>
-          <b><span aria-hidden="true">📁</span> Open changelog when Indie Wiki Buddy is updated</b>
+          <b><span aria-hidden="true">📁</span>&nbsp;<span data-msg="settingsChangelog"></span></b>
           <br />
-          Enable this option to have Indie Wiki Buddy's <a href="https://getindie.wiki/changelog/">changelog</a>
-          opened in a new tab whenever it updates, so you can stay up-to-date on the latest changes.
+          <p
+            data-msg="guideChangelogHelp"
+            data-msg-ph-1="<a href='https://getindie.wiki/changelog/'>"
+            data-msg-ph-2="</a>">
+          </p>
         </li>
       </ul>
-      <p>
-        You can also configure your settings for filtering results in search engines:
-      </p>
+      <p data-msg="guideGlobalSettingsHelpSearch"></p>
       <ul>
         <li>
-          <b><img src="../../images/toggles.png" height="12" alt="" /> Toggle filtering per search engine</b>
+          <b><img src="../../images/toggles.png" height="12" alt="" />&nbsp;<span data-msg="guideTogglePerSearchEngine"></span></b>
           <br />
-          By default, filtering is enabled for all search engines.
-          Filtering is done based on the user's selected settings for each wiki.
-          The default filtering setting for all wikis is to replace
-          non-indie search results with buttons linking to indie counterparts.
+          <span data-msg="guideTogglePerSearchEngineHelp1"></span>
           <br /><br />
-          The current supported search engines are
-          Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex.
+          <span data-msg="guideTogglePerSearchEngineHelp2"></span>
         </li>
         <br />
         <li>
-          <b><img src="../../images/toggle-banner.png" height="12" alt="" /> On search engines, show banner when
-            non-indie results are hidden</b>
+          <b><img src="../../images/toggle-banner.png" height="12" alt="" />&nbsp;<span data-msg="settingsHiddenResultsBanner"></span></b>
           <br />
-          When this option is enabled,
-          a banner will be inserted at the top of search engine results when Indie Wiki Buddy
-          has hidden results from Fandom, Fextralife, or Neoseeker wikis.
-          This banner also lets you re-show the hidden results if you wish.
+          <span data-msg="guideHiddenResultsBannerHelp1"></span>
           <br />
           <br />
-          If you don't want to see any indication that results have been hidden, disable this option.
+          <span data-msg="guideHiddenResultsBannerHelp2"></span>
         </li>
         <br />
         <li>
-          <b><img src="../../images/toggle-move-up.png" height="12" alt="" /> On Google, move indie wikis above
-            non-indie results and hide duplicates</b>
+          <b><img src="../../images/toggle-move-up.png" height="12" alt="" />&nbsp;<span data-msg="settingsReorderResults"></span></b>
           <br />
-          By default, Indie Wiki Buddy will re-order the results page on Google to move indie wiki results above the
-          first non-indie (Fandom / Fextralife / Neoseeker) result, if they are further down the first page of results.
-          This allows you to find the pages you're looking for on indie wikis quicker.
+          <span data-msg="guideReorderResultsHelp1"></span>
           <br /><br />
-          This feature is currently only available for Google, as it can be complex to maintain reliably.
+          <span data-msg="guideReorderResultsHelp2"></span>
         </li>
       </ul>
 
-      <p>
-        You can also set your desired setting for <a href="https://breezewiki.com/">BreezeWiki</a>,
-        a separate service that renders Fandom wikis without ads or bloat.
-        Note, BreezeWiki currently only supports English wikis.
-      </p>
+      <p data-msg="guideBreezeWiki" data-msg-ph-1="<a href='https://breezewiki.com/'>BreezeWiki</a>"></p>
 
       <ul>
         <li>
-          <b><img src="../../images/toggle-disabled.png" alt="" width="15"> BreezeWiki off</b>
+          <b><img src="../../images/toggle-disabled.png" alt="" width="15">&nbsp;<span data-msg="settingsBreezeWikiDisabled"></span></b>
           <br />
-          Do not redirect Fandom to BreezeWiki.
+          <span data-msg="guideBreezeWikiDisabledHelp"></span>
         </li>
         <br />
         <li>
-          <b><img src="../../images/toggle-alert.png" alt="" width="15"> Insert banner link to take you to
-            BreezeWiki</b>
+          <b><img src="../../images/toggle-alert.png" alt="" width="15">&nbsp;<span data-msg="settingsBreezeWikiBanner"></span></b>
           <br />
-          At the top of English Fandom wikis, a small banner will be inserted with a link to take you to the BreezeWiki
-          wiki.
+          <span data-msg="guideBreezeWikiBannerHelp"></span>
         </li>
         <br />
         <li>
-          <b><img src="../../images/toggle-redirect.png" alt="" width="15"> Automatically redirect Fandom to
-            BreezeWiki</b>
+          <b><img src="../../images/toggle-redirect.png" alt="" width="15">&nbsp;<span data-msg="settingsBreezeWikiRedirect"></span></b>
           <br />
-          Visiting any English Fandom wiki will immediately redirect you to view it through BreezeWiki.
-          If automatic redirect to an independent wiki is enabled, the indepedent wiki will take priority.
+          <span data-msg="guideBreezeWikiRedirectHelp"></span>
         </li>
       </ul>
 
-      <p>
-        Once you've enabled a BreezeWiki option,
-        a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror.
-        If your selected BreezeWiki host goes down, you can come back to these settings and switch your host.
-      </p>
+      <p data-msg="guideBreezeWikiHostHelp"></p>
 
-      <h2>Individual wiki settings help</h2>
-      <p>
-        In the individual settings section of the <a href="../settings/index.html" target="_blank">settings</a> page,
-        you can
-        configure your settings per-wiki.
-        You can refer to the legend or hover over the icons to learn what each column controls.
-      </p>
-      <p>
-        The first set of radio buttons controls what happens when you visit the listed non-indie wikis.
-      </p>
+      <h2 data-msg="guideWikiHelp"></h2>
+      <p
+        data-msg="guideWikiHelpPara1"
+        data-msg-ph-1="<a href='../settings/index.html' target='_blank'>"
+        data-msg-ph-2="</a>"></p>
+      <p data-msg="guideWikiHelpPara2"></p>
       <ul class="no-markers">
         <li>
           <img src="../../images/toggle-disabled.png" alt="" width="15">
-          <b>Disable</b>: You will be neither notified of nor redirected to the independent counterpart.
-          You will still be directed to BreezeWiki if it is turned on.
+          <b data-msg="guideDisable"></b><span data-msg="guideDisableVisitHelp"></span>
         </li>
         <li>
           <img src="../../images/toggle-redirect.png" alt="" width="15">
-          <b>Redirect</b>: Be automatically redirected to the independent counterpart.
+          <b data-msg="guideRedirect"></b><span data-msg="guideRedirectHelp"></span>
         </li>
         <li>
           <img src="../../images/toggle-alert.png" alt="" width="15">
-          <b>Alert</b>: Have a display banner at the top notifying you that an independent wiki is available.
-          This will appear on both Fandom and BreezeWiki pages.
+          <b data-msg="guideAlert"></b><span data-msg="guideAlertHelp"></span>
         </li>
       </ul>
-      <p>
-        The second set of radio buttons controls what happens to the non-indie wiki on Google, Bing, DuckDuckGo, and
-        other search engines.
-      </p>
+      <p data-msg="guideWikiHelpPara3"></p>
       <ul class="no-markers">
         <li>
           <img src="../../images/toggle-disabled.png" alt="" width="15">
-          <b>Disable</b>: Search engine results are not affected.
+          <b data-msg="guideDisable"></b><span data-msg="guideDisableSearchHelp"></span>
         </li>
         <li>
           <img src="../../images/toggle-hide.png" alt="" width="15">
-          <b>Hide</b>: Results are hidden in search engines.
-          A banner will be shown near the top of the page to inform you, and allow you to re-reveal the hidden results.
+          <b data-msg="guideHide"></b><span data-msg="guideHideHelp"></span>
         </li>
         <li>
           <img src="../../images/toggle-replace.png" alt="" width="15">
-          <b>Replace</b>: The original non-indie result is disabled, and a button is injected above to take you to the
-          indepedent wiki.
+          <b data-msg="guideReplace"></b><span data-msg="guideReplaceHelp"></span>
         </li>
       </ul>
+      <p data-msg="guideWikiHelpPara4"></p>
+      <h2 data-msg="guideFeedback"></h2>
       <p>
-        In the table header, clicking on the icons will apply that setting to all wikis in the table.
-        In the second row, the stars represent the default settings for wikis that are added in future updates.
-        By default, all wikis will be set to alert, with search engine replacement enabled.
-      </p>
-      <h2>Have questions or feedback?</h2>
-      <p>
-        If you're stuck or have questions, please don't hesitate to get in touch via the
-        <a href="https://getindie.wiki/#contact">contact details</a>
-        at the bottom of Indie Wiki Buddy website.
+        <span
+          data-msg="guideFeedbackPara1"
+          data-msg-ph-1="<a href='https://getindie.wiki/#contact'>"
+          data-msg-ph-2="</a>"></span>
         <br /><br />
-        Suggestions for improvements to the extension are also welcome!
+        <span data-msg="guideFeedbackPara2"></span>
       </p>
     </div>
   </div>
 </body>
+<script type="text/javascript" src="guide.js"></script>
 
 </html>

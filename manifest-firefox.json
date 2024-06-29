@@ -1,7 +1,8 @@
 {
-  "name": "Indie Wiki Buddy",
+  "name": "__MSG_extensionName__",
   "version": "3.8.0",
-  "description": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
   "permissions": [
     "storage",
     "webRequest",

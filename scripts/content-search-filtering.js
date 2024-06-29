@@ -64,20 +64,20 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let indieResultText = document.createElement('span');
     if (originArticle && decodeURIComponent(originArticle) !== site['origin_main_page']) {
       let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, site['destination_content_suffix']).replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
-      
+
       // Decode article
       destinationArticleTitle = decodeURIComponent(destinationArticleTitle);
 
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-        indieResultText.innerText = 'Look up "' + destinationArticleTitle + '" on ' + site.destination + ' (EN)';
+        indieResultText.innerText = extensionAPI.i18n.getMessage('searchResultLookupEnglish', [destinationArticleTitle, site.destination]);
       } else {
-        indieResultText.innerText = 'Look up "' + destinationArticleTitle + '" on ' + site.destination;
+        indieResultText.innerText = extensionAPI.i18n.getMessage('searchResultLookup', [destinationArticleTitle, site.destination]);
       }
     } else {
       if (site['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-        indieResultText.innerText = 'Visit ' + site.destination + ' (EN) instead';
+        indieResultText.innerText = extensionAPI.i18n.getMessage('searchResultVisitEnglish', [site.destination]);
       } else {
-        indieResultText.innerText = 'Visit ' + site.destination + ' instead';
+        indieResultText.innerText = extensionAPI.i18n.getMessage('searchResultVisit', [site.destination]);
       }
     }
     indieResultButton.append(indieResultFaviconContainer);
@@ -89,7 +89,7 @@ function replaceSearchResults(searchResultContainer, site, link) {
     resultControls.classList.add('iwb-result-controls');
     // Output link to re-enable disabled result:
     let enableResultButton = document.createElement('div');
-    enableResultButton.innerText = 'Re-enable the result below';
+    enableResultButton.innerText = extensionAPI.i18n.getMessage('searchResultReenable');
     resultControls.prepend(enableResultButton);
     enableResultButton.addEventListener('click', (e) => {
       e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
@@ -118,11 +118,10 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
     let searchRemovalNoticeLink = document.createElement('a');
     searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
     searchRemovalNoticeLink.textContent = site.destination;
-    searchRemovalNoticePretext = document.createTextNode('Indie Wiki Buddy has filtered out results from ' + site.origin + (site.language !== 'EN' ? ' (' + site.language + ')' : '') + '. Look for results from ');
-    searchRemovalNoticePosttext = document.createTextNode(' instead.');
-    searchRemovalNotice.appendChild(searchRemovalNoticePretext);
-    searchRemovalNotice.appendChild(searchRemovalNoticeLink);
-    searchRemovalNotice.appendChild(searchRemovalNoticePosttext);
+    searchRemovalNotice.appendChild(extensionAPI.i18n.getMessage('searchRemovalNotice', [
+      site.origin + site.language !== 'EN' ? ' (' + site.language + ')' : '',
+      searchRemovalNoticeLink.outerHTML
+    ]));
 
     // Output container for result controls:
     let resultControls = document.createElement('div');
@@ -131,18 +130,18 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
     // Output link to show hidden results:
     let showResultsButton = document.createElement('div');
     showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
-    showResultsButton.innerText = 'Show filtered results';
+    showResultsButton.innerText = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
     resultControls.appendChild(showResultsButton)
     showResultsButton.onclick = function (e) {
-      if (e.target.textContent.includes('Show')) {
-        e.target.textContent = 'Re-hide filtered results';
+      if (e.target.textContent.includes(extensionAPI.i18n.getMessage('searchFilteredResultsShow'))) {
+        e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsHide');
         hiddenWikisRevealed[elementId] = true;
         const selector = e.currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
           el.classList.add('iwb-show');
         })
       } else {
-        e.target.textContent = 'Show filtered results';
+        e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
         hiddenWikisRevealed[elementId] = false;
         const selector = e.currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
@@ -555,7 +554,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
           filterGoogle(r);
         });
         break;
-      
+
       case 'duckduckgo':
         // Function to filter search results in DuckDuckGo
         function filterDuckDuckGo() {
@@ -565,7 +564,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterDuckDuckGo();
         break;
-      
+
       case 'bing':
         // Function to filter search results in Bing
         function filterBing() {
@@ -595,7 +594,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterBing();
         break;
-      
+
       case 'brave':
         // Function to filter search results in Brave
         function filterBrave() {
@@ -605,7 +604,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterBrave();
         break;
-      
+
       case 'ecosia':
         // Function to filter search results in Ecosia
         function filterEcosia() {
@@ -615,7 +614,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterEcosia();
         break;
-      
+
       case 'qwant':
         // Function to filter search results in Qwant
         function filterQwant() {
@@ -625,7 +624,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterQwant();
         break;
-      
+
       case 'startpage':
         // Function to filter search results in Startpage
         function filterStartpage() {
@@ -635,7 +634,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterStartpage();
         break;
-      
+
       case 'yandex':
         // Function to filter search results in Yandex
         function filterYandex() {
@@ -645,7 +644,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterYandex();
         break;
-      
+
       case 'yahoo':
         // Function to filter search results in Yahoo
         function filterYahoo() {
@@ -678,7 +677,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterYahoo();
         break;
-      
+
       case 'kagi':
         // Function to filter search results in Kagi
         function filterKagi() {
@@ -688,7 +687,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         filterKagi();
         break;
-      
+
       default:
         if (storage.customSearchEngines) {
           function filterSearXNG() {

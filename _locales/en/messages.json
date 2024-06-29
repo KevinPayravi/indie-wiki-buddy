@@ -1,0 +1,857 @@
+{
+  "extensionName": {
+    "message": "Indie Wiki Buddy",
+    "description": "The name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Indie Wiki Buddy helps you discover quality, independent wikis through alerts, redirects, and search filtering.",
+    "description": "The description of the extension"
+  },
+  "bannerText": {
+    "message": "There is $descriptor$ wiki covering this topic$language$!",
+    "description": "Text to display in the banner for the indie wiki link",
+    "placeholders": {
+      "descriptor": {
+        "content": "$1",
+        "example": "an independent"
+      },
+      "language": {
+        "content": "$2",
+        "example": " in English"
+      }
+    }
+  },
+  "bannerDescriptorIndependent": {
+    "message": "an independent",
+    "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
+  },
+  "bannerDescriptorWikigg": {
+    "message": "a wiki.gg",
+    "description": "Descriptor used for a wiki.gg wiki"
+  },
+  "bannerDescriptorIndependentOfficial": {
+    "message": "an official independent",
+    "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
+  },
+  "bannerDescriptorWikiggOfficial": {
+    "message": "an official wiki.gg",
+    "description": "Descriptor used for an official wiki.gg wiki. See the bannerText message for more information."
+  },
+  "bannerLanguageEnglish": {
+    "message": " in English",
+    "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
+  },
+  "bannerVisit": {
+    "message": "Visit $destination$ →",
+    "description": "Text to display in the banner for the visit link",
+    "placeholders": {
+      "destination": {
+        "content": "$1",
+        "example": "wiki name"
+      }
+    }
+  },
+  "bannerBreezeWiki": {
+    "message": "View this Fandom wiki through BreezeWiki",
+    "description": "Text to display in the banner for the BreezeWiki link"
+  },
+  "bannerRestore": {
+    "message": "⎌ Restore banner",
+    "description": "Text to display in the banner for the restore banner link"
+  },
+  "bannerRestoreDone": {
+    "message": "✓ Banner restored",
+    "description": "Text to display in the banner after the banner has been restored"
+  },
+  "bannerDisable": {
+    "message": "✕ Disable banner for this wiki",
+    "description": "Text to display in the banner for the disable banner link"
+  },
+  "bannerDisableDone": {
+    "message": "✓ Banner disabled",
+    "description": "Text to display in the banner after the banner has been disabled"
+  },
+  "bannerRedirect": {
+    "message": "↪ Auto redirect this wiki",
+    "description": "Text to display in the banner for the redirect link"
+  },
+  "bannerRedirectDone": {
+    "message": "✓ Redirect enabled",
+    "description": "Text to display in the banner after the redirect has been enabled"
+  },
+  "searchResultLookup": {
+    "message": "Look up $article$ on $destination$",
+    "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
+    "placeholders": {
+      "article": {
+        "content": "$1",
+        "example": "search term"
+      },
+      "destination": {
+        "content": "$2",
+        "example": "wiki name"
+      }
+    }
+  },
+  "searchResultLookupEnglish": {
+    "message": "Look up $article$ on $destination$ (EN)",
+    "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
+    "placeholders": {
+      "article": {
+        "content": "$1",
+        "example": "search term"
+      },
+      "destination": {
+        "content": "$2",
+        "example": "wiki name"
+      }
+    }
+  },
+  "searchResultVisit": {
+    "message": "Visit $destination$ instead",
+    "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
+    "placeholders": {
+      "destination": {
+        "content": "$1",
+        "example": "wiki name"
+      }
+    }
+  },
+  "searchResultVisitEnglish": {
+    "message": "Visit $destination$ (EN) instead",
+    "description": "Displayed for a search result to a non-indie wiki when an indie wiki in English is available.",
+    "placeholders": {
+      "destination": {
+        "content": "$1",
+        "example": "wiki name"
+      }
+    }
+  },
+  "searchResultReenable": {
+    "message": "Re-enable the result below",
+    "description": "Prompt to re-enable a non-indie search result"
+  },
+  "searchRemovalNotice": {
+    "message": "Indie Wiki Buddy has filtered out results from $destination$. Look for results from $link$ instead.",
+    "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
+    "placeholders": {
+      "destination": {
+        "content": "$1",
+        "example": "wiki name"
+      },
+      "link": {
+        "content": "$2",
+        "example": "a link to the indie wiki"
+      }
+    }
+  },
+  "searchFilteredResultsShow": {
+    "message": "Show filtered results",
+    "description": "Button to show filtered search results"
+  },
+  "searchFilteredResultsHide": {
+    "message": "Re-hide filtered results",
+    "description": "Button to hide filtered search results"
+  },
+  "settingsTitle": {
+    "message": "Indie Wiki Buddy settings",
+    "description": "Title of the settings page"
+  },
+  "settingsGuide": {
+    "message": "Guide",
+    "description": "Link to the guide"
+  },
+  "settingsWebsite": {
+    "message": "Website",
+    "description": "Link to the website"
+  },
+  "settingsChangelog": {
+    "message": "Changelog",
+    "description": "Link to the changelog"
+  },
+  "settingsSubmitWiki": {
+    "message": "Submit a Wiki",
+    "description": "Link to the wiki submission form"
+  },
+  "settingsSourceCode": {
+    "message": "Source code",
+    "description": "Link to the source code"
+  },
+  "settingsBannerHide": {
+    "message": "Hide this message",
+    "description": "Button to hide the banner"
+  },
+  "settingsBannerOpera": {
+    "message": "Opera users: By default, Opera will block extensions from running on search engines. Search engine access can be enabled per-extension by going to \"about:extensions\" and selecting the \"Allow access to search page results\" option under Indie Wiki Buddy.",
+    "description": "Notice for Opera users about enabling search engine access"
+  },
+  "settingsBannerReview": {
+    "message": "Enjoying Indie Wiki Buddy? Please leave a review!",
+    "description": "Notice to leave a review for the extension"
+  },
+  "settingsBannerReviewContact": {
+    "message": "Having issues or ideas for improvement? Please $linkStart$contact me$linkEnd$!",
+    "description": "Notice to contact the developer for issues or ideas",
+    "placeholders": {
+      "linkStart": {
+        "content": "$1"
+      },
+      "linkEnd": {
+        "content": "$2"
+      }
+    }
+  },
+  "firstInstallInfo1": {
+    "message": "Thanks for installing Indie Wiki Buddy! Let's get you set up."
+  },
+  "firstInstallInfo2": {
+    "message": "Use the links above to see the full guide, submit new wikis, or contact the developer."
+  },
+  "firstInstallInfo3": {
+    "message": "In the settings below, you can toggle features on and off. This includes the option to enable $BreezeWiki$, an alternative frontend that renders Fandom wikis without ads or bloat.",
+    "placeholders": {
+      "BreezeWiki": {
+        "content": "$1",
+        "example": "BreezeWiki"
+      }
+    }
+  },
+  "firstInstallInfo4": {
+    "message": "Below that, you can individually configure what happens when you visit Fandom, Fextralife, and Neoseeker wikis that have an independent alternative, as well as what happens to their results in search engines. For visiting wikis, you can choose to be $alert$ alerted (default) or $redirect$ automatically redirected. On search engines, you can choose to $replace$ replace (default) or $hide$ hide search results.",
+    "placeholders": {
+      "alert": {
+        "content": "$1",
+        "example": "(image for alert)"
+      },
+      "redirect": {
+        "content": "$2",
+        "example": "(image for redirect)"
+      },
+      "replace": {
+        "content": "$3",
+        "example": "(image for replace)"
+      },
+      "hide": {
+        "content": "$4",
+        "example": "(image for hide)"
+      }
+    }
+  },
+  "firstInstallInfo5": {
+    "message": "You can access these settings in the future via the extension's icon $logo$ at the top right of your browser. If you don't see the icon, it may be in the extension dropdown, which can be opened via the jigsaw icon $jigsaw$ (also at the top right of your browser).",
+    "placeholders": {
+      "logo": {
+        "content": "$1",
+        "example": "(image for the extension icon)"
+      },
+      "jigsaw": {
+        "content": "$2",
+        "example": "(image for the jigsaw icon)"
+      }
+    }
+  },
+  "settingsGeneral": {
+    "message": "General settings",
+    "description": "General settings section"
+  },
+  "settingsNotifications": {
+    "message": "Desktop notifications for redirections",
+    "description": "Option to enable desktop notifications for redirections"
+  },
+  "settingsCrossLanguage": {
+    "message": "Redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists",
+    "description": "Option to redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists"
+  },
+  "settingsOpenChangelog": {
+    "message": "Open changelog when Indie Wiki Buddy is updated",
+    "description": "Option to open the changelog when Indie Wiki Buddy is updated"
+  },
+  "settingsSearchEngineFiltering": {
+    "message": "Search engine filtering",
+    "description": "Search engine filtering section"
+  },
+  "settingsHiddenResultsBanner": {
+    "message": "On search engines, show banner when non-indie results are hidden",
+    "description": "Option to show a banner when non-indie results are hidden"
+  },
+  "settingsReorderResults": {
+    "message": "On Google, move indie wikis above non-indie results and hide duplicates",
+    "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
+  },
+  "settingsBreezeWiki": {
+    "message": "BreezeWiki alternative frontend for Fandom ($linkStart$learn more$linkEnd$)",
+    "description": "Option to enable BreezeWiki",
+    "placeholders": {
+      "linkStart": {
+        "content": "$1"
+      },
+      "linkEnd": {
+        "content": "$2"
+      }
+    }
+  },
+  "settingsBreezeWikiDisabled": {
+    "message": "BreezeWiki off",
+    "description": "Option to disable BreezeWiki"
+  },
+  "settingsBreezeWikiBanner": {
+    "message": "Insert banner link to take you to BreezeWiki",
+    "description": "Option to show the BreezeWiki banner on Fandom wikis"
+  },
+  "settingsBreezeWikiRedirect": {
+    "message": "Automatically redirect Fandom to BreezeWiki",
+    "description": "Option to redirect Fandom wikis to BreezeWiki"
+  },
+  "settingsBreezeWikiHost": {
+    "message": "BreezeWiki host:",
+    "description": "Select for a BreezeWiki host"
+  },
+  "settingsBreezeWikiCustomHost": {
+    "message": "Custom BreezeWiki domain:",
+    "description": "Input for a custom BreezeWiki host not included by default"
+  },
+  "settingsBreezeWikiCustomHostOption": {
+    "message": "Custom host...",
+    "description": "Option to input a custom BreezeWiki host"
+  },
+  "settingsBreezeWikiCustomHostSet": {
+    "message": "Set domain",
+    "description": "Button to confirm input for a custom BreezeWiki host"
+  },
+  "settingsBreezeWikiCustomHostSetSuccessful": {
+    "message": "Successfully added",
+    "description": "Prompt that the custom BreezeWiki host has been successfully added"
+  },
+  "settingsBreezeWikiCustomHostSetFailed": {
+    "message": "Failed to add",
+    "description": "Prompt that the custom BreezeWiki host has failed to be added"
+  },
+  "settingsWiki": {
+    "message": "Individual wiki settings",
+    "description": "Individual wiki settings section"
+  },
+  "settingsWikiLegend": {
+    "message": "Icon legend",
+    "description": "Legend for the icons in the individual wiki settings"
+  },
+  "settingsWikiLegendWikiExp": {
+    "message": "When visiting Fandom, Fextralife, or Neoseeker wikis with an independent alternative, IWB can:",
+    "description": "Explanation for the icons in wiki experience"
+  },
+  "settingsWikiLegendSearchExp": {
+    "message": "When search engine results include Fandom, Fextralife, or Neoseeker wikis with an independent alternative, IWB can:",
+    "description": "Explanation for the icons in search experience"
+  },
+  "settingsDisabled": {
+    "message": "Do nothing",
+    "description": "Option to disable any action"
+  },
+  "settingsAlert": {
+    "message": "Display banner linking to indie wiki",
+    "description": "Option to alert the user with banner when visiting non-indie wikis"
+  },
+  "settingsRedirect": {
+    "message": "Redirect to indie wiki",
+    "description": "Option to redirect to indie wikis when visiting non-indie wikis"
+  },
+  "settingsReplace": {
+    "message": "Replace result with link to indie wiki",
+    "description": "Option to replace search results with links to non-indie wikis"
+  },
+  "settingsHide": {
+    "message": "Hide the result",
+    "description": "Option to hide search results"
+  },
+  "settingsFilterByLanguage": {
+    "message": "Filter wikis by language:",
+    "description": "Select for a language filter"
+  },
+  "settingsFilterByName": {
+    "message": "Filter wikis by name:",
+    "description": "Input for a name filter"
+  },
+  "settingsLangAll": {
+    "message": "All languages",
+    "description": "Option to show all languages"
+  },
+  "settingsLangDE": {
+    "message": "[DE] German / Deutsch",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
+  },
+  "settingsLangEN": {
+    "message": "[EN] English",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, EN should be \"[EN] Englisch / English\" in German, but just \"[EN] English\" in English."
+  },
+  "settingsLangES": {
+    "message": "[ES] Spanish / Español",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ES should be \"[ES] Spanish / Español\" in English, but just \"[ES] Español\" in Spanish."
+  },
+  "settingsLangFI": {
+    "message": "[FI] Finnish / suomi",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FI should be \"[FI] Finnish / suomi\" in English, but just \"[FI] suomi\" in Finnish."
+  },
+  "settingsLangFR": {
+    "message": "[FR] French / Français",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
+  },
+  "settingsLangHU": {
+    "message": "[HU] Hungarian / Magyar",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
+  },
+  "settingsLangIT": {
+    "message": "[IT] Italian / Italiano",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, IT should be \"[IT] Italian / Italiano\" in English, but just \"[IT] Italiano\" in Italian."
+  },
+  "settingsLangJA": {
+    "message": "[JA] Japanese / 日本語",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, JA should be \"[JA] Japanese / 日本語\" in English, but just \"[JA] 日本語\" in Japanese."
+  },
+  "settingsLangKO": {
+    "message": "[KO] Korean / 한국어",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, KO should be \"[KO] Korean / 한국어\" in English, but just \"[KO] 한국어\" in Korean."
+  },
+  "settingsLangLZH": {
+    "message": "[LZH] Classical Chinese / 文言",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
+  },
+  "settingsLangPL": {
+    "message": "[PL] Polish / Polski",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
+  },
+  "settingsLangPT": {
+    "message": "[PT] Portuguese / Português",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PT should be \"[PT] Portuguese / Português\" in English, but just \"[PT] Português\" in Portuguese."
+  },
+  "settingsLangRU": {
+    "message": "[RU] Russian / Русский",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
+  },
+  "settingsLangTH": {
+    "message": "[TH] Thai / ไทย",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TH should be \"[TH] Thai / ไทย\" in English, but just \"[TH] ไทย\" in Thai."
+  },
+  "settingsLangTOK": {
+    "message": "[TOK] Toki Pona / toki pona",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
+  },
+  "settingsLangUK": {
+    "message": "[UK] Ukrainian / Українська",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
+  },
+  "settingsLangZH": {
+    "message": "[ZH] Chinese / 中文",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
+  },
+  "settingsNameFilterPlaceholder": {
+    "message": "Enter wiki name...",
+    "description": "Placeholder for the name filter input"
+  },
+  "settingsWikiExp": {
+    "message": "Wiki experience",
+    "description": "Wiki experience section"
+  },
+  "settingsSearchExp": {
+    "message": "Search experience",
+    "description": "Search experience section"
+  },
+  "settingsSetColumn": {
+    "message": "Click icon to set all wikis in column:",
+    "description": "Instruction to set all wikis in a column"
+  },
+  "settingsNewWiki": {
+    "message": "Default for new wikis in future updates:",
+    "description": "Instruction to set default for new wikis in future updates"
+  },
+  "settingsFunStats": {
+    "message": "Fun Stats",
+    "description": "Fun stats section"
+  },
+  "settingsFunStatsAlerts": {
+    "message": "Alerted to indie wikis $alert$ times",
+    "description": "Number of times alerted to indie wikis",
+    "placeholders": {
+      "alert": {
+        "content": "$1",
+        "example": "123"
+      }
+    }
+  },
+  "settingsFunStatsRedirects": {
+    "message": "Automatically redirected to indie wikis $redirect$ times",
+    "description": "Number of times redirected to indie wikis",
+    "placeholders": {
+      "redirect": {
+        "content": "$1",
+        "example": "123"
+      }
+    }
+  },
+  "settingsFunStatsBreezeWiki": {
+    "message": "Automatically redirected to BreezeWiki $breezeWiki$ times",
+    "description": "Number of times visited Fandom wikis through BreezeWiki",
+    "placeholders": {
+      "breezeWiki": {
+        "content": "$1",
+        "example": "123"
+      }
+    }
+  },
+  "settingsFunStatsSearchFilters": {
+    "message": "$hide$ search engine results filtered",
+    "description": "Number of non-indie search results hidden",
+    "placeholders": {
+      "hide": {
+        "content": "$1",
+        "example": "123"
+      }
+    }
+  },
+  "settingsDisableFor": {
+    "message": "Do nothing for $origin$",
+    "description": "Tooltip for option to disable any action for a specific wiki",
+    "placeholders": {
+      "origin": {
+        "content": "$1",
+        "example": "Minecraft Fandom Wiki"
+      }
+    }
+  },
+  "settingsAlertFor": {
+    "message": "Show banner on $origin$ linking to $destination$",
+    "description": "Tooltip for option to alert the user with banner when visiting a specific wiki",
+    "placeholders": {
+      "origin": {
+        "content": "$1",
+        "example": "Minecraft Fandom Wiki"
+      },
+      "destination": {
+        "content": "$2",
+        "example": "Minecraft Wiki"
+      }
+    }
+  },
+  "settingsRedirectFor": {
+    "message": "Automatically redirect $origin$ to $destination$",
+    "description": "Tooltip for option to redirect to a specific wiki when visiting a specific wiki",
+    "placeholders": {
+      "origin": {
+        "content": "$1",
+        "example": "Minecraft Fandom Wiki"
+      },
+      "destination": {
+        "content": "$2",
+        "example": "Minecraft Wiki"
+      }
+    }
+  },
+  "settingsReplaceFor": {
+    "message": "Replace $origin$ search engine results with $destination$",
+    "description": "Tooltip for option to replace search results with links to a specific wiki",
+    "placeholders": {
+      "origin": {
+        "content": "$1",
+        "example": "Minecraft Fandom Wiki"
+      },
+      "destination": {
+        "content": "$2",
+        "example": "Minecraft Wiki"
+      }
+    }
+  },
+  "settingsHideFor": {
+    "message": "Hide $origin$ search engine results",
+    "description": "Tooltip for option to hide search results for a specific wiki",
+    "placeholders": {
+      "origin": {
+        "content": "$1",
+        "example": "Minecraft Fandom Wiki"
+      }
+    }
+  },
+  "settingsWikiFrom": {
+    "message": " (from $origin$)",
+    "description": "Tooltip for the origin of a specific wiki setting. Include a leading space when appropriate.",
+    "placeholders": {
+      "origin": {
+        "content": "$1",
+        "example": "Minecraft Fandom Wiki"
+      }
+    }
+  },
+  "settingsCustomWikiDelete": {
+    "message": "Delete",
+    "description": "Button to delete a custom wiki"
+  },
+  "settingsExtensionOn": {
+    "message": "Extension is on",
+    "description": "Notice that the extension is enabled"
+  },
+  "settingsExtensionOff": {
+    "message": "Extension is off",
+    "description": "Notice that the extension is disabled"
+  },
+  "popupOpenSettings": {
+    "message": "Open All Settings",
+    "description": "Button to open the settings page"
+  },
+  "popupDefault": {
+    "message": "Default behaviors (apply to all current and new wikis in future updates)",
+    "description": "Default behaviors section"
+  },
+  "popupWikiLegendWikiExp": {
+    "message": "When visiting Fandom, Fextralife, and Neoseeker wikis:",
+    "description": "Explanation for the icons in wiki experience"
+  },
+  "popupWikiLegendSearchExp": {
+    "message": "When search engine results include Fandom, Fextralife, or Neoseeker wikis with an independent alternative, IWB can:",
+    "description": "Explanation for the icons in search experience"
+  },
+  "popupSettingsPerWiki": {
+    "message": "Visit $linkStart$all settings$linkEnd$ to change behavior per-wiki.",
+    "description": "Notice to visit the settings page to change behavior per-wiki",
+    "placeholders": {
+      "linkStart": {
+        "content": "$1"
+      },
+      "linkEnd": {
+        "content": "$2"
+      }
+    }
+  },
+  "popupSettingsOverride": {
+    "message": "Clicking an option above will override any per-wiki customizations you may have.",
+    "description": "Notice that clicking an option will override any per-wiki customizations"
+  },
+  "popupBreezeWikiSeeSettings": {
+    "message": "See settings",
+    "description": "See full settings page"
+  },
+  "popupBreezeWikiSeeSettingsLink": {
+    "message": "Change custom domain on $linkStart$full settings page$linkEnd$",
+    "description": "Notice to visit the settings page to change the custom BreezeWiki domain",
+    "placeholders": {
+      "linkStart": {
+        "content": "$1"
+      },
+      "linkEnd": {
+        "content": "$2"
+      }
+    }
+  },
+  "guideTitle": {
+    "message": "Indie Wiki Buddy guide",
+    "description": "Title of the guide"
+  },
+  "guideBackToSettings": {
+    "message": "⇦ Back to Settings",
+    "description": "Button to return to the settings page"
+  },
+  "guideOverview": {
+    "message": "Overview",
+    "description": "Overview section"
+  },
+  "guideOverviewPara1": {
+    "message": "Indie Wiki Buddy provides a suite of features to help you discover independent wikis and improve your general wiki reading experience."
+  },
+  "guideOverviewPara2": {
+    "message": "When you visit a wiki on a large, corporate-run wiki host, this extension can notify or automatically redirect you to quality independent wikis when they're available. Search results in Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex can also be filtered, replacing non-independent wikis with links to independent counterpart (or hiding them completely)."
+  },
+  "guideOverviewPara3": {
+    "message": "We currently redirect from Fandom, Fextralife, and Neoseeker wikis to independent counterparts."
+  },
+  "guideOverviewPara4": {
+    "message": "Indie Wiki Buddy also supports $BreezeWiki$, a separate service that renders Fandom wikis without ads or bloat. This helps give you a more enjoyable reading experience when an independent wiki isn't available.",
+    "placeholders": {
+      "BreezeWiki": {
+        "content": "$1",
+        "example": "BreezeWiki"
+      }
+    }
+  },
+  "guideOverviewPara5": {
+    "message": "All these features can be toggled on or off, and you can set your preferences per-wiki as well. You're in full control!"
+  },
+  "guideGlobalSettingsHelp": {
+    "message": "Global settings help",
+    "description": "Global settings help section"
+  },
+  "guideGlobalSettingsHelpIntro": {
+    "message": "There are several general settings:",
+    "description": "Introduction paragraph of the general settings help"
+  },
+  "guideExtensionOnOff": {
+    "message": "Extension is on / off",
+    "description": "Extension on/off toggle"
+  },
+  "guideExtensionOnOffHelp": {
+    "message": "Enable/disable all Indie Wiki Buddy functionality at the click of a button."
+  },
+  "guideNotificationsHelp1": {
+    "message": "When this option is enabled, you will receive a desktop notification whenever you are automatically redirected to either an indie wiki or $BreezeWiki$. This is on by default.",
+    "placeholders": {
+      "BreezeWiki": {
+        "content": "$1",
+        "example": "BreezeWiki"
+      }
+    }
+  },
+  "guideNotificationsHelp2": {
+    "message": "If you aren't getting notifications when this is enabled, check your operating system's notification settings to ensure that your browser is allowed to send notifications."
+  },
+  "guideCrossLanguageHelp1": {
+    "message": "By default, Indie Wiki Buddy will keep users within the same language (e.g. only redirecting Spanish Fandom wikis to Spanish indie wikis). However, multilingual speakers may want to also use the many independent English wikis that are available. Enabling this option will redirect from non-English Fandom wikis to independent English wikis when one isn't available in the same language."
+  },
+  "guideCrossLanguageHelp2": {
+    "message": "Unfortunately this feature does not currently work for Fextralife wikis."
+  },
+  "guideChangelogHelp": {
+    "message": "Enable this option to have Indie Wiki Buddy's $linkStart$changelog$linkEnd$ opened in a new tab whenever it updates, so you can stay up-to-date on the latest changes.",
+    "placeholders": {
+      "linkStart": {
+        "content": "$1"
+      },
+      "linkEnd": {
+        "content": "$2"
+      }
+    }
+  },
+  "guideGlobalSettingsHelpSearch": {
+    "message": "You can also configure your settings for filtering results in search engines:"
+  },
+  "guideTogglePerSearchEngine": {
+    "message": "Toggle filtering per search engine"
+  },
+  "guideTogglePerSearchEngineHelp1": {
+    "message": "By default, filtering is enabled for all search engines. Filtering is done based on the user's selected settings for each wiki. The default filtering setting for all wikis is to replace non-indie search results with buttons linking to indie counterparts."
+  },
+  "guideTogglePerSearchEngineHelp2": {
+    "message": "The current supported search engines are Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex."
+  },
+  "guideHiddenResultsBannerHelp1": {
+    "message": "When this option is enabled, a banner will be inserted at the top of search engine results when Indie Wiki Buddy has hidden results from Fandom, Fextralife, or Neoseeker wikis. This banner also lets you re-show the hidden results if you wish."
+  },
+  "guideHiddenResultsBannerHelp2": {
+    "message": "If you don't want to see any indication that results have been hidden, disable this option."
+  },
+  "guideReorderResultsHelp1": {
+    "message": "By default, Indie Wiki Buddy will re-order the results page on Google to move indie wiki results above the first non-indie (Fandom / Fextralife / Neoseeker) result, if they are further down the first page of results. This allows you to find the pages you're looking for on indie wikis quicker."
+  },
+  "guideReorderResultsHelp2": {
+    "message": "This feature is currently only available for Google, as it can be complex to maintain reliably."
+  },
+  "guideBreezeWiki": {
+    "message": "You can also set your desired setting for $BreezeWiki$, a separate service that renders Fandom wikis without ads or bloat. Note, BreezeWiki currently only supports English wikis.",
+    "description": "BreezeWiki section",
+    "placeholders": {
+      "BreezeWiki": {
+        "content": "$1",
+        "example": "BreezeWiki"
+      }
+    }
+  },
+  "guideBreezeWikiDisabledHelp": {
+    "message": "Do not redirect Fandom to BreezeWiki."
+  },
+  "guideBreezeWikiBannerHelp": {
+    "message": "At the top of English Fandom wikis, a small banner will be inserted with a link to take you to the BreezeWiki wiki."
+  },
+  "guideBreezeWikiRedirectHelp": {
+    "message": "Visiting any English Fandom wiki will immediately redirect you to view it through BreezeWiki. If automatic redirect to an independent wiki is enabled, the indepedent wiki will take priority."
+  },
+  "guideBreezeWikiHostHelp": {
+    "message": "Once you've enabled a BreezeWiki option, a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror. If your selected BreezeWiki host goes down, you can come back to these settings and switch your host."
+  },
+  "guideWikiHelp": {
+    "message": "Individual wiki settings help",
+    "description": "Individual wiki settings help section"
+  },
+  "guideWikiHelpPara1": {
+    "message": "In the individual settings section of the settings page, you can configure your settings per-wiki. You can refer to the legend or hover over the icons to learn what each column controls."
+  },
+  "guideWikiHelpPara2": {
+    "message": "The first set of radio buttons controls what happens when you visit the listed non-indie wikis."
+  },
+  "guideDisable": {
+    "message": "Disable"
+  },
+  "guideDisableVisitHelp": {
+    "message": ": You will be neither notified of nor redirected to the independent counterpart. You will still be directed to BreezeWiki if it is turned on."
+  },
+  "guideRedirect": {
+    "message": "Redirect"
+  },
+  "guideRedirectHelp": {
+    "message": ": Be automatically redirected to the independent counterpart."
+  },
+  "guideAlert": {
+    "message": "Alert"
+  },
+  "guideAlertHelp": {
+    "message": ": Have a display banner at the top notifying you that an independent wiki is available. This will appear on both Fandom and BreezeWiki pages."
+  },
+  "guideWikiHelpPara3": {
+    "message": "The second set of radio buttons controls what happens to the non-indie wiki on Google, Bing, DuckDuckGo, and other search engines."
+  },
+  "guideDisableSearchHelp": {
+    "message": ": Search engine results are not affected."
+  },
+  "guideHide": {
+    "message": "Hide"
+  },
+  "guideHideHelp": {
+    "message": ": Results are hidden in search engines. A banner will be shown near the top of the page to inform you, and allow you to re-reveal the hidden results."
+  },
+  "guideReplace": {
+    "message": "Replace"
+  },
+  "guideReplaceHelp": {
+    "message": ": The original non-indie result is disabled, and a button is injected above to take you to the independent wiki."
+  },
+  "guideWikiHelpPara4": {
+    "message": "In the table header, clicking on the icons will apply that setting to all wikis in the table. In the second row, the stars represent the default settings for wikis that are added in future updates. By default, all wikis will be set to alert, with search engine replacement enabled."
+  },
+  "guideFeedback": {
+    "message": "Have questions or feedback?",
+    "description": "Feedback section"
+  },
+  "guideFeedbackPara1": {
+    "message": "If you're stuck or have questions, please don't hesitate to get in touch via the $linkStart$contact details$linkEnd$ at the bottom of Indie Wiki Buddy website.",
+    "placeholders": {
+      "linkStart": {
+        "content": "$1"
+      },
+      "linkEnd": {
+        "content": "$2"
+      }
+    }
+  },
+  "guideFeedbackPara2": {
+    "message": "Suggestions for improvements to the extension are also welcome!"
+  },
+  "notificationTitle": {
+    "message": "You've been redirected!",
+    "description": "Notification title for being redirected"
+  },
+  "notificationMessage": {
+    "message": "Indie Wiki Buddy has sent you from $origin$ to $destination$!",
+    "description": "Notification message for being redirected",
+    "placeholders": {
+      "origin": {
+        "content": "$1",
+        "example": "Minecraft Fandom Wiki"
+      },
+      "destination": {
+        "content": "$2",
+        "example": "Minecraft Wiki"
+      }
+    }
+  },
+  "notificationTitleBreezeWiki": {
+    "message": "You've been redirected to BreezeWiki!",
+    "description": "Notification title for being redirected to BreezeWiki"
+  },
+  "notificationMessageBreezeWiki": {
+    "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom.",
+    "description": "Notification message for being redirected to BreezeWiki"
+  }
+}

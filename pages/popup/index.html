@@ -4,19 +4,17 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="UTF-8" />
-  <title>Indie Wiki Buddy</title>
+  <title data-msg="extensionName"></title>
   <link rel="stylesheet" href="../../css/common.css" type="text/css">
   <link rel="stylesheet" href="../../css/popup.css" type="text/css">
 </head>
 
 <body>
   <div id="header">
-    <h1>Indie Wiki Buddy</h1>
+    <h1 data-msg="extensionName">Indie Wiki Buddy</h1>
     <div>
       <div>
-        <button id="openSettingsButton">
-          Open All Settings
-        </button>
+        <button id="openSettingsButton" data-msg="popupOpenSettings"></button>
       </div>
       <div id="power">
         <input id="powerCheckbox" type="checkbox" />
@@ -27,100 +25,97 @@
     </div>
   </div>
   <div id="links">
-    <a href="../guide/index.html" target="_blank">Guide</a>
-    <a href="https://getindie.wiki" target="_blank">Website</a>
-    <a href="https://getindie.wiki/changelog/" target="_blank">Changelog</a>
-    <a href="https://getindie.wiki/#submit" target="_blank">Submit a Wiki</a>
-    <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank">Source Code</a>
+    <a href="../guide/index.html" data-msg="settingsGuide"></a>
+    <a href="https://getindie.wiki" target="_blank" data-msg="settingsWebsite"></a>
+    <a href="https://getindie.wiki/changelog/" target="_blank" data-msg="settingsChangelog"></a>
+    <a href="https://getindie.wiki/#submit" target="_blank" data-msg="settingsSubmitWiki"></a>
+    <a href="https://github.com/KevinPayravi/indie-wiki-buddy" target="_blank" data-msg="settingsSourceCode"></a>
   </div>
   <div id="notificationBannerContainer">
     <span id="notificationBannerOpera">
-      Opera users: By default, Opera will block extensions from running on search engines.
-      Search engine access can be enabled per-extension by going to "about:extensions"
-      and selecting the "Allow access to search page results" option under Indie Wiki Buddy.
-      <a id="operaPermsHideLink" href="#">Hide this message</a>
+      <span data-msg="settingsBannerOpera"></span>
+      <a id="operaPermsHideLink" href="#" data-msg="settingsBannerHide"></a>
     </span>
   </div>
   <div id="content">
     <form name="options" class="options">
       <fieldset id="defaultSettings">
-        <legend><span aria-hidden="true">⚙️</span> Default behaviors (apply to all current and new wikis in future
-          updates)</legend>
+        <legend><span aria-hidden="true">⚙️</span>&nbsp;<span data-msg="popupDefault"></span></legend>
         <div role="radiogroup" aria-labelledby="defaultWikiActionLabel">
-          <span id="defaultWikiActionLabel">When visiting Fandom, Fextralife, and Neoseeker wikis:</span>
+          <span id="defaultWikiActionLabel" data-msg="popupWikiLegendWikiExp"></span>
           <div class="radioGroup horizontal">
             <label>
               <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled" />
               <img src="../../images/toggle-disabled.png" height="12" alt="" />
-              Do nothing
+              <span data-msg="settingsDisabled"></span>
             </label>
             <label>
               <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert" />
               <img src="../../images/toggle-alert.png" height="12" alt="" />
-              Show banner linking to indie wiki
+              <span data-msg="settingsAlert"></span>
             </label>
             <label>
               <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect" />
               <img src="../../images/toggle-redirect.png" height="12" alt="" />
-              Redirect to indie wiki
+              <span data-msg="settingsRedirect"></span>
             </label>
           </div>
         </div>
         <div role="radiogroup" aria-labelledby="defaultSearchActionLabel">
-          <span id="defaultSearchActionLabel">On search engines, when you see non-indie results with indie
-            alternatives:</span>
+          <span id="defaultSearchActionLabel" data-msg="popupWikiLegendSearchExp"></span>
           <div class="radioGroup horizontal">
             <label>
               <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled" />
               <img src="../../images/toggle-disabled.png" height="12" alt="" />
-              Do nothing
+              <span data-msg="settingsDisabled"></span>
             </label>
             <label>
               <input id="defaultSearchActionAlertRadio" type="radio" name="defaultSearchAction" value="replace" />
               <img src="../../images/toggle-replace.png" height="12" alt="" />
-              Replace non-indie results
+              <span data-msg="settingsReplace"></span>
             </label>
             <label>
               <input id="defaultSearchActionRedirectRadio" type="radio" name="defaultSearchAction" value="hide" />
               <img src="../../images/toggle-hide.png" height="12" alt="" />
-              Hide non-indie results
+              <span data-msg="settingsHide"></span>
             </label>
           </div>
         </div>
         <div class="center">
-          Visit <a id="openSettingsLink" href="#">all settings</a> to change behavior per-wiki.
+          <span
+            data-msg="popupSettingsPerWiki"
+            data-msg-ph-1="<a id='openSettingsLink' href='#'>"
+            data-msg-ph-2="</a>"></span>
           <br />
-          Clicking an option above will override any per-wiki customizations you may have.
+          <span data-msg="popupSettingsOverride"></span>
         </div>
       </fieldset>
       <fieldset id="generalSettings">
-        <legend><span aria-hidden="true">⚙️</span> General settings</legend>
+        <legend><span aria-hidden="true">⚙️</span>&nbsp;<span data-msg="settingsGeneral"></span></legend>
         <div class="settingToggle">
           <label>
             <input id="notificationsCheckbox" type="checkbox" />
             <span id="notificationsIcon" aria-hidden="true"></span>
-            Desktop notifications for
-            redirections
+            <span data-msg="settingsNotifications"></span>
           </label>
         </div>
         <div class="settingToggle">
           <label>
             <input id="crossLanguageCheckbox" type="checkbox" />
             <span id="crossLanguageIcon" aria-hidden="true"></span>
-            Redirect non-English Fandom wikis to
-            indie English wikis there is no same-lang wiki
+            <span data-msg="settingsCrossLanguage"></span>
           </label>
         </div>
         <div class="settingToggle">
           <label>
             <input id="openChangelogCheckbox" type="checkbox" />
             <span id="openChangelogIcon" aria-hidden="true"></span>
-            Open changelog when Indie Wiki Buddy is updated
+            <span data-msg="settingsOpenChangelog"></span>
           </label>
         </div>
       </fieldset>
       <fieldset id="generalSettings">
-        <legend><span aria-hidden="true">🔍</span> Search engine filtering </legend>
+        <legend><span aria-hidden="true">🔍</span>&nbsp;<span data-msg="settingsSearchEngineFiltering"></span></legend>
         <div class="settingToggle searchEngineToggles">
           <label>
             <input id="googleCheckbox" data-search-engine="google" type="checkbox" />
@@ -168,52 +163,58 @@
           <label>
             <input id="hiddenResultsBannerCheckbox" type="checkbox" />
             <img src="../../images/toggle-banner.png" height="12" alt="" />
-            On search engines, show banner when non-indie results are hidden
+            <span data-msg="settingsHiddenResultsBanner"></span>
           </label>
         </div>
         <div class="settingToggle">
           <label>
             <input id="reorderResultsCheckbox" type="checkbox" />
             <img src="../../images/toggle-move-up.png" height="12" alt="" />
-            On Google, move indie wikis above non-indie results and hide duplicates
+            <span data-msg="settingsReorderResults"></span>
           </label>
         </div>
       </fieldset>
       <fieldset id="breezewikiSettings">
         <legend>
-          <span aria-hidden="true">༄</span> BreezeWiki alternative frontend for Fandom (<a id="breeezwikiLearnMore"
-            href="https://breezewiki.com/" target="_blank">learn more</a>)
+          <span aria-hidden="true">༄</span>&nbsp;
+          <span
+            data-msg="settingsBreezeWiki"
+            data-msg-ph-1="<a id='breeezwikiLearnMore' href='https://breezewiki.com/' target='_blank'>"
+            data-msg-ph-2="</a>"></span>
         </legend>
         <div role="radiogroup">
           <div class="radioGroup vertical">
             <label>
               <input id="breeezwikiSettingDisabledRadio" type="radio" name="breezewikiSetting" value="off" />
               <img src="../../images/toggle-disabled.png" height="12" alt="" />
-              BreezeWiki off
+              <span data-msg="settingsBreezeWikiDisabled"></span>
             </label>
             <label>
               <input id="breezewikiSettingBannerRadio" type="radio" name="breezewikiSetting" value="banner" />
               <img src="../../images/toggle-alert.png" height="12" alt="" />
-              Insert banner link to take you to BreezeWiki
+              <span data-msg="settingsBreezeWikiBanner"></span>
             </label>
             <label>
               <input id="breezewikiSettingRedirectRadio" type="radio" name="breezewikiSetting" value="redirect" />
               <img src="../../images/toggle-redirect.png" height="12" alt="" />
-              Automatically redirect Fandom to BreezeWiki
+              <span data-msg="settingsBreezeWikiRedirect"></span>
             </label>
           </div>
         </div>
         <div id="breezewikiHost" class="settingToggle">
           <label>
-            BreezeWiki host:
+            <span data-msg="settingsBreezeWikiHost"></span>
             <select name="breezewikiHost" id="breezewikiHostSelect"></select>
           </label>
           <label id="breezewikiCustomHost">
-            Custom BreezeWiki domain:
+            <span data-msg="settingsBreezeWikiCustomHost"></span>
             <input disabled type="text" id="customBreezewikiHost" name="customBreezewikiHost"
-              placeholder="See full settings page" size="30" />
-            <span id="breezewikiCustomHostStatus">Change custom domain on <a href="../settings/index.html"
-                target="_blank">full settings page</a></span>
+              data-msg-attr="placeholder=popupBreezeWikiSeeSettings" size="30" />
+            <span
+              id="breezewikiCustomHostStatus"
+                data-msg="popupBreezeWikiSeeSettingsLink"
+                data-msg-ph-1="<a href='../settings/index.html' target='_blank'>"
+                data-msg-ph-2="</a>"></span>
           </label>
         </div>
       </fieldset>

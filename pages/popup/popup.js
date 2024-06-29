@@ -9,10 +9,11 @@ function setPower(setting, storeSetting = true) {
   }
   var powerImage = document.getElementById('powerImage');
   powerImage.src = '../../images/power-' + setting + '.png';
-  powerImage.alt = 'Indie Wiki Buddy is ' + setting;
   if (setting === 'on') {
+    powerImage.alt = extensionAPI.i18n.getMessage('settingsExtensionOn');
     document.getElementById('powerCheckbox').checked = true;
   } else {
+    powerImage.alt = extensionAPI.i18n.getMessage('settingsExtensionOff');
     document.getElementById('powerCheckbox').checked = false;
   }
 
