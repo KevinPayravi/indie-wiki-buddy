@@ -175,52 +175,52 @@ function commonFunctionGetDestinationArticle(matchingSite, article) {
   return matchingSite['destination_content_prefix'] + article + matchingSite['destination_content_suffix'];
 }
 
+function encodeArticleTitle(articleTitle) {
+  // We decode + encode to ensure we don't double-encode,
+  // in the event a string is already encoded.
+  // We wrap in a try-catch as decoding can sometimes fail if destination article
+  // does have special characters (e.g. %) in the title.
+  try {
+    return encodeURIComponent(decodeURIComponent(articleTitle));
+  } catch {
+    return encodeURIComponent(articleTitle);
+  }
+}
+
 function commonFunctionGetNewURL(originURL, matchingSite) {
   // Get article name from the end of the URL;
   // We can't just take the last part of the path due to subpages;
   // Instead, we take everything after the wiki's base URL + content path
   let originArticle = commonFunctionGetOriginArticle(originURL, matchingSite);
   let destinationArticle = commonFunctionGetDestinationArticle(matchingSite, originArticle);
+  
   // Set up URL to redirect user to based on wiki platform
   let newURL = '';
-  if (originArticle) {
-    // Check if main page
-    if (decodeURIComponent(originArticle) === matchingSite['origin_main_page']) {
-      switch (matchingSite['destination_platform']) {
-        case 'dokuwiki':
-          destinationArticle = '';
-          break;
-        default:
-          destinationArticle = matchingSite['destination_main_page'] + matchingSite['destination_content_suffix'];
-      }
-    }
 
-    // Replace underscores with spaces as that performs better in search
-    destinationArticle = destinationArticle.replaceAll('_', ' ');
-    // Encode article
-    // We decode + encode to ensure we don't double-encode,
-    // in the event a string is already encoded.
-    // We wrap in a try-catch as decoding can sometimes fail if destination article
-    // does have special characters (e.g. %) in the title.
-    try {
-      destinationArticle = encodeURIComponent(decodeURIComponent(destinationArticle));
-    } catch {
-      destinationArticle = encodeURIComponent(destinationArticle);
-    }
-
-    let searchParams = '';
-    switch (matchingSite['destination_platform']) {
-      case 'mediawiki':
-        searchParams = '?title=Special:Search&search=' + destinationArticle;
-        break;
-      case 'dokuwiki':
-        searchParams = '?do=search&q=' + destinationArticle;
-        break;
-    }
-    newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_search_path"] + searchParams;
-  } else {
-    newURL = 'https://' + matchingSite["destination_base_url"];
+  // If the article is the main page (or missing), redirect to the indie wiki's main page
+  if ((!originArticle) || (decodeURIComponent(originArticle) === matchingSite['origin_main_page'])) {
+    const mainPageArticle = encodeArticleTitle(matchingSite['destination_main_page']);
+    newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_content_path"] + mainPageArticle + matchingSite['destination_content_suffix'];
+    return newURL;
   }
+
+  // Replace underscores with spaces as that performs better in search
+  const encodedDestinationArticle = encodeArticleTitle(destinationArticle.replaceAll('_', ' '));
+
+  let searchParams = '';
+  switch (matchingSite['destination_platform']) {
+    case 'mediawiki':
+      searchParams = `?title=Special:Search&search=${encodedDestinationArticle}`;
+      break;
+    case 'dokuwiki':
+      searchParams = `?do=search&q=${encodedDestinationArticle}`;
+      break;
+    // Otherwise, assume the full search path is defined on "destination_search_path"
+    default:
+      searchParams = encodedDestinationArticle;
+      break;
+  }
+  newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_search_path"] + searchParams;
 
   return newURL;
 }
