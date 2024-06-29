@@ -115,6 +115,29 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-adventurequestworlds",
+    "origins_label": "AdventureQuest Worlds Fandom Wiki",
+    "origins": [
+      {
+        "origin": "AdventureQuest Worlds Fandom Wiki",
+        "origin_base_url": "adventurequestworlds.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "AdventureQuest_Worlds_Wiki"
+      }
+    ],
+    "destination": "Adventure Quest Worlds Wiki",
+    "destination_base_url": "aqwwiki.wikidot.com",
+    "destination_platform": "wikidot",
+    "destination_icon": "aqw.png",
+    "destination_search_path": "/search:main/fullname/",
+    "destination_content_path": "/",
+    "destination_main_page": "main",
+    "destination_host": "Wikidot",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-adventurezone",
     "origins_label": "Adventure Zone Fandom Wiki",
     "origins": [
