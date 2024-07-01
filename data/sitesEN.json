@@ -1930,6 +1930,18 @@
         "origin_base_url": "k9tv.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "K9tv_Wiki"
+      },
+      {
+        "origin": "Doctor Who Fandom Wiki",
+        "origin_base_url": "whoniverse.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Doctor_Who_Wiki"
+      },
+      {
+        "origin": "Dr Who Fandom Wiki",
+        "origin_base_url": "daleksrus.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dr._Who_Wiki"
       }
     ],
     "destination": "Tardis (Doctor Who) Wiki",
