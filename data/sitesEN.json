@@ -3861,6 +3861,28 @@
     ]
   },
   {
+    "id": "en-limbuscompany",
+    "origins_label": "Limbus Company Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Limbus Company Fandom Wiki",
+        "origin_base_url": "limbuscompany.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Limbus_Company_Wiki"
+      }
+    ],
+    "destination": "Limbus Company Wiki",
+    "destination_base_url": "limbuscompany.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "limbuscompany.png",
+    "destination_main_page": "Limbus_Company_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
+  },
+  {
     "id": "en-linkinpark",
     "origins_label": "Linkin Park Fandom Wiki",
     "origins": [
