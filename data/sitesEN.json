@@ -1325,6 +1325,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-chibirobo",
+    "origins_label": "Chibi-Robo! Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Chibi-Robo! Fandom Wiki",
+        "origin_base_url": "chibi-robo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Chibi-Robo_Wiki"
+      }
+    ],
+    "destination": "Chibi-Robo! Wiki",
+    "destination_base_url": "chibi-robo.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "chibirobowiki.png",
+    "destination_main_page": "Chibi-Robo_Wiki",
+    "destination_search_path": "/w/",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-chicory",
     "origins_label": "Chicory: A Colorful Tale Fandom Wiki",
     "origins": [
@@ -3417,7 +3436,7 @@
     "tags": [
       "miraheze"
     ]
-  },  
+  },
   {
     "id": "en-hybridanimals",
     "origins_label": "Hybrid Animals Fandom Wiki",
@@ -5011,25 +5030,25 @@
     "destination_content_path": "/wiki/"
   },
   {
-  "id": "en-pou",
-  "origins_label": "Pou Fandom Wikis",
-  "origins": [
-    {
-      "origin": "Pou Fandom Wiki",
-      "origin_base_url": "pou.fandom.com",
-      "origin_content_path": "/wiki/",
-      "origin_main_page": "Pou_Wiki"
-    }
-  ],
-  "destination": "Poupedia",
-  "destination_base_url": "poupedia.com",
-  "destination_platform": "mediawiki",
-  "destination_icon": "poupedia.png",
-  "destination_main_page": "Main_Page",
-  "destination_search_path": "/index.php",
-  "destination_content_path": "/wiki/",
-  "tags": [
-    "miraheze"
+    "id": "en-pou",
+    "origins_label": "Pou Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Pou Fandom Wiki",
+        "origin_base_url": "pou.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pou_Wiki"
+      }
+    ],
+    "destination": "Poupedia",
+    "destination_base_url": "poupedia.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "poupedia.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "miraheze"
     ]
   },
   {
