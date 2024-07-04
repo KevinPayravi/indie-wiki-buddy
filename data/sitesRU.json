@@ -106,6 +106,26 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "ru-portal",
+    "origins_label": "Portal Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Portal Fandom Wiki",
+        "origin_base_url": "portal.fandom.com/ru",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Portal_вики"
+      }
+    ],
+    "destination": "Portal Wiki",
+    "destination_base_url": "theportalwiki.com",
+    "destination_content_suffix": "/ru",
+    "destination_platform": "mediawiki",
+    "destination_icon": "portalwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "ru-rainworld",
     "origins_label": "Rain World Fandom Wiki",
     "origins": [
