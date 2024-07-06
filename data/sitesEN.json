@@ -3836,9 +3836,7 @@
     "destination_main_page": "Limbus_Company_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-linkinpark",
