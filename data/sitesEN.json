@@ -1282,6 +1282,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-chibirobo",
+    "origins_label": "Chibi-Robo! Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Chibi-Robo! Fandom Wiki",
+        "origin_base_url": "chibi-robo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Chibi-Robo_Wiki"
+      }
+    ],
+    "destination": "Chibi-Robo! Wiki",
+    "destination_base_url": "chibi-robo.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "chibirobowiki.png",
+    "destination_main_page": "Chibi-Robo_Wiki",
+    "destination_search_path": "/w/",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-chicory",
     "origins_label": "Chicory: A Colorful Tale Fandom Wiki",
     "origins": [
@@ -1344,6 +1363,50 @@
     "destination_main_page": "Chrono_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },  
+  {
+    "id": "en-citiesskylines",
+    "origins_label": "Cities Skylines Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cities Skylines Fandom Wiki",
+        "origin_base_url": "skylines.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Skylines_Wikia"
+      }
+    ],
+    "destination": "Cities: Skylines Wiki",
+    "destination_base_url": "skylines.paradoxwikis.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "citiesskylines.png",
+    "destination_main_page": "Cities:_Skylines_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/",
+    "tags": [
+      "official"
+    ]
+  },
+  {
+    "id": "en-citiesskylines2",
+    "origins_label": "Cities Skylines 2 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cities Skylines II Fandom Wiki",
+        "origin_base_url": "cities-skylines-ii.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Cities:_Skylines_II_Wiki"
+      }
+    ],
+    "destination": "Cities: Skylines 2 Wiki",
+    "destination_base_url": "cs2.paradoxwikis.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "citiesskylines2.png",
+    "destination_main_page": "Cities_Skylines_II_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-cityofheroes",
@@ -1831,6 +1894,18 @@
         "origin_base_url": "k9tv.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "K9tv_Wiki"
+      },
+      {
+        "origin": "Doctor Who Fandom Wiki",
+        "origin_base_url": "whoniverse.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Doctor_Who_Wiki"
+      },
+      {
+        "origin": "Dr Who Fandom Wiki",
+        "origin_base_url": "daleksrus.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dr._Who_Wiki"
       }
     ],
     "destination": "Tardis (Doctor Who) Wiki",
@@ -3742,6 +3817,28 @@
     "destination_search_path": "/w/index.php",
     "destination_main_page": "Main_Page",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-limbuscompany",
+    "origins_label": "Limbus Company Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Limbus Company Fandom Wiki",
+        "origin_base_url": "limbuscompany.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Limbus_Company_Wiki"
+      }
+    ],
+    "destination": "Limbus Company Wiki",
+    "destination_base_url": "limbuscompany.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "limbuscompany.png",
+    "destination_main_page": "Limbus_Company_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-linkinpark",
