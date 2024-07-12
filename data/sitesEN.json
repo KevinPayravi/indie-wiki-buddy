@@ -1384,6 +1384,29 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
   },
+    {
+    "id": "en-chocolateedition",
+    "origins_label": "Chocolate Edition Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Chocolate Edition Fandom Wiki",
+        "origin_base_url": "the-chocolate-edition.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Chocolate_Edition_Wiki"
+      }
+    ],
+    "destination": "Chocolate Edition Wiki",
+    "destination_base_url": "thechocolateedition.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "chocolateedition.png",
+    "destination_main_page": "The_Chocolate_Edition_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "wiki.gg",
+      "official"
+    ]
+  },
   {
     "id": "en-chrono",
     "origins_label": "Chrono Fandom & Neoseeker Wikis",
