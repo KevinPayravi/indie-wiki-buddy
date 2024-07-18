@@ -1382,6 +1382,7 @@
     "destination_main_page": "Cities:_Skylines_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/",
+    "destination_host": "Paradox",
     "tags": [
       "official"
     ]
@@ -1404,6 +1405,7 @@
     "destination_main_page": "Cities_Skylines_II_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/",
+    "destination_host": "Paradox",
     "tags": [
       "official"
     ]
@@ -4996,6 +4998,7 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/",
+    "destination_host": "Paradox",
     "tags": [
       "official"
     ]
