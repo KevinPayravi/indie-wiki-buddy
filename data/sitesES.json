@@ -55,8 +55,8 @@
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },
@@ -78,8 +78,8 @@
     "destination_main_page": "Wiki_Calamity_Mod_en_Español",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },
@@ -101,9 +101,7 @@
     "destination_main_page": "Wiki_Clash_of_Clans_en_Español",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "es-coromon",
@@ -123,8 +121,8 @@
     "destination_main_page": "Coromon_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },
@@ -146,9 +144,7 @@
     "destination_main_page": "Deep_Rock_Galactic_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "es-halflife",
@@ -306,8 +302,8 @@
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },

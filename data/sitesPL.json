@@ -17,8 +17,8 @@
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },
@@ -101,8 +101,8 @@
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   }

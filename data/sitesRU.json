@@ -17,8 +17,8 @@
     "destination_main_page": "ARK_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },
@@ -40,8 +40,8 @@
     "destination_main_page": "Calamity_Mod_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   },
@@ -82,9 +82,7 @@
     "destination_icon": "lethalcompany.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
-    "tags": [
-      "miraheze"
-    ]
+    "destination_host": "Miraheze"
   },
   {
     "id": "ru-minecraft",
@@ -144,9 +142,9 @@
     "destination_main_page": "Rain_World_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze",
     "tags": [
-      "official",
-      "miraheze"
+      "official"
     ]
   },
   {
@@ -189,8 +187,8 @@
     "destination_main_page": "Terraria_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
     "tags": [
-      "wiki.gg",
       "official"
     ]
   }
