@@ -829,7 +829,7 @@
     "description": "Feedback section"
   },
   "guideFeedbackPara1": {
-    "message": "If you're stuck or have questions, please don't hesitate to get in touch via the $linkStart$contact details$linkEnd$ at the bottom of Indie Wiki Buddy website.",
+    "message": "If you're stuck or have questions, please don't hesitate to get in touch via the $linkStart$contact details$linkEnd$ at the bottom of the Indie Wiki Buddy website.",
     "placeholders": {
       "linkStart": {
         "content": "$1"
