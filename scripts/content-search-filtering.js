@@ -389,7 +389,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
       document.querySelector('#main div[data-hveid]');
 
     // Get the first Fandom/Fextralife/Neoseeker result, if it exists
-    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
+    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([href^="/search"]):not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
     const firstNonIndieResult = Array.from(nonIndieResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'))[0];
     if (!resultsFirstChild || !firstNonIndieResult) return;
 
