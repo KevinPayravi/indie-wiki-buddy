@@ -182,25 +182,29 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerText.classList.add('indie-wiki-banner-big-text');
   banner.appendChild(bannerText);
 
-  // Build descriptor
-  let descriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependent');
+  // Build descriptors
+  let wikiDescriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependent');
+  let hostDescriptor = '';
+
   if (host) {
+    hostDescriptor = extensionAPI.i18n.getMessage('bannerHost', host);
     if (tags.includes('official')) {
-      descriptor = extensionAPI.i18n.getMessage('bannerDescriptorWikifarmOfficial', [host]);
+      wikiDescriptor = extensionAPI.i18n.getMessage('bannerDescriptorOfficial');
     } else {
-      descriptor = extensionAPI.i18n.getMessage('bannerDescriptorWikifarm', [host])
+      wikiDescriptor = extensionAPI.i18n.getMessage('bannerDescriptorWiki');
     }
   } else if (tags.includes('official')) {
-    descriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependentOfficial');
+    wikiDescriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependentOfficial');
   }
 
   if (destinationLanguage === 'EN' && location.href.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
     bannerText.textContent = extensionAPI.i18n.getMessage('bannerText', [
-      descriptor,
+      wikiDescriptor,
+      hostDescriptor,
       extensionAPI.i18n.getMessage('bannerLanguageEnglish')
     ]);
   } else {
-    bannerText.textContent = extensionAPI.i18n.getMessage('bannerText', [descriptor]);
+    bannerText.textContent = extensionAPI.i18n.getMessage('bannerText', [wikiDescriptor, hostDescriptor, '']);
   }
   let bannerWikiLink = document.createElement('a');
   bannerWikiLink.classList.add('indie-wiki-banner-link');

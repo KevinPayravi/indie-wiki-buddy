@@ -8,25 +8,25 @@
     "description": "The description of the extension"
   },
   "bannerText": {
-    "message": "There is $descriptor$ wiki covering this topic$language$!",
+    "message": "There is $descriptor$ wiki$host$ covering this topic$language$!",
     "description": "Text to display in the banner for the indie wiki link",
     "placeholders": {
       "descriptor": {
         "content": "$1",
         "example": "an independent"
       },
-      "language": {
+      "host": {
         "content": "$2",
+        "example": " on wiki.gg"
+      },
+      "language": {
+        "content": "$3",
         "example": " in English"
       }
     }
   },
-  "bannerDescriptorIndependent": {
-    "message": "an independent",
-    "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
-  },
-  "bannerDescriptorWikifarm": {
-    "message": "a $host$",
+  "bannerHost": {
+    "message": " on $host$",
     "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
     "placeholders": {
       "host": {
@@ -35,19 +35,21 @@
       }
     }
   },
+  "bannerDescriptorWiki": {
+    "message": "a",
+    "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
+  },
+  "bannerDescriptorIndependent": {
+    "message": "an independent",
+    "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
+  },
   "bannerDescriptorIndependentOfficial": {
     "message": "an official independent",
     "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
   },
-  "bannerDescriptorWikifarmOfficial": {
-    "message": "an official $host$",
-    "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
-    "placeholders": {
-      "host": {
-        "content": "$1",
-        "example": "wiki.gg"
-      }
-    }
+  "bannerDescriptorOfficial": {
+    "message": "an official",
+    "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
   },
   "bannerLanguageEnglish": {
     "message": " in English",
