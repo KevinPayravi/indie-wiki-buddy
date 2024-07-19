@@ -969,6 +969,29 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-bleed",
+    "origins_label": "Bleed Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bleed Fandom Wiki",
+        "origin_base_url": "bleed-game.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bleed_Wiki"
+      }
+    ],
+    "destination": "Bleed Wiki",
+    "destination_base_url": "bleed.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bleedwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Bleed_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-blood",
     "origins_label": "Blood 1997 Fandom Wiki",
     "origins": [
