@@ -118,10 +118,16 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
     let searchRemovalNoticeLink = document.createElement('a');
     searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
     searchRemovalNoticeLink.textContent = site.destination;
-    searchRemovalNotice.appendChild(extensionAPI.i18n.getMessage('searchRemovalNotice', [
-      site.origin + site.language !== 'EN' ? ' (' + site.language + ')' : '',
-      searchRemovalNoticeLink.outerHTML
-    ]));
+    searchRemovalNoticeText = extensionAPI.i18n.getMessage('searchRemovalNotice', [
+      site.origin + (site.language !== 'EN' ? ' (' + site.language + ')' : ''),
+      'LINK_PLACEHOLDER'
+    ]);
+    const searchRemovalNoticeTextParts = searchRemovalNoticeText.split('LINK_PLACEHOLDER');
+    const searchRemovalNoticeFragment = document.createDocumentFragment();
+    searchRemovalNoticeFragment.appendChild(document.createTextNode(searchRemovalNoticeTextParts[0]));
+    searchRemovalNoticeFragment.appendChild(searchRemovalNoticeLink);
+    searchRemovalNoticeFragment.appendChild(document.createTextNode(searchRemovalNoticeTextParts[1]));
+    searchRemovalNotice.appendChild(searchRemovalNoticeFragment);
 
     // Output container for result controls:
     let resultControls = document.createElement('div');
