@@ -363,6 +363,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-anton",
+    "origins_label": "AntonBlast Fandom Wiki",
+    "origins": [
+      {
+        "origin": "AntonBlast Fandom Wiki",
+        "origin_base_url": "antonblastpedia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "AntonBlast_Wiki"
+      }
+    ],
+    "destination": "Summitpedia",
+    "destination_base_url": "antonball.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "summitpedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Summitpedia:Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-anvilempires",
     "origins_label": "Anvil Empires Fandom Wiki",
     "origins": [
@@ -4076,6 +4096,25 @@
     "destination_main_page": "Home",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-medabots",
+    "origins_label": "Medabots Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Medabots Fandom Wiki",
+        "origin_base_url": "medabots.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Medabots_Wiki"
+      }
+    ],
+    "destination": "Medapedia",
+    "destination_base_url": "medarot.meowcorp.us",
+    "destination_platform": "mediawiki",
+    "destination_icon": "medapedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Medapedia"
   },
   {
     "id": "en-megamitensei",
