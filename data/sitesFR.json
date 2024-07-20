@@ -144,6 +144,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "fr-splatoon",
+    "origins_label": "Splatoon Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Splatoon Fandom Wiki",
+        "origin_base_url": "splatoon.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Splatoon"
+      }
+    ],
+    "destination": "Inkipédia",
+    "destination_base_url": "fr.splatoonwiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "inkipedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Accueil"
+  },
+  {
     "id": "fr-terraria",
     "origins_label": "Terraria Fandom Wiki",
     "origins": [
