@@ -272,7 +272,9 @@ function getSearchContainer(searchEngine, searchResult) {
 
   switch (searchEngine) {
     case 'google':
-      const closestGoogleContainerClass = searchResult.closest('div.MjjYud');
+      // div[data-q] div.g captures individual q&a result links
+      // div.MjjYud captures individual result containers on desktop and iPhone
+      const closestGoogleContainerClass = searchResult.closest('div[data-q] div.g, div.card-section, div.MjjYud');
       const closestJsController = searchResult.closest('div[jscontroller]');
       const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
       if (closestGoogleContainerClass) {
@@ -469,7 +471,6 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
       // Check that result isn't within another result
       if (!searchResult.closest('.iwb-detected') || !searchResult.closest('.iwb-detected')?.querySelector('.iwb-new-link')) {
         let searchResultLink = searchResult.getAttribute('data-iwb-href') || searchResult.href || '';
-
         if (!searchResultLink) {
           continue;
         }
@@ -483,6 +484,8 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
           // Skip if result doesn't include specific tags/attributes
           // This helps avoid capturing unintended image results
           if (!(
+            searchResult.closest('h1') ||
+            searchResult.closest('h3') ||
             searchResult.querySelector('h1') ||
             searchResult.querySelector('h3') ||
             searchResult.querySelector('cite') ||
