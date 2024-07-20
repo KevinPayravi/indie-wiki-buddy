@@ -272,16 +272,9 @@ function getSearchContainer(searchEngine, searchResult) {
 
   switch (searchEngine) {
     case 'google':
-      // div[data-q] div.g captures individual q&a result links
-      // div.MjjYud captures individual result containers on desktop and iPhone
-      const closestGoogleContainerClass = searchResult.closest('div[data-q] div.g, div.card-section, div.MjjYud');
       const closestJsController = searchResult.closest('div[jscontroller]');
       const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
-      if (closestGoogleContainerClass) {
-        searchResultContainer = closestGoogleContainerClass;
-      } else {
-        searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
-      }
+      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
       break;
     case 'bing':
       searchResultContainer = searchResult.closest('li.b_algo');
