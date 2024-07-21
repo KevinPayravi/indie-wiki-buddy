@@ -329,7 +329,7 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
     searchFilterSetting = storage.defaultSearchAction;
   }
 
-  const searchResultContainer = getSearchContainer(searchEngine, searchResult);
+  let searchResultContainer = getSearchContainer(searchEngine, searchResult);
 
   if (searchResultContainer) {
     // If this page from Fandom is the same as a re-ordered page, filter it out
@@ -346,6 +346,10 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
       countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, 'off');
       console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
     } else if (searchFilterSetting !== 'disabled') {
+      // For Google search results, get the parentNode of the result container as that tends to be more reliable:
+      if (searchEngine == 'google') {
+        searchResultContainer = searchResultContainer.parentNode;
+      }
       if (searchFilterSetting === 'hide') {
         // Else, if the user has the preference set to hide search results, hide it indiscriminately
         countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
