@@ -42,11 +42,9 @@ function replaceSearchResults(searchResultContainer, site, link) {
   let destinationArticle = commonFunctionGetDestinationArticle(site, originArticle);
   let newURL = commonFunctionGetNewURL(link, site);
 
-  if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link')) {
-    if (!searchResultContainer.classList.contains('iwb-detected')) {
-      searchResultContainer.classList.add('iwb-detected');
-      searchResultContainer.classList.add('iwb-disavow');
-    }
+  if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link') && !searchResultContainer.querySelector('.iwb-detected')) {
+    searchResultContainer.classList.add('iwb-detected');
+    searchResultContainer.classList.add('iwb-disavow');
     // Using aside to avoid conflicts with website CSS and listeners:
     let indieContainer = document.createElement('aside');
     indieContainer.classList.add('iwb-new-link-container');
@@ -347,13 +345,13 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
       console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
     } else if (searchFilterSetting !== 'disabled') {
       // For Google search results, get the parentNode of the result container as that tends to be more reliable:
-      if (searchEngine == 'google') {
-        searchResultContainer = searchResultContainer.parentNode;
-      }
       if (searchFilterSetting === 'hide') {
         // Else, if the user has the preference set to hide search results, hide it indiscriminately
         countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
       } else {
+        if (searchEngine == 'google') {
+          searchResultContainer = searchResultContainer.parentNode;
+        }
         countFiltered += replaceSearchResults(searchResultContainer, matchingSite, searchResultLink);
       }
     }
@@ -399,7 +397,8 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
       document.querySelector('#main div[data-hveid]');
 
     // Get the first Fandom/Fextralife/Neoseeker result, if it exists
-    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([href^="/search"]):not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
+    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([href*=".google.com/"]):not([href^="/search"]):not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
+    console.log(nonIndieResults);
     const firstNonIndieResult = Array.from(nonIndieResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'))[0];
     if (!resultsFirstChild || !firstNonIndieResult) return;
 
@@ -486,7 +485,8 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
             searchResult.querySelector('h1') ||
             searchResult.querySelector('h3') ||
             searchResult.querySelector('cite') ||
-            searchResult.querySelector("div[role='link']"))) {
+            searchResult.querySelector("div[role='link']")))
+          {
             searchResult.classList.add('iwb-detected');
             continue;
           }
