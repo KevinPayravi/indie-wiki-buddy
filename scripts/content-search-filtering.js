@@ -272,7 +272,8 @@ function getSearchContainer(searchEngine, searchResult) {
     case 'google':
       const closestJsController = searchResult.closest('div[jscontroller]');
       const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
-      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
+      // For Google search results, get the parentNode of the result container as that tends to be more reliable:
+      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]).parentNode;
       break;
     case 'bing':
       searchResultContainer = searchResult.closest('li.b_algo');
@@ -344,14 +345,10 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
       countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, 'off');
       console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
     } else if (searchFilterSetting !== 'disabled') {
-      // For Google search results, get the parentNode of the result container as that tends to be more reliable:
       if (searchFilterSetting === 'hide') {
         // Else, if the user has the preference set to hide search results, hide it indiscriminately
         countFiltered += hideSearchResults(searchResultContainer, searchEngine, matchingSite, storage['hiddenResultsBanner']);
       } else {
-        if (searchEngine == 'google') {
-          searchResultContainer = searchResultContainer.parentNode;
-        }
         countFiltered += replaceSearchResults(searchResultContainer, matchingSite, searchResultLink);
       }
     }
