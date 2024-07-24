@@ -56,7 +56,7 @@
     "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
   },
   "bannerVisit": {
-    "message": "Visit $destination$ →",
+    "message": "Visit $destination$",
     "description": "Text to display in the banner for the visit link",
     "placeholders": {
       "destination": {
