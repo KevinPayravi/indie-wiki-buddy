@@ -70,27 +70,27 @@
     "description": "Text to display in the banner for the BreezeWiki link"
   },
   "bannerRestore": {
-    "message": "⎌ Restore banner",
+    "message": "Restore banner",
     "description": "Text to display in the banner for the restore banner link"
   },
   "bannerRestoreDone": {
-    "message": "✓ Banner restored",
+    "message": "Banner restored",
     "description": "Text to display in the banner after the banner has been restored"
   },
   "bannerDisable": {
-    "message": "✕ Disable banner for this wiki",
+    "message": "Disable banner for this wiki",
     "description": "Text to display in the banner for the disable banner link"
   },
   "bannerDisableDone": {
-    "message": "✓ Banner disabled",
+    "message": "Banner disabled",
     "description": "Text to display in the banner after the banner has been disabled"
   },
   "bannerRedirect": {
-    "message": "↪ Auto redirect this wiki",
+    "message": "Auto redirect this wiki",
     "description": "Text to display in the banner for the redirect link"
   },
   "bannerRedirectDone": {
-    "message": "✓ Redirect enabled",
+    "message": "Redirect enabled",
     "description": "Text to display in the banner after the redirect has been enabled"
   },
   "searchResultLookup": {
