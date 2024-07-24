@@ -395,7 +395,6 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
 
     // Get the first Fandom/Fextralife/Neoseeker result, if it exists
     const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([href*=".google.com/"]):not([href^="/search"]):not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
-    console.log(nonIndieResults);
     const firstNonIndieResult = Array.from(nonIndieResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'))[0];
     if (!resultsFirstChild || !firstNonIndieResult) return;
 
@@ -459,6 +458,9 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
 async function filterSearchResults(searchResults, searchEngine, storage, reorderedHrefs = []) {
   let countFiltered = 0;
 
+  // Add location observer to check for additional mutations
+  addDOMChangeObserver(startFiltering, searchEngine, storage);
+
   for (const searchResult of searchResults) {
     try {
       // Check that result isn't within another result
@@ -501,9 +503,6 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
       console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
     }
   };
-
-  // Add location observer to check for additional mutations
-  addDOMChangeObserver(startFiltering, searchEngine, storage);
 
   // If any results were filtered, update search filter count
   if (countFiltered > 0) {
