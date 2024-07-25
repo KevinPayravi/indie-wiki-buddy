@@ -191,6 +191,9 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
       case 'ecosia':
         document.querySelector('body').prepend(searchRemovalNotice);
         break;
+      case 'mojeek':
+        document.querySelector('.top-info').prepend(searchRemovalNotice);
+        break;
       case 'qwant':
         document.querySelector('div[data-testid=sectionWeb]').prepend(searchRemovalNotice);
         break;
@@ -286,6 +289,9 @@ function getSearchContainer(searchEngine, searchResult) {
       break;
     case 'ecosia':
       searchResultContainer = searchResult.closest('div.mainline__result-wrapper article div.result__body');
+      break;
+    case 'mojeek':
+      searchResultContainer = searchResult.closest('li');
       break;
     case 'qwant':
       if (searchResult.closest('div[data-testid=webResult]')) {
@@ -622,6 +628,16 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
         filterEcosia();
         break;
 
+      case 'mojeek':
+        // Function to filter search results in Mojeek
+        function filterMojeek() {
+          let searchResults = Array.from(document.querySelectorAll('ul.results-standard li a.title')).filter(el => isNonIndieSite(el.href));
+          filterSearchResults(searchResults, 'mojeek', storage);
+        }
+
+        filterMojeek();
+        break;
+
       case 'qwant':
         // Function to filter search results in Qwant
         function filterQwant() {
@@ -747,6 +763,8 @@ if (currentURL.hostname.includes('www.google.')) {
   checkIfEnabled('brave');
 } else if (currentURL.hostname.includes('ecosia.org')) {
   checkIfEnabled('ecosia');
+} else if (currentURL.hostname.includes('mojeek.com')) {
+  checkIfEnabled('mojeek');
 } else if (currentURL.hostname.includes('qwant.com')) {
   checkIfEnabled('qwant');
 } else if (currentURL.hostname.includes('startpage.com')) {
