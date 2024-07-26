@@ -370,7 +370,7 @@ async function reorderDestinationSearchResult(firstNonIndieResult, searchResult)
 
   indieSearchResultContainer.classList.add('iwb-reordered');
   // Prepend search results to first Fandom/Fextra/Neoseeker result
-  nonIndieSearchResultContainer.parentNode.prepend(indieSearchResultContainer);
+  nonIndieSearchResultContainer.parentNode.insertBefore(indieSearchResultContainer, nonIndieSearchResultContainer);
 }
 
 async function reorderSearchResults(searchResults, searchEngine, storage) {
