@@ -692,5 +692,184 @@
     },
     "guideOverviewPara2": {
         "message": "如果您访问了大型、由企业运营的wiki，本扩展会在有优质独立wiki时提醒您，或自动将您重定向到独立wiki。本扩展也会过滤非独立wiki的搜索结果。您可以选择将它们替换为独立wiki的搜索结果，或直接隐藏。本扩展支持的搜索引擎有：Google、必应、DuckDuckGo、Brave、Ecosia、Kagi、Qwant、Startpage、Yahoo!、Yandex 。"
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "",
+        "description": "Introduction paragraph of the general settings help"
+    },
+    "guideExtensionOnOffHelp": {
+        "message": ""
+    },
+    "guideCrossLanguageHelp1": {
+        "message": ""
+    },
+    "guideCrossLanguageHelp2": {
+        "message": ""
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": ""
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": ""
+    },
+    "guideBreezeWiki": {
+        "message": "",
+        "description": "BreezeWiki section",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": ""
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": ""
+    },
+    "guideAlert": {
+        "message": ""
+    },
+    "guideDisableSearchHelp": {
+        "message": ""
+    },
+    "guideHide": {
+        "message": ""
+    },
+    "guideHideHelp": {
+        "message": ""
+    },
+    "guideReplace": {
+        "message": ""
+    },
+    "guideDisable": {
+        "message": ""
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "",
+        "description": "Notification title for being redirected to BreezeWiki"
+    },
+    "guideWikiHelpPara1": {
+        "message": ""
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "",
+        "description": "Notification message for being redirected to BreezeWiki"
+    },
+    "notificationMessage": {
+        "message": "",
+        "description": "Notification message for being redirected",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "guideDisableVisitHelp": {
+        "message": ""
+    },
+    "guideWikiHelpPara2": {
+        "message": ""
+    },
+    "guideWikiHelp": {
+        "message": "",
+        "description": "Individual wiki settings help section"
+    },
+    "guideRedirect": {
+        "message": ""
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": ""
+    },
+    "guideFeedbackPara2": {
+        "message": ""
+    },
+    "notificationTitle": {
+        "message": "",
+        "description": "Notification title for being redirected"
+    },
+    "guideRedirectHelp": {
+        "message": ""
+    },
+    "guideExtensionOnOff": {
+        "message": "",
+        "description": "Extension on/off toggle"
+    },
+    "guideFeedback": {
+        "message": "",
+        "description": "Feedback section"
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": ""
+    },
+    "guideReorderResultsHelp1": {
+        "message": ""
+    },
+    "guideAlertHelp": {
+        "message": ""
+    },
+    "guideTogglePerSearchEngine": {
+        "message": ""
+    },
+    "guideReorderResultsHelp2": {
+        "message": ""
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": ""
+    },
+    "guideNotificationsHelp1": {
+        "message": "",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideChangelogHelp": {
+        "message": "",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideNotificationsHelp2": {
+        "message": ""
+    },
+    "guideWikiHelpPara4": {
+        "message": ""
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": ""
+    },
+    "guideReplaceHelp": {
+        "message": ""
+    },
+    "guideFeedbackPara1": {
+        "message": "",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": ""
+    },
+    "guideWikiHelpPara3": {
+        "message": ""
     }
 }
