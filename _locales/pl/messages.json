@@ -1,1 +1,875 @@
-{}
+{
+    "extensionName": {
+        "message": "",
+        "description": "The name of the extension"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "",
+        "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
+    },
+    "bannerBreezeWiki": {
+        "message": "",
+        "description": "Text to display in the banner for the BreezeWiki link"
+    },
+    "bannerLanguageEnglish": {
+        "message": "",
+        "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
+    },
+    "bannerRestoreDone": {
+        "message": "",
+        "description": "Text to display in the banner after the banner has been restored"
+    },
+    "bannerDisable": {
+        "message": "",
+        "description": "Text to display in the banner for the disable banner link"
+    },
+    "bannerRedirect": {
+        "message": "",
+        "description": "Text to display in the banner for the redirect link"
+    },
+    "searchResultLookup": {
+        "message": "",
+        "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerRedirectDone": {
+        "message": "",
+        "description": "Text to display in the banner after the redirect has been enabled"
+    },
+    "searchFilteredResultsShow": {
+        "message": "",
+        "description": "Button to show filtered search results"
+    },
+    "searchResultReenable": {
+        "message": "",
+        "description": "Prompt to re-enable a non-indie search result"
+    },
+    "settingsWebsite": {
+        "message": "",
+        "description": "Link to the website"
+    },
+    "settingsTitle": {
+        "message": "",
+        "description": "Title of the settings page"
+    },
+    "searchFilteredResultsHide": {
+        "message": "",
+        "description": "Button to hide filtered search results"
+    },
+    "firstInstallInfo1": {
+        "message": ""
+    },
+    "settingsBannerReviewContact": {
+        "message": "",
+        "description": "Notice to contact the developer for issues or ideas",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsBannerReview": {
+        "message": "",
+        "description": "Notice to leave a review for the extension"
+    },
+    "firstInstallInfo2": {
+        "message": ""
+    },
+    "settingsGeneral": {
+        "message": "",
+        "description": "General settings section"
+    },
+    "settingsOpenChangelog": {
+        "message": "",
+        "description": "Option to open the changelog when Indie Wiki Buddy is updated"
+    },
+    "settingsCrossLanguage": {
+        "message": "",
+        "description": "Option to redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists"
+    },
+    "settingsReorderResults": {
+        "message": "",
+        "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
+    },
+    "settingsBreezeWiki": {
+        "message": "",
+        "description": "Option to enable BreezeWiki",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsBreezeWikiDisabled": {
+        "message": "",
+        "description": "Option to disable BreezeWiki"
+    },
+    "settingsBreezeWikiBanner": {
+        "message": "",
+        "description": "Option to show the BreezeWiki banner on Fandom wikis"
+    },
+    "settingsBreezeWikiHost": {
+        "message": "",
+        "description": "Select for a BreezeWiki host"
+    },
+    "settingsBreezeWikiCustomHostSet": {
+        "message": "",
+        "description": "Button to confirm input for a custom BreezeWiki host"
+    },
+    "settingsBreezeWikiCustomHostOption": {
+        "message": "",
+        "description": "Option to input a custom BreezeWiki host"
+    },
+    "settingsBreezeWikiCustomHostSetSuccessful": {
+        "message": "",
+        "description": "Prompt that the custom BreezeWiki host has been successfully added"
+    },
+    "settingsWikiLegendSearchExp": {
+        "message": "",
+        "description": "Explanation for the icons in search experience"
+    },
+    "settingsWikiLegend": {
+        "message": "",
+        "description": "Legend for the icons in the individual wiki settings"
+    },
+    "settingsAlert": {
+        "message": "",
+        "description": "Option to alert the user with banner when visiting non-indie wikis"
+    },
+    "settingsReplace": {
+        "message": "",
+        "description": "Option to replace search results with links to non-indie wikis"
+    },
+    "settingsHide": {
+        "message": "",
+        "description": "Option to hide search results"
+    },
+    "settingsDisabled": {
+        "message": "",
+        "description": "Option to disable any action"
+    },
+    "settingsFilterByLanguage": {
+        "message": "",
+        "description": "Select for a language filter"
+    },
+    "settingsFilterByName": {
+        "message": "",
+        "description": "Input for a name filter"
+    },
+    "settingsLangAll": {
+        "message": "",
+        "description": "Option to show all languages"
+    },
+    "settingsLangDE": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
+    },
+    "settingsLangEN": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, EN should be \"[EN] Englisch / English\" in German, but just \"[EN] English\" in English."
+    },
+    "settingsLangFR": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
+    },
+    "settingsLangJA": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, JA should be \"[JA] Japanese / 日本語\" in English, but just \"[JA] 日本語\" in Japanese."
+    },
+    "settingsLangKO": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, KO should be \"[KO] Korean / 한국어\" in English, but just \"[KO] 한국어\" in Korean."
+    },
+    "settingsLangLZH": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
+    },
+    "settingsLangPT": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PT should be \"[PT] Portuguese / Português\" in English, but just \"[PT] Português\" in Portuguese."
+    },
+    "settingsLangTH": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TH should be \"[TH] Thai / ไทย\" in English, but just \"[TH] ไทย\" in Thai."
+    },
+    "settingsSetColumn": {
+        "message": "",
+        "description": "Instruction to set all wikis in a column"
+    },
+    "settingsNameFilterPlaceholder": {
+        "message": "",
+        "description": "Placeholder for the name filter input"
+    },
+    "settingsFunStats": {
+        "message": "",
+        "description": "Fun stats section"
+    },
+    "settingsNewWiki": {
+        "message": "",
+        "description": "Instruction to set default for new wikis in future updates"
+    },
+    "settingsFunStatsAlerts": {
+        "message": "",
+        "description": "Number of times alerted to indie wikis",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsBreezeWiki": {
+        "message": "",
+        "description": "Number of times visited Fandom wikis through BreezeWiki",
+        "placeholders": {
+            "breezeWiki": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsSearchFilters": {
+        "message": "",
+        "description": "Number of non-indie search results hidden",
+        "placeholders": {
+            "hide": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsRedirectFor": {
+        "message": "",
+        "description": "Tooltip for option to redirect to a specific wiki when visiting a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsHideFor": {
+        "message": "",
+        "description": "Tooltip for option to hide search results for a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsAlertFor": {
+        "message": "",
+        "description": "Tooltip for option to alert the user with banner when visiting a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "popupOpenSettings": {
+        "message": "",
+        "description": "Button to open the settings page"
+    },
+    "popupDefault": {
+        "message": "",
+        "description": "Default behaviors section"
+    },
+    "guideTitle": {
+        "message": "",
+        "description": "Title of the guide"
+    },
+    "guideBackToSettings": {
+        "message": "",
+        "description": "Button to return to the settings page"
+    },
+    "guideOverview": {
+        "message": "",
+        "description": "Overview section"
+    },
+    "guideOverviewPara3": {
+        "message": ""
+    },
+    "guideOverviewPara1": {
+        "message": ""
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "",
+        "description": "Introduction paragraph of the general settings help"
+    },
+    "guideOverviewPara5": {
+        "message": ""
+    },
+    "guideNotificationsHelp1": {
+        "message": "",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideNotificationsHelp2": {
+        "message": ""
+    },
+    "guideExtensionOnOff": {
+        "message": "",
+        "description": "Extension on/off toggle"
+    },
+    "guideExtensionOnOffHelp": {
+        "message": ""
+    },
+    "guideChangelogHelp": {
+        "message": "",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": ""
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": ""
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": ""
+    },
+    "guideTogglePerSearchEngine": {
+        "message": ""
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": ""
+    },
+    "guideReorderResultsHelp2": {
+        "message": ""
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": ""
+    },
+    "guideFeedbackPara2": {
+        "message": ""
+    },
+    "guideReplace": {
+        "message": ""
+    },
+    "guideHideHelp": {
+        "message": ""
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "",
+        "description": "Notification title for being redirected to BreezeWiki"
+    },
+    "guideReorderResultsHelp1": {
+        "message": ""
+    },
+    "guideCrossLanguageHelp1": {
+        "message": ""
+    },
+    "firstInstallInfo5": {
+        "message": "",
+        "placeholders": {
+            "logo": {
+                "content": "$1",
+                "example": "(image for the extension icon)"
+            },
+            "jigsaw": {
+                "content": "$2",
+                "example": "(image for the jigsaw icon)"
+            }
+        }
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": ""
+    },
+    "settingsLangSV": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
+    },
+    "firstInstallInfo4": {
+        "message": "",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "(image for alert)"
+            },
+            "redirect": {
+                "content": "$2",
+                "example": "(image for redirect)"
+            },
+            "replace": {
+                "content": "$3",
+                "example": "(image for replace)"
+            },
+            "hide": {
+                "content": "$4",
+                "example": "(image for hide)"
+            }
+        }
+    },
+    "settingsLangES": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ES should be \"[ES] Spanish / Español\" in English, but just \"[ES] Español\" in Spanish."
+    },
+    "settingsLangHU": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
+    },
+    "guideWikiHelpPara4": {
+        "message": ""
+    },
+    "guideAlert": {
+        "message": ""
+    },
+    "searchResultVisitEnglish": {
+        "message": "",
+        "description": "Displayed for a search result to a non-indie wiki when an indie wiki in English is available.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "settingsLangPL": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
+    },
+    "bannerHost": {
+        "message": "",
+        "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "settingsExtensionOn": {
+        "message": "",
+        "description": "Notice that the extension is enabled"
+    },
+    "guideRedirectHelp": {
+        "message": ""
+    },
+    "settingsWikiLegendWikiExp": {
+        "message": "",
+        "description": "Explanation for the icons in wiki experience"
+    },
+    "bannerDisableDone": {
+        "message": "",
+        "description": "Text to display in the banner after the banner has been disabled"
+    },
+    "guideOverviewPara4": {
+        "message": "",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideDisable": {
+        "message": ""
+    },
+    "guideAlertHelp": {
+        "message": ""
+    },
+    "settingsLangTOK": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
+    },
+    "guideWikiHelpPara1": {
+        "message": ""
+    },
+    "guideReplaceHelp": {
+        "message": ""
+    },
+    "searchResultVisit": {
+        "message": "",
+        "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "settingsNotifications": {
+        "message": "",
+        "description": "Option to enable desktop notifications for redirections"
+    },
+    "guideWikiHelp": {
+        "message": "",
+        "description": "Individual wiki settings help section"
+    },
+    "settingsHiddenResultsBanner": {
+        "message": "",
+        "description": "Option to show a banner when non-indie results are hidden"
+    },
+    "notificationTitle": {
+        "message": "",
+        "description": "Notification title for being redirected"
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": ""
+    },
+    "guideHide": {
+        "message": ""
+    },
+    "bannerRestore": {
+        "message": "",
+        "description": "Text to display in the banner for the restore banner link"
+    },
+    "settingsBreezeWikiCustomHost": {
+        "message": "",
+        "description": "Input for a custom BreezeWiki host not included by default"
+    },
+    "settingsSearchExp": {
+        "message": "",
+        "description": "Search experience section"
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "",
+        "description": "Notification message for being redirected to BreezeWiki"
+    },
+    "popupWikiLegendSearchExp": {
+        "message": "",
+        "description": "Explanation for the icons in search experience"
+    },
+    "guideFeedback": {
+        "message": "",
+        "description": "Feedback section"
+    },
+    "bannerVisit": {
+        "message": "",
+        "description": "Text to display in the banner for the visit link",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "settingsLangRU": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
+    },
+    "notificationMessage": {
+        "message": "",
+        "description": "Notification message for being redirected",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsBannerOpera": {
+        "message": "",
+        "description": "Notice for Opera users about enabling search engine access"
+    },
+    "settingsLangFI": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FI should be \"[FI] Finnish / suomi\" in English, but just \"[FI] suomi\" in Finnish."
+    },
+    "guideBreezeWiki": {
+        "message": "",
+        "description": "BreezeWiki section",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "settingsBreezeWikiRedirect": {
+        "message": "",
+        "description": "Option to redirect Fandom wikis to BreezeWiki"
+    },
+    "bannerDescriptorIndependent": {
+        "message": "",
+        "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
+    },
+    "settingsSubmitWiki": {
+        "message": "",
+        "description": "Link to the wiki submission form"
+    },
+    "guideCrossLanguageHelp2": {
+        "message": ""
+    },
+    "settingsLangZH": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
+    },
+    "settingsLangUK": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
+    },
+    "guideWikiHelpPara2": {
+        "message": ""
+    },
+    "searchRemovalNotice": {
+        "message": "",
+        "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "settingsWiki": {
+        "message": "",
+        "description": "Individual wiki settings section"
+    },
+    "settingsBreezeWikiCustomHostSetFailed": {
+        "message": "",
+        "description": "Prompt that the custom BreezeWiki host has failed to be added"
+    },
+    "guideOverviewPara2": {
+        "message": ""
+    },
+    "settingsDisableFor": {
+        "message": "",
+        "description": "Tooltip for option to disable any action for a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "firstInstallInfo3": {
+        "message": "",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "settingsSourceCode": {
+        "message": "",
+        "description": "Link to the source code"
+    },
+    "popupBreezeWikiSeeSettings": {
+        "message": "",
+        "description": "See full settings page"
+    },
+    "guideFeedbackPara1": {
+        "message": "",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": ""
+    },
+    "guideRedirect": {
+        "message": ""
+    },
+    "searchResultLookupEnglish": {
+        "message": "",
+        "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "settingsFunStatsRedirects": {
+        "message": "",
+        "description": "Number of times redirected to indie wikis",
+        "placeholders": {
+            "redirect": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "extensionDescription": {
+        "message": "",
+        "description": "The description of the extension"
+    },
+    "guideGlobalSettingsHelp": {
+        "message": "",
+        "description": "Global settings help section"
+    },
+    "settingsRedirect": {
+        "message": "",
+        "description": "Option to redirect to indie wikis when visiting non-indie wikis"
+    },
+    "settingsExtensionOff": {
+        "message": "",
+        "description": "Notice that the extension is disabled"
+    },
+    "bannerDescriptorWiki": {
+        "message": "",
+        "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
+    },
+    "popupBreezeWikiSeeSettingsLink": {
+        "message": "",
+        "description": "Notice to visit the settings page to change the custom BreezeWiki domain",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsSearchEngineFiltering": {
+        "message": "",
+        "description": "Search engine filtering section"
+    },
+    "settingsReplaceFor": {
+        "message": "",
+        "description": "Tooltip for option to replace search results with links to a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsWikiExp": {
+        "message": "",
+        "description": "Wiki experience section"
+    },
+    "popupSettingsOverride": {
+        "message": "",
+        "description": "Notice that clicking an option will override any per-wiki customizations"
+    },
+    "settingsWikiFrom": {
+        "message": "",
+        "description": "Tooltip for the origin of a specific wiki setting. Include a leading space when appropriate.",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "guideDisableSearchHelp": {
+        "message": ""
+    },
+    "settingsChangelog": {
+        "message": "",
+        "description": "Link to the changelog"
+    },
+    "settingsLangIT": {
+        "message": "",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, IT should be \"[IT] Italian / Italiano\" in English, but just \"[IT] Italiano\" in Italian."
+    },
+    "bannerDescriptorOfficial": {
+        "message": "",
+        "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": ""
+    },
+    "bannerText": {
+        "message": "",
+        "description": "Text to display in the banner for the indie wiki link",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": " on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": " in English"
+            }
+        }
+    },
+    "guideWikiHelpPara3": {
+        "message": ""
+    },
+    "settingsGuide": {
+        "message": "",
+        "description": "Link to the guide"
+    },
+    "guideDisableVisitHelp": {
+        "message": ""
+    },
+    "settingsCustomWikiDelete": {
+        "message": "",
+        "description": "Button to delete a custom wiki"
+    },
+    "settingsBannerHide": {
+        "message": "",
+        "description": "Button to hide the banner"
+    },
+    "popupWikiLegendWikiExp": {
+        "message": "",
+        "description": "Explanation for the icons in wiki experience"
+    },
+    "popupSettingsPerWiki": {
+        "message": "",
+        "description": "Notice to visit the settings page to change behavior per-wiki",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    }
+}
