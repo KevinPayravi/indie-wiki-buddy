@@ -1,1 +1,875 @@
-{}
+{
+    "bannerText": {
+        "message": "这个话题有$descriptor$$language$$host$wiki！",
+        "description": "Text to display in the banner for the indie wiki link",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": " on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": " in English"
+            }
+        }
+    },
+    "bannerHost": {
+        "message": " $host$",
+        "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "bannerLanguageEnglish": {
+        "message": " 英语",
+        "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
+    },
+    "bannerVisit": {
+        "message": "访问$destination$",
+        "description": "Text to display in the banner for the visit link",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerBreezeWiki": {
+        "message": "通过BreezeWiki查看这个Fandom wiki",
+        "description": "Text to display in the banner for the BreezeWiki link"
+    },
+    "bannerRestore": {
+        "message": "恢复横幅",
+        "description": "Text to display in the banner for the restore banner link"
+    },
+    "bannerRestoreDone": {
+        "message": "横幅已恢复",
+        "description": "Text to display in the banner after the banner has been restored"
+    },
+    "bannerDisable": {
+        "message": "禁用此wiki的横幅",
+        "description": "Text to display in the banner for the disable banner link"
+    },
+    "bannerDisableDone": {
+        "message": "横幅已禁用",
+        "description": "Text to display in the banner after the banner has been disabled"
+    },
+    "bannerRedirect": {
+        "message": "自动重定向至此wiki",
+        "description": "Text to display in the banner for the redirect link"
+    },
+    "bannerRedirectDone": {
+        "message": "重定向已启用",
+        "description": "Text to display in the banner after the redirect has been enabled"
+    },
+    "searchResultVisit": {
+        "message": "访问$destination$",
+        "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "访问$destination$（英文）",
+        "description": "Displayed for a search result to a non-indie wiki when an indie wiki in English is available.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "重新启用此搜索结果",
+        "description": "Prompt to re-enable a non-indie search result"
+    },
+    "searchRemovalNotice": {
+        "message": "Indie Wiki Buddy过滤了$destination$的搜索结果。请在$link$查询。",
+        "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "searchFilteredResultsShow": {
+        "message": "显示被过滤的搜索结果",
+        "description": "Button to show filtered search results"
+    },
+    "searchFilteredResultsHide": {
+        "message": "重新隐藏被过滤的搜索结果",
+        "description": "Button to hide filtered search results"
+    },
+    "settingsTitle": {
+        "message": "Indie Wiki Buddy设置",
+        "description": "Title of the settings page"
+    },
+    "settingsGuide": {
+        "message": "指南",
+        "description": "Link to the guide"
+    },
+    "settingsWebsite": {
+        "message": "网站",
+        "description": "Link to the website"
+    },
+    "settingsChangelog": {
+        "message": "更新日志",
+        "description": "Link to the changelog"
+    },
+    "settingsSubmitWiki": {
+        "message": "提交新wiki",
+        "description": "Link to the wiki submission form"
+    },
+    "settingsSourceCode": {
+        "message": "源码",
+        "description": "Link to the source code"
+    },
+    "settingsBannerHide": {
+        "message": "隐藏本消息",
+        "description": "Button to hide the banner"
+    },
+    "settingsBannerOpera": {
+        "message": "致Opera用户：Opera会默认禁止浏览器扩展在搜索引擎上运行。要为特定扩展开启权限，您可以前往“about:extensions”页面，然后在Indie Wiki Budd一栏下选择“允许访问搜索页面结果”。",
+        "description": "Notice for Opera users about enabling search engine access"
+    },
+    "settingsBannerReview": {
+        "message": "喜欢Indie Wiki Buddy吗？请您给个好评！",
+        "description": "Notice to leave a review for the extension"
+    },
+    "settingsBannerReviewContact": {
+        "message": "遇到问题，或者有改进建议？请$linkStart$联系我$linkEnd$！",
+        "description": "Notice to contact the developer for issues or ideas",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "firstInstallInfo1": {
+        "message": "感谢您安装Indie Wiki Buddy！让我们开始配置吧。"
+    },
+    "firstInstallInfo2": {
+        "message": "您可以使用上方的链接来查询指南、提交新wiki、或联系开发者。"
+    },
+    "firstInstallInfo3": {
+        "message": "在下方设置中，您可以开关本扩展的功能。其中包括了开启$BreezeWiki$的选项，它可以替换Fandom的界面，去除wiki上的广告和臃肿。",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "firstInstallInfo5": {
+        "message": "若您需要更改设置，请点击浏览器右上角的扩展图标 $logo$。若您没有看到图标，它可能隐藏在扩展下拉菜单中，可以通过拼图图标 $jigsaw$ 打开（也在浏览器右上角）。",
+        "placeholders": {
+            "logo": {
+                "content": "$1",
+                "example": "(image for the extension icon)"
+            },
+            "jigsaw": {
+                "content": "$2",
+                "example": "(image for the jigsaw icon)"
+            }
+        }
+    },
+    "settingsNotifications": {
+        "message": "重定向时发送桌面通知",
+        "description": "Option to enable desktop notifications for redirections"
+    },
+    "settingsCrossLanguage": {
+        "message": "没有相同语言wiki时，将非英文Fandom wiki重定向至英文独立wiki",
+        "description": "Option to redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists"
+    },
+    "settingsOpenChangelog": {
+        "message": "Indie Wiki Buddy更新后打开更新日志",
+        "description": "Option to open the changelog when Indie Wiki Buddy is updated"
+    },
+    "settingsSearchEngineFiltering": {
+        "message": "搜索引擎过滤",
+        "description": "Search engine filtering section"
+    },
+    "settingsBreezeWiki": {
+        "message": "使用BreezeWiki，Fandom的替代界面（$linkStart$了解更多$linkEnd$）",
+        "description": "Option to enable BreezeWiki",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsBreezeWikiDisabled": {
+        "message": "BreezeWiki已关闭",
+        "description": "Option to disable BreezeWiki"
+    },
+    "settingsBreezeWikiBanner": {
+        "message": "插入横幅，链接至BreezeWiki",
+        "description": "Option to show the BreezeWiki banner on Fandom wikis"
+    },
+    "settingsBreezeWikiRedirect": {
+        "message": "自动重定向Fandom到BreezeWiki",
+        "description": "Option to redirect Fandom wikis to BreezeWiki"
+    },
+    "settingsBreezeWikiHost": {
+        "message": "BreezeWiki实例：",
+        "description": "Select for a BreezeWiki host"
+    },
+    "settingsBreezeWikiCustomHost": {
+        "message": "自定义BreezeWiki域名：",
+        "description": "Input for a custom BreezeWiki host not included by default"
+    },
+    "settingsBreezeWikiCustomHostOption": {
+        "message": "自定义实例……",
+        "description": "Option to input a custom BreezeWiki host"
+    },
+    "settingsBreezeWikiCustomHostSet": {
+        "message": "设置域名",
+        "description": "Button to confirm input for a custom BreezeWiki host"
+    },
+    "settingsBreezeWikiCustomHostSetFailed": {
+        "message": "添加失败",
+        "description": "Prompt that the custom BreezeWiki host has failed to be added"
+    },
+    "settingsWiki": {
+        "message": "单独wiki设置",
+        "description": "Individual wiki settings section"
+    },
+    "settingsWikiLegend": {
+        "message": "图例",
+        "description": "Legend for the icons in the individual wiki settings"
+    },
+    "settingsDisabled": {
+        "message": "无操作",
+        "description": "Option to disable any action"
+    },
+    "settingsRedirect": {
+        "message": "重定向至独立wiki",
+        "description": "Option to redirect to indie wikis when visiting non-indie wikis"
+    },
+    "settingsReplace": {
+        "message": "将结果替换为到独立wiki的链接",
+        "description": "Option to replace search results with links to non-indie wikis"
+    },
+    "settingsHide": {
+        "message": "隐藏搜索结果",
+        "description": "Option to hide search results"
+    },
+    "settingsFilterByLanguage": {
+        "message": "按语言过滤wiki：",
+        "description": "Select for a language filter"
+    },
+    "settingsFilterByName": {
+        "message": "按名称过滤wiki：",
+        "description": "Input for a name filter"
+    },
+    "settingsLangAll": {
+        "message": "全部语言",
+        "description": "Option to show all languages"
+    },
+    "settingsLangDE": {
+        "message": "[DE] 德语 / Deutsch",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
+    },
+    "settingsLangEN": {
+        "message": "[EN] 英语 / English",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, EN should be \"[EN] Englisch / English\" in German, but just \"[EN] English\" in English."
+    },
+    "settingsLangES": {
+        "message": "[ES] 西班牙语 / Español",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ES should be \"[ES] Spanish / Español\" in English, but just \"[ES] Español\" in Spanish."
+    },
+    "settingsLangFI": {
+        "message": "[FI] 芬兰语 / suomi",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FI should be \"[FI] Finnish / suomi\" in English, but just \"[FI] suomi\" in Finnish."
+    },
+    "settingsLangHU": {
+        "message": "[HU] 匈牙利语 / Magyar",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
+    },
+    "settingsLangJA": {
+        "message": "[JA] 日语 / 日本語",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, JA should be \"[JA] Japanese / 日本語\" in English, but just \"[JA] 日本語\" in Japanese."
+    },
+    "settingsLangPL": {
+        "message": "[PL] 波兰语 / Polski",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
+    },
+    "settingsLangPT": {
+        "message": "[PT] 葡萄牙语 / Português",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PT should be \"[PT] Portuguese / Português\" in English, but just \"[PT] Português\" in Portuguese."
+    },
+    "settingsWikiExp": {
+        "message": "Wiki体验",
+        "description": "Wiki experience section"
+    },
+    "settingsSearchExp": {
+        "message": "搜索体验",
+        "description": "Search experience section"
+    },
+    "settingsSetColumn": {
+        "message": "点击图标以更改所有wiki的设置：",
+        "description": "Instruction to set all wikis in a column"
+    },
+    "settingsNewWiki": {
+        "message": "未来加入的wiki的默认设置：",
+        "description": "Instruction to set default for new wikis in future updates"
+    },
+    "settingsFunStats": {
+        "message": "统计",
+        "description": "Fun stats section"
+    },
+    "settingsFunStatsAlerts": {
+        "message": "展示到独立wiki的横幅$alert$次",
+        "description": "Number of times alerted to indie wikis",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsRedirects": {
+        "message": "自动重定向到独立wiki $redirect$次",
+        "description": "Number of times redirected to indie wikis",
+        "placeholders": {
+            "redirect": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsBreezeWiki": {
+        "message": "自动重定向到BreezeWiki $breezeWiki$次",
+        "description": "Number of times visited Fandom wikis through BreezeWiki",
+        "placeholders": {
+            "breezeWiki": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsSearchFilters": {
+        "message": "过滤了$hide$个搜索结果",
+        "description": "Number of non-indie search results hidden",
+        "placeholders": {
+            "hide": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsDisableFor": {
+        "message": "对于$origin$无操作",
+        "description": "Tooltip for option to disable any action for a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsAlertFor": {
+        "message": "对$origin$：显示横幅，链接到$destination$",
+        "description": "Tooltip for option to alert the user with banner when visiting a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsRedirectFor": {
+        "message": "对$origin$：自动重定向至$destination$",
+        "description": "Tooltip for option to redirect to a specific wiki when visiting a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsReplaceFor": {
+        "message": "对$origin$：将搜索结果替换为$destination$",
+        "description": "Tooltip for option to replace search results with links to a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsHideFor": {
+        "message": "隐藏$origin$的搜索结果",
+        "description": "Tooltip for option to hide search results for a specific wiki",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsWikiFrom": {
+        "message": " （来自$origin$）",
+        "description": "Tooltip for the origin of a specific wiki setting. Include a leading space when appropriate.",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "popupOpenSettings": {
+        "message": "打开全部设置",
+        "description": "Button to open the settings page"
+    },
+    "popupDefault": {
+        "message": "默认行为（对所有当前wiki和未来的新wiki都生效）",
+        "description": "Default behaviors section"
+    },
+    "popupWikiLegendWikiExp": {
+        "message": "当访问Fandom、Fextralife和Neoseeker wiki时：",
+        "description": "Explanation for the icons in wiki experience"
+    },
+    "popupSettingsOverride": {
+        "message": "点击上方的选项会覆盖您设置过的所有单独wiki的自定义选项。",
+        "description": "Notice that clicking an option will override any per-wiki customizations"
+    },
+    "popupBreezeWikiSeeSettings": {
+        "message": "查看设置",
+        "description": "See full settings page"
+    },
+    "guideTitle": {
+        "message": "Indie Wiki Buddy指南",
+        "description": "Title of the guide"
+    },
+    "guideBackToSettings": {
+        "message": "⇦ 返回设置",
+        "description": "Button to return to the settings page"
+    },
+    "guideOverview": {
+        "message": "总览",
+        "description": "Overview section"
+    },
+    "guideOverviewPara1": {
+        "message": "Indie Wiki Buddy通过一系列功能，帮助您找到独立wiki，并提升您的wiki阅读体验。"
+    },
+    "guideOverviewPara3": {
+        "message": "我们目前支持重定向Fandom、Fextralife和Neoseeker wiki至独立的替代品。"
+    },
+    "guideOverviewPara4": {
+        "message": "Indie Wiki Buddy也支持$BreezeWiki$，它是一个单独的服务，可以替换Fandom的界面，去除wiki上的广告和臃肿。如果没有独立wiki替代之，这也可以让您的阅读体验更加舒畅。",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideOverviewPara5": {
+        "message": "上述所有的功能都可以开关，您还可以对各个wiki采取不同的设置。一切尽在您的掌握！"
+    },
+    "guideGlobalSettingsHelp": {
+        "message": "全局设置帮助",
+        "description": "Global settings help section"
+    },
+    "extensionName": {
+        "message": "Indie Wiki Buddy",
+        "description": "The name of the extension"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "一个官方独立",
+        "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
+    },
+    "extensionDescription": {
+        "message": "Indie Wiki Buddy通过提示、重定向和搜索过滤，帮助您找到高质量的独立wiki。",
+        "description": "The description of the extension"
+    },
+    "bannerDescriptorWiki": {
+        "message": "一个",
+        "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
+    },
+    "bannerDescriptorOfficial": {
+        "message": "一个官方",
+        "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
+    },
+    "bannerDescriptorIndependent": {
+        "message": "一个独立",
+        "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
+    },
+    "searchResultLookup": {
+        "message": "在$destination$查询$article$",
+        "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultLookupEnglish": {
+        "message": "在$destination$查询$article$（英文）",
+        "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "settingsGeneral": {
+        "message": "通用设置",
+        "description": "General settings section"
+    },
+    "firstInstallInfo4": {
+        "message": "对于Fandom、Fextralife和Neoseeker wiki，本扩展会查询它们是否有独立的替代品。在您访问这些wiki时，您可以选择 $alert$ 显示提醒（默认）或 $redirect$ 自动重定向。在搜索引擎上，您可以选择 $replace$ 替换（默认）或 $hide$ 隐藏搜索结果。在下方的选项中，您可为各个wiki单独设置本扩展的行为。",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "(image for alert)"
+            },
+            "redirect": {
+                "content": "$2",
+                "example": "(image for redirect)"
+            },
+            "replace": {
+                "content": "$3",
+                "example": "(image for replace)"
+            },
+            "hide": {
+                "content": "$4",
+                "example": "(image for hide)"
+            }
+        }
+    },
+    "settingsHiddenResultsBanner": {
+        "message": "当非独立wiki的搜索结果被隐藏时显示横幅",
+        "description": "Option to show a banner when non-indie results are hidden"
+    },
+    "settingsReorderResults": {
+        "message": "使用Google时，将独立wiki的搜索结果移至非独立wiki之上，并隐藏重复结果",
+        "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
+    },
+    "settingsWikiLegendSearchExp": {
+        "message": "当搜索结果含有有独立替代品的Fandom、Fextralife或Neoseeker wiki时，IWB可以：",
+        "description": "Explanation for the icons in search experience"
+    },
+    "settingsBreezeWikiCustomHostSetSuccessful": {
+        "message": "添加成功",
+        "description": "Prompt that the custom BreezeWiki host has been successfully added"
+    },
+    "settingsWikiLegendWikiExp": {
+        "message": "当访问有独立替代品的Fandom、Fextralife或Neoseeker wiki时，IWB可以：",
+        "description": "Explanation for the icons in wiki experience"
+    },
+    "settingsAlert": {
+        "message": "显示横幅，链接到独立wiki",
+        "description": "Option to alert the user with banner when visiting non-indie wikis"
+    },
+    "settingsLangFR": {
+        "message": "[FR] 法语 / Français",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
+    },
+    "settingsLangIT": {
+        "message": "[IT] 意大利语 / Italiano",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, IT should be \"[IT] Italian / Italiano\" in English, but just \"[IT] Italiano\" in Italian."
+    },
+    "settingsLangKO": {
+        "message": "[KO] 韩语 / 한국어",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, KO should be \"[KO] Korean / 한국어\" in English, but just \"[KO] 한국어\" in Korean."
+    },
+    "settingsLangLZH": {
+        "message": "[LZH] 文言 / 文言",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
+    },
+    "settingsLangRU": {
+        "message": "[RU] 俄罗斯语 / Русский",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
+    },
+    "settingsLangSV": {
+        "message": "[SV] 瑞典语 / Svenska",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
+    },
+    "settingsLangTH": {
+        "message": "[TH] 泰语 / ไทย",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TH should be \"[TH] Thai / ไทย\" in English, but just \"[TH] ไทย\" in Thai."
+    },
+    "settingsLangUK": {
+        "message": "[UK] 乌克兰语 / Українська",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
+    },
+    "settingsLangTOK": {
+        "message": "[TOK] 道本语 / toki pona",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
+    },
+    "settingsLangZH": {
+        "message": "[ZH] 中文",
+        "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
+    },
+    "settingsNameFilterPlaceholder": {
+        "message": "输入wiki名称……",
+        "description": "Placeholder for the name filter input"
+    },
+    "settingsCustomWikiDelete": {
+        "message": "删除",
+        "description": "Button to delete a custom wiki"
+    },
+    "settingsExtensionOn": {
+        "message": "扩展已开启",
+        "description": "Notice that the extension is enabled"
+    },
+    "popupWikiLegendSearchExp": {
+        "message": "当搜索结果包含Fandom、Fextralife或Neoseeker wiki，且其有独立的替代品时，IWB可以：",
+        "description": "Explanation for the icons in search experience"
+    },
+    "settingsExtensionOff": {
+        "message": "扩展已关闭",
+        "description": "Notice that the extension is disabled"
+    },
+    "popupSettingsPerWiki": {
+        "message": "访问$linkStart$全部设置$linkEnd$以修改独自wiki的行为。",
+        "description": "Notice to visit the settings page to change behavior per-wiki",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "popupBreezeWikiSeeSettingsLink": {
+        "message": "在$linkStart$完整设置页面$linkEnd$更改自定义域名",
+        "description": "Notice to visit the settings page to change the custom BreezeWiki domain",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideOverviewPara2": {
+        "message": "如果您访问了大型、由企业运营的wiki，本扩展会在有优质独立wiki时提醒您，或自动将您重定向到独立wiki。本扩展也会过滤非独立wiki的搜索结果。您可以选择将它们替换为独立wiki的搜索结果，或直接隐藏。本扩展支持的搜索引擎有：Google、必应、DuckDuckGo、Brave、Ecosia、Kagi、Qwant、Startpage、Yahoo!、Yandex 。"
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "",
+        "description": "Introduction paragraph of the general settings help"
+    },
+    "guideExtensionOnOffHelp": {
+        "message": ""
+    },
+    "guideCrossLanguageHelp1": {
+        "message": ""
+    },
+    "guideCrossLanguageHelp2": {
+        "message": ""
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": ""
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": ""
+    },
+    "guideBreezeWiki": {
+        "message": "",
+        "description": "BreezeWiki section",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": ""
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": ""
+    },
+    "guideAlert": {
+        "message": ""
+    },
+    "guideDisableSearchHelp": {
+        "message": ""
+    },
+    "guideHide": {
+        "message": ""
+    },
+    "guideHideHelp": {
+        "message": ""
+    },
+    "guideReplace": {
+        "message": ""
+    },
+    "guideDisable": {
+        "message": ""
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "",
+        "description": "Notification title for being redirected to BreezeWiki"
+    },
+    "guideWikiHelpPara1": {
+        "message": ""
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "",
+        "description": "Notification message for being redirected to BreezeWiki"
+    },
+    "notificationMessage": {
+        "message": "",
+        "description": "Notification message for being redirected",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "guideDisableVisitHelp": {
+        "message": ""
+    },
+    "guideWikiHelpPara2": {
+        "message": ""
+    },
+    "guideWikiHelp": {
+        "message": "",
+        "description": "Individual wiki settings help section"
+    },
+    "guideRedirect": {
+        "message": ""
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": ""
+    },
+    "guideFeedbackPara2": {
+        "message": ""
+    },
+    "notificationTitle": {
+        "message": "",
+        "description": "Notification title for being redirected"
+    },
+    "guideRedirectHelp": {
+        "message": ""
+    },
+    "guideExtensionOnOff": {
+        "message": "",
+        "description": "Extension on/off toggle"
+    },
+    "guideFeedback": {
+        "message": "",
+        "description": "Feedback section"
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": ""
+    },
+    "guideReorderResultsHelp1": {
+        "message": ""
+    },
+    "guideAlertHelp": {
+        "message": ""
+    },
+    "guideTogglePerSearchEngine": {
+        "message": ""
+    },
+    "guideReorderResultsHelp2": {
+        "message": ""
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": ""
+    },
+    "guideNotificationsHelp1": {
+        "message": "",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideChangelogHelp": {
+        "message": "",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideNotificationsHelp2": {
+        "message": ""
+    },
+    "guideWikiHelpPara4": {
+        "message": ""
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": ""
+    },
+    "guideReplaceHelp": {
+        "message": ""
+    },
+    "guideFeedbackPara1": {
+        "message": "",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": ""
+    },
+    "guideWikiHelpPara3": {
+        "message": ""
+    }
+}
