@@ -55,8 +55,8 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let indieResultFaviconContainer = document.createElement('div');
     let indieResultFavicon = document.createElement('img');
     indieResultFavicon.alt = '';
-    indieResultFavicon.width = '12';
-    indieResultFavicon.height = '12';
+    indieResultFavicon.width = '16';
+    indieResultFavicon.height = '16';
     indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
