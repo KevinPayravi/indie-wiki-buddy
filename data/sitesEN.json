@@ -2925,25 +2925,6 @@
     "destination_content_path": "/index.php/"
   },
   {
-    "id": "en-genfanad",
-    "origins_label": "Genfanad Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Genfanad Fandom Wiki",
-        "origin_base_url": "genfanad.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Genfanad_Wiki"
-      }
-    ],
-    "destination": "Genfanad Wiki",
-    "destination_base_url": "genfanad.info",
-    "destination_platform": "mediawiki",
-    "destination_icon": "genfanadwiki.png",
-    "destination_main_page": "Genfanad_Wiki",
-    "destination_search_path": "/",
-    "destination_content_path": "/wiki/"
-  },
-  {
     "id": "en-gex",
     "origins_label": "Gex Fandom Wiki",
     "origins": [
