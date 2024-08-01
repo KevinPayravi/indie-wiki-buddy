@@ -6304,6 +6304,29 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-survivingmars",
+    "origins_label": "Surviving Mars Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Surviving Mars Fandom Wiki",
+        "origin_base_url": "survivingmars.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Surviving_Mars_Wiki"
+      }
+    ],
+    "destination": "Surviving Mars Wiki",
+    "destination_base_url": "survivingmars.paradoxwikis.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "survivingmarswiki.png",
+    "destination_main_page": "Surviving_Mars_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/",
+    "destination_host": "Paradox",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-supersmashbros",
     "origins_label": "Super Smash Bros. Fandom & Neoseeeker Wikis",
     "origins": [
