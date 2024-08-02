@@ -2243,9 +2243,9 @@
     "destination_base_url": "dsp-wiki.com",
     "destination_platform": "mediawiki",
     "destination_icon": "dspwiki.png",
-    "destination_main_page": "",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/",
+    "destination_content_path": "/"
   },
   {
     "id": "en-earthbound",
