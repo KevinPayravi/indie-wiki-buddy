@@ -149,7 +149,7 @@
       }
     ],
     "destination": "Simpsonspedia Wiki",
-    "destination_base_url": "simpsonspedia.net.wiki",
+    "destination_base_url": "simpsonspedia.net",
     "destination_platform": "mediawiki",
     "destination_icon": "simpsonspedia.png",
     "destination_main_page": "Simpsonspedia",
