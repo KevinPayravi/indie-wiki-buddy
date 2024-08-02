@@ -138,6 +138,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "de-simpsons",
+    "origins_label": "Simpsons Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Simpsons Fandom Wiki",
+        "origin_base_url": "simpsons.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Simpsons-Wiki"
+      }
+    ],
+    "destination": "Simpsonspedia Wiki",
+    "destination_base_url": "simpsonspedia.net.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "simpsonspedia.png",
+    "destination_main_page": "Simpsonspedia",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
     "id": "de-stardewvalley",
     "origins_label": "Stardew Valley Fandom Wiki",
     "origins": [

@@ -42,6 +42,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "fr-evangelion",
+    "origins_label": "Evangelion Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Evangelion Fandom Wiki",
+        "origin_base_url": "evangelion.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Evangelion"
+      }
+    ],
+    "destination": "Shin Wiki Evangelion",
+    "destination_base_url": "shinwikievangelionfr.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "shinwikievagelion.png",
+    "destination_main_page": "Wiki_Evangelion",
+    "destination_search_path": "/index.php",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "fr-fallout",
     "origins_label": "L'Abri Fallout Fandom Wiki",
     "origins": [

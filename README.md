@@ -101,7 +101,7 @@ Entries are formatted as follows:
 * `destination_main_page`: The title of the main page of the wiki being redirected to.
 * `destination_search_path`: The URL path prefix for performing searches on the wiki being redirected to. On MediaWiki wikis, it is listed on Special:Version as the index.php entry point.
 * `destination_content_path`: The URL path prefix for article links on the wiki being redirected to. On MediaWiki wikis, it is listed on Special:Version as the article path.
-* `destination_host`: The host of the wiki being redirected to, if it is hosted by a large wiki host (e.g. wiki.gg, Miraheze). If the wiki is hosted independantly, omit this property.
+* `destination_host`: The host of the wiki being redirected to, if it is hosted by a large wiki host (e.g. wiki.gg, Miraheze). If the wiki is hosted independently, omit this property.
 * `tags`: An optional array of tags. Currently only `official` is used, to mark wikis officially endorsed by the subject of the wiki. If there are no tags, omit this property.
 
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
