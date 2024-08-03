@@ -2229,6 +2229,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-dysonsphereprogram",
+    "origins_label": "Dyson Sphere Program Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dyson Sphere Program Fandom Wiki",
+        "origin_base_url": "dyson-sphere-program.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dyson_Sphere_Program_Wiki"
+      }
+    ],
+    "destination": "Dyson Sphere Program Wiki",
+    "destination_base_url": "dsp-wiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dspwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
     "id": "en-earthbound",
     "origins_label": "EarthBound Fandom & Neoseeker Wikis",
     "origins": [
@@ -2489,6 +2508,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-evilprinceandthepuppet",
+    "origins_label": "Evil Prince and the Puppet Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Evil Prince and the Puppet Fandom Wiki",
+        "origin_base_url": "evil-prince-and-the-puppet.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Evil_Prince_and_the_Puppet_Wiki"
+      }
+    ],
+    "destination": "Evil Prince and the Puppet Wiki",
+    "destination_base_url": "akuaya.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "akuaya.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-factorio",
@@ -5018,9 +5057,9 @@
     "destination_base_url": "poupedia.com",
     "destination_platform": "mediawiki",
     "destination_icon": "poupedia.png",
-    "destination_main_page": "Main_Page",
+    "destination_main_page": "Poupedia",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/",
+    "destination_content_path": "/",
     "destination_host": "Miraheze"
   },
   {
@@ -6302,6 +6341,29 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-survivingmars",
+    "origins_label": "Surviving Mars Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Surviving Mars Fandom Wiki",
+        "origin_base_url": "survivingmars.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Surviving_Mars_Wiki"
+      }
+    ],
+    "destination": "Surviving Mars Wiki",
+    "destination_base_url": "survivingmars.paradoxwikis.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "survivingmarswiki.png",
+    "destination_main_page": "Surviving_Mars_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/",
+    "destination_host": "Paradox",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-supersmashbros",
