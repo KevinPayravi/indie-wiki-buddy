@@ -2491,6 +2491,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-evilprinceandthepuppet",
+    "origins_label": "Evil Prince and the Puppet Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Evil Prince and the Puppet Fandom Wiki",
+        "origin_base_url": "evil-prince-and-the-puppet.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Evil_Prince_and_the_Puppet_Wiki"
+      }
+    ],
+    "destination": "Evil Prince and the Puppet Wiki",
+    "destination_base_url": "akuaya.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "akuaya.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-factorio",
     "origins_label": "Factorio Fandom Wiki",
     "origins": [
