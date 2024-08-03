@@ -363,6 +363,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-anton",
+    "origins_label": "AntonBlast Fandom Wiki",
+    "origins": [
+      {
+        "origin": "AntonBlast Fandom Wiki",
+        "origin_base_url": "antonblastpedia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "AntonBlast_Wiki"
+      }
+    ],
+    "destination": "Summitpedia",
+    "destination_base_url": "antonball.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "summitpedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Summitpedia:Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-anvilempires",
     "origins_label": "Anvil Empires Fandom Wiki",
     "origins": [
@@ -947,6 +967,29 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-bleed",
+    "origins_label": "Bleed Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bleed Fandom Wiki",
+        "origin_base_url": "bleed-game.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bleed_Wiki"
+      }
+    ],
+    "destination": "Bleed Wiki",
+    "destination_base_url": "bleed.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bleedwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Bleed_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-blood",
@@ -2882,25 +2925,6 @@
     "destination_content_path": "/index.php/"
   },
   {
-    "id": "en-genfanad",
-    "origins_label": "Genfanad Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Genfanad Fandom Wiki",
-        "origin_base_url": "genfanad.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Genfanad_Wiki"
-      }
-    ],
-    "destination": "Genfanad Wiki",
-    "destination_base_url": "genfanad.info",
-    "destination_platform": "mediawiki",
-    "destination_icon": "genfanadwiki.png",
-    "destination_main_page": "Genfanad_Wiki",
-    "destination_search_path": "/",
-    "destination_content_path": "/wiki/"
-  },
-  {
     "id": "en-gex",
     "origins_label": "Gex Fandom Wiki",
     "origins": [
@@ -4029,7 +4053,7 @@
         "origin": "Mario & Luigi Fandom Wiki",
         "origin_base_url": "marioluigi.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Mario_%26_Luigi_Wiki"
+        "origin_main_page": "Mario_&_Luigi_Wiki"
       },
       {
         "origin": "Paper Mario Fandom Wiki",
@@ -4076,6 +4100,25 @@
     "destination_main_page": "Home",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-medabots",
+    "origins_label": "Medabots Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Medabots Fandom Wiki",
+        "origin_base_url": "medabots.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Medabots_Wiki"
+      }
+    ],
+    "destination": "Medapedia",
+    "destination_base_url": "medarot.meowcorp.us",
+    "destination_platform": "mediawiki",
+    "destination_icon": "medapedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Medapedia"
   },
   {
     "id": "en-megamitensei",
@@ -5890,6 +5933,29 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-spaceengineers",
+    "origins_label": "Space Engineers Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Space Engineers Fandom Wiki",
+        "origin_base_url": "spaceengineers.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Space_Engineers_Wiki"
+      }
+    ],
+    "destination": "Space Engineers Wiki",
+    "destination_base_url": "spaceengineers.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "spaceengineerswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Space_Engineers_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-spacestation13",

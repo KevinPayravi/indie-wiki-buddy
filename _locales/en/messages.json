@@ -56,7 +56,7 @@
     "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
   },
   "bannerVisit": {
-    "message": "Visit $destination$ →",
+    "message": "Visit $destination$",
     "description": "Text to display in the banner for the visit link",
     "placeholders": {
       "destination": {
@@ -70,27 +70,27 @@
     "description": "Text to display in the banner for the BreezeWiki link"
   },
   "bannerRestore": {
-    "message": "⎌ Restore banner",
+    "message": "Restore banner",
     "description": "Text to display in the banner for the restore banner link"
   },
   "bannerRestoreDone": {
-    "message": "✓ Banner restored",
+    "message": "Banner restored",
     "description": "Text to display in the banner after the banner has been restored"
   },
   "bannerDisable": {
-    "message": "✕ Disable banner for this wiki",
+    "message": "Disable banner for this wiki",
     "description": "Text to display in the banner for the disable banner link"
   },
   "bannerDisableDone": {
-    "message": "✓ Banner disabled",
+    "message": "Banner disabled",
     "description": "Text to display in the banner after the banner has been disabled"
   },
   "bannerRedirect": {
-    "message": "↪ Auto redirect this wiki",
+    "message": "Auto redirect this wiki",
     "description": "Text to display in the banner for the redirect link"
   },
   "bannerRedirectDone": {
-    "message": "✓ Redirect enabled",
+    "message": "Redirect enabled",
     "description": "Text to display in the banner after the redirect has been enabled"
   },
   "searchResultLookup": {
@@ -325,7 +325,7 @@
     "description": "Input for a custom BreezeWiki host not included by default"
   },
   "settingsBreezeWikiCustomHostOption": {
-    "message": "Custom host...",
+    "message": "Custom host…",
     "description": "Option to input a custom BreezeWiki host"
   },
   "settingsBreezeWikiCustomHostSet": {
@@ -440,6 +440,10 @@
     "message": "[RU] Russian / Русский",
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
   },
+  "settingsLangSV": {
+    "message": "[SV] Swedish / Svenska",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
+  },
   "settingsLangTH": {
     "message": "[TH] Thai / ไทย",
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TH should be \"[TH] Thai / ไทย\" in English, but just \"[TH] ไทย\" in Thai."
@@ -457,7 +461,7 @@
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
   },
   "settingsNameFilterPlaceholder": {
-    "message": "Enter wiki name...",
+    "message": "Enter wiki name…",
     "description": "Placeholder for the name filter input"
   },
   "settingsWikiExp": {

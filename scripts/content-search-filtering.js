@@ -42,11 +42,9 @@ function replaceSearchResults(searchResultContainer, site, link) {
   let destinationArticle = commonFunctionGetDestinationArticle(site, originArticle);
   let newURL = commonFunctionGetNewURL(link, site);
 
-  if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link')) {
-    if (!searchResultContainer.classList.contains('iwb-detected')) {
-      searchResultContainer.classList.add('iwb-detected');
-      searchResultContainer.classList.add('iwb-disavow');
-    }
+  if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link') && !searchResultContainer.querySelector('.iwb-detected')) {
+    searchResultContainer.classList.add('iwb-detected');
+    searchResultContainer.classList.add('iwb-disavow');
     // Using aside to avoid conflicts with website CSS and listeners:
     let indieContainer = document.createElement('aside');
     indieContainer.classList.add('iwb-new-link-container');
@@ -57,8 +55,8 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let indieResultFaviconContainer = document.createElement('div');
     let indieResultFavicon = document.createElement('img');
     indieResultFavicon.alt = '';
-    indieResultFavicon.width = '12';
-    indieResultFavicon.height = '12';
+    indieResultFavicon.width = '16';
+    indieResultFavicon.height = '16';
     indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
@@ -118,10 +116,16 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
     let searchRemovalNoticeLink = document.createElement('a');
     searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
     searchRemovalNoticeLink.textContent = site.destination;
-    searchRemovalNotice.appendChild(extensionAPI.i18n.getMessage('searchRemovalNotice', [
-      site.origin + site.language !== 'EN' ? ' (' + site.language + ')' : '',
-      searchRemovalNoticeLink.outerHTML
-    ]));
+    searchRemovalNoticeText = extensionAPI.i18n.getMessage('searchRemovalNotice', [
+      site.origin + (site.language !== 'EN' ? ' (' + site.language + ')' : ''),
+      'LINK_PLACEHOLDER'
+    ]);
+    const searchRemovalNoticeTextParts = searchRemovalNoticeText.split('LINK_PLACEHOLDER');
+    const searchRemovalNoticeFragment = document.createDocumentFragment();
+    searchRemovalNoticeFragment.appendChild(document.createTextNode(searchRemovalNoticeTextParts[0]));
+    searchRemovalNoticeFragment.appendChild(searchRemovalNoticeLink);
+    searchRemovalNoticeFragment.appendChild(document.createTextNode(searchRemovalNoticeTextParts[1]));
+    searchRemovalNotice.appendChild(searchRemovalNoticeFragment);
 
     // Output container for result controls:
     let resultControls = document.createElement('div');
@@ -268,7 +272,8 @@ function getSearchContainer(searchEngine, searchResult) {
     case 'google':
       const closestJsController = searchResult.closest('div[jscontroller]');
       const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
-      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]);
+      // For Google search results, get the parentNode of the result container as that tends to be more reliable:
+      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]).parentNode;
       break;
     case 'bing':
       searchResultContainer = searchResult.closest('li.b_algo');
@@ -323,7 +328,7 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
     searchFilterSetting = storage.defaultSearchAction;
   }
 
-  const searchResultContainer = getSearchContainer(searchEngine, searchResult);
+  let searchResultContainer = getSearchContainer(searchEngine, searchResult);
 
   if (searchResultContainer) {
     // If this page from Fandom is the same as a re-ordered page, filter it out
@@ -365,7 +370,7 @@ async function reorderDestinationSearchResult(firstNonIndieResult, searchResult)
 
   indieSearchResultContainer.classList.add('iwb-reordered');
   // Prepend search results to first Fandom/Fextra/Neoseeker result
-  nonIndieSearchResultContainer.parentNode.prepend(indieSearchResultContainer);
+  nonIndieSearchResultContainer.parentNode.insertBefore(indieSearchResultContainer, nonIndieSearchResultContainer);
 }
 
 async function reorderSearchResults(searchResults, searchEngine, storage) {
@@ -389,7 +394,7 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
       document.querySelector('#main div[data-hveid]');
 
     // Get the first Fandom/Fextralife/Neoseeker result, if it exists
-    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([href^="/search"]):not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
+    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([href*=".google.com/"]):not([href^="/search"]):not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
     const firstNonIndieResult = Array.from(nonIndieResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'))[0];
     if (!resultsFirstChild || !firstNonIndieResult) return;
 
@@ -453,12 +458,14 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
 async function filterSearchResults(searchResults, searchEngine, storage, reorderedHrefs = []) {
   let countFiltered = 0;
 
+  // Add location observer to check for additional mutations
+  addDOMChangeObserver(startFiltering, searchEngine, storage);
+
   for (const searchResult of searchResults) {
     try {
       // Check that result isn't within another result
       if (!searchResult.closest('.iwb-detected') || !searchResult.closest('.iwb-detected')?.querySelector('.iwb-new-link')) {
         let searchResultLink = searchResult.getAttribute('data-iwb-href') || searchResult.href || '';
-
         if (!searchResultLink) {
           continue;
         }
@@ -472,10 +479,13 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
           // Skip if result doesn't include specific tags/attributes
           // This helps avoid capturing unintended image results
           if (!(
+            searchResult.closest('h1') ||
+            searchResult.closest('h3') ||
             searchResult.querySelector('h1') ||
             searchResult.querySelector('h3') ||
             searchResult.querySelector('cite') ||
-            searchResult.querySelector("div[role='link']"))) {
+            searchResult.querySelector("div[role='link']")))
+          {
             searchResult.classList.add('iwb-detected');
             continue;
           }
@@ -493,9 +503,6 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
       console.log('Indie Wiki Buddy failed to properly parse search results with error: ' + e);
     }
   };
-
-  // Add location observer to check for additional mutations
-  addDOMChangeObserver(startFiltering, searchEngine, storage);
 
   // If any results were filtered, update search filter count
   if (countFiltered > 0) {
@@ -544,7 +551,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
         async function reorderGoogle() {
           let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
           // Remove any matches that are not "standard" search results - this could've been done with :has() but limited browser support right now
-          searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'));
+          searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-g], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'));
 
           return await reorderSearchResults(searchResults, 'google', storage);
         }

@@ -69,7 +69,6 @@
 }
 .iwb-new-link div:first-of-type {
   display: inline-block;
-  background: white; 
   border-radius: 16px;
   margin-right: 10px;
   width: fit-content;
@@ -78,7 +77,9 @@
   padding: 5px;
 }
 .iwb-new-link img {
-  width: 12px;
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 .iwb-disavow > *:not([class^="iwb-"]):not(.scs_child_rpr) {
   opacity: 60%;
