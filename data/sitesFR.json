@@ -58,6 +58,7 @@
     "destination_icon": "shinwikievagelion.png",
     "destination_main_page": "Wiki_Evangelion",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
   },
   {
@@ -116,6 +117,7 @@
     "destination_icon": "lethalcompany.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
   },
   {
