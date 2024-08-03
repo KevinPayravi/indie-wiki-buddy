@@ -5018,9 +5018,9 @@
     "destination_base_url": "poupedia.com",
     "destination_platform": "mediawiki",
     "destination_icon": "poupedia.png",
-    "destination_main_page": "Main_Page",
+    "destination_main_page": "Poupedia",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/",
+    "destination_content_path": "/",
     "destination_host": "Miraheze"
   },
   {
