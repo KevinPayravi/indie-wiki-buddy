@@ -364,13 +364,19 @@
   },
   {
     "id": "en-anton",
-    "origins_label": "AntonBlast Fandom Wiki",
+    "origins_label": "AntonBlast Fandom Wikis",
     "origins": [
       {
         "origin": "AntonBlast Fandom Wiki",
         "origin_base_url": "antonblastpedia.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "AntonBlast_Wiki"
+      },
+      {
+        "origin": "Antonball Fandom Wiki",
+        "origin_base_url": "antonball.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Antonball_Wiki"
       }
     ],
     "destination": "Summitpedia",
@@ -2693,6 +2699,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-ffxiv",
+    "origins_label": "Final Fantasy XIV Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Final Fantasy XIV Fandom Wiki",
+        "origin_base_url": "ffxiv.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Final_Fantasy_XIV:_A_Realm_Reborn_Wiki"
+      }
+    ],
+    "destination": "Final Fantasy XIV Online Wiki",
+    "destination_base_url": "ffxiv.consolegameswiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ffxiv.png",
+    "destination_main_page": "FF14_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-findeverything",
     "origins_label": "Find Everything Fandom Wiki",
     "origins": [
@@ -3067,6 +3092,26 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-gnorp",
+    "origins_label": "(the) Gnorp Apologue Fandom Wiki",
+    "origins": [
+      {
+        "origin": "(the) Gnorp Apologue Fandom Wiki",
+        "origin_base_url": "gnorp-apologue.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "(the)_Gnorp_Apologue_Wiki"
+      }
+    ],
+    "destination": "(the) Gnorp Apologue Wiki",
+    "destination_base_url": "gnorp.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gnorp.png",
+    "destination_main_page": "(the)_Gnorp_Apologue_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-godzilla",
