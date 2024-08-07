@@ -118,10 +118,13 @@ function replaceSearchResults(searchResultContainer, site, link) {
 
     enableResultButton.addEventListener(
       'click',
-      /** @param {MouseEvent & { target: HTMLDivElement }} e */
-      e => {
-        e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
-        e.target.classList.add('iwb-hide');
+      /**
+       * @param {MouseEvent} e
+       */
+      (e) => {
+        const target = /** @type {HTMLDivElement} */ (e.target);
+        target.closest('.iwb-disavow')?.classList.remove('iwb-disavow');
+        target.classList.add('iwb-hide');
       }
     );
 
@@ -203,16 +206,17 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
           document.querySelector('#topstuff')?.prepend(searchRemovalNotice);
         } else if (document.querySelector('#main')) {
           var el = document.querySelector('#main');
-          if (el) {
-            if (el.querySelector('#main > div[data-hveid]')) {
-              el.insertBefore(searchRemovalNotice, el.querySelector('div[data-hveid]'));
-            } else {
-              const targetElement = el.querySelector('div div[data-hveid]');
-              if (targetElement && targetElement.parentElement) {
-                  el.insertBefore(searchRemovalNotice, targetElement.parentElement);
-              }
+            if (el) {
+              if (el.querySelector('#main > div[data-hveid]')) {
+                el.insertBefore(searchRemovalNotice, el.querySelector('div[data-hveid]'));
+              } else {
+                const targetElement = el.querySelector('div div[data-hveid]');
+                if (targetElement && targetElement.parentElement) {
+                    el.insertBefore(searchRemovalNotice, targetElement.parentElement);
+                }
+            }
           }
-        };
+        }
         break;
       case 'bing':
         var li = document.createElement('li');
