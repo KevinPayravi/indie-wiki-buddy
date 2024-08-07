@@ -1,21 +1,32 @@
-const currentURL = new URL(document.location);
+/// <reference lib="esnext" />
+/// <reference path="common-functions.js" />
+// @ts-check
+
+const currentURL = new URL(document.location.href);
 let hiddenWikisRevealed = {};
 
+/** @param {string} text */
 function base64Decode(text) {
   text = text.replace(/\s+/g, '').replace(/\-/g, '+').replace(/\_/g, '/');
   return decodeURIComponent(Array.prototype.map.call(atob(text), function (c) { return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2); }).join(''));
 }
 
-// Function to create an observer to watch for mutations on search pages
-// This is used for search engines that paginate via JavaScript,
-// or overwrite their results and remove IWB's elements
+/**
+ * Function to create an observer to watch for mutations on search pages
+ * This is used for search engines that paginate via JavaScript,
+ * or overwrite their results and remove IWB's elements
+ * @param {*} callback
+ * @param {*} searchEngine
+ * @param {*} storage
+ */
 function addDOMChangeObserver(callback, searchEngine, storage) {
   const config = {
     attributes: false,
     childList: true,
     subtree: true
-  }
+  };
 
+  /** @type {MutationCallback} */
   const wrappedCallback = (mutations, observer) => {
     callback(searchEngine, storage, mutations, observer);
   };
@@ -24,12 +35,19 @@ function addDOMChangeObserver(callback, searchEngine, storage) {
   domObserver.observe(document.body, config);
 }
 
-// Function to convert strings to consistent IDs
-// Used to convert wiki names to element IDs
+/**
+ * Function to convert strings to consistent IDs
+ * Used to convert wiki names to element IDs
+ * @param {string} string
+ */
 function stringToId(string) {
   return string.replaceAll(' ', '-').replaceAll("'", '').replace(/\W/g, '').toLowerCase();
 }
 
+/**
+ * @param {string} str
+ * @param {string} sub
+ */
 function removeSubstringIfAtEnd(str, sub) {
   if (sub && str.endsWith(sub)) {
     return str.slice(0, -sub.length);
@@ -37,6 +55,12 @@ function removeSubstringIfAtEnd(str, sub) {
   return str;
 }
 
+/**
+ * @param {HTMLElement} searchResultContainer
+ * @param {SiteData} site
+ * @param {string} link
+ * @returns
+ */
 function replaceSearchResults(searchResultContainer, site, link) {
   let originArticle = commonFunctionGetOriginArticle(link, site);
   let destinationArticle = commonFunctionGetDestinationArticle(site, originArticle);
@@ -55,13 +79,15 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let indieResultFaviconContainer = document.createElement('div');
     let indieResultFavicon = document.createElement('img');
     indieResultFavicon.alt = '';
-    indieResultFavicon.width = '16';
-    indieResultFavicon.height = '16';
+    indieResultFavicon.width = 16;
+    indieResultFavicon.height = 16;
     indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + site.language.toLowerCase() + '/' + site.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && decodeURIComponent(originArticle) !== site['origin_main_page']) {
-      let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, site['destination_content_suffix']).replace(site['destination_content_prefix'], '').replaceAll('_', ' ');
+      let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, site['destination_content_suffix'])
+        .replace(site['destination_content_prefix'], '')
+        .replaceAll('_', ' ');
 
       // Decode article
       destinationArticleTitle = decodeURIComponent(destinationArticleTitle);
@@ -89,10 +115,15 @@ function replaceSearchResults(searchResultContainer, site, link) {
     let enableResultButton = document.createElement('div');
     enableResultButton.innerText = extensionAPI.i18n.getMessage('searchResultReenable');
     resultControls.prepend(enableResultButton);
-    enableResultButton.addEventListener('click', (e) => {
-      e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
-      e.target.classList.add('iwb-hide');
-    });
+
+    enableResultButton.addEventListener(
+      'click',
+      /** @param {MouseEvent & { target: HTMLDivElement }} e */
+      e => {
+        e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
+        e.target.classList.add('iwb-hide');
+      }
+    );
 
     indieContainer.appendChild(indieResultLink);
     indieContainer.appendChild(resultControls);
@@ -103,6 +134,12 @@ function replaceSearchResults(searchResultContainer, site, link) {
   return 0;
 }
 
+/**
+ * @param {HTMLElement} searchResultContainer
+ * @param {string} searchEngine
+ * @param {SiteData} site
+ * @param {string} showBanner
+ */
 function hideSearchResults(searchResultContainer, searchEngine, site, showBanner = 'on') {
   // Insert search result removal notice, if enabled and not already injected
   let elementId = stringToId(site.language + '-' + site.origin);
@@ -116,7 +153,7 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
     let searchRemovalNoticeLink = document.createElement('a');
     searchRemovalNoticeLink.href = 'https://' + site.destination_base_url;
     searchRemovalNoticeLink.textContent = site.destination;
-    searchRemovalNoticeText = extensionAPI.i18n.getMessage('searchRemovalNotice', [
+    const searchRemovalNoticeText = extensionAPI.i18n.getMessage('searchRemovalNotice', [
       site.origin + (site.language !== 'EN' ? ' (' + site.language + ')' : ''),
       'LINK_PLACEHOLDER'
     ]);
@@ -136,6 +173,8 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
     showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
     showResultsButton.innerText = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
     resultControls.appendChild(showResultsButton)
+
+    /** @param {MouseEvent & { target: HTMLDivElement, currentTarget: HTMLDivElement }} e */
     showResultsButton.onclick = function (e) {
       if (e.target.textContent.includes(extensionAPI.i18n.getMessage('searchFilteredResultsShow'))) {
         e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsHide');
@@ -237,6 +276,10 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
   return 0;
 }
 
+/**
+ * @param {HTMLElement | ParentNode} child
+ * @param {HTMLElement} parent
+ */
 function getDistance(child, parent) {
   let distance = 0;
 
@@ -249,6 +292,11 @@ function getDistance(child, parent) {
   return distance;
 }
 
+/**
+ * @param {HTMLElement} target
+ * @param {HTMLElement[]} elements
+ * @returns {HTMLElement}
+ */
 function findClosestElement(target, elements) {
   let closestElement = null;
   let closestDistance = Infinity;
@@ -265,15 +313,22 @@ function findClosestElement(target, elements) {
   return closestElement;
 }
 
+/**
+ * @param {string} searchEngine
+ * @param {HTMLElement} searchResult
+ * @returns {HTMLElement | null}
+ */
 function getSearchContainer(searchEngine, searchResult) {
   let searchResultContainer = null;
 
   switch (searchEngine) {
     case 'google':
+      /** @type {HTMLElement} */
       const closestJsController = searchResult.closest('div[jscontroller]');
+      /** @type {HTMLElement} */
       const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
       // For Google search results, get the parentNode of the result container as that tends to be more reliable:
-      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]).parentNode;
+      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]).parentElement;
       break;
     case 'bing':
       searchResultContainer = searchResult.closest('li.b_algo');
@@ -289,7 +344,7 @@ function getSearchContainer(searchEngine, searchResult) {
       break;
     case 'qwant':
       if (searchResult.closest('div[data-testid=webResult]')) {
-        cssQuery = 'div[data-testid=webResult]';
+        const cssQuery = 'div[data-testid=webResult]';
         searchResultContainer = searchResult.closest(cssQuery).parentElement;
       }
       break;
@@ -314,9 +369,18 @@ function getSearchContainer(searchEngine, searchResult) {
     default:
   }
 
+  // @ts-ignore: searchResultContainer would always be of type HTMLElement
   return searchResultContainer;
 }
 
+/**
+ * @param {SiteData} matchingSite
+ * @param {HTMLAnchorElement} searchResult
+ * @param {string} searchEngine
+ * @param {number} countFiltered
+ * @param {*} storage
+ * @param {string[]} reorderedHrefs
+ */
 async function filterSearchResult(matchingSite, searchResult, searchEngine, countFiltered, storage, reorderedHrefs) {
   // Get user's settings for the wiki
   let id = matchingSite['id'];
@@ -357,6 +421,10 @@ async function filterSearchResult(matchingSite, searchResult, searchEngine, coun
   return countFiltered;
 }
 
+/**
+ * @param {HTMLElement} firstNonIndieResult
+ * @param {HTMLElement} searchResult
+ */
 async function reorderDestinationSearchResult(firstNonIndieResult, searchResult) {
   // Find containing element for non-indie result
   const nonIndieSearchResultContainer = getSearchContainer('google', firstNonIndieResult);
@@ -373,6 +441,11 @@ async function reorderDestinationSearchResult(firstNonIndieResult, searchResult)
   nonIndieSearchResultContainer.parentNode.insertBefore(indieSearchResultContainer, nonIndieSearchResultContainer);
 }
 
+/**
+ * @param {HTMLAnchorElement[]} searchResults
+ * @param {string} searchEngine
+ * @param {*} storage
+ */
 async function reorderSearchResults(searchResults, searchEngine, storage) {
   const reorderResultsSetting = storage.reorderResults || 'on';
   if (reorderResultsSetting === 'off') return [];
@@ -394,7 +467,12 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
       document.querySelector('#main div[data-hveid]');
 
     // Get the first Fandom/Fextralife/Neoseeker result, if it exists
-    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([href*=".google.com/"]):not([href^="/search"]):not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
+    const nonIndieResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([href*=".google.com/"]):not([href^="/search"]):not([role='button']):not([target='_self'])`)).filter(
+      /** @param {HTMLAnchorElement} el */
+      el => isNonIndieSite(el.href)
+    );
+    /** @type {HTMLElement} */
+    // @ts-ignore
     const firstNonIndieResult = Array.from(nonIndieResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'))[0];
     if (!resultsFirstChild || !firstNonIndieResult) return;
 
@@ -455,6 +533,12 @@ async function reorderSearchResults(searchResults, searchEngine, storage) {
   return reorderedHrefs;
 }
 
+/**
+ * @param {HTMLAnchorElement[]} searchResults
+ * @param {string} searchEngine
+ * @param {*} storage
+ * @param {string[]} reorderedHrefs
+ */
 async function filterSearchResults(searchResults, searchEngine, storage, reorderedHrefs = []) {
   let countFiltered = 0;
 
@@ -510,11 +594,20 @@ async function filterSearchResults(searchResults, searchEngine, storage, reorder
   }
 }
 
-// Detects whether a given link is to a supported non-indie wikifarm site
+/**
+ * Detects whether a given link is to a supported non-indie wikifarm site
+ * @param {string} link
+ */
 function isNonIndieSite(link) {
   return link?.includes('.fandom.com') || link?.includes('.wiki.fextralife.com') || link?.includes('.neoseeker.com/wiki/');
 }
 
+/**
+ * @param {string} searchEngine
+ * @param {*} storage
+ * @param {MutationRecord[]} [mutations]
+ * @param {MutationObserver} [observer]
+ */
 function startFiltering(searchEngine, storage, mutations = null, observer = null) {
   if (observer) {
     observer.disconnect();
@@ -527,7 +620,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'google':
         // Query Google results and rewrite HREFs when Google uses middleman links (i.e. google.com/url?q=)
         let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
-        searchResults.forEach((searchResult) => {
+        searchResults.forEach(/** @param {HTMLAnchorElement} searchResult */ (searchResult) => {
           if (searchResult.href) {
             const link = new URL(searchResult.href);
             if (link.href.includes('https://www.google.com/url')) {
@@ -543,15 +636,19 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
 
         // Function to filter search results in Google
         function filterGoogle(reorderedHrefs) {
-          let searchResults = Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])`)).filter(el => isNonIndieSite(el.href));
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (
+            Array.from(document.querySelectorAll(`div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])`))
+          ).filter(el => isNonIndieSite(el.href));
 
           filterSearchResults(searchResults, 'google', storage, reorderedHrefs);
         }
 
         async function reorderGoogle() {
-          let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(
+            document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])")
+          ));
           // Remove any matches that are not "standard" search results - this could've been done with :has() but limited browser support right now
-          searchResults = Array.from(searchResults).filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-g], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'));
+          searchResults = searchResults.filter((e) => !e.closest('g-section-with-header, div[aria-expanded], div[data-q], div[data-g], div[data-minw], div[data-num-cols], div[data-docid], div[data-lpage]'));
 
           return await reorderSearchResults(searchResults, 'google', storage);
         }
@@ -565,7 +662,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'duckduckgo':
         // Function to filter search results in DuckDuckGo
         function filterDuckDuckGo() {
-          let searchResults = Array.from(document.querySelectorAll('h2>a')).filter(el => isNonIndieSite(el.href));
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('h2>a'))).filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'duckduckgo', storage);
         }
 
@@ -577,24 +674,27 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
         function filterBing() {
           let searchResultsEncoded = document.querySelectorAll('li.b_algo h2 a, li.b_algo .b_algoheader a');
           let searchResults = [];
-          searchResultsEncoded.forEach((searchResult) => {
-            if (searchResult.href) {
-              const encodedLink = new URL(searchResult.href);
-              if (encodedLink.href.includes('https://www.bing.com/ck/')) {
-                try {
-                  let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                  if (isNonIndieSite(decodedLink)) {
-                    searchResult.setAttribute('data-iwb-href', decodedLink);
-                    searchResults.push(searchResult);
+          searchResultsEncoded.forEach(
+            /** @param {HTMLAnchorElement} searchResult */
+            searchResult => {
+              if (searchResult.href) {
+                const encodedLink = new URL(searchResult.href);
+                if (encodedLink.href.includes('https://www.bing.com/ck/')) {
+                  try {
+                    let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
+                    if (isNonIndieSite(decodedLink)) {
+                      searchResult.setAttribute('data-iwb-href', decodedLink);
+                      searchResults.push(searchResult);
+                    }
+                  } catch (e) {
+                    console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
                   }
-                } catch (e) {
-                  console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+                } else {
+                  searchResults.push(searchResult);
                 }
-              } else {
-                searchResults.push(searchResult);
               }
             }
-          });
+          );
 
           filterSearchResults(searchResults, 'bing', storage);
         }
@@ -605,7 +705,8 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'brave':
         // Function to filter search results in Brave
         function filterBrave() {
-          let searchResults = Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')).filter(el => isNonIndieSite(el.href));
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('div.snippet[data-type="web"] a')))
+          .filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'brave', storage);
         }
 
@@ -615,7 +716,8 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'ecosia':
         // Function to filter search results in Ecosia
         function filterEcosia() {
-          let searchResults = Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')).filter(el => isNonIndieSite(el.href));
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('section.mainline .result__title a.result__link')))
+          .filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'ecosia', storage);
         }
 
@@ -625,7 +727,8 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'qwant':
         // Function to filter search results in Qwant
         function filterQwant() {
-          let searchResults = Array.from(document.querySelectorAll('a.external')).filter(el => isNonIndieSite(el.href));
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('a.external')))
+          .filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'qwant', storage);
         }
 
@@ -635,7 +738,8 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'startpage':
         // Function to filter search results in Startpage
         function filterStartpage() {
-          let searchResults = Array.from(document.querySelectorAll('a.result-link')).filter(el => isNonIndieSite(el.href));
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('a.result-link')))
+          .filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'startpage', storage);
         }
 
@@ -645,7 +749,8 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'yandex':
         // Function to filter search results in Yandex
         function filterYandex() {
-          let searchResults = Array.from(document.querySelectorAll('li[data-cid] a.link, li[data-cid] a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')).filter(el => isNonIndieSite(el.href));
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('li[data-cid] a.link, li[data-cid] a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a')))
+          .filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'yandex', storage);
         }
 
@@ -657,27 +762,30 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
         function filterYahoo() {
           let searchResultsEncoded = document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)');
           let searchResults = [];
-          searchResultsEncoded.forEach((searchResult) => {
-            if (searchResult.href) {
-              if (searchResult.href.includes('https://r.search.yahoo.com/')) {
-                try {
-                  // Extract the URL between "RU=" and "/RK="
-                  const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
-                  const match = searchResult.href.match(embeddedUrlRegex);
-                  const extractedURL = decodeURIComponent(match && match[1]);
+          searchResultsEncoded.forEach(
+            /** @param {HTMLAnchorElement} searchResult */
+            searchResult => {
+              if (searchResult.href) {
+                if (searchResult.href.includes('https://r.search.yahoo.com/')) {
+                  try {
+                    // Extract the URL between "RU=" and "/RK="
+                    const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
+                    const match = searchResult.href.match(embeddedUrlRegex);
+                    const extractedURL = decodeURIComponent(match && match[1]);
 
-                  if (isNonIndieSite(extractedURL)) {
-                    searchResult.setAttribute('data-iwb-href', extractedURL);
-                    searchResults.push(searchResult);
+                    if (isNonIndieSite(extractedURL)) {
+                      searchResult.setAttribute('data-iwb-href', extractedURL);
+                      searchResults.push(searchResult);
+                    }
+                  } catch (e) {
+                    console.log('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
                   }
-                } catch (e) {
-                  console.log('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
+                } else {
+                  searchResults.push(searchResult);
                 }
-              } else {
-                searchResults.push(searchResult);
               }
             }
-          });
+          );
 
           filterSearchResults(searchResults, 'yahoo', storage);
         }
@@ -688,7 +796,8 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'kagi':
         // Function to filter search results in Kagi
         function filterKagi() {
-          let searchResults = Array.from(document.querySelectorAll('h3>a, a.__sri-url')).filter(el => isNonIndieSite(el.href));
+          let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('h3>a, a.__sri-url')))
+          .filter(el => isNonIndieSite(el.href));
           filterSearchResults(searchResults, 'kagi', storage);
         }
 
@@ -698,12 +807,14 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       default:
         if (storage.customSearchEngines) {
           function filterSearXNG() {
-            let searchResults = Array.from(document.querySelectorAll('h3>a')).filter(el => isNonIndieSite(el.href));
+            let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('h3>a')))
+            .filter(el => isNonIndieSite(el.href));
             filterSearchResults(searchResults, 'searxng', storage);
           }
 
           function filterWhoogle() {
-            let searchResults = Array.from(document.querySelectorAll('div>a')).filter(el => isNonIndieSite(el.href));
+            let searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.querySelectorAll('div>a')))
+            .filter(el => isNonIndieSite(el.href));
             filterSearchResults(searchResults, 'whoogle', storage);
           }
 
@@ -725,11 +836,14 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
   }
 }
 
-// Check if user has enabled filtering for the current search engine
-// If so, call startFiltering function to start filtering process
+/**
+ * Check if user has enabled filtering for the current search engine
+ * If so, call startFiltering function to start filtering process
+ * @param {string} searchEngine
+ */
 function checkIfEnabled(searchEngine) {
   extensionAPI.runtime.sendMessage({ action: 'getStorage' }, (storage) => {
-    searchEngineToggles = storage.searchEngineToggles || {};
+    const searchEngineToggles = storage.searchEngineToggles || {};
     if (searchEngineToggles[searchEngine] === 'on' || !searchEngineToggles.hasOwnProperty(searchEngine)) {
       startFiltering(searchEngine, storage);
     }
