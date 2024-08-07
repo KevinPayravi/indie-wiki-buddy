@@ -198,43 +198,47 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
     switch (searchEngine) {
       case 'google':
         if (document.querySelector('#search')) {
-          document.querySelector('#search').prepend(searchRemovalNotice);
+          document.querySelector('#search')?.prepend(searchRemovalNotice);
         } else if (document.querySelector('#topstuff')) {
-          document.querySelector('#topstuff').prepend(searchRemovalNotice);
+          document.querySelector('#topstuff')?.prepend(searchRemovalNotice);
         } else if (document.querySelector('#main')) {
           var el = document.querySelector('#main');
-          if (el.querySelector('#main > div[data-hveid]')) {
-            el.insertBefore(searchRemovalNotice, el.querySelector('div[data-hveid]'));
-          } else {
-            el.insertBefore(searchRemovalNotice, el.querySelector('div div[data-hveid]').parentElement);
+          if (el) {
+            if (el.querySelector('#main > div[data-hveid]')) {
+              el.insertBefore(searchRemovalNotice, el.querySelector('div[data-hveid]'));
+            } else {
+              const targetElement = el.querySelector('div div[data-hveid]');
+              if (targetElement && targetElement.parentElement) {
+                  el.insertBefore(searchRemovalNotice, targetElement.parentElement);
+              }
           }
         };
         break;
       case 'bing':
         var li = document.createElement('li');
         li.appendChild(searchRemovalNotice);
-        document.querySelector('#b_results').prepend(li);
+        document.querySelector('#b_results')?.prepend(li);
         break;
       case 'duckduckgo':
         if (document.getElementById('web_content_wrapper')) {
           var li = document.createElement('li');
           li.appendChild(searchRemovalNotice);
-          document.querySelector('#web_content_wrapper ol').prepend(li);
+          document.querySelector('#web_content_wrapper ol')?.prepend(li);
         } else {
-          document.getElementById('links').prepend(searchRemovalNotice);
+          document.getElementById('links')?.prepend(searchRemovalNotice);
         }
         break;
       case 'brave':
-        document.querySelector('body').prepend(searchRemovalNotice);
+        document.querySelector('body')?.prepend(searchRemovalNotice);
         break;
       case 'ecosia':
-        document.querySelector('body').prepend(searchRemovalNotice);
+        document.querySelector('body')?.prepend(searchRemovalNotice);
         break;
       case 'qwant':
-        document.querySelector('div[data-testid=sectionWeb]').prepend(searchRemovalNotice);
+        document.querySelector('div[data-testid=sectionWeb]')?.prepend(searchRemovalNotice);
         break;
       case 'startpage':
-        document.querySelector('#main').prepend(searchRemovalNotice);
+        document.querySelector('#main')?.prepend(searchRemovalNotice);
         break;
       case 'yandex':
         var searchResultsContainer = document.querySelector('#search-result') || document.querySelector('.main__content .content');
@@ -244,19 +248,19 @@ function hideSearchResults(searchResultContainer, searchEngine, site, showBanner
         if (document.querySelector('#web > ol')) {
           var li = document.createElement('li');
           li.appendChild(searchRemovalNotice);
-          document.querySelector('#web > ol').prepend(li);
+          document.querySelector('#web > ol')?.prepend(li);
         } else {
-          document.querySelector('#main-algo').prepend(searchRemovalNotice);
+          document.querySelector('#main-algo')?.prepend(searchRemovalNotice);
         }
         break;
       case 'kagi':
-        document.querySelector('#main').prepend(searchRemovalNotice);
+        document.querySelector('#main')?.prepend(searchRemovalNotice);
         break;
       case 'searxng':
-        document.querySelector('#results').prepend(searchRemovalNotice);
+        document.querySelector('#results')?.prepend(searchRemovalNotice);
         break;
       case 'whoogle':
-        document.querySelector('#main').prepend(searchRemovalNotice);
+        document.querySelector('#main')?.prepend(searchRemovalNotice);
         break;
       default:
     }
@@ -284,18 +288,19 @@ function getDistance(child, parent) {
   let distance = 0;
 
   while (parent !== child) {
+    if (!child.parentNode) break;
     child = child.parentNode;
     distance++;
-    if (!child) break;
   }
 
   return distance;
 }
 
+
 /**
  * @param {HTMLElement} target
- * @param {HTMLElement[]} elements
- * @returns {HTMLElement}
+ * @param {(HTMLElement|null)[]} elements
+ * @returns {HTMLElement | null}
  */
 function findClosestElement(target, elements) {
   let closestElement = null;
@@ -323,12 +328,12 @@ function getSearchContainer(searchEngine, searchResult) {
 
   switch (searchEngine) {
     case 'google':
-      /** @type {HTMLElement} */
+      /** @type {HTMLElement | null} */
       const closestJsController = searchResult.closest('div[jscontroller]');
-      /** @type {HTMLElement} */
+      /** @type {HTMLElement | null} */
       const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
       // For Google search results, get the parentNode of the result container as that tends to be more reliable:
-      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]).parentElement;
+      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv])?.parentElement;
       break;
     case 'bing':
       searchResultContainer = searchResult.closest('li.b_algo');
@@ -345,7 +350,7 @@ function getSearchContainer(searchEngine, searchResult) {
     case 'qwant':
       if (searchResult.closest('div[data-testid=webResult]')) {
         const cssQuery = 'div[data-testid=webResult]';
-        searchResultContainer = searchResult.closest(cssQuery).parentElement;
+        searchResultContainer = searchResult.closest(cssQuery)?.parentElement;
       }
       break;
     case 'startpage':
@@ -438,7 +443,7 @@ async function reorderDestinationSearchResult(firstNonIndieResult, searchResult)
 
   indieSearchResultContainer.classList.add('iwb-reordered');
   // Prepend search results to first Fandom/Fextra/Neoseeker result
-  nonIndieSearchResultContainer.parentNode.insertBefore(indieSearchResultContainer, nonIndieSearchResultContainer);
+  nonIndieSearchResultContainer?.parentNode?.insertBefore(indieSearchResultContainer, nonIndieSearchResultContainer);
 }
 
 /**
@@ -608,7 +613,7 @@ function isNonIndieSite(link) {
  * @param {MutationRecord[]} [mutations]
  * @param {MutationObserver} [observer]
  */
-function startFiltering(searchEngine, storage, mutations = null, observer = null) {
+function startFiltering(searchEngine, storage, mutations = undefined, observer = undefined) {
   if (observer) {
     observer.disconnect();
   }
@@ -619,6 +624,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
     switch (searchEngine) {
       case 'google':
         // Query Google results and rewrite HREFs when Google uses middleman links (i.e. google.com/url?q=)
+        /** @type {NodeListOf<HTMLAnchorElement>} */
         let searchResults = document.querySelectorAll("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])");
         searchResults.forEach(/** @param {HTMLAnchorElement} searchResult */ (searchResult) => {
           if (searchResult.href) {
@@ -626,7 +632,9 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
             if (link.href.includes('https://www.google.com/url')) {
               try {
                 const destinationLink = link.searchParams.get('url') || link.searchParams.get('q');
-                searchResult.setAttribute('data-iwb-href', destinationLink);
+                if (destinationLink) {
+                  searchResult.setAttribute('data-iwb-href', destinationLink);
+                }
               } catch (e) {
                 console.log('Indie Wiki Buddy failed to parse Google link with error: ', e);
               }
@@ -672,6 +680,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'bing':
         // Function to filter search results in Bing
         function filterBing() {
+          /** @type {NodeListOf<HTMLAnchorElement>} */
           let searchResultsEncoded = document.querySelectorAll('li.b_algo h2 a, li.b_algo .b_algoheader a');
           let searchResults = [];
           searchResultsEncoded.forEach(
@@ -681,10 +690,13 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
                 const encodedLink = new URL(searchResult.href);
                 if (encodedLink.href.includes('https://www.bing.com/ck/')) {
                   try {
-                    let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                    if (isNonIndieSite(decodedLink)) {
-                      searchResult.setAttribute('data-iwb-href', decodedLink);
-                      searchResults.push(searchResult);
+                    const uVal = encodedLink.searchParams.get('u');
+                    if (uVal) {
+                      let decodedLink = base64Decode(uVal.replace(/^a1/, ''));
+                      if (isNonIndieSite(decodedLink)) {
+                        searchResult.setAttribute('data-iwb-href', decodedLink);
+                        searchResults.push(searchResult);
+                      }
                     }
                   } catch (e) {
                     console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
@@ -760,6 +772,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
       case 'yahoo':
         // Function to filter search results in Yahoo
         function filterYahoo() {
+          /** @type {NodeListOf<HTMLAnchorElement>} */
           let searchResultsEncoded = document.querySelectorAll('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)');
           let searchResults = [];
           searchResultsEncoded.forEach(
@@ -771,7 +784,7 @@ function startFiltering(searchEngine, storage, mutations = null, observer = null
                     // Extract the URL between "RU=" and "/RK="
                     const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
                     const match = searchResult.href.match(embeddedUrlRegex);
-                    const extractedURL = decodeURIComponent(match && match[1]);
+                    const extractedURL = decodeURIComponent(match && match[1] ? match[1] : '');
 
                     if (isNonIndieSite(extractedURL)) {
                       searchResult.setAttribute('data-iwb-href', extractedURL);
