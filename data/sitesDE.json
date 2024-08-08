@@ -120,6 +120,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "de-spongebob",
+    "origins_label": "SpongeBob Wiki",
+    "origins": [
+      {
+        "origin": "SpongeBob Wiki",
+        "origin_base_url": "spongebob.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "SpongeBob_Wiki"
+      }
+    ],
+    "destination": "SpongePedia",
+    "destination_base_url": "de.spongepedia.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "spongepedia.png",
+    "destination_main_page": "Hauptseite",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php?title="
+  },
+  {
     "id": "de-starcitizen",
     "origins_label": "Star Citizen Fandom Wiki",
     "origins": [
