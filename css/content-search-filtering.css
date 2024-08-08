@@ -35,7 +35,7 @@
   outline: 1px solid !important;
 }
 .iwb-new-link-container {
-  display: inline-block;
+  display: block;
   font-size: 12px !important;
   text-decoration: none;
   padding-left: 5px;
@@ -60,12 +60,21 @@
   margin: .5em 0;
   font-size: 1.2em;
   width: fit-content;
+  height: auto;
 }
 .iwb-new-link button:hover {
   background: #00467a;
 }
 .iwb-new-link button * {
   vertical-align: middle;
+}
+.iwb-new-link button span {
+  /* prevent search engine sites like Mojeek overriding the button styling */
+  color: inherit !important;
+  text-transform: none;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: normal;
 }
 .iwb-new-link div:first-of-type {
   display: inline-block;

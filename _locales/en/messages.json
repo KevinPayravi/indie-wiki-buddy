@@ -672,7 +672,7 @@
     "message": "Indie Wiki Buddy provides a suite of features to help you discover independent wikis and improve your general wiki reading experience."
   },
   "guideOverviewPara2": {
-    "message": "When you visit a wiki on a large, corporate-run wiki host, this extension can notify or automatically redirect you to quality independent wikis when they're available. Search results in Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex can also be filtered, replacing non-independent wikis with links to independent counterpart (or hiding them completely)."
+    "message": "When you visit a wiki on a large, corporate-run wiki host, this extension can notify or automatically redirect you to quality independent wikis when they're available. Search results in Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Mojeek, Qwant, Startpage, Yahoo!, and Yandex can also be filtered, replacing non-independent wikis with links to independent counterpart (or hiding them completely)."
   },
   "guideOverviewPara3": {
     "message": "We currently redirect from Fandom, Fextralife, and Neoseeker wikis to independent counterparts."
@@ -743,7 +743,7 @@
     "message": "By default, filtering is enabled for all search engines. Filtering is done based on the user's selected settings for each wiki. The default filtering setting for all wikis is to replace non-indie search results with buttons linking to indie counterparts."
   },
   "guideTogglePerSearchEngineHelp2": {
-    "message": "The current supported search engines are Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex."
+    "message": "The current supported search engines are Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Mojeek, Qwant, Startpage, Yahoo!, and Yandex."
   },
   "guideHiddenResultsBannerHelp1": {
     "message": "When this option is enabled, a banner will be inserted at the top of search engine results when Indie Wiki Buddy has hidden results from Fandom, Fextralife, or Neoseeker wikis. This banner also lets you re-show the hidden results if you wish."
