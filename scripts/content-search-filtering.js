@@ -116,14 +116,11 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
     enableResultButton.innerText = extensionAPI.i18n.getMessage('searchResultReenable');
     resultControls.prepend(enableResultButton);
 
-    enableResultButton.addEventListener(
-      'click',
-      /** @param {MouseEvent & { target: HTMLDivElement }} e */
-      e => {
-        e.target.closest('.iwb-disavow').classList.remove('iwb-disavow');
-        e.target.classList.add('iwb-hide');
-      }
-    );
+    enableResultButton.addEventListener('click', e => {
+      const target = /** @type {HTMLDivElement} */ (e.target);
+      target.closest('.iwb-disavow')?.classList.remove('iwb-disavow');
+      target.classList.add('iwb-hide');
+    });
 
     indieContainer.appendChild(indieResultLink);
     indieContainer.appendChild(resultControls);
@@ -301,9 +298,9 @@ function getDistance(child, parent) {
   let distance = 0;
 
   while (parent !== child) {
+    if (!child.parentNode) break;
     child = child.parentNode;
     distance++;
-    if (!child) break;
   }
 
   return distance;
@@ -311,8 +308,8 @@ function getDistance(child, parent) {
 
 /**
  * @param {HTMLElement} target
- * @param {HTMLElement[]} elements
- * @returns {HTMLElement}
+ * @param {(HTMLElement | null)[]} elements
+ * @returns {HTMLElement | null}
  */
 function findClosestElement(target, elements) {
   let closestElement = null;
@@ -571,7 +568,9 @@ function filterAnchors(newAnchors) {
             if (link.href.includes('https://www.google.com/url')) {
               try {
                 const destinationLink = link.searchParams.get('url') || link.searchParams.get('q');
-                searchResult.setAttribute('data-iwb-href', destinationLink);
+                if (destinationLink) {
+                  searchResult.setAttribute('data-iwb-href', destinationLink);
+                }
               } catch (e) {
                 throw new Error('Indie Wiki Buddy failed to parse Google link with error: ' + e);
               }
@@ -598,8 +597,11 @@ function filterAnchors(newAnchors) {
             const encodedLink = new URL(searchResult.href);
             if (encodedLink.href.includes('https://www.bing.com/ck/')) {
               try {
-                let decodedLink = base64Decode(encodedLink.searchParams.get('u').replace(/^a1/, ''));
-                searchResult.setAttribute('data-iwb-href', decodedLink);
+                const uVal = encodedLink.searchParams.get('u');
+                if (uVal) {
+                  const decodedLink = base64Decode(uVal.replace(/^a1/, ''));
+                  searchResult.setAttribute('data-iwb-href', decodedLink);
+                }
               } catch (e) {
                 console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
               }
@@ -650,7 +652,7 @@ function filterAnchors(newAnchors) {
                 const match = searchResult.href.match(embeddedUrlRegex);
                 const extractedURL = decodeURIComponent(match && match[1]);
 
-                searchResult.setAttribute('data-iwb-href', extractedURL);
+                if (extractedURL) searchResult.setAttribute('data-iwb-href', extractedURL);
 
               } catch (e) {
                 console.error('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
@@ -680,6 +682,7 @@ function filterAnchors(newAnchors) {
           filterSearchResults(searchResults);
         }
 
+        /** @param {string} searchEngine */
         function filter(searchEngine) {
           if (searchEngine === 'searxng') {
             filterSearXNG();
