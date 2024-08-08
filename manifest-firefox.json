@@ -70,10 +70,7 @@
     "data/sitesZH.json"
   ],
   "background": {
-    "scripts": [
-      "scripts/common-functions.js",
-      "background.js"
-    ],
+    "scripts": ["scripts/common-functions.js", "background.js"],
     "persistent": true
   },
   "content_scripts": [
@@ -102,13 +99,8 @@
         "https://breeze.whateveritworks.org/*",
         "https://breezewiki.woodland.cafe/*"
       ],
-      "js": [
-        "scripts/common-functions.js",
-        "scripts/content-banners.js"
-      ],
-      "css": [
-        "css/content-banners.css"
-      ],
+      "js": ["scripts/common-functions.js", "scripts/content-banners.js"],
+      "css": ["css/content-banners.css"],
       "run_at": "document_start"
     },
     {
@@ -133,10 +125,7 @@
         "https://breeze.whateveritworks.org/*",
         "https://breezewiki.woodland.cafe/*"
       ],
-      "js": [
-        "scripts/common-functions.js",
-        "scripts/content-breezewiki.js"
-      ],
+      "js": ["scripts/common-functions.js", "scripts/content-breezewiki.js"],
       "run_at": "document_end"
     },
     {
@@ -359,16 +348,14 @@
         "https://www.google.co.zw/search*",
         "https://www.google.cat/search*"
       ],
-      "js": [
-        "scripts/common-functions.js",
-        "scripts/content-search-filtering.js"
-      ],
-      "css": [
-        "css/content-search-filtering.css"
-      ],
-      "run_at": "document_end"
+      "js": ["scripts/common-functions.js", "scripts/content-search-filtering.js"],
+      "css": ["css/content-search-filtering.css"],
+      "run_at": "document_start"
     }
   ],
+  "options_ui": {
+    "page": "pages/settings/index.html"
+  },
   "optional_permissions": ["https://*/*"],
   "browser_specific_settings": {
     "gecko": {
