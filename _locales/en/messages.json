@@ -524,7 +524,7 @@
       }
     }
   },
-  "settingsDisableFor": {
+  "settingsDisabledFor": {
     "message": "Do nothing for $origin$",
     "description": "Tooltip for option to disable any action for a specific wiki",
     "placeholders": {

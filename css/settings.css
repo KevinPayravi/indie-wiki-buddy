@@ -152,15 +152,15 @@ legend {
   cursor: pointer;
 }
 
-button#setAllDisabled {
+button#setAllWikiDisabled {
   background-image: url('../../images/toggle-disabled.png');
 }
 
-button#setAllAlert {
+button#setAllWikiAlert {
   background-image: url('../../images/toggle-alert.png');
 }
 
-button#setAllRedirect {
+button#setAllWikiRedirect {
   background-image: url('../../images/toggle-redirect.png');
 }
 
