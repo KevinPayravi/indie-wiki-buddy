@@ -92,7 +92,7 @@ legend {
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
-.toggles label {
+.toggles .inputsContainer * {
   display: flex;
   align-items: center;
 }
@@ -237,22 +237,20 @@ button#setAllSearchEngineHide {
   text-align: center;
 }
 
-.inputsContainer>label,
-.inputsContainer>div {
+.inputsContainer>* {
   width: 20px;
   display: flex;
   text-align: center;
   justify-content: center;
 }
 
-.togglesHeader .inputsContainer>div:nth-child(4),
-.toggles>div>div>label:nth-child(4) {
+.inputsContainer>:nth-child(4) {
   padding-left: 5px;
   border-left: 1px solid var(--base-color-outline-light);
 }
 
-.inputsContainer label:nth-child(1) input,
-.inputsContainer label:nth-child(4) input {
+.inputsContainer input.toggleWikiDisabled,
+.inputsContainer input.toggleSeachEngineDisabled {
   accent-color: var(--disabled-color);
 }
 

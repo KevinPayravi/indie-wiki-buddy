@@ -36,18 +36,8 @@ function createRadioButton(redirectEntry, action, category) {
       extensionAPI.storage.sync.set({ [settingsType]: await commonFunctionCompressJSON(settings) });
     });
   });
-  
-  // Create a caption for the button
-  const buttonCaption = document.createElement('span');
-  buttonCaption.classList.add('visuallyHidden');
-  buttonCaption.textContent = displayText;
-  
-  // Add a <label> wrapper around the button and caption
-  const buttonWrapper = document.createElement("label");
-  buttonWrapper.appendChild(radioButton);
-  buttonWrapper.appendChild(buttonCaption);
 
-  return buttonWrapper;
+  return radioButton;
 }
 
 // Populate settings and toggles
@@ -130,20 +120,12 @@ async function loadOptions(lang, textFilter = '') {
         const redirectEntry = sites[i];
 
         // Create radio buttons for wiki & search engine options
-        const labelWikiDisabled = createRadioButton(redirectEntry, 'disabled', 'wiki');
-        const labelWikiAlert = createRadioButton(redirectEntry, 'alert', 'wiki');
-        const labelWikiRedirect = createRadioButton(redirectEntry, 'redirect', 'wiki');
-        const labelSearchEngineDisabled = createRadioButton(redirectEntry, 'disabled', 'searchEngine');
-        const labelSearchEngineReplace = createRadioButton(redirectEntry, 'replace', 'searchEngine');
-        const labelSearchEngineHide = createRadioButton(redirectEntry, 'hide', 'searchEngine');
-
-        // Get the radio buttons from within their wrappers
-        const inputWikiDisabled = labelWikiDisabled.firstChild;
-        const inputWikiAlert = labelWikiAlert.firstChild;
-        const inputWikiRedirect = labelWikiRedirect.firstChild;
-        const inputSearchEngineDisabled = labelSearchEngineDisabled.firstChild;
-        const inputSearchEngineReplace = labelSearchEngineReplace.firstChild;
-        const inputSearchEngineHide = labelSearchEngineHide.firstChild;
+        const inputWikiDisabled = createRadioButton(redirectEntry, 'disabled', 'wiki');
+        const inputWikiAlert = createRadioButton(redirectEntry, 'alert', 'wiki');
+        const inputWikiRedirect = createRadioButton(redirectEntry, 'redirect', 'wiki');
+        const inputSearchEngineDisabled = createRadioButton(redirectEntry, 'disabled', 'searchEngine');
+        const inputSearchEngineReplace = createRadioButton(redirectEntry, 'replace', 'searchEngine');
+        const inputSearchEngineHide = createRadioButton(redirectEntry, 'hide', 'searchEngine');
 
         // Set wiki radio buttons based on user's settings
         const wikiAction = wikiSettings[redirectEntry.id] ?? defaultWikiAction ?? 'alert';
@@ -207,17 +189,20 @@ async function loadOptions(lang, textFilter = '') {
         wikiInfo.appendChild(wikiLink);
         wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [sites[i].origins_label])));
 
-        // Output inputs container:
+        // Create inputs container:
         let inputsContainer = document.createElement('div');
         inputsContainer.classList = 'inputsContainer';
-        inputsContainer.appendChild(labelWikiDisabled);
-        inputsContainer.appendChild(labelWikiAlert);
-        inputsContainer.appendChild(labelWikiRedirect);
-        inputsContainer.appendChild(labelSearchEngineDisabled);
-        inputsContainer.appendChild(labelSearchEngineReplace);
-        inputsContainer.appendChild(labelSearchEngineHide);
 
-        let siteContainer = document.createElement("div");
+        // Wrap each of the buttons and add them to the container
+        const radioButtonArray = [inputWikiDisabled, inputWikiAlert, inputWikiRedirect, inputSearchEngineDisabled, inputSearchEngineReplace, inputSearchEngineHide];
+        for(radioButton of radioButtonArray) {
+          const buttonWrapper = document.createElement("div");
+          buttonWrapper.appendChild(radioButton);
+          inputsContainer.appendChild(buttonWrapper);
+        }
+
+        // Create row container
+        const siteContainer = document.createElement("div");
         siteContainer.classList.add('site-container')
 
         siteContainer.appendChild(wikiInfo);
