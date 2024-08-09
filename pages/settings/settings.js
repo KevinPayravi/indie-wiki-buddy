@@ -88,17 +88,17 @@ async function loadOptions(lang, textFilter = '') {
         // Create radio for disabling action on wiki:
         let labelDisabled = document.createElement("label");
         const inputDisabledTitle = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
-        let inputDisabled = createRadioButton(site, inputDisabledTitle, 'toggleDisable');
+        let inputDisabled = createRadioButton(site, inputDisabledTitle, 'toggleWikiDisabled');
 
         // Create radio for inserting banner on wiki:
         let labelAlert = document.createElement("label");
         const inputAlertTitle = extensionAPI.i18n.getMessage('settingsAlertFor', [sites[i].origins_label, sites[i].destination]);
-        let inputAlert = createRadioButton(site, inputAlertTitle, 'toggleAlert');
+        let inputAlert = createRadioButton(site, inputAlertTitle, 'toggleWikiAlert');
 
         // Create radio for redirecting wiki:
         let labelRedirect = document.createElement("label");
         const inputRedirectTitle = extensionAPI.i18n.getMessage('settingsRedirectFor', [sites[i].origins_label, sites[i].destination]);
-        let inputRedirect = createRadioButton(site, inputRedirectTitle, 'toggleRedirect');
+        let inputRedirect = createRadioButton(site, inputRedirectTitle, 'toggleWikiRedirect');
 
         // Create radio for disabling action on search engines:
         let labelSearchEngineDisabled = document.createElement("label");
@@ -284,9 +284,9 @@ async function loadOptions(lang, textFilter = '') {
       }
 
       // Add "select all" button event listeners:
-      addGlobalButtonEventListeners_Wiki('setAllRedirect', 'redirect', 'toggleRedirect');
-      addGlobalButtonEventListeners_Wiki('setAllAlert', 'alert', 'toggleAlert');
-      addGlobalButtonEventListeners_Wiki('setAllDisabled', 'disabled', 'toggleDisable');
+      addGlobalButtonEventListeners_Wiki('setAllRedirect', 'redirect', 'toggleWikiRedirect');
+      addGlobalButtonEventListeners_Wiki('setAllAlert', 'alert', 'toggleWikiAlert');
+      addGlobalButtonEventListeners_Wiki('setAllDisabled', 'disabled', 'toggleWikiDisabled');
 
       addGlobalButtonEventListeners_SearchEngine('setAllSearchEngineDisabled', 'disabled', 'toggleSearchEngineDisabled');
       addGlobalButtonEventListeners_SearchEngine('setAllSearchEngineHide', 'hide', 'toggleSearchEngineHide');
