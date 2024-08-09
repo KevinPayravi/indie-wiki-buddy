@@ -1,4 +1,4 @@
-var sites = [];
+let sites = [];
 
 // Clear wiki toggles
 // Used when switching languages
@@ -66,73 +66,57 @@ async function loadOptions(lang, textFilter = '') {
       // Reset toggles:
       resetOptions();
 
+      function createRadioButton(site, title, buttonClass) {
+        const key = site.id;
+
+        let newButton = document.createElement("input");
+        newButton.classList = buttonClass;
+        newButton.type = "radio";
+        newButton.name = key + '-wiki-action';
+        newButton.title = title;
+        newButton.lang = site.language;
+        newButton.setAttribute('data-wiki-key', key);
+
+        return newButton;
+      }
+
       // Populate individual wiki settings:
       const toggleContainer = document.getElementById('toggles');
-      for (var i = 0; i < sites.length; i++) {
-        var key = sites[i].id;
+      for (let i = 0; i < sites.length; i++) {
+        const site = sites[i];
 
         // Create radio for disabling action on wiki:
         let labelDisabled = document.createElement("label");
-        let inputDisabled = document.createElement("input");
-        inputDisabled.classList = 'toggleDisable';
-        inputDisabled.type = "radio";
-        inputDisabled.name = key + '-wiki-action';
-        inputDisabled.title = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
-        inputDisabled.lang = sites[i].language;
-        inputDisabled.setAttribute('data-wiki-key', key);
+        const inputDisabledTitle = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
+        let inputDisabled = createRadioButton(site, inputDisabledTitle, 'toggleDisable');
 
         // Create radio for inserting banner on wiki:
         let labelAlert = document.createElement("label");
-        let inputAlert = document.createElement("input");
-        inputAlert.classList = 'toggleAlert';
-        inputAlert.type = "radio";
-        inputAlert.name = key + '-wiki-action';
-        inputAlert.title = extensionAPI.i18n.getMessage('settingsAlertFor', [sites[i].origins_label, sites[i].destination]);
-        inputAlert.lang = sites[i].language;
-        inputAlert.setAttribute('data-wiki-key', key);
+        const inputAlertTitle = extensionAPI.i18n.getMessage('settingsAlertFor', [sites[i].origins_label, sites[i].destination]);
+        let inputAlert = createRadioButton(site, inputAlertTitle, 'toggleAlert');
 
         // Create radio for redirecting wiki:
         let labelRedirect = document.createElement("label");
-        let inputRedirect = document.createElement("input");
-        inputRedirect.classList = 'toggleRedirect';
-        inputRedirect.type = "radio";
-        inputRedirect.name = key + '-wiki-action';
-        inputRedirect.title = extensionAPI.i18n.getMessage('settingsRedirectFor', [sites[i].origins_label, sites[i].destination]);
-        inputRedirect.lang = sites[i].language;
-        inputRedirect.setAttribute('data-wiki-key', key);
+        const inputRedirectTitle = extensionAPI.i18n.getMessage('settingsRedirectFor', [sites[i].origins_label, sites[i].destination]);
+        let inputRedirect = createRadioButton(site, inputRedirectTitle, 'toggleRedirect');
 
         // Create radio for disabling action on search engines:
         let labelSearchEngineDisabled = document.createElement("label");
-        let inputSearchEngineDisabled = document.createElement("input");
-        inputSearchEngineDisabled.classList = 'toggleSearchEngineDisabled';
-        inputSearchEngineDisabled.type = "radio";
-        inputSearchEngineDisabled.name = key + '-search-engine-action';
-        inputSearchEngineDisabled.title = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
-        inputSearchEngineDisabled.lang = sites[i].language;
-        inputSearchEngineDisabled.setAttribute('data-wiki-key', key);
+        const inputSearchEngineDisabledTitle = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
+        let inputSearchEngineDisabled = createRadioButton(site, inputSearchEngineDisabledTitle, 'toggleSearchEngineDisabled');
 
         // Create radio for replacing results on search engines:
         let labelSearchEngineReplace = document.createElement("label");
-        let inputSearchEngineReplace = document.createElement("input");
-        inputSearchEngineReplace.classList = 'toggleSearchEngineReplace';
-        inputSearchEngineReplace.type = "radio";
-        inputSearchEngineReplace.name = key + '-search-engine-action';
-        inputSearchEngineReplace.title = extensionAPI.i18n.getMessage('settingsReplaceFor', [sites[i].origins_label, sites[i].destination]);
-        inputSearchEngineReplace.lang = sites[i].language;
-        inputSearchEngineReplace.setAttribute('data-wiki-key', key);
+        const inputSearchEngineReplaceTitle = extensionAPI.i18n.getMessage('settingsReplaceFor', [sites[i].origins_label, sites[i].destination]);
+        let inputSearchEngineReplace = createRadioButton(site, inputSearchEngineReplaceTitle, 'toggleSearchEngineReplace');
 
         // Create radio for hiding results on search engines:
         let labelSearchEngineHide = document.createElement("label");
-        let inputSearchEngineHide = document.createElement("input");
-        inputSearchEngineHide.classList = 'toggleSearchEngineHide';
-        inputSearchEngineHide.type = "radio";
-        inputSearchEngineHide.name = key + '-search-engine-action';
-        inputSearchEngineHide.title = extensionAPI.i18n.getMessage('settingsHideFor', [sites[i].origins_label]);
-        inputSearchEngineHide.lang = sites[i].language;
-        inputSearchEngineHide.setAttribute('data-wiki-key', key);
+        const inputSearchEngineHideTitle = extensionAPI.i18n.getMessage('settingsHideFor', [sites[i].origins_label]);
+        let inputSearchEngineHide = createRadioButton(site, inputSearchEngineHideTitle, 'toggleSearchEngineHide');
 
         // Set wiki radio buttons based on user's settings
-        const wikiAction = wikiSettings[key] ?? defaultWikiAction ?? 'alert';
+        const wikiAction = wikiSettings[site.id] ?? defaultWikiAction ?? 'alert';
         
         switch(wikiAction) {
           case 'disabled':
@@ -146,7 +130,7 @@ async function loadOptions(lang, textFilter = '') {
         }
 
         // Set search engine radio buttons based on user's settings
-        const searchEngineAction = searchEngineSettings[key] ?? defaultSearchAction ?? 'replace';
+        const searchEngineAction = searchEngineSettings[site.id] ?? defaultSearchAction ?? 'replace';
 
         switch(searchEngineAction) {
           case 'true':
@@ -160,124 +144,103 @@ async function loadOptions(lang, textFilter = '') {
           default:
             inputSearchEngineHide.checked = true;
         }
+        
+        async function addWikiSettingsListener(button, dataWikiKey) {
+          button.addEventListener('click', (input) => {
+            extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
+              let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
+              const key = input.target.getAttribute('data-wiki-key');
+              wikiSettings[key] = dataWikiKey;
+              extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+            });
+          });
+        }
+        
+        async function addSearchEngineSettingsListener(button, dataWikiKey) {
+          button.addEventListener('click', (input) => {
+            extensionAPI.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
+              let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
+              const key = input.target.getAttribute('data-wiki-key');
+              searchEngineSettings[key] = dataWikiKey;
+              extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+            });
+          });
+        }
 
         // Add listeners for when user clicks control:
-        inputDisabled.addEventListener('click', (input) => {
-          extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-            let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
-            var key = input.target.getAttribute('data-wiki-key');
-            wikiSettings[key] = 'disabled';
-            extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-          });
-        });
-        inputAlert.addEventListener('click', (input) => {
-          extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-            let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
-            var key = input.target.getAttribute('data-wiki-key');
-            wikiSettings[key] = 'alert';
-            extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-          });
-        });
-        inputRedirect.addEventListener('click', (input) => {
-          extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-            let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
-            var key = input.target.getAttribute('data-wiki-key');
-            wikiSettings[key] = 'redirect';
-            extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-          });
-        });
-        inputSearchEngineDisabled.addEventListener('click', (input) => {
-          extensionAPI.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
-            let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
-            var key = input.target.getAttribute('data-wiki-key');
-            searchEngineSettings[key] = 'disabled';
-            extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
-          });
-        });
-        inputSearchEngineReplace.addEventListener('click', (input) => {
-          extensionAPI.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
-            let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
-            var key = input.target.getAttribute('data-wiki-key');
-            searchEngineSettings[key] = 'replace';
-            extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
-          });
-        });
-        inputSearchEngineHide.addEventListener('click', (input) => {
-          extensionAPI.storage.sync.get({ 'searchEngineSettings': {} }, async (response) => {
-            let searchEngineSettings = await commonFunctionDecompressJSON(response.searchEngineSettings);
-            var key = input.target.getAttribute('data-wiki-key');
-            searchEngineSettings[key] = 'hide';
-            extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
-          });
-        });
+        addWikiSettingsListener(inputDisabled, 'disabled');
+        addWikiSettingsListener(inputAlert, 'alert');
+        addWikiSettingsListener(inputRedirect, 'click');
+
+        addSearchEngineSettingsListener(inputSearchEngineDisabled, 'disabled');
+        addSearchEngineSettingsListener(inputSearchEngineReplace, 'replace');
+        addSearchEngineSettingsListener(inputSearchEngineHide, 'hide');
+
+        function outputRadioButton(button, label, textContent) {
+          label.appendChild(button);
+
+          let buttonText = document.createElement('span');
+          buttonText.classList.add('visuallyHidden');
+          buttonText.textContent = textContent;
+          label.appendChild(buttonText);
+        }
 
         // Output wiki disable radio button:
-        let inputDisabledText = document.createElement('span');
-        inputDisabledText.classList.add('visuallyHidden');
-        inputDisabledText.textContent = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
-        labelDisabled.appendChild(inputDisabled);
-        labelDisabled.appendChild(inputDisabledText);
+        const inputDisabledTextContent = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
+        outputRadioButton(inputDisabled, labelDisabled, inputDisabledTextContent);
 
         // Output wiki alert radio button:
-        let inputAlertText = document.createElement('span');
-        inputAlertText.classList.add('visuallyHidden');
-        inputAlertText.textContent = extensionAPI.i18n.getMessage('settingsAlertFor', [sites[i].origins_label, sites[i].destination]);
-        labelAlert.appendChild(inputAlert);
-        labelAlert.appendChild(inputAlertText);
+        const inputAlertTextContent = extensionAPI.i18n.getMessage('settingsAlertFor', [sites[i].origins_label, sites[i].destination]);
+        outputRadioButton(inputAlert, labelAlert, inputAlertTextContent);
 
         // Output wiki redirect radio button:
-        let inputRedirectText = document.createElement('span');
-        inputRedirectText.classList.add('visuallyHidden');
-        inputRedirectText.textContent = extensionAPI.i18n.getMessage('settingsRedirectFor', [sites[i].origins_label, sites[i].destination]);
-        labelRedirect.appendChild(inputRedirect);
-        labelRedirect.appendChild(inputRedirectText);
+        const inputRedirectTextContent = extensionAPI.i18n.getMessage('settingsRedirectFor', [sites[i].origins_label, sites[i].destination]);
+        outputRadioButton(inputRedirect, labelRedirect, inputRedirectTextContent);
 
         // Output search engine disable radio button:
-        let inputSearchEngineDisabledText = document.createElement('span');
-        inputSearchEngineDisabledText.classList.add('visuallyHidden');
-        inputSearchEngineDisabledText.textContent = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
-        labelSearchEngineDisabled.appendChild(inputSearchEngineDisabled);
-        labelSearchEngineDisabled.appendChild(inputSearchEngineDisabledText);
+        const inputSearchEngineDisabledTextContent = extensionAPI.i18n.getMessage('settingsDisableFor', [sites[i].origins_label]);
+        outputRadioButton(inputSearchEngineDisabled, labelSearchEngineDisabled, inputSearchEngineDisabledTextContent);
 
         // Output search engine replace radio button:
-        let inputSearchEngineReplaceText = document.createElement('span');
-        inputSearchEngineReplaceText.classList.add('visuallyHidden');
-        inputSearchEngineReplaceText.textContent = extensionAPI.i18n.getMessage('settingsReplaceFor', [sites[i].origins_label, sites[i].destination]);
-        labelSearchEngineReplace.appendChild(inputSearchEngineReplace);
-        labelSearchEngineReplace.appendChild(inputSearchEngineReplaceText);
+        const inputSearchEngineReplaceTextContent = extensionAPI.i18n.getMessage('settingsReplaceFor', [sites[i].origins_label, sites[i].destination]);
+        outputRadioButton(inputSearchEngineReplace, labelSearchEngineReplace, inputSearchEngineReplaceTextContent);
 
         // Output search engine hide radio button:
-        let inputSearchEngineHideText = document.createElement('span');
-        inputSearchEngineHideText.classList.add('visuallyHidden');
-        inputSearchEngineHideText.textContent = extensionAPI.i18n.getMessage('settingsHideFor', [sites[i].origins_label]);
-        labelSearchEngineHide.appendChild(inputSearchEngineHide);
-        labelSearchEngineHide.appendChild(inputSearchEngineHideText);
+        const inputSearchEngineHideTextContent = extensionAPI.i18n.getMessage('settingsHideFor', [sites[i].origins_label]);
+        outputRadioButton(inputSearchEngineHide, labelSearchEngineHide, inputSearchEngineHideTextContent);
 
         // Output wiki info:
-        let wikiInfo = document.createElement('span');
+        const destinationSiteURL = `https://${site.destination_base_url}`;
+        const visitDestinationText = `Visit ${site.destination}`;
+
         let iconLink = document.createElement("a");
-        iconLink.href = 'https://' + sites[i].destination_base_url;
-        iconLink.title = 'Visit ' + sites[i].destination;
+        iconLink.href = destinationSiteURL;
+        iconLink.title = visitDestinationText;
         iconLink.target = '_blank';
+
         let icon = document.createElement("img");
-        icon.src = '../../favicons/' + sites[i].language.toLowerCase() + '/' + sites[i].destination_icon;
-        icon.alt = 'Visit ' + sites[i].destination;
+        icon.src = `../../favicons/${site.language.toLowerCase()}/${site.destination_icon}`;
+        icon.alt = visitDestinationText;
         icon.width = '16';
         iconLink.appendChild(icon);
+
+        let wikiInfo = document.createElement('span');
         wikiInfo.appendChild(iconLink);
         if (lang === 'ALL') {
           const languageSpan = document.createElement('span');
           languageSpan.classList.add('text-sm');
-          languageSpan.innerText = ' [' + sites[i].language + '] ';
+          languageSpan.innerText = ` [${site.language}] `;
           wikiInfo.appendChild(languageSpan);
         }
+
         let wikiLink = document.createElement("a");
-        wikiLink.href = 'https://' + sites[i].destination_base_url;
-        wikiLink.title = 'Visit ' + sites[i].destination;
+        wikiLink.href = destinationSiteURL;
+        wikiLink.title = visitDestinationText;
         wikiLink.target = '_blank';
-        wikiLink.appendChild(document.createTextNode(sites[i].destination));
+        wikiLink.appendChild(document.createTextNode(site.destination));
         wikiInfo.appendChild(wikiLink);
         wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [sites[i].origins_label])));
+
         let siteContainer = document.createElement("div");
         siteContainer.classList.add('site-container')
 
@@ -290,71 +253,44 @@ async function loadOptions(lang, textFilter = '') {
         inputsContainer.appendChild(labelSearchEngineReplace);
         inputsContainer.appendChild(labelSearchEngineHide);
         inputsContainer.classList = 'inputsContainer';
+
         siteContainer.appendChild(wikiInfo);
         siteContainer.appendChild(inputsContainer);
         toggleContainer.appendChild(siteContainer);
       }
 
+      async function addGlobalButtonEventListeners_Wiki(globalButtonID, actionValue, targetClass) {
+        const setAllRedirect = document.getElementById(globalButtonID);
+        setAllRedirect.addEventListener('click', async () => {
+          const toggles = document.querySelectorAll(`#toggles input.${targetClass}`);
+          for (let i = 0; i < toggles.length; i++) {
+            toggles[i].checked = true;
+            wikiSettings[toggles[i].getAttribute('data-wiki-key')] = actionValue;
+          }
+          extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+        });
+      }
+
+      async function addGlobalButtonEventListeners_SearchEngine(globalButtonID, actionValue, targetClass) {
+        const setAllRedirect = document.getElementById(globalButtonID);
+        setAllRedirect.addEventListener('click', async () => {
+          const toggles = document.querySelectorAll(`#toggles input.${targetClass}`);
+          for (let i = 0; i < toggles.length; i++) {
+            toggles[i].checked = true;
+            searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = actionValue;
+          }
+          extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+        });
+      }
+
       // Add "select all" button event listeners:
-      const setAllRedirect = document.getElementById('setAllRedirect');
-      setAllRedirect.addEventListener('click', async () => {
-        const toggles = document.querySelectorAll('#toggles input.toggleRedirect');
-        for (var i = 0; i < toggles.length; i++) {
-          toggles[i].checked = true;
-          wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'redirect';
-        }
-        extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-      });
+      addGlobalButtonEventListeners_Wiki('setAllRedirect', 'redirect', 'toggleRedirect');
+      addGlobalButtonEventListeners_Wiki('setAllAlert', 'alert', 'toggleAlert');
+      addGlobalButtonEventListeners_Wiki('setAllDisabled', 'disabled', 'toggleDisable');
 
-      const setAllAlert = document.getElementById('setAllAlert');
-      setAllAlert.addEventListener('click', async () => {
-        const toggles = document.querySelectorAll('#toggles input.toggleAlert');
-        for (var i = 0; i < toggles.length; i++) {
-          toggles[i].checked = true;
-          wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'alert';
-        }
-        extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-      });
-
-      const setAllDisabled = document.getElementById('setAllDisabled');
-      setAllDisabled.addEventListener('click', async () => {
-        const toggles = document.querySelectorAll('#toggles input.toggleDisable');
-        for (var i = 0; i < toggles.length; i++) {
-          toggles[i].checked = true;
-          wikiSettings[toggles[i].getAttribute('data-wiki-key')] = 'disabled';
-        }
-        extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
-      });
-
-      const setAllSearchEngineDisabled = document.getElementById('setAllSearchEngineDisabled');
-      setAllSearchEngineDisabled.addEventListener('click', async () => {
-        const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineDisabled');
-        for (var i = 0; i < toggles.length; i++) {
-          toggles[i].checked = true;
-          searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'disabled';
-        }
-        extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
-      });
-
-      const setAllSearchEngineHide = document.getElementById('setAllSearchEngineHide');
-      setAllSearchEngineHide.addEventListener('click', async () => {
-        const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineHide');
-        for (var i = 0; i < toggles.length; i++) {
-          toggles[i].checked = true;
-          searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'hide';
-        }
-        extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
-      });
-
-      const setAllSearchEngineReplace = document.getElementById('setAllSearchEngineReplace');
-      setAllSearchEngineReplace.addEventListener('click', async () => {
-        const toggles = document.querySelectorAll('#toggles input.toggleSearchEngineReplace');
-        for (var i = 0; i < toggles.length; i++) {
-          toggles[i].checked = true;
-          searchEngineSettings[toggles[i].getAttribute('data-wiki-key')] = 'replace';
-        }
-        extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
-      });
+      addGlobalButtonEventListeners_SearchEngine('setAllSearchEngineDisabled', 'disabled', 'toggleSearchEngineDisabled');
+      addGlobalButtonEventListeners_SearchEngine('setAllSearchEngineHide', 'hide', 'toggleSearchEngineHide');
+      addGlobalButtonEventListeners_SearchEngine('setAllSearchEngineReplace', 'replace', 'toggleSearchEngineReplace');
     });
   });
 }
