@@ -131,51 +131,34 @@ async function loadOptions(lang, textFilter = '') {
         inputSearchEngineHide.lang = sites[i].language;
         inputSearchEngineHide.setAttribute('data-wiki-key', key);
 
-        // Check radio buttons based on user's settings
-        if (wikiSettings[key]) {
-          if (wikiSettings[key] === 'disabled') {
+        // Set wiki radio buttons based on user's settings
+        const wikiAction = wikiSettings[key] ?? defaultWikiAction ?? 'alert';
+        
+        switch(wikiAction) {
+          case 'disabled':
             inputDisabled.checked = true;
-          } else if (wikiSettings[key] === 'redirect') {
+            break;
+          case 'redirect':
             inputRedirect.checked = true;
-          } else {
+            break;
+          default:
             inputAlert.checked = true;
-          }
-        } else {
-          let actionSetting = defaultWikiAction;
-          if (actionSetting) {
-            if (actionSetting === 'disabled') {
-              inputDisabled.checked = true;
-            } else if (actionSetting === 'redirect') {
-              inputRedirect.checked = true;
-            } else {
-              inputAlert.checked = true;
-            }
-          } else {
-            inputAlert.checked = true;
-          }
         }
 
-        if (searchEngineSettings[key]) {
-          if (searchEngineSettings[key] === 'disabled') {
+        // Set search engine radio buttons based on user's settings
+        const searchEngineAction = searchEngineSettings[key] ?? defaultSearchAction ?? 'replace';
+
+        switch(searchEngineAction) {
+          case 'true':
+          case 'replace':
+            inputSearchEngineReplace.checked = true;
+            break;
+          case 'false':
+          case 'disabled':
             inputSearchEngineDisabled.checked = true;
-          } else if (searchEngineSettings[key] === 'replace') {
-            inputSearchEngineReplace.checked = true;
-          } else {
+            break;
+          default:
             inputSearchEngineHide.checked = true;
-          }
-        } else {
-          let actionSetting = defaultSearchAction;
-          if (actionSetting) {
-            if (actionSetting === 'true' || actionSetting === 'replace') {
-              inputSearchEngineReplace.checked = true;
-            } else if (actionSetting === 'false' || actionSetting === 'disabled') {
-              inputSearchEngineDisabled.checked = true;
-            } else {
-              inputSearchEngineHide.checked = true;
-            }
-          } else {
-            inputSearchEngineReplace.checked = true;
-          }
         }
 
         // Add listeners for when user clicks control:
