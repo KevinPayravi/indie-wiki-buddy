@@ -282,7 +282,8 @@
         </div>
         <table id="toggles" class="toggles">
           <colgroup>
-            <col class="icon-col" />
+            <col id="icon-col" />
+            <col id="lang-col" />
             <col />
             <col class="button-col" />
             <col class="button-col" />
@@ -293,12 +294,12 @@
           </colgroup>
           <thead id="togglesHeader" class="sticky">
             <tr id="togglesColumnLabels">
-              <td colspan="2"></td>
+              <td colspan="3"></td>
               <th colspan="3" scope="col" data-msg="settingsWikiExp"></th>
               <th colspan="3" scope="col" data-msg="settingsSearchExp"></th>
             </tr>
             <tr id="togglesKeys" class="toggles togglesHeader">
-              <th colspan="2" scope="row" data-msg="settingsSetColumn"></th>
+              <th colspan="3" scope="row" data-msg="settingsSetColumn"></th>
               <td>
                 <button id="setAllWikiDisabled" type="button" 
                 data-msg-attr="data-title=settingsDisabled,aria-label=settingsDisabled"></button>
@@ -325,7 +326,7 @@
               </td>
             </tr>
             <tr id="togglesDefaults" class="toggles togglesHeader">
-              <th colspan="2" scope="row" data-msg="settingsNewWiki"></th>
+              <th colspan="3" scope="row" data-msg="settingsNewWiki"></th>
               <td>
                 <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled" 
                 data-msg-attr="data-title=settingsDisabled,aria-label=settingsDisabled" />

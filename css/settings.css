@@ -82,12 +82,19 @@ legend {
   width: 100%;
 }
 
-#toggles col.icon-col {
+#toggles col#icon-col,
+#toggles col.button-col {
   width: 1.75rem;
 }
 
-#toggles col.button-col {
-  width: 1.75rem;
+#toggles col#lang-col {
+  width: 2rem;
+  visibility: visible;
+}
+
+#toggles col#lang-col.hidden-col {
+  width: 0px;
+  visibility: collapse;
 }
 
 #toggles col:nth-child(4 of .button-col) {

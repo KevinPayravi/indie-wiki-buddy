@@ -52,6 +52,14 @@ async function loadOptions(lang, textFilter = '') {
     return a < b ? -1 : (a > b ? 1 : 0);
   });
 
+  // The language column is hidden when filtered to a specific language
+  const langCol = document.getElementById("lang-col");
+  if (lang === 'ALL') {
+    langCol.classList.remove("hidden-col");
+  } else {
+    langCol.classList.add("hidden-col");
+  }
+
   // Filter wikis by provided language and text filter
   sites = sites.filter((site) => (
     (lang === 'ALL' || site.language === lang) &&
@@ -181,6 +189,12 @@ async function loadOptions(lang, textFilter = '') {
         iconCell.appendChild(linkedIcon);
         siteRow.appendChild(iconCell);
 
+        // Create language tag (hidden unless filter is set to "All languages")
+        const languageSpan = document.createElement('td');
+        languageSpan.classList.add('text-sm');
+        languageSpan.innerText = `[${redirectEntry.language}]`;
+        siteRow.appendChild(languageSpan);
+
         // Create text description of the redirect
         const wikiLink = document.createElement("a");
         wikiLink.href = destinationSiteURL;
@@ -189,12 +203,6 @@ async function loadOptions(lang, textFilter = '') {
         wikiLink.appendChild(document.createTextNode(redirectEntry.destination));
 
         const wikiInfo = document.createElement('td');
-        if (lang === 'ALL') {
-          const languageSpan = document.createElement('span');
-          languageSpan.classList.add('text-sm');
-          languageSpan.innerText = ` [${redirectEntry.language}] `;
-          wikiInfo.appendChild(languageSpan);
-        }
         wikiInfo.classList.add('wiki-description');
         wikiInfo.appendChild(wikiLink);
         wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [sites[i].origins_label])));
