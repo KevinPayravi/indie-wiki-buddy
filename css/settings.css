@@ -75,84 +75,60 @@ legend {
   }
 }
 
-/** TOGGLE OPTIONS **/
-.toggles {
-  font-size: 0.8rem;
-  white-space: nowrap;
-  position: relative;
+/** TOGGLE TABLE OPTIONS **/
+#toggles {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
 }
 
-.toggles img {
-  line-height: 1.2rem;
+#toggles col.icon-col {
+  width: 1.75rem;
 }
 
-.toggles a img {
-  padding-right: .5rem;
-  vertical-align: middle;
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+#toggles col.button-col {
+  width: 1.75rem;
 }
 
-.toggles .inputsContainer * {
-  display: flex;
-  align-items: center;
+#toggles col:nth-child(4 of .button-col) {
+  padding-left: 5px;
+  border-left: 1px solid var(--base-color-outline-light);
 }
 
-.toggles input {
-  cursor: pointer;
-  margin: 0;
-}
-
-.toggles>div {
-  display: flex;
-  flex-direction: row;
-  padding: 0 .5rem;
-  min-height: 20px;
-}
-
-.toggles .inputsContainer {
-  display: flex;
-  width: 150px;
-  justify-content: space-between;
-}
-
-.togglesHeader {
+#toggles thead {
   border-bottom: 1px solid var(--base-color-outline);
   background-color: var(--base-color-secondary);
 }
 
-.togglesHeader span {
-  flex: 1;
-  text-align: right;
-  font-style: italic;
-  margin-right: 1em;
-  padding: .75em 0;
+#togglesColumnLabels th {
+  padding: 5px;
+  font-weight: 600;
+  font-size: .9em;
   white-space: break-spaces;
+  line-height: initial;
+  text-align: center;
 }
 
-.toggles:not(.togglesHeader) span {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: .5em 0;
-}
-
-#toggles>div:hover {
-  background-color: var(--base-color-primary-dark);
+#toggles thead tr th[scope="row"] {
+  text-align: right;
+  font-weight: normal;
+  font-style: italic;
+  padding: .5em;
+  white-space: break-spaces;
 }
 
 #togglesKeys button {
   all: unset;
-  display: inline-flex;
-  vertical-align: middle;
-  width: 100%;
-  height: 100%;
+  width: var(--default-icon-size);
+  height: var(--default-icon-size);
   background-repeat: no-repeat;
   background-position: center;
   background-size: var(--default-icon-size);
   cursor: pointer;
 }
 
-button#setAllWikiDisabled {
+button#setAllWikiDisabled,
+button#setAllSearchEngineDisabled {
   background-image: url('../../images/toggle-disabled.png');
 }
 
@@ -162,10 +138,6 @@ button#setAllWikiAlert {
 
 button#setAllWikiRedirect {
   background-image: url('../../images/toggle-redirect.png');
-}
-
-button#setAllSearchEngineDisabled {
-  background-image: url('../../images/toggle-disabled.png');
 }
 
 button#setAllSearchEngineReplace {
@@ -181,76 +153,75 @@ button#setAllSearchEngineHide {
 }
 
 #togglesDefaults input[type=radio] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-#togglesDefaults input+label {
-  width: 100%;
-  height: 100%;
+  appearance: none;
+  width: var(--default-icon-size);
+  height: var(--default-icon-size);
   background-image: url('../../images/star-off.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: var(--default-icon-size);
 }
 
-#togglesDefaults input:checked+label {
+#togglesDefaults input[type=radio]:checked {
   background-image: url('../../images/star-on.png');
 }
 
-#togglesDefaults label {
-  cursor: pointer;
-}
-
-#togglesKeys .inputsContainer button:hover::after,
-#togglesDefaults .inputsContainer label:hover::after {
+#togglesKeys button:hover::after,
+#togglesDefaults input:hover::after {
   content: attr(data-title);
   padding: 5px;
-  width: fit-content;
+  width: max-content;
   border: 1px solid var(--base-color-outline-dark);
   position: absolute;
   color: #fff;
   background: var(--base-color-dark);
+  font-size: 0.8rem;
   z-index: 999999;
+  left: 0px;
+  bottom: -20px;
   transform: translateX(calc(-100% - 5px));
-  top: 30px;
 }
 
-#togglesColumnLabels {
-  background-color: var(--base-color-secondary);
-  padding: 5px 0;
-}
-
-#togglesColumnLabels>div>div {
-  display: flex;
-  width: 150px;
-}
-
-#togglesColumnLabels>div>div>div {
-  flex: 1 1 0;
-  font-weight: 600;
-  font-size: .9em;
-  white-space: break-spaces;
-  line-height: initial;
+#toggles tr :has(input),
+#toggles tr :has(button) {
   text-align: center;
+  vertical-align: middle;
+  position: relative;
 }
 
-.inputsContainer>* {
-  width: 20px;
-  display: flex;
+#toggles input {
+  cursor: pointer;
+  margin: 0;
+}
+
+#toggles tbody tr:hover {
+  background-color: var(--base-color-primary-dark);
+}
+
+#toggles tbody {
+  font-size: 0.8rem;
   text-align: center;
-  justify-content: center;
+  vertical-align: middle;
 }
 
-.inputsContainer>:nth-child(4) {
-  padding-left: 5px;
-  border-left: 1px solid var(--base-color-outline-light);
+#toggles img {
+  line-height: 1.2rem;
 }
 
-.inputsContainer input.toggleWikiDisabled,
-.inputsContainer input.toggleSeachEngineDisabled {
+#toggles tbody tr td img {
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+#toggles tbody .wiki-description {
+  white-space: nowrap;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: .5rem 0;
+}
+
+#toggles input.toggleWikiDisabled,
+#toggles input.toggleSearchEngineDisabled {
   accent-color: var(--disabled-color);
 }
 

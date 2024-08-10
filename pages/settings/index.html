@@ -280,87 +280,80 @@
             <input id="filterInput" type="text" name="filterInput" data-msg-attr="placeholder=settingsNameFilterPlaceholder" />
           </div>
         </div>
-        <div class="sticky">
-          <div id="togglesColumnLabels" class="toggles">
-            <div>
-              <span></span>
-              <div>
-                <div data-msg="settingsWikiExp"></div>
-                <div data-msg="settingsSearchExp"></div>
-              </div>
-            </div>
-          </div>
-          <div id="togglesKeys" class="toggles togglesHeader">
-            <div>
-              <span data-msg="settingsSetColumn"></span>
-              <div class="inputsContainer">
-                <div>
-                  <button id="setAllWikiDisabled" type="button" data-msg-attr="data-title=settingsDisabled,aria-label=settingsDisabled">
-                  </button>
-                </div>
-                <div>
-                  <button id="setAllWikiAlert" type="button"  data-msg-attr="data-title=settingsAlert,aria-label=settingsAlert">
-                  </button>
-                </div>
-                <div>
-                  <button id="setAllWikiRedirect" type="button"  data-msg-attr="data-title=settingsRedirect,aria-label=settingsRedirect">
-                  </button>
-                </div>
-                <div>
-                  <button id="setAllSearchEngineDisabled" type="button" data-msg-attr="data-title=settingsDisabled,aria-label=settingsDisabled">
-                  </button>
-                </div>
-                <div>
-                  <button id="setAllSearchEngineReplace" type="button"  data-msg-attr="data-title=settingsReplace,aria-label=settingsReplace">
-                  </button>
-                </div>
-                <div>
-                  <button id="setAllSearchEngineHide" type="button" data-msg-attr="data-title=settingsHide,aria-label=settingsHide">
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="togglesDefaults" class="toggles togglesHeader">
-          <div>
-            <span data-msg="settingsNewWiki"></span>
-            <div class="inputsContainer">
-              <div>
-                <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled"
-                  data-msg-attr="aria-label=settingsDisabled" />
-                <label data-msg-attr="data-title=settingsDisabled"
-                  for="defaultWikiActionDisabledRadio"></label>
-              </div>
-              <div>
-                <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert"
-                  data-msg-attr="aria-label=settingsAlert" />
-                <label data-msg-attr="data-title=settingsAlert" for="defaultWikiActionAlertRadio"></label>
-              </div>
-              <div>
-                <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect"
-                  data-msg-attr="aria-label=settingsRedirect" />
-                <label data-msg-attr="data-title=settingsRedirect" for="defaultWikiActionRedirectRadio"></label>
-              </div>
-              <div>
-                <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled"
-                  data-msg-attr="aria-label=settingsDisabled" />
-                <label data-msg-attr="data-title=settingsDisabled" for="defaultSearchActionDisabledRadio"></label>
-              </div>
-              <div>
-                <input id="defaultSearchActionReplaceRadio" type="radio" name="defaultSearchAction" value="replace"
-                  data-msg-attr="aria-label=settingsReplace" />
-                <label data-msg-attr="data-title=settingsReplace" for="defaultSearchActionReplaceRadio"></label>
-              </div>
-              <div>
-                <input id="defaultSearchActionHideRadio" type="radio" name="defaultSearchAction" value="hide"
-                  data-msg-attr="aria-label=settingsHide" />
-                <label data-msg-attr="data-title=settingsHide" for="defaultSearchActionHideRadio"></label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="toggles" class="toggles"></div>
+        <table id="toggles" class="toggles">
+          <colgroup>
+            <col class="icon-col" />
+            <col />
+            <col class="button-col" />
+            <col class="button-col" />
+            <col class="button-col" />
+            <col class="button-col" />
+            <col class="button-col" />
+            <col class="button-col" />
+          </colgroup>
+          <thead id="togglesHeader" class="sticky">
+            <tr id="togglesColumnLabels">
+              <td colspan="2"></td>
+              <th colspan="3" scope="col" data-msg="settingsWikiExp"></th>
+              <th colspan="3" scope="col" data-msg="settingsSearchExp"></th>
+            </tr>
+            <tr id="togglesKeys" class="toggles togglesHeader">
+              <th colspan="2" scope="row" data-msg="settingsSetColumn"></th>
+              <td>
+                <button id="setAllWikiDisabled" type="button" 
+                data-msg-attr="data-title=settingsDisabled,aria-label=settingsDisabled"></button>
+              </td>
+              <td>
+                <button id="setAllWikiAlert" type="button" 
+                data-msg-attr="data-title=settingsAlert,aria-label=settingsAlert"></button>
+              </td>
+              <td>
+                <button id="setAllWikiRedirect" type="button" 
+                data-msg-attr="data-title=settingsRedirect,aria-label=settingsRedirect"></button>
+              </td>
+              <td>
+                <button id="setAllSearchEngineDisabled" type="button" 
+                data-msg-attr="data-title=settingsDisabled,aria-label=settingsDisabled"></button>
+              </td>
+              <td>
+                <button id="setAllSearchEngineReplace" type="button" 
+                data-msg-attr="data-title=settingsReplace,aria-label=settingsReplace"></button>
+              </td>
+              <td>
+                <button id="setAllSearchEngineHide" type="button" 
+                data-msg-attr="data-title=settingsHide,aria-label=settingsHide"></button>
+              </td>
+            </tr>
+            <tr id="togglesDefaults" class="toggles togglesHeader">
+              <th colspan="2" scope="row" data-msg="settingsNewWiki"></th>
+              <td>
+                <input id="defaultWikiActionDisabledRadio" type="radio" name="defaultWikiAction" value="disabled" 
+                data-msg-attr="data-title=settingsDisabled,aria-label=settingsDisabled" />
+              </td>
+              <td>
+                <input id="defaultWikiActionAlertRadio" type="radio" name="defaultWikiAction" value="alert" 
+                data-msg-attr="data-title=settingsAlert,aria-label=settingsAlert" />
+              </td>
+              <td>
+                <input id="defaultWikiActionRedirectRadio" type="radio" name="defaultWikiAction" value="redirect" 
+                data-msg-attr="data-title=settingsRedirect,aria-label=settingsRedirect" />
+              </td>
+              <td>
+                <input id="defaultSearchActionDisabledRadio" type="radio" name="defaultSearchAction" value="disabled" 
+                data-msg-attr="data-title=settingsDisabled,aria-label=settingsDisabled" />
+              </td>
+              <td>
+                <input id="defaultSearchActionReplaceRadio" type="radio" name="defaultSearchAction" value="replace" 
+                data-msg-attr="data-title=settingsReplace,aria-label=settingsReplace" />
+              </td>
+              <td>
+                <input id="defaultSearchActionHideRadio" type="radio" name="defaultSearchAction" value="hide" 
+                data-msg-attr="data-title=settingsHide,aria-label=settingsHide" />
+              </td>
+            </tr>
+          </thead>
+          <tbody id="togglesBody"></tbody>
+        </table>
       </form>
       <hr />
       <div id="footer">

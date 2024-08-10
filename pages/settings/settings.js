@@ -3,8 +3,8 @@ let sites = [];
 // Clear wiki toggles
 // Used when switching languages
 function resetOptions() {
-  const toggleContainer = document.getElementById('toggles');
-  toggleContainer.textContent = "";
+  const toggleTableBody = document.getElementById('togglesBody');
+  toggleTableBody.innerHTML = "";
 
   // Clone "select all" buttons to reset listeners
   document.getElementById('setAllWikiDisabled').cloneNode(true);
@@ -115,7 +115,7 @@ async function loadOptions(lang, textFilter = '') {
       resetOptions();
 
       // Populate individual wiki settings:
-      const toggleContainer = document.getElementById('toggles');
+      const toggleTableBody = document.getElementById('togglesBody');
       for (let i = 0; i < sites.length; i++) {
         const redirectEntry = sites[i];
 
@@ -161,53 +161,62 @@ async function loadOptions(lang, textFilter = '') {
         const destinationSiteURL = `https://${redirectEntry.destination_base_url}`;
         const visitDestinationText = `Visit ${redirectEntry.destination}`;
 
-        let icon = document.createElement("img");
+        // Create row container
+        const siteRow = document.createElement("tr");
+        siteRow.classList.add('site-container');
+
+        // Create icon for the destination wiki
+        const icon = document.createElement("img");
         icon.src = `../../favicons/${redirectEntry.language.toLowerCase()}/${redirectEntry.destination_icon}`;
         icon.alt = visitDestinationText;
-        icon.width = '16';
+        icon.style.width = '16px';
         
-        let iconLink = document.createElement("a");
-        iconLink.href = destinationSiteURL;
-        iconLink.title = visitDestinationText;
-        iconLink.target = '_blank';
-        iconLink.appendChild(icon);
+        const linkedIcon = document.createElement("a");
+        linkedIcon.href = destinationSiteURL;
+        linkedIcon.title = visitDestinationText;
+        linkedIcon.target = '_blank';
+        linkedIcon.appendChild(icon);
 
-        let wikiLink = document.createElement("a");
+        const iconCell = document.createElement("td");
+        iconCell.appendChild(linkedIcon);
+        siteRow.appendChild(iconCell);
+
+        // Create text description of the redirect
+        const wikiLink = document.createElement("a");
         wikiLink.href = destinationSiteURL;
         wikiLink.title = visitDestinationText;
         wikiLink.target = '_blank';
         wikiLink.appendChild(document.createTextNode(redirectEntry.destination));
 
-        let wikiInfo = document.createElement('span');
-        wikiInfo.appendChild(iconLink);
+        const wikiInfo = document.createElement('td');
         if (lang === 'ALL') {
           const languageSpan = document.createElement('span');
           languageSpan.classList.add('text-sm');
           languageSpan.innerText = ` [${redirectEntry.language}] `;
           wikiInfo.appendChild(languageSpan);
         }
+        wikiInfo.classList.add('wiki-description');
         wikiInfo.appendChild(wikiLink);
         wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [sites[i].origins_label])));
 
-        // Create inputs container:
-        let inputsContainer = document.createElement('div');
-        inputsContainer.classList = 'inputsContainer';
+        siteRow.appendChild(wikiInfo);
 
         // Wrap each of the buttons and add them to the container
-        const radioButtonArray = [inputWikiDisabled, inputWikiAlert, inputWikiRedirect, inputSearchEngineDisabled, inputSearchEngineReplace, inputSearchEngineHide];
-        for(radioButton of radioButtonArray) {
-          const buttonWrapper = document.createElement("div");
-          buttonWrapper.appendChild(radioButton);
-          inputsContainer.appendChild(buttonWrapper);
+        const rowCells = [
+          inputWikiDisabled, 
+          inputWikiAlert, 
+          inputWikiRedirect, 
+          inputSearchEngineDisabled, 
+          inputSearchEngineReplace, 
+          inputSearchEngineHide
+        ];
+        for(cellContent of rowCells) {
+          const cell = document.createElement("td");
+          cell.appendChild(cellContent);
+          siteRow.appendChild(cell);
         }
 
-        // Create row container
-        const siteContainer = document.createElement("div");
-        siteContainer.classList.add('site-container')
-
-        siteContainer.appendChild(wikiInfo);
-        siteContainer.appendChild(inputsContainer);
-        toggleContainer.appendChild(siteContainer);
+        toggleTableBody.appendChild(siteRow);
       }
 
       // Add "select all" button event listeners:
@@ -525,19 +534,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Get and display stat counts
   extensionAPI.storage.sync.get({ 'countAlerts': 0 }, (item) => {
-    var key = Object.keys(item)[0];
+    const key = Object.keys(item)[0];
     document.getElementById('countAlerts').textContent = item[key];
   });
   extensionAPI.storage.sync.get({ 'countRedirects': 0 }, (item) => {
-    var key = Object.keys(item)[0];
+    const key = Object.keys(item)[0];
     document.getElementById('countRedirects').textContent = item[key];
   });
   extensionAPI.storage.sync.get({ 'countSearchFilters': 0 }, (item) => {
-    var key = Object.keys(item)[0];
+    const key = Object.keys(item)[0];
     document.getElementById('countSearchFilters').textContent = item[key];
   });
   extensionAPI.storage.sync.get({ 'countBreezeWiki': 0 }, (item) => {
-    var key = Object.keys(item)[0];
+    const key = Object.keys(item)[0];
     document.getElementById('countBreezeWiki').textContent = item[key];
   });
 });
