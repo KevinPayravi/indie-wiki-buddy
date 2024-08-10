@@ -20,10 +20,6 @@ legend {
   padding: 1rem .75rem;
 }
 
-.site-container {
-  background: var(--base-color-secondary);
-}
-
 /* NOTIFICATIONS */
 #notificationBannerReviewLinks {
   display: flex;
@@ -80,6 +76,7 @@ legend {
   border-collapse: collapse;
   table-layout: fixed;
   width: 100%;
+  background: var(--base-color-secondary);
 }
 
 #toggles col#icon-col,
@@ -103,7 +100,6 @@ legend {
 }
 
 #toggles thead {
-  border-bottom: 1px solid var(--base-color-outline);
   background-color: var(--base-color-secondary);
 }
 
@@ -116,12 +112,34 @@ legend {
   text-align: center;
 }
 
-#toggles thead tr th[scope="row"] {
+#togglesKeys th,
+#togglesDefaults th {
   text-align: right;
   font-weight: normal;
   font-style: italic;
   padding: .5em;
   white-space: break-spaces;
+  font-size: .9rem;
+}
+
+#togglesDefaults tr {
+  background-color: var(--base-color-secondary);
+}
+
+#togglesKeys button:hover::after,
+#togglesDefaults input:hover::after {
+  content: attr(data-title);
+  padding: 5px;
+  width: max-content;
+  border: 1px solid var(--base-color-outline-dark);
+  position: absolute;
+  color: #fff;
+  background-color: var(--base-color-dark);
+  font-size: 0.8rem;
+  z-index: 999999;
+  left: 0px;
+  bottom: -20px;
+  transform: translateX(calc(-100% - 5px));
 }
 
 #togglesKeys button {
@@ -173,24 +191,8 @@ button#setAllSearchEngineHide {
   background-image: url('../../images/star-on.png');
 }
 
-#togglesKeys button:hover::after,
-#togglesDefaults input:hover::after {
-  content: attr(data-title);
-  padding: 5px;
-  width: max-content;
-  border: 1px solid var(--base-color-outline-dark);
-  position: absolute;
-  color: #fff;
-  background: var(--base-color-dark);
-  font-size: 0.8rem;
-  z-index: 999999;
-  left: 0px;
-  bottom: -20px;
-  transform: translateX(calc(-100% - 5px));
-}
-
-#toggles tr :has(input),
-#toggles tr :has(button) {
+#toggles tr td:has(input),
+#toggles tr td:has(button) {
   text-align: center;
   vertical-align: middle;
   position: relative;

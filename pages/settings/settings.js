@@ -4,7 +4,14 @@ let sites = [];
 // Used when switching languages
 function resetOptions() {
   const toggleTableBody = document.getElementById('togglesBody');
-  toggleTableBody.innerHTML = "";
+
+   // Need to create a copy first, because the children change while iterating
+  const toggleTableRows = [...toggleTableBody.children];
+  for(el of toggleTableRows) {
+    if(el.classList?.contains('site-container')) {
+      el.remove();
+    }
+  }
 
   // Clone "select all" buttons to reset listeners
   document.getElementById('setAllWikiDisabled').cloneNode(true);
