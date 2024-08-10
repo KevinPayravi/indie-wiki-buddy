@@ -73,10 +73,13 @@ legend {
 
 /** TOGGLE TABLE OPTIONS **/
 #toggles {
-  border-collapse: collapse;
+  --table-border-radius: 5px;
   table-layout: fixed;
   width: 100%;
-  background: var(--base-color-secondary);
+  background-color: var(--base-color-secondary);
+  border: 1px solid var(--base-color-outline-light);
+  border-radius: var(--table-border-radius);
+  border-spacing: 0px;
 }
 
 #toggles col#icon-col,
@@ -94,13 +97,15 @@ legend {
   visibility: collapse;
 }
 
-#toggles col:nth-child(4 of .button-col) {
-  padding-left: 5px;
-  border-left: 1px solid var(--base-color-outline-light);
+#toggles tr.togglesHeader td:nth-last-child(4),
+#toggles tr.site-container td:nth-last-child(4) {
+  padding-right: 2px;
 }
 
-#toggles thead {
-  background-color: var(--base-color-secondary);
+#toggles tr.togglesHeader td:nth-last-child(3),
+#toggles tr.site-container td:nth-last-child(3) {
+  padding-left: 2px;
+  border-left: 1px solid var(--base-color-outline-light);
 }
 
 #togglesColumnLabels th {
@@ -122,8 +127,25 @@ legend {
   font-size: .9rem;
 }
 
-#togglesDefaults tr {
+#toggles td,
+#toggles th {
   background-color: var(--base-color-secondary);
+}
+
+#toggles thead tr:first-child :first-child {
+  border-top-left-radius: var(--table-border-radius);
+}
+
+#toggles thead tr:first-child :last-child {
+  border-top-right-radius: var(--table-border-radius);
+}
+
+#toggles tbody tr:last-child :first-child {
+  border-bottom-left-radius: var(--table-border-radius);
+}
+
+#toggles tbody tr:last-child :last-child {
+  border-bottom-right-radius: var(--table-border-radius);
 }
 
 #togglesKeys button:hover::after,
