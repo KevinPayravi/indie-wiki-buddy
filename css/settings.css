@@ -35,15 +35,15 @@ legend {
   display: inline-block;
 }
 
-#legend div,
-#legend span {
-  padding: 0 0 0 8px;
+#legend > span {
+  margin-left: 8px;
 }
 
-#legend div {
+#legend > div {
+  margin-left: 16px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 1em;
 }
 
 /* WIKI FILTERS */
