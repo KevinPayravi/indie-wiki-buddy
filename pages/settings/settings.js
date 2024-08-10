@@ -174,7 +174,7 @@ async function loadOptions(lang, textFilter = '') {
 
         // Output wiki info:
         const destinationSiteURL = `https://${redirectEntry.destination_base_url}`;
-        const visitDestinationText = `Visit ${redirectEntry.destination}`;
+        const visitDestinationText = extensionAPI.i18n.getMessage('bannerVisit', [redirectEntry.destination]);
 
         // Create row container
         const siteRow = document.createElement("tr");
@@ -212,7 +212,7 @@ async function loadOptions(lang, textFilter = '') {
         const wikiInfo = document.createElement('td');
         wikiInfo.classList.add('wiki-description');
         wikiInfo.appendChild(wikiLink);
-        wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [sites[i].origins_label])));
+        wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [redirectEntry.origins_label])));
 
         siteRow.appendChild(wikiInfo);
 
