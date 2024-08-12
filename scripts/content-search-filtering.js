@@ -5,7 +5,7 @@
 const currentURL = new URL(document.location.href);
 let hiddenWikisRevealed = {};
 
-/** @type {{url: string, isNonIndie: boolean, siteData: SiteData, container: HTMLElement}[]} */
+/** @type {{url: string, isNonIndie: boolean, siteData: SiteData, container: HTMLElement, anchor: HTMLAnchorElement}[]} */
 const processedCache = [];
 
 /** @type {string} */
@@ -273,21 +273,17 @@ function mountSearchBanner(wikiInfo) {
  * @param {string} bannerState
  */
 function hideSearchResults(searchResultContainer, wikiInfo, bannerState = 'on') {
-  if (!searchResultContainer.classList.contains('iwb-detected')) {
-    let elementId = stringToId(wikiInfo.language + '-' + wikiInfo.origin);
-    searchResultContainer.classList.add('iwb-search-result-' + elementId);
-    searchResultContainer.classList.add('iwb-detected');
-    const revealed = hiddenWikisRevealed[elementId] ?? false;
-    searchResultContainer.classList.toggle('iwb-hide', !revealed);
-    searchResultContainer.classList.toggle('iwb-show', revealed);
+  let elementId = stringToId(wikiInfo.language + '-' + wikiInfo.origin);
+  searchResultContainer.classList.add('iwb-search-result-' + elementId);
+  const revealed = hiddenWikisRevealed[elementId] ?? false;
+  searchResultContainer.classList.toggle('iwb-hide', !revealed);
+  searchResultContainer.classList.toggle('iwb-show', revealed);
 
-    if (bannerState === 'on') {
-      mountSearchBanner(wikiInfo);
-    }
-    return 1;
+  if (bannerState === 'on') {
+    mountSearchBanner(wikiInfo);
   }
 
-  return 0;
+  return 1;
 }
 
 /**
@@ -494,7 +490,8 @@ async function filterSearchResults(searchResults) {
             url: searchResultLink,
             isNonIndie: true,
             siteData: matchingNonIndieWiki,
-            container: searchResultContainer
+            container: searchResultContainer,
+            anchor: searchResult,
           });
         } else {
           // handle destination -> source, i.e. indie wikis
@@ -506,7 +503,8 @@ async function filterSearchResults(searchResults) {
               url: searchResultLink,
               isNonIndie: false,
               siteData: matchingIndieWiki,
-              container: searchResultContainer
+              container: searchResultContainer,
+              anchor: searchResult,
             };
 
             if ((storage.reorderResults ?? 'on') == 'on' && processedCache[0]?.isNonIndie) {
@@ -516,6 +514,9 @@ async function filterSearchResults(searchResults) {
               const old = processedCache[0];
               processedCache[0] = cacheInfo;
               processedCache.push(old);
+
+              // re-filter the element that was swapped
+              countFiltered += filterSearchResult(old.siteData, old.anchor);
             } else {
               processedCache.push(cacheInfo);
             };
