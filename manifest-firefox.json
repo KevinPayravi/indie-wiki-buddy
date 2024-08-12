@@ -135,8 +135,8 @@
       ],
       "js": [
         "scripts/common-functions.js",
-        "scripts/content-breezewiki.js"
-      ],
+      "scripts/content-breezewiki.js"
+    ],
       "run_at": "document_end"
     },
     {
@@ -361,14 +361,17 @@
       ],
       "js": [
         "scripts/common-functions.js",
-        "scripts/content-search-filtering.js"
-      ],
+      "scripts/content-search-filtering.js"
+    ],
       "css": [
         "css/content-search-filtering.css"
-      ],
-      "run_at": "document_end"
+    ],
+      "run_at": "document_start"
     }
   ],
+  "options_ui": {
+    "page": "pages/settings/index.html"
+  },
   "optional_permissions": ["https://*/*"],
   "browser_specific_settings": {
     "gecko": {

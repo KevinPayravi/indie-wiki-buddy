@@ -126,16 +126,23 @@ async function populateSiteDataByOrigin() {
   return sites;
 }
 
+/** @type {SiteData[] | Promise<SiteData[]> | undefined} */
+let _siteDataByOrigin;
+
 /**
  * Load wiki data objects, with each origin having its own object
  * @returns {Promise<SiteData[]>}
  */
 async function commonFunctionGetSiteDataByOrigin() {
-  if (typeof window === 'undefined' || !window.iwb_siteDataByOrigin || window.iwb_siteDataByOrigin.length === 0) {
+  if (_siteDataByOrigin === undefined) {
+    let resolve;
+    _siteDataByOrigin = new Promise(_resolve => resolve = _resolve);
     let sites = await populateSiteDataByOrigin();
+    resolve(sites);
+    console.debug("IWB: Site data loaded.");
     return sites;
   } else {
-    return window.iwb_siteDataByOrigin;
+    return _siteDataByOrigin;
   }
 }
 
@@ -148,32 +155,31 @@ async function commonFunctionGetSiteDataByOrigin() {
 async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest = false) {
   let base_url_key = dest ? 'destination_base_url' : 'origin_base_url';
 
-  let matchingSite = commonFunctionGetSiteDataByOrigin().then(sites => {
-    let matchingSites = [];
-    if (crossLanguageSetting === 'on') {
-      matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el[base_url_key]));
-    } else {
-      matchingSites = sites.filter(el =>
-        site.replace(/.*https?:\/\//, '').startsWith(dest ? el[base_url_key] : (el.origin_base_url + el.origin_content_path))
-        || site.replace(/.*https?:\/\//, '').replace(/\/$/, '') === el[base_url_key]
-      );
-    }
+  let sites = await commonFunctionGetSiteDataByOrigin();
 
-    if (matchingSites.length > 0) {
-      // Select match with longest base URL
-      let closestMatch = '';
-      matchingSites.forEach(site => {
-        if (site[base_url_key].length > closestMatch.length) {
-          closestMatch = site[base_url_key];
-        }
-      });
-      return matchingSites.find(site => site[base_url_key] === closestMatch) ?? null;
-    } else {
-      return null;
-    }
-  });
+  let matchingSites = [];
+  if (crossLanguageSetting === 'on') {
+    matchingSites = sites.filter(el => site.replace(/.*https?:\/\//, '').startsWith(el[base_url_key]));
+  } else {
+    matchingSites = sites.filter(
+      el =>
+        site.replace(/.*https?:\/\//, '').startsWith(dest ? el[base_url_key] : el.origin_base_url + el.origin_content_path) ||
+        site.replace(/.*https?:\/\//, '').replace(/\/$/, '') === el[base_url_key]
+    );
+  }
 
-  return matchingSite;
+  if (matchingSites.length > 0) {
+    // Select match with longest base URL
+    let closestMatch = '';
+    matchingSites.forEach(site => {
+      if (site[base_url_key].length > closestMatch.length) {
+        closestMatch = site[base_url_key];
+      }
+    });
+    return matchingSites.find(site => site[base_url_key] === closestMatch) ?? null;
+  } else {
+    return null;
+  }
 }
 
 /**
@@ -321,6 +327,12 @@ async function commonFunctionMigrateToV3() {
       extensionAPI.storage.sync.set({ 'v3migration': 'done' });
     }
   });
+}
+
+/** @param {Node} element */
+function isAnchor(element) {
+  if (!(element instanceof HTMLElement)) return false;
+  return element.tagName && element.tagName.toLowerCase() === 'a';
 }
 
 /**
