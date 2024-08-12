@@ -138,9 +138,9 @@ function mountToTopOfSearchResults(element) {
   switch (searchEngine) {
       case 'google':
         if (document.querySelector('#search')) {
-          document.querySelector('#search')?.prepend(element);
+          document.querySelector('#search').prepend(element);
         } else if (document.querySelector('#topstuff')) {
-          document.querySelector('#topstuff')?.prepend(element);
+          document.querySelector('#topstuff').prepend(element);
         } else if (document.querySelector('#main')) {
           var el = document.querySelector('#main');
           if (el.querySelector('#main > div[data-hveid]')) {
@@ -153,28 +153,28 @@ function mountToTopOfSearchResults(element) {
       case 'bing':
         var li = document.createElement('li');
         li.appendChild(element);
-        document.querySelector('#b_results')?.prepend(li);
+        document.querySelector('#b_results').prepend(li);
         break;
       case 'duckduckgo':
         if (document.getElementById('web_content_wrapper')) {
           var li = document.createElement('li');
           li.appendChild(element);
-          document.querySelector('#web_content_wrapper ol')?.prepend(li);
+          document.querySelector('#web_content_wrapper ol').prepend(li);
         } else {
-          document.getElementById('links')?.prepend(element);
+          document.getElementById('links').prepend(element);
         }
         break;
       case 'brave':
-        document.getElementById('results')?.prepend(element);
+        document.getElementById('results').prepend(element);
         break;
       case 'ecosia':
-        document.querySelector('section.mainline')?.prepend(element);
+        document.querySelector('section.mainline').prepend(element);
         break;
       case 'qwant':
-        document.querySelector('div[data-testid=sectionWeb]')?.prepend(element);
+        document.querySelector('div[data-testid=sectionWeb]').prepend(element);
         break;
       case 'startpage':
-        document.querySelector('#main')?.prepend(element);
+        document.querySelector('#main').prepend(element);
         break;
       case 'yandex':
         var searchResultsContainer = document.querySelector('#search-result') || document.querySelector('.main__content .content');
@@ -184,19 +184,19 @@ function mountToTopOfSearchResults(element) {
         if (document.querySelector('#web > ol')) {
           var li = document.createElement('li');
           li.appendChild(element);
-          document.querySelector('#web > ol')?.prepend(li);
+          document.querySelector('#web > ol').prepend(li);
         } else {
-          document.querySelector('#main-algo')?.prepend(element);
+          document.querySelector('#main-algo').prepend(element);
         }
         break;
       case 'kagi':
-        document.querySelector('#main')?.prepend(element);
+        document.querySelector('#main').prepend(element);
         break;
       case 'searxng':
-        document.querySelector('#results')?.prepend(element);
+        document.querySelector('#results').prepend(element);
         break;
       case 'whoogle':
-        document.querySelector('#main')?.prepend(element);
+        document.querySelector('#main').prepend(element);
         break;
       default:
     }
@@ -334,12 +334,12 @@ function getResultContainer(searchEngine, searchResult) {
 
   switch (searchEngine) {
     case 'google':
-      /** @type {HTMLElement | null} */
+      /** @type {HTMLElement} */
       const closestJsController = searchResult.closest('div[jscontroller]');
-      /** @type {HTMLElement | null} */
+      /** @type {HTMLElement} */
       const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
       // For Google search results, get the parentNode of the result container as that tends to be more reliable:
-      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv])?.parentElement;
+      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv]).parentElement;
       break;
     case 'bing':
       searchResultContainer = searchResult.closest('li.b_algo');
@@ -351,7 +351,7 @@ function getResultContainer(searchEngine, searchResult) {
       searchResultContainer = searchResult.closest('div.snippet');
       break;
     case 'ecosia':
-      searchResultContainer = searchResult.closest('div.mainline__result-wrapper article')?.parentElement;
+      searchResultContainer = searchResult.closest('div.mainline__result-wrapper article').parentElement;
       break;
     case 'qwant':
       if (searchResult.closest('div[data-testid=webResult]')) {
@@ -480,51 +480,49 @@ async function filterSearchResults(searchResults) {
         let crossLanguageSetting = storage.crossLanguage || 'off';
         const searchResultContainer = getResultContainer(searchEngine, searchResult);
 
-        if (searchResultContainer) {
-          // Handle source -> destination filtering, i.e. non-indie/commercial wikis
-          let matchingNonIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
-          if (matchingNonIndieWiki) {
-            console.debug('Indie Wiki Buddy: Filtering search result:', searchResultLink);
-            // Site found in db, process search result
-            countFiltered += filterSearchResult(matchingNonIndieWiki, searchResult);
-            processedCache.push({
+        // Handle source -> destination filtering, i.e. non-indie/commercial wikis
+        let matchingNonIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
+        if (matchingNonIndieWiki) {
+          console.debug('Indie Wiki Buddy: Filtering search result:', searchResultLink);
+          // Site found in db, process search result
+          countFiltered += filterSearchResult(matchingNonIndieWiki, searchResult);
+          processedCache.push({
+            url: searchResultLink,
+            isNonIndie: true,
+            siteData: matchingNonIndieWiki,
+            container: searchResultContainer,
+            anchor: searchResult,
+          });
+        } else {
+          // handle destination -> source, i.e. indie wikis
+          let matchingIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting, true);
+
+          if (matchingIndieWiki) {
+            console.debug('Indie Wiki Buddy: Found indie wiki for search result:', searchResultLink);
+            const cacheInfo = {
               url: searchResultLink,
-              isNonIndie: true,
-              siteData: matchingNonIndieWiki,
+              isNonIndie: false,
+              siteData: matchingIndieWiki,
               container: searchResultContainer,
               anchor: searchResult,
-            });
-          } else {
-            // handle destination -> source, i.e. indie wikis
-            let matchingIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting, true);
+            };
 
-            if (matchingIndieWiki) {
-              console.debug('Indie Wiki Buddy: Found indie wiki for search result:', searchResultLink);
-              const cacheInfo = {
-                url: searchResultLink,
-                isNonIndie: false,
-                siteData: matchingIndieWiki,
-                container: searchResultContainer,
-                anchor: searchResult,
-              };
+            if ((storage.reorderResults ?? 'on') == 'on' && processedCache[0]?.isNonIndie) {
+              console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
+              swapDOMElements(searchResultContainer, processedCache[0].container);
+              // now swap the cache to not reorder the same element multiple times
+              const old = processedCache[0];
+              processedCache[0] = cacheInfo;
+              processedCache.push(old);
 
-              if ((storage.reorderResults ?? 'on') == 'on' && processedCache[0]?.isNonIndie) {
-                console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
-                swapDOMElements(searchResultContainer, processedCache[0].container);
-                // now swap the cache to not reorder the same element multiple times
-                const old = processedCache[0];
-                processedCache[0] = cacheInfo;
-                processedCache.push(old);
-
-                // re-filter the element that was swapped
-                countFiltered += filterSearchResult(old.siteData, old.anchor);
-              } else {
-                processedCache.push(cacheInfo);
-              };
-            }
+              // re-filter the element that was swapped
+              countFiltered += filterSearchResult(old.siteData, old.anchor);
+            } else {
+              processedCache.push(cacheInfo);
+            };
           }
-          searchResultContainer?.classList.add('iwb-detected');
         }
+        searchResultContainer?.classList.add('iwb-detected');
       }
     } catch (e) {
       console.error('Indie Wiki Buddy failed to properly parse search results with error: ', e);
@@ -704,7 +702,7 @@ function filterAnchors(newAnchors) {
   }
 }
 
-/** @type {HTMLElement | null} */
+/** @type {HTMLElement} */
 let pageChangeDetector = null;
 
 function checkRevalidate() {
