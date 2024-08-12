@@ -768,20 +768,24 @@ async function decompressStorage(storage) {
 function processSearchEngine(_searchEngine) {
   searchEngine = _searchEngine;
   console.debug('Indie Wiki Buddy: Processing search engine:', searchEngine);
-  extensionAPI.runtime.sendMessage({ action: 'getStorage' }, /** @param {Record<string, any>} _storage */ async (_storage) => {
-    console.debug('IWB: Storage acquired.');
-    storage = await decompressStorage(_storage ?? {});
-    console.debug('IWB: storage decompressed.');
-    const searchEngineToggles = storage.searchEngineToggles ?? {};
-    if (searchEngineToggles[searchEngine] === 'on' || !searchEngineToggles.hasOwnProperty(searchEngine)) {
-      // catchup on any possible missed search results
-      checkRevalidate();
-      filterAnchors(Array.from(document.body?.querySelectorAll('a') ?? []));
+  extensionAPI.runtime.sendMessage(
+    { action: 'getStorage' },
+    /** @param {Record<string, any>} _storage */ async _storage => {
+      console.debug('IWB: Storage acquired.');
+      storage = await decompressStorage(_storage ?? {});
+      console.debug('IWB: storage decompressed.');
+      const searchEngineToggles = storage.searchEngineToggles ?? {};
+      if ((storage.power ?? 'on') != 'on') return;
+      if (searchEngineToggles[searchEngine] === 'on' || !searchEngineToggles.hasOwnProperty(searchEngine)) {
+        // catchup on any possible missed search results
+        checkRevalidate();
+        filterAnchors(Array.from(document.body?.querySelectorAll('a') ?? []));
 
-      // start listening to DOM changes
-      addDOMChangeObserver(filterMutations);
+        // start listening to DOM changes
+        addDOMChangeObserver(filterMutations);
+      }
     }
-  });
+  );
 }
 
 // fill cache
