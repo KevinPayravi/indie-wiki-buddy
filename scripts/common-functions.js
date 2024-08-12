@@ -331,7 +331,7 @@ async function commonFunctionMigrateToV3() {
 
 /** @param {Node} element */
 function isAnchor(element) {
-  if (!element instanceof HTMLElement) return false;
+  if (!(element instanceof HTMLElement)) return false;
   return element.tagName && element.tagName.toLowerCase() === 'a';
 }
 
