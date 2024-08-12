@@ -351,7 +351,7 @@ function getResultContainer(searchEngine, searchResult) {
       searchResultContainer = searchResult.closest('div.snippet');
       break;
     case 'ecosia':
-      searchResultContainer = searchResult.closest('div.mainline__result-wrapper article > div.result__body');
+      searchResultContainer = searchResult.closest('div.mainline__result-wrapper article').parentElement;
       break;
     case 'qwant':
       if (searchResult.closest('div[data-testid=webResult]')) {
