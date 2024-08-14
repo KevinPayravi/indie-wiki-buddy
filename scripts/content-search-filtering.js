@@ -738,6 +738,7 @@ function filterMutations(mutations, observer) {
   const addedSubtrees = mutations.flatMap(mutation => Array.from(mutation.addedNodes));
   const newAnchors = /** @type {HTMLAnchorElement[]} */ (addedSubtrees
     .filter(node => node instanceof HTMLElement)
+    // @ts-ignore: node is always of type HTMLElement
     .flatMap(node => isAnchor(node) ? node : Array.from(node.querySelectorAll('a')))
   );
 
