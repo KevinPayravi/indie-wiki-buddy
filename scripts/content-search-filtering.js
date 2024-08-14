@@ -133,6 +133,7 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
 
 /**
  * @param {HTMLElement} element
+ * @returns {boolean} Whether the element was mounted or not.
  */
 function mountToTopOfSearchResults(element) {
   switch (searchEngine) {
@@ -141,18 +142,6 @@ function mountToTopOfSearchResults(element) {
           document.querySelector('#search')?.prepend(element);
         } else if (document.querySelector('#topstuff')) {
           document.querySelector('#topstuff')?.prepend(element);
-        } else if (document.querySelector('#main')) {
-          var el = document.querySelector('#main');
-          if (el) {
-            if (el.querySelector('#main > div[data-hveid]')) {
-              el.insertBefore(element, el.querySelector('div[data-hveid]'));
-            } else {
-              const hveid = el.querySelector('div div[data-hveid]');
-              if (hveid) {
-                el.insertBefore(element, hveid.parentElement);
-              }
-            }
-          }
         }
         break;
       case 'bing':
@@ -207,11 +196,7 @@ function mountToTopOfSearchResults(element) {
   }
 
   // Return whether element was successfully mounted
-  if (element.id && document.getElementById(element.id)) {
-    return true;
-  } else {
-    return false;
-  }
+  return element.isConnected;
 };
 
 /**
@@ -720,7 +705,7 @@ function filterAnchors(newAnchors) {
 let pageChangeDetector = null;
 
 function checkRevalidate() {
-  if (pageChangeDetector == null || !document.body.contains(pageChangeDetector)) {
+  if (pageChangeDetector == null || !pageChangeDetector.isConnected) {
     processedCache.length = 0;
 
     // mount dummy element to detect page changes
@@ -728,8 +713,8 @@ function checkRevalidate() {
     pageChangeDetector.id = 'iwb-page-change-detector';
     pageChangeDetector.style.display = 'none';
     try {
-      /** @type {boolean} */
       const containerMounted = mountToTopOfSearchResults(pageChangeDetector);
+      // if search results not mounted yet, we wait until they exist.
       if (!containerMounted) return;
       // just in case, re-process search results
       console.debug('IWB: Reprocessing search results...');
@@ -753,14 +738,7 @@ function filterMutations(mutations, observer) {
   const addedSubtrees = mutations.flatMap(mutation => Array.from(mutation.addedNodes));
   const newAnchors = /** @type {HTMLAnchorElement[]} */ (addedSubtrees
     .filter(node => node instanceof HTMLElement)
-    .flatMap(node => {
-      if (isAnchor(node)) {
-        return node;
-      } else if (node instanceof HTMLElement) {
-        return Array.from(node.querySelectorAll('a'));
-      }
-      return [];
-    })
+    .flatMap(node => isAnchor(node) ? node : Array.from(node.querySelectorAll('a')))
   );
 
   filterAnchors(newAnchors);
