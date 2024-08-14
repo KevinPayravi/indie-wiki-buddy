@@ -207,7 +207,7 @@ function mountToTopOfSearchResults(element) {
   }
 
   // Return whether element was successfully mounted
-  if (element.id && document.querySelector(element.id)) {
+  if (element.id && document.getElementById(element.id)) {
     return true;
   } else {
     return false;
