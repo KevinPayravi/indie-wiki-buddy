@@ -4094,13 +4094,19 @@
   },
   {
     "id": "en-maplestory",
-    "origins_label": "MapleWiki on Fandom",
+    "origins_label": "MapleStory Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "MapleWiki on Fandom",
         "origin_base_url": "maplestory.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Template:MapleWiki"
+      }
+      {
+        "origin": "MapleStory Wiki - Neoseeker",
+        "origin_base_url": "maplestory.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "MapleStory Wiki",
