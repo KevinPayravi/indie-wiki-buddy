@@ -1,4 +1,4 @@
-﻿var LANGS = ["DE", "EN", "ES", "FI", "FR", "HU", "IT", "JA", "LZH", "KO", "PL", "PT", "RU", "SV", "TH", "TOK", "UK", "ZH"];
+var LANGS = ["DE", "EN", "ES", "FI", "FR", "HU", "IT", "JA", "KO", "LZH", "PL", "PT", "RU", "SV", "TH", "TOK", "UK", "ZH"];
 var BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 const extensionAPI = typeof browser === "undefined" ? chrome : browser;
 
@@ -11,6 +11,25 @@ function b64decode(str) {
     bytes[i] = binary_string.charCodeAt(i);
   }
   return bytes;
+}
+
+/**
+ * Joins an array of strings as a camelCase string
+ * @param {string[]} stringArray
+ * @returns {string}
+ */
+function camelCaseJoin(stringArray) {
+  let outputString = "";
+  for(let i = 0; i < stringArray.length; i++)
+  {
+    const stringEntry = stringArray[i];
+    if (i == 0) {
+      outputString += stringEntry;
+    } else {
+      outputString += stringEntry.charAt(0).toUpperCase() + stringEntry.slice(1);
+    }
+  }
+  return outputString;
 }
 
 /** @param {string} value */
