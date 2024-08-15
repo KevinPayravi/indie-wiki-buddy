@@ -133,6 +133,7 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
 
 /**
  * @param {HTMLElement} element
+ * @returns {boolean} Whether the element was mounted or not.
  */
 function mountToTopOfSearchResults(element) {
   switch (searchEngine) {
@@ -142,11 +143,12 @@ function mountToTopOfSearchResults(element) {
         } else if (document.querySelector('#topstuff')) {
           document.querySelector('#topstuff').prepend(element);
         } else if (document.querySelector('#main')) {
-          var el = document.querySelector('#main');
-          if (el.querySelector('#main > div[data-hveid]')) {
-            el.insertBefore(element, el.querySelector('div[data-hveid]'));
-          } else {
-            el.insertBefore(element, el.querySelector('div div[data-hveid]').parentElement);
+          var main = document.querySelector('#main');
+          if (main) {
+            const hveid = main.querySelector('div div[data-hveid]');
+            if (hveid) {
+              hveid.parentElement?.insertBefore(element, hveid);
+            }
           }
         }
         break;
@@ -199,8 +201,11 @@ function mountToTopOfSearchResults(element) {
         document.querySelector('#main').prepend(element);
         break;
       default:
-    }
-  };
+  }
+
+  // Return whether element was successfully mounted
+  return element.isConnected;
+};
 
 /**
  * Shows a banner at the top of the search results page for a given wiki type, if one is not already present.
@@ -242,7 +247,7 @@ function mountSearchBanner(wikiInfo) {
 
     /** @param {MouseEvent & { target: HTMLDivElement, currentTarget: HTMLDivElement }} e */
     showResultsButton.onclick = function (e) {
-      if (e.target.textContent.includes(extensionAPI.i18n.getMessage('searchFilteredResultsShow'))) {
+      if (e.target.textContent?.includes(extensionAPI.i18n.getMessage('searchFilteredResultsShow'))) {
         e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsHide');
         hiddenWikisRevealed[elementId] = true;
         const selector = e.currentTarget.dataset.group;
@@ -356,7 +361,7 @@ function getResultContainer(searchEngine, searchResult) {
     case 'qwant':
       if (searchResult.closest('div[data-testid=webResult]')) {
         const cssQuery = 'div[data-testid=webResult]';
-        searchResultContainer = searchResult.closest(cssQuery).parentElement;
+        searchResultContainer = searchResult.closest(cssQuery)?.parentElement;
       }
       break;
     case 'startpage':
@@ -651,10 +656,10 @@ function filterAnchors(newAnchors) {
                 // Extract the URL between "RU=" and "/RK="
                 const embeddedUrlRegex = /RU=([^/]+)\/RK=/;
                 const match = searchResult.href.match(embeddedUrlRegex);
-                const extractedURL = decodeURIComponent(match && match[1]);
-
-                if (extractedURL) searchResult.setAttribute('data-iwb-href', extractedURL);
-
+                if (match) {
+                  const extractedURL = decodeURIComponent(match && match[1]);
+                  if (extractedURL) searchResult.setAttribute('data-iwb-href', extractedURL);
+                }
               } catch (e) {
                 console.error('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
               }
@@ -674,13 +679,13 @@ function filterAnchors(newAnchors) {
     default: {
       if (storage.customSearchEngines) {
         function filterSearXNG() {
-          const searchResults = newAnchors.filter(e => e.matches('h3>a'));
-          filterSearchResults(searchResults);
+          const searchResults = newAnchors?.filter(e => e.matches('h3>a'));
+          if (searchResults) filterSearchResults(searchResults);
         }
 
         function filterWhoogle() {
-          const searchResults = newAnchors.filter(e => e.matches('div>a'));
-          filterSearchResults(searchResults);
+          const searchResults = newAnchors?.filter(e => e.matches('div>a'));
+          if (searchResults) filterSearchResults(searchResults);
         }
 
         /** @param {string} searchEngine */
@@ -706,7 +711,7 @@ function filterAnchors(newAnchors) {
 let pageChangeDetector = null;
 
 function checkRevalidate() {
-  if (pageChangeDetector == null || !document.body.contains(pageChangeDetector)) {
+  if (pageChangeDetector == null || !pageChangeDetector.isConnected) {
     processedCache.length = 0;
 
     // mount dummy element to detect page changes
@@ -714,7 +719,9 @@ function checkRevalidate() {
     pageChangeDetector.id = 'iwb-page-change-detector';
     pageChangeDetector.style.display = 'none';
     try {
-      mountToTopOfSearchResults(pageChangeDetector);
+      const containerMounted = mountToTopOfSearchResults(pageChangeDetector);
+      // if search results not mounted yet, we wait until they exist.
+      if (!containerMounted) return;
       // just in case, re-process search results
       console.debug('IWB: Reprocessing search results...');
       filterAnchors(Array.from(document.body?.querySelectorAll('a')));
@@ -734,11 +741,11 @@ function filterMutations(mutations, observer) {
   if (document.body == undefined || mutations == undefined) return;
   checkRevalidate();
 
-
   const addedSubtrees = mutations.flatMap(mutation => Array.from(mutation.addedNodes));
   const newAnchors = /** @type {HTMLAnchorElement[]} */ (addedSubtrees
     .filter(node => node instanceof HTMLElement)
-    .flatMap(node => (isAnchor(node) && node) || Array.from(node.querySelectorAll('a')))
+    // @ts-ignore: node is always of type HTMLElement
+    .flatMap(node => isAnchor(node) ? node : Array.from(node.querySelectorAll('a')))
   );
 
   filterAnchors(newAnchors);
