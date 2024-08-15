@@ -339,9 +339,11 @@ function getResultContainer(searchEngine, searchResult) {
       /** @type {HTMLElement | null} */
       const closestJsController = searchResult.closest('div[jscontroller]');
       /** @type {HTMLElement | null} */
+      const closestJsName = searchResult.closest('div[jsname]');
+      /** @type {HTMLElement | null} */
       const closestDataDiv = searchResult.closest('div[data-hveid].g') || searchResult.closest('div[data-hveid]');
       // For Google search results, get the parentNode of the result container as that tends to be more reliable:
-      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestDataDiv])?.parentElement;
+      searchResultContainer = findClosestElement(searchResult, [closestJsController, closestJsName, closestDataDiv])?.parentElement;
       break;
     case 'bing':
       searchResultContainer = searchResult.closest('li.b_algo');
@@ -560,6 +562,8 @@ function filterAnchors(newAnchors) {
     case 'google': {
       // Query Google results and rewrite HREFs when Google uses middleman links (i.e. google.com/url?q=)
       let searchResults = newAnchors.filter(e => e.matches("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])"));
+      
+      // Filter out search results that are within other search results
       searchResults = searchResults.filter(
         e =>
           !e.closest(
