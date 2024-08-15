@@ -142,6 +142,14 @@ function mountToTopOfSearchResults(element) {
           document.querySelector('#search')?.prepend(element);
         } else if (document.querySelector('#topstuff')) {
           document.querySelector('#topstuff')?.prepend(element);
+        } else if (document.querySelector('#main')) {
+          var main = document.querySelector('#main');
+          if (main) {
+            const hveid = main.querySelector('div div[data-hveid]');
+            if (hveid) {
+              hveid.parentElement?.insertBefore(element, hveid);
+            }
+          }
         }
         break;
       case 'bing':
