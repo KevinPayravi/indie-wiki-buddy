@@ -2050,8 +2050,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "liquipediadota2wiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/dota2game/index.php",
-    "destination_content_path": "/dota2game/"
+    "destination_search_path": "/dota2/index.php",
+    "destination_content_path": "/dota2/"
   },
   {
     "id": "en-dotflow",
