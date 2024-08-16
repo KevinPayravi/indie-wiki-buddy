@@ -143,10 +143,7 @@ function mountToTopOfSearchResults(element) {
         } else if (document.querySelector('#topstuff')) {
           document.querySelector('#topstuff')?.prepend(element);
         } else if (document.querySelector('#main')) {
-          const hveid = document.querySelector('#main div div[data-hveid]');
-          if (hveid) {
-            hveid.closest('#main > div')?.insertAdjacentElement('beforebegin', element);
-          }
+          document.querySelector('#main > div:nth-of-type(2)')?.insertAdjacentElement('beforebegin', element);
         }
         break;
       case 'bing':
@@ -395,6 +392,7 @@ function filterSearchResult(wikiInfo, anchorElement) {
   // Get user's settings for the wiki
   let id = wikiInfo.id;
   let searchFilterSetting = 'replace';
+  let reorderResults = storage.reorderResults ?? 'on';
   let searchEngineSettings = storage.searchEngineSettings ?? {};
   if (searchEngineSettings[id]) {
     searchFilterSetting = searchEngineSettings[id];
@@ -412,7 +410,7 @@ function filterSearchResult(wikiInfo, anchorElement) {
     let originArticle = commonFunctionGetOriginArticle(searchResultLink, wikiInfo);
     let destinationArticle = commonFunctionGetDestinationArticle(wikiInfo, originArticle);
 
-    if (processedCache.find(({ url }) => url.match(
+    if (reorderResults === 'on' && processedCache.find(({ url }) => url.match(
       // Match for destination URL with content path and article name
       new RegExp(
         `http(s)?://${wikiInfo.destination_base_url}${wikiInfo.destination_content_path}${decodeURI(destinationArticle)}$`
@@ -453,6 +451,11 @@ async function filterSearchResults(searchResults) {
 
   for (const searchResult of searchResults) {
     try {
+      // Check that we haven't already processed this result
+      if (processedCache.find((c) => c.anchor === searchResult)) {
+        continue;
+      }
+
       // Check that result isn't within another result
       if (!searchResult.closest('.iwb-detected') && !searchResult.closest('.iwb-detected')?.querySelector('.iwb-new-link')) {
         let searchResultLink = searchResult.getAttribute('data-iwb-href') ?? searchResult.href ?? '';
@@ -485,8 +488,13 @@ async function filterSearchResults(searchResults) {
         const searchResultContainer = getResultContainer(searchEngine, searchResult);
 
         if (searchResultContainer) {
+
           // Handle source -> destination filtering, i.e. non-indie/commercial wikis
           let matchingNonIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
+          // because of pending async operations (race conditions), we need to check if the site was already processed again
+          if (processedCache.find((c) => c.anchor === searchResult)) {
+            continue;
+          }
           if (matchingNonIndieWiki) {
             console.debug('Indie Wiki Buddy: Filtering search result:', searchResultLink);
             // Site found in db, process search result
@@ -512,16 +520,19 @@ async function filterSearchResults(searchResults) {
                 anchor: searchResult,
               };
 
-              if ((storage.reorderResults ?? 'on') == 'on' && searchResultContainer && processedCache[0] && processedCache[0].isNonIndie && processedCache[0].container) {
+              if ((storage.reorderResults ?? 'on') == 'on' && processedCache.at(-1)?.isNonIndie) {
                 console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
-                swapDOMElements(searchResultContainer, processedCache[0].container);
-                // now swap the cache to not reorder the same element multiple times
-                const old = processedCache[0];
-                processedCache[0] = cacheInfo;
-                processedCache.push(old);
 
-                // re-filter the element that was swapped
-                countFiltered += filterSearchResult(old.siteData, old.anchor);
+                const index = processedCache.findIndex(({ isNonIndie }) => isNonIndie);
+                // push cacheInfo right before the first non-indie wiki
+                processedCache.splice(index, 0, cacheInfo);
+                // swap the elements upwards until the indie wiki is above the non-indie wiki
+                for (let i = processedCache.length - 1; i > index; i--) {
+                  const prev = processedCache[i];
+                  swapDOMElements(prev.container, searchResultContainer);
+                  // try re-filtering the element that was swapped
+                  countFiltered += filterSearchResult(prev.siteData, prev.anchor);
+                }
               } else {
                 processedCache.push(cacheInfo);
               };
@@ -562,7 +573,7 @@ function filterAnchors(newAnchors) {
     case 'google': {
       // Query Google results and rewrite HREFs when Google uses middleman links (i.e. google.com/url?q=)
       let searchResults = newAnchors.filter(e => e.matches("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])"));
-      
+
       // Filter out search results that are within other search results
       searchResults = searchResults.filter(
         e =>
