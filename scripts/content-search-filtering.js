@@ -510,7 +510,7 @@ async function filterSearchResults(searchResults) {
                 anchor: searchResult,
               };
 
-              if ((storage.reorderResults ?? 'on') == 'on' && searchResultContainer && processedCache[0]) {
+              if ((storage.reorderResults ?? 'on') == 'on' && searchResultContainer && processedCache[0] && processedCache[0].isNonIndie && processedCache[0].container) {
                 console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
                 processedCache[0].container.insertAdjacentElement('beforebegin', searchResultContainer);
                 processedCache.push(cacheInfo);
