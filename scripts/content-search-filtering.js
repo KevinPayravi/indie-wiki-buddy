@@ -526,15 +526,12 @@ async function filterSearchResults(searchResults) {
                 // push cacheInfo right before the first non-indie wiki
                 processedCache.splice(index, 0, cacheInfo);
                 // swap the elements upwards until the indie wiki is above the non-indie wiki
-                let current = cacheInfo;
                 for (let i = processedCache.length - 1; i > index; i--) {
-                  const previous = processedCache[i];
-                  swapDOMElements(previous.container, current.container);
-                  // re-filter the element that was swapped
-                  countFiltered += filterSearchResult(previous.siteData, previous.anchor);
-                  current = previous;
+                  const prev = processedCache[i];
+                  swapDOMElements(prev.container, searchResultContainer);
+                  // try re-filtering the element that was swapped
+                  countFiltered += filterSearchResult(prev.siteData, prev.anchor);
                 }
-
               } else {
                 processedCache.push(cacheInfo);
               };
