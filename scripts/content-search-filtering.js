@@ -143,10 +143,7 @@ function mountToTopOfSearchResults(element) {
         } else if (document.querySelector('#topstuff')) {
           document.querySelector('#topstuff')?.prepend(element);
         } else if (document.querySelector('#main')) {
-          const hveid = document.querySelector('#main div div[data-hveid]');
-          if (hveid) {
-            hveid.closest('#main > div')?.insertAdjacentElement('beforebegin', element);
-          }
+          document.querySelector('#main > div:nth-of-type(2)')?.insertAdjacentElement('beforebegin', element);
         }
         break;
       case 'bing':
@@ -578,7 +575,7 @@ function filterAnchors(newAnchors) {
     case 'google': {
       // Query Google results and rewrite HREFs when Google uses middleman links (i.e. google.com/url?q=)
       let searchResults = newAnchors.filter(e => e.matches("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])"));
-      
+
       // Filter out search results that are within other search results
       searchResults = searchResults.filter(
         e =>
