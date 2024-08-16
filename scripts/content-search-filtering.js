@@ -143,10 +143,7 @@ function mountToTopOfSearchResults(element) {
         } else if (document.querySelector('#topstuff')) {
           document.querySelector('#topstuff')?.prepend(element);
         } else if (document.querySelector('#main')) {
-          const hveid = document.querySelector('#main div div[data-hveid]');
-          if (hveid) {
-            hveid.closest('#main > div')?.insertAdjacentElement('beforebegin', element);
-          }
+          document.querySelector('#main > div:nth-of-type(2)')?.insertAdjacentElement('beforebegin', element)
         }
         break;
       case 'bing':
@@ -395,6 +392,7 @@ function filterSearchResult(wikiInfo, anchorElement) {
   // Get user's settings for the wiki
   let id = wikiInfo.id;
   let searchFilterSetting = 'replace';
+  let reorderResults = storage.reorderResults ?? 'on';
   let searchEngineSettings = storage.searchEngineSettings ?? {};
   if (searchEngineSettings[id]) {
     searchFilterSetting = searchEngineSettings[id];
@@ -412,7 +410,7 @@ function filterSearchResult(wikiInfo, anchorElement) {
     let originArticle = commonFunctionGetOriginArticle(searchResultLink, wikiInfo);
     let destinationArticle = commonFunctionGetDestinationArticle(wikiInfo, originArticle);
 
-    if (processedCache.find(({ url }) => url.match(
+    if (reorderResults === 'on' && processedCache.find(({ url }) => url.match(
       // Match for destination URL with content path and article name
       new RegExp(
         `http(s)?://${wikiInfo.destination_base_url}${wikiInfo.destination_content_path}${decodeURI(destinationArticle)}$`
@@ -512,16 +510,15 @@ async function filterSearchResults(searchResults) {
                 anchor: searchResult,
               };
 
-              if ((storage.reorderResults ?? 'on') == 'on' && searchResultContainer && processedCache[0] && processedCache[0].isNonIndie && processedCache[0].container) {
+              if ((storage.reorderResults ?? 'on') == 'on' && searchResultContainer && processedCache[0]) {
                 console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
-                swapDOMElements(searchResultContainer, processedCache[0].container);
-                // now swap the cache to not reorder the same element multiple times
-                const old = processedCache[0];
-                processedCache[0] = cacheInfo;
-                processedCache.push(old);
+                processedCache[0].container.insertAdjacentElement('beforebegin', searchResultContainer);
+                processedCache.push(cacheInfo);
 
-                // re-filter the element that was swapped
-                countFiltered += filterSearchResult(old.siteData, old.anchor);
+                // re-filter non-indie wikis to hide any that match the re-ordered indie wiki
+                processedCache.filter(wiki => wiki.isNonIndie).forEach(wiki => {
+                  filterSearchResult(wiki.siteData, wiki.anchor);
+                });
               } else {
                 processedCache.push(cacheInfo);
               };
