@@ -493,6 +493,8 @@ async function filterSearchResults(searchResults) {
         const searchResultContainer = getResultContainer(searchEngine, searchResult);
 
         if (searchResultContainer) {
+          searchResultContainer.classList.add('iwb-detected');
+
           // Handle source -> destination filtering, i.e. non-indie/commercial wikis
           let matchingNonIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
           if (matchingNonIndieWiki) {
@@ -537,7 +539,6 @@ async function filterSearchResults(searchResults) {
               }
             }
           }
-          searchResultContainer.classList.add('iwb-detected');
         }
       }
     } catch (e) {
