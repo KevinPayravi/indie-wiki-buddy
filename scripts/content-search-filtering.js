@@ -443,6 +443,8 @@ function swapDOMElements(a, b) {
   dummy.replaceWith(b);
 }
 
+const checkedAnchors = new Set();
+
 /**
  * @param {HTMLAnchorElement[]} searchResults
  */
@@ -450,12 +452,13 @@ async function filterSearchResults(searchResults) {
   let countFiltered = 0;
 
   for (const searchResult of searchResults) {
-    try {
-      // Check that we haven't already processed this result
-      if (processedCache.find((c) => c.anchor === searchResult)) {
-        continue;
-      }
+    // Check that we haven't already processed this result
+    if (checkedAnchors.has(searchResult)) {
+      continue;
+    }
+    checkedAnchors.add(searchResult);
 
+    try {
       // Check that result isn't within another result
       if (!searchResult.closest('.iwb-detected') && !searchResult.closest('.iwb-detected')?.querySelector('.iwb-new-link')) {
         let searchResultLink = searchResult.getAttribute('data-iwb-href') ?? searchResult.href ?? '';
@@ -471,14 +474,16 @@ async function filterSearchResults(searchResults) {
 
           // Skip if result doesn't include specific tags/attributes
           // This helps avoid capturing unintended image results
-          if (!(
-            searchResult.closest('h1') ||
-            searchResult.closest('h3') ||
-            searchResult.querySelector('h1') ||
-            searchResult.querySelector('h3') ||
-            searchResult.querySelector('cite') ||
-            searchResult.querySelector("div[role='link']")))
-          {
+          if (
+            !(
+              searchResult.closest('h1') ||
+              searchResult.closest('h3') ||
+              searchResult.querySelector('h1') ||
+              searchResult.querySelector('h3') ||
+              searchResult.querySelector('cite') ||
+              searchResult.querySelector("div[role='link']")
+            )
+          ) {
             searchResult.classList.add('iwb-detected');
             continue;
           }
@@ -488,13 +493,8 @@ async function filterSearchResults(searchResults) {
         const searchResultContainer = getResultContainer(searchEngine, searchResult);
 
         if (searchResultContainer) {
-
           // Handle source -> destination filtering, i.e. non-indie/commercial wikis
           let matchingNonIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
-          // because of pending async operations (race conditions), we need to check if the site was already processed again
-          if (processedCache.find((c) => c.anchor === searchResult)) {
-            continue;
-          }
           if (matchingNonIndieWiki) {
             console.debug('Indie Wiki Buddy: Filtering search result:', searchResultLink);
             // Site found in db, process search result
@@ -509,7 +509,6 @@ async function filterSearchResults(searchResults) {
           } else {
             // handle destination -> source, i.e. indie wikis
             let matchingIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting, true);
-
             if (matchingIndieWiki) {
               console.debug('Indie Wiki Buddy: Found indie wiki for search result:', searchResultLink);
               const cacheInfo = {
@@ -535,7 +534,7 @@ async function filterSearchResults(searchResults) {
                 }
               } else {
                 processedCache.push(cacheInfo);
-              };
+              }
             }
           }
           searchResultContainer.classList.add('iwb-detected');
@@ -727,6 +726,7 @@ let pageChangeDetector = null;
 function checkRevalidate() {
   if (pageChangeDetector == null || !pageChangeDetector.isConnected) {
     processedCache.length = 0;
+    checkedAnchors.clear();
 
     // mount dummy element to detect page changes
     pageChangeDetector = document.createElement('span');
