@@ -4114,6 +4114,31 @@
     ]
   },
   {
+    "id": "en-magicalvacation",
+    "origins_label": "Magical Vacation Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Magical Starsign Fandom Wiki",
+        "origin_base_url": "magicalstarsign.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Magical_Starsign_Wiki"
+      },
+      {
+        "origin": "Magical Vacation Fandom Wiki",
+        "origin_base_url": "magicalvacation.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Magical_Vacation_Wiki"
+      }
+    ],
+    "destination": "Kovopedia",
+    "destination_base_url": "kovopedia.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "kovopedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-mana",
     "origins_label": "Wiki of Mana Fandom Wiki",
     "origins": [
@@ -5010,6 +5035,25 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-pikminfanon",
+    "origins_label": "Pikcanon-NOT",
+    "origins": [
+      {
+        "origin": "Pikcanon-NOT",
+        "origin_base_url": "pikminfanon.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pikmin_Fanon_Wikia"
+      }
+    ],
+    "destination": "Pikmin Fanon",
+    "destination_base_url": "pikminfanon.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pikminfanon.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-pizzatower",
