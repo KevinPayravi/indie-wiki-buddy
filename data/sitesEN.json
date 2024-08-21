@@ -1291,6 +1291,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-catacomb",
+    "origins_label": "Catacomb Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Catacomb Fandom Wiki",
+        "origin_base_url": "catacomb.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Catacomb_Wiki"
+      }
+    ],
+    "destination": "Catacomb Wiki",
+    "destination_base_url": "catacomb.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "catacombwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-celeste",
     "origins_label": "Celeste Fandom Wiki",
     "origins": [
@@ -2967,6 +2987,26 @@
     "destination_main_page": "Galaxy_Life_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-galaxyonfire",
+    "origins_label": "Galaxy on Fire Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Galaxy on Fire Fandom Wiki",
+        "origin_base_url": "galaxyonfire.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Galaxy_on_Fire_Wiki"
+      }
+    ],
+    "destination": "Galaxy on Fire Wiki",
+    "destination_base_url": "galaxyonfire.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "galaxyonfirewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Galaxy_on_Fire_Wiki",
     "destination_host": "wiki.gg"
   },
   {
@@ -6025,6 +6065,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-soulframe",
+    "origins_label": "Soulframe Fextralife Wiki",
+    "origins": [
+      {
+        "origin": "Soulframe Fextralife Wiki",
+        "origin_base_url": "soulframe.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Soulframe+Wiki"
+      }
+    ],
+    "destination": "Soulframe Wiki",
+    "destination_base_url": "soulframe.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "soulframewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Soulframe_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-spaceengineers",
     "origins_label": "Space Engineers Fandom Wiki",
     "origins": [
@@ -6394,27 +6454,24 @@
     "destination_host": "wiki.gg"
   },
   {
-    "id": "en-survivingmars",
-    "origins_label": "Surviving Mars Fandom Wiki",
+    "id": "en-supermonkeyball",
+    "origins_label": "Super Monkey Ball Fandom Wiki",
     "origins": [
       {
-        "origin": "Surviving Mars Fandom Wiki",
-        "origin_base_url": "survivingmars.fandom.com",
+        "origin": "Super Monkey Ball Fandom Wiki",
+        "origin_base_url": "supermonkeyball.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Surviving_Mars_Wiki"
+        "origin_main_page": "Super_Monkey_Ball_Wiki"
       }
     ],
-    "destination": "Surviving Mars Wiki",
-    "destination_base_url": "survivingmars.paradoxwikis.com",
+    "destination": "Bananapedia",
+    "destination_base_url": "bananapedia.wiki.gg",
     "destination_platform": "mediawiki",
-    "destination_icon": "survivingmarswiki.png",
-    "destination_main_page": "Surviving_Mars_Wiki",
+    "destination_icon": "bananapedia.png",
+    "destination_content_path": "/wiki/",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/",
-    "destination_host": "Paradox",
-    "tags": [
-      "official"
-    ]
+    "destination_main_page": "Bananapedia",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-supersmashbros",
@@ -6440,6 +6497,29 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-survivingmars",
+    "origins_label": "Surviving Mars Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Surviving Mars Fandom Wiki",
+        "origin_base_url": "survivingmars.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Surviving_Mars_Wiki"
+      }
+    ],
+    "destination": "Surviving Mars Wiki",
+    "destination_base_url": "survivingmars.paradoxwikis.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "survivingmarswiki.png",
+    "destination_main_page": "Surviving_Mars_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/",
+    "destination_host": "Paradox",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-tallyhall",
@@ -7311,6 +7391,25 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-voidscape",
+    "origins_label": "Voidscape Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Voidscape Fandom Wiki",
+        "origin_base_url": "voidscape.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Voidscape_Wiki"
+      }
+    ],
+    "destination": "Voidscape",
+    "destination_base_url": "voidscape.tamaized.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "voidscape.png",
+    "destination_content_path": "/index.php/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-volcanoprincess",
