@@ -2197,6 +2197,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-dungeonsanddegenerategamblers",
+    "origins_label": "Dungeons and Degenerate Gamblers Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dungeons and Degenerate Gamblers Fandom Wiki",
+        "origin_base_url": "dungeons-and-degenerate-gamblers.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dungeons_and_Degenerate_Gamblers_Wiki"
+      }
+    ],
+    "destination": "Dungeons and Degenerate Gamblers Wiki",
+    "destination_base_url": "degenerategamblers.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dndg.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-dungeonsanddragons",
     "origins_label": "Dungeons and Dragons Fandom Wiki",
     "origins": [
