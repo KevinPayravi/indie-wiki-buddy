@@ -273,6 +273,9 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
     case 'dokuwiki':
       searchParams = `?do=search&q=${encodedDestinationArticle}`;
       break;
+      case 'moinmoin':
+        searchParams = `?action=fullsearch&context=180&value="${encodedDestinationArticle}"&fullsearch=Text`;
+        break;
     // Otherwise, assume the full search path is defined on "destination_search_path"
     default:
       searchParams = encodedDestinationArticle;

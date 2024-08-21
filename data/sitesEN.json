@@ -5423,6 +5423,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-python",
+    "origins_label": "Python Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Python Fandom Wiki",
+        "origin_base_url": "python.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Python Wiki",
+    "destination_base_url": "wiki.python.org",
+    "destination_platform": "moinmoin",
+    "destination_icon": "pythonwiki.png",
+    "destination_content_path": "/moin/",
+    "destination_search_path": "/moin/",
+    "destination_main_page": "FrontPage"
+  },
+  {
     "id": "en-raincomic",
     "origins_label": "Rain (web comic) Fandom Wikis",
     "origins": [
