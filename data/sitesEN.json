@@ -3887,6 +3887,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-kingdomheartsmobile",
+    "origins_label": "Kingdom Hearts Unchained X Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Kingdom Hearts Unchained X Fandom Wiki",
+        "origin_base_url": "unchainedx.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Kingdom_Hearts_Unchained_X_Wiki"
+      }
+    ],
+    "destination": "KHUX Wiki",
+    "destination_base_url": "www.khuxwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "khuxwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "KHUX_Wiki"
+  },
+  {
     "id": "en-kirby",
     "origins_label": "Kirby Fandom & Neoseeker Wikis",
     "origins": [
