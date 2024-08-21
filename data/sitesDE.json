@@ -61,6 +61,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "de-gronkh",
+    "origins_label": "Gronkh Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Gronkh Fandom Wiki",
+        "origin_base_url": "gronkh.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Gronkh_Wiki"
+      }
+    ],
+    "destination": "Gronkh-Wiki",
+    "destination_base_url": "gronkh-wiki.de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gronkhwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Hauptseite"
+  },
+  {
     "id": "de-lethalcompany",
     "origins_label": "Lethal Company Fandom Wiki",
     "origins": [
@@ -120,25 +139,6 @@
     "destination_content_path": "/"
   },
   {
-    "id": "de-starcitizen",
-    "origins_label": "Star Citizen Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Star Citizen Fandom Wiki",
-        "origin_base_url": "starcitizen.fandom.com/de",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Star_Citizen_Wiki"
-      }
-    ],
-    "destination": "Star Citizen Wiki",
-    "destination_base_url": "star-citizen.wiki",
-    "destination_platform": "mediawiki",
-    "destination_icon": "starcitizen.png",
-    "destination_main_page": "Star_Citizen_Wiki",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/"
-  },
-  {
     "id": "de-simpsons",
     "origins_label": "Simpsons Fandom Wiki",
     "origins": [
@@ -154,6 +154,25 @@
     "destination_platform": "mediawiki",
     "destination_icon": "simpsonspedia.png",
     "destination_main_page": "Simpsonspedia",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
+    "id": "de-starcitizen",
+    "origins_label": "Star Citizen Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Star Citizen Fandom Wiki",
+        "origin_base_url": "starcitizen.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Star_Citizen_Wiki"
+      }
+    ],
+    "destination": "Star Citizen Wiki",
+    "destination_base_url": "star-citizen.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starcitizen.png",
+    "destination_main_page": "Star_Citizen_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
   },
