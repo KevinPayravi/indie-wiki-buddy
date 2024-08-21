@@ -2007,6 +2007,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-domekeeper",
+    "origins_label": "Dome Keeper Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dome Keeper Fandom Wiki",
+        "origin_base_url": "dome-keeper.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dome_Keeper_Wiki"
+      }
+    ],
+    "destination": "Dome Keeper Wiki",
+    "destination_base_url": "domekeeper.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "domekeeperwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Dome_Keeper_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-dontstarve",
     "origins_label": "Don't Starve Fandom Wiki",
     "origins": [
@@ -2756,6 +2776,26 @@
     "destination_main_page": "FF14_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-fieldsofmistria",
+    "origins_label": "Fields of Mistria Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Fields of Mistria Fandom Wiki",
+        "origin_base_url": "fields-of-mistria.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Fields_of_Mistria_Wiki"
+      }
+    ],
+    "destination": "Fields of Mistria Wiki",
+    "destination_base_url": "fieldsofmistria.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fieldsofmistriawiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Fields_of_Mistria_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-findeverything",
