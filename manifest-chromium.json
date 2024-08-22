@@ -1,6 +1,6 @@
 {
   "name": "__MSG_extensionName__",
-  "version": "3.10.0",
+  "version": "3.10.1",
   "description": "__MSG_extensionDescription__",
   "permissions": [
     "storage",
