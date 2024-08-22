@@ -5260,10 +5260,10 @@
   },
   {
     "id": "en-pikminfanon",
-    "origins_label": "Pikcanon-NOT",
+    "origins_label": "Pikmin Fanon Fandom Wiki",
     "origins": [
       {
-        "origin": "Pikcanon-NOT",
+        "origin": "Pikmin Fanon Fandom Wiki",
         "origin_base_url": "pikminfanon.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Pikmin_Fanon_Wikia"
@@ -5585,7 +5585,7 @@
     "destination_content_path": "/wiki/"
   },
   {
-    "id": "en-python",
+    "id": "en-pythonprogramming",
     "origins_label": "Python Fandom Wiki",
     "origins": [
       {
@@ -5601,7 +5601,10 @@
     "destination_icon": "pythonwiki.png",
     "destination_content_path": "/moin/",
     "destination_search_path": "/moin/",
-    "destination_main_page": "FrontPage"
+    "destination_main_page": "FrontPage",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-raincomic",
@@ -6376,7 +6379,7 @@
         "origin": "Soulframe Fextralife Wiki",
         "origin_base_url": "soulframe.wiki.fextralife.com",
         "origin_content_path": "/",
-        "origin_main_page": "Soulframe+Wiki"
+        "origin_main_page": "Soulframe Wiki"
       }
     ],
     "destination": "Soulframe Wiki",
@@ -7746,7 +7749,7 @@
         "origin_main_page": "Voidscape_Wiki"
       }
     ],
-    "destination": "Voidscape",
+    "destination": "Voidscape Wiki",
     "destination_base_url": "voidscape.tamaized.com",
     "destination_platform": "mediawiki",
     "destination_icon": "voidscape.png",
