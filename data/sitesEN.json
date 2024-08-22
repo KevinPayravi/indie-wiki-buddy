@@ -642,6 +642,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-audiovisualidentity",
+    "origins_label": "Closing Logo Group Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Closing Logo Group Fandom Wiki",
+        "origin_base_url": "closinglogogroup.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Closing_Logo_Group"
+      }
+    ],
+    "destination": "Audiovisual Identity Database",
+    "destination_base_url": "www.avid.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "audiovisualidentitydatabase.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-azurlane",
     "origins_label": "Azur Lane Fandom Wikis",
     "origins": [
@@ -3969,6 +3988,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-kynseed",
+    "origins_label": "Kynseed Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Kynseed Fandom Wiki",
+        "origin_base_url": "kynseed.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Kynseed_Wiki"
+      }
+    ],
+    "destination": "Kynseed Wiki",
+    "destination_base_url": "wiki.kynseed.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "kynseedwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-lastorigin",
     "origins_label": "Last Origin International Fandom Wiki",
     "origins": [
@@ -4026,6 +4067,26 @@
     "destination_main_page": "Portal:Main",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-lenen",
+    "origins_label": "Len'en Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Len'en Fandom Wiki",
+        "origin_base_url": "lenen.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Len'en_Wiki"
+      }
+    ],
+    "destination": "Len'en Wiki",
+    "destination_base_url": "lenen.shoutwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lenenwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Len'en_Wiki",
+    "destination_host": "ShoutWiki"
   },
   {
     "id": "en-lethalcompany",
@@ -4237,6 +4298,29 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-manorlords",
+    "origins_label": "Manor Lords Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Manor Lords Fandom Wiki",
+        "origin_base_url": "manor-lords.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Manor_Lords_Wiki"
+      }
+    ],
+    "destination": "Manor Lords Wiki",
+    "destination_base_url": "hoodedhorse.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "manorlordswiki.png",
+    "destination_content_path": "/wiki/Manor_Lords/",
+    "destination_search_path": "/wiki/Manor_Lords/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Hooded Horse",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-maplestory",
     "origins_label": "MapleStory Fandom & Neoseeker Wikis",
     "origins": [
@@ -4260,6 +4344,26 @@
     "destination_main_page": "MapleStory_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/w/"
+  },
+  {
+    "id": "en-mappercraft",
+    "origins_label": "Mappercraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Mappercraft Fandom Wiki",
+        "origin_base_url": "mappercraft.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mappercraft_Wiki"
+      }
+    ],
+    "destination": "Mappercraft Wiki",
+    "destination_base_url": "mappercraft.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mappercraftwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Mappercraft_Wiki",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-mario",
@@ -4575,6 +4679,26 @@
     ]
   },
   {
+    "id": "en-monstersandmemories",
+    "origins_label": "Monsters & Memories Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Monsters & Memories Fandom Wiki",
+        "origin_base_url": "monsters-and-memories.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Monsters & Memories Wiki",
+    "destination_base_url": "monstersandmemories.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "monstersandmemorieswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-multiversus",
     "origins_label": "MultiVersus Fandom Wiki",
     "origins": [
@@ -4703,6 +4827,25 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-neocron",
+    "origins_label": "Neocron Guide Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Neocron Guide Fandom Wiki",
+        "origin_base_url": "neocron-guide.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Neocron_Guide_Wiki"
+      }
+    ],
+    "destination": "Neocron Wiki",
+    "destination_base_url": "wiki.techhaven.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "neocronwiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-nethack",
@@ -5224,6 +5367,25 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-popira",
+    "origins_label": "Popira Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Popira Fandom Wiki",
+        "origin_base_url": "popira.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Popira_Wiki"
+      }
+    ],
+    "destination": "Popira Wiki",
+    "destination_base_url": "popira20.com/wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "popirawiki.png",
+    "destination_content_path": "/index.php?title=",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-portal",
@@ -6945,6 +7107,26 @@
     ]
   },
   {
+    "id": "en-thunderboltfantasy",
+    "origins_label": "Thunderbolt Fantasy Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Thunderbolt Fantasy Fandom Wiki",
+        "origin_base_url": "thunderbolt-fantasy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Thunderbolt_Fantasy_Wiki"
+      }
+    ],
+    "destination": "Thunderbolt Fantasy Wiki",
+    "destination_base_url": "thunderboltfantasywiki.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thunderboltfantasywiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Thunderbolt_Fantasy_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-timberborn",
     "origins_label": "Timberborn Fandom Wiki",
     "origins": [
@@ -7308,6 +7490,25 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/index.php?title="
+  },
+  {
+    "id": "en-ultimaonline",
+    "origins_label": "Ultima Online Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Ultima Online Fandom Wiki",
+        "origin_base_url": "ultimaonline.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ultima_Online_Wiki"
+      }
+    ],
+    "destination": "UOGuide",
+    "destination_base_url": "www.uoguide.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "uoguide.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-ultrakill",
