@@ -28,6 +28,26 @@
     ]
   },
   {
+    "id": "en-18trip",
+    "origins_label": "18TRIP Fandom Wiki",
+    "origins": [
+      {
+        "origin": "18TRIP Fandom Wiki",
+        "origin_base_url": "18trip.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "18_TRIP_Wiki"
+      }
+    ],
+    "destination": "18TRIP Wiki",
+    "destination_base_url": "wiki.18t.rip",
+    "destination_platform": "mediawiki",
+    "destination_icon": "18tripwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "18TRIP_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-2xko",
     "origins_label": "2XKO Fandom Wiki",
     "origins": [
