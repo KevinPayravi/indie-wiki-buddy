@@ -3665,6 +3665,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-horticular",
+    "origins_label": "Horticular Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Horticular Fandom Wiki",
+        "origin_base_url": "horticular.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Horticular_Wiki"
+      }
+    ],
+    "destination": "Horticular Wiki",
+    "destination_base_url": "horticular.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "horticularwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Horticular_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-houkaigakuen2",
     "origins_label": "Houkai Gakuen 2 Fandom Wiki",
     "origins": [
