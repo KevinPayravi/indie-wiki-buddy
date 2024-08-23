@@ -7091,6 +7091,25 @@
     ]
   },
   {
+    "id": "en-theworldendswithyou",
+    "origins_label": "The World Ends with You Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The World Ends with You Fandom Wiki",
+        "origin_base_url": "twewy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_World_Ends_with_You_Wiki"
+      }
+    ],
+    "destination": "The World Ends with You Wiki",
+    "destination_base_url": "twewy.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thewikiendswithyou.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/",
+    "destination_main_page": "The_World_Ends_with_You_Wiki"
+  },
+  {
     "id": "en-theymightbegiants",
     "origins_label": "TheyMightBeGiants Fandom Wiki",
     "origins": [
