@@ -21,7 +21,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "100orangejuicewiki.png",
     "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/",
+    "destination_search_path": "/w/index.php",
     "destination_main_page": "100%_Orange_Juice_Wiki",
     "tags": [
       "official"
@@ -7165,7 +7165,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "thewikiendswithyou.png",
     "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/",
+    "destination_search_path": "/w/index.php",
     "destination_main_page": "The_World_Ends_with_You_Wiki"
   },
   {
