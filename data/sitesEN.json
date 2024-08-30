@@ -1837,6 +1837,25 @@
     ]
   },
   {
+    "id": "en-deadlock",
+    "origins_label": "Deadlock Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Deadlock Fandom Wiki",
+        "origin_base_url": "playdeadlock.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deadlock_Wiki"
+      }
+    ],
+    "destination": "Deadlock Wiki",
+    "destination_base_url": "deadlocked.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deadlock.png",
+    "destination_main_page": "Deadlock_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
     "id": "en-deeprockgalactic",
     "origins_label": "Deep Rock Galactic Fandom Wiki",
     "origins": [
