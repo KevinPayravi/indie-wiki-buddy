@@ -1726,6 +1726,29 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-darkagebizarre",
+    "origins_label": "Darkage Bizarre Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Darkage Bizarre Fandom Wiki",
+        "origin_base_url": "darkage-bizarre.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "DarkAge_Bizarre_Wiki"
+      }
+    ],
+    "destination": "DarkGarden Studios Wiki",
+    "destination_base_url": "darkagebizarre.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "darkagebizarre.png",
+    "destination_main_page": "DarkGarden_Studios_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-darkestdungeon",
     "origins_label": "Darkest Dungeon Fandom & Fextra Wikis",
     "origins": [
@@ -1836,6 +1859,25 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-d2mc",
+    "origins_label": "Destiny 2 Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "D2MC Fandom Wiki",
+        "origin_base_url": "d2mc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "D2MC_Wiki"
+      }
+    ],
+    "destination": "Destiny 2 Minecraft Edition Wiki",
+    "destination_base_url": "d2mc.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "d2mc.png",
+    "destination_main_page": "Destiny_2_Minecraft_Edition_Wiki",
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-detectiveconan",
@@ -4162,6 +4204,12 @@
         "origin_base_url": "diceblock.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Mario_Party_Wiki"
+      },
+      {
+        "origin": "Luigi's Mansion Fandom Wiki",
+        "origin_base_url": "luigi-mansion.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mansionpedia"
       }
     ],
     "destination": "Super Mario Wiki",
