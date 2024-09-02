@@ -4,7 +4,7 @@
         "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
     },
     "bannerText": {
-        "message": "",
+        "message": "Существует$descriptor$ вики$host$, освещающая эту тему$language$!",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
@@ -22,27 +22,27 @@
         }
     },
     "extensionName": {
-        "message": "",
+        "message": "Indie Wiki Buddy",
         "description": "The name of the extension"
     },
     "bannerBreezeWiki": {
-        "message": "",
+        "message": "Просмотреть данную Fandom-вики через BreezeWiki",
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "bannerLanguageEnglish": {
-        "message": "",
+        "message": " на английском языке",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "bannerRestoreDone": {
-        "message": "",
+        "message": "Баннер восстановлен",
         "description": "Text to display in the banner after the banner has been restored"
     },
     "bannerDisable": {
-        "message": "",
+        "message": "Отключить баннер для данной вики",
         "description": "Text to display in the banner for the disable banner link"
     },
     "bannerRedirect": {
-        "message": "",
+        "message": "Автоматически перенаправлять данную вики",
         "description": "Text to display in the banner for the redirect link"
     },
     "searchResultLookupEnglish": {
@@ -70,11 +70,11 @@
         }
     },
     "searchFilteredResultsHide": {
-        "message": "",
+        "message": "Скрыть отфильтрованные результаты",
         "description": "Button to hide filtered search results"
     },
     "searchResultReenable": {
-        "message": "",
+        "message": "Восстановить результат ниже",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "settingsChangelog": {
@@ -410,7 +410,7 @@
         "description": "Explanation for the icons in wiki experience"
     },
     "settingsWebsite": {
-        "message": "",
+        "message": "Сайт",
         "description": "Link to the website"
     },
     "guideOverviewPara2": {
@@ -443,7 +443,7 @@
         "message": ""
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "",
+        "message": "официальная независимая",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "guideReorderResultsHelp1": {
@@ -476,7 +476,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FI should be \"[FI] Finnish / suomi\" in English, but just \"[FI] suomi\" in Finnish."
     },
     "extensionDescription": {
-        "message": "",
+        "message": "Indie Wiki Buddy поможет вам найти качественные независимые вики посредством уведомлений, перенаправлений и фильтрации поисковых результатов.",
         "description": "The description of the extension"
     },
     "guideDisable": {
@@ -487,7 +487,7 @@
         "description": "Notice that clicking an option will override any per-wiki customizations"
     },
     "bannerDescriptorIndependent": {
-        "message": "",
+        "message": "независимая",
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
     "settingsDisableFor": {
@@ -515,7 +515,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, EN should be \"[EN] Englisch / English\" in German, but just \"[EN] English\" in English."
     },
     "bannerRedirectDone": {
-        "message": "",
+        "message": "Перенаправление активировано",
         "description": "Text to display in the banner after the redirect has been enabled"
     },
     "guideGlobalSettingsHelpSearch": {
@@ -526,7 +526,7 @@
         "description": "Input for a name filter"
     },
     "settingsGuide": {
-        "message": "",
+        "message": "Руководство",
         "description": "Link to the guide"
     },
     "settingsSetColumn": {
@@ -575,7 +575,7 @@
         "description": "Button to hide the banner"
     },
     "bannerDescriptorOfficial": {
-        "message": "",
+        "message": "официальная",
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "guideFeedback": {
@@ -605,7 +605,7 @@
         "description": "Option to show all languages"
     },
     "bannerHost": {
-        "message": "",
+        "message": " на $host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -683,7 +683,7 @@
         }
     },
     "settingsTitle": {
-        "message": "",
+        "message": "Настройки Indie Wiki Buddy",
         "description": "Title of the settings page"
     },
     "guideHiddenResultsBannerHelp1": {
@@ -765,7 +765,7 @@
         "description": "Option to show a banner when non-indie results are hidden"
     },
     "searchFilteredResultsShow": {
-        "message": "",
+        "message": "Показать отфильтрованные результаты",
         "description": "Button to show filtered search results"
     },
     "settingsSubmitWiki": {
@@ -780,7 +780,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
     },
     "bannerDisableDone": {
-        "message": "",
+        "message": "Баннер отключен",
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "guideAlert": {
@@ -802,14 +802,14 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TH should be \"[TH] Thai / ไทย\" in English, but just \"[TH] ไทย\" in Thai."
     },
     "bannerRestore": {
-        "message": "",
+        "message": "Восстановить баннер",
         "description": "Text to display in the banner for the restore banner link"
     },
     "guideRedirect": {
         "message": ""
     },
     "bannerVisit": {
-        "message": "",
+        "message": "Посетить $destination$",
         "description": "Text to display in the banner for the visit link",
         "placeholders": {
             "destination": {
