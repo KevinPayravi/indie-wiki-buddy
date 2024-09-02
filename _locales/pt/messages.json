@@ -1,14 +1,14 @@
 {
     "extensionName": {
-        "message": "",
+        "message": "Indie Wiki Buddy",
         "description": "The name of the extension"
     },
     "bannerRedirectDone": {
-        "message": "",
+        "message": "Redirecionamento habilitado",
         "description": "Text to display in the banner after the redirect has been enabled"
     },
     "searchResultVisitEnglish": {
-        "message": "",
+        "message": "Visite $destination$ (EN) mesmo assim",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki in English is available.",
         "placeholders": {
             "destination": {
@@ -45,7 +45,7 @@
         "message": ""
     },
     "settingsBannerReview": {
-        "message": "",
+        "message": "Gostando do Indie Wiki Buddy? Deixe uma avaliação, por favor!",
         "description": "Notice to leave a review for the extension"
     },
     "settingsBreezeWikiHost": {
@@ -302,7 +302,7 @@
         }
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "",
+        "message": "oficial e independente",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "settingsWikiLegendSearchExp": {
@@ -310,11 +310,11 @@
         "description": "Explanation for the icons in search experience"
     },
     "settingsTitle": {
-        "message": "",
+        "message": "Configurações do Indie Wiki Buddy",
         "description": "Title of the settings page"
     },
     "searchResultReenable": {
-        "message": "",
+        "message": "Reabilitar o resultado abaixo",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "settingsLangHU": {
@@ -322,7 +322,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
     },
     "searchResultLookup": {
-        "message": "",
+        "message": "Procure $article$ em $destination$",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
         "placeholders": {
             "article": {
@@ -336,11 +336,11 @@
         }
     },
     "bannerBreezeWiki": {
-        "message": "",
+        "message": "Veja esta wiki do Fandom através do BreezeWiki",
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "bannerRestoreDone": {
-        "message": "",
+        "message": "Banner restaurado",
         "description": "Text to display in the banner after the banner has been restored"
     },
     "settingsBreezeWikiCustomHost": {
@@ -360,7 +360,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
     },
     "bannerRedirect": {
-        "message": "",
+        "message": "Auto redirecionar esta wiki",
         "description": "Text to display in the banner for the redirect link"
     },
     "firstInstallInfo5": {
@@ -388,7 +388,7 @@
         "description": "General settings section"
     },
     "searchResultVisit": {
-        "message": "",
+        "message": "Visite $destination$ mesmo assim",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
         "placeholders": {
             "destination": {
@@ -412,15 +412,15 @@
         "description": "Notification title for being redirected to BreezeWiki"
     },
     "settingsWebsite": {
-        "message": "",
+        "message": "Site",
         "description": "Link to the website"
     },
     "settingsSubmitWiki": {
-        "message": "",
+        "message": "Sugerir uma Wiki",
         "description": "Link to the wiki submission form"
     },
     "bannerDescriptorOfficial": {
-        "message": "",
+        "message": "oficial",
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "settingsBreezeWiki": {
@@ -462,7 +462,7 @@
         "description": "Option to input a custom BreezeWiki host"
     },
     "settingsChangelog": {
-        "message": "",
+        "message": "Registro de alterações",
         "description": "Link to the changelog"
     },
     "settingsBreezeWikiDisabled": {
@@ -470,7 +470,7 @@
         "description": "Option to disable BreezeWiki"
     },
     "bannerVisit": {
-        "message": "",
+        "message": "Visite $destination$",
         "description": "Text to display in the banner for the visit link",
         "placeholders": {
             "destination": {
@@ -480,7 +480,7 @@
         }
     },
     "searchResultLookupEnglish": {
-        "message": "",
+        "message": "Procure $article$ em $destination$ (EN)",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
         "placeholders": {
             "article": {
@@ -502,11 +502,11 @@
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "bannerDisableDone": {
-        "message": "",
+        "message": "Banner desabilitado",
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "bannerText": {
-        "message": "",
+        "message": "Existe uma wiki $descriptor$ $host$ cobrindo este tópico$language$!",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
@@ -531,7 +531,7 @@
         "description": "Global settings help section"
     },
     "bannerDescriptorIndependent": {
-        "message": "",
+        "message": "independente",
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
     "settingsLangTH": {
@@ -617,7 +617,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
     },
     "bannerHost": {
-        "message": "",
+        "message": " em $host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -627,11 +627,11 @@
         }
     },
     "searchFilteredResultsShow": {
-        "message": "",
+        "message": "Mostrar resultados filtrados",
         "description": "Button to show filtered search results"
     },
     "searchRemovalNotice": {
-        "message": "",
+        "message": "O Indie Wiki Buddy filtrou resultados de $destination$. Procure por resultados de $link$ em vez disso.",
         "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
         "placeholders": {
             "destination": {
@@ -649,7 +649,7 @@
         "description": "Extension on/off toggle"
     },
     "settingsSourceCode": {
-        "message": "",
+        "message": "Código fonte",
         "description": "Link to the source code"
     },
     "settingsAlertFor": {
@@ -667,7 +667,7 @@
         }
     },
     "settingsGuide": {
-        "message": "",
+        "message": "Guia",
         "description": "Link to the guide"
     },
     "settingsSearchExp": {
@@ -681,7 +681,7 @@
         "message": ""
     },
     "extensionDescription": {
-        "message": "",
+        "message": "O Indie Wiki Buddy te ajuda a descobrir wikis independentes de alta qualidade através de alertas, redirecionamentos, e filtros de pesquisa.",
         "description": "The description of the extension"
     },
     "settingsWikiExp": {
@@ -693,7 +693,7 @@
         "description": "Prompt that the custom BreezeWiki host has failed to be added"
     },
     "settingsBannerHide": {
-        "message": "",
+        "message": "Esconder esta mensagem",
         "description": "Button to hide the banner"
     },
     "settingsHideFor": {
@@ -779,11 +779,11 @@
         "description": "Introduction paragraph of the general settings help"
     },
     "searchFilteredResultsHide": {
-        "message": "",
+        "message": "Esconder de novo resultados filtrados",
         "description": "Button to hide filtered search results"
     },
     "bannerDisable": {
-        "message": "",
+        "message": "Desabilite o banner para esta wiki",
         "description": "Text to display in the banner for the disable banner link"
     },
     "settingsLangFI": {
@@ -794,7 +794,7 @@
         "message": ""
     },
     "bannerRestore": {
-        "message": "",
+        "message": "Restaurar banner",
         "description": "Text to display in the banner for the restore banner link"
     },
     "guideWikiHelp": {
@@ -817,7 +817,7 @@
         "message": ""
     },
     "settingsBannerOpera": {
-        "message": "",
+        "message": "Usuários do Opera: Por padrão, o Opera bloqueia o funcionamento de extensões em sites de busca. Acesso de sites de busca pode ser habilitado por extensão indo para \"about:extensions\" e selecionando a opção \"Permitir o acesso aos resultados da página de pesquisa\" no Indie Wiki Buddy.",
         "description": "Notice for Opera users about enabling search engine access"
     },
     "guideHiddenResultsBannerHelp1": {
@@ -828,7 +828,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
     },
     "bannerLanguageEnglish": {
-        "message": "",
+        "message": " em inglês",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "settingsBreezeWikiCustomHostSet": {
