@@ -70,7 +70,7 @@
         }
     },
     "searchResultVisit": {
-        "message": "",
+        "message": "Consulter plutôt $destination$",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
         "placeholders": {
             "destination": {
@@ -80,7 +80,7 @@
         }
     },
     "searchResultVisitEnglish": {
-        "message": "",
+        "message": "Consulter plutôt $destination$ (EN)",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki in English is available.",
         "placeholders": {
             "destination": {
@@ -90,19 +90,19 @@
         }
     },
     "settingsTitle": {
-        "message": "",
+        "message": "Paramètres d’Indie Wiki Buddy",
         "description": "Title of the settings page"
     },
     "searchResultReenable": {
-        "message": "",
+        "message": "Réactiver le résultat ci-dessous",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "searchFilteredResultsHide": {
-        "message": "",
+        "message": "Cacher les résultats qui ont été filtrés",
         "description": "Button to hide filtered search results"
     },
     "settingsGuide": {
-        "message": "",
+        "message": "Guide",
         "description": "Link to the guide"
     },
     "settingsSubmitWiki": {
@@ -118,7 +118,7 @@
         "description": "Link to the changelog"
     },
     "settingsWebsite": {
-        "message": "",
+        "message": "Site internet",
         "description": "Link to the website"
     },
     "settingsBannerHide": {
@@ -696,7 +696,7 @@
         "description": "Text to display in the banner after the banner has been restored"
     },
     "searchRemovalNotice": {
-        "message": "",
+        "message": "Indie Wiki Buddy a filtré les résultats de $destination$. Voir plutôt les résultats de $link$.",
         "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
         "placeholders": {
             "destination": {
@@ -796,7 +796,7 @@
         "message": ""
     },
     "searchFilteredResultsShow": {
-        "message": "",
+        "message": "Montrer les résultats qui ont été filtrés",
         "description": "Button to show filtered search results"
     },
     "settingsAlert": {
@@ -834,7 +834,7 @@
         "description": "Search experience section"
     },
     "searchResultLookupEnglish": {
-        "message": "",
+        "message": "Rechercher « $article$ » sur $destination$ (EN)",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
         "placeholders": {
             "article": {
