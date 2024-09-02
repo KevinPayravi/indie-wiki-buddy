@@ -1,6 +1,6 @@
 {
     "bannerHost": {
-        "message": "",
+        "message": " sur $host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -10,23 +10,23 @@
         }
     },
     "bannerDescriptorIndependent": {
-        "message": "",
+        "message": "indépendant",
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
     "bannerDescriptorOfficial": {
-        "message": "",
+        "message": "officiel",
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "",
+        "message": "indépendant officiel",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "bannerLanguageEnglish": {
-        "message": "",
+        "message": " en anglais",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "bannerVisit": {
-        "message": "",
+        "message": "Consulter $destination$",
         "description": "Text to display in the banner for the visit link",
         "placeholders": {
             "destination": {
@@ -36,7 +36,7 @@
         }
     },
     "bannerBreezeWiki": {
-        "message": "",
+        "message": "Voir ce wiki Fandom avec BreezeWiki",
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "bannerDisableDone": {
@@ -591,7 +591,7 @@
         "description": "Notification title for being redirected to BreezeWiki"
     },
     "extensionDescription": {
-        "message": "",
+        "message": "Indie Wiki Buddy vous aide à découvrir des wikis indépendants de qualité grâce à des alertes, des redirections et des filtres de recherche.",
         "description": "The description of the extension"
     },
     "guideTogglePerSearchEngineHelp2": {
@@ -714,7 +714,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
     },
     "extensionName": {
-        "message": "",
+        "message": "Indie Wiki Buddy",
         "description": "The name of the extension"
     },
     "settingsAlertFor": {
@@ -804,7 +804,7 @@
         "description": "Option to alert the user with banner when visiting non-indie wikis"
     },
     "bannerText": {
-        "message": "",
+        "message": "Il y a un wiki $descriptor$ $host$ couvrant ce sujet $language$ !",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
