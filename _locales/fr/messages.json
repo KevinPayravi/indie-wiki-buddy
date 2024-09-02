@@ -456,7 +456,7 @@
         "description": "Notice that clicking an option will override any per-wiki customizations"
     },
     "guideOverviewPara1": {
-        "message": "Indie Wiki Buddy fournit un ensemble de fonctionnalités pour vous aider à découvrir des wikis indépendants et améliorer votre expérience globale de lecture de wikis."
+        "message": "Indie Wiki Buddy fournit un ensemble de fonctionnalités pour vous aider à découvrir des wikis indépendants et améliorer votre expérience globale de lecture quand vous consultez des wikis."
     },
     "popupBreezeWikiSeeSettingsLink": {
         "message": "Modifiez le domaine personnalisé sur la $linkStart$page des paramètres$linkEnd$",
