@@ -40,23 +40,23 @@
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "bannerDisableDone": {
-        "message": "",
+        "message": "Bannière désactivée",
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "bannerRedirect": {
-        "message": "",
+        "message": "Rediriger automatiquement ce wiki",
         "description": "Text to display in the banner for the redirect link"
     },
     "bannerRestore": {
-        "message": "",
+        "message": "Restaurer la bannière",
         "description": "Text to display in the banner for the restore banner link"
     },
     "bannerRedirectDone": {
-        "message": "",
+        "message": "Redirection activée",
         "description": "Text to display in the banner after the redirect has been enabled"
     },
     "searchResultLookup": {
-        "message": "",
+        "message": "Rechercher « $article$ » sur $destination$",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
         "placeholders": {
             "article": {
@@ -692,7 +692,7 @@
         "message": ""
     },
     "bannerRestoreDone": {
-        "message": "",
+        "message": "Bannière restaurée",
         "description": "Text to display in the banner after the banner has been restored"
     },
     "searchRemovalNotice": {
@@ -743,7 +743,7 @@
         "description": "Title of the guide"
     },
     "bannerDisable": {
-        "message": "",
+        "message": "Désactiver la bannière pour ce wiki",
         "description": "Text to display in the banner for the disable banner link"
     },
     "guideChangelogHelp": {
