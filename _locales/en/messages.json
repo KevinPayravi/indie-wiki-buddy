@@ -289,8 +289,8 @@
     "description": "Option to show a banner when non-indie results are hidden"
   },
   "settingsReorderResults": {
-    "message": "On Google, move indie wikis above non-indie results and hide duplicates",
-    "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
+    "message": "Move indie wikis above non-indie results and hide duplicates (Excluding Brave)",
+    "description": "Option to move indie wikis above non-indie results and hide duplicates (Excluding Brave)"
   },
   "settingsBreezeWiki": {
     "message": "BreezeWiki alternative frontend for Fandom ($linkStart$learn more$linkEnd$)",
@@ -524,7 +524,7 @@
       }
     }
   },
-  "settingsDisableFor": {
+  "settingsDisabledFor": {
     "message": "Do nothing for $origin$",
     "description": "Tooltip for option to disable any action for a specific wiki",
     "placeholders": {
