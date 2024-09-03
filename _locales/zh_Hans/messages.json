@@ -23,7 +23,7 @@
         }
     },
     "bannerHost": {
-        "message": " $host$",
+        "message": "$host$",
         "placeholders": {
             "host": {
                 "content": "$1",
@@ -44,7 +44,7 @@
         "message": "一个官方"
     },
     "bannerLanguageEnglish": {
-        "message": " 英语"
+        "message": "英语"
     },
     "bannerVisit": {
         "message": "访问$destination$",
