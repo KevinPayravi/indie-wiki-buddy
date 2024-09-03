@@ -18,7 +18,7 @@
         }
     },
     "firstInstallInfo3": {
-        "message": "",
+        "message": "Nas configurações abaixo, você pode ligar e desligar funcionalidades. Uma delas é a opção de habilitar $BreezeWiki$, uma alternativa front-end que renderiza wikis do Fandom sem propagandas e distrações.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -27,10 +27,10 @@
         }
     },
     "firstInstallInfo2": {
-        "message": ""
+        "message": "Use os links acima para ver o guia completo, sugerir wikis novas, ou contatar o desenvolvedor."
     },
     "settingsBannerReviewContact": {
-        "message": "",
+        "message": "Tem algum problema ou alguma ideia de melhoria? Por favor $linkStart$entre em contato$linkEnd$!",
         "description": "Notice to contact the developer for issues or ideas",
         "placeholders": {
             "linkStart": {
@@ -42,7 +42,7 @@
         }
     },
     "firstInstallInfo1": {
-        "message": ""
+        "message": "Obrigado por instalar o Indie Wiki Buddy! Vamos configurá-lo para você."
     },
     "settingsBannerReview": {
         "message": "Gostando do Indie Wiki Buddy? Deixe uma avaliação, por favor!",
@@ -53,7 +53,7 @@
         "description": "Select for a BreezeWiki host"
     },
     "settingsNotifications": {
-        "message": "",
+        "message": "Notificações de desktop para redirecionamentos",
         "description": "Option to enable desktop notifications for redirections"
     },
     "settingsBreezeWikiCustomHostSetSuccessful": {
@@ -364,7 +364,7 @@
         "description": "Text to display in the banner for the redirect link"
     },
     "firstInstallInfo5": {
-        "message": "",
+        "message": "Você pode acessar estas configurações no futuro através do ícone da extensão $logo$ no canto superior direito do seu navegador. Se você não ver o ícone, ele pode estar no dropdown de extensões, que pode ser aberto clicando no ícone de quebra-cabeça $jigsaw$ (também no canto superior direito do seu navegador).",
         "placeholders": {
             "logo": {
                 "content": "$1",
@@ -384,7 +384,7 @@
         "description": "Instruction to set default for new wikis in future updates"
     },
     "settingsGeneral": {
-        "message": "",
+        "message": "Configurações gerais",
         "description": "General settings section"
     },
     "searchResultVisit": {
@@ -592,7 +592,7 @@
         "message": ""
     },
     "firstInstallInfo4": {
-        "message": "",
+        "message": "Abaixo disso, você pode configurar individualmente o que acontece quando você visita wikis do Fandom, Fextralife, e Neoseeker que têm uma alternative independente, e também o que acontece com o resultados delas em sites de busca. Sobre visitar wikis, você pode escolher ser $alert$ alertado (padrão) ou $redirect$ automaticamente redirecionado. Em sites de busca, você pode escolher entre $replace$ substituir (padrão) ou $hide$ esconder resultados de pesquisas.",
         "placeholders": {
             "alert": {
                 "content": "$1",
