@@ -1,1 +1,753 @@
-{}
+{
+    "bannerDescriptorOfficial": {
+        "message": "официялно"
+    },
+    "bannerDisable": {
+        "message": "Деактивиране на банера за това уики"
+    },
+    "bannerRedirect": {
+        "message": "Автоматично пренсочване на това уики"
+    },
+    "searchFilteredResultsShow": {
+        "message": "Показване на филтрираните резултати"
+    },
+    "firstInstallInfo4": {
+        "message": "По надолу, можете индивидуално да конфигурирате какво се случва когато посещавате уикита на Fandom, Fextalife, или Neoseeker, които имат независима алтернатива, както и какво се случва с техните резултати в терсачките. За посещаване на уикита, можете да изберете $alert$ предупредени (по подразбиране) или $redirect$ автоматично пренасочване. В търсачките можете да изберете $replace$ заменяне (по подразбиране) или $hide$ скриване на резултатите от търсенето.",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "(image for alert)"
+            },
+            "redirect": {
+                "content": "$2",
+                "example": "(image for redirect)"
+            },
+            "replace": {
+                "content": "$3",
+                "example": "(image for replace)"
+            },
+            "hide": {
+                "content": "$4",
+                "example": "(image for hide)"
+            }
+        }
+    },
+    "extensionDescription": {
+        "message": "Indie Wiki Buddy помага да откривате качествени, независими уикита чрез предупреждения, пренасочване, и филтриране на резултати."
+    },
+    "settingsHiddenResultsBanner": {
+        "message": "Показване на банер в търсачките, когато са скрити резултатите, които не са независими"
+    },
+    "settingsBreezeWikiCustomHost": {
+        "message": "Персонализиран домейн на BreezeWiki:"
+    },
+    "settingsBreezeWikiCustomHostSetSuccessful": {
+        "message": "Успешно добавен"
+    },
+    "settingsBreezeWikiCustomHostOption": {
+        "message": "Персонализиран хост…"
+    },
+    "settingsBreezeWikiCustomHostSet": {
+        "message": "Задаване на домейн"
+    },
+    "settingsHide": {
+        "message": "Скрие резултатът"
+    },
+    "settingsLangDE": {
+        "message": "[DE] немски / Deutsch"
+    },
+    "settingsLangES": {
+        "message": "[ES] испански / Español"
+    },
+    "settingsLangPL": {
+        "message": "[PL] полски / Polski"
+    },
+    "settingsLangRU": {
+        "message": "[RU] руски / Русский"
+    },
+    "settingsLangKO": {
+        "message": "[KO] корейски / 한국어"
+    },
+    "settingsLangSV": {
+        "message": "[SV] шведски / Svenska"
+    },
+    "settingsWikiExp": {
+        "message": "Уики настройки"
+    },
+    "settingsNewWiki": {
+        "message": "По подразбиране за нови уикита в бъдещи актуализации:"
+    },
+    "settingsFunStats": {
+        "message": "Интересни статистики"
+    },
+    "settingsFunStatsAlerts": {
+        "message": "$alert$ предупреждения за независими уикита",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsRedirects": {
+        "message": "$redirect$ автоматични пренасочвания към независими уикита",
+        "placeholders": {
+            "redirect": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsSetColumn": {
+        "message": "Настиснете иконата за да ностроите всички уикита в колоната:"
+    },
+    "settingsReplaceFor": {
+        "message": "Заместване на $origin$ в резултати от търсачки с $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsHideFor": {
+        "message": "Скриване на $origin$ в резултати от търсачки",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "guideOverviewPara1": {
+        "message": "Indie Wiki Buddy предоставя набор от функции, за да ви помогне да откриете независими уикита и да подобрите общото си изживяване при четене на уикита."
+    },
+    "guideOverviewPara2": {
+        "message": "Когато посещавате уикита на голям, управляван от корпорация уики хост, това разширение може да ви уведоми или автоматично да ви пренасочи към качествени независими уикита, когато са налични. Резултатите от търсенето в Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! и Yandex също могат да бъдат филтрирани, като се заменят несамостоятелните уикита с връзки към независими версии (или да се скрият напълно)."
+    },
+    "guideOverviewPara4": {
+        "message": "Indie Wiki Buddy също така поддържа $BreezeWiki$, отделна услуга, която изобразява уикита на Fandom без реклами или надуване. Това ви помага да получите по-приятно изживяване при четене, когато няма налично независимо уики.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideOverviewPara5": {
+        "message": "Всичките тези функции могат да се включват или изключват и можете също да зададете предпочитанията си за отделни уикита. Вие имате пълен контрол!"
+    },
+    "guideGlobalSettingsHelp": {
+        "message": "Помощ за глобални настройки"
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "Има няколко общи настройки:"
+    },
+    "guideExtensionOnOff": {
+        "message": "Разширението е включено / изключено"
+    },
+    "guideCrossLanguageHelp1": {
+        "message": "По подразбиране, Indie Wiki Buddy ще поддържа потребителите на един и същи език (напр. само пренасочване на испански уикита на Fandom към испански независими уикита). Говорещите много езици обаче може да искат да използват и многото налични уикита на английски език. Активирането на тази опция ще пренасочи от неанглийски уикита на Fandom към независими английски уикита, когато не е налично на същия език."
+    },
+    "guideChangelogHelp": {
+        "message": "Включете тази опция за отворите $linkStart$регистърът с промените$linkEnd$ на Indie Wiki Buddy в нов раздел когата се актуализира, за да можете да следите най-новите промени.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": "По подразбиране, филтрирането е включено за всички търсачки. Филтрирането става според настройките на потребителя за всяко уики. По подразбиране, настройката за всики уикита е да се заменят несамостостоятелните резултати с връзка към независими версии."
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": "Когато тази опция е включена, един банер ще се появи най-горе в резултатите, когато Indie Wiki Buddy е скрил резултати на уикита на Fandom, Fextralife, или Neoseeker. Този банер позволява да се покажят скритите резултати ако желаете."
+    },
+    "guideReorderResultsHelp1": {
+        "message": "По подразбиране, Indie Wiki Buddy пренарежда резултатите от Google така, че независими уикита са наредени над первиятнесамостоятелен (Fandom / Fextralife / Neoseeker) резултат, ако се намират по-надолу на първата страница с резултати. Това позволява данамерите страниците, които търсите на независими уикита по-бързо."
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": "Посещаването на уики на Fandom на английски език автоматично ще се пренасочва към BreezeWiki. Пренасочване към незасимио уики ще има приоритет, ако тази опция е включена."
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": "Щом включите опция за BreezeWiki, ще се появи падащо меню от където може да изберете вашият предпочитан хост/огледален сървър. Ако избраният хост не работи, може да се върнете към настройките за да го смените."
+    },
+    "guideDisableVisitHelp": {
+        "message": ": Няма да получите известие нито ще бъдете пренасочвани към независимата версия. Все пак ще бъдете пренасочвани към BreezeWiki ако това е включено."
+    },
+    "guideRedirectHelp": {
+        "message": ": Ще бъдете автоматично пренасочвани към независимата версия."
+    },
+    "guideAlertHelp": {
+        "message": ": Ще се показва банер отгоре, който извества, че има налично независимо уики. Това ще се появява на страници в Fandom и BreezeWiki."
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": "До момента съвместимите търсачки са Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! и Yandex."
+    },
+    "guideWikiHelpPara3": {
+        "message": "Вторият набор от радио бутони котролира какво се случва с несамостоятелните уикита на Google, Bing, DuckDuckGo и други търсачки."
+    },
+    "bannerText": {
+        "message": "Има $descriptor$ уики $host$, покриващо тази тема $language$!",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "bannerHost": {
+        "message": "на $host$",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "bannerDescriptorWiki": {
+        "message": "‌"
+    },
+    "bannerDescriptorIndependent": {
+        "message": "независимо"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "официялно независимо"
+    },
+    "bannerLanguageEnglish": {
+        "message": "на английски език"
+    },
+    "bannerVisit": {
+        "message": "Посетете $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerBreezeWiki": {
+        "message": "Разгледайте това уики на Fandom чрез BreezeWiki"
+    },
+    "extensionName": {
+        "message": "Indie Wiki Buddy"
+    },
+    "bannerRestoreDone": {
+        "message": "Банерът е възстановен"
+    },
+    "bannerDisableDone": {
+        "message": "Банерът е деактивиран"
+    },
+    "bannerRestore": {
+        "message": "Възстановяване на банера"
+    },
+    "bannerRedirectDone": {
+        "message": "Пренасочването е активирано"
+    },
+    "searchResultLookup": {
+        "message": "Разгледайте $article$ на $destination$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultLookupEnglish": {
+        "message": "Разгледайте $article$ на $destination$ (на английски)",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisit": {
+        "message": "Посетете $destination$ вместо това",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "Посетете $destination$ (на английски) вместо това",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "Възстановете долния резултат"
+    },
+    "searchFilteredResultsHide": {
+        "message": "Отново скриване на филтрираните резултати"
+    },
+    "settingsGuide": {
+        "message": "Наръчник"
+    },
+    "settingsWebsite": {
+        "message": "Уебсайт"
+    },
+    "settingsChangelog": {
+        "message": "Регистър на промените"
+    },
+    "searchRemovalNotice": {
+        "message": "Indie Wiki Buddy филтрира резултатите от $destination$. Вместо това търсете резултати от $link$.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "settingsTitle": {
+        "message": "Настройки за Indie Wiki Buddy"
+    },
+    "settingsSubmitWiki": {
+        "message": "Изпращане на уики"
+    },
+    "settingsSourceCode": {
+        "message": "Изходен код"
+    },
+    "settingsBannerHide": {
+        "message": "Скриване на това съобщение"
+    },
+    "settingsBannerReviewContact": {
+        "message": "Имате проблеми или идеи за подобрение? Моля $linkStart$свържете се с мен$linkEnd$!",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "firstInstallInfo2": {
+        "message": "Използвайте връзките по-горе за да видите наръчника, да изпратите нови уикита, или да се свържете с програмиста."
+    },
+    "firstInstallInfo3": {
+        "message": "В настройке по-долу, можете да превключвате функциите. Това включва опцията за активиране на $BreezeWiki$, алтернативен интерфейс, който изобразява Fandom уикита без реклами или надуване.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "settingsBannerOpera": {
+        "message": "За потребители на Opera: По подразбиране Opera блокира изпълняването на разширенията в търсачките. Достъпът до търсачката може да се активира за всяко разширение, като отидете на „about:extensions“ и изберете опцията „Разрешаване на достъп до резултатите от страницата за търсене“ под Indie Wiki Buddy."
+    },
+    "settingsBannerReview": {
+        "message": "Харесвате ли Indie Wiki Buddy? Моля, оставете отзив!"
+    },
+    "firstInstallInfo1": {
+        "message": "Благодарим ви, че инсталирахте Indie Wiki Buddy! Нека оправим настройките."
+    },
+    "firstInstallInfo5": {
+        "message": "Можете да намерите тези настройки чрез иконата на разширението $logo$ в горния десен ъгъл на вашия браузър. Ако не се вижва иконата, може да е в падащото меню на разширението, което може да се отвори чрез иконата на мозайката $jigsaw$ (също в горния десен ъгъл на вашия браузър).",
+        "placeholders": {
+            "logo": {
+                "content": "$1",
+                "example": "(image for the extension icon)"
+            },
+            "jigsaw": {
+                "content": "$2",
+                "example": "(image for the jigsaw icon)"
+            }
+        }
+    },
+    "settingsGeneral": {
+        "message": "Общи настройки"
+    },
+    "settingsNotifications": {
+        "message": "Известия на работния плот за пренасочвания"
+    },
+    "settingsCrossLanguage": {
+        "message": "Пренасочване на неанглийски уикита на Fandom към независими уикита на английски, когато не съществува уики на същия език"
+    },
+    "settingsOpenChangelog": {
+        "message": "Отваряне на регистъра на промените, когато Indie Wiki Buddy се актуализира"
+    },
+    "settingsSearchEngineFiltering": {
+        "message": "Филтриране на резултатите от търсачките"
+    },
+    "settingsReorderResults": {
+        "message": "Преместване на независими уикита по-нагоре в резултатите и скриване на дубликати (с изключение на Brave)"
+    },
+    "settingsBreezeWiki": {
+        "message": "BreezeWiki алтернативен интерфейс за Fandom ($linkStart$научете повече$linkEnd$)",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsBreezeWikiDisabled": {
+        "message": "BreezeWiki изключен"
+    },
+    "settingsBreezeWikiBanner": {
+        "message": "Вмъкване на банер връзка към BreezeWiki"
+    },
+    "settingsBreezeWikiRedirect": {
+        "message": "Автоматично пренасочване от Fandom към BreezeWiki"
+    },
+    "settingsBreezeWikiHost": {
+        "message": "Хост на BreezeWiki:"
+    },
+    "settingsBreezeWikiCustomHostSetFailed": {
+        "message": "Неуспешно добавяне"
+    },
+    "settingsWiki": {
+        "message": "Индивидуални уики настройки"
+    },
+    "settingsWikiLegend": {
+        "message": "Легенда за иконите"
+    },
+    "settingsWikiLegendWikiExp": {
+        "message": "Когато посещавате уикита на Fandom, Fextralife, или Neoseeker, които имат независима алтернатива, IWB може да:"
+    },
+    "settingsWikiLegendSearchExp": {
+        "message": "Когато резултатите на търсачките включват уикита на Fandom, Fextralife, или Neoseeker, които имат независима алтернатива, IWB може да:"
+    },
+    "settingsDisabled": {
+        "message": "Не прави нищо"
+    },
+    "settingsAlert": {
+        "message": "Покаже банер с връзка към независимо уики"
+    },
+    "settingsRedirect": {
+        "message": "Пренасочи към независимо уики"
+    },
+    "settingsReplace": {
+        "message": "Замени резултатът с връзка към независимо уики"
+    },
+    "settingsFilterByLanguage": {
+        "message": "Филтриране на уикита по език:"
+    },
+    "settingsFilterByName": {
+        "message": "Филтриране на уикита по име:"
+    },
+    "settingsLangAll": {
+        "message": "Всички езици"
+    },
+    "settingsLangEN": {
+        "message": "[EN] английски / English"
+    },
+    "settingsLangFI": {
+        "message": "[FI] финландски / suomi"
+    },
+    "settingsLangFR": {
+        "message": "[FR] френски / Français"
+    },
+    "settingsLangHU": {
+        "message": "[HU] унгарски / Magyar"
+    },
+    "settingsLangIT": {
+        "message": "[IT] италиански / Italiano"
+    },
+    "settingsLangJA": {
+        "message": "[JA] японски / 日本語"
+    },
+    "settingsLangLZH": {
+        "message": "[LZH] класически китайски / 文言"
+    },
+    "settingsLangPT": {
+        "message": "[PT] португалски / Português"
+    },
+    "settingsLangTH": {
+        "message": "[TH] тайландски / ไทย"
+    },
+    "settingsLangTOK": {
+        "message": "[TOK] токи пона / toki pona"
+    },
+    "settingsLangUK": {
+        "message": "[UK] украински / Українська"
+    },
+    "settingsLangZH": {
+        "message": "[ZH] китайски / 中文"
+    },
+    "settingsNameFilterPlaceholder": {
+        "message": "Въведете име на уики…"
+    },
+    "settingsSearchExp": {
+        "message": "Търсачка настройки"
+    },
+    "settingsFunStatsBreezeWiki": {
+        "message": "$breezeWiki$ автоматични пренасоявания към BreezeWiki",
+        "placeholders": {
+            "breezeWiki": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsSearchFilters": {
+        "message": "$hide$ филтрирани резултати от търсачки",
+        "placeholders": {
+            "hide": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsDisabledFor": {
+        "message": "Без действие за $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsAlertFor": {
+        "message": "Показване на банер на $origin$ с връзка към $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsRedirectFor": {
+        "message": "Автоматично пренасочване от $origin$ към $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsWikiFrom": {
+        "message": " (от $origin$)",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsCustomWikiDelete": {
+        "message": "Изтриване"
+    },
+    "settingsExtensionOn": {
+        "message": "Разширението е включено"
+    },
+    "settingsExtensionOff": {
+        "message": "Разширението е изключено"
+    },
+    "popupOpenSettings": {
+        "message": "Отваряне на всички настройки"
+    },
+    "popupDefault": {
+        "message": "Поведения по подразбиране (важи за всички настоящи и нови уикита в бъдещи актуализации)"
+    },
+    "popupWikiLegendWikiExp": {
+        "message": "При посещаване на уикита на Fandom, Fextralife, и Neoseeker:"
+    },
+    "popupWikiLegendSearchExp": {
+        "message": "Когато резултатите от търсачките включват уикита на Fandom, Fextralife, или Neoseeker, които имат независима алтернатива, IWB може да:"
+    },
+    "popupSettingsPerWiki": {
+        "message": "Посетете $linkStart$всички настройки$linkEnd$, за да промените поведението за отделни уикита.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "popupSettingsOverride": {
+        "message": "Избирането на опция по-горе ще отмени всички персонализации за отделни уикита, които може да имате."
+    },
+    "popupBreezeWikiSeeSettings": {
+        "message": "Вижте настройките"
+    },
+    "popupBreezeWikiSeeSettingsLink": {
+        "message": "Променете персонализирания домейн на $linkStart$страницата с пълни настройки$linkEnd$",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideTitle": {
+        "message": "Наръчник за Indie Wiki Buddy"
+    },
+    "guideBackToSettings": {
+        "message": "⇦ Назад към Настройки"
+    },
+    "guideOverview": {
+        "message": "Преглед"
+    },
+    "guideOverviewPara3": {
+        "message": "В момента пренасочваме от уикита на Fandom, Fextralife, и Neoseeker към независи версии."
+    },
+    "guideExtensionOnOffHelp": {
+        "message": "Включване или изключване на всяка функционалност на Indie Wiki Buddy с едно щракване на бутона."
+    },
+    "guideNotificationsHelp1": {
+        "message": "Когато тази опция е включена, ще получавате известия всеки път, когато сте автоматично пренасочени към независимо уики или към $BreezeWiki$. Това е включено по подразбиране.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideNotificationsHelp2": {
+        "message": "Ако не получавате известия, когато това е включено, проверете настройките за известяване на вашата операционна система, за да се уверите, че на браузъра ви е разрешено да изпраща известия."
+    },
+    "guideCrossLanguageHelp2": {
+        "message": "За съжаление тази функция в момента не работи за уикита на Fextralife."
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": "Също така можете да конфигурирате вашите настройки за филтриране на резултатите от търсачки:"
+    },
+    "guideTogglePerSearchEngine": {
+        "message": "Превключване на филтрирането по търсачка"
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": "Ако не желаете да знаете, че някои резултати са скрити, изключете тази опция."
+    },
+    "guideReorderResultsHelp2": {
+        "message": "Тази функция до момента е налична само за Google, тъй като може да се сложно надеждно да се поддържа."
+    },
+    "guideBreezeWiki": {
+        "message": "Също така има настройки за $BreezeWiki$, отделна услуга, която изобразява уикита на Fandom без реклами или разуване. Имайте предвид, че BreezeWiki в момента поддържа само уикита на английски език.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": "Да не се пренасочва от Fandom към BreezeWiki."
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": "Най-отгоре на уикита на Fandom на английски език ще се вмъква малък банер с връзка към уикито на BreezeWiki."
+    },
+    "guideWikiHelp": {
+        "message": "Помощ за настройки на индивидуални уикита"
+    },
+    "guideWikiHelpPara1": {
+        "message": "В индивидуалните настройки може да конфигурате настройките за индивидуални уикита. Можете да се обърнете към легендата или да задържите курсора на мишката върху иконите, за да научите какво контролира всяка колона."
+    },
+    "guideWikiHelpPara2": {
+        "message": "Първият набор от радио бутони контролира какво се случва, когато посещавате изброените несамотоятелни уикита."
+    },
+    "guideDisable": {
+        "message": "Изключено"
+    },
+    "guideRedirect": {
+        "message": "Пренасоване"
+    },
+    "guideAlert": {
+        "message": "Предупреждение"
+    },
+    "guideDisableSearchHelp": {
+        "message": ": Резултатите няма да бъдат променени."
+    },
+    "guideHide": {
+        "message": "Скриване"
+    },
+    "guideHideHelp": {
+        "message": ": Резултатите от търачките се скриват. Един банер ще се показва отгоре за да ви информира, и позволява да се покажат скритите резултати."
+    },
+    "guideReplace": {
+        "message": "Заместване"
+    },
+    "guideReplaceHelp": {
+        "message": ": Първоначалният резултат на несамостоятелно уики е деактивирано и се вмъква отгоре бутон, който води към независимото уики."
+    },
+    "guideWikiHelpPara4": {
+        "message": "Щракването върху иконите в заглавката на таблицата ще приложи тази настройка към всички уикита в таблицата. Във втория ред звездите представляват настройките по подразбиране за уикита, които се добавят при бъдещи актуализации. По подразбиране всички уикита ще бъдат настроени да предупреждават, и да замят резултатите на търсачките."
+    },
+    "guideFeedback": {
+        "message": "Имате въпроси или отзиви?"
+    },
+    "guideFeedbackPara1": {
+        "message": "Ако сте в затруднение или имате въпроси, моля, не се колебайте да се свържете чрез $linkStart$данните за контакт$linkEnd$ в долната част на уебсайта на Indie Wiki Buddy.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideFeedbackPara2": {
+        "message": "Предложения за подобрения на разширението също са добре дошли!"
+    },
+    "notificationTitle": {
+        "message": "Бяхте пренасочени!"
+    },
+    "notificationMessage": {
+        "message": "Indie Wiki Buddy ви изпрати от $origin$ до $destination$!",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "Бяхте пренасочени към BreezeWiki!"
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "Indie Wiki Buddy ви изпрати в BreezeWiki за по-чисто изживяване без реклами във Fandom."
+    }
+}
