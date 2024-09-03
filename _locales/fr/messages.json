@@ -761,7 +761,7 @@
         "message": "Par défaut, le filtrage est activé pour tous les moteurs de recherche. Le filtrage est effectué en fonction des paramètres sélectionnés par l’utilisateur pour chaque wiki individuellement. Le paramètre de filtrage par défaut pour tous les wikis remplace les résultats de recherche des wikis non indépendant par des boutons menant au wikis indépendants."
     },
     "bannerDescriptorWiki": {
-        "message": " ",
+        "message": "‌",
         "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
     },
     "settingsLangFR": {
@@ -804,7 +804,7 @@
         "description": "Option to alert the user with banner when visiting non-indie wikis"
     },
     "bannerText": {
-        "message": "Il y a un wiki$descriptor$ $host$ couvrant ce sujet $language$ !",
+        "message": "Il y a un wiki $descriptor$ $host$ couvrant ce sujet $language$ !",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
