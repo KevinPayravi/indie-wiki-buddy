@@ -617,7 +617,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
     },
     "bannerHost": {
-        "message": " em $host$",
+        "message": "em $host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -828,7 +828,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
     },
     "bannerLanguageEnglish": {
-        "message": " em inglês",
+        "message": "em inglês",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "settingsBreezeWikiCustomHostSet": {
