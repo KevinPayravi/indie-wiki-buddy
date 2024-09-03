@@ -4,7 +4,7 @@
         "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
     },
     "bannerText": {
-        "message": "Существует$descriptor$ вики$host$, освещающая эту тему$language$!",
+        "message": "Существует $descriptor$ вики $host$, освещающая эту тему $language$!",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
