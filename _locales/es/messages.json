@@ -4,7 +4,7 @@
         "description": "The name of the extension"
     },
     "bannerHost": {
-        "message": "",
+        "message": "en $host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -14,7 +14,7 @@
         }
     },
     "bannerDescriptorIndependent": {
-        "message": "",
+        "message": "independiente",
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
     "settingsSubmitWiki": {
@@ -262,7 +262,7 @@
         "description": "Feedback section"
     },
     "bannerLanguageEnglish": {
-        "message": "",
+        "message": "en inglés",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "guideWikiHelpPara4": {
@@ -283,7 +283,7 @@
         }
     },
     "bannerRedirect": {
-        "message": "",
+        "message": "Redirigir automáticamente para este wiki",
         "description": "Text to display in the banner for the redirect link"
     },
     "popupWikiLegendWikiExp": {
@@ -365,7 +365,7 @@
         "description": "Button to hide filtered search results"
     },
     "bannerDescriptorOfficial": {
-        "message": "",
+        "message": "oficial",
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "settingsLangRU": {
@@ -428,7 +428,7 @@
         "description": "Select for a BreezeWiki host"
     },
     "bannerRestore": {
-        "message": "",
+        "message": "Restaurar banner",
         "description": "Text to display in the banner for the restore banner link"
     },
     "settingsWiki": {
@@ -539,7 +539,7 @@
         }
     },
     "bannerRedirectDone": {
-        "message": "",
+        "message": "Redirección activada",
         "description": "Text to display in the banner after the redirect has been enabled"
     },
     "popupBreezeWikiSeeSettingsLink": {
@@ -584,7 +584,7 @@
         }
     },
     "bannerDisableDone": {
-        "message": "",
+        "message": "Banner desactivado",
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "settingsBreezeWikiDisabled": {
@@ -608,7 +608,7 @@
         "description": "Button to hide the banner"
     },
     "bannerDisable": {
-        "message": "",
+        "message": "Desactivar banner para este wiki",
         "description": "Text to display in the banner for the disable banner link"
     },
     "guideCrossLanguageHelp2": {
@@ -714,7 +714,7 @@
         "message": ""
     },
     "bannerText": {
-        "message": "",
+        "message": "¡Existe un wiki $descriptor$ $host$ cubriendo este tema $language$!",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
@@ -770,7 +770,7 @@
         "description": "Notice that the extension is enabled"
     },
     "bannerVisit": {
-        "message": "",
+        "message": "Visita $destination$",
         "description": "Text to display in the banner for the visit link",
         "placeholders": {
             "destination": {
@@ -784,7 +784,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "",
+        "message": "oficial independiente",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "notificationMessageBreezeWiki": {
@@ -792,11 +792,11 @@
         "description": "Notification message for being redirected to BreezeWiki"
     },
     "bannerRestoreDone": {
-        "message": "",
+        "message": "Banner restaurado",
         "description": "Text to display in the banner after the banner has been restored"
     },
     "bannerBreezeWiki": {
-        "message": "",
+        "message": "Ver este wiki de Fandom a través de BreezeWiki",
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "settingsSearchEngineFiltering": {
@@ -869,7 +869,7 @@
         "description": "Placeholder for the name filter input"
     },
     "extensionDescription": {
-        "message": "",
+        "message": "Indie Wiki Buddy te ayuda a descubrir wikis independientes de calidad, mediante alertas, redirecciones y filtrados en las búsquedas.",
         "description": "The description of the extension"
     }
 }
