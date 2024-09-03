@@ -78,7 +78,7 @@
         "description": "Prompt to re-enable a non-indie search result"
     },
     "settingsChangelog": {
-        "message": "",
+        "message": "Список изменений",
         "description": "Link to the changelog"
     },
     "settingsSourceCode": {
@@ -769,7 +769,7 @@
         "description": "Button to show filtered search results"
     },
     "settingsSubmitWiki": {
-        "message": "",
+        "message": "Предложить Вики",
         "description": "Link to the wiki submission form"
     },
     "guideBreezeWikiRedirectHelp": {
