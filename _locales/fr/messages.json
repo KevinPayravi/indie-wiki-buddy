@@ -1,6 +1,6 @@
 {
     "bannerHost": {
-        "message": " sur $host$",
+        "message": "sur $host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -22,7 +22,7 @@
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "bannerLanguageEnglish": {
-        "message": " en anglais",
+        "message": "en anglais",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "bannerVisit": {
