@@ -865,7 +865,7 @@
         "description": "Feedback section"
     },
     "bannerDescriptorWiki": {
-        "message": "",
+        "message": "‌",
         "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
     },
     "popupSettingsOverride": {
