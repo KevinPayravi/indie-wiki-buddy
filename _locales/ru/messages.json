@@ -30,7 +30,7 @@
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "bannerLanguageEnglish": {
-        "message": " на английском языке",
+        "message": "на английском языке",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "bannerRestoreDone": {
@@ -605,7 +605,7 @@
         "description": "Option to show all languages"
     },
     "bannerHost": {
-        "message": " на $host$",
+        "message": "на $host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
