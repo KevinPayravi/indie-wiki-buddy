@@ -506,7 +506,7 @@
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "bannerText": {
-        "message": "Existe uma wiki $descriptor$ $host$ cobrindo este tópico$language$!",
+        "message": "Existe uma wiki $descriptor$ $host$ cobrindo este tópico $language$!",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
