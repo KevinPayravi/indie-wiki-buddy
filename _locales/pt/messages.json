@@ -49,7 +49,7 @@
         "description": "Notice to leave a review for the extension"
     },
     "settingsBreezeWikiHost": {
-        "message": "",
+        "message": "Host do BreezeWiki:",
         "description": "Select for a BreezeWiki host"
     },
     "settingsNotifications": {
@@ -57,7 +57,7 @@
         "description": "Option to enable desktop notifications for redirections"
     },
     "settingsBreezeWikiCustomHostSetSuccessful": {
-        "message": "",
+        "message": "Adicionado com sucesso",
         "description": "Prompt that the custom BreezeWiki host has been successfully added"
     },
     "settingsWiki": {
@@ -344,7 +344,7 @@
         "description": "Text to display in the banner after the banner has been restored"
     },
     "settingsBreezeWikiCustomHost": {
-        "message": "",
+        "message": "Domínio personalizado do BreezeWiki:",
         "description": "Input for a custom BreezeWiki host not included by default"
     },
     "settingsWikiLegend": {
@@ -352,7 +352,7 @@
         "description": "Legend for the icons in the individual wiki settings"
     },
     "settingsBreezeWikiRedirect": {
-        "message": "",
+        "message": "Redirecionar automaticamente Fandom para BreezeWiki",
         "description": "Option to redirect Fandom wikis to BreezeWiki"
     },
     "settingsLangRU": {
@@ -424,7 +424,7 @@
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "settingsBreezeWiki": {
-        "message": "",
+        "message": "Alternativa front-end BreezeWiki para Fandom ($linkStart$saiba mais$linkEnd$)",
         "description": "Option to enable BreezeWiki",
         "placeholders": {
             "linkStart": {
@@ -450,15 +450,15 @@
         "message": ""
     },
     "settingsBreezeWikiBanner": {
-        "message": "",
+        "message": "Inserir link no banner para te levar a BreezeWiki",
         "description": "Option to show the BreezeWiki banner on Fandom wikis"
     },
     "settingsCrossLanguage": {
-        "message": "",
+        "message": "Redirecionar Fandom wikis não em inglês para wikis indie em inglês quando não houver uma wiki da mesma língua",
         "description": "Option to redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists"
     },
     "settingsBreezeWikiCustomHostOption": {
-        "message": "",
+        "message": "Host personalizado…",
         "description": "Option to input a custom BreezeWiki host"
     },
     "settingsChangelog": {
@@ -466,7 +466,7 @@
         "description": "Link to the changelog"
     },
     "settingsBreezeWikiDisabled": {
-        "message": "",
+        "message": "Desligar BreezeWiki",
         "description": "Option to disable BreezeWiki"
     },
     "bannerVisit": {
@@ -498,7 +498,7 @@
         "description": "Option to redirect to indie wikis when visiting non-indie wikis"
     },
     "settingsReorderResults": {
-        "message": "",
+        "message": "Mover wikis indie acima de resultados não indie e esconder duplicados (Menos Brave)",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "bannerDisableDone": {
@@ -689,7 +689,7 @@
         "description": "Wiki experience section"
     },
     "settingsBreezeWikiCustomHostSetFailed": {
-        "message": "",
+        "message": "Falha ao adicionar",
         "description": "Prompt that the custom BreezeWiki host has failed to be added"
     },
     "settingsBannerHide": {
@@ -767,7 +767,7 @@
         }
     },
     "settingsOpenChangelog": {
-        "message": "",
+        "message": "Abrir o registro de alterações quando o Indie Wiki Buddy for atualizado",
         "description": "Option to open the changelog when Indie Wiki Buddy is updated"
     },
     "settingsExtensionOff": {
@@ -806,7 +806,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
     },
     "settingsHiddenResultsBanner": {
-        "message": "",
+        "message": "Em sites de busca, mostrar um banner quando resultados não indie forem escondidos",
         "description": "Option to show a banner when non-indie results are hidden"
     },
     "settingsNameFilterPlaceholder": {
@@ -832,7 +832,7 @@
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "settingsBreezeWikiCustomHostSet": {
-        "message": "",
+        "message": "Definir domínio",
         "description": "Button to confirm input for a custom BreezeWiki host"
     },
     "guideFeedbackPara1": {
@@ -857,7 +857,7 @@
         "message": ""
     },
     "settingsSearchEngineFiltering": {
-        "message": "",
+        "message": "Filtragem de sites de busca",
         "description": "Search engine filtering section"
     },
     "guideFeedback": {
