@@ -4712,6 +4712,26 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-mercstoria",
+    "origins_label": "Merc Storia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Merc Storia Fandom Wiki",
+        "origin_base_url": "merc-storia-english.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Merc_Storia_English_Wiki"
+      }
+    ],
+    "destination": "Merc Storia Wiki",
+    "destination_base_url": "mercstoria.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mercstoriaenglishwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Merc_Storia_English_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-micronations",
     "origins_label": "MicroNations Fandom Wikis",
     "origins": [
