@@ -956,25 +956,6 @@
     "destination_main_page": "Main_Page"
   },
   {
-    "id": "en-bionicle",
-    "origins_label": "Bionicle Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Bionicle Fandom Wiki",
-        "origin_base_url": "bionicle.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "The_Bionicle_Wiki"
-      }
-    ],
-    "destination": "BIONICLEsector01",
-    "destination_base_url": "biosector01.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "biosector01.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/"
-  },
-  {
     "id": "en-bindingofisaacrebirth",
     "origins_label": "The Binding Of Isaac: Rebirth Fandom Wiki",
     "origins": [
@@ -993,6 +974,25 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-bionicle",
+    "origins_label": "Bionicle Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bionicle Fandom Wiki",
+        "origin_base_url": "bionicle.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Bionicle_Wiki"
+      }
+    ],
+    "destination": "BIONICLEsector01",
+    "destination_base_url": "biosector01.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "biosector01.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-bitcraft",
@@ -1410,6 +1410,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-cherryforest",
+    "origins_label": "Cherry Forest Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cherry Forest Fandom Wiki",
+        "origin_base_url": "cherry-forest.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Cherry_Forest_Wiki"
+      }
+    ],
+    "destination": "Cherry Forest Wiki",
+    "destination_base_url": "cherryforest.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cherryforestwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Cherry_Forest_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-chibirobo",
     "origins_label": "Chibi-Robo! Fandom Wiki",
     "origins": [
@@ -1766,6 +1786,25 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-d2mc",
+    "origins_label": "Destiny 2 Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "D2MC Fandom Wiki",
+        "origin_base_url": "d2mc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "D2MC_Wiki"
+      }
+    ],
+    "destination": "Destiny 2 Minecraft Edition Wiki",
+    "destination_base_url": "d2mc.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "d2mc.png",
+    "destination_main_page": "Destiny_2_Minecraft_Edition_Wiki",
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-daria",
     "origins_label": "Daria Fandom Wiki",
     "origins": [
@@ -1784,25 +1823,6 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
-  },
-  {
-    "id": "en-darkanddarker",
-    "origins_label": "Dark and Darker Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Dark and Darker Fandom Wiki",
-        "origin_base_url": "dark-and-darker.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Dark_and_Darker_Wiki"
-      }
-    ],
-    "destination": "Dark and Darker Wiki",
-    "destination_base_url": "darkanddarker.wiki.spellsandguns.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "darkanddarkerwiki.png",
-    "destination_main_page": "Dark_and_Darker_Wiki",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/"
   },
   {
     "id": "en-darkagebizarre",
@@ -1826,6 +1846,25 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-darkanddarker",
+    "origins_label": "Dark and Darker Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dark and Darker Fandom Wiki",
+        "origin_base_url": "dark-and-darker.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dark_and_Darker_Wiki"
+      }
+    ],
+    "destination": "Dark and Darker Wiki",
+    "destination_base_url": "darkanddarker.wiki.spellsandguns.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "darkanddarkerwiki.png",
+    "destination_main_page": "Dark_and_Darker_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-darkestdungeon",
@@ -1957,25 +1996,6 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
-  },
-  {
-    "id": "en-d2mc",
-    "origins_label": "Destiny 2 Minecraft Fandom Wiki",
-    "origins": [
-      {
-        "origin": "D2MC Fandom Wiki",
-        "origin_base_url": "d2mc.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "D2MC_Wiki"
-      }
-    ],
-    "destination": "Destiny 2 Minecraft Edition Wiki",
-    "destination_base_url": "d2mc.wiki.gg",
-    "destination_platform": "mediawiki",
-    "destination_icon": "d2mc.png",
-    "destination_main_page": "Destiny_2_Minecraft_Edition_Wiki",
-    "destination_search_path": "/wiki/index.php",
-    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-detectiveconan",
@@ -4803,6 +4823,26 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-minehut",
+    "origins_label": "Minehut Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minehut Fandom Wiki",
+        "origin_base_url": "minehut.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minehut_Wiki"
+      }
+    ],
+    "destination": "Minehut Wiki",
+    "destination_base_url": "minehut.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minehutwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Minehut_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-minetest",
     "origins_label": "Minetest Fandom Wiki",
     "origins": [
@@ -6975,6 +7015,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-supersnail",
+    "origins_label": "Super Snail Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Super Snail Fandom Wiki",
+        "origin_base_url": "super-snail.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Super_Snail_Wiki"
+      }
+    ],
+    "destination": "Super Snail Wiki",
+    "destination_base_url": "supersnail.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "supersnailwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Super_Snail_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-survivingmars",
     "origins_label": "Surviving Mars Fandom Wiki",
     "origins": [
@@ -6996,6 +7056,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-synthetik",
+    "origins_label": "SYNTHETIK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "SYNTHETIK Fandom Wiki",
+        "origin_base_url": "synthetik.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "SYNTHETIK_Wiki"
+      }
+    ],
+    "destination": "SYNTHETIK Universe Wiki",
+    "destination_base_url": "synthetikuniverse.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "synthetikuniversewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "SYNTHETIK_Universe_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-tallyhall",
