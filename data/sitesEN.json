@@ -5400,6 +5400,29 @@
     ]
   },
   {
+    "id": "en-penguinmod",
+    "origins_label": "PenguinMod Fandom Wiki",
+    "origins": [
+      {
+        "origin": "PenguinMod Fandom Wiki",
+        "origin_base_url": "penguinmod.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "PenguinMod_Wiki"
+      }
+    ],
+    "destination": "PenguinMod Wiki",
+    "destination_base_url": "wiki.penguinmod.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "penguinmodwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-phighting",
     "origins_label": "PHIGHTING! Fandom Wiki",
     "origins": [
