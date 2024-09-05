@@ -6647,6 +6647,26 @@
     ]
   },
   {
+    "id": "en-spacepioneers",
+    "origins_label": "Space Pioneers Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Space Pioneers Fandom Wiki",
+        "origin_base_url": "space-pioneers.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Space_Pioneers_Wiki"
+      }
+    ],
+    "destination": "Space Pioneers Wiki",
+    "destination_base_url": "spacepioneers.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "spacepioneerswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-spacestation13",
     "origins_label": "Space Station 13 Fandom Wiki",
     "origins": [
