@@ -178,6 +178,26 @@
     ]
   },
   {
+    "id": "en-ahatintime",
+    "origins_label": "A Hat in Time Fandom Wiki",
+    "origins": [
+      {
+        "origin": "A Hat in Time Fandom Wiki",
+        "origin_base_url": "ahatintime.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "A_Hat_in_Time_Wiki"
+      }
+    ],
+    "destination": "A Hat in Time Wiki",
+    "destination_base_url": "ahatintime.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ahatintimewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "A_Hat_in_Time_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-akudamadrive",
     "origins_label": "Akudama Drive Fandom Wiki",
     "origins": [
