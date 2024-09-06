@@ -82,7 +82,7 @@
         "description": "Link to the changelog"
     },
     "settingsSourceCode": {
-        "message": "",
+        "message": "Исходный код",
         "description": "Link to the source code"
     },
     "firstInstallInfo1": {
@@ -468,7 +468,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
     },
     "settingsBannerOpera": {
-        "message": "",
+        "message": "Пользователям Opera: По умолчанию, Opera блокирует расширения на поисковых системах. Доступ к поисковым системам можно включить для отдельного расширения, перейдя на \"о:расширения\" и выбрав опцию \"Разрешить допуск к результатам поисковой страницы\" под Indie Wiki Buddy.",
         "description": "Notice for Opera users about enabling search engine access"
     },
     "settingsLangFI": {
@@ -571,7 +571,7 @@
         "description": "Legend for the icons in the individual wiki settings"
     },
     "settingsBannerHide": {
-        "message": "",
+        "message": "Скрыть сообщение",
         "description": "Button to hide the banner"
     },
     "bannerDescriptorOfficial": {
@@ -629,7 +629,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
     },
     "settingsBannerReview": {
-        "message": "",
+        "message": "Нравится Indie Wiki Buddy? Пожалуйста, оставьте отзыв!",
         "description": "Notice to leave a review for the extension"
     },
     "settingsFilterByLanguage": {
