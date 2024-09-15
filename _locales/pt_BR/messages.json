@@ -1,1 +1,8 @@
-{}
+{
+    "extensionName": {
+        "message": "Indie Wiki Buddy"
+    },
+    "extensionDescription": {
+        "message": "O Indie Wiki Buddy ajuda você a descobrir wikis independentes e de qualidade por meio de alertas, redirecionamentos e filtragem de pesquisa."
+    }
+}
