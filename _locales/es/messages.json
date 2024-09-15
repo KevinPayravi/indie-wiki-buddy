@@ -202,63 +202,63 @@
         "description": "Title of the guide"
     },
     "guideNotificationsHelp2": {
-        "message": ""
+        "message": "Si no recibe notificaciones cuando esta opción está habilitada, verifique la configuración de notificaciones de su sistema operativo para asegurarse de que su navegador tenga permiso para enviar notificaciones."
     },
     "guideTogglePerSearchEngine": {
-        "message": ""
+        "message": "Filtrar por motor de búsqueda"
     },
     "guideExtensionOnOff": {
-        "message": "",
+        "message": "La extensión está activada/desactivada",
         "description": "Extension on/off toggle"
     },
     "guideExtensionOnOffHelp": {
-        "message": ""
+        "message": "Habilite o deshabilite todas las funciones de Indie Wiki Buddy con solo hacer clic en un botón."
     },
     "guideHiddenResultsBannerHelp2": {
-        "message": ""
+        "message": "Si no desea ver ninguna indicación de que se han ocultado resultados, desactive esta opción."
     },
     "guideHiddenResultsBannerHelp1": {
-        "message": ""
+        "message": "Cuando esta opción está activada, se insertará un banner en la parte superior de los resultados del motor de búsqueda cuando Indie Wiki Buddy haya ocultado resultados de wikis Fandom, Fextralife o Neoseeker. Este banner también te permite volver a mostrar los resultados ocultos si lo deseas."
     },
     "guideTogglePerSearchEngineHelp2": {
-        "message": ""
+        "message": "Los motores de búsqueda compatibles actualmente son Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! y Yandex."
     },
     "guideTogglePerSearchEngineHelp1": {
-        "message": ""
+        "message": "Por defecto, el filtrado está activado para todos los motores de búsqueda. El filtrado se realiza en función de la configuración seleccionada por el usuario para cada wiki. La configuración de filtrado por defecto para todos los wikis es reemplazar los resultados de búsqueda no indie con botones que enlazan a sus homólogos indie."
     },
     "guideBreezeWikiRedirectHelp": {
-        "message": ""
+        "message": "Visitar cualquier wiki de English Fandom te redirigirá inmediatamente a verlo a través de BreezeWiki. Si la redirección automática a un wiki independiente está activada, el wiki independiente tendrá prioridad."
     },
     "guideBreezeWikiDisabledHelp": {
-        "message": ""
+        "message": "No redirijas Fandom a BreezeWiki."
     },
     "guideWikiHelp": {
-        "message": "",
+        "message": "Ayuda para configurar wikis individuales",
         "description": "Individual wiki settings help section"
     },
     "guideBreezeWikiHostHelp": {
-        "message": ""
+        "message": "Una vez que hayas activado una opción de BreezeWiki, aparecerá un menú desplegable que te permitirá seleccionar el host/espejo de BreezeWiki que prefieras. Si el host de BreezeWiki seleccionado deja de funcionar, puedes volver a esta configuración y cambiar de host."
     },
     "guideWikiHelpPara1": {
-        "message": ""
+        "message": "En la página de configuración puedes configurar tus ajustes para cada wiki individualmente. Consulta la leyenda o pasa el cursor sobre los iconos para descubrir la función de cada columna."
     },
     "guideWikiHelpPara2": {
-        "message": ""
+        "message": "El primer grupo de botones controla lo que sucede cuando visitas wikis no independientes."
     },
     "guideDisableVisitHelp": {
-        "message": ""
+        "message": ": No serás notificado ni redirigido a wikis independientes equivalentes. Aún serás redirigido a BreezeWiki si esta opción está activada."
     },
     "guideDisable": {
-        "message": ""
+        "message": "Desactivar"
     },
     "guideHide": {
-        "message": ""
+        "message": "Ocultar"
     },
     "guideRedirectHelp": {
-        "message": ""
+        "message": ": Serás redirigido automáticamente a wikis independientes equivalentes."
     },
     "guideFeedback": {
-        "message": "",
+        "message": "¿Tiene preguntas o comentarios?",
         "description": "Feedback section"
     },
     "bannerLanguageEnglish": {
@@ -266,7 +266,7 @@
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "guideWikiHelpPara4": {
-        "message": ""
+        "message": "En el encabezado de la tabla, al hacer clic en un icono se aplicará su configuración a todos los wikis de la columna. En la segunda fila, las estrellas representan la configuración predeterminada para los wikis que se agregarán en futuras actualizaciones. De forma predeterminada, todos los wikis se configurarán para mostrar una alerta y reemplazar sus resultados de búsqueda."
     },
     "searchResultLookupEnglish": {
         "message": "Busca $article$ en $destination$ (EN)",
@@ -346,7 +346,7 @@
         }
     },
     "guideAlertHelp": {
-        "message": ""
+        "message": ": muestra un banner en la parte superior de la página que le informa que existe un wiki independiente equivalente. Este banner aparecerá tanto en las páginas Fandom como en las páginas BreezeWiki."
     },
     "settingsTitle": {
         "message": "Configuración de Indie Wiki Buddy",
@@ -373,7 +373,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
     },
     "guideReplaceHelp": {
-        "message": ""
+        "message": ": Los resultados de wikis no independientes están deshabilitados y se agrega un botón arriba para redirigirlo a wikis independientes."
     },
     "settingsLangEN": {
         "message": "[EN] Inglés / English",
@@ -384,7 +384,7 @@
         "description": "Explanation for the icons in search experience"
     },
     "guideChangelogHelp": {
-        "message": "",
+        "message": "Activa esta opción para que el $linkStart$registro de cambios $linkEnd$ de Indie Wiki Buddy se abra en una nueva pestaña cada vez que se actualice, para que puedas estar al día de los últimos cambios.",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -395,7 +395,7 @@
         }
     },
     "guideBreezeWiki": {
-        "message": "",
+        "message": "También puedes establecer la configuración que desees para $BreezeWiki$, un servicio independiente que renderiza las wikis de Fandom sin anuncios. Ten en cuenta que BreezeWiki solo es compatible con wikis en inglés.",
         "description": "BreezeWiki section",
         "placeholders": {
             "BreezeWiki": {
@@ -405,7 +405,7 @@
         }
     },
     "guideReplace": {
-        "message": ""
+        "message": "Reemplazar"
     },
     "settingsLangTH": {
         "message": "[TH] Tailandés / ไทย",
@@ -416,7 +416,7 @@
         "description": "Option to show a banner when non-indie results are hidden"
     },
     "guideGlobalSettingsHelp": {
-        "message": "",
+        "message": "Ayuda con la configuración general",
         "description": "Global settings help section"
     },
     "settingsCrossLanguage": {
@@ -516,13 +516,13 @@
         }
     },
     "guideOverviewPara5": {
-        "message": ""
+        "message": "Todas estas funciones se pueden activar o desactivar, y también puedes configurar tus preferencias por wiki. ¡Tienes el control total!"
     },
     "guideReorderResultsHelp1": {
-        "message": ""
+        "message": "Por defecto, Indie Wiki Buddy reordenará la página de resultados en Google para mover los resultados de las wikis indie por encima del primer resultado no indie (Fandom / Fextralife / Neoseeker), si están más abajo en la primera página de resultados. Esto te permite encontrar más rápidamente las páginas que buscas en las wikis indie."
     },
     "guideBreezeWikiBannerHelp": {
-        "message": ""
+        "message": "En la parte superior de los wikis de English Fandom, se insertará un pequeño banner con un enlace que te llevará al wiki BreezeWiki."
     },
     "searchRemovalNotice": {
         "message": "Indie Wiki Buddy ha quitado resultados de $destination$. Puedes buscar resultados de $link$ en su lugar.",
@@ -592,7 +592,7 @@
         "description": "Option to disable BreezeWiki"
     },
     "guideGlobalSettingsHelpIntro": {
-        "message": "",
+        "message": "Hay varias configuraciones generales:",
         "description": "Introduction paragraph of the general settings help"
     },
     "settingsWikiLegendSearchExp": {
@@ -612,10 +612,10 @@
         "description": "Text to display in the banner for the disable banner link"
     },
     "guideCrossLanguageHelp2": {
-        "message": ""
+        "message": "Lamentablemente, esta característica no funciona actualmente para los wikis de Fextralife."
     },
     "guideHideHelp": {
-        "message": ""
+        "message": ": Los resultados están ocultos en los motores de búsqueda. Se mostrará un banner en la parte superior de la página para informarle de esto y permitirle ver resultados ocultos."
     },
     "settingsLangJA": {
         "message": "[JA] Japonés / 日本語",
@@ -630,7 +630,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
     },
     "guideAlert": {
-        "message": ""
+        "message": "Alerta"
     },
     "settingsLangES": {
         "message": "[ES] Español",
@@ -651,24 +651,24 @@
         "description": "General settings section"
     },
     "guideOverviewPara1": {
-        "message": ""
+        "message": "Indie Wiki Buddy ofrece un conjunto de funciones para ayudarle a descubrir wikis independientes y mejorar su experiencia general de lectura de wikis."
     },
     "guideGlobalSettingsHelpSearch": {
-        "message": ""
+        "message": "También puede configurar los ajustes para filtrar los resultados en los motores de búsqueda:"
     },
     "settingsNewWiki": {
         "message": "Por omisión en nuevos wikis para actualizaciones futuras:",
         "description": "Instruction to set default for new wikis in future updates"
     },
     "guideOverviewPara3": {
-        "message": ""
+        "message": "Actualmente estamos redirigiendo desde los wikis de Fandom, Fextralife y Neoseeker a versiones independientes."
     },
     "settingsChangelog": {
         "message": "Registro de cambios",
         "description": "Link to the changelog"
     },
     "guideFeedbackPara1": {
-        "message": "",
+        "message": "Si te quedas atascado o tienes alguna pregunta, no dudes en ponerte en contacto con nosotros a través del enlace $linkStart$información de contacto$linkEnd$ que aparece en la parte inferior de la página web de Indie Wiki Buddy.",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -679,10 +679,10 @@
         }
     },
     "guideFeedbackPara2": {
-        "message": ""
+        "message": "¡Cualquier sugerencia para mejorar la extensión también es bienvenida!"
     },
     "guideOverview": {
-        "message": "",
+        "message": "Descripción general",
         "description": "Overview section"
     },
     "settingsDisabled": {
@@ -711,7 +711,7 @@
         }
     },
     "guideWikiHelpPara3": {
-        "message": ""
+        "message": "El segundo grupo de botones controla lo que sucede con los wikis no independientes que aparecen en Google, Bing, DuckDuckGo y otros motores de búsqueda."
     },
     "bannerText": {
         "message": "¡Existe $descriptor$ $host$ cubriendo este tema $language$!",
@@ -746,11 +746,11 @@
         "description": "Link to the source code"
     },
     "settingsWikiExp": {
-        "message": "Experiencia en el wiki",
+        "message": "Experiencia en la wiki",
         "description": "Wiki experience section"
     },
     "guideNotificationsHelp1": {
-        "message": "",
+        "message": "Cuando esta opción está habilitada, recibirás una notificación en el escritorio cada vez que seas redirigido automáticamente a una wiki independiente o $BreezeWiki$ . Esta opción está activada de manera predeterminada.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -759,7 +759,7 @@
         }
     },
     "guideOverviewPara2": {
-        "message": ""
+        "message": "Cuando visites una wiki en un servidor wiki grande y administrado por una empresa, esta extensión puede notificarte o redirigirte automáticamente a wikis independientes de calidad cuando estén disponibles. Los resultados de búsqueda en Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! y Yandex también se pueden filtrar, reemplazando wikis no independientes con enlaces a sus contrapartes independientes (u ocultándolos por completo)."
     },
     "guideBackToSettings": {
         "message": "⇦ Volver a las opciones",
@@ -808,13 +808,13 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
     },
     "guideCrossLanguageHelp1": {
-        "message": ""
+        "message": "De forma predeterminada, Indie Wiki Buddy mantendrá a los usuarios dentro del mismo idioma (por ejemplo, solo redirigiendo wikis de Fandom en español a wikis independientes en español). Sin embargo, los hablantes multilingües pueden querer usar también las muchas wikis independientes en inglés que están disponibles. Al habilitar esta opción, se redireccionará de wikis de Fandom que no estén en inglés a wikis independientes en inglés cuando no haya una disponible en el mismo idioma."
     },
     "guideReorderResultsHelp2": {
-        "message": ""
+        "message": "Actualmente, esta función solo está disponible para Google, ya que puede resultar complejo mantenerla de forma fiable."
     },
     "guideOverviewPara4": {
-        "message": "",
+        "message": "Indie Wiki Buddy también es compatible $BreezeWiki$ , un servicio independiente que muestra wikis de Fandom sin anuncios ni sobrecargas. Esto le ayuda a obtener una experiencia de lectura más agradable cuando no hay una wiki independiente disponible.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -837,7 +837,7 @@
         "description": "Link to the website"
     },
     "guideRedirect": {
-        "message": ""
+        "message": "Redirigir"
     },
     "settingsHideFor": {
         "message": "Ocultar resultados de búsqueda de $origin$",
@@ -850,7 +850,7 @@
         }
     },
     "guideDisableSearchHelp": {
-        "message": ""
+        "message": ": Los resultados del motor de búsqueda no se ven afectados."
     },
     "popupSettingsPerWiki": {
         "message": "Visita $linkStart$todas las opciones$linkEnd$ para cambiar el comportamiento por cada wiki.",
