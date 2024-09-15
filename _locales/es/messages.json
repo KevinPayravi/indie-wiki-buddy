@@ -14,7 +14,7 @@
         }
     },
     "bannerDescriptorIndependent": {
-        "message": "un wiki independiente",
+        "message": "independiente",
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
     "settingsSubmitWiki": {
@@ -262,7 +262,7 @@
         "description": "Feedback section"
     },
     "bannerLanguageEnglish": {
-        "message": "en inglés",
+        "message": "en Inglés",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "guideWikiHelpPara4": {
@@ -365,7 +365,7 @@
         "description": "Button to hide filtered search results"
     },
     "bannerDescriptorOfficial": {
-        "message": "un wiki oficial",
+        "message": "una oficial",
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "settingsLangRU": {
@@ -488,7 +488,7 @@
         }
     },
     "bannerDescriptorWiki": {
-        "message": "un wiki",
+        "message": "una",
         "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
     },
     "settingsLangTOK": {
@@ -784,7 +784,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "un wiki oficial independiente",
+        "message": "oficialmente independiente",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "notificationMessageBreezeWiki": {
