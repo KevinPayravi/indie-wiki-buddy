@@ -46,7 +46,7 @@
         "description": "Text to display in the banner for the redirect link"
     },
     "searchResultLookupEnglish": {
-        "message": "",
+        "message": "Найти «$article$» на $destination$ (англ.)",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
         "placeholders": {
             "article": {
@@ -60,7 +60,7 @@
         }
     },
     "searchResultVisit": {
-        "message": "",
+        "message": "Перейти вместо этого на $destination$",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
         "placeholders": {
             "destination": {
@@ -428,7 +428,7 @@
         }
     },
     "settingsBannerReviewContact": {
-        "message": "",
+        "message": "Нашли проблему или хотите улучшить расширение? $linkStart$Пишите сюда$linkEnd$!",
         "description": "Notice to contact the developer for issues or ideas",
         "placeholders": {
             "linkStart": {
@@ -450,7 +450,7 @@
         "message": ""
     },
     "searchResultVisitEnglish": {
-        "message": "",
+        "message": "Перейти вместо этого на $destination$ (англ.)",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki in English is available.",
         "placeholders": {
             "destination": {
@@ -769,7 +769,7 @@
         "description": "Button to show filtered search results"
     },
     "settingsSubmitWiki": {
-        "message": "Предложить Вики",
+        "message": "Предложить новую вики",
         "description": "Link to the wiki submission form"
     },
     "guideBreezeWikiRedirectHelp": {
@@ -838,7 +838,7 @@
         "description": "Individual wiki settings section"
     },
     "searchRemovalNotice": {
-        "message": "",
+        "message": "Indie Wiki Buddy отфильтровала результаты с $destination$. Вместо этого ищите результаты с $link$.",
         "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
         "placeholders": {
             "destination": {
@@ -852,7 +852,7 @@
         }
     },
     "searchResultLookup": {
-        "message": "",
+        "message": "Найти «$article$» на $destination$",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
         "placeholders": {
             "article": {
