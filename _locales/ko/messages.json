@@ -1,26 +1,26 @@
 {
     "extensionName": {
-        "message": "",
+        "message": "Indie Wiki Buddy",
         "description": "The name of the extension"
     },
     "bannerDescriptorOfficial": {
-        "message": "",
+        "message": "공식",
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "bannerLanguageEnglish": {
-        "message": "",
+        "message": "영어로",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "bannerDisableDone": {
-        "message": "",
+        "message": "배너 꺼짐",
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "bannerRedirect": {
-        "message": "",
+        "message": "이 위키를 자동으로 넘겨주기",
         "description": "Text to display in the banner for the redirect link"
     },
     "searchResultVisit": {
-        "message": "",
+        "message": "대신 $destination$ 방문하기",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
         "placeholders": {
             "destination": {
@@ -30,7 +30,7 @@
         }
     },
     "searchResultVisitEnglish": {
-        "message": "",
+        "message": "대신 $destination$ (영어) 방문하기",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki in English is available.",
         "placeholders": {
             "destination": {
@@ -40,39 +40,39 @@
         }
     },
     "settingsTitle": {
-        "message": "",
+        "message": "Indie Wiki Buddy 설정",
         "description": "Title of the settings page"
     },
     "settingsGuide": {
-        "message": "",
+        "message": "가이드",
         "description": "Link to the guide"
     },
     "searchFilteredResultsShow": {
-        "message": "",
+        "message": "필터링된 결과 보기",
         "description": "Button to show filtered search results"
     },
     "searchFilteredResultsHide": {
-        "message": "",
+        "message": "다시 필터링된 결과 숨기기",
         "description": "Button to hide filtered search results"
     },
     "settingsWebsite": {
-        "message": "",
+        "message": "웹사이트",
         "description": "Link to the website"
     },
     "settingsBannerHide": {
-        "message": "",
+        "message": "이 메시지 숨기기",
         "description": "Button to hide the banner"
     },
     "settingsSourceCode": {
-        "message": "",
+        "message": "소스 코드",
         "description": "Link to the source code"
     },
     "settingsChangelog": {
-        "message": "",
+        "message": "체인지로그",
         "description": "Link to the changelog"
     },
     "firstInstallInfo4": {
-        "message": "",
+        "message": "더 아래에서는, Fandom, Fextralife 및 Neoseeker의 독립적 대체제가 있다면 어떤 일이 발생하는지, 검색 엔진에서의 결과가 어떻게 되는지를 개별적으로 설정할 수 있습니다. 위키를 방문하는 경우, $alert$ 경고를 받거나(기본값) $redirect$ 자동으로 페이지를 넘기는 지를 선택할 수 있습니다. 검색 엔진에서는 $replace$ 대체할 지(기본값) $hide$ 숨길 지를 선택할 수 있습니다.",
         "placeholders": {
             "alert": {
                 "content": "$1",
@@ -93,47 +93,47 @@
         }
     },
     "settingsHiddenResultsBanner": {
-        "message": "",
+        "message": "검색 엔진에서, 대체 위키가 아닌 위키가 숨겨졌을 때 배너 표시",
         "description": "Option to show a banner when non-indie results are hidden"
     },
     "settingsBreezeWikiDisabled": {
-        "message": "",
+        "message": "BreezeWiki 끄기",
         "description": "Option to disable BreezeWiki"
     },
     "settingsWikiLegend": {
-        "message": "",
+        "message": "아이콘 범례",
         "description": "Legend for the icons in the individual wiki settings"
     },
     "settingsHide": {
-        "message": "",
+        "message": "결과 숨기기",
         "description": "Option to hide search results"
     },
     "settingsLangAll": {
-        "message": "",
+        "message": "모든 언어",
         "description": "Option to show all languages"
     },
     "settingsLangIT": {
-        "message": "",
+        "message": "[IT] 이탈리아어 / Italiano",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, IT should be \"[IT] Italian / Italiano\" in English, but just \"[IT] Italiano\" in Italian."
     },
     "settingsLangSV": {
-        "message": "",
+        "message": "[SV] 스웨덴어 / Svenska",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
     },
     "settingsLangTH": {
-        "message": "",
+        "message": "[TH] 태국어 / ไทย",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TH should be \"[TH] Thai / ไทย\" in English, but just \"[TH] ไทย\" in Thai."
     },
     "settingsNewWiki": {
-        "message": "",
+        "message": "추후 모든 새 위키의 기본 설정:",
         "description": "Instruction to set default for new wikis in future updates"
     },
     "settingsSetColumn": {
-        "message": "",
+        "message": "아이콘을 클릭하여 열에 있는 모든 위키 설정:",
         "description": "Instruction to set all wikis in a column"
     },
     "settingsFunStatsRedirects": {
-        "message": "",
+        "message": "자동으로 대체 위키에 $redirect$번 넘겨줌",
         "description": "Number of times redirected to indie wikis",
         "placeholders": {
             "redirect": {
@@ -143,7 +143,7 @@
         }
     },
     "settingsAlertFor": {
-        "message": "",
+        "message": "$destination$에 링크되는 $origin$에 배너 표시",
         "description": "Tooltip for option to alert the user with banner when visiting a specific wiki",
         "placeholders": {
             "origin": {
@@ -157,7 +157,7 @@
         }
     },
     "settingsFunStatsSearchFilters": {
-        "message": "",
+        "message": "검색 결과가 $hide$번 필터링됨",
         "description": "Number of non-indie search results hidden",
         "placeholders": {
             "hide": {
@@ -177,7 +177,7 @@
         }
     },
     "settingsReplaceFor": {
-        "message": "",
+        "message": "$origin$ 검색 엔진 결과를 $destination$으로 대체",
         "description": "Tooltip for option to replace search results with links to a specific wiki",
         "placeholders": {
             "origin": {
@@ -191,7 +191,7 @@
         }
     },
     "settingsHideFor": {
-        "message": "",
+        "message": "$origin$ 검색 엔진 결과 숨기기",
         "description": "Tooltip for option to hide search results for a specific wiki",
         "placeholders": {
             "origin": {
@@ -201,7 +201,7 @@
         }
     },
     "settingsRedirectFor": {
-        "message": "",
+        "message": "$origin$을 자동으로 $destination$ 사이트로 넘겨주기",
         "description": "Tooltip for option to redirect to a specific wiki when visiting a specific wiki",
         "placeholders": {
             "origin": {
@@ -215,15 +215,15 @@
         }
     },
     "settingsExtensionOff": {
-        "message": "",
+        "message": "확장 프로그램 꺼짐",
         "description": "Notice that the extension is disabled"
     },
     "settingsExtensionOn": {
-        "message": "",
+        "message": "확장 프로그램 켜짐",
         "description": "Notice that the extension is enabled"
     },
     "settingsWikiFrom": {
-        "message": "",
+        "message": " ($origin$에서)",
         "description": "Tooltip for the origin of a specific wiki setting. Include a leading space when appropriate.",
         "placeholders": {
             "origin": {
@@ -233,51 +233,51 @@
         }
     },
     "popupDefault": {
-        "message": "",
+        "message": "기본 동작 (모든 현재 및 추후 새 위키에 적용)",
         "description": "Default behaviors section"
     },
     "popupWikiLegendWikiExp": {
-        "message": "",
+        "message": "Fandom, Fextralife, Neoseeker wikis 방문 시:",
         "description": "Explanation for the icons in wiki experience"
     },
     "popupSettingsOverride": {
-        "message": "",
+        "message": "위의 옵션을 클릭하면 위키별 사용자 정의가 무시됩니다.",
         "description": "Notice that clicking an option will override any per-wiki customizations"
     },
     "popupBreezeWikiSeeSettings": {
-        "message": "",
+        "message": "설정 보기",
         "description": "See full settings page"
     },
     "guideBackToSettings": {
-        "message": "",
+        "message": "⇦ 설정으로 돌아가기",
         "description": "Button to return to the settings page"
     },
     "guideTitle": {
-        "message": "",
+        "message": "Indie Wiki Buddy 가이드",
         "description": "Title of the guide"
     },
     "guideOverview": {
-        "message": "",
+        "message": "개요",
         "description": "Overview section"
     },
     "guideOverviewPara2": {
-        "message": ""
+        "message": "대규모로 운영되는 기업의 상업용 위키에 방문하면, 이 확장 프로그램은 사용 가능한 품질 좋고 독립적으로 운영되는 위키를 알려주거나 자동으로 그러한 위키로 넘어갈 수 있습니다. Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, Yandex의 검색 결과도 필터링하여 독립적이지 않은 위키를 독립한 위키로 대체해주거나 완전히 숨겨버릴 수도 있습니다."
     },
     "guideOverviewPara5": {
-        "message": ""
+        "message": "서술된 모든 기능은 켜거나 끌 수 있으며, 위키별로 기본 설정을 지정할 수 있습니다. 사용자분이 모든 걸 컨트롤할 수 있어요!"
     },
     "guideExtensionOnOffHelp": {
-        "message": ""
+        "message": "버튼을 클릭하면 모든 Indie Wiki Buddy 기능을 활성화/비활성화할 수 있습니다."
     },
     "guideExtensionOnOff": {
-        "message": "",
+        "message": "확장 프로그램 켜기 / 끄기",
         "description": "Extension on/off toggle"
     },
     "guideGlobalSettingsHelpSearch": {
-        "message": ""
+        "message": "검색 엔진에서 결과를 필터링할 때의 설정을 할 수도 있습니다:"
     },
     "guideNotificationsHelp1": {
-        "message": "",
+        "message": "이 옵션을 활성화하면, 대체 위키나 $BreezeWiki$로 자동으로 넘어갈 때마다 데스크톱 알림을 받습니다. 기본적으로 켜져 있습니다.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -286,107 +286,107 @@
         }
     },
     "guideNotificationsHelp2": {
-        "message": ""
+        "message": "이 기능이 활성화되어있는데도 알림을 받지 못한 경우 운영 체제의 알림 설정을 확인하여 브라우저에서 알림을 보낼 수 있는지 확인해주세요."
     },
     "guideTogglePerSearchEngine": {
-        "message": ""
+        "message": "검색 엔진별 필터링 전환"
     },
     "guideHiddenResultsBannerHelp2": {
-        "message": ""
+        "message": "결과가 숨겨졌다는 표시를 보고 싶지 않으시다면, 이 옵션을 비활성화해주세요."
     },
     "guideReorderResultsHelp1": {
-        "message": ""
+        "message": "기본적으로, Indie Wiki Buddy는 대체 위키 결과가 결과의 첫 번째 페이지에서 아래에 있는 경우 인디 위키 결과를 첫 번째 대체 위키가 아닌 위키(Fandom / Fextralife / Neoseeker) 결과 위로 이동하도록 Google의 결과 페이지 순서를 다시 지정합니다. 이를 통해 대체 위키에서 원하는 페이지를 더 빨리 찾을 수 있습니다."
     },
     "guideReorderResultsHelp2": {
-        "message": ""
+        "message": "이 기능은 안정적으로 유지 및 관리가 복잡할 수 있기에, 현재 Google에서만 사용할 수 있습니다."
     },
     "guideBreezeWikiDisabledHelp": {
-        "message": ""
+        "message": "Fandom 위키가 Breeze 위키로 넘어가지 않게 합니다."
     },
     "guideBreezeWikiHostHelp": {
-        "message": ""
+        "message": "BreezeWiki 옵션을 활성화하면 선호하는 BreezeWiki 호스트/미러를 선택할 수 있는 드롭다운이 나타납니다. 만일 선택한 BreezeWiki 호스트가 다운된다면 이 설정으로 돌아가서 호스트를 전환할 수 있습니다."
     },
     "guideWikiHelp": {
-        "message": "",
+        "message": "개별 위키 설정 도움말",
         "description": "Individual wiki settings help section"
     },
     "guideRedirect": {
-        "message": ""
+        "message": "넘겨주기"
     },
     "guideRedirectHelp": {
-        "message": ""
+        "message": ": 대체 위키에 자동으로 넘겨줍니다."
     },
     "guideDisableVisitHelp": {
-        "message": ""
+        "message": ": 독립된 페이지에 알림을 올리거나 페이지를 넘겨주지 않습니다. BreezeWiki 옵션이 켜져 있으면 계속 BreezeWiki로 이동할 수 있습니다."
     },
     "guideAlert": {
-        "message": ""
+        "message": "경고"
     },
     "guideAlertHelp": {
-        "message": ""
+        "message": ": 상단에 대체 위키를 사용할 수 있음을 알리는 디스플레이 배너를 띄웁니다. 이는 Fandom과 BreezeWiki 페이지 모두에 나타납니다."
     },
     "guideReplace": {
-        "message": ""
+        "message": "바꾸기"
     },
     "guideFeedback": {
-        "message": "",
+        "message": "질문 혹은 피드백이 있으신가요?",
         "description": "Feedback section"
     },
     "notificationTitleBreezeWiki": {
-        "message": "",
+        "message": "BreezeWiki로 넘어갔습니다!",
         "description": "Notification title for being redirected to BreezeWiki"
     },
     "notificationTitle": {
-        "message": "",
+        "message": "페이지를 넘어갔습니다!",
         "description": "Notification title for being redirected"
     },
     "settingsLangUK": {
-        "message": "",
+        "message": "[UK] 우크라이나어 / Українська",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
     },
     "settingsReplace": {
-        "message": "",
+        "message": "대체 위키로 결과 바꾸기",
         "description": "Option to replace search results with links to non-indie wikis"
     },
     "guideTogglePerSearchEngineHelp2": {
-        "message": ""
+        "message": "현재 지원되는 검색 엔진은 Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! 및 Yandex입니다."
     },
     "firstInstallInfo2": {
-        "message": ""
+        "message": "위 링크들로 모든 가이드를 확인하거나, 새 위키를 제출하거나, 개발자에게 문의를 할 수 있습니다."
     },
     "settingsNotifications": {
-        "message": "",
+        "message": "넘겨주기에 대한 데스크톱 알림",
         "description": "Option to enable desktop notifications for redirections"
     },
     "settingsLangZH": {
-        "message": "",
+        "message": "[ZH] 중국어 / 中文",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
     },
     "settingsRedirect": {
-        "message": "",
+        "message": "대체 위키로 넘겨주기",
         "description": "Option to redirect to indie wikis when visiting non-indie wikis"
     },
     "settingsBreezeWikiCustomHostSetFailed": {
-        "message": "",
+        "message": "추가 실패",
         "description": "Prompt that the custom BreezeWiki host has failed to be added"
     },
     "settingsLangFI": {
-        "message": "",
+        "message": "[FI] 핀란드어 / suomi",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FI should be \"[FI] Finnish / suomi\" in English, but just \"[FI] suomi\" in Finnish."
     },
     "settingsFilterByLanguage": {
-        "message": "",
+        "message": "언어로 위키 필터링:",
         "description": "Select for a language filter"
     },
     "searchResultReenable": {
-        "message": "",
+        "message": "아래 검색 결과 다시 활성화하기",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "guideHiddenResultsBannerHelp1": {
-        "message": ""
+        "message": "이 옵션을 활성화하면, Indie Wiki Buddy가 검색 결과에 있던 Fandom, Fextralife 또는 Neoseeker 위키가 숨겨졌을 경우 검색 엔진 결과 상단에 배너가 삽입됩니다. 원하는 경우 이 배너를 이용해 숨겨진 결과를 다시 표시할 수도 있습니다."
     },
     "searchRemovalNotice": {
-        "message": "",
+        "message": "Indie Wiki Buddy가 $destination$를 필터링했습니다. 대신 $link$에서 확인해 보세요.",
         "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
         "placeholders": {
             "destination": {
@@ -400,34 +400,34 @@
         }
     },
     "settingsBreezeWikiCustomHostSetSuccessful": {
-        "message": "",
+        "message": "추가 성공",
         "description": "Prompt that the custom BreezeWiki host has been successfully added"
     },
     "settingsLangPL": {
-        "message": "",
+        "message": "[PL] 폴란드어 / Polski",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
     },
     "settingsWikiLegendWikiExp": {
-        "message": "",
+        "message": "대체제가 있는 Fandom, Fextralife, Neoseeker 위키를 방문할 때 Indie Wiki Buddy는:",
         "description": "Explanation for the icons in wiki experience"
     },
     "settingsBreezeWikiBanner": {
-        "message": "",
+        "message": "BreezeWiki로 이동되는 배너 삽입",
         "description": "Option to show the BreezeWiki banner on Fandom wikis"
     },
     "settingsWikiExp": {
-        "message": "",
+        "message": "위키 경험",
         "description": "Wiki experience section"
     },
     "guideCrossLanguageHelp1": {
-        "message": ""
+        "message": "기본적으로, Indie Wiki Buddy는 사용자를 동일한 언어 환경으로 유지합니다. (예를 들어, 한국어 Fandom 위키는 한국어 대체 위키로 넘겨줍니다.) 하지만, 이러한 사용자분들 중에서는 대체 위키의 영어 위키를 사용하고 싶어하시는 분들이 계십니다. 이 옵션을 활성화하면 동일한 언어 환경을 유지할 수 없는 경우에 영어가 아닌 Fandom 위키에서 영어 대체 위키로 페이지를 넘겨줍니다."
     },
     "settingsSearchEngineFiltering": {
-        "message": "",
+        "message": "검색 엔진 필터링",
         "description": "Search engine filtering section"
     },
     "notificationMessage": {
-        "message": "",
+        "message": "Indie Wiki Buddy가 $origin$에서 $destination$로 보냈습니다!",
         "description": "Notification message for being redirected",
         "placeholders": {
             "origin": {
@@ -441,7 +441,7 @@
         }
     },
     "popupSettingsPerWiki": {
-        "message": "",
+        "message": "$linkStart$모든 설정$linkEnd$을 방문하여 위키 별로 동작을 바꾸세요.",
         "description": "Notice to visit the settings page to change behavior per-wiki",
         "placeholders": {
             "linkStart": {
@@ -453,22 +453,22 @@
         }
     },
     "popupWikiLegendSearchExp": {
-        "message": "",
+        "message": "검색 엔진 결과에 대체제가 있는 Fandom, Fextralife, Neoseeker 위키가 있을 때 Indie Wiki Buddy는:",
         "description": "Explanation for the icons in search experience"
     },
     "settingsLangEN": {
-        "message": "",
+        "message": "[EN] 영어 / English",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, EN should be \"[EN] Englisch / English\" in German, but just \"[EN] English\" in English."
     },
     "settingsBreezeWikiRedirect": {
-        "message": "",
+        "message": "자동으로 BreezeWiki로 넘겨주기",
         "description": "Option to redirect Fandom wikis to BreezeWiki"
     },
     "guideBreezeWikiRedirectHelp": {
-        "message": ""
+        "message": "영어 Fandom 위키를 방문하면 즉시 BreezeWiki를 통해 볼 수 있도록 페이지를 넘깁니다. 대체 위키로 자동으로 넘어가는 옵션이 활성화된 경우 그 대체 위키가 우선순위를 갖습니다."
     },
     "guideFeedbackPara1": {
-        "message": "",
+        "message": "막히거나 질문이 있는 경우 주저하지 말고 Indie Wiki Buddy 웹사이트 하단에 있는 $linkStart$연락처$linkEnd$를 통해 문의해주세요.",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -479,76 +479,76 @@
         }
     },
     "settingsBannerReview": {
-        "message": "",
+        "message": "Indie Wiki Buddy를 잘 사용하고 계신가요? 리뷰를 남겨주세요!",
         "description": "Notice to leave a review for the extension"
     },
     "bannerRedirectDone": {
-        "message": "",
+        "message": "넘겨주기 켜짐",
         "description": "Text to display in the banner after the redirect has been enabled"
     },
     "settingsLangTOK": {
-        "message": "",
+        "message": "[TOK] 도기 보나 / toki pona",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
     },
     "settingsFilterByName": {
-        "message": "",
+        "message": "이름으로 위키 필터링:",
         "description": "Input for a name filter"
     },
     "bannerDescriptorWiki": {
-        "message": "",
+        "message": "단일",
         "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
     },
     "settingsLangHU": {
-        "message": "",
+        "message": "[HU] 헝가리어 / Magyar",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
     },
     "bannerDescriptorIndependent": {
-        "message": "",
+        "message": "독립적인",
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
     "guideDisable": {
-        "message": ""
+        "message": "비활성화"
     },
     "settingsBreezeWikiHost": {
-        "message": "",
+        "message": "BreezeWiki 호스트:",
         "description": "Select for a BreezeWiki host"
     },
     "bannerRestore": {
-        "message": "",
+        "message": "배너 켜기",
         "description": "Text to display in the banner for the restore banner link"
     },
     "settingsCustomWikiDelete": {
-        "message": "",
+        "message": "삭제",
         "description": "Button to delete a custom wiki"
     },
     "guideWikiHelpPara3": {
-        "message": ""
+        "message": "두번째 라디오 버튼들은 Google, Bing, DuckDuckGo 및 기타 검색 엔진 내에서 대체 위키가 아닌 위키의 동작을 제어합니다."
     },
     "extensionDescription": {
-        "message": "",
+        "message": "Indie Wiki Buddy는 경고와 페이지 넘겨주기, 검색 필터링을 통해 높은 품질의 위키를 찾는 데 도와줍니다.",
         "description": "The description of the extension"
     },
     "settingsWikiLegendSearchExp": {
-        "message": "",
+        "message": "검색 엔진 결과에 대체제가 있는 Fandom, Fextralife, Neoseeker 위키가 있을 때 Indie Wiki Buddy는:",
         "description": "Explanation for the icons in search experience"
     },
     "settingsBreezeWikiCustomHostSet": {
-        "message": "",
+        "message": "도메인 설정하기",
         "description": "Button to confirm input for a custom BreezeWiki host"
     },
     "settingsWiki": {
-        "message": "",
+        "message": "개별 위키 설정",
         "description": "Individual wiki settings section"
     },
     "bannerRestoreDone": {
-        "message": "",
+        "message": "배너 켜짐",
         "description": "Text to display in the banner after the banner has been restored"
     },
     "guideDisableSearchHelp": {
-        "message": ""
+        "message": ": 검색 엔진 결과가 영향을 받지 않습니다."
     },
     "settingsFunStatsBreezeWiki": {
-        "message": "",
+        "message": "자동으로 BreezeWiki에 $breezeWiki$번 넘겨줌",
         "description": "Number of times visited Fandom wikis through BreezeWiki",
         "placeholders": {
             "breezeWiki": {
@@ -558,29 +558,29 @@
         }
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "",
+        "message": "공식적으로 독립된",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "guideHideHelp": {
-        "message": ""
+        "message": ": 결과가 검색 엔진에서 숨겨집니다. 페이지 상단에 배너가 표시되어 이를 알 수 있고 숨겨진 결과를 다시 볼 수도 있습니다."
     },
     "settingsDisabled": {
-        "message": "",
+        "message": "아무것도 안하기",
         "description": "Option to disable any action"
     },
     "notificationMessageBreezeWiki": {
-        "message": "",
+        "message": "Indie Wiki Buddy가 Fandom으로부터 더욱 깨끗하고 광고 없는 경험을 제공하기 위해 BreezeWiki로 여러분을 보냈습니다.",
         "description": "Notification message for being redirected to BreezeWiki"
     },
     "firstInstallInfo1": {
-        "message": ""
+        "message": "Indie Wiki Buddy를 설치해주셔서 감사합니다! 설정을 시작해봐요."
     },
     "settingsSearchExp": {
-        "message": "",
+        "message": "검색 경험",
         "description": "Search experience section"
     },
     "bannerText": {
-        "message": "",
+        "message": "$host$에 이 주제를 $language$ 다루는 $descriptor$ 위키가 있습니다!",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
@@ -598,13 +598,13 @@
         }
     },
     "guideWikiHelpPara2": {
-        "message": ""
+        "message": "첫 라디오 버튼들은 나열된 대체 위키가 아닌 위키를 방문할 때 나오는 동작을 제어합니다."
     },
     "guideFeedbackPara2": {
-        "message": ""
+        "message": "확장 프로그램의 개선 사항 제안도 언제나 환영입니다!"
     },
     "guideBreezeWiki": {
-        "message": "",
+        "message": "광고나 부풀림 없이 Fandom 위키를 렌더링하는 별도의 서비스인 $BreezeWiki$에 대해, 원하는 설정을 지정할 수도 있습니다. 참고로, BreezeWiki는 현재 영어 위키만 지원합니다.",
         "description": "BreezeWiki section",
         "placeholders": {
             "BreezeWiki": {
@@ -614,17 +614,17 @@
         }
     },
     "guideOverviewPara3": {
-        "message": ""
+        "message": "현재 Fandom, Fextralife, Neoseeker 위키를 독립적인 위키로 넘겨주고 있습니다."
     },
     "settingsBreezeWikiCustomHostOption": {
-        "message": "",
+        "message": "사용자 지정 호스트…",
         "description": "Option to input a custom BreezeWiki host"
     },
     "guideReplaceHelp": {
-        "message": ""
+        "message": ": 대체 위키가 아닌 위키는 비활성화되며, 대체 위키로 이동하기 위한 버튼이 위에 삽입됩니다."
     },
     "settingsBannerReviewContact": {
-        "message": "",
+        "message": "이슈가 있거나 개선이 필요한가요? $linkStart$저희$linkEnd$에게 편하게 연락해주세요!",
         "description": "Notice to contact the developer for issues or ideas",
         "placeholders": {
             "linkStart": {
@@ -636,22 +636,22 @@
         }
     },
     "guideTogglePerSearchEngineHelp1": {
-        "message": ""
+        "message": "기본적으로, 필터링은 모든 검색 엔진에서 활성화되어 있습니다. 필터링은 위키별로 사용자가 설정한 것을 기반으로 작동합니다. 모든 위키의 기본 필터링 설정은 대체 위키로 링크되는 버튼을 대체 위키가 아닌 위키 검색 결과에 덮어씌우는 방식입니다."
     },
     "bannerBreezeWiki": {
-        "message": "",
+        "message": "BreezeWiki로 이 Fandom 위키 보기",
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "guideGlobalSettingsHelp": {
-        "message": "",
+        "message": "글로벌 설정 도움말",
         "description": "Global settings help section"
     },
     "settingsCrossLanguage": {
-        "message": "",
+        "message": "대체 위키에 일치하는 언어가 없을 때 영어가 아닌 Fandom 위키를 대체 영어 위키로 넘겨주기",
         "description": "Option to redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists"
     },
     "firstInstallInfo3": {
-        "message": "",
+        "message": "아래 설정에서는, 여러 기능을 켜거나 끌 수 있습니다. 밑에는 Fandom 위키의 광고와 특유의 기능을 제외하고 깔끔하게 렌더링해주는 $BreezeWiki$를 활성화하는 옵션도 포함되어 있습니다.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -660,22 +660,22 @@
         }
     },
     "settingsReorderResults": {
-        "message": "",
+        "message": "대체 위키를 대체 위키가 아닌 위키 위에 올리고 중복 위키 숨기기 (Brave 검색 엔진 제외)",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "settingsBreezeWikiCustomHost": {
-        "message": "",
+        "message": "사용자 지정 BreezeWiki 도메인:",
         "description": "Input for a custom BreezeWiki host not included by default"
     },
     "settingsBannerOpera": {
-        "message": "",
+        "message": "Opera 사용자분들께: Opera는 검색 엔진에서 확장 프로그램의 실행을 차단합니다. 검색 엔진 접근은 \"about:extensions\"로 이동하여 Indie Wiki Buddy 아래의 \"검색 페이지 결과 허용\" 옵션을 통해 확장 프로그램별로 활성화할 수 있습니다.",
         "description": "Notice for Opera users about enabling search engine access"
     },
     "guideWikiHelpPara1": {
-        "message": ""
+        "message": "설정 페이지의 개별 설정 섹션에서, 위키별로 설정할 수 있습니다. 범례를 참조하거나 아이콘 위로 마우스를 가져가보시면 각 열이 무엇을 제어하는지 확인하실 수 있습니다."
     },
     "searchResultLookup": {
-        "message": "",
+        "message": "$destination$에서 $article$ 보기",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
         "placeholders": {
             "article": {
@@ -689,11 +689,11 @@
         }
     },
     "settingsLangPT": {
-        "message": "",
+        "message": "[PT] 포르투갈어 / Português",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PT should be \"[PT] Portuguese / Português\" in English, but just \"[PT] Português\" in Portuguese."
     },
     "bannerHost": {
-        "message": "",
+        "message": "$host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -703,11 +703,11 @@
         }
     },
     "popupOpenSettings": {
-        "message": "",
+        "message": "모든 설정 열기",
         "description": "Button to open the settings page"
     },
     "guideChangelogHelp": {
-        "message": "",
+        "message": "이 옵션을 활성화하면 Indie Wiki Budy의 $linkStart$변경 로그$linkEnd$가 업데이트될 때마다 새 탭에서 열리므로, 계속 업데이트되는 최신 내용을 확인하실 수 있습니다.",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -718,17 +718,17 @@
         }
     },
     "guideHide": {
-        "message": ""
+        "message": "숨기기"
     },
     "settingsLangLZH": {
-        "message": "",
+        "message": "[LZH] 한문 / 文言",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
     },
     "guideCrossLanguageHelp2": {
-        "message": ""
+        "message": "안타깝게도 이 기능은 현재 Fextralife 위키에서는 작동하지 않습니다."
     },
     "settingsFunStatsAlerts": {
-        "message": "",
+        "message": "대체 위키로 $alert$번 경고됨",
         "description": "Number of times alerted to indie wikis",
         "placeholders": {
             "alert": {
@@ -738,11 +738,11 @@
         }
     },
     "settingsSubmitWiki": {
-        "message": "",
+        "message": "위키 제출",
         "description": "Link to the wiki submission form"
     },
     "popupBreezeWikiSeeSettingsLink": {
-        "message": "",
+        "message": "$linkStart$전체 설정 페이지$linkEnd$에서 사용자 지정 도메인을 바꾸세요",
         "description": "Notice to visit the settings page to change the custom BreezeWiki domain",
         "placeholders": {
             "linkStart": {
@@ -754,34 +754,34 @@
         }
     },
     "guideOverviewPara1": {
-        "message": ""
+        "message": "Indie Wiki Buddy는 독립적이고 대체 가능한 위키를 찾아주는 방법으로 위키를 읽을 때의 경험을 개선해주는 기능들을 제공합니다."
     },
     "guideGlobalSettingsHelpIntro": {
-        "message": "",
+        "message": "몇 가지 일반 설정이 있습니다:",
         "description": "Introduction paragraph of the general settings help"
     },
     "settingsFunStats": {
-        "message": "",
+        "message": "재미용 통계",
         "description": "Fun stats section"
     },
     "settingsLangKO": {
-        "message": "",
+        "message": "[KO] 한국어",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, KO should be \"[KO] Korean / 한국어\" in English, but just \"[KO] 한국어\" in Korean."
     },
     "settingsLangRU": {
-        "message": "",
+        "message": "[RU] 러시아어 / Русский",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
     },
     "settingsLangES": {
-        "message": "",
+        "message": "[ES] 스페인어 / Español",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ES should be \"[ES] Spanish / Español\" in English, but just \"[ES] Español\" in Spanish."
     },
     "settingsNameFilterPlaceholder": {
-        "message": "",
+        "message": "위키 이름 입력…",
         "description": "Placeholder for the name filter input"
     },
     "bannerVisit": {
-        "message": "",
+        "message": "$destination$ 방문하기",
         "description": "Text to display in the banner for the visit link",
         "placeholders": {
             "destination": {
@@ -791,11 +791,11 @@
         }
     },
     "bannerDisable": {
-        "message": "",
+        "message": "배너 끄기",
         "description": "Text to display in the banner for the disable banner link"
     },
     "settingsBreezeWiki": {
-        "message": "",
+        "message": "Fandom을 위한 대체 프론트엔드 BreezeWiki ($linkStart$자세히 알아보기$linkEnd$)",
         "description": "Option to enable BreezeWiki",
         "placeholders": {
             "linkStart": {
@@ -807,10 +807,10 @@
         }
     },
     "guideWikiHelpPara4": {
-        "message": ""
+        "message": "표 헤더에서, 아이콘을 클릭하면 해당 설정이 표 목록에 있는 모든 위키에 적용됩니다. 두 번째 행의 별표는 추후에 갱신되는 위키의 기본 설정을 나타냅니다. 기본적으로, 모든 위키는 검색 엔진의 바꾸기가 활성화된 상태에서 경고를 표시하도록 설정됩니다."
     },
     "firstInstallInfo5": {
-        "message": "",
+        "message": "브라우저 오른쪽 상단에 있는 확장 프로그램 아이콘($logo$)을 통해 이 설정에 다시 접근할 수 있습니다. 아이콘이 보이지 않는다면, 오른쪽 상단의 $jigsaw$ 직소 아이콘을 통해 열 수 있는 확장 프로그램 드롭다운에 있을 수 있습니다.",
         "placeholders": {
             "logo": {
                 "content": "$1",
@@ -823,11 +823,11 @@
         }
     },
     "settingsLangFR": {
-        "message": "",
+        "message": "[FR] 프랑스어 / Français",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
     },
     "guideOverviewPara4": {
-        "message": "",
+        "message": "Indie Wiki Buddy는 광고나 부풀림 없이 Fandom 위키를 렌더링해주는 $BreezeWiki$라는 별도의 서비스를 지원합니다. 이는 독립적인 위키를 사용할 수 없을 때 더 나은 위키 경험을 제공받는 데 도움이 됩니다.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -836,15 +836,15 @@
         }
     },
     "settingsGeneral": {
-        "message": "",
+        "message": "일반 설정",
         "description": "General settings section"
     },
     "settingsAlert": {
-        "message": "",
+        "message": "대체 위키로 링크되는 배너 표시",
         "description": "Option to alert the user with banner when visiting non-indie wikis"
     },
     "searchResultLookupEnglish": {
-        "message": "",
+        "message": "$destination$에서 $article$ 보기 (영어)",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
         "placeholders": {
             "article": {
@@ -858,18 +858,27 @@
         }
     },
     "settingsLangJA": {
-        "message": "",
+        "message": "[JA] 일본어 / 日本語",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, JA should be \"[JA] Japanese / 日本語\" in English, but just \"[JA] 日本語\" in Japanese."
     },
     "settingsOpenChangelog": {
-        "message": "",
+        "message": "Indie Wiki Buddy가 업데이트됐을 때 체인지로그 열기",
         "description": "Option to open the changelog when Indie Wiki Buddy is updated"
     },
     "settingsLangDE": {
-        "message": "",
+        "message": "[DE] 독일어 / Deutsch",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
     },
     "guideBreezeWikiBannerHelp": {
-        "message": ""
+        "message": "영어 Fandom 위키 상단에 BreezeWiki 위키로 연결되는 링크가 있는 작은 배너가 삽입됩니다."
+    },
+    "settingsDisabledFor": {
+        "message": "$origin$에는 아무것도 안하기",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
     }
 }
