@@ -1,6 +1,6 @@
 {
     "bannerText": {
-        "message": "",
+        "message": "この内容について$language$で書かれた、$host$ $descriptor$Wikiが存在します！",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
@@ -18,27 +18,27 @@
         }
     },
     "bannerDescriptorWiki": {
-        "message": "",
+        "message": "‌",
         "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
     },
     "bannerRedirect": {
-        "message": "",
+        "message": "このWikiから自動リダイレクトするように設定する",
         "description": "Text to display in the banner for the redirect link"
     },
     "bannerDisableDone": {
-        "message": "",
+        "message": "バナーを無効化しました",
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "bannerDisable": {
-        "message": "",
+        "message": "このWikiでバナーを無効化する",
         "description": "Text to display in the banner for the disable banner link"
     },
     "bannerRedirectDone": {
-        "message": "",
+        "message": "自動リダイレクトが有効化されました",
         "description": "Text to display in the banner after the redirect has been enabled"
     },
     "searchResultLookup": {
-        "message": "",
+        "message": "「$article$」を$destination$で見る",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
         "placeholders": {
             "article": {
@@ -52,7 +52,7 @@
         }
     },
     "searchResultLookupEnglish": {
-        "message": "",
+        "message": "「$article$」を$destination$（英語版）で見る",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
         "placeholders": {
             "article": {
@@ -66,15 +66,15 @@
         }
     },
     "searchFilteredResultsShow": {
-        "message": "",
+        "message": "除外された検索結果を表示する",
         "description": "Button to show filtered search results"
     },
     "searchResultReenable": {
-        "message": "",
+        "message": "下の検索結果を有効化する",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "searchRemovalNotice": {
-        "message": "",
+        "message": "Indie Wiki Buddyにより検索結果から$destination$が除外されました。代わりに$link$を利用しましょう。",
         "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
         "placeholders": {
             "destination": {
@@ -88,82 +88,82 @@
         }
     },
     "settingsChangelog": {
-        "message": "",
+        "message": "更新履歴",
         "description": "Link to the changelog"
     },
     "settingsWebsite": {
-        "message": "",
+        "message": "ホームページ",
         "description": "Link to the website"
     },
     "searchFilteredResultsHide": {
-        "message": "",
+        "message": "除外された検索結果を隠す",
         "description": "Button to hide filtered search results"
     },
     "settingsGuide": {
-        "message": "",
+        "message": "ガイド",
         "description": "Link to the guide"
     },
     "settingsBannerOpera": {
-        "message": "",
+        "message": "Operaユーザーの方へ：デフォルトでは、Operaは検索エンジン上での拡張機能の稼働をブロックするようになっています。「about:extensions」からIndie Wiki Buddyの「検索ページの結果へのアクセスを許可」を選択すると、検索エンジン上での稼働を個別に有効化できます。",
         "description": "Notice for Opera users about enabling search engine access"
     },
     "firstInstallInfo2": {
-        "message": ""
+        "message": "上のリンクから完全なガイドの閲覧、新しいWikiの追加申請、および開発者への問い合わせが可能です。"
     },
     "settingsNotifications": {
-        "message": "",
+        "message": "リダイレクト時のデスクトップ通知",
         "description": "Option to enable desktop notifications for redirections"
     },
     "settingsCrossLanguage": {
-        "message": "",
+        "message": "Fandomの非英語Wikiで、独立Wikiに同じ言語のWikiが存在しない場合英語版にリダイレクトする",
         "description": "Option to redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists"
     },
     "settingsSearchEngineFiltering": {
-        "message": "",
+        "message": "検索エンジンのフィルター",
         "description": "Search engine filtering section"
     },
     "settingsBreezeWikiBanner": {
-        "message": "",
+        "message": "BreezeWikiへリンクするバナーを表示する",
         "description": "Option to show the BreezeWiki banner on Fandom wikis"
     },
     "settingsBreezeWikiRedirect": {
-        "message": "",
+        "message": "FandomからBreezeWikiに自動リダイレクトする",
         "description": "Option to redirect Fandom wikis to BreezeWiki"
     },
     "settingsReplace": {
-        "message": "",
+        "message": "検索結果を独立Wikiへのリンクで置き換え",
         "description": "Option to replace search results with links to non-indie wikis"
     },
     "settingsLangFI": {
-        "message": "",
+        "message": "[FI] フィンランド語 / suomi",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FI should be \"[FI] Finnish / suomi\" in English, but just \"[FI] suomi\" in Finnish."
     },
     "settingsLangEN": {
-        "message": "",
+        "message": "[EN] 英語 / English",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, EN should be \"[EN] Englisch / English\" in German, but just \"[EN] English\" in English."
     },
     "settingsLangJA": {
-        "message": "",
+        "message": "[JA] 日本語",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, JA should be \"[JA] Japanese / 日本語\" in English, but just \"[JA] 日本語\" in Japanese."
     },
     "settingsLangSV": {
-        "message": "",
+        "message": "[SV] スウェーデン語 / Svenska",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
     },
     "settingsLangTOK": {
-        "message": "",
+        "message": "[TOK] トキポナ / toki pona",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
     },
     "settingsLangUK": {
-        "message": "",
+        "message": "[UK] ウクライナ語 / Українська",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
     },
     "settingsWikiExp": {
-        "message": "",
+        "message": "Wiki訪問時",
         "description": "Wiki experience section"
     },
     "settingsAlertFor": {
-        "message": "",
+        "message": "$origin$で$destination$にリンクするバナーを表示",
         "description": "Tooltip for option to alert the user with banner when visiting a specific wiki",
         "placeholders": {
             "origin": {
@@ -177,19 +177,19 @@
         }
     },
     "popupWikiLegendWikiExp": {
-        "message": "",
+        "message": "Fandom、Fextralife、NeoseekerのWikiを開いたとき：",
         "description": "Explanation for the icons in wiki experience"
     },
     "settingsCustomWikiDelete": {
-        "message": "",
+        "message": "削除",
         "description": "Button to delete a custom wiki"
     },
     "guideTitle": {
-        "message": "",
+        "message": "Indie Wiki Buddyのガイド",
         "description": "Title of the guide"
     },
     "guideOverviewPara4": {
-        "message": "",
+        "message": "またIndie Wiki Buddyは、FandomのWikiを広告およびその他の邪魔な機能なしで閲覧できるサービスである$BreezeWiki$にも対応しており、独立Wikiが存在しない場合でもより快適にWikiを利用いただけます。",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -198,25 +198,25 @@
         }
     },
     "guideCrossLanguageHelp1": {
-        "message": ""
+        "message": "Indie Wiki Buddyは、デフォルトでは同じ言語版にリダイレクトを行うようになっています。しかし、多言語話者のユーザーの中には利用可能数の多い英語版の独立Wikiを使いたい方もいるでしょう。この設定をオンにすると、非英語版のFandomのWikiからリダイレクトする際独立Wikiに同じ言語版が存在しなかった場合に、英語版にリダイレクトするようになります。"
     },
     "guideCrossLanguageHelp2": {
-        "message": ""
+        "message": "なお残念ながら、現時点ではこの機能はFextralifeのWikiには対応していません。"
     },
     "guideTogglePerSearchEngine": {
-        "message": ""
+        "message": "検索エンジン別のフィルタリング切り替え"
     },
     "guideTogglePerSearchEngineHelp2": {
-        "message": ""
+        "message": "現在対応している検索エンジンは、Google、Bing、DuckDuckGo、Brave、Ecosia、Kagi、Qwant、Startpage、Yahoo!、Yandexです。"
     },
     "guideGlobalSettingsHelpSearch": {
-        "message": ""
+        "message": "以下の項目では、検索結果のフィルタリングに関する設定を行うことができます："
     },
     "guideReorderResultsHelp2": {
-        "message": ""
+        "message": "信頼性の維持が複雑になりうるため、この機能は現在Googleでのみ利用できます。"
     },
     "guideBreezeWiki": {
-        "message": "",
+        "message": "以下の項目では、FandomのWikiを広告およびその他の邪魔な機能なしで閲覧できる別サービスである$BreezeWiki$に関する設定を行うことができます。注：BreezeWikiは現在英語版Wikiにのみ対応しています。",
         "description": "BreezeWiki section",
         "placeholders": {
             "BreezeWiki": {
@@ -226,56 +226,56 @@
         }
     },
     "guideBreezeWikiBannerHelp": {
-        "message": ""
+        "message": "Fandomの英語版Wikiの最上部に、BreezeWikiのWikiへリンクする小さいバナーが表示されます。"
     },
     "guideBreezeWikiDisabledHelp": {
-        "message": ""
+        "message": "FandomからBreezeWikiにリダイレクトしません。"
     },
     "guideDisable": {
-        "message": ""
+        "message": "何もしない"
     },
     "guideRedirectHelp": {
-        "message": ""
+        "message": "：対応する独立Wikiに自動リダイレクトされます。"
     },
     "guideHideHelp": {
-        "message": ""
+        "message": "：検索結果が非表示になります。検索結果の一番上にはその旨を知らせ、かつ非表示の結果を再表示させることのできるバナーが挿入されます。"
     },
     "guideReplace": {
-        "message": ""
+        "message": "置き換え"
     },
     "guideHide": {
-        "message": ""
+        "message": "：非表示"
     },
     "guideDisableSearchHelp": {
-        "message": ""
+        "message": "：検索エンジンに何の影響も与えません。"
     },
     "guideAlert": {
-        "message": ""
+        "message": "通知"
     },
     "guideWikiHelpPara4": {
-        "message": ""
+        "message": "一番上にあるアイコンをクリックすると、表にあるすべてのWikiにその設定を適用します。二行目にある星マークは、将来のアップデートで追加されたWikiに適用するデフォルトの設定です。デフォルトでは、すべてのWikiが「通知」・「置き換え」に設定されています。"
     },
     "notificationTitle": {
-        "message": "",
+        "message": "リダイレクトされました",
         "description": "Notification title for being redirected"
     },
     "guideFeedback": {
-        "message": "",
+        "message": "質問・フィードバック",
         "description": "Feedback section"
     },
     "guideFeedbackPara2": {
-        "message": ""
+        "message": "拡張機能に関する提案や改善案もぜひお寄せください！"
     },
     "settingsBreezeWikiCustomHostOption": {
-        "message": "",
+        "message": "カスタムホスト…",
         "description": "Option to input a custom BreezeWiki host"
     },
     "settingsNameFilterPlaceholder": {
-        "message": "",
+        "message": "Wikiの名前を入力…",
         "description": "Placeholder for the name filter input"
     },
     "firstInstallInfo4": {
-        "message": "",
+        "message": "その下では、既に独立したWikiがあるFandom、Fextralife、およびNeoseekerのWikiを開いた際、および検索結果に出現した場合の振る舞いを個別に設定できます。Wikiを開いた際の振る舞いは$alert$通知を表示（デフォルト）か$redirect$自動リダイレクトのどちらかを、検索結果については$replace$置き換え（デフォルト）か$hide$非表示のどちらかをそれぞれ選択できます。",
         "placeholders": {
             "alert": {
                 "content": "$1",
@@ -296,7 +296,7 @@
         }
     },
     "firstInstallInfo3": {
-        "message": "",
+        "message": "以下の設定では、機能のオン・オフを切り替えることができます。FandomのWikiを広告やその他邪魔な機能なしで閲覧できる代替フロントエンドである$BreezeWiki$を有効化することもできます。",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -315,7 +315,7 @@
         }
     },
     "settingsHideFor": {
-        "message": "",
+        "message": "検索結果上の$origin$を非表示",
         "description": "Tooltip for option to hide search results for a specific wiki",
         "placeholders": {
             "origin": {
@@ -325,17 +325,17 @@
         }
     },
     "guideHiddenResultsBannerHelp1": {
-        "message": ""
+        "message": "この設定をオンにすると、Fandom、Fextralife、NeoseekerのWikiが非表示になった際に検索結果の一番上にその旨を知らせるバナーが表示されます。このバナーから、非表示になった検索結果を表示させることも可能です。"
     },
     "bannerDescriptorOfficial": {
-        "message": "",
+        "message": "公式",
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "guideWikiHelpPara2": {
-        "message": ""
+        "message": "左側のボタンは、非独立Wikiを開いた際にどのような振る舞いをするかを決定するものです。"
     },
     "settingsBreezeWiki": {
-        "message": "",
+        "message": "BreezeWiki ― Fandomの代替フロントエンド（$linkStart$詳しくみる$linkEnd$）",
         "description": "Option to enable BreezeWiki",
         "placeholders": {
             "linkStart": {
@@ -347,7 +347,7 @@
         }
     },
     "guideNotificationsHelp1": {
-        "message": "",
+        "message": "この設定がオンの場合、独立Wikiや$BreezeWiki$にリダイレクトされた際にデスクトップ通知が送られます。デフォルトでは有効になっています。",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -356,11 +356,11 @@
         }
     },
     "bannerRestoreDone": {
-        "message": "",
+        "message": "バナーを復活しました",
         "description": "Text to display in the banner after the banner has been restored"
     },
     "notificationMessage": {
-        "message": "",
+        "message": "Indie Wiki Buddyにより、$origin$から$destination$に転送されました。",
         "description": "Notification message for being redirected",
         "placeholders": {
             "origin": {
@@ -374,11 +374,11 @@
         }
     },
     "guideWikiHelp": {
-        "message": "",
+        "message": "Wikiの個別設定のヘルプ",
         "description": "Individual wiki settings help section"
     },
     "bannerVisit": {
-        "message": "",
+        "message": "$destination$に移動する",
         "description": "Text to display in the banner for the visit link",
         "placeholders": {
             "destination": {
@@ -388,19 +388,19 @@
         }
     },
     "settingsBannerReview": {
-        "message": "",
+        "message": "Indie Wiki Buddyは快適に利用できていますか？よろしければレビューをお願いします！",
         "description": "Notice to leave a review for the extension"
     },
     "bannerLanguageEnglish": {
-        "message": "",
+        "message": "英語",
         "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
     },
     "settingsWikiLegendWikiExp": {
-        "message": "",
+        "message": "独立WikiがあるFandom、Fextralife、NeoseekerのWikiを開いた場合の振る舞いの候補：",
         "description": "Explanation for the icons in wiki experience"
     },
     "settingsRedirectFor": {
-        "message": "",
+        "message": "$origin$から$destination$に自動リダイレクト",
         "description": "Tooltip for option to redirect to a specific wiki when visiting a specific wiki",
         "placeholders": {
             "origin": {
@@ -414,15 +414,15 @@
         }
     },
     "popupSettingsOverride": {
-        "message": "",
+        "message": "上の選択肢をクリックすると、Wikiごとの設定がすべて上書きされます。",
         "description": "Notice that clicking an option will override any per-wiki customizations"
     },
     "settingsExtensionOff": {
-        "message": "",
+        "message": "拡張機能は無効です",
         "description": "Notice that the extension is disabled"
     },
     "settingsFunStatsRedirects": {
-        "message": "",
+        "message": "独立Wikiへの自動リダイレクト：$redirect$回",
         "description": "Number of times redirected to indie wikis",
         "placeholders": {
             "redirect": {
@@ -432,14 +432,14 @@
         }
     },
     "guideNotificationsHelp2": {
-        "message": ""
+        "message": "設定がオンになっているのに通知が送られない場合は、OSの通知設定からご使用のブラウザの通知がオンになっているかを確認してください。"
     },
     "popupOpenSettings": {
-        "message": "",
+        "message": "全ての設定を開く",
         "description": "Button to open the settings page"
     },
     "searchResultVisitEnglish": {
-        "message": "",
+        "message": "代わりに $destination$（英語版）を見る",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki in English is available.",
         "placeholders": {
             "destination": {
@@ -449,10 +449,10 @@
         }
     },
     "guideRedirect": {
-        "message": ""
+        "message": "リダイレクト"
     },
     "popupSettingsPerWiki": {
-        "message": "",
+        "message": "Wikiごとに振る舞いを変更するには$linkStart$すべての設定$linkEnd$に移動してください。",
         "description": "Notice to visit the settings page to change behavior per-wiki",
         "placeholders": {
             "linkStart": {
@@ -464,46 +464,46 @@
         }
     },
     "settingsLangPL": {
-        "message": "",
+        "message": "[PL] ポーランド語 / Polski",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
     },
     "notificationMessageBreezeWiki": {
-        "message": "",
+        "message": "Indie Wiki Buddyにより、より整った、広告のない環境でFandomを閲覧するためにBreezeWikiに転送されました",
         "description": "Notification message for being redirected to BreezeWiki"
     },
     "guideOverview": {
-        "message": "",
+        "message": "概要",
         "description": "Overview section"
     },
     "settingsBreezeWikiDisabled": {
-        "message": "",
+        "message": "BreezeWikiを使わない",
         "description": "Option to disable BreezeWiki"
     },
     "settingsLangAll": {
-        "message": "",
+        "message": "すべての言語",
         "description": "Option to show all languages"
     },
     "guideExtensionOnOff": {
-        "message": "",
+        "message": "拡張機能の有効・無効",
         "description": "Extension on/off toggle"
     },
     "guideTogglePerSearchEngineHelp1": {
-        "message": ""
+        "message": "デフォルトではすべての検索エンジンに対してフィルタリングが有効になっています。フィルタリングの設定はWikiごとに自由に設定できますが、デフォルトでは検索結果上の非独立Wikiを独立Wikiへのリンクで置き換えるようになっています。"
     },
     "settingsWikiLegend": {
-        "message": "",
+        "message": "凡例",
         "description": "Legend for the icons in the individual wiki settings"
     },
     "settingsFunStats": {
-        "message": "",
+        "message": "愉快な統計",
         "description": "Fun stats section"
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "",
+        "message": "公式の独立",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "popupBreezeWikiSeeSettingsLink": {
-        "message": "",
+        "message": "カスタムドメインの変更は$linkStart$完全な設定ページ$linkEnd$で可能です",
         "description": "Notice to visit the settings page to change the custom BreezeWiki domain",
         "placeholders": {
             "linkStart": {
@@ -515,26 +515,26 @@
         }
     },
     "popupBreezeWikiSeeSettings": {
-        "message": "",
+        "message": "設定を見る",
         "description": "See full settings page"
     },
     "settingsSearchExp": {
-        "message": "",
+        "message": "検索時",
         "description": "Search experience section"
     },
     "guideExtensionOnOffHelp": {
-        "message": ""
+        "message": "チェックボックスをクリックして、Indie Wiki Buddyの全機能の有効・無効を切り替えます。"
     },
     "settingsBreezeWikiCustomHostSetFailed": {
-        "message": "",
+        "message": "追加に失敗しました",
         "description": "Prompt that the custom BreezeWiki host has failed to be added"
     },
     "settingsLangKO": {
-        "message": "",
+        "message": "[KO] 韓国語 / 한국어",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, KO should be \"[KO] Korean / 한국어\" in English, but just \"[KO] 한국어\" in Korean."
     },
     "guideFeedbackPara1": {
-        "message": "",
+        "message": "困ったときや質問がある場合は、Indie Wiki Buddyのウェブサイトの$linkStart$詳細問い合わせ$linkEnd$からためらわずにお問い合わせください。",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -545,27 +545,27 @@
         }
     },
     "settingsAlert": {
-        "message": "",
+        "message": "独立Wikiにリンクするバナーを表示",
         "description": "Option to alert the user with banner when visiting non-indie wikis"
     },
     "guideBackToSettings": {
-        "message": "",
+        "message": "⇦ 設定に戻る",
         "description": "Button to return to the settings page"
     },
     "settingsHiddenResultsBanner": {
-        "message": "",
+        "message": "検索結果で非独立Wikiが非表示になった際、バナーを表示する",
         "description": "Option to show a banner when non-indie results are hidden"
     },
     "bannerRestore": {
-        "message": "",
+        "message": "バナーを復活させる",
         "description": "Text to display in the banner for the restore banner link"
     },
     "settingsBreezeWikiHost": {
-        "message": "",
+        "message": "BreezeWikiのホスト：",
         "description": "Select for a BreezeWiki host"
     },
     "searchResultVisit": {
-        "message": "",
+        "message": "代わりに$destination$を見る",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
         "placeholders": {
             "destination": {
@@ -575,10 +575,10 @@
         }
     },
     "guideOverviewPara2": {
-        "message": ""
+        "message": "この拡張機能は企業が運営する大型のホスト上のWikiを開いた際、そのWikiにより高クオリティの独立Wikiが存在する場合に通知や自動リダイレクトを行います。またGoogle、Bing、DuckDuckGo、Brave、Ecosia、Kagi、Qwant、Startpage、Yahoo!、Yandexでの検索結果をフィルタリングし、非独立Wikiのリンクを独立Wikiに置き換えたり、完全に非表示にすることができます。"
     },
     "settingsWikiFrom": {
-        "message": "",
+        "message": " （$origin$から）",
         "description": "Tooltip for the origin of a specific wiki setting. Include a leading space when appropriate.",
         "placeholders": {
             "origin": {
@@ -588,19 +588,19 @@
         }
     },
     "settingsSubmitWiki": {
-        "message": "",
+        "message": "追加申請",
         "description": "Link to the wiki submission form"
     },
     "settingsLangHU": {
-        "message": "",
+        "message": "[HU] ハンガリー語 / Magyar",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
     },
     "settingsGeneral": {
-        "message": "",
+        "message": "一般設定",
         "description": "General settings section"
     },
     "guideChangelogHelp": {
-        "message": "",
+        "message": "この設定をオンにするとIndie Wiki Buddyが更新された際に新しいタブで$linkStart$更新履歴$linkEnd$が開くようになり、最新の変更について知ることができます。",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -611,10 +611,10 @@
         }
     },
     "guideReorderResultsHelp1": {
-        "message": ""
+        "message": "デフォルトではGoogleの検索結果で独立Wikiが1ページ目よりも下にある場合、一番上の非独立（Fandom / Fextralife / Neoseeker）のWikiの上に移動するようになっています。これにより、目的の独立Wikiにより素早くたどり着くことができます。"
     },
     "settingsBannerReviewContact": {
-        "message": "",
+        "message": "アイデアや改善提案があれば、$linkStart$こちら$linkEnd$からお寄せください！",
         "description": "Notice to contact the developer for issues or ideas",
         "placeholders": {
             "linkStart": {
@@ -626,10 +626,10 @@
         }
     },
     "guideWikiHelpPara3": {
-        "message": ""
+        "message": "右側のボタンは、Google、Yahoo!などの検索結果上で非独立Wikiをどのように扱うかを決定するものです。"
     },
     "bannerHost": {
-        "message": "",
+        "message": "$host$の",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -639,37 +639,37 @@
         }
     },
     "guideOverviewPara5": {
-        "message": ""
+        "message": "これらの機能はすべて自由にオン・オフでき、Wikiごとの細かい設定も可能です。自分に合った設定を自由にカスタムしましょう！"
     },
     "settingsLangIT": {
-        "message": "",
+        "message": "[IT] イタリア語 / Italiano",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, IT should be \"[IT] Italian / Italiano\" in English, but just \"[IT] Italiano\" in Italian."
     },
     "settingsLangLZH": {
-        "message": "",
+        "message": "[LZH] 漢文 / 文言",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
     },
     "bannerDescriptorIndependent": {
-        "message": "",
+        "message": "独立",
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
     "settingsOpenChangelog": {
-        "message": "",
+        "message": "Indie Wiki Buddyが更新された際、更新履歴を開く",
         "description": "Option to open the changelog when Indie Wiki Buddy is updated"
     },
     "settingsSourceCode": {
-        "message": "",
+        "message": "ソースコード",
         "description": "Link to the source code"
     },
     "guideBreezeWikiHostHelp": {
-        "message": ""
+        "message": "BreezeWikiの設定を有効化すると、お好みのBreezeWikiのホスト・ミラーを選択するドロップダウンが表示されます。選択したBreezeWikiが利用できなくなった場合は、この設定に戻ってホストを切り替えることができます。"
     },
     "settingsFilterByLanguage": {
-        "message": "",
+        "message": "言語で絞り込み：",
         "description": "Select for a language filter"
     },
     "settingsFunStatsAlerts": {
-        "message": "",
+        "message": "独立Wikiへの誘導通知：$alert$回",
         "description": "Number of times alerted to indie wikis",
         "placeholders": {
             "alert": {
@@ -679,41 +679,41 @@
         }
     },
     "popupDefault": {
-        "message": "",
+        "message": "デフォルトの振る舞い（現存、および将来追加されるWikiに適用）",
         "description": "Default behaviors section"
     },
     "guideHiddenResultsBannerHelp2": {
-        "message": ""
+        "message": "検索結果が非表示になっている旨の表示が不要であれば、この設定をオフにしてください。"
     },
     "notificationTitleBreezeWiki": {
-        "message": "",
+        "message": "BreezeWikiにリダイレクトされました",
         "description": "Notification title for being redirected to BreezeWiki"
     },
     "extensionName": {
-        "message": "",
+        "message": "Indie Wiki Buddy",
         "description": "The name of the extension"
     },
     "settingsHide": {
-        "message": "",
+        "message": "検索結果を非表示",
         "description": "Option to hide search results"
     },
     "settingsRedirect": {
-        "message": "",
+        "message": "独立Wikiにリダイレクト",
         "description": "Option to redirect to indie wikis when visiting non-indie wikis"
     },
     "settingsBreezeWikiCustomHostSet": {
-        "message": "",
+        "message": "ドメインを設定",
         "description": "Button to confirm input for a custom BreezeWiki host"
     },
     "guideReplaceHelp": {
-        "message": ""
+        "message": "：元の非独立Wikiの検索結果が無効化され、その上に独立Wikiへ移動するボタンが挿入されます。"
     },
     "settingsLangRU": {
-        "message": "",
+        "message": "[RU] ロシア語 / Русский",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
     },
     "settingsFunStatsBreezeWiki": {
-        "message": "",
+        "message": "BreezeWikiへの自動リダイレクト：$breezeWiki$回",
         "description": "Number of times visited Fandom wikis through BreezeWiki",
         "placeholders": {
             "breezeWiki": {
@@ -723,58 +723,58 @@
         }
     },
     "settingsLangES": {
-        "message": "",
+        "message": "[ES] スペイン語 / Español",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ES should be \"[ES] Spanish / Español\" in English, but just \"[ES] Español\" in Spanish."
     },
     "settingsDisabled": {
-        "message": "",
+        "message": "何もしない",
         "description": "Option to disable any action"
     },
     "settingsWikiLegendSearchExp": {
-        "message": "",
+        "message": "独立WikiがあるFandom、Fextralife、NeoseekerのWikiが検索結果に存在する場合の振る舞いの候補：",
         "description": "Explanation for the icons in search experience"
     },
     "guideAlertHelp": {
-        "message": ""
+        "message": "：画面上部に、独立Wikiが利用可能であることを知らせるバナーが表示されます。これはFandomでも、BreezeWikiでも表示されます。"
     },
     "settingsLangFR": {
-        "message": "",
+        "message": "[FR] フランス語 / Français",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
     },
     "settingsTitle": {
-        "message": "",
+        "message": "Indie Wiki Buddyの設定",
         "description": "Title of the settings page"
     },
     "settingsLangTH": {
-        "message": "",
+        "message": "[TH] タイ語 / ไทย",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TH should be \"[TH] Thai / ไทย\" in English, but just \"[TH] ไทย\" in Thai."
     },
     "settingsBreezeWikiCustomHostSetSuccessful": {
-        "message": "",
+        "message": "追加されました",
         "description": "Prompt that the custom BreezeWiki host has been successfully added"
     },
     "settingsLangDE": {
-        "message": "",
+        "message": "[DE] ドイツ語 / Deutsch",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
     },
     "settingsLangPT": {
-        "message": "",
+        "message": "[PT] ポルトガル語 / Português",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PT should be \"[PT] Portuguese / Português\" in English, but just \"[PT] Português\" in Portuguese."
     },
     "settingsBannerHide": {
-        "message": "",
+        "message": "メッセージを非表示にする",
         "description": "Button to hide the banner"
     },
     "guideGlobalSettingsHelp": {
-        "message": "",
+        "message": "全体設定のヘルプ",
         "description": "Global settings help section"
     },
     "bannerBreezeWiki": {
-        "message": "",
+        "message": "BreezeWikiを通してFandomのWikiを見る",
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "settingsFunStatsSearchFilters": {
-        "message": "",
+        "message": "非表示になった検索結果：$hide$件",
         "description": "Number of non-indie search results hidden",
         "placeholders": {
             "hide": {
@@ -784,36 +784,36 @@
         }
     },
     "guideOverviewPara1": {
-        "message": ""
+        "message": "Indie Wiki Buddyには、独立Wikiを見つけやすくしてWikiの利用体験を向上する機能が揃っています。"
     },
     "settingsSetColumn": {
-        "message": "",
+        "message": "アイコンをクリックですべてのWikiに設定：",
         "description": "Instruction to set all wikis in a column"
     },
     "settingsExtensionOn": {
-        "message": "",
+        "message": "拡張機能は有効です",
         "description": "Notice that the extension is enabled"
     },
     "guideWikiHelpPara1": {
-        "message": ""
+        "message": "個別設定では、Wikiごとに設定を行うことができます。凡例や、アイコンにカーソルをかざすことでも各列が何を設定しているのかを確認できます。"
     },
     "popupWikiLegendSearchExp": {
-        "message": "",
+        "message": "独立WikiがあるFandom、Fextralife、NeoseekerのWikiが検索結果に存在する場合の振る舞いの候補：",
         "description": "Explanation for the icons in search experience"
     },
     "settingsBreezeWikiCustomHost": {
-        "message": "",
+        "message": "BreezeWikiのカスタムドメイン：",
         "description": "Input for a custom BreezeWiki host not included by default"
     },
     "settingsReorderResults": {
-        "message": "",
+        "message": "独立Wikiを非独立Wikiより上に表示し、重複する検索結果を非表示にする（Braveでは無効）",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "guideBreezeWikiRedirectHelp": {
-        "message": ""
+        "message": "Fandomの英語版Wikiを開くと、直ちにBreezeWikiで該当のページを閲覧するようにリダイレクトします。独立Wikiへの自動リダイレクトが有効になっている場合、そちらが優先されます。"
     },
     "firstInstallInfo5": {
-        "message": "",
+        "message": "これらの設定は、ブラウザの右上にあるIndie Wiki Buddyのアイコン$logo$で後からでも変更できます。アイコンが見つからない場合は、拡張機能のアイコン$jigsaw$（同じく画面右上）から開くメニューの中にあるかもしれません。",
         "placeholders": {
             "logo": {
                 "content": "$1",
@@ -826,15 +826,15 @@
         }
     },
     "settingsFilterByName": {
-        "message": "",
+        "message": "名前で絞り込み：",
         "description": "Input for a name filter"
     },
     "settingsNewWiki": {
-        "message": "",
+        "message": "新しく追加されるWikiへのデフォルト設定：",
         "description": "Instruction to set default for new wikis in future updates"
     },
     "settingsReplaceFor": {
-        "message": "",
+        "message": "検索結果上の$origin$を$destination$に置き換え",
         "description": "Tooltip for option to replace search results with links to a specific wiki",
         "placeholders": {
             "origin": {
@@ -848,28 +848,37 @@
         }
     },
     "guideOverviewPara3": {
-        "message": ""
+        "message": "現時点ではFandom、Fextralife、Neoseekerからの独立Wikiへのリダイレクトに対応しています。"
     },
     "settingsLangZH": {
-        "message": "",
+        "message": "[ZH] 中国語 / 中文",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
     },
     "firstInstallInfo1": {
-        "message": ""
+        "message": "Indie Wiki Buddyのインストール、ありがとうございます！まずは設定をしましょう。"
     },
     "guideDisableVisitHelp": {
-        "message": ""
+        "message": "：通知や対応する独立Wikiへのリダイレクトを行いません。BreezeWikiの設定がオンの場合、そちらへのリダイレクトは行われます。"
     },
     "settingsWiki": {
-        "message": "",
+        "message": "Wikiの個別設定",
         "description": "Individual wiki settings section"
     },
     "guideGlobalSettingsHelpIntro": {
-        "message": "",
+        "message": "一般設定項目は以下の通りです：",
         "description": "Introduction paragraph of the general settings help"
     },
     "extensionDescription": {
-        "message": "",
+        "message": "Indie Wiki Buddyは検索フィルターやリダイレクト、通知を通して高クオリティの独立Wikiを発見しやすくします。",
         "description": "The description of the extension"
+    },
+    "settingsDisabledFor": {
+        "message": "「何もしない」：$origin$件",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
     }
 }
