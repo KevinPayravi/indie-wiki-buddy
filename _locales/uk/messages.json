@@ -42,7 +42,7 @@
         "description": "Text to display in the banner for the restore banner link"
     },
     "searchResultVisit": {
-        "message": "",
+        "message": "Натомість, відвідайте $destination$",
         "description": "Displayed for a search result to a non-indie wiki when an indie wiki is available.",
         "placeholders": {
             "destination": {
@@ -60,7 +60,7 @@
         "description": "Button to hide filtered search results"
     },
     "searchFilteredResultsShow": {
-        "message": "",
+        "message": "Показати відфільтровані результати",
         "description": "Button to show filtered search results"
     },
     "settingsSourceCode": {
@@ -575,7 +575,7 @@
         }
     },
     "bannerHost": {
-        "message": "",
+        "message": "на $host$",
         "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
         "placeholders": {
             "host": {
@@ -871,5 +871,14 @@
     "settingsBreezeWikiRedirect": {
         "message": "Автоматично перенаправляти Fandom на BreezeWiki",
         "description": "Option to redirect Fandom wikis to BreezeWiki"
+    },
+    "settingsDisabledFor": {
+        "message": "Нічого не робити для $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
     }
 }
