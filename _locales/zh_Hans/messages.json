@@ -582,5 +582,67 @@
     },
     "settingsReorderResults": {
         "message": "使用Google时，将独立wiki的搜索结果移至非独立wiki之上，并隐藏重复结果（对Brave不生效）"
+    },
+    "guideNotificationsHelp2": {
+        "message": "如果该选项已启用，但仍未收到通知，请检查操作系统设置是否阻止了浏览器发送通知。"
+    },
+    "guideCrossLanguageHelp1": {
+        "message": "默认情况下，Indie Wiki Buddy只会重定向到同一语言的页面（如从西班牙语Fandom页面重定向到西班牙语独立wiki页面）。然而，多语种用户可能希望众多英语独立wiki页面也可以用作备选。启用该选项后，如相同语言的独立wiki页面不存在，Indie Wiki Buddy将会试图重定向到英语wiki页面。"
+    },
+    "guideChangelogHelp": {
+        "message": "启用该选项后，当Indie Wiki Buddy更新时，将会在新标签页内打开其$linkStart$更新日志$linkEnd$，以便用户了解最新更改。",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": "以下选项配置如何在搜索引擎中过滤搜索结果："
+    },
+    "guideTogglePerSearchEngine": {
+        "message": "按搜索引擎调整过滤设置"
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": "目前支持以下搜索引擎：Google、Bing、DuckDuckGo、Brave、Ecosia、Kagi、Qwant、Startpage、Yahoo!和Yandex。"
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": "默认情况下，Indie Wiki Buddy过滤所有搜索引擎的搜索结果。过滤行为由用户对各wiki的配置决定；默认情况下，对所有wiki的配置都是用指向独立wiki的按钮替换非独立wiki的搜索结果。"
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": "如不希望在搜索结果中看见这些横幅，可禁用该选项。"
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": "启用该选项后，Indie Wiki Buddy将会在隐藏来自Fandom、Fextralife和Neoseeker的搜索结果时在该搜索结果上方插入重定向横幅。也可以该横幅处选择显示隐藏内容。"
+    },
+    "guideReorderResultsHelp1": {
+        "message": "默认情况下，如独立wiki的搜索结果在第一页靠后的位置，Indie Wiki Buddy将会把这些结果重排到首个非独立wiki（Fandom、Fextralife、Neoseeker）前。这样一来，用户更容易找到所需的独立wiki页面。"
+    },
+    "guideReorderResultsHelp2": {
+        "message": "由于维护困难，该功能目前只适用于Google。"
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "全局设置有以下几项："
+    },
+    "guideExtensionOnOff": {
+        "message": "扩展已开启/已关闭"
+    },
+    "guideExtensionOnOffHelp": {
+        "message": "一键开关Indie Wiki Buddy的所有功能。"
+    },
+    "guideNotificationsHelp1": {
+        "message": "启用该选项后，在重定向至独立wiki或$BreezeWiki$时会发送桌面通知。该选项默认启用。",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideCrossLanguageHelp2": {
+        "message": "很不幸，Fextralife wiki并不支持该功能。"
     }
 }
