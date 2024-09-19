@@ -8,7 +8,7 @@
     "description": "The description of the extension"
   },
   "bannerText": {
-    "message": "There is $descriptor$ wiki$host$ covering this topic$language$!",
+    "message": "There is $descriptor$ wiki $host$ covering this topic $language$!",
     "description": "Text to display in the banner for the indie wiki link",
     "placeholders": {
       "descriptor": {
@@ -17,16 +17,16 @@
       },
       "host": {
         "content": "$2",
-        "example": " on wiki.gg"
+        "example": "on wiki.gg"
       },
       "language": {
         "content": "$3",
-        "example": " in English"
+        "example": "in English"
       }
     }
   },
   "bannerHost": {
-    "message": " on $host$",
+    "message": "on $host$",
     "description": "Descriptor used for a wiki hosted on an indie-like wikifarm. See the bannerText message for more information.",
     "placeholders": {
       "host": {
@@ -52,7 +52,7 @@
     "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
   },
   "bannerLanguageEnglish": {
-    "message": " in English",
+    "message": "in English",
     "description": "For an wiki in English. See the bannerText message for more information. Include a leading space when appropriate."
   },
   "bannerVisit": {

@@ -21,11 +21,31 @@
     "destination_platform": "mediawiki",
     "destination_icon": "100orangejuicewiki.png",
     "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/",
+    "destination_search_path": "/w/index.php",
     "destination_main_page": "100%_Orange_Juice_Wiki",
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-18trip",
+    "origins_label": "18TRIP Fandom Wiki",
+    "origins": [
+      {
+        "origin": "18TRIP Fandom Wiki",
+        "origin_base_url": "18trip.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "18_TRIP_Wiki"
+      }
+    ],
+    "destination": "18TRIP Wiki",
+    "destination_base_url": "wiki.18t.rip",
+    "destination_platform": "mediawiki",
+    "destination_icon": "18tripwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "18TRIP_Wiki",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-2xko",
@@ -156,6 +176,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-ahatintime",
+    "origins_label": "A Hat in Time Fandom Wiki",
+    "origins": [
+      {
+        "origin": "A Hat in Time Fandom Wiki",
+        "origin_base_url": "ahatintime.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "A_Hat_in_Time_Wiki"
+      }
+    ],
+    "destination": "A Hat in Time Wiki",
+    "destination_base_url": "ahatintime.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ahatintimewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "A_Hat_in_Time_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-akudamadrive",
@@ -527,6 +567,26 @@
     "destination_main_page": "Home",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-artonelico",
+    "origins_label": "EXA_PICO Universe Fandom Wiki",
+    "origins": [
+      {
+        "origin": "EXA_PICO Universe Fandom Wiki",
+        "origin_base_url": "artonelico.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_EXA_PICO_Universe_Wiki"
+      }
+    ],
+    "destination": "EXA_PICO Wiki",
+    "destination_base_url": "exapico.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "exapicowiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "The_EXA_PICO_Universe_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-ashesofcreation",
@@ -934,6 +994,26 @@
     "destination_content_path": "/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Main_Page"
+  },
+  {
+    "id": "en-bindingofisaacrebirth",
+    "origins_label": "The Binding Of Isaac: Rebirth Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Binding Of Isaac: Rebirth Fandom Wiki",
+        "origin_base_url": "bindingofisaacrebirth.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Binding_of_Isaac:_Rebirth_Wiki"
+      }
+    ],
+    "destination": "The Binding Of Isaac: Rebirth Wiki",
+    "destination_base_url": "bindingofisaacrebirth.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "isaacrebirthwiki.png",
+    "destination_main_page": "Binding_of_Isaac:_Rebirth_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-bionicle",
@@ -1370,6 +1450,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-cherryforest",
+    "origins_label": "Cherry Forest Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cherry Forest Fandom Wiki",
+        "origin_base_url": "cherry-forest.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Cherry_Forest_Wiki"
+      }
+    ],
+    "destination": "Cherry Forest Wiki",
+    "destination_base_url": "cherryforest.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cherryforestwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Cherry_Forest_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-chibirobo",
     "origins_label": "Chibi-Robo! Fandom Wiki",
     "origins": [
@@ -1726,6 +1826,25 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-d2mc",
+    "origins_label": "Destiny 2 Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "D2MC Fandom Wiki",
+        "origin_base_url": "d2mc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "D2MC_Wiki"
+      }
+    ],
+    "destination": "Destiny 2 Minecraft Edition Wiki",
+    "destination_base_url": "d2mc.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "d2mc.png",
+    "destination_main_page": "Destiny_2_Minecraft_Edition_Wiki",
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-daria",
     "origins_label": "Daria Fandom Wiki",
     "origins": [
@@ -1744,6 +1863,29 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-darkagebizarre",
+    "origins_label": "Darkage Bizarre Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Darkage Bizarre Fandom Wiki",
+        "origin_base_url": "darkage-bizarre.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "DarkAge_Bizarre_Wiki"
+      }
+    ],
+    "destination": "DarkGarden Studios Wiki",
+    "destination_base_url": "darkagebizarre.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "darkagebizarre.png",
+    "destination_main_page": "DarkGarden_Studios_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-darkanddarker",
@@ -1815,6 +1957,25 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-deadlock",
+    "origins_label": "Deadlock Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Deadlock Fandom Wiki",
+        "origin_base_url": "playdeadlock.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deadlock_Wiki"
+      }
+    ],
+    "destination": "Deadlock Wiki",
+    "destination_base_url": "deadlocked.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deadlock.png",
+    "destination_main_page": "Deadlock_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-deeprockgalactic",
@@ -2131,6 +2292,25 @@
     "destination_main_page": "Dotflow_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-dovedalerailway",
+    "origins_label": "Dovedale Railway Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dovedale Railway Fandom Wiki",
+        "origin_base_url": "dovedale.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dovedale_Railway_Wiki"
+      }
+    ],
+    "destination": "Dovedale Railway Wiki",
+    "destination_base_url": "dovedale.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dovedalerailwaywiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-dragalialost",
@@ -2999,6 +3179,29 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-ftlmultiverse",
+    "origins_label": "FTL: Multiverse Fandom Wiki",
+    "origins": [
+      {
+        "origin": "FTL: Multiverse Fandom Wiki",
+        "origin_base_url": "ftlmultiverse.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "FTL:_Multiverse_Wiki"
+      }
+    ],
+    "destination": "FTL Multiverse Database",
+    "destination_base_url": "ftlmultiverse.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ftlmultiversedatabase.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-futurama",
     "origins_label": "Futurama Fandom & Neoseeker Wikis",
     "origins": [
@@ -3620,6 +3823,26 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-horticular",
+    "origins_label": "Horticular Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Horticular Fandom Wiki",
+        "origin_base_url": "horticular.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Horticular_Wiki"
+      }
+    ],
+    "destination": "Horticular Wiki",
+    "destination_base_url": "horticular.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "horticularwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Horticular_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-houkaigakuen2",
@@ -4410,6 +4633,12 @@
         "origin_base_url": "diceblock.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Mario_Party_Wiki"
+      },
+      {
+        "origin": "Luigi's Mansion Fandom Wiki",
+        "origin_base_url": "luigi-mansion.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mansionpedia"
       }
     ],
     "destination": "Super Mario Wiki",
@@ -4501,6 +4730,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/w/"
+  },
+  {
+    "id": "en-mercstoria",
+    "origins_label": "Merc Storia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Merc Storia Fandom Wiki",
+        "origin_base_url": "merc-storia-english.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Merc_Storia_English_Wiki"
+      }
+    ],
+    "destination": "Merc Storia Wiki",
+    "destination_base_url": "mercstoria.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mercstoriaenglishwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Merc_Storia_English_Wiki",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-micronations",
@@ -4632,6 +4881,26 @@
     "destination_main_page": "Minecraft_Wiki",
     "destination_search_path": "/",
     "destination_content_path": "/w/"
+  },
+  {
+    "id": "en-minehut",
+    "origins_label": "Minehut Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minehut Fandom Wiki",
+        "origin_base_url": "minehut.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minehut_Wiki"
+      }
+    ],
+    "destination": "Minehut Wiki",
+    "destination_base_url": "minehut.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minehutwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Minehut_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-minetest",
@@ -5186,6 +5455,29 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
+    "id": "en-penguinmod",
+    "origins_label": "PenguinMod Fandom Wiki",
+    "origins": [
+      {
+        "origin": "PenguinMod Fandom Wiki",
+        "origin_base_url": "penguinmod.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "PenguinMod_Wiki"
+      }
+    ],
+    "destination": "PenguinMod Wiki",
+    "destination_base_url": "wiki.penguinmod.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "penguinmodwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze",
     "tags": [
       "official"
     ]
@@ -6415,6 +6707,26 @@
     ]
   },
   {
+    "id": "en-spacepioneers",
+    "origins_label": "Space Pioneers Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Space Pioneers Fandom Wiki",
+        "origin_base_url": "space-pioneers.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Space_Pioneers_Wiki"
+      }
+    ],
+    "destination": "Space Pioneers Wiki",
+    "destination_base_url": "spacepioneers.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "spacepioneerswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-spacestation13",
     "origins_label": "Space Station 13 Fandom Wiki",
     "origins": [
@@ -6806,6 +7118,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-supersnail",
+    "origins_label": "Super Snail Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Super Snail Fandom Wiki",
+        "origin_base_url": "super-snail.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Super_Snail_Wiki"
+      }
+    ],
+    "destination": "Super Snail Wiki",
+    "destination_base_url": "supersnail.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "supersnailwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Super_Snail_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-survivingmars",
     "origins_label": "Surviving Mars Fandom Wiki",
     "origins": [
@@ -6827,6 +7159,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-synthetik",
+    "origins_label": "SYNTHETIK Fandom Wiki",
+    "origins": [
+      {
+        "origin": "SYNTHETIK Fandom Wiki",
+        "origin_base_url": "synthetik.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "SYNTHETIK_Wiki"
+      }
+    ],
+    "destination": "SYNTHETIK Universe Wiki",
+    "destination_base_url": "synthetikuniverse.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "synthetikuniversewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "SYNTHETIK_Universe_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-tallyhall",
@@ -7066,6 +7418,25 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-theworldendswithyou",
+    "origins_label": "The World Ends with You Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The World Ends with You Fandom Wiki",
+        "origin_base_url": "twewy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_World_Ends_with_You_Wiki"
+      }
+    ],
+    "destination": "The World Ends with You Wiki",
+    "destination_base_url": "twewy.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thewikiendswithyou.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "The_World_Ends_with_You_Wiki"
   },
   {
     "id": "en-theymightbegiants",

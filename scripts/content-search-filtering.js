@@ -84,7 +84,7 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
     indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + wikiInfo.language.toLowerCase() + '/' + wikiInfo.destination_icon);
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
-    if (originArticle && decodeURIComponent(originArticle) !== wikiInfo['origin_main_page']) {
+    if (originArticle && decodeURIComponent(originArticle).toLowerCase() !== wikiInfo['origin_main_page'].toLowerCase()) {
       let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, wikiInfo['destination_content_suffix'])
         .replace(wikiInfo['destination_content_prefix'], '')
         .replaceAll('_', ' ');
