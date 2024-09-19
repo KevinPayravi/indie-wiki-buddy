@@ -4862,16 +4862,29 @@
         "origin_main_page": "Minecraft Dungeons Wiki"
       },
       {
-        "origin": "Minecraft Story Mode Fandom Wiki",
-        "origin_base_url": "minecraftstorymode.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Minecraft_Story_Mode_Wiki"
-      },
-      {
         "origin": "Minecraft Dungeons Fandom Wiki",
         "origin_base_url": "minecraftdungeons-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Minecraft:_Dungeons_Wiki"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_main_page": "Minecraft_Wiki",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
+    "id": "en-minecraft-story-mode",
+    "origins_label": "Minecraft Story Mode Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Story Mode Fandom Wiki",
+        "origin_base_url": "minecraftstorymode.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Story_Mode_Wiki"
       }
     ],
     "destination": "Minecraft Wiki",
