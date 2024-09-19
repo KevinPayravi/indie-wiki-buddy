@@ -124,95 +124,95 @@
         "description": "Option to show the BreezeWiki banner on Fandom wikis"
     },
     "settingsBreezeWikiHost": {
-        "message": "",
+        "message": "Hostujący instancję BreezeWiki:",
         "description": "Select for a BreezeWiki host"
     },
     "settingsBreezeWikiCustomHostSet": {
-        "message": "",
+        "message": "Ustaw domenę",
         "description": "Button to confirm input for a custom BreezeWiki host"
     },
     "settingsBreezeWikiCustomHostOption": {
-        "message": "",
+        "message": "Inna domena…",
         "description": "Option to input a custom BreezeWiki host"
     },
     "settingsBreezeWikiCustomHostSetSuccessful": {
-        "message": "",
+        "message": "Domena została dodana poprawnie",
         "description": "Prompt that the custom BreezeWiki host has been successfully added"
     },
     "settingsWikiLegendSearchExp": {
-        "message": "",
+        "message": "Gdy wyniki wyszukiwarki internetowej zawierają linki do Fandomu, Fextralife czy Neoseeker, które mają niezależną alternatywę, IWB może:",
         "description": "Explanation for the icons in search experience"
     },
     "settingsWikiLegend": {
-        "message": "",
+        "message": "Znaczenia poszczególnych ikon",
         "description": "Legend for the icons in the individual wiki settings"
     },
     "settingsAlert": {
-        "message": "",
+        "message": "Pokaż banner linkujący do niezależnej wiki",
         "description": "Option to alert the user with banner when visiting non-indie wikis"
     },
     "settingsReplace": {
-        "message": "",
+        "message": "Zastąp wynik linkiem do niezależnej wiki",
         "description": "Option to replace search results with links to non-indie wikis"
     },
     "settingsHide": {
-        "message": "",
+        "message": "Ukryj wynik",
         "description": "Option to hide search results"
     },
     "settingsDisabled": {
-        "message": "",
+        "message": "Nie rób nic",
         "description": "Option to disable any action"
     },
     "settingsFilterByLanguage": {
-        "message": "",
+        "message": "Filtruj wiki językiem:",
         "description": "Select for a language filter"
     },
     "settingsFilterByName": {
-        "message": "",
+        "message": "Filtruj wiki ich nazwą:",
         "description": "Input for a name filter"
     },
     "settingsLangAll": {
-        "message": "",
+        "message": "Wszystkie języki",
         "description": "Option to show all languages"
     },
     "settingsLangDE": {
-        "message": "",
+        "message": "[DE] Niemiecki / Deutsch",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
     },
     "settingsLangEN": {
-        "message": "",
+        "message": "[EN] Angielski / English",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, EN should be \"[EN] Englisch / English\" in German, but just \"[EN] English\" in English."
     },
     "settingsLangFR": {
-        "message": "",
+        "message": "[FR] Francuski / Français",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
     },
     "settingsLangJA": {
-        "message": "",
+        "message": "[JA] Japoński / 日本語",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, JA should be \"[JA] Japanese / 日本語\" in English, but just \"[JA] 日本語\" in Japanese."
     },
     "settingsLangKO": {
-        "message": "",
+        "message": "[KO] Koreański / 한국어",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, KO should be \"[KO] Korean / 한국어\" in English, but just \"[KO] 한국어\" in Korean."
     },
     "settingsLangLZH": {
-        "message": "",
+        "message": "[LZH] Klasyczny Chiński / 文言",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
     },
     "settingsLangPT": {
-        "message": "",
+        "message": "[PT] Portugalski / Português",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PT should be \"[PT] Portuguese / Português\" in English, but just \"[PT] Português\" in Portuguese."
     },
     "settingsLangTH": {
-        "message": "",
+        "message": "[TH] Tajski / ไทย",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TH should be \"[TH] Thai / ไทย\" in English, but just \"[TH] ไทย\" in Thai."
     },
     "settingsSetColumn": {
-        "message": "",
+        "message": "Użyj ikony aby ustawić wszystkie wiki w kolumnie:",
         "description": "Instruction to set all wikis in a column"
     },
     "settingsNameFilterPlaceholder": {
-        "message": "",
+        "message": "Podaj nazwę wiki…",
         "description": "Placeholder for the name filter input"
     },
     "settingsFunStats": {
@@ -220,7 +220,7 @@
         "description": "Fun stats section"
     },
     "settingsNewWiki": {
-        "message": "",
+        "message": "Domyślne dla nowych wiki w przyszłych aktualizacjach:",
         "description": "Instruction to set default for new wikis in future updates"
     },
     "settingsFunStatsAlerts": {
@@ -411,7 +411,7 @@
         "message": ""
     },
     "settingsLangSV": {
-        "message": "",
+        "message": "[SV] Szwedzki / Svenska",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
     },
     "firstInstallInfo4": {
@@ -436,11 +436,11 @@
         }
     },
     "settingsLangES": {
-        "message": "",
+        "message": "[ES] Hiszpański / Español",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ES should be \"[ES] Spanish / Español\" in English, but just \"[ES] Español\" in Spanish."
     },
     "settingsLangHU": {
-        "message": "",
+        "message": "[HU] Węgierski / Magyar",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
     },
     "guideWikiHelpPara4": {
@@ -460,7 +460,7 @@
         }
     },
     "settingsLangPL": {
-        "message": "",
+        "message": "[PL] Polski",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
     },
     "bannerHost": {
@@ -481,7 +481,7 @@
         "message": ""
     },
     "settingsWikiLegendWikiExp": {
-        "message": "",
+        "message": "Odwiedzając wiki na Fandom, Fextralife czy Neoseeker z niezależnymi alternatywami, IWB może:",
         "description": "Explanation for the icons in wiki experience"
     },
     "bannerDisableDone": {
@@ -504,7 +504,7 @@
         "message": ""
     },
     "settingsLangTOK": {
-        "message": "",
+        "message": "[TOK] Toki Pona / toki pona",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
     },
     "guideWikiHelpPara1": {
@@ -550,7 +550,7 @@
         "description": "Text to display in the banner for the restore banner link"
     },
     "settingsBreezeWikiCustomHost": {
-        "message": "",
+        "message": "Domena instancji BreezeWiki:",
         "description": "Input for a custom BreezeWiki host not included by default"
     },
     "settingsSearchExp": {
@@ -580,7 +580,7 @@
         }
     },
     "settingsLangRU": {
-        "message": "",
+        "message": "[RU] Rosyjski / Русский",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
     },
     "notificationMessage": {
@@ -602,7 +602,7 @@
         "description": "Notice for Opera users about enabling search engine access"
     },
     "settingsLangFI": {
-        "message": "",
+        "message": "[FI] Fiński / suomi",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FI should be \"[FI] Finnish / suomi\" in English, but just \"[FI] suomi\" in Finnish."
     },
     "guideBreezeWiki": {
@@ -631,11 +631,11 @@
         "message": ""
     },
     "settingsLangZH": {
-        "message": "",
+        "message": "[ZH] Chiński / 中文",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ZH should be \"[ZH] Chinese / 中文\" in English, but just \"[ZH] 中文\" in Chinese."
     },
     "settingsLangUK": {
-        "message": "",
+        "message": "[UK] Ukraiński / Українська",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
     },
     "guideWikiHelpPara2": {
@@ -656,11 +656,11 @@
         }
     },
     "settingsWiki": {
-        "message": "",
+        "message": "Indywidualne ustawienia wiki",
         "description": "Individual wiki settings section"
     },
     "settingsBreezeWikiCustomHostSetFailed": {
-        "message": "",
+        "message": "Nie udało się dodać domeny",
         "description": "Prompt that the custom BreezeWiki host has failed to be added"
     },
     "guideOverviewPara2": {
@@ -743,7 +743,7 @@
         "description": "Global settings help section"
     },
     "settingsRedirect": {
-        "message": "",
+        "message": "Przenieś do niezależnej wiki",
         "description": "Option to redirect to indie wikis when visiting non-indie wikis"
     },
     "settingsExtensionOff": {
@@ -810,7 +810,7 @@
         "description": "Link to the changelog"
     },
     "settingsLangIT": {
-        "message": "",
+        "message": "[IT] Włoski / Italiano",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, IT should be \"[IT] Italian / Italiano\" in English, but just \"[IT] Italiano\" in Italian."
     },
     "bannerDescriptorOfficial": {
