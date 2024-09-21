@@ -61,7 +61,7 @@
         "description": "Prompt that the custom BreezeWiki host has been successfully added"
     },
     "settingsWiki": {
-        "message": "",
+        "message": "Configurações individuais de wikis",
         "description": "Individual wiki settings section"
     },
     "settingsAlert": {
