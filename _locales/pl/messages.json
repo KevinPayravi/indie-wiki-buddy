@@ -216,7 +216,7 @@
         "description": "Placeholder for the name filter input"
     },
     "settingsFunStats": {
-        "message": "",
+        "message": "Różne statystyki użycia",
         "description": "Fun stats section"
     },
     "settingsNewWiki": {
@@ -224,7 +224,7 @@
         "description": "Instruction to set default for new wikis in future updates"
     },
     "settingsFunStatsAlerts": {
-        "message": "",
+        "message": "Powiadomiono o niezależnych wiki $alert$ razy",
         "description": "Number of times alerted to indie wikis",
         "placeholders": {
             "alert": {
@@ -234,7 +234,7 @@
         }
     },
     "settingsFunStatsBreezeWiki": {
-        "message": "",
+        "message": "Automatycznie przekierowano do BreezeWiki $breezeWiki$ razy",
         "description": "Number of times visited Fandom wikis through BreezeWiki",
         "placeholders": {
             "breezeWiki": {
@@ -244,7 +244,7 @@
         }
     },
     "settingsFunStatsSearchFilters": {
-        "message": "",
+        "message": "Ukryto $hide$ wyników wyszukiwania",
         "description": "Number of non-indie search results hidden",
         "placeholders": {
             "hide": {
@@ -278,7 +278,7 @@
         }
     },
     "settingsAlertFor": {
-        "message": "",
+        "message": "Pokazuj banner na $origin$ linkując do $destination$",
         "description": "Tooltip for option to alert the user with banner when visiting a specific wiki",
         "placeholders": {
             "origin": {
@@ -292,11 +292,11 @@
         }
     },
     "popupOpenSettings": {
-        "message": "",
+        "message": "Otwórz wszystkie ustawienia",
         "description": "Button to open the settings page"
     },
     "popupDefault": {
-        "message": "",
+        "message": "Domyślne zachowanie (dotyczy wszystkich obecnych oraz nowych wiki dodanych w przyszłych aktualizacjach)",
         "description": "Default behaviors section"
     },
     "guideTitle": {
@@ -315,7 +315,7 @@
         "message": ""
     },
     "guideOverviewPara1": {
-        "message": ""
+        "message": "Indie Wiki Buddy posiada zestaw funkcji pomagających Ci odkrywać niezależne wiki i poprawić jakość czytania wiki."
     },
     "guideGlobalSettingsHelpIntro": {
         "message": "",
@@ -474,7 +474,7 @@
         }
     },
     "settingsExtensionOn": {
-        "message": "",
+        "message": "Rozszerzenie jest włączone",
         "description": "Notice that the extension is enabled"
     },
     "guideRedirectHelp": {
@@ -562,7 +562,7 @@
         "description": "Notification message for being redirected to BreezeWiki"
     },
     "popupWikiLegendSearchExp": {
-        "message": "",
+        "message": "Gdy wyniki wyszukiwania zawierają Fandom, Fextralife czy wiki Neoseeker mającymi niezależną alternatywę, IWB może:",
         "description": "Explanation for the icons in search experience"
     },
     "guideFeedback": {
@@ -690,7 +690,7 @@
         "description": "Link to the source code"
     },
     "popupBreezeWikiSeeSettings": {
-        "message": "",
+        "message": "Zobacz ustawienia",
         "description": "See full settings page"
     },
     "guideFeedbackPara1": {
@@ -725,7 +725,7 @@
         }
     },
     "settingsFunStatsRedirects": {
-        "message": "",
+        "message": "Automatycznie przekierowano do niezależnych wiki $redirect$ razy",
         "description": "Number of times redirected to indie wikis",
         "placeholders": {
             "redirect": {
@@ -747,7 +747,7 @@
         "description": "Option to redirect to indie wikis when visiting non-indie wikis"
     },
     "settingsExtensionOff": {
-        "message": "",
+        "message": "Rozszerzenie jest wyłączone",
         "description": "Notice that the extension is disabled"
     },
     "bannerDescriptorWiki": {
@@ -789,11 +789,11 @@
         "description": "Wiki experience section"
     },
     "popupSettingsOverride": {
-        "message": "",
+        "message": "Użycie opcji powyżej nadpisze wszystkie ustawienia poszczególnych wiki jakie masz.",
         "description": "Notice that clicking an option will override any per-wiki customizations"
     },
     "settingsWikiFrom": {
-        "message": "",
+        "message": " (z $origin$)",
         "description": "Tooltip for the origin of a specific wiki setting. Include a leading space when appropriate.",
         "placeholders": {
             "origin": {
@@ -849,7 +849,7 @@
         "message": ""
     },
     "settingsCustomWikiDelete": {
-        "message": "",
+        "message": "Usuń",
         "description": "Button to delete a custom wiki"
     },
     "settingsBannerHide": {
@@ -857,11 +857,11 @@
         "description": "Button to hide the banner"
     },
     "popupWikiLegendWikiExp": {
-        "message": "",
+        "message": "Odwiedzając Fandom, Fextralife czy wiki Neoseeker:",
         "description": "Explanation for the icons in wiki experience"
     },
     "popupSettingsPerWiki": {
-        "message": "",
+        "message": "Odwiedź $linkStart$wszystkie ustawienia$linkEnd$ aby zmienić zachowanie na poziomie poszczególnych wiki.",
         "description": "Notice to visit the settings page to change behavior per-wiki",
         "placeholders": {
             "linkStart": {
