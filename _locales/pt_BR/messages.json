@@ -43,7 +43,7 @@
         "message": "Avisar"
     },
     "guideAlertHelp": {
-        "message": ": Um aviso será exibido na parte superior da página informando que uma wiki independente está disponível. Aparecerá em ambas as páginas do Fandom e do BreezeWiki."
+        "message": ": Um aviso será exibido na parte superior da página informando que uma wiki independente está disponível. Aparecerá em páginas do Fandom e do BreezeWiki."
     },
     "guideWikiHelpPara4": {
         "message": "No cabeçalho da tabela, clicar nos ícones aplicará aquele ajuste a todas as wikis na tabela. Na segunda linha, as estrelas representam os ajustes padrão para wikis que serão adicionadas em atualizações futuras. Por padrão, todas as wikis estão configuradas para mostrar um aviso e substituir os resultados nas buscas."
@@ -301,7 +301,7 @@
         }
     },
     "settingsBannerOpera": {
-        "message": "Usuários do Opera: Por padrão, o Opera impede o funcionamento de extensões em ferramentas de busca. Você pode ativar o acesso às ferramentas de busca ao acessar \"about:extensions\" e ativar a opção \"Permitir o acesso aos resultados da página de pesquisa\" no Indie Wiki Buddy."
+        "message": "Usuários do Opera: Por padrão, o Opera impede o funcionamento de extensões em ferramentas de busca. Você pode ativar o acesso às ferramentas de busca ao acessar \"about:extensions\" e ativar a opção \"Permitir o acesso aos resultados da página de pesquisa\" para o Indie Wiki Buddy."
     },
     "settingsBannerReview": {
         "message": "Está gostando do Indie Wiki Buddy? Deixe uma avaliação!"
@@ -638,7 +638,7 @@
         "message": "Você também pode alterar os ajustes para filtrar os resultados em ferramentas de busca:"
     },
     "guideCrossLanguageHelp1": {
-        "message": "Por padrão, o Indie Wiki Buddy manterá os usuários no mesmo idioma (por exemplo, eles só serão redirecionados de wikis em espanhol do Fandom para wikis independentes em espanhol). No entanto, os falantes de vários idiomas também podem querer usar as diversas wikis independentes existentes em inglês. Ao ativar essa opção, o usuário será redirecionado de wikis do Fandom que não estejam em inglês para wikis independentes em inglês quando não houver uma versão disponível no mesmo idioma."
+        "message": "Por padrão, o Indie Wiki Buddy manterá os usuários no mesmo idioma (por exemplo, o usuário só será redirecionado de wikis em espanhol do Fandom para wikis independentes em espanhol). No entanto, os falantes de vários idiomas também podem querer usar as diversas wikis independentes que existem em inglês. Ao ativar essa opção, o usuário será redirecionado de wikis do Fandom que não estejam em inglês para wikis independentes em inglês quando não houver uma versão disponível no mesmo idioma."
     },
     "guideCrossLanguageHelp2": {
         "message": "Infelizmente, essa funcionalidade ainda não funciona com as wikis do Fextralife."
@@ -661,19 +661,19 @@
         "message": "Atualmente, as ferramentas de busca compatíveis são Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! e Yandex."
     },
     "guideHiddenResultsBannerHelp1": {
-        "message": "Se essa opção estiver ativada, um aviso será inserido no topo dos resultados de buscas caso o Indie Wiki Buddy tenha ocultado algum resultado de wikis do Fandom, Fextralife ou Neoseeker. Esse aviso também permite que você reexiba os resultados ocultos, se desejar."
+        "message": "Se essa opção estiver ativada, um aviso será inserido no topo dos resultados da ferramenta de busca caso o Indie Wiki Buddy tenha ocultado os resultados de alguma wiki do Fandom, Fextralife ou Neoseeker. Esse aviso também permite que você reexiba os resultados ocultos, se desejar."
     },
     "guideHiddenResultsBannerHelp2": {
         "message": "Se você não quiser ver nenhum sinal de que os resultados foram ocultos, desative essa opção."
     },
     "guideReorderResultsHelp2": {
-        "message": "No momento, essa funcionalidade está disponível apenas para o Google, devido à complexidade de mantê-la de forma confiável."
+        "message": "No momento, essa funcionalidade está disponível apenas para o Google, devido à complexidade de mantê-la de forma estável."
     },
     "guideBreezeWikiDisabledHelp": {
         "message": "Não redireciona wikis do Fandom para o BreezeWiki."
     },
     "guideBreezeWikiBannerHelp": {
-        "message": "No topo das wikis em inglês do Fandom, um pequeno aviso será inserido com um link que o levará à wiki no BreezeWiki."
+        "message": "No topo das wikis em inglês do Fandom, um pequeno aviso será inserido com um link que levará você à wiki no BreezeWiki."
     },
     "guideBreezeWikiHostHelp": {
         "message": "Quando você ativar a opção do BreezeWiki, um menu aparecerá para que você escolha sua hospedagem preferida do BreezeWiki. Caso a hospedagem escolhida pare de funcionar, você pode voltar aos ajustes e alterá-la."
@@ -706,7 +706,7 @@
         "message": ": Os resultados ficam ocultos nas ferramentas de busca. Um aviso será exibido no topo da página para informá-lo e permitir que você revele os resultados ocultos."
     },
     "guideReplaceHelp": {
-        "message": ": O resultado não independente original é desativado e um botão é inserido acima dele para levá-lo à wiki independente."
+        "message": ": O resultado original não independente é desativado e um botão é inserido acima dele para levar você à wiki independente."
     },
     "guideFeedback": {
         "message": "Tem perguntas ou comentários?"
