@@ -248,7 +248,7 @@
         "description": "Button to open the settings page"
     },
     "popupWikiLegendWikiExp": {
-        "message": "",
+        "message": "При посещении Fandom, Fextralife, и Neoseeker вики:",
         "description": "Explanation for the icons in wiki experience"
     },
     "guideOverview": {
@@ -260,15 +260,15 @@
         "description": "Button to return to the settings page"
     },
     "popupBreezeWikiSeeSettings": {
-        "message": "",
+        "message": "Увидеть настройки",
         "description": "See full settings page"
     },
     "guideTitle": {
-        "message": "",
+        "message": "Руководство к Indie Wiki Buddy",
         "description": "Title of the guide"
     },
     "guideOverviewPara4": {
-        "message": "",
+        "message": "Indie Wiki Buddy так же поддерживает $BreezeWiki$, отдельный сервис прогружающий Fandom вики без рекламы и мишуры. Это помогает получить более приятный опыт чтения, когда независимая вики, не доступна.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -280,7 +280,7 @@
         "message": ""
     },
     "guideExtensionOnOff": {
-        "message": "",
+        "message": "Расширение ВКЛ / ВЫКЛ",
         "description": "Extension on/off toggle"
     },
     "guideNotificationsHelp1": {
@@ -323,7 +323,7 @@
         "message": ""
     },
     "guideWikiHelp": {
-        "message": "",
+        "message": "Помощь с собственными настройками вики",
         "description": "Individual wiki settings help section"
     },
     "guideWikiHelpPara2": {
@@ -414,7 +414,7 @@
         "description": "Link to the website"
     },
     "guideOverviewPara2": {
-        "message": ""
+        "message": "Когда вы посетите вики работающую на подконтрольной корпорации хостинге, это расширение уведомит или автоматически перенаправит вас на качественные независимые вики, если они доступны. Результаты поиска в Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, и Яндексе так же можно отфильтровать, заменив ссылки на независимые аналоги (или полностью их скрыть)."
     },
     "guideFeedbackPara1": {
         "message": "",
@@ -504,10 +504,10 @@
         "message": ""
     },
     "guideOverviewPara1": {
-        "message": ""
+        "message": "Indie Wiki Buddy дарит набор возможностей позволяющие открыть для себя независимые вики и улучшить ваш основной опыт чтения вики."
     },
     "popupWikiLegendSearchExp": {
-        "message": "",
+        "message": "Когда в результатах поиска есть Fandom, Fextralife, или Neoseeker вики с независимыми альтернативами, IWB должен:",
         "description": "Explanation for the icons in search experience"
     },
     "settingsLangEN": {
@@ -567,7 +567,7 @@
         "description": "Option to hide search results"
     },
     "settingsWikiLegend": {
-        "message": "",
+        "message": "Значения иконок",
         "description": "Legend for the icons in the individual wiki settings"
     },
     "settingsBannerHide": {
@@ -579,11 +579,11 @@
         "description": "Descriptor used for an official wiki hosted on an indie-like wikifarm. See the bannerText message for more information."
     },
     "guideFeedback": {
-        "message": "",
+        "message": "Есть вопросы или нужна обратная связь?",
         "description": "Feedback section"
     },
     "guideGlobalSettingsHelp": {
-        "message": "",
+        "message": "Помощь с глобальными настройками",
         "description": "Global settings help section"
     },
     "settingsReplaceFor": {
@@ -668,7 +668,7 @@
         "message": ""
     },
     "guideOverviewPara3": {
-        "message": ""
+        "message": "На данный момент мы перенаправляем с Fandom, Fextralife, и Neoseeker вики на независимые аналоги."
     },
     "popupSettingsPerWiki": {
         "message": "",
@@ -749,7 +749,7 @@
         "message": ""
     },
     "popupBreezeWikiSeeSettingsLink": {
-        "message": "",
+        "message": "Сменить, свой домен, на $linkStart$странице со всеми настройками$linkEnd$",
         "description": "Notice to visit the settings page to change the custom BreezeWiki domain",
         "placeholders": {
             "linkStart": {
@@ -827,7 +827,7 @@
         "description": "Search experience section"
     },
     "popupDefault": {
-        "message": "",
+        "message": "Стандартное поведение (применяется к нынешним вики и из будущих обновлений)",
         "description": "Default behaviors section"
     },
     "guideBreezeWikiDisabledHelp": {
