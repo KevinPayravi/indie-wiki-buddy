@@ -8106,9 +8106,7 @@
     "destination_icon": "voicesofthevoidwiki.png",
     "destination_main_page": "Voices_of_the_Void_Wiki",
     "destination_search_path": "/w/index.php",
-    "tags": [
-      "wiki.gg"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-voidrainsuponherheart",
