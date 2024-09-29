@@ -8090,6 +8090,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-voicesofthevoid",
+    "origins_label": "Voices of the Void Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Voices of the Void Fandom Wiki",
+        "origin_base_url": "votv.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Voices_of_the_Void"
+      }
+    ],
+    "destination": "Voices of the Void Wiki",
+    "destination_base_url": "voicesofthevoid.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "voicesofthevoidwiki.png",
+    "destination_main_page": "Voices_of_the_Void_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-voidrainsuponherheart",
     "origins_label": "The Void Rains Upon Her Heart Fandom Wiki",
     "origins": [
