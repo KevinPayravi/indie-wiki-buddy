@@ -5043,10 +5043,10 @@
         "origin_main_page": "Mystery_Dungeon_Wiki"
       },
       {
-        "origin": "Pokémon Mystery Dungeon Fandom Wiki",
+        "origin": "PokÃ©mon Mystery Dungeon Fandom Wiki",
         "origin_base_url": "pmd-rt-archive.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Pokémon_Wiki"
+        "origin_main_page": "PokÃ©mon_Wiki"
       }
     ],
     "destination": "Mystery Dungeon Wiki",
@@ -5631,13 +5631,13 @@
   },
   {
     "id": "en-pokemon",
-    "origins_label": "Pokémon Fandom & Neoseeker Wikis",
+    "origins_label": "PokÃ©mon Fandom & Neoseeker Wikis",
     "origins": [
       {
-        "origin": "Pokémon Fandom Wiki",
+        "origin": "PokÃ©mon Fandom Wiki",
         "origin_base_url": "pokemon.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Pokémon_Wiki"
+        "origin_main_page": "PokÃ©mon_Wiki"
       },
       {
         "origin": "Azurilland Wiki",
@@ -5646,7 +5646,7 @@
         "origin_main_page": "Azurilland_Wiki"
       },
       {
-        "origin": "Pokémon Wiki - Neoseeker",
+        "origin": "PokÃ©mon Wiki - Neoseeker",
         "origin_base_url": "pokemon.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
@@ -8088,6 +8088,27 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-voicesofthevoid",
+    "origins_label": "Voices of the Void Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Voices of the Void Fandom Wiki",
+        "origin_base_url": "votv.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Voices_of_the_Void"
+      }
+    ],
+    "destination": "Voices of the Void Wiki",
+    "destination_base_url": "voicesofthevoid.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "voicesofthevoidwiki.png",
+    "destination_main_page": "Voices_of_the_Void_Wiki",
+    "destination_search_path": "/w/index.php",
+    "tags": [
+      "wiki.gg"
+    ]
   },
   {
     "id": "en-voidrainsuponherheart",
