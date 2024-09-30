@@ -89,7 +89,7 @@
         "message": "Спасибо за установку Indie Wiki Buddy! Давайте настроим всё под вас."
     },
     "firstInstallInfo3": {
-        "message": "В настройках ниже можно переключать функции с ВКЛ на ВЫКЛ. В это входит возможность включить $BreezeWiki$, альтернативный интерфейс прогружающий Fandom вики без рекламы и мишуры.",
+        "message": "В настройках ниже можно переключать функции с ВКЛ на ВЫКЛ. В это входит возможность включить $BreezeWiki$, альтернативный интерфейс прогружающий Fandom-вики без рекламы и мишуры.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -118,7 +118,7 @@
         }
     },
     "settingsCrossLanguage": {
-        "message": "Перенаправлять с не английских Fandom вики на независимые английские вики, когда вики на том же языке – нет",
+        "message": "Перенаправлять с неанглийских Fandom-вики на независимые английские вики, если вики на том же языке, нет",
         "description": "Option to redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists"
     },
     "settingsGeneral": {
@@ -268,7 +268,7 @@
         "description": "Title of the guide"
     },
     "guideOverviewPara4": {
-        "message": "Indie Wiki Buddy так же поддерживает $BreezeWiki$, отдельный сервис прогружающий Fandom вики без рекламы и мишуры. Это помогает получить более приятный опыт чтения, когда независимая вики, не доступна.",
+        "message": "Indie Wiki Buddy так же поддерживает $BreezeWiki$, отдельный сервис прогружающий Fandom-вики без рекламы и мишуры. Это помогает получить более приятный опыт чтения, когда независимая вики, не доступна.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -277,14 +277,14 @@
         }
     },
     "guideExtensionOnOffHelp": {
-        "message": ""
+        "message": "Включение/выключение всей работы Indie Wiki Buddy нажатием кнопки."
     },
     "guideExtensionOnOff": {
         "message": "Расширение ВКЛ / ВЫКЛ",
         "description": "Extension on/off toggle"
     },
     "guideNotificationsHelp1": {
-        "message": "",
+        "message": "Если эта настройка включена, то вы будете получать уведомления на рабочий стол, при каждом перенаправлении на независимую вики или $BreezeWiki$. Включено по умолчанию.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -293,11 +293,11 @@
         }
     },
     "guideGlobalSettingsHelpIntro": {
-        "message": "",
+        "message": "Есть несолько глобальных настроек:",
         "description": "Introduction paragraph of the general settings help"
     },
     "guideChangelogHelp": {
-        "message": "",
+        "message": "При включении настройки, после каждого обновления Indie Wiki Buddy, будет открываться $linkStart$список изменений$linkEnd$ в новой вкладке, чтобы вы могли оставаться в курсе всех последних изменений.",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -308,13 +308,13 @@
         }
     },
     "guideNotificationsHelp2": {
-        "message": ""
+        "message": "Если не приходят уведомления, когда оно включено, проверьте настройки уведомлений вашей операционной системы и убедитесь, что вашему браузеру разрешено отправлять уведомления."
     },
     "guideCrossLanguageHelp1": {
-        "message": ""
+        "message": "По умолчанию, Indie Wiki Buddy держит пользователей в рамках одного языка (прим. перенаправляет с испанских Fandom-вики, только на испанские независимые вики). Однако, многоязычные люди могут захотеть воспользоваться многими, доступными, независимыми английскими вики. При включении, вас будет перенаправлять с неанглийских Fandom-вики на независимые английские вики, если они не доступны на том же языке."
     },
     "guideCrossLanguageHelp2": {
-        "message": ""
+        "message": "К сожалению, на данный момент, эта настройка не работает с Fextralife вики."
     },
     "guideTogglePerSearchEngine": {
         "message": ""
@@ -519,7 +519,7 @@
         "description": "Text to display in the banner after the redirect has been enabled"
     },
     "guideGlobalSettingsHelpSearch": {
-        "message": ""
+        "message": "Ещё можно настроить фильтрацию результатов поиска поисковиков:"
     },
     "settingsFilterByName": {
         "message": "Фильтровать вики по названию:",
@@ -698,7 +698,7 @@
         "description": "Prompt that the custom BreezeWiki host has failed to be added"
     },
     "guideOverviewPara5": {
-        "message": ""
+        "message": "Все эти функции можно включать и выключать, а также установливать свои настройки для каждой вики. У вас полный контроль!"
     },
     "settingsOpenChangelog": {
         "message": "Открывать список изменений при обновлении Indie Wiki Buddy",
