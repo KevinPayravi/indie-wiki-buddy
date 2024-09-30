@@ -312,7 +312,7 @@
         "description": "Overview section"
     },
     "guideOverviewPara3": {
-        "message": ""
+        "message": "W tej chwili przekierowujemy z Fandomu, Fextralife oraz wiki Neoseeker do ich niezależnych odpowiedników."
     },
     "guideOverviewPara1": {
         "message": "Indie Wiki Buddy posiada zestaw funkcji pomagających Ci odkrywać niezależne wiki i poprawić jakość czytania wiki."
@@ -322,7 +322,7 @@
         "description": "Introduction paragraph of the general settings help"
     },
     "guideOverviewPara5": {
-        "message": ""
+        "message": "Zawsze masz pełną kontrolę nad tym jak rozszerzenie się zachowuje, które funkcje są włączone a które nie. Możesz również stosować funkcje zależnie od własnych preferencji - z podziałem na poszczególne wiki."
     },
     "guideNotificationsHelp1": {
         "message": "",
@@ -489,7 +489,7 @@
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "guideOverviewPara4": {
-        "message": "",
+        "message": "Indie Wiki Buddy wspiera również $BreezeWiki$ - osobny serwis, który pokazuje treści z wiki na Fandomie w interfejsie bez reklam czy innych niepożądanych elementów. Dając Ci o wiele bardziej przyjemne doświadczenie z czytania wiki gdy nie istnieje niezależny odpowiednik danej wiki.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -664,7 +664,7 @@
         "description": "Prompt that the custom BreezeWiki host has failed to be added"
     },
     "guideOverviewPara2": {
-        "message": ""
+        "message": "To rozszerzenie może Ciebie poinformować o bądź automatycznie przekierować na jakościowe i zarazem niezależne wiki gdy odwiedzasz wiki na dużych farmach wiki operowanych przez korporacje. Wyniki wyszukiwań w Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! czy Yandex również mogą być odfiltrowywane, zastępując linki tymi prowadzącymi do ich niezależnych alternatyw (bądź ukrywając je w całości)."
     },
     "settingsDisableFor": {
         "message": "",
