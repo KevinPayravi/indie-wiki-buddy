@@ -118,7 +118,7 @@
         }
     },
     "settingsCrossLanguage": {
-        "message": "Перенаправлять с неанглийских Fandom-вики на независимые английские вики, если вики на том же языке, нет",
+        "message": "Перенаправлять с неанглийских Fandom-вики на английские инди-вики, если вики на том же языке, нет",
         "description": "Option to redirect non-English Fandom wikis to indie English wikis when no same-language wiki exists"
     },
     "settingsGeneral": {
@@ -311,7 +311,7 @@
         "message": "Если не приходят уведомления, когда оно включено, проверьте настройки уведомлений вашей операционной системы и убедитесь, что вашему браузеру разрешено отправлять уведомления."
     },
     "guideCrossLanguageHelp1": {
-        "message": "По умолчанию, Indie Wiki Buddy держит пользователей в рамках одного языка (прим. перенаправляет с испанских Fandom-вики, только на испанские независимые вики). Однако, многоязычные люди могут захотеть воспользоваться многими, доступными, независимыми английскими вики. При включении, вас будет перенаправлять с неанглийских Fandom-вики на независимые английские вики, если они не доступны на том же языке."
+        "message": "По умолчанию, Indie Wiki Buddy держит пользователей в рамках одного языка (прим. перенаправляет с испанских Fandom-вики, только на испанские инди-вики). Однако, многоязычные люди могут захотеть воспользоваться многими, доступными, английскими инди-вики. При включении, вас будет перенаправлять с неанглийских Fandom-вики на английские инди-вики, если они не доступны на том же языке."
     },
     "guideCrossLanguageHelp2": {
         "message": "К сожалению, на данный момент, эта настройка не работает с Fextralife вики."
@@ -355,7 +355,7 @@
         "description": "Placeholder for the name filter input"
     },
     "settingsReorderResults": {
-        "message": "Переместить независимые вики выше не независимых в результатах поиска и скрыть дубликаты (К Brave не относится)",
+        "message": "Переместить инди-вики выше не инди в результатах поиска и скрыть дубликаты (К Brave не относится)",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "guideReplaceHelp": {
@@ -414,7 +414,7 @@
         "description": "Link to the website"
     },
     "guideOverviewPara2": {
-        "message": "Когда вы посетите вики работающую на подконтрольной корпорации хостинге, это расширение уведомит или автоматически перенаправит вас на качественные независимые вики, если они доступны. Результаты поиска в Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, и Яндексе так же можно отфильтровать, заменив ссылки на независимые аналоги (или полностью их скрыть)."
+        "message": "Когда вы посетите вики работающую на подконтрольной корпорации хостинге, это расширение уведомит или автоматически перенаправит вас на качественные инди-вики, если они доступны. Результаты поиска в Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, и Яндексе так же можно отфильтровать, заменив ссылки на независимые аналоги (или полностью их скрыть)."
     },
     "guideFeedbackPara1": {
         "message": "",
@@ -476,7 +476,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FI should be \"[FI] Finnish / suomi\" in English, but just \"[FI] suomi\" in Finnish."
     },
     "extensionDescription": {
-        "message": "Indie Wiki Buddy поможет вам найти качественные независимые вики посредством уведомлений, перенаправлений и фильтрации поисковых результатов.",
+        "message": "Indie Wiki Buddy поможет вам найти качественные инди-вики посредством уведомлений, перенаправлений и фильтрации поисковых результатов.",
         "description": "The description of the extension"
     },
     "guideDisable": {
@@ -504,7 +504,7 @@
         "message": ""
     },
     "guideOverviewPara1": {
-        "message": "Indie Wiki Buddy дарит набор возможностей позволяющие открыть для себя независимые вики и улучшить ваш основной опыт чтения вики."
+        "message": "Indie Wiki Buddy дарит набор возможностей позволяющие открыть для себя инди-вики и улучшить ваш основной опыт чтения вики."
     },
     "popupWikiLegendSearchExp": {
         "message": "Когда в результатах поиска есть Fandom, Fextralife, или Neoseeker вики с независимыми альтернативами, IWB должен:",
@@ -761,7 +761,7 @@
         }
     },
     "settingsHiddenResultsBanner": {
-        "message": "Показать баннер в поисковиках, когда в результатах, скрыты не независимые вики",
+        "message": "Показать баннер в поисковиках, когда в результатах, скрыты не инди-вики",
         "description": "Option to show a banner when non-indie results are hidden"
     },
     "searchFilteredResultsShow": {
