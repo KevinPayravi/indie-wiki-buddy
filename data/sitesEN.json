@@ -4416,6 +4416,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-lovebullet",
+    "origins_label": "LOVE-BULLET Fandom Wiki",
+    "origins": [
+      {
+        "origin": "LOVE-BULLET Fandom Wiki",
+        "origin_base_url": "love-bullet.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "LOVE-BULLET_Wiki"
+      }
+    ],
+    "destination": "LOVE-BULLET Wiki",
+    "destination_base_url": "lovebullet.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lovebullet.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-mabinogi",
     "origins_label": "Mabinogi Fandom Wiki",
     "origins": [
