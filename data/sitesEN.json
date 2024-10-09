@@ -178,6 +178,26 @@
     ]
   },
   {
+    "id": "en-aground",
+    "origins_label": "Aground Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Aground Fandom Wiki",
+        "origin_base_url": "aground.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Aground_Wiki"
+      }
+    ],
+    "destination": "Aground Wiki",
+    "destination_base_url": "aground.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "agroundwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Aground_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-ahatintime",
     "origins_label": "A Hat in Time Fandom Wiki",
     "origins": [
@@ -5037,6 +5057,12 @@
         "origin_base_url": "minehut.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Minehut_Wiki"
+      },
+      {
+        "origin": "Minehut MC Fandom Wiki",
+        "origin_base_url": "minehutmc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minehut_Wiki"
       }
     ],
     "destination": "Minehut Wiki",
@@ -6569,6 +6595,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-scrabdackle",
+    "origins_label": "Scrabdackle Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Scrabdackle Fandom Wiki",
+        "origin_base_url": "scrabdackle.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Scrabdackle_Wiki"
+      }
+    ],
+    "destination": "Scrabdackle Wiki",
+    "destination_base_url": "scrabdackle.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "scrabdacklewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Scrabdackle_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-seaofthieves",
@@ -8235,6 +8281,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-vectorio",
+    "origins_label": "Vectorio Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Vectorio Fandom Wiki",
+        "origin_base_url": "vectorio.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Vectorio_Wiki"
+      }
+    ],
+    "destination": "Vectorio Wiki",
+    "destination_base_url": "vectorio.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "vectoriowiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Vectorio_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-vendettaonline",
