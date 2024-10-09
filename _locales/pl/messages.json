@@ -308,7 +308,7 @@
         "description": "Button to return to the settings page"
     },
     "guideOverview": {
-        "message": "",
+        "message": "Podsumowanie",
         "description": "Overview section"
     },
     "guideOverviewPara3": {
@@ -379,7 +379,7 @@
         "message": ""
     },
     "guideReplace": {
-        "message": ""
+        "message": "Zamień"
     },
     "guideHideHelp": {
         "message": ""
@@ -447,7 +447,7 @@
         "message": ""
     },
     "guideAlert": {
-        "message": ""
+        "message": "Ostrzeżenie"
     },
     "searchResultVisitEnglish": {
         "message": "Zamiast tego odwiedź $destination$ (EN)",
@@ -498,7 +498,7 @@
         }
     },
     "guideDisable": {
-        "message": ""
+        "message": "Wyłącz"
     },
     "guideAlertHelp": {
         "message": ""
@@ -543,7 +543,7 @@
         "message": ""
     },
     "guideHide": {
-        "message": ""
+        "message": "Ukryj"
     },
     "bannerRestore": {
         "message": "Przywróć banner",
@@ -708,7 +708,7 @@
         "message": ""
     },
     "guideRedirect": {
-        "message": ""
+        "message": "Przekieruj"
     },
     "searchResultLookupEnglish": {
         "message": "Odwiedź $article$ na $destination$ (EN)",
