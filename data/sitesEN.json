@@ -921,13 +921,13 @@
   },
   {
     "id": "en-battlecats",
-    "origins_label": "The Battle Cats Wiki",
+    "origins_label": "Battle Cats Wiki",
     "origins": [
       {
-        "origin": "The Battle Cats Wiki",
-        "origin_base_url": "battlecats.miraheze.org",
+        "origin": "Battle Cats Wiki",
+        "origin_base_url": "battle-cats.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "The Battle Cats Wiki"
+        "origin_main_page": "Battle Cats Wiki"
       }
     ],
     "destination": "The Battle Cats Wiki",
