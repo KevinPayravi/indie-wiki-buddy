@@ -634,6 +634,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-assaultandroidcactus",
+    "origins_label": "Assault Android Cactus Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Assault Android Cactus Fandom Wiki",
+        "origin_base_url": "assault-android-cactus.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Assault_Android_Cactus_Wiki"
+      }
+    ],
+    "destination": "Assault Android Cactus Wiki",
+    "destination_base_url": "assaultandroidcactus.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "assaultandroidcactuswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-assaultlily",
     "origins_label": "Assault Lily Fandom Wikis",
     "origins": [
@@ -700,6 +720,29 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-atlyss",
+    "origins_label": "Atlyss Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Atlyss Fandom Wiki",
+        "origin_base_url": "atlyss.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Atlyss_Wiki"
+      }
+    ],
+    "destination": "ATLYSS Wiki",
+    "destination_base_url": "atlyss.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "atlysswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "ATLYSS_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-audiovisualidentity",
@@ -2247,6 +2290,25 @@
     "destination_search_path": "/index.php",
     "destination_main_page": "Dome_Keeper_Wiki",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-dominioncg",
+    "origins_label": "Dominion (Card Game) Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dominion (Card Game) Fandom Wiki",
+        "origin_base_url": "dominioncg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dominion_Card_Game"
+      }
+    ],
+    "destination": "Dominion Strategy Wiki",
+    "destination_base_url": "wiki.dominionstrategy.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dominionstrategywiki.png",
+    "destination_content_path": "/index.php/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-dontstarve",
@@ -6684,6 +6746,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-slarpg",
+    "origins_label": "Super Lesbian Animal RPG Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Super Lesbian Animal RPG Fandom Wiki",
+        "origin_base_url": "slarpg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Super_Lesbian_Animal_RPG_Wiki"
+      }
+    ],
+    "destination": "Super Lesbian Animal RPG Wiki",
+    "destination_base_url": "slarpg.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "superlesbiananimalrpgwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Super_Lesbian_Animal_RPG_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-songsofsyx",
     "origins_label": "Songs of Syx Fandom Wiki",
     "origins": [
@@ -8560,6 +8642,26 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-wrdminecraft",
+    "origins_label": "Wesley's Roguelike Dungeons Mod Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Wesley's Roguelike Dungeons Mod Fandom Wiki",
+        "origin_base_url": "wrdminecraft.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wesley's_Roguelike_Dungeons_mod_Wiki"
+      }
+    ],
+    "destination": "Wesley's Roguelike Dungeons Mod Wiki",
+    "destination_base_url": "wesleysroguelikedungeons.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wesleysroguelikedungeonsmodwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Wesley's_Roguelike_Dungeons_mod_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-wvyern",
