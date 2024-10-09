@@ -4377,6 +4377,28 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-leagueoflegends",
+    "origins_label": "League of Legends Fandom Wiki",
+    "origins": [
+      {
+        "origin": "League of Legends Fandom Wiki",
+        "origin_base_url": "leagueoflegends.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "League_of_Legends_Wiki"
+      }
+    ],
+    "destination": "League of Legends Wiki",
+    "destination_base_url": "wiki.leagueoflegends.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "leagueoflegendswiki.png",
+    "destination_content_path": "/en-us/",
+    "destination_search_path": "/en-us/",
+    "destination_main_page": "League_of_Legends_Wiki",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-legendofthegalacticheroes",
     "origins_label": "Legend of Galactic Heroes Fandom Wiki",
     "origins": [
