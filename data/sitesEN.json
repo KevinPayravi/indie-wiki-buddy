@@ -5347,6 +5347,46 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-ninesols",
+    "origins_label": "NineSols Fandom Wiki",
+    "origins": [
+      {
+        "origin": "NineSols Fandom Wiki",
+        "origin_base_url": "ninesols.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "NineSols_Wiki"
+      }
+    ],
+    "destination": "Nine Sols Wiki",
+    "destination_base_url": "ninesols.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ninesolswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Nine_Sols_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-nitrome",
+    "origins_label": "Nitrome Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Nitrome Fandom Wiki",
+        "origin_base_url": "nitrome.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Nitrome_Wiki"
+      }
+    ],
+    "destination": "The Nitrome Wiki",
+    "destination_base_url": "nitrome.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thenitromewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "The_Nitrome_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-noita",
     "origins_label": "Noita Fandom Wiki",
     "origins": [
