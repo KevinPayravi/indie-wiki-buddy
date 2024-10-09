@@ -254,7 +254,7 @@
         }
     },
     "settingsRedirectFor": {
-        "message": "",
+        "message": "Automatycznie przekierowuj $origin$ do $destination$",
         "description": "Tooltip for option to redirect to a specific wiki when visiting a specific wiki",
         "placeholders": {
             "origin": {
@@ -268,7 +268,7 @@
         }
     },
     "settingsHideFor": {
-        "message": "",
+        "message": "Ukryj wyniki wyszukiwania $origin$",
         "description": "Tooltip for option to hide search results for a specific wiki",
         "placeholders": {
             "origin": {
@@ -300,11 +300,11 @@
         "description": "Default behaviors section"
     },
     "guideTitle": {
-        "message": "",
+        "message": "Przewodnik Indie Wiki Buddy",
         "description": "Title of the guide"
     },
     "guideBackToSettings": {
-        "message": "",
+        "message": "⇦ Wróć do ustawień",
         "description": "Button to return to the settings page"
     },
     "guideOverview": {
@@ -344,7 +344,7 @@
         "message": ""
     },
     "guideChangelogHelp": {
-        "message": "",
+        "message": "Włącz tę opcję aby po każdej aktualizacji Indie Wiki Buddy otworzyła się nowa karta z $linkStart$listą zmian$linkEnd$ aby być na bieżąco ze zmianami.",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -358,13 +358,13 @@
         "message": ""
     },
     "guideGlobalSettingsHelpSearch": {
-        "message": ""
+        "message": "Możesz również skonfigurować ustawienia dla odfiltrowywania wyników w wyszukiwarkach internetowych:"
     },
     "guideTogglePerSearchEngineHelp2": {
         "message": ""
     },
     "guideTogglePerSearchEngine": {
-        "message": ""
+        "message": "Zmień filtrowanie w zależności od wyszukiwarki internetowej"
     },
     "guideBreezeWikiRedirectHelp": {
         "message": ""
@@ -392,7 +392,7 @@
         "message": ""
     },
     "guideCrossLanguageHelp1": {
-        "message": ""
+        "message": "Domyślnie, Indie Wiki Buddy będzie przekierowywał użytkowników do wiki w tym samym języku (np. przekierowywanie z polskiej wiki do niezależnej polskiej wiki). Natomiast osoby znające język angielski mogą również być przekierowywane na wiki w języku angielski, gdy niezależna wiki w oryginalnym języku nie istnieje. Włączenie tej opcji spowoduje przekierowywanie z nie-angielskich wiki na Fandomie na niezależne angielskie wiki gdy niezależna wiki w oryginalnym języku nie istnieje."
     },
     "firstInstallInfo5": {
         "message": "Ustawienia możesz zmienić w każdej chwili przez kliknięcie loga rozszerzenia $logo$ w prawym górnym rogu Twojej przeglądarki. Jeżeli nie widzisz ikonki, może ona się znajdować w liście rozwijanej, która może zostać rozwinięta przez kliknięcie ikonki przedstawiającą część układanki $jigsaw$ (również znajdującej się w prawym górnym rogu przeglądarki).",
@@ -598,7 +598,7 @@
         }
     },
     "settingsBannerOpera": {
-        "message": "",
+        "message": "Użytkownicy Opery: Domyślnie, Opera blokuje rozszerzenia przed działaniem na stronach wyszukiwarek internetowych. Dostęp do tych stron może zostać włączony osobno dla każdego z rozszerzeń poprzez przejście na stronę „about:extensions” oraz wybranie opcji „Allow access to search page results” pod Indie Wiki Buddy.",
         "description": "Notice for Opera users about enabling search engine access"
     },
     "settingsLangFI": {
@@ -628,7 +628,7 @@
         "description": "Link to the wiki submission form"
     },
     "guideCrossLanguageHelp2": {
-        "message": ""
+        "message": "Niestety ta funkcja obecnie nie działa dla wiki Fextralife."
     },
     "settingsLangZH": {
         "message": "[ZH] Chiński / 中文",
@@ -771,7 +771,7 @@
         "description": "Search engine filtering section"
     },
     "settingsReplaceFor": {
-        "message": "",
+        "message": "Zamień wyniki wyszukiwania dla $origin$ na te z $destination$",
         "description": "Tooltip for option to replace search results with links to a specific wiki",
         "placeholders": {
             "origin": {
@@ -869,6 +869,15 @@
             },
             "linkEnd": {
                 "content": "$2"
+            }
+        }
+    },
+    "settingsDisabledFor": {
+        "message": "Nic nie rób dla $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
             }
         }
     }
