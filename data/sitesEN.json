@@ -970,7 +970,7 @@
         "origin": "Battle Cats Fandom Wiki",
         "origin_base_url": "battle-cats.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Battle Cats Wiki"
+        "origin_main_page": "Battle_Cats_Wiki"
       }
     ],
     "destination": "Battle Cats Wiki",
@@ -1927,7 +1927,8 @@
     "destination_icon": "d2mc.png",
     "destination_main_page": "Destiny_2_Minecraft_Edition_Wiki",
     "destination_search_path": "/wiki/index.php",
-    "destination_content_path": "/wiki/"
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-daria",
