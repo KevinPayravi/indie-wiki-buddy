@@ -964,20 +964,20 @@
   },
   {
     "id": "en-battlecats",
-    "origins_label": "Battle Cats Wiki",
+    "origins_label": "Battle Cats Fandom Wiki",
     "origins": [
       {
-        "origin": "Battle Cats Wiki",
+        "origin": "Battle Cats Fandom Wiki",
         "origin_base_url": "battle-cats.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Battle Cats Wiki"
       }
     ],
-    "destination": "The Battle Cats Wiki",
+    "destination": "Battle Cats Wiki",
     "destination_base_url": "battlecats.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "battlecats.png",
-    "destination_main_page": "The Battle Cats Wiki",
+    "destination_main_page": "Battle_Cats_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
