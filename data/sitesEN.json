@@ -4419,7 +4419,7 @@
   },
   {
     "id": "en-leagueoflegends",
-    "origins_label": "League of Legends Fandom Wiki",
+    "origins_label": "League of Legends Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "League of Legends Fandom Wiki",
@@ -5369,10 +5369,10 @@
   },
   {
     "id": "en-ninesols",
-    "origins_label": "NineSols Fandom Wiki",
+    "origins_label": "Nine Sols Fandom Wiki",
     "origins": [
       {
-        "origin": "NineSols Fandom Wiki",
+        "origin": "Nine Sols Fandom Wiki",
         "origin_base_url": "ninesols.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "NineSols_Wiki"
@@ -5398,7 +5398,7 @@
         "origin_main_page": "Nitrome_Wiki"
       }
     ],
-    "destination": "The Nitrome Wiki",
+    "destination": "Nitrome Wiki",
     "destination_base_url": "nitrome.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "thenitromewiki.png",
