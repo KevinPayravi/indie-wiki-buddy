@@ -4425,6 +4425,12 @@
         "origin_base_url": "leagueoflegends.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "League_of_Legends_Wiki"
+      },
+      {
+        "origin": "League of Legends Neoseeker Wiki",
+        "origin_base_url": "leagueoflegends.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "League of Legends Wiki",
