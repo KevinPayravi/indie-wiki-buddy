@@ -2294,13 +2294,19 @@
   },
   {
     "id": "en-dominioncg",
-    "origins_label": "Dominion (Card Game) Fandom Wiki",
+    "origins_label": "Dominion (Card Game) Fandom Wikis",
     "origins": [
       {
         "origin": "Dominion (Card Game) Fandom Wiki",
         "origin_base_url": "dominioncg.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Dominion_Card_Game"
+      },
+      {
+        "origin": "Dominion Strategy Fandom Wiki",
+        "origin_base_url": "dominionstrategy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "Dominion Strategy Wiki",
