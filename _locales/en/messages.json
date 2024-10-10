@@ -8,7 +8,7 @@
     "description": "The description of the extension"
   },
   "bannerText": {
-    "message": "There is $descriptor$ wiki $host$ covering this topic $language$!",
+    "message": "There is $descriptor$ wiki $host$ covering this topic $language$",
     "description": "Text to display in the banner for the indie wiki link",
     "placeholders": {
       "descriptor": {
