@@ -6958,10 +6958,10 @@
   },
   {
     "id": "en-southpark",
-    "origins_label": "South Park Archives",
+    "origins_label": "South Park Archives on Fandom",
     "origins": [
       {
-        "origin": "South Park Archives",
+        "origin": "South Park Archives on Fandom",
         "origin_base_url": "southpark.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "South_Park_Archives"
