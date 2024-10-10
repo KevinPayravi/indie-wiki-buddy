@@ -1060,16 +1060,16 @@
   },
   {
     "id": "en-bindingofisaacrebirth",
-    "origins_label": "The Binding Of Isaac: Rebirth Fandom Wiki",
+    "origins_label": "Binding Of Isaac: Rebirth Fandom Wiki",
     "origins": [
       {
-        "origin": "The Binding Of Isaac: Rebirth Fandom Wiki",
+        "origin": "Binding Of Isaac: Rebirth Fandom Wiki",
         "origin_base_url": "bindingofisaacrebirth.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Binding_of_Isaac:_Rebirth_Wiki"
       }
     ],
-    "destination": "The Binding Of Isaac: Rebirth Wiki",
+    "destination": "Binding Of Isaac: Rebirth Wiki",
     "destination_base_url": "bindingofisaacrebirth.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "isaacrebirthwiki.png",
@@ -8834,16 +8834,16 @@
   },
   {
     "id": "en-wrdminecraft",
-    "origins_label": "Wesley's Roguelike Dungeons Mod Fandom Wiki",
+    "origins_label": "Wesley's Roguelike Dungeons Fandom Wiki",
     "origins": [
       {
-        "origin": "Wesley's Roguelike Dungeons Mod Fandom Wiki",
+        "origin": "Wesley's Roguelike Dungeons Fandom Wiki",
         "origin_base_url": "wrdminecraft.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Wesley's_Roguelike_Dungeons_mod_Wiki"
       }
     ],
-    "destination": "Wesley's Roguelike Dungeons Mod Wiki",
+    "destination": "Wesley's Roguelike Dungeons Wiki",
     "destination_base_url": "wesleysroguelikedungeons.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "wesleysroguelikedungeonsmodwiki.png",
