@@ -61,6 +61,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "it-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/it",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minecraft_Wiki"
+      }
+    ],
+    "destination": "Minecraft Wiki",
+    "destination_base_url": "it.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraftwiki.png",
+    "destination_content_path": "/w/",
+    "destination_search_path": "/",
+    "destination_main_page": "Minecraft_Wiki"
+  },
+  {
     "id": "it-pokemon",
     "origins_label": "Analisi Pokémon Fandom Wiki",
     "origins": [

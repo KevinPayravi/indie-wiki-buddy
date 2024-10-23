@@ -60,6 +60,7 @@
     "data/sitesJA.json",
     "data/sitesKO.json",
     "data/sitesLZH.json",
+    "data/sitesNL.json",
     "data/sitesPL.json",
     "data/sitesPT.json",
     "data/sitesRU.json",
@@ -135,8 +136,8 @@
       ],
       "js": [
         "scripts/common-functions.js",
-      "scripts/content-breezewiki.js"
-    ],
+        "scripts/content-breezewiki.js"
+      ],
       "run_at": "document_end"
     },
     {
@@ -361,18 +362,20 @@
       ],
       "js": [
         "scripts/common-functions.js",
-      "scripts/content-search-filtering.js"
-    ],
+        "scripts/content-search-filtering.js"
+      ],
       "css": [
         "css/content-search-filtering.css"
-    ],
+      ],
       "run_at": "document_start"
     }
   ],
   "options_ui": {
     "page": "pages/settings/index.html"
   },
-  "optional_permissions": ["https://*/*"],
+  "optional_permissions": [
+    "https://*/*"
+  ],
   "browser_specific_settings": {
     "gecko": {
       "id": "{cb31ec5d-c49a-4e5a-b240-16c767444f62}",
