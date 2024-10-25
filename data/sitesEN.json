@@ -218,6 +218,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-aibo",
+    "origins_label": "Aibo Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Aibo Fandom Wiki",
+        "origin_base_url": "aibo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "AIBO_Wiki"
+      }
+    ],
+    "destination": "AIBO WIKI",
+    "destination_base_url": "aibo.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "aibowiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-akudamadrive",
     "origins_label": "Akudama Drive Fandom Wiki",
     "origins": [
@@ -2649,6 +2669,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-eastscarp",
+    "origins_label": "East Scarp Fandom Wiki",
+    "origins": [
+      {
+        "origin": "East Scarp Fandom Wiki",
+        "origin_base_url": "eastscarp.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "East_Scarp_Wiki"
+      }
+    ],
+    "destination": "East Scarp Wiki",
+    "destination_base_url": "eastscarp.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "eastscarpwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "East_Scarp_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-eastward",
     "origins_label": "Eastward Fandom Wiki",
     "origins": [
@@ -4529,6 +4569,26 @@
     "destination_search_path": "/w/index.php",
     "destination_main_page": "Main_Page",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-libraryofruina",
+    "origins_label": "Library Of Ruina Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Library Of Ruina Fandom Wiki",
+        "origin_base_url": "library-of-ruina.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Library_Of_Ruina_Wiki"
+      }
+    ],
+    "destination": "Library of Ruina Wiki",
+    "destination_base_url": "libraryofruina.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "libraryofruinawiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Library_of_Ruina_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-limbuscompany",
@@ -6577,7 +6637,7 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/page/"
   },
-    {
+  {
     "id": "en-sandboxels",
     "origins_label": "Sandboxels Fandom Wiki",
     "origins": [
