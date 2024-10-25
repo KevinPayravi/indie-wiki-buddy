@@ -6577,6 +6577,29 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/page/"
   },
+    {
+    "id": "en-sandboxels",
+    "origins_label": "Sandboxels Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sandboxels Fandom Wiki",
+        "origin_base_url": "sandboxels.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sandboxels_Wiki"
+      }
+    ],
+    "destination": "Sandboxels Wiki",
+    "destination_base_url": "sandboxels.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sandboxels.png",
+    "destination_main_page": "Sandboxels_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
   {
     "id": "en-sanrio",
     "origins_label": "Sanrio Fandom Wiki",
