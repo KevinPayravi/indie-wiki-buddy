@@ -240,7 +240,7 @@
         }
     },
     "bannerText": {
-        "message": "Há uma wiki $descriptor$ $host$ sobre esse assunto $language$!",
+        "message": "Há uma wiki $descriptor$ $host$ sobre esse assunto $language$",
         "placeholders": {
             "descriptor": {
                 "content": "$1",
