@@ -714,7 +714,7 @@
         "message": "El segundo grupo de botones controla lo que sucede con los wikis no independientes que aparecen en Google, Bing, DuckDuckGo y otros motores de búsqueda."
     },
     "bannerText": {
-        "message": "¡Existe $descriptor$ $host$ cubriendo este tema $language$!",
+        "message": "¡Existe $descriptor$ $host$ cubriendo este tema $language$",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
