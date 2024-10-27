@@ -804,7 +804,7 @@
         "description": "Option to alert the user with banner when visiting non-indie wikis"
     },
     "bannerText": {
-        "message": "Il y a un wiki $descriptor$ $host$ couvrant ce sujet $language$ !",
+        "message": "Il y a un wiki $descriptor$ $host$ couvrant ce sujet $language$",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
