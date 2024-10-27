@@ -10,7 +10,7 @@
         }
     },
     "bannerText": {
-        "message": "Es gibt $descriptor$ Wiki $host$ über dieses Thema $language$!",
+        "message": "Es gibt $descriptor$ Wiki $host$ über dieses Thema $language$",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
