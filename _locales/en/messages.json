@@ -8,7 +8,7 @@
     "description": "The description of the extension"
   },
   "bannerText": {
-    "message": "There is $descriptor$ wiki $host$ covering this topic $language$!",
+    "message": "There is $descriptor$ wiki $host$ covering this topic $language$",
     "description": "Text to display in the banner for the indie wiki link",
     "placeholders": {
       "descriptor": {
@@ -427,6 +427,10 @@
   "settingsLangLZH": {
     "message": "[LZH] Classical Chinese / 文言",
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
+  },
+  "settingsLangNL": {
+    "message": "[NL] Dutch / Nederlands",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, NL should be \"[NL] Dutch / Nederlands\" in English, but just \"[NL] Nederlands\" in Dutch."
   },
   "settingsLangPL": {
     "message": "[PL] Polish / Polski",

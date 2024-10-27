@@ -23,6 +23,26 @@
     ]
   },
   {
+    "id": "fr-bindingofisaacrebirth",
+    "origins_label": "The Binding Of Isaac: Rebirth Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Binding Of Isaac: Rebirth Fandom Wiki",
+        "origin_base_url": "bindingofisaacrebirth.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Binding_of_Isaac:_Rebirth_Wiki"
+      }
+    ],
+    "destination": "The Binding Of Isaac: Rebirth Wiki",
+    "destination_base_url": "bindingofisaacrebirth.wiki.gg/fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "isaacrebirthwiki.png",
+    "destination_main_page": "Binding_of_Isaac:_Rebirth_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "fr-dragonquest",
     "origins_label": "Dragon Quest Fandom Wiki",
     "origins": [
