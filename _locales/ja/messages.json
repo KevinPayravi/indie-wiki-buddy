@@ -1,6 +1,6 @@
 {
     "bannerText": {
-        "message": "この内容について$language$で書かれた、$host$ $descriptor$Wikiが存在します！",
+        "message": "この内容について$language$で書かれた、$host$ $descriptor$Wikiが存在します",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
