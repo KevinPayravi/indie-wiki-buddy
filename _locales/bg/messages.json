@@ -195,7 +195,7 @@
         "message": "Вторият набор от радио бутони котролира какво се случва с несамостоятелните уикита на Google, Bing, DuckDuckGo и други търсачки."
     },
     "bannerText": {
-        "message": "Има $descriptor$ уики $host$, покриващо тази тема $language$!",
+        "message": "Има $descriptor$ уики $host$, покриващо тази тема $language$",
         "placeholders": {
             "descriptor": {
                 "content": "$1",
