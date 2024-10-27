@@ -580,7 +580,7 @@
         "description": "Search experience section"
     },
     "bannerText": {
-        "message": "$host$에 이 주제를 $language$ 다루는 $descriptor$ 위키가 있습니다!",
+        "message": "$host$에 이 주제를 $language$ 다루는 $descriptor$ 위키가 있습니다",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
