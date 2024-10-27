@@ -4571,6 +4571,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-lexingtonandconcord",
+    "origins_label": "Lexington & Concord Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Lexington & Concord Fandom Wiki",
+        "origin_base_url": "lexington-and-concord.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Lexington_&_Concord_Wiki"
+      }
+    ],
+    "destination": "Lexington & Concord Official Wiki",
+    "destination_base_url": "lexingtonandconcord.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lexingtonconcordofficialwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-libraryofruina",
     "origins_label": "Library Of Ruina Fandom Wiki",
     "origins": [
@@ -5695,6 +5715,26 @@
     "destination_main_page": "Pathfinder_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-pathofachra",
+    "origins_label": "Path of Achra Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Path of Achra Fandom Wiki",
+        "origin_base_url": "path-of-achra.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Path_of_Achra_Wiki"
+      }
+    ],
+    "destination": "Path of Achra Wiki",
+    "destination_base_url": "pathofachra.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pathofachrawiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Path_of_Achra_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-pathofexile",
@@ -7778,6 +7818,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w139/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-thematchlesskungfu",
+    "origins_label": "The Matchless Kungfu Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Matchless Kungfu Fandom Wiki",
+        "origin_base_url": "the-matchless-kungfu.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Matchless_Kungfu_Wiki"
+      }
+    ],
+    "destination": "The Matchless Kungfu Wiki",
+    "destination_base_url": "thematchlesskungfu.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thematchlesskungfuwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "The_Matchless_Kungfu_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-thewanderinginn",
