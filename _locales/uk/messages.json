@@ -759,7 +759,7 @@
         }
     },
     "bannerText": {
-        "message": "Існує $descriptor$ вікі $host$, що охоплює цю тему $language$!",
+        "message": "Існує $descriptor$ вікі $host$, що охоплює цю тему $language$",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
