@@ -379,7 +379,7 @@
         "description": "Prompt to re-enable a non-indie search result"
     },
     "bannerText": {
-        "message": "มีวิกิ$descriptor$$host$ ที่ครอบคลุมหัวข้อนี้$language$!",
+        "message": "มีวิกิ$descriptor$$host$ ที่ครอบคลุมหัวข้อนี้$language$",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
