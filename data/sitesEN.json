@@ -2131,13 +2131,19 @@
   },
   {
     "id": "en-deadpoly",
-    "origins_label": "Deadpoly Fandom Wiki",
+    "origins_label": "Deadpoly Fandom Wikis",
     "origins": [
       {
         "origin": "Deadpoly Fandom Wiki",
         "origin_base_url": "deadpoly.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Deadpoly_(Rebuild)_Wiki"
+      },
+      {
+        "origin": "Deadpoly Game Fandom Wiki",
+        "origin_base_url": "deadpolygame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deadpoly_Wiki"
       }
     ],
     "destination": "DeadPoly Wiki",
