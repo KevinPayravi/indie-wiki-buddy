@@ -8844,6 +8844,29 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-unnamedspaceidle",
+    "origins_label": "Unnamed Space Idle Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Unnamed Space Idle Fandom Wiki",
+        "origin_base_url": "usi.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "USI_Wiki"
+      }
+    ],
+    "destination": "Unnamed Space Idle Wiki",
+    "destination_base_url": "usi.game-vault.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "unnamedspaceidle.png",
+    "destination_main_page": "Official_Unnamed_Space_Idle_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/$1",
+    "destination_host": "game-vault.net",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-unrealworld",
     "origins_label": "UnReal World Fandom Wiki",
     "origins": [
