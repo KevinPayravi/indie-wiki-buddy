@@ -6593,6 +6593,12 @@
         "origin_content_path": "/wiki/",
         "origin_main_page": "Rain_(web_comic)_Wikia"
       },
+       {
+        "origin": "Rain (webcomic) Fandom Wiki",
+        "origin_base_url": "rain-webcomic.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rain_(webcomic)_Wiki"
+      },
       {
         "origin": "My Impossible Soulmate Fandom Wiki",
         "origin_base_url": "myimpossiblesoulmate.fandom.com",
