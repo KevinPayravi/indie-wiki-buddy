@@ -880,5 +880,8 @@
                 "example": "Minecraft Fandom Wiki"
             }
         }
+    },
+    "settingsLangNL": {
+        "message": "[NL] Néerlandais / Nederlands"
     }
 }
