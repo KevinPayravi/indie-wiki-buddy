@@ -8858,10 +8858,9 @@
     "destination_base_url": "usi.game-vault.net",
     "destination_platform": "mediawiki",
     "destination_icon": "unnamedspaceidle.png",
-    "destination_main_page": "Official_Unnamed_Space_Idle_Wiki",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/$1",
-    "destination_host": "game-vault.net",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
