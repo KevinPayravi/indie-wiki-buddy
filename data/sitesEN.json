@@ -3321,12 +3321,12 @@
       }
     ],
     "destination": "Fisch Wiki",
-    "destination_base_url": "fisch.miraheze.org",
+    "destination_base_url": "fischipedia.org",
     "destination_platform": "mediawiki",
     "destination_icon": "officialfischwiki.png",
     "destination_content_path": "/wiki/",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Main_Page",
+    "destination_main_page": "Fisch_Wiki",
     "destination_host": "Miraheze",
     "tags": [
       "official"
