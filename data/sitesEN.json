@@ -2914,6 +2914,29 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-empiresoftheundergrowth",
+    "origins_label": "Empires of the Undergrowth Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Empires of the Undergrowth Fandom Wiki",
+        "origin_base_url": "empires-of-the-undergrowth.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Empires_of_the_Undergrowth_Wiki"
+      }
+    ],
+    "destination": "Empires of the Undergrowth Wiki",
+    "destination_base_url": "hoodedhorse.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "empiresoftheundergrowthwiki.png",
+    "destination_content_path": "/wiki/Empires_of_the_Undergrowth/",
+    "destination_search_path": "/wiki/Empires_of_the_Undergrowth/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Hooded Horse",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-ena",
     "origins_label": "ENA Fandom Wiki",
     "origins": [
@@ -2955,6 +2978,25 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-epitheterased",
+    "origins_label": "Epithet Erased Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Epithet Erased Fandom Wiki",
+        "origin_base_url": "epithet-erased.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Epithet_Erased_Wiki"
+      }
+    ],
+    "destination": "Epithet Erased Wiki",
+    "destination_base_url": "epitheterasedwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "epitheterasedwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Epithet_Erased_Wiki"
   },
   {
     "id": "en-erepublik",
@@ -4319,6 +4361,29 @@
     "destination_search_path": "/index.php",
     "destination_main_page": "Illusion_Carnival_Wiki",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-immortallife",
+    "origins_label": "Immortal Life Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Immortal Life Fandom Wiki",
+        "origin_base_url": "immortal-life.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Immortal_Life_Wiki"
+      }
+    ],
+    "destination": "Immortal Life Wiki",
+    "destination_base_url": "immortallife.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "immortallifewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Immortal_Life_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-inmost",
@@ -5800,6 +5865,29 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-norland",
+    "origins_label": "Norland Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Norland Fandom Wiki",
+        "origin_base_url": "norland.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Norland_Wiki"
+      }
+    ],
+    "destination": "Norland Wiki",
+    "destination_base_url": "hoodedhorse.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "norlandwiki.png",
+    "destination_content_path": "/wiki/Norland/",
+    "destination_search_path": "/wiki/Norland/index.php",
+    "destination_main_page": "Norland_Official_Wiki",
+    "destination_host": "Hooded Horse",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-nucleartechmod",
     "origins_label": "HBM's Nuclear Tech Fandom Wiki",
     "origins": [
@@ -6593,7 +6681,7 @@
         "origin_content_path": "/wiki/",
         "origin_main_page": "Rain_(web_comic)_Wikia"
       },
-       {
+      {
         "origin": "Rain (webcomic) Fandom Wiki",
         "origin_base_url": "rain-webcomic.fandom.com",
         "origin_content_path": "/wiki/",
@@ -6718,6 +6806,26 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-realspace4animation",
+    "origins_label": "Real Space 4 Animation Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Real Space 4 Animation Fandom Wiki",
+        "origin_base_url": "real-space-4-animation.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Real_space_4_animation_Wiki"
+      }
+    ],
+    "destination": "Real Space 4 Pivot Animation Wiki",
+    "destination_base_url": "realspace4animation.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "realspace4pivotanimationwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Real_Space_4_Pivot_Animation_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-redflood",
@@ -6896,6 +7004,26 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-robloxcriticalstrike",
+    "origins_label": "Roblox Critical Strike Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Roblox Critical Strike Fandom Wiki",
+        "origin_base_url": "roblox-critical-strike.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "CRITICAL_STRIKE_Wiki"
+      }
+    ],
+    "destination": "Roblox CRITICAL STRIKE",
+    "destination_base_url": "robloxcriticalstrike.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "robloxcriticalstrike.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "CRITICAL_STRIKE_Wiki",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-robloxpressure",
@@ -7439,6 +7567,29 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-sonsofvalhalla",
+    "origins_label": "Sons of Valhalla Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sons of Valhalla Fandom Wiki",
+        "origin_base_url": "sons-of-valhalla.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sons_of_Valhalla_Wiki"
+      }
+    ],
+    "destination": "Sons of Valhalla Wiki",
+    "destination_base_url": "hoodedhorse.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sonsofvalhallawiki.png",
+    "destination_content_path": "/wiki/Sons_of_Valhalla/",
+    "destination_search_path": "/wiki/Sons_of_Valhalla/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Hooded Horse",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-soulframe",
@@ -8095,6 +8246,35 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
+    "id": "en-terrainvicta",
+    "origins_label": "Terra Invicta Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Terra Invicta Fandom Wiki",
+        "origin_base_url": "terra-invicta.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terra_Invicta_Wiki"
+      },
+      {
+        "origin": "Terra Invicta Game Fandom Wiki",
+        "origin_base_url": "terrainvictagame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Terra_Invicta_Wiki"
+      }
+    ],
+    "destination": "Terra Invicta Wiki",
+    "destination_base_url": "hoodedhorse.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "terrainvictawiki.png",
+    "destination_content_path": "/wiki/Terra_Invicta/",
+    "destination_search_path": "/wiki/Terra_Invicta/index.php",
+    "destination_main_page": "Terra_Invicta_Official_Wiki",
+    "destination_host": "Hooded Horse",
     "tags": [
       "official"
     ]
@@ -9460,6 +9640,26 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-worship",
+    "origins_label": "Worship Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Worship Fandom Wiki",
+        "origin_base_url": "worshipcrg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Worship_Wiki"
+      }
+    ],
+    "destination": "Worship Wiki",
+    "destination_base_url": "worship.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "worshipwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Worship_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-wrdminecraft",
