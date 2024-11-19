@@ -745,6 +745,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-astreasso",
+    "origins_label": "Astrea: Six-Sided Oracles Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Astrea: Six-Sided Oracles Fandom Wiki",
+        "origin_base_url": "astrea-sso.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Astrea:_Six-Sided_Oracles_Wiki"
+      }
+    ],
+    "destination": "Astrea Wiki",
+    "destination_base_url": "astrea.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "astreawiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Astrea_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-astroneer",
     "origins_label": "Astroneer Fandom Wiki",
     "origins": [
@@ -1142,6 +1162,26 @@
     "destination_main_page": "Binding_of_Isaac:_Rebirth_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-bindingofisaacrevelations",
+    "origins_label": "Binding of Isaac: Revelations Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Binding of Isaac: Revelations Fandom Wiki",
+        "origin_base_url": "tboirevelations.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Binding_of_Isaac:_Revelations_Wiki"
+      }
+    ],
+    "destination": "Binding of Isaac Revelations Wiki",
+    "destination_base_url": "tboirevelations.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bindingofisaacrevelationswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "The_Binding_of_Isaac:_Revelations_Wiki",
     "destination_host": "wiki.gg"
   },
   {
@@ -1747,6 +1787,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-cobaltcore",
+    "origins_label": "Cobalt Core Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cobalt Core Fandom Wiki",
+        "origin_base_url": "cobalt-core.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Cobalt_Core_Wiki"
+      }
+    ],
+    "destination": "Cobalt Core Wiki",
+    "destination_base_url": "cobaltcore.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cobaltcorewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-commanderkeen",
     "origins_label": "Commander Keen Fandom Wiki",
     "origins": [
@@ -1913,6 +1973,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-cosmoteer",
+    "origins_label": "Cosmoteer Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Cosmoteer Fandom Wiki",
+        "origin_base_url": "cosmoteer.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Cosmoteer_Wiki"
+      }
+    ],
+    "destination": "Cosmoteer Wiki",
+    "destination_base_url": "cosmoteer.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cosmoteerwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Cosmoteer_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-crabchampions",
@@ -2109,6 +2189,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-deadestate",
+    "origins_label": "Dead Estate Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dead Estate Fandom Wiki",
+        "origin_base_url": "deadestate.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dead_Estate_Wiki"
+      }
+    ],
+    "destination": "Dead Estate Wiki",
+    "destination_base_url": "deadestate.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deadestatewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Dead_Estate_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-deadlock",
@@ -2477,6 +2577,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-dotage",
+    "origins_label": "DotAGE Fandom Wiki",
+    "origins": [
+      {
+        "origin": "DotAGE Fandom Wiki",
+        "origin_base_url": "dotage-game.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "DotAGE_Wiki"
+      }
+    ],
+    "destination": "DotAGE Wiki",
+    "destination_base_url": "dotage.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dotagewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "DotAGE_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-dotflow",
@@ -5686,6 +5806,25 @@
     "destination_main_page": "Mystery_Dungeon_Franchise_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-necesse",
+    "origins_label": "Necesse Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Necesse Fandom Wiki",
+        "origin_base_url": "necesse.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Necesse_Wiki"
+      }
+    ],
+    "destination": "Necesse Wiki",
+    "destination_base_url": "necessewiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "necessewiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-necrodancer",
