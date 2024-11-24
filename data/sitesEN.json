@@ -6720,7 +6720,7 @@
     "destination_base_url": "pzwiki.net",
     "destination_platform": "mediawiki",
     "destination_icon": "pzwiki.png",
-    "destination_main_page": "Special:MyLanguage/Project_Zomboid_Wiki",
+    "destination_main_page": "Project_Zomboid_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "tags": [
