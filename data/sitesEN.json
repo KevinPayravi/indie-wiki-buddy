@@ -1266,6 +1266,26 @@
     ]
   },
   {
+    "id": "en-blockfrontmc",
+    "origins_label": "BlockFrontMC Fandom Wiki",
+    "origins": [
+      {
+        "origin": "BlockFrontMC Fandom Wiki",
+        "origin_base_url": "blockfrontmc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "BlockFrontMC_Wikia"
+      }
+    ],
+    "destination": "BlockFrontMC Wiki",
+    "destination_base_url": "blockfront.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "blockfrontwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "BlockFront_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-blood",
     "origins_label": "Blood 1997 Fandom Wiki",
     "origins": [
@@ -1617,6 +1637,29 @@
     "destination_main_page": "Cerasus_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-chefrpg",
+    "origins_label": "Chef RPG Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Chef RPG Fandom Wiki",
+        "origin_base_url": "chef-rpg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Chef_RPG_Wiki"
+      }
+    ],
+    "destination": "Chef RPG Wiki",
+    "destination_base_url": "chefrpg.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "chefrpgwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Chef_RPG_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-cherryforest",
@@ -2719,6 +2762,28 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-dungeondefenders2",
+    "origins_label": "Dungeon Defenders II Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dungeon Defenders II Fandom Wiki",
+        "origin_base_url": "dungeondefenders2.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dungeon_Defenders_II_Wiki"
+      }
+    ],
+    "destination": "Dungeon Defenders 2 Wiki",
+    "destination_base_url": "wiki.dungeondefenders2.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dungeondefenders2wiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-dungeonrampage",
@@ -4015,6 +4080,26 @@
     "destination_host": "ShoutWiki"
   },
   {
+    "id": "en-gttod",
+    "origins_label": "Get To The Orange Door Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Get To The Orange Door Fandom Wiki",
+        "origin_base_url": "gttod.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Get_To_The_Orange_Door_Wiki"
+      }
+    ],
+    "destination": "GTTOD Wiki",
+    "destination_base_url": "gttod.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gttodwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Get_To_The_Orange_Door_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-guildwars",
     "origins_label": "Guild Wars Fandom Wiki",
     "origins": [
@@ -4422,6 +4507,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-idlingtorulethegods",
+    "origins_label": "Idling to Rule the Gods Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Idling to Rule the Gods Fandom Wiki",
+        "origin_base_url": "idling-to-rule-the-gods.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Idling_to_Rule_the_Gods_Wiki"
+      }
+    ],
+    "destination": "Idling to Rule the Gods Wiki",
+    "destination_base_url": "itrtg.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "idlingtorulethegodswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-idolish7",
