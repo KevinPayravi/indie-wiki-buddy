@@ -1,6 +1,6 @@
 {
     "extensionName": {
-        "message": "Indie Wiki Buddy",
+        "message": "인디 위키 버디",
         "description": "The name of the extension"
     },
     "bannerDescriptorOfficial": {
@@ -525,7 +525,7 @@
         "message": "두번째 라디오 버튼들은 Google, Bing, DuckDuckGo 및 기타 검색 엔진 내에서 대체 위키가 아닌 위키의 동작을 제어합니다."
     },
     "extensionDescription": {
-        "message": "Indie Wiki Buddy는 경고와 페이지 넘겨주기, 검색 필터링을 통해 높은 품질의 위키를 찾는 데 도와줍니다.",
+        "message": "\"인디 위키 버디\"는 경고와 페이지 넘겨주기, 검색 필터링을 통해 높은 품질의 위키를 찾는 데 도와줍니다.",
         "description": "The description of the extension"
     },
     "settingsWikiLegendSearchExp": {
