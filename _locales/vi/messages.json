@@ -172,7 +172,7 @@
         "message": "Cảm ơn vì đã cài Indie Wiki Buddy! Hãy cùng giúp bạn thiết lập nào."
     },
     "firstInstallInfo2": {
-        "message": "Sử dụng các liên kết trên để đọc hướng dẫn đầy đủ, trình lên các wiki mới, hoặc liên hệ nhà phát triển."
+        "message": "Sử dụng các liên kết ở trên để đọc hướng dẫn đầy đủ, trình lên các wiki mới, hoặc liên hệ nhà phát triển."
     },
     "settingsGeneral": {
         "message": "Tùy chỉnh chung"
@@ -256,7 +256,7 @@
         "message": "Không làm gì cả"
     },
     "settingsAlert": {
-        "message": "Hiển thị biểu mẫu liên kết đến wiki độc lập"
+        "message": "Hiển thị biểu ngữ liên kết đến wiki độc lập"
     },
     "settingsRedirect": {
         "message": "Chuyển hướng đến wiki độc lập"
@@ -436,7 +436,7 @@
         "message": "Tiện ích đang tắt"
     },
     "popupDefault": {
-        "message": "Hành vi mặc định (áp dụng cho tất cả các wiki hiện tại và wiki mới thêm vào trong các bản cập nhật tương lai)"
+        "message": "Hành vi mặc định (áp dụng cho tất cả các wiki hiện tại và wiki mới được thêm vào trong các bản cập nhật tương lai)"
     },
     "popupWikiLegendWikiExp": {
         "message": "Khi ghé thăm các wiki Fandom, Fextralife, và Neoseeker:"
