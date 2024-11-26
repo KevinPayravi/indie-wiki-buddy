@@ -131,7 +131,7 @@
         "message": "Hướng dẫn"
     },
     "settingsWebsite": {
-        "message": "Trang web"
+        "message": "Trang chủ"
     },
     "bannerDescriptorIndependent": {
         "message": "một wiki độc lập"
@@ -500,7 +500,7 @@
         }
     },
     "guideOverviewPara5": {
-        "message": "Mọi chức năng này đều có thể được bật tắt đi, và bạn có thể đặt tùy chọn của bạn cho từng wiki. Bạn có quyền kiểm soát tất cả các việc này!"
+        "message": "Mọi chức năng này đều có thể được bật tắt đi, và bạn có thể đặt tùy chọn của bạn cho từng wiki. Bạn có toàn quyền kiểm soát các việc này!"
     },
     "guideGlobalSettingsHelp": {
         "message": "Hướng dẫn về Tùy chỉnh Chung"
