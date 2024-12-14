@@ -5205,6 +5205,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-littlekingsstory",
+    "origins_label": "Little King's Story Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Little King's Story Fandom Wiki",
+        "origin_base_url": "littlekingsstory.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Little_King's_Story_Wiki"
+      }
+    ],
+    "destination": "Little King's Story Wiki",
+    "destination_base_url": "littlekingsstory.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "littlekingsstorywiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Little_King's_Story_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-loathing",
     "origins_label": "Shadows Over Loathing Fandom Wiki",
     "origins": [
@@ -7725,6 +7745,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-shipoffools",
+    "origins_label": "Ship of Fools Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Ship of Fools Fandom Wiki",
+        "origin_base_url": "ship-of-fools.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ship_of_Fools_Wiki"
+      }
+    ],
+    "destination": "Ship of Fools Wiki",
+    "destination_base_url": "shipoffools.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "shipoffoolswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Ship_of_Fools_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-shroudoftheavatar",
     "origins_label": "Shroud of the Avatar Fandom Wiki",
     "origins": [
@@ -9188,6 +9228,26 @@
     "destination_content_path": "/index.php?title="
   },
   {
+    "id": "en-ufo50",
+    "origins_label": "UFO 50 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "UFO 50 Fandom Wiki",
+        "origin_base_url": "ufo50.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "UFO_50_Wiki"
+      }
+    ],
+    "destination": "UFO 50 Wiki",
+    "destination_base_url": "ufo50.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ufo50.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-ultimaonline",
     "origins_label": "Ultima Online Fandom Wiki",
     "origins": [
@@ -9846,6 +9906,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-witchfire",
+    "origins_label": "Witchfire Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Witchfire Fandom Wiki",
+        "origin_base_url": "witchfire.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Witchfire_Wiki"
+      }
+    ],
+    "destination": "Witchfire Wiki",
+    "destination_base_url": "witchfire.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "witchfirewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-witchhat",
