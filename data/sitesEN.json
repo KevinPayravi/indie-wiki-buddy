@@ -6434,13 +6434,19 @@
   },
   {
     "id": "en-pathofexile2",
-    "origins_label": "Path of Exile 2 Fextralife Wiki",
+    "origins_label": "Path of Exile 2 Wikis",
     "origins": [
       {
         "origin": "Path of Exile 2 Fextralife Wiki",
         "origin_base_url": "pathofexile2.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Path of Exile 2 Wiki"
+      },
+      {
+        "origin": "Path of Exile 2 Fandom Wiki",
+        "origin_base_url": "path-of-exile-2.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Path_of_Exile_2_Wiki"
       }
     ],
     "destination": "Path of Exile 2 Wiki",
