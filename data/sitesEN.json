@@ -6434,10 +6434,10 @@
   },
   {
     "id": "en-pathofexile2",
-    "origins_label": "Path of Exile 2 Fextralife",
+    "origins_label": "Path of Exile 2 Fextralife Wiki",
     "origins": [
       {
-        "origin": "Path of Exile 2 Fextralife",
+        "origin": "Path of Exile 2 Fextralife Wiki",
         "origin_base_url": "pathofexile2.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Path of Exile 2 Wiki"
@@ -6449,7 +6449,10 @@
     "destination_icon": "pathofexile2.png",
     "destination_main_page": "Path_of_Exile_2_Wiki",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/"
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-pathologic",
