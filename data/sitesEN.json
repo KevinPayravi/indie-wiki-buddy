@@ -212,10 +212,10 @@
       }
     ],
     "destination": "Against the Storm Wiki",
-    "destination_base_url": "hoodedhorse.com",
+    "destination_base_url": "hoodedhorse.com/wiki/Against_the_Storm",
     "destination_platform": "mediawiki",
     "destination_icon": "againstthestorm.png",
-    "destination_content_path": "/wiki/Against_the_Storm/",
+    "destination_content_path": "/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Against_the_Storm_Official_Wiki",
     "destination_host": "Hooded Horse",
@@ -3110,11 +3110,11 @@
       }
     ],
     "destination": "Empires of the Undergrowth Wiki",
-    "destination_base_url": "hoodedhorse.com",
+    "destination_base_url": "hoodedhorse.com/wiki/Empires_of_the_Undergrowth",
     "destination_platform": "mediawiki",
     "destination_icon": "empiresoftheundergrowthwiki.png",
-    "destination_content_path": "/wiki/Empires_of_the_Undergrowth/",
-    "destination_search_path": "/wiki/Empires_of_the_Undergrowth/index.php",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
     "destination_main_page": "Main_Page",
     "destination_host": "Hooded Horse",
     "tags": [
@@ -5406,11 +5406,11 @@
       }
     ],
     "destination": "Manor Lords Wiki",
-    "destination_base_url": "hoodedhorse.com",
+    "destination_base_url": "hoodedhorse.com/wiki/Manor_Lords",
     "destination_platform": "mediawiki",
     "destination_icon": "manorlordswiki.png",
-    "destination_content_path": "/wiki/Manor_Lords/",
-    "destination_search_path": "/wiki/Manor_Lords/index.php",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
     "destination_main_page": "Manor_Lords_Official_Wiki",
     "destination_host": "Hooded Horse",
     "tags": [
@@ -6159,11 +6159,11 @@
       }
     ],
     "destination": "Norland Wiki",
-    "destination_base_url": "hoodedhorse.com",
+    "destination_base_url": "hoodedhorse.com/wiki/Norland",
     "destination_platform": "mediawiki",
     "destination_icon": "norlandwiki.png",
-    "destination_content_path": "/wiki/Norland/",
-    "destination_search_path": "/wiki/Norland/index.php",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
     "destination_main_page": "Norland_Official_Wiki",
     "destination_host": "Hooded Horse",
     "tags": [
@@ -7911,11 +7911,11 @@
       }
     ],
     "destination": "Sons of Valhalla Wiki",
-    "destination_base_url": "hoodedhorse.com",
+    "destination_base_url": "hoodedhorse.com/wiki/Sons_of_Valhalla",
     "destination_platform": "mediawiki",
     "destination_icon": "sonsofvalhallawiki.png",
-    "destination_content_path": "/wiki/Sons_of_Valhalla/",
-    "destination_search_path": "/wiki/Sons_of_Valhalla/index.php",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
     "destination_main_page": "Sons_of_Valhalla_Official_Wiki",
     "destination_host": "Hooded Horse",
     "tags": [
@@ -8599,11 +8599,11 @@
       }
     ],
     "destination": "Terra Invicta Wiki",
-    "destination_base_url": "hoodedhorse.com",
+    "destination_base_url": "hoodedhorse.com/wiki/Terra_Invicta",
     "destination_platform": "mediawiki",
     "destination_icon": "terrainvictawiki.png",
-    "destination_content_path": "/wiki/Terra_Invicta/",
-    "destination_search_path": "/wiki/Terra_Invicta/index.php",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
     "destination_main_page": "Terra_Invicta_Official_Wiki",
     "destination_host": "Hooded Horse",
     "tags": [
