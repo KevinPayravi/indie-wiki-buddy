@@ -454,7 +454,11 @@
   },
   "settingsLangTOK": {
     "message": "[TOK] Toki Pona / toki pona",
-    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOK should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
+  },
+  "settingsLangTR": {
+    "message": "[TR] Turkish / Türkçe",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TR should be \"[TR] Turkish / Türkçe\" in English, but just \"[TR] Türkçe\" in Turkish."
   },
   "settingsLangUK": {
     "message": "[UK] Ukrainian / Українська",

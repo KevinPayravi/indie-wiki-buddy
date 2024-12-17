@@ -1,6 +1,6 @@
 {
   "name": "__MSG_extensionName__",
-  "version": "3.11.0",
+  "version": "3.12.0",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "permissions": [
@@ -67,6 +67,7 @@
     "data/sitesSV.json",
     "data/sitesTH.json",
     "data/sitesTOK.json",
+    "data/sitesTR.json",
     "data/sitesUK.json",
     "data/sitesZH.json"
   ],
