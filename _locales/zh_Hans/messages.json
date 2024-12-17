@@ -644,5 +644,23 @@
     },
     "guideCrossLanguageHelp2": {
         "message": "很不幸，Fextralife wiki并不支持该功能。"
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": "访问任何英文Fandom wiki会立刻重定向至BreezeWiki。如果重定向至独立wiki已启用，则优先重定向至独立wiki。"
+    },
+    "guideBreezeWiki": {
+        "message": "你同样可以为$BreezeWiki$设置偏好。$BreezeWiki$是一个无广告的Fandom wiki渲染器。目前，$BreezeWiki$仅支持英文wiki。",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": "在英文Fandom Wiki的顶端插入重定向至BreezeWiki的横幅。"
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": "不要将Fandom重定向至BreezeWiki。"
     }
 }
