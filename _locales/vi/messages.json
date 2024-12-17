@@ -752,5 +752,8 @@
                 "example": "123"
             }
         }
+    },
+    "settingsLangTR": {
+        "message": "[TR] Tiếng Thổ Nhĩ Kỳ / Türkçe"
     }
 }
