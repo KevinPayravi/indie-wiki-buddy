@@ -109,4 +109,4 @@ Entries are formatted as follows:
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
 
 # Translations
-Translations are currently being prepared on Hosted Weblate ([link](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/). If you're interested in helping translate, please register for an account at hosted.weblate.org, and you should be able to dive right in and start translating!
+Translations are currently being prepared on Hosted Weblate ([link](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/)). If you're interested in helping translate, please register for an account at hosted.weblate.org, and you should be able to dive right in and start translating!
