@@ -107,3 +107,6 @@ Entries are formatted as follows:
 * `tags`: An optional array of tags. Currently only `official` is used, to mark wikis officially endorsed by the subject of the wiki. If there are no tags, omit this property.
 
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
+
+# Translations
+Translations are currently being prepared on Hosted Weblate ([link](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/). If you're interested in helping translate, please register for an account at hosted.weblate.org, and you should be able to dive right in and start translating!
