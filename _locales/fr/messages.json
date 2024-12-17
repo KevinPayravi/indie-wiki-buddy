@@ -883,5 +883,8 @@
     },
     "settingsLangNL": {
         "message": "[NL] Néerlandais / Nederlands"
+    },
+    "settingsLangTR": {
+        "message": "[TR] Turc / Türkçe"
     }
 }
