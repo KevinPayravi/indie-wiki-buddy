@@ -749,5 +749,11 @@
     },
     "notificationMessageBreezeWiki": {
         "message": "Indie Wiki Buddy ви изпрати в BreezeWiki за по-чисто изживяване без реклами във Fandom."
+    },
+    "settingsLangTR": {
+        "message": "[TR] турски / Türkçe"
+    },
+    "settingsLangNL": {
+        "message": "[NL] датски / Nederlands"
     }
 }
