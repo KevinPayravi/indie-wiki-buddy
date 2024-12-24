@@ -880,5 +880,11 @@
                 "example": "Minecraft Fandom Wiki"
             }
         }
+    },
+    "settingsLangNL": {
+        "message": "[NL] ดัตช์ / Nederlands"
+    },
+    "settingsLangTR": {
+        "message": "[TR] ตุรกี / Türkçe"
     }
 }
