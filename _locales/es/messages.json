@@ -30,7 +30,7 @@
         "description": "Notice to leave a review for the extension"
     },
     "firstInstallInfo3": {
-        "message": "En las opciones a continuación, podrás activar o desactivar características. Esto incluye la opción de habilitar $BreezeWiki$, una interfaz alternativa que muestra los wikis de Fandom sin publicidad ni interfaz sobrecargada.",
+        "message": "En la configuración a continuación puede habilitar o deshabilitar funciones. Por ejemplo, puede habilitar $BreezeWiki$ , una interfaz alternativa que muestra wikis de Fandom sin anuncios ni elementos extraños.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -162,7 +162,7 @@
         }
     },
     "settingsWikiFrom": {
-        "message": " (de $origin$)",
+        "message": " (desde $origin$ )",
         "description": "Tooltip for the origin of a specific wiki setting. Include a leading space when appropriate.",
         "placeholders": {
             "origin": {
@@ -444,7 +444,7 @@
         "description": "Button to open the settings page"
     },
     "notificationMessage": {
-        "message": "¡Indie Wiki Buddy te envió a $destination$ desde $origin$!",
+        "message": "¡Indie Wiki Buddy te redireccionó desde $origin$ a $destination$!",
         "description": "Notification message for being redirected",
         "placeholders": {
             "origin": {
@@ -470,7 +470,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
     },
     "notificationTitleBreezeWiki": {
-        "message": "¡Has sido redirigido/a a BreezeWiki!",
+        "message": "¡Has sido redirigid@ a BreezeWiki!",
         "description": "Notification title for being redirected to BreezeWiki"
     },
     "settingsGuide": {
@@ -555,7 +555,7 @@
         }
     },
     "notificationTitle": {
-        "message": "¡Has sido redirigido/a!",
+        "message": "¡Has sido redirigid@!",
         "description": "Notification title for being redirected"
     },
     "firstInstallInfo5": {
