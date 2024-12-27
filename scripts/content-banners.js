@@ -197,15 +197,18 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
     wikiDescriptor = extensionAPI.i18n.getMessage('bannerDescriptorIndependentOfficial');
   }
 
+  let bannerTextContent = '';
   if (destinationLanguage === 'EN' && location.href.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
-    bannerText.textContent = extensionAPI.i18n.getMessage('bannerText', [
+    bannerTextContent = extensionAPI.i18n.getMessage('bannerText', [
       wikiDescriptor,
       hostDescriptor,
       extensionAPI.i18n.getMessage('bannerLanguageEnglish')
     ]);
   } else {
-    bannerText.textContent = extensionAPI.i18n.getMessage('bannerText', [wikiDescriptor, hostDescriptor, '']);
+    bannerTextContent = extensionAPI.i18n.getMessage('bannerText', [wikiDescriptor, hostDescriptor, '']);
   }
+  // Reduce repeated spaces into single space
+  bannerText.textContent = bannerTextContent.replace(/\s+/g, ' ');
   let bannerWikiLink = document.createElement('a');
   bannerWikiLink.classList.add('indie-wiki-banner-link');
   bannerText.appendChild(bannerWikiLink);

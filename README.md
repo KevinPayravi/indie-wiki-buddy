@@ -16,12 +16,14 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![JA wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=JA%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesJA.json)
 ![KO wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=KO%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesKO.json)
 ![LZH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=LZH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesLZH.json)
+![NL wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=NL%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesNL.json)
 ![PL wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PL%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPL.json)
 ![PT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPT.json)
 ![RU wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=RU%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesRU.json)
 ![SV wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=SV%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesSV.json)
 ![TH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTH.json)
 ![TOK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TOK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTOK.json)
+![TR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTR.json)
 ![UK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=UK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesUK.json)
 ![ZH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ZH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesZH.json)
 
@@ -105,3 +107,6 @@ Entries are formatted as follows:
 * `tags`: An optional array of tags. Currently only `official` is used, to mark wikis officially endorsed by the subject of the wiki. If there are no tags, omit this property.
 
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
+
+# Translations
+Translations are currently being prepared on Hosted Weblate ([link](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/)). If you're interested in helping translate, please register for an account at hosted.weblate.org, and you should be able to dive right in and start translating!
