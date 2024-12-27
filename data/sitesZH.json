@@ -67,7 +67,7 @@
     "origins": [
       {
         "origin": "Doctor Who Fandom Wiki",
-        "origin_base_url": "cookie.fandom.com/zh",
+        "origin_base_url": "tardis.fandom.com/zh",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Tardis"
       }
