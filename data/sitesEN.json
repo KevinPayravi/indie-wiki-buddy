@@ -2060,6 +2060,29 @@
       "official"
     ]
   },
+    {
+    "id": "en-craftersmc",
+    "origins_label": "CraftersMC Skyblock Fandom Wiki",
+    "origins": [
+      {
+        "origin": "CraftersMC Skyblock Wiki",
+        "origin_base_url": "craftersmc-skyblock.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "CraftersMC_SkyBlock_Wiki"
+      }
+    ],
+    "destination": "CraftersMC Skyblock Wiki",
+    "destination_base_url": "craftersmc.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "craftersmc.png",
+    "destination_main_page": "CraftersMC_SkyBlock_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
   {
     "id": "en-creatures",
     "origins_label": "Creatures Fandom Wiki",
