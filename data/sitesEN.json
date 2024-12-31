@@ -5245,6 +5245,29 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-lostepisodecreepypasta",
+    "origins_label": "Lost Episode Creepypasta Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Lost Episode Creepypasta Fandom Wiki",
+        "origin_base_url": "lostepisodecreepypasta.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Lost_Episode_Creepypasta_Wiki"
+      }
+    ],
+    "destination": "Lost Episode Creepypasta Wiki",
+    "destination_base_url": "lostepisodecreepypasta.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "",
+    "destination_main_page": "Lost_Episode_Creepypasta_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-lotr",
     "origins_label": "Lord of the Rings Fandom & Neoseeker Wikis",
     "origins": [
