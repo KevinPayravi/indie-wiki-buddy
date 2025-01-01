@@ -749,5 +749,11 @@
     },
     "notificationTitleBreezeWiki": {
         "message": "Você foi redirecionado para o BreezeWiki!"
+    },
+    "settingsLangNL": {
+        "message": "[NL] Holandês / Nederlands"
+    },
+    "settingsLangTR": {
+        "message": "[TR] Turco / Türkçe"
     }
 }
