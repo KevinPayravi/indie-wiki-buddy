@@ -4,7 +4,7 @@
         "description": "The indefinite article that comes before 'wiki'. See the bannerText message for more information."
     },
     "bannerText": {
-        "message": "Существует $descriptor$ вики $host$, освещающая эту тему $language$!",
+        "message": "Существует $descriptor$ вики $host$, освещающая эту тему $language$",
         "description": "Text to display in the banner for the indie wiki link",
         "placeholders": {
             "descriptor": {
@@ -194,7 +194,7 @@
         "description": "Wiki experience section"
     },
     "settingsFunStatsAlerts": {
-        "message": "",
+        "message": "Оповещен о инди-вики: $alert$",
         "description": "Number of times alerted to indie wikis",
         "placeholders": {
             "alert": {
@@ -208,7 +208,7 @@
         "description": "Instruction to set default for new wikis in future updates"
     },
     "settingsRedirectFor": {
-        "message": "",
+        "message": "Автоматически перенаправлять с $origin$ на $destination$",
         "description": "Tooltip for option to redirect to a specific wiki when visiting a specific wiki",
         "placeholders": {
             "origin": {
@@ -222,7 +222,7 @@
         }
     },
     "settingsFunStatsRedirects": {
-        "message": "",
+        "message": "Автоматически перенаправлен на инди-вики: $redirect$",
         "description": "Number of times redirected to indie wikis",
         "placeholders": {
             "redirect": {
@@ -317,37 +317,37 @@
         "message": "К сожалению, на данный момент, эта настройка не работает с Fextralife вики."
     },
     "guideTogglePerSearchEngine": {
-        "message": ""
+        "message": "Переключение фильтрации по поисковым системам"
     },
     "guideReorderResultsHelp2": {
-        "message": ""
+        "message": "В настоящее время эта функция доступна только для Google, поскольку ее надежная поддержка может быть сложной."
     },
     "guideWikiHelp": {
         "message": "Помощь с собственными настройками вики",
         "description": "Individual wiki settings help section"
     },
     "guideWikiHelpPara2": {
-        "message": ""
+        "message": "Первый набор радиокнопок управляет тем, что произойдет, когда вы посетите перечисленные не инди-вики."
     },
     "guideDisableSearchHelp": {
-        "message": ""
+        "message": ": Результаты поисковых систем не затрагиваются."
     },
     "guideRedirectHelp": {
-        "message": ""
+        "message": ": Автоматически перенаправить на независимый аналог."
     },
     "guideFeedbackPara2": {
-        "message": ""
+        "message": "Предложения по улучшению расширения также приветствуются!"
     },
     "notificationTitle": {
-        "message": "",
+        "message": "Вы были перенаправлены!",
         "description": "Notification title for being redirected"
     },
     "notificationTitleBreezeWiki": {
-        "message": "",
+        "message": "Вы были перенаправлены на BreezeWiki!",
         "description": "Notification title for being redirected to BreezeWiki"
     },
     "notificationMessageBreezeWiki": {
-        "message": "",
+        "message": "Indie Wiki Buddy перенаправил вас на BreezeWiki для более чистого и без рекламного использования Fandom.",
         "description": "Notification message for being redirected to BreezeWiki"
     },
     "settingsNameFilterPlaceholder": {
@@ -359,10 +359,10 @@
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "guideReplaceHelp": {
-        "message": ""
+        "message": ": Оригинальный не инди результат отключен, а сверху добавлена кнопка, ведущая на независимую вики."
     },
     "settingsWikiFrom": {
-        "message": "",
+        "message": " (с $origin$)",
         "description": "Tooltip for the origin of a specific wiki setting. Include a leading space when appropriate.",
         "placeholders": {
             "origin": {
@@ -380,10 +380,10 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, KO should be \"[KO] Korean / 한국어\" in English, but just \"[KO] 한국어\" in Korean."
     },
     "guideDisableVisitHelp": {
-        "message": ""
+        "message": ": Вы не будете ни уведомлены, ни перенаправлены на независимый аналог. Вы все равно будете направлены на BreezeWiki, если она включена."
     },
     "guideBreezeWiki": {
-        "message": "",
+        "message": "Вы также можете установить желаемые настройки для $BreezeWiki$, отдельного сервиса, который отображает вики Fandom без рекламы и мусора. Обратите внимание, что в настоящее время BreezeWiki поддерживает только англоязычные вики.",
         "description": "BreezeWiki section",
         "placeholders": {
             "BreezeWiki": {
@@ -393,10 +393,10 @@
         }
     },
     "guideBreezeWikiHostHelp": {
-        "message": ""
+        "message": "Если вы включили опцию BreezeWiki, появится выпадающий список, в котором вы сможете выбрать предпочтительный хост/зеркало BreezeWiki. Если выбранный вами хост BreezeWiki не работает, вы можете вернуться к этим настройкам и поменять хост."
     },
     "settingsHideFor": {
-        "message": "",
+        "message": "Скрывать $origin$ в результатах поисковых систем",
         "description": "Tooltip for option to hide search results for a specific wiki",
         "placeholders": {
             "origin": {
@@ -417,7 +417,7 @@
         "message": "Когда вы посетите вики работающую на подконтрольной корпорации хостинге, это расширение уведомит или автоматически перенаправит вас на качественные инди-вики, если они доступны. Результаты поиска в Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, и Яндексе так же можно отфильтровать, заменив ссылки на независимые аналоги (или полностью их скрыть)."
     },
     "guideFeedbackPara1": {
-        "message": "",
+        "message": "Если вы запутались или у вас возникли вопросы, пожалуйста, свяжитесь с нами через $linkStart$контактную информацию$linkEnd$ внизу сайта Indie Wiki Buddy.",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -440,14 +440,14 @@
         }
     },
     "guideTogglePerSearchEngineHelp1": {
-        "message": ""
+        "message": "По умолчанию фильтрация включена для всех поисковых систем. Фильтрация осуществляется на основе настроек, выбранных пользователем для каждой вики. По умолчанию для всех вики-проектов результаты поиска, не относящиеся к инди, заменяются кнопками со ссылками на инди-аналоги."
     },
     "bannerDescriptorIndependentOfficial": {
         "message": "официальная независимая",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "guideReorderResultsHelp1": {
-        "message": ""
+        "message": "По умолчанию Indie Wiki Buddy перестраивает страницу результатов в Google, чтобы переместить результаты инди-вики выше первого результата не инди (Fandom / Fextralife / Neoseeker), если они находятся ниже на первой странице результатов. Это позволит вам быстрее найти нужные страницы в инди-вики."
     },
     "searchResultVisitEnglish": {
         "message": "Перейти вместо этого на $destination$ (англ.)",
@@ -468,7 +468,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HU should be \"[HU] Hungarian / Magyar\" in English, but just \"[HU] Magyar\" in Hungarian."
     },
     "settingsBannerOpera": {
-        "message": "Пользователям Opera: По умолчанию, Opera блокирует расширения на поисковых системах. Доступ к поисковым системам можно включить для отдельного расширения, перейдя на \"о:расширения\" и выбрав опцию \"Разрешить допуск к результатам поисковой страницы\" под Indie Wiki Buddy.",
+        "message": "Пользователям Opera: По умолчанию, Opera блокирует расширения на поисковых системах. Доступ к поисковым системам можно включить для отдельного расширения, перейдя на \"about:extensions\" и выбрав опцию \"Разрешить допуск к результатам поисковой страницы\" под Indie Wiki Buddy.",
         "description": "Notice for Opera users about enabling search engine access"
     },
     "settingsLangFI": {
@@ -480,10 +480,10 @@
         "description": "The description of the extension"
     },
     "guideDisable": {
-        "message": ""
+        "message": "Отключить"
     },
     "popupSettingsOverride": {
-        "message": "",
+        "message": "Выбор опции, указанной выше, переопределит все ваши настройки для каждой вики.",
         "description": "Notice that clicking an option will override any per-wiki customizations"
     },
     "bannerDescriptorIndependent": {
@@ -501,7 +501,7 @@
         }
     },
     "guideReplace": {
-        "message": ""
+        "message": "Заменить"
     },
     "guideOverviewPara1": {
         "message": "Indie Wiki Buddy дарит набор возможностей позволяющие открыть для себя инди-вики и улучшить ваш основной опыт чтения вики."
@@ -534,7 +534,7 @@
         "description": "Instruction to set all wikis in a column"
     },
     "guideBreezeWikiBannerHelp": {
-        "message": ""
+        "message": "В верхней части вики-сайтов Fandom на английском будет размещен небольшой баннер со ссылкой, ведущей на вики-сайт BreezeWiki."
     },
     "settingsBreezeWiki": {
         "message": "Альтернативный BreezeWiki интерфейс для Fandom ($linkStart$узнать больше$linkEnd$)",
@@ -549,7 +549,7 @@
         }
     },
     "settingsAlertFor": {
-        "message": "",
+        "message": "Показывать баннер на $origin$ со ссылкой на $destination$",
         "description": "Tooltip for option to alert the user with banner when visiting a specific wiki",
         "placeholders": {
             "origin": {
@@ -587,7 +587,7 @@
         "description": "Global settings help section"
     },
     "settingsReplaceFor": {
-        "message": "",
+        "message": "Заменять $origin$ на $destination$ в результатах поисковых систем",
         "description": "Tooltip for option to replace search results with links to a specific wiki",
         "placeholders": {
             "origin": {
@@ -619,10 +619,10 @@
         "description": "Option to redirect to indie wikis when visiting non-indie wikis"
     },
     "guideHideHelp": {
-        "message": ""
+        "message": ": Результаты в поисковых системах скрыты. В верхней части страницы будет показан баннер, информирующий вас об этом и позволяющий вновь открыть скрытые результаты."
     },
     "guideWikiHelpPara4": {
-        "message": ""
+        "message": "В заголовке таблицы щелчок по значкам приведет к применению этой настройки ко всем вики в таблице. Во второй строке звездочки обозначают настройки по умолчанию для вики-проектов, которые будут добавлены в будущих обновлениях. По умолчанию все вики будут настроены на оповещение с включенной заменой поисковых систем."
     },
     "settingsLangUK": {
         "message": "[UK] Украинский / Українська",
@@ -637,7 +637,7 @@
         "description": "Select for a language filter"
     },
     "settingsFunStatsBreezeWiki": {
-        "message": "",
+        "message": "Автоматически перенаправлен на BreezeWiki: $breezeWiki$",
         "description": "Number of times visited Fandom wikis through BreezeWiki",
         "placeholders": {
             "breezeWiki": {
@@ -647,7 +647,7 @@
         }
     },
     "notificationMessage": {
-        "message": "",
+        "message": "Indie Wiki Buddy переправил вас с $origin$ на $destination$!",
         "description": "Notification message for being redirected",
         "placeholders": {
             "origin": {
@@ -665,13 +665,13 @@
         "description": "Explanation for the icons in search experience"
     },
     "guideHide": {
-        "message": ""
+        "message": "Скрыть"
     },
     "guideOverviewPara3": {
         "message": "На данный момент мы перенаправляем с Fandom, Fextralife, и Neoseeker вики на независимые аналоги."
     },
     "popupSettingsPerWiki": {
-        "message": "",
+        "message": "Посетите $linkStart$все настройки$linkEnd$, чтобы изменить поведение для каждой вики.",
         "description": "Notice to visit the settings page to change behavior per-wiki",
         "placeholders": {
             "linkStart": {
@@ -687,7 +687,7 @@
         "description": "Title of the settings page"
     },
     "guideHiddenResultsBannerHelp1": {
-        "message": ""
+        "message": "Когда эта опция включена, в верхней части результатов поисковой системы появляется баннер, когда Indie Wiki Buddy скрыл результаты из вики-проектов Fandom, Fextralife или Neoseeker. Этот баннер также позволяет повторно показать скрытые результаты."
     },
     "settingsLangRU": {
         "message": "[RU] Русский",
@@ -705,17 +705,17 @@
         "description": "Option to open the changelog when Indie Wiki Buddy is updated"
     },
     "guideAlertHelp": {
-        "message": ""
+        "message": ": Отобразить вверху баннер, уведомляющий о том, что доступна инди-вики. Он будет отображаться на страницах как Fandom, так и BreezeWiki."
     },
     "settingsLangES": {
         "message": "[ES] Испанский / Español",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, ES should be \"[ES] Spanish / Español\" in English, but just \"[ES] Español\" in Spanish."
     },
     "guideTogglePerSearchEngineHelp2": {
-        "message": ""
+        "message": "В настоящее время поддерживаются следующие поисковые системы: Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! и Яндекс."
     },
     "settingsFunStatsSearchFilters": {
-        "message": "",
+        "message": "Отфильтровано результатов поисковых систем: $hide$",
         "description": "Number of non-indie search results hidden",
         "placeholders": {
             "hide": {
@@ -746,7 +746,7 @@
         }
     },
     "guideWikiHelpPara3": {
-        "message": ""
+        "message": "Второй набор радиокнопок управляет тем, что происходит с не инди-вики в Google, Bing, DuckDuckGo и других поисковых системах."
     },
     "popupBreezeWikiSeeSettingsLink": {
         "message": "Сменить, свой домен, на $linkStart$странице со всеми настройками$linkEnd$",
@@ -773,7 +773,7 @@
         "description": "Link to the wiki submission form"
     },
     "guideBreezeWikiRedirectHelp": {
-        "message": ""
+        "message": "При посещении любой вики Fandom на английском вы будете немедленно перенаправлены на BreezeWiki. Если включена автоматическая переадресация на независимую вики, приоритет будет отдан независимой вики."
     },
     "settingsLangLZH": {
         "message": "[LZH] Вэньянь / 文言",
@@ -784,14 +784,14 @@
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "guideAlert": {
-        "message": ""
+        "message": "Уведомить"
     },
     "settingsLangDE": {
         "message": "[DE] Немецкий / Deutsch",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
     },
     "guideHiddenResultsBannerHelp2": {
-        "message": ""
+        "message": "Если вы не хотите видеть никаких признаков того, что результаты были скрыты, отключите эту опцию."
     },
     "settingsLangJA": {
         "message": "[JA] Японский / 日本語",
@@ -806,7 +806,7 @@
         "description": "Text to display in the banner for the restore banner link"
     },
     "guideRedirect": {
-        "message": ""
+        "message": "Перенаправить"
     },
     "bannerVisit": {
         "message": "Посетить $destination$",
@@ -831,7 +831,7 @@
         "description": "Default behaviors section"
     },
     "guideBreezeWikiDisabledHelp": {
-        "message": ""
+        "message": "Не перенаправлять с Fandom на BreezeWiki."
     },
     "settingsWiki": {
         "message": "Собственные настройки вики",
@@ -870,6 +870,21 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
     },
     "guideWikiHelpPara1": {
-        "message": ""
+        "message": "В разделе индивидуальных настроек вы можете настроить параметры для каждой вики. Вы можете обратиться к легенде или навести курсор на значки, чтобы узнать, чем управляет каждый столбец."
+    },
+    "settingsLangTR": {
+        "message": "[TR] Турецкий / Türkçe"
+    },
+    "settingsLangNL": {
+        "message": "[NL] Голландский / Nederlands"
+    },
+    "settingsDisabledFor": {
+        "message": "Ничего не делать с $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
     }
 }
