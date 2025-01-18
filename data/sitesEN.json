@@ -4917,7 +4917,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "icaruspedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index..php",
+    "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
   },
   {
