@@ -256,7 +256,7 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
   let newURL = '';
 
   // If the article is the main page (or missing), redirect to the indie wiki's main page
-  if ((!originArticle) || (decodeURIComponent(originArticle) === matchingSite['origin_main_page'])) {
+  if ((!originArticle) || (decodeURIComponent(originArticle).toLowerCase() === matchingSite['origin_main_page'].toLowerCase())) {
     const mainPageArticle = encodeArticleTitle(matchingSite['destination_main_page']);
     newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_content_path"] + mainPageArticle + matchingSite['destination_content_suffix'];
     return newURL;
