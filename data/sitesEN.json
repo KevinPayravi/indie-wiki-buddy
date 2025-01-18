@@ -8218,6 +8218,31 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-starfox",
+    "origins_label": "Star Fox Fandom & Neoseeker Wikis",
+    "origins": [
+      {
+        "origin": "Arwingpedia",
+        "origin_base_url": "starfox.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Star Fox Wiki - Neoseeker",
+        "origin_base_url": "starfox.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Lylat Wiki",
+    "destination_base_url": "starfoxwiki.info",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lylatwiki.png",
+    "destination_main_page": "Lylat_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-starfy",
     "origins_label": "Starfy Fandom Wiki",
     "origins": [
