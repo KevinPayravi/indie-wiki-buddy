@@ -4896,6 +4896,31 @@
     ]
   },
   {
+    "id": "en-kidicarus",
+    "origins_label": "Kid Icarus Fandom & Neoseeker Wikis",
+    "origins": [
+      {
+        "origin": "Divinipedia",
+        "origin_base_url": "kidicarus.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Divinipedia"
+      },
+      {
+        "origin": "Kid Icarus Wiki - Neoseeker",
+        "origin_base_url": "kidicarus.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Icaruspedia",
+    "destination_base_url": "www.kidicaruswiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "icaruspedia.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
     "id": "en-kingdomhearts",
     "origins_label": "Kingdom Hearts Fandom & Neoseeker Wikis",
     "origins": [
