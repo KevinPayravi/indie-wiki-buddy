@@ -1388,6 +1388,25 @@
     ]
   },
   {
+    "id": "en-boxboy",
+    "origins_label": "BOXBOY WIKI!",
+    "origins": [
+      {
+        "origin": "BOXBOY WIKI!",
+        "origin_base_url": "boxboy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "BOXBOY_WIKI!"
+      }
+    ],
+    "destination": "BOXBOY WIKI!",
+    "destination_base_url": "boxboy.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "boxboywiki.png",
+    "destination_content_path": "/w/",
+    "destination_search_path": "/mw/index.php",
+    "destination_main_page": "BOXBOY_WIKI!"
+  },
+  {
     "id": "en-braingirl",
     "origins_label": "Braingirl Fandom Wiki",
     "origins": [
@@ -3033,6 +3052,32 @@
     ]
   },
   {
+    "id": "en-eldenring",
+    "origins_label": "Elden Ring Fandom & Fextralife Wikis",
+    "origins": [
+      {
+        "origin": "Elden Ring Fandom Wiki",
+        "origin_base_url": "eldenring.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Elden_Ring_Wiki"
+      },
+      {
+        "origin": "Elden Ring Fextralife Wiki",
+        "origin_base_url": "eldenring.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Elden Ring Wiki"
+      }
+    ],
+    "destination": "Eldenpedia",
+    "destination_base_url": "eldenring.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "eldenring.png",
+    "destination_main_page": "Eldenpedia",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-elderscrolls",
     "origins_label": "Elder Scrolls Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
@@ -3097,32 +3142,6 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
-  },
-  {
-    "id": "en-eldenring",
-    "origins_label": "Elden Ring Fandom & Fextralife Wikis",
-    "origins": [
-      {
-        "origin": "Elden Ring Fandom Wiki",
-        "origin_base_url": "eldenring.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Elden_Ring_Wiki"
-      },
-      {
-        "origin": "Elden Ring Fextralife Wiki",
-        "origin_base_url": "eldenring.wiki.fextralife.com",
-        "origin_content_path": "/",
-        "origin_main_page": "Elden Ring Wiki"
-      }
-    ],
-    "destination": "Eldenpedia",
-    "destination_base_url": "eldenring.wiki.gg",
-    "destination_platform": "mediawiki",
-    "destination_icon": "eldenring.png",
-    "destination_main_page": "Eldenpedia",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/",
-    "destination_host": "wiki.gg"
   },
   {
     "id": "en-emberknights",
@@ -3898,6 +3917,26 @@
     "destination_content_path": "/index.php/"
   },
   {
+    "id": "en-gettotheorangedoor",
+    "origins_label": "Get To The Orange Door Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Get To The Orange Door Fandom Wiki",
+        "origin_base_url": "gttod.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Get_To_The_Orange_Door_Wiki"
+      }
+    ],
+    "destination": "GTTOD Wiki",
+    "destination_base_url": "gttod.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gttodwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Get_To_The_Orange_Door_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-gex",
     "origins_label": "Gex Fandom Wiki",
     "origins": [
@@ -4143,26 +4182,6 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "ShoutWiki"
-  },
-  {
-    "id": "en-gettotheorangedoor",
-    "origins_label": "Get To The Orange Door Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Get To The Orange Door Fandom Wiki",
-        "origin_base_url": "gttod.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Get_To_The_Orange_Door_Wiki"
-      }
-    ],
-    "destination": "GTTOD Wiki",
-    "destination_base_url": "gttod.wiki.gg",
-    "destination_platform": "mediawiki",
-    "destination_icon": "gttodwiki.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/index.php",
-    "destination_main_page": "Get_To_The_Orange_Door_Wiki",
-    "destination_host": "wiki.gg"
   },
   {
     "id": "en-guildwars",
@@ -9775,6 +9794,52 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-vyletpony",
+    "origins_label": "Vylet Pony Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Vylet Pony Fandom Wiki",
+        "origin_base_url": "vylet-pony.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Vylet_Pony_Wiki"
+      }
+    ],
+    "destination": "Vylet Pony Wiki",
+    "destination_base_url": "vylet.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "vyletponywiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Vylet_Pony_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-wakfu",
+    "origins_label": "Wakfu Fandom & Neoseeker Wikis",
+    "origins": [
+      {
+        "origin": "Wakfu Fandom Wiki",
+        "origin_base_url": "wakfu.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wakfu_Wiki"
+      },
+      {
+        "origin": "Wakfu Neoseeker Wiki",
+        "origin_base_url": "wakfu.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Wakfu Wiki",
+    "destination_base_url": "wakfu.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wakfuwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Wakfu_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-warcraft",
     "origins_label": "Warcraft Fandom & Neoseeker Wikis",
     "origins": [
@@ -9981,6 +10046,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-windowkill",
+    "origins_label": "Windowkill Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Windowkill Fandom Wiki",
+        "origin_base_url": "windowkill.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Windowkill_Wiki"
+      }
+    ],
+    "destination": "Windowkill Wiki",
+    "destination_base_url": "windowkill.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "windowkillwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Windowkill_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-witchfire",
