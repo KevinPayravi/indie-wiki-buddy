@@ -10305,7 +10305,7 @@
   },
   {
     "id": "en-yiik",
-    "origins_label": "OMISM1999",
+    "origins_label": "YIIK: A Post-Modern RPG Fandom Wiki",
     "origins": [
       {
         "origin": "YIIK: A Post-Modern RPG Fandom Wiki",
@@ -10314,7 +10314,7 @@
         "origin_main_page": "YIIK:_A_Post-Modern_RPG_Wiki"
       }
     ],
-    "destination": "ONISM1999",
+    "destination": "ONISM1999 (YIIK Wiki)",
     "destination_base_url": "onism1999.com",
     "destination_platform": "mediawiki",
     "destination_icon": "onism1999wiki.png",
