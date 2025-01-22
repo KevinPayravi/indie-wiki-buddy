@@ -211,7 +211,7 @@
     "tags": [
       "official"
     ]
-  }
+  },
   {
     "id": "zh-touhou",
     "origins_label": "Touhou Fandom Wiki",
@@ -230,5 +230,5 @@
     "destination_main_page": "東方維基",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
-  },
+  }
 ]
