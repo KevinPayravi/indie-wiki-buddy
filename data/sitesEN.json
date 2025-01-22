@@ -10304,6 +10304,25 @@
     "destination_content_path": "/wiki/index.php/"
   },
   {
+    "id": "en-yiik",
+    "origins_label": "YIIK: A Post-Modern RPG Fandom Wiki",
+    "origins": [
+      {
+        "origin": "YIIK: A Post-Modern RPG Fandom Wiki",
+        "origin_base_url": "yiikapostmodernrpg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "YIIK:_A_Post-Modern_RPG_Wiki"
+      }
+    ],
+    "destination": "ONISM1999 (YIIK Wiki)",
+    "destination_base_url": "onism1999.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "onism1999wiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-yugioh",
     "origins_label": "Yu-Gi-Oh! Fandom & Neoseeker Wikis",
     "origins": [
