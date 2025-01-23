@@ -258,6 +258,25 @@
     "destination_content_path": "/index.php/"
   },
   {
+    "id": "de-touhou",
+    "origins_label": "Touhou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Touhou Fandom Wiki",
+        "origin_base_url": "touhou.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Touhou_Wiki"
+      }
+    ],
+    "destination": "Touhou Wiki",
+    "destination_base_url": "de.touhouwiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "touhouwiki.png",
+    "destination_main_page": "Touhou_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "de-zelda",
     "origins_label": "Zeldapedia",
     "origins": [
