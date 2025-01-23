@@ -407,6 +407,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-animalroyale",
+    "origins_label": "Super Animal Royale Wiki",
+    "origins": [
+      {
+        "origin": "Super Animal Royale Wiki",
+        "origin_base_url": "animalroyale.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Super_Animal_Royale_Wiki"
+      }
+    ],
+    "destination": "Super Animal Royale Wiki",
+    "destination_base_url": "wiki.animalroyale.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "animalroyalewiki.png",
+    "destination_main_page": "Super_Animal_Royale_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-animalwell",
     "origins_label": "Animal Well Fandom Wiki",
     "origins": [
