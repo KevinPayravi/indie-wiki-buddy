@@ -24,6 +24,21 @@
   --header-padding: .5em 1em;
   --default-icon-size: 18px;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base-color-primary: #252728;
+    --base-color-primary-dark: #1d1d1d;
+    --base-color-secondary: #1e1e1e;
+    --base-color-outline-light: #444;
+    --base-color-outline-dark: #ddd;
+    --text-color-primary: #fff;
+    --text-link-color: #89c4ff;
+    --primary-color: #012540;
+    --secondary-color: #334553;
+    --accent-color: #03dac6;
+    --accent-color-dark: #018786;
+  }
+}
 
 /* ELEMENTS */
 body {
