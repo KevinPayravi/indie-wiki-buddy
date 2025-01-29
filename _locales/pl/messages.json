@@ -880,5 +880,8 @@
                 "example": "Minecraft Fandom Wiki"
             }
         }
+    },
+    "settingsLangTR": {
+        "message": "[TR] Turecki / Türkçe"
     }
 }
