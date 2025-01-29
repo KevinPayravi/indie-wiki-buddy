@@ -424,7 +424,10 @@
     "destination_main_page": "Super_Animal_Royale_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "Miraheze"
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-animalwell",
