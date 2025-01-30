@@ -1,1 +1,20 @@
-{}
+{
+    "bannerDescriptorWiki": {
+        "message": "‎"
+    },
+    "bannerLanguageEnglish": {
+        "message": "lon toki Inli"
+    },
+    "bannerVisit": {
+        "message": "o tawa $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerBreezeWiki": {
+        "message": "o lukin e lipu Panto ni kepeken ilo pona WikiKon"
+    }
+}
