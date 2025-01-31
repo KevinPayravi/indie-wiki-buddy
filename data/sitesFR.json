@@ -120,6 +120,45 @@
     "destination_content_path": "/index.php?title="
   },
   {
+    "id": "fr-gundam",
+    "origins_label": "Gundam Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Gundam Fandom Wiki",
+        "origin_base_url": "gundam.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Gundam"
+      }
+    ],
+    "destination": "Wiki Gundam FR",
+    "destination_base_url": "gundamfr.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikigundamfr.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Wiki_Gundam_FR",
+    "destination_host": "Miraheze"
+  },
+  {
+    "id": "fr-halo",
+    "origins_label": "Halopedia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Halopedia Fandom Wiki",
+        "origin_base_url": "halo.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Halo_Nation"
+      }
+    ],
+    "destination": "WikiHalo",
+    "destination_base_url": "wiki.halo.fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikihalo.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Accueil"
+  },
+  {
     "id": "fr-lethalcompany",
     "origins_label": "Lethal Company Fandom Wiki",
     "origins": [
@@ -183,6 +222,29 @@
     "destination_main_page": "Portail:Accueil",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "fr-satisfactory",
+    "origins_label": "Satisfactory Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Satisfactory Fandom Wiki",
+        "origin_base_url": "satisfactory.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Satisfactory_Wiki"
+      }
+    ],
+    "destination": "Satisfactory Wiki",
+    "destination_base_url": "satisfactory.wiki.gg/fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "satisfactorywiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Satisfactory_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "fr-splatoon",
