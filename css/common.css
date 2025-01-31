@@ -40,7 +40,13 @@
     --accent-color: #03dac6;
     --accent-color-dark: #018786;
   }
-  fieldset label img, fieldset img, #toggles #togglesKeys button {
+  
+  :root hr {
+    color: var(--secondary-color);
+    background-color: var(--secondary-color);
+  }
+
+  :root img.dark-invert, :root #toggles #togglesKeys button {
     filter: invert(1);
   }
 }
