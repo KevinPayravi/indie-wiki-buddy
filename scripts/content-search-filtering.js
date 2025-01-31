@@ -31,6 +31,9 @@ function addDOMChangeObserver(callback) {
   const domObserver = new MutationObserver(callback);
   domObserver.observe(document.documentElement, {
     childList: true,
+    attributes: true,
+    attributeOldValue: true,
+    characterData: false,
     subtree: true
   });
 }
@@ -118,7 +121,13 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
 
     enableResultButton.addEventListener('click', e => {
       const target = /** @type {HTMLDivElement} */ (e.target);
-      target.closest('.iwb-disavow')?.classList.remove('iwb-disavow');
+      const container = target.closest('.iwb-disavow');
+
+      if (container instanceof HTMLElement) {
+        container.dataset.iwbUserAction = 'true';
+        container.classList.remove('iwb-disavow');
+      }
+
       target.classList.add('iwb-hide');
     });
 
@@ -246,16 +255,22 @@ function mountSearchBanner(wikiInfo) {
         hiddenWikisRevealed[elementId] = true;
         const selector = e.currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
-          el.classList.remove('iwb-hide');
-          el.classList.add('iwb-show');
+          if (el instanceof HTMLElement) {
+            el.dataset.iwbUserAction = 'true';
+            el.classList.remove('iwb-hide');
+            el.classList.add('iwb-show');
+          }
         });
       } else {
         e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
         hiddenWikisRevealed[elementId] = false;
         const selector = e.currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
-          el.classList.remove('iwb-show');
-          el.classList.add('iwb-hide');
+          if (el instanceof HTMLElement) {
+            el.dataset.iwbUserAction = 'true';
+            el.classList.remove('iwb-show');
+            el.classList.add('iwb-hide');
+          }
         });
       }
     };
@@ -275,8 +290,12 @@ function hideSearchResults(searchResultContainer, wikiInfo, bannerState = 'on') 
   let elementId = stringToId(wikiInfo.language + '-' + wikiInfo.origin);
   searchResultContainer.classList.add('iwb-search-result-' + elementId);
   const revealed = hiddenWikisRevealed[elementId] ?? false;
-  searchResultContainer.classList.toggle('iwb-hide', !revealed);
-  searchResultContainer.classList.toggle('iwb-show', revealed);
+
+  if (searchResultContainer instanceof HTMLElement) {
+    searchResultContainer.dataset.iwbUserAction = 'true';
+    searchResultContainer.classList.toggle('iwb-hide', !revealed);
+    searchResultContainer.classList.toggle('iwb-show', revealed);
+  }
 
   if (bannerState === 'on') {
     mountSearchBanner(wikiInfo);
@@ -644,7 +663,7 @@ function filterAnchors(newAnchors) {
                   searchResult.setAttribute('data-iwb-href', decodedLink);
                 }
               } catch (e) {
-                console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+                console.error('Indie Wiki Buddy failed to parse Bing link with error: ', e);
               }
             }
           }
@@ -774,17 +793,51 @@ function checkRevalidate() {
  */
 function filterMutations(mutations, observer) {
   // Check if *any* content has loaded (since we run at document start)
-  if (document.body == undefined || mutations == undefined) return;
+  if (!document.body || !mutations) return;
   checkRevalidate();
 
+  // Check for newly added anchors and filter them
   const addedSubtrees = mutations.flatMap(mutation => Array.from(mutation.addedNodes));
   const newAnchors = /** @type {HTMLAnchorElement[]} */ (addedSubtrees
     .filter(node => node instanceof HTMLElement)
     // @ts-ignore: node is always of type HTMLElement
     .flatMap(node => isAnchor(node) ? node : Array.from(node.querySelectorAll('a')))
   );
+  if (newAnchors.length) {
+    filterAnchors(newAnchors);
+  }
 
-  filterAnchors(newAnchors);
+  // Check for attribute changes where IWB classes might have been removed
+  for (const mutation of mutations) {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      const oldClassValue = mutation.oldValue;
+      if (!oldClassValue) return;
+    
+      const target = /** @type {HTMLElement} */ (mutation.target);
+    
+      const oldClasses = oldClassValue.split(/\s+/);
+      const newClasses = target.className.split(/\s+/);
+    
+      const oldIwbClasses = oldClasses.filter(cls => cls.startsWith('iwb-'));
+      const removedIwbClasses = oldIwbClasses.filter(cls => !newClasses.includes(cls));
+    
+      // Re-add any removed iwb- classes, unless it was a user action
+      if (!target.dataset.iwbUserAction) {
+        for (const removedClass of removedIwbClasses) {
+          console.debug(`IWB: ${removedClass} class was removed unexpectedly. Restoring...`);
+          target.classList.add(removedClass);
+        }
+      }
+    }
+  }
+
+  // Remove instances of user action attribute
+  const userActionElements = document.querySelectorAll('[data-iwb-user-action]');
+  for (const el of userActionElements) {
+    if (el instanceof HTMLElement) {
+      delete el.dataset.iwbUserAction;
+    }
+  }
 }
 
 /**
