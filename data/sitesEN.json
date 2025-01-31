@@ -3230,6 +3230,29 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-empireofsin",
+    "origins_label": "Empire of Sin Fandom Wiki",
+    "origins": [
+      {
+        "origin": "EmpireOfSin Fandom Wiki",
+        "origin_base_url": "empireofsin.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "EmpireOfSin_Wiki"
+      }
+    ],
+    "destination": "Empire of Sin Wiki",
+    "destination_base_url": "eos.paradoxwikis.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "empireofsin.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Empire_of_Sin_Wiki",
+    "destination_host": "Paradox",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-empiresoftheundergrowth",
     "origins_label": "Empires of the Undergrowth Fandom Wiki",
     "origins": [
@@ -3270,6 +3293,26 @@
     "destination_main_page": "ENA_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-enshrouded",
+    "origins_label": "Enshrouded Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Enshrouded Fandom Wiki",
+        "origin_base_url": "enshrouded.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Enshrouded_Wiki"
+      }
+    ],
+    "destination": "Enshrouded Wiki",
+    "destination_base_url": "enshrouded.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "enshroudedwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page",
     "destination_host": "wiki.gg"
   },
   {
@@ -4574,6 +4617,25 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-horizonxi",
+    "origins_label": "HorizonXI Fandom Wiki",
+    "origins": [
+      {
+        "origin": "HorizonXI Fandom Wiki",
+        "origin_base_url": "horizonxi.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "HorizonXI_Wiki"
+      }
+    ],
+    "destination": "HorizonXI Wiki",
+    "destination_base_url": "horizonffxi.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "horizonxiwiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "HorizonXI_Wiki"
   },
   {
     "id": "en-horticular",
@@ -8190,6 +8252,26 @@
     ]
   },
   {
+    "id": "en-sonny",
+    "origins_label": "Sonny Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sonny Fandom Wiki",
+        "origin_base_url": "sonny.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sonny_Wiki"
+      }
+    ],
+    "destination": "Sonny Wiki",
+    "destination_base_url": "sonny.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sonnywiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Sonny_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-sonsoftheforest",
     "origins_label": "Sons of the Forest Fandom Wiki",
     "origins": [
@@ -9481,6 +9563,25 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-treasureadventureworld",
+    "origins_label": "Treasure Adventure Game Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Treasure Adventure Game Fandom Wiki",
+        "origin_base_url": "treasureadventuregame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Treasure_Adventure_Game_Wiki"
+      }
+    ],
+    "destination": "Treasure Adventure World Wiki",
+    "destination_base_url": "treasureadventurewiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "treasureadventureworldwiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_main_page": "Treasure_Adventure_Wiki"
   },
   {
     "id": "en-trucksimulator",
