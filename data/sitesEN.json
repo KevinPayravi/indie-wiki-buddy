@@ -325,7 +325,7 @@
   },
   {
     "id": "en-android",
-    "origins_label": "Android Wiki",
+    "origins_label": "Android Fandom Wiki",
     "origins": [
       {
         "origin": "Android Fandom Wiki",
@@ -1412,10 +1412,10 @@
   },
   {
     "id": "en-boxboy",
-    "origins_label": "BOXBOY WIKI!",
+    "origins_label": "BOXBOY! Fandom Wiki",
     "origins": [
       {
-        "origin": "BOXBOY WIKI!",
+        "origin": "BOXBOY! Fandom Wiki",
         "origin_base_url": "boxboy.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "BOXBOY_WIKI!"
