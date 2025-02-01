@@ -408,10 +408,10 @@
   },
   {
     "id": "en-animalroyale",
-    "origins_label": "Super Animal Royale Wiki",
+    "origins_label": "Super Animal Royale Fandom Wiki",
     "origins": [
       {
-        "origin": "Super Animal Royale Wiki",
+        "origin": "Super Animal Royale Fandom Wiki",
         "origin_base_url": "animalroyale.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Super_Animal_Royale_Wiki"
@@ -6827,8 +6827,8 @@
     "destination": "PCSX2 Wiki",
     "destination_base_url": "wiki.pcsx2.net",
     "destination_platform": "mediawiki",
-    "destination_icon": null,
-    "destination_content_path": null,
+    "destination_icon": "pcsx2.png",
+    "destination_content_path": "/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Main_Page"
   },
