@@ -6231,7 +6231,7 @@
     "destination_icon": "mtgwiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/page/",
+    "destination_content_path": "/page/"
   },
   {
     "id": "en-multiversus",
