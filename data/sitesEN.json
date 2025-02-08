@@ -6169,28 +6169,6 @@
     "destination_host": "wiki.gg"
   },
   {
-    "id": "en-minetest",
-    "origins_label": "Minetest Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Minetest Fandom Wiki",
-        "origin_base_url": "minetest.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Minetest_Wiki"
-      }
-    ],
-    "destination": "Minetest Wiki",
-    "destination_base_url": "wiki.minetest.net",
-    "destination_platform": "mediawiki",
-    "destination_icon": "minetestwiki.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/",
-    "tags": [
-      "official"
-    ]
-  },
-  {
     "id": "en-minicraft",
     "origins_label": "Minicraft Fandom Wiki",
     "origins": [
