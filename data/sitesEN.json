@@ -2804,6 +2804,9 @@
     "destination_content_path": "/wiki/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Dovedale_Wiki"
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-dragalialost",
@@ -6559,6 +6562,27 @@
     "destination_search_path": "/w/index.php",
     "destination_main_page": "Main_Page"
   },
+    {
+    "id": "en-oaklandsrblx",
+    "origins_label": "Oaklands Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Oaklands Fandom Wiki",
+        "origin_base_url": "oaklands.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Oaklands_Wiki"
+      }
+    ],
+    "destination": "Oaklands Wiki",
+    "destination_base_url": "oaklandsrblxwiki.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nucleartechwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+    "destination_host": "Miraheze",
+  },
+  
   {
     "id": "en-obeyme",
     "origins_label": "Obey Me! Fandom Wiki",
