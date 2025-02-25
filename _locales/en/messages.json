@@ -8,7 +8,7 @@
     "description": "The description of the extension"
   },
   "bannerText": {
-    "message": "There is $descriptor$ wiki $host$ covering this topic $language$!",
+    "message": "There is $descriptor$ wiki $host$ covering this topic $language$",
     "description": "Text to display in the banner for the indie wiki link",
     "placeholders": {
       "descriptor": {
@@ -428,6 +428,10 @@
     "message": "[LZH] Classical Chinese / 文言",
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, LZH should be \"[LZH] Classical Chinese / 文言\" in English, but just \"[LZH] 文言\" in Classical Chinese."
   },
+  "settingsLangNL": {
+    "message": "[NL] Dutch / Nederlands",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, NL should be \"[NL] Dutch / Nederlands\" in English, but just \"[NL] Nederlands\" in Dutch."
+  },
   "settingsLangPL": {
     "message": "[PL] Polish / Polski",
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, PL should be \"[PL] Polish / Polski\" in English, but just \"[PL] Polski\" in Polish."
@@ -450,7 +454,11 @@
   },
   "settingsLangTOK": {
     "message": "[TOK] Toki Pona / toki pona",
-    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOK should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."
+  },
+  "settingsLangTR": {
+    "message": "[TR] Turkish / Türkçe",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TR should be \"[TR] Turkish / Türkçe\" in English, but just \"[TR] Türkçe\" in Turkish."
   },
   "settingsLangUK": {
     "message": "[UK] Ukrainian / Українська",

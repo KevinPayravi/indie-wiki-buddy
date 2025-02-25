@@ -1,6 +1,6 @@
 {
   "name": "__MSG_extensionName__",
-  "version": "3.10.1",
+  "version": "3.13.1",
   "description": "__MSG_extensionDescription__",
   "permissions": [
     "storage",
@@ -40,12 +40,14 @@
         "data/sitesJA.json",
         "data/sitesKO.json",
         "data/sitesLZH.json",
+        "data/sitesNL.json",
         "data/sitesPL.json",
         "data/sitesPT.json",
         "data/sitesRU.json",
         "data/sitesSV.json",
         "data/sitesTH.json",
         "data/sitesTOK.json",
+        "data/sitesTR.json",
         "data/sitesUK.json",
         "data/sitesZH.json"
       ],
@@ -377,7 +379,9 @@
   "options_ui": {
     "page": "pages/settings/index.html"
   },
-  "optional_host_permissions": ["https://*/*"],
+  "optional_host_permissions": [
+    "https://*/*"
+  ],
   "minimum_chrome_version": "88",
   "manifest_version": 3
 }

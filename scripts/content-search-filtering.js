@@ -31,6 +31,9 @@ function addDOMChangeObserver(callback) {
   const domObserver = new MutationObserver(callback);
   domObserver.observe(document.documentElement, {
     childList: true,
+    attributes: true,
+    attributeOldValue: true,
+    characterData: false,
     subtree: true
   });
 }
@@ -118,7 +121,13 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
 
     enableResultButton.addEventListener('click', e => {
       const target = /** @type {HTMLDivElement} */ (e.target);
-      target.closest('.iwb-disavow')?.classList.remove('iwb-disavow');
+      const container = target.closest('.iwb-disavow');
+
+      if (container instanceof HTMLElement) {
+        container.dataset.iwbUserAction = 'true';
+        container.classList.remove('iwb-disavow');
+      }
+
       target.classList.add('iwb-hide');
     });
 
@@ -137,64 +146,64 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
  */
 function mountToTopOfSearchResults(element) {
   switch (searchEngine) {
-      case 'google':
-        if (document.querySelector('#search')) {
-          document.querySelector('#search')?.prepend(element);
-        } else if (document.querySelector('#topstuff')) {
-          document.querySelector('#topstuff')?.prepend(element);
-        } else if (document.querySelector('#main')) {
-          document.querySelector('#main > div:nth-of-type(2)')?.insertAdjacentElement('beforebegin', element);
-        }
-        break;
-      case 'bing':
+    case 'google':
+      if (document.querySelector('#search')) {
+        document.querySelector('#search')?.prepend(element);
+      } else if (document.querySelector('#topstuff')) {
+        document.querySelector('#topstuff')?.prepend(element);
+      } else if (document.querySelector('#main')) {
+        document.querySelector('#main > div:nth-of-type(2)')?.insertAdjacentElement('beforebegin', element);
+      }
+      break;
+    case 'bing':
+      var li = document.createElement('li');
+      li.appendChild(element);
+      document.querySelector('#b_results')?.prepend(li);
+      break;
+    case 'duckduckgo':
+      if (document.getElementById('web_content_wrapper')) {
         var li = document.createElement('li');
         li.appendChild(element);
-        document.querySelector('#b_results')?.prepend(li);
-        break;
-      case 'duckduckgo':
-        if (document.getElementById('web_content_wrapper')) {
-          var li = document.createElement('li');
-          li.appendChild(element);
-          document.querySelector('#web_content_wrapper ol')?.prepend(li);
-        } else {
-          document.getElementById('links')?.prepend(element);
-        }
-        break;
-      case 'brave':
-        document.getElementById('results')?.prepend(element);
-        break;
-      case 'ecosia':
-        document.querySelector('section.mainline')?.prepend(element);
-        break;
-      case 'qwant':
-        document.querySelector('div[data-testid=sectionWeb]')?.prepend(element);
-        break;
-      case 'startpage':
-        document.querySelector('#main')?.prepend(element);
-        break;
-      case 'yandex':
-        var searchResultsContainer = document.querySelector('#search-result') || document.querySelector('.main__content .content');
-        searchResultsContainer?.prepend(element);
-        break;
-      case 'yahoo':
-        if (document.querySelector('#web > ol')) {
-          var li = document.createElement('li');
-          li.appendChild(element);
-          document.querySelector('#web > ol')?.prepend(li);
-        } else {
-          document.querySelector('#main-algo')?.prepend(element);
-        }
-        break;
-      case 'kagi':
-        document.querySelector('#main')?.prepend(element);
-        break;
-      case 'searxng':
-        document.querySelector('#results')?.prepend(element);
-        break;
-      case 'whoogle':
-        document.querySelector('#main')?.prepend(element);
-        break;
-      default:
+        document.querySelector('#web_content_wrapper ol')?.prepend(li);
+      } else {
+        document.getElementById('links')?.prepend(element);
+      }
+      break;
+    case 'brave':
+      document.getElementById('results')?.prepend(element);
+      break;
+    case 'ecosia':
+      document.querySelector('section.mainline')?.prepend(element);
+      break;
+    case 'qwant':
+      document.querySelector('div[data-testid=sectionWeb]')?.prepend(element);
+      break;
+    case 'startpage':
+      document.querySelector('#main')?.prepend(element);
+      break;
+    case 'yandex':
+      var searchResultsContainer = document.querySelector('#search-result') || document.querySelector('.main__content .content');
+      searchResultsContainer?.prepend(element);
+      break;
+    case 'yahoo':
+      if (document.querySelector('#web > ol')) {
+        var li = document.createElement('li');
+        li.appendChild(element);
+        document.querySelector('#web > ol')?.prepend(li);
+      } else {
+        document.querySelector('#main-algo')?.prepend(element);
+      }
+      break;
+    case 'kagi':
+      document.querySelector('#main')?.prepend(element);
+      break;
+    case 'searxng':
+      document.querySelector('#results')?.prepend(element);
+      break;
+    case 'whoogle':
+      document.querySelector('#main')?.prepend(element);
+      break;
+    default:
   }
 
   // Return whether element was successfully mounted
@@ -246,16 +255,22 @@ function mountSearchBanner(wikiInfo) {
         hiddenWikisRevealed[elementId] = true;
         const selector = e.currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
-          el.classList.remove('iwb-hide');
-          el.classList.add('iwb-show');
+          if (el instanceof HTMLElement) {
+            el.dataset.iwbUserAction = 'true';
+            el.classList.remove('iwb-hide');
+            el.classList.add('iwb-show');
+          }
         });
       } else {
         e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
         hiddenWikisRevealed[elementId] = false;
         const selector = e.currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
-          el.classList.remove('iwb-show');
-          el.classList.add('iwb-hide');
+          if (el instanceof HTMLElement) {
+            el.dataset.iwbUserAction = 'true';
+            el.classList.remove('iwb-show');
+            el.classList.add('iwb-hide');
+          }
         });
       }
     };
@@ -275,8 +290,12 @@ function hideSearchResults(searchResultContainer, wikiInfo, bannerState = 'on') 
   let elementId = stringToId(wikiInfo.language + '-' + wikiInfo.origin);
   searchResultContainer.classList.add('iwb-search-result-' + elementId);
   const revealed = hiddenWikisRevealed[elementId] ?? false;
-  searchResultContainer.classList.toggle('iwb-hide', !revealed);
-  searchResultContainer.classList.toggle('iwb-show', revealed);
+
+  if (searchResultContainer instanceof HTMLElement) {
+    searchResultContainer.dataset.iwbUserAction = 'true';
+    searchResultContainer.classList.toggle('iwb-hide', !revealed);
+    searchResultContainer.classList.toggle('iwb-show', revealed);
+  }
 
   if (bannerState === 'on') {
     mountSearchBanner(wikiInfo);
@@ -385,45 +404,60 @@ function getResultContainer(searchEngine, searchResult) {
 }
 
 /**
- * @param {SiteData} wikiInfo
- * @param {HTMLAnchorElement} anchorElement
+ * Given a wiki ID, returns the corresponding search filter setting
+ * @param {string} wikiId
  */
-function filterSearchResult(wikiInfo, anchorElement) {
-  // Get user's settings for the wiki
-  let id = wikiInfo.id;
+function getSearchFilterSetting(wikiId) {
   let searchFilterSetting = 'replace';
-  let reorderResults = storage.reorderResults ?? 'on';
   let searchEngineSettings = storage.searchEngineSettings ?? {};
-  if (searchEngineSettings[id]) {
-    searchFilterSetting = searchEngineSettings[id];
+  if (searchEngineSettings[wikiId]) {
+    searchFilterSetting = searchEngineSettings[wikiId];
   } else if (storage.defaultSearchAction) {
     searchFilterSetting = storage.defaultSearchAction;
   }
 
+  return searchFilterSetting;
+}
+
+/**
+ * @param {SiteData} wikiInfo
+ * @param {HTMLAnchorElement} anchorElement
+ */
+function filterSearchResult(wikiInfo, anchorElement) {
   let countFiltered = 0;
 
-  // Get the containing element for the search result
-  let searchResultContainer = getResultContainer(searchEngine, anchorElement);
-  if (searchResultContainer) {
-    // If this page from Fandom is the same as a re-ordered page, filter it out
-    let searchResultLink = anchorElement.getAttribute('data-iwb-href') || anchorElement.href;
-    let originArticle = commonFunctionGetOriginArticle(searchResultLink, wikiInfo);
-    let destinationArticle = commonFunctionGetDestinationArticle(wikiInfo, originArticle);
+  if (getSearchFilterSetting(wikiInfo.id) !== 'disabled') {
+    // Get user's reorder settings
+    let reorderResults = storage.reorderResults ?? 'on';
 
-    if (reorderResults === 'on' && processedCache.find(({ url }) => url.match(
-      // Match for destination URL with content path and article name
-      new RegExp(
-        `http(s)?://${wikiInfo.destination_base_url}${wikiInfo.destination_content_path}${decodeURI(destinationArticle)}$`
-      )
-    ))) {
-      countFiltered += hideSearchResults(searchResultContainer, wikiInfo, 'off');
-      console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
-    } else if (searchFilterSetting !== 'disabled') {
-      if (searchFilterSetting === 'hide') {
-        // Else, if the user has the preference set to hide search results, hide it indiscriminately
-        countFiltered += hideSearchResults(searchResultContainer, wikiInfo, storage['hiddenResultsBanner']);
+    // Get the containing element for the search result
+    let searchResultContainer = getResultContainer(searchEngine, anchorElement);
+    if (searchResultContainer) {
+      // If this page from the non-indie wiki is the same as a re-ordered page, filter it out
+      let searchResultLink = anchorElement.getAttribute('data-iwb-href') || anchorElement.href;
+      let originArticle = commonFunctionGetOriginArticle(searchResultLink, wikiInfo);
+      let destinationArticle = commonFunctionGetDestinationArticle(wikiInfo, originArticle);
+
+      if (reorderResults === 'on' && ((processedCache.find(({ url }) => url.match(
+        // Match for destination URL with content path and article name
+        new RegExp(
+          `http(s)?://${wikiInfo.destination_base_url}${wikiInfo.destination_content_path}${decodeURI(destinationArticle)}$`
+        )
+      ))) || ((originArticle === wikiInfo.origin_main_page) && processedCache.find(({ url }) => url.match(
+        // Match for destination URL by main page, when applicable
+        new RegExp(
+          `http(s)?://${wikiInfo.destination_base_url}${wikiInfo.destination_content_path}${decodeURI(wikiInfo.destination_main_page)}$`
+        )
+      ))))) {
+        countFiltered += hideSearchResults(searchResultContainer, wikiInfo, 'off');
+        console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
       } else {
-        countFiltered += replaceSearchResult(searchResultContainer, wikiInfo, searchResultLink);
+        if (getSearchFilterSetting(wikiInfo.id) === 'hide') {
+          // Else, if the user has the preference set to hide search results, hide it indiscriminately
+          countFiltered += hideSearchResults(searchResultContainer, wikiInfo, storage['hiddenResultsBanner']);
+        } else {
+          countFiltered += replaceSearchResult(searchResultContainer, wikiInfo, searchResultLink);
+        }
       }
     }
   }
@@ -498,9 +532,11 @@ async function filterSearchResults(searchResults) {
           // Handle source -> destination filtering, i.e. non-indie/commercial wikis
           let matchingNonIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
           if (matchingNonIndieWiki) {
-            console.debug('Indie Wiki Buddy: Filtering search result:', searchResultLink);
             // Site found in db, process search result
+            console.debug('Indie Wiki Buddy: Filtering search result:', searchResultLink);
+
             countFiltered += filterSearchResult(matchingNonIndieWiki, searchResult);
+
             processedCache.push({
               url: searchResultLink,
               isNonIndie: true,
@@ -521,18 +557,22 @@ async function filterSearchResults(searchResults) {
                 anchor: searchResult,
               };
 
-              if ((storage.reorderResults ?? 'on') == 'on' && processedCache.at(-1)?.isNonIndie) {
-                console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
+              if (getSearchFilterSetting(matchingIndieWiki.id) !== 'disabled') {
+                if ((storage.reorderResults ?? 'on') == 'on' && processedCache.at(-1)?.isNonIndie) {
+                  console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
 
-                const index = processedCache.findIndex(({ isNonIndie }) => isNonIndie);
-                // push cacheInfo right before the first non-indie wiki
-                processedCache.splice(index, 0, cacheInfo);
-                // swap the elements upwards until the indie wiki is above the non-indie wiki
-                for (let i = processedCache.length - 1; i > index; i--) {
-                  const prev = processedCache[i];
-                  swapDOMElements(prev.container, searchResultContainer);
-                  // try re-filtering the element that was swapped
-                  countFiltered += filterSearchResult(prev.siteData, prev.anchor);
+                  const index = processedCache.findIndex(({ isNonIndie }) => isNonIndie);
+                  // push cacheInfo right before the first non-indie wiki
+                  processedCache.splice(index, 0, cacheInfo);
+                  // swap the elements upwards until the indie wiki is above the non-indie wiki
+                  for (let i = processedCache.length - 1; i > index; i--) {
+                    const prev = processedCache[i];
+                    swapDOMElements(prev.container, searchResultContainer);
+                    // try re-filtering the element that was swapped
+                    countFiltered += filterSearchResult(prev.siteData, prev.anchor);
+                  }
+                } else {
+                  processedCache.push(cacheInfo);
                 }
               } else {
                 processedCache.push(cacheInfo);
@@ -623,7 +663,7 @@ function filterAnchors(newAnchors) {
                   searchResult.setAttribute('data-iwb-href', decodedLink);
                 }
               } catch (e) {
-                console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+                console.error('Indie Wiki Buddy failed to parse Bing link with error: ', e);
               }
             }
           }
@@ -753,17 +793,51 @@ function checkRevalidate() {
  */
 function filterMutations(mutations, observer) {
   // Check if *any* content has loaded (since we run at document start)
-  if (document.body == undefined || mutations == undefined) return;
+  if (!document.body || !mutations) return;
   checkRevalidate();
 
+  // Check for newly added anchors and filter them
   const addedSubtrees = mutations.flatMap(mutation => Array.from(mutation.addedNodes));
   const newAnchors = /** @type {HTMLAnchorElement[]} */ (addedSubtrees
     .filter(node => node instanceof HTMLElement)
     // @ts-ignore: node is always of type HTMLElement
     .flatMap(node => isAnchor(node) ? node : Array.from(node.querySelectorAll('a')))
   );
+  if (newAnchors.length) {
+    filterAnchors(newAnchors);
+  }
 
-  filterAnchors(newAnchors);
+  // Check for attribute changes where IWB classes might have been removed
+  for (const mutation of mutations) {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      const oldClassValue = mutation.oldValue;
+      if (!oldClassValue) return;
+    
+      const target = /** @type {HTMLElement} */ (mutation.target);
+    
+      const oldClasses = oldClassValue.split(/\s+/);
+      const newClasses = target.className.split(/\s+/);
+    
+      const oldIwbClasses = oldClasses.filter(cls => cls.startsWith('iwb-'));
+      const removedIwbClasses = oldIwbClasses.filter(cls => !newClasses.includes(cls));
+    
+      // Re-add any removed iwb- classes, unless it was a user action
+      if (!target.dataset.iwbUserAction) {
+        for (const removedClass of removedIwbClasses) {
+          console.debug(`IWB: ${removedClass} class was removed unexpectedly. Restoring...`);
+          target.classList.add(removedClass);
+        }
+      }
+    }
+  }
+
+  // Remove instances of user action attribute
+  const userActionElements = document.querySelectorAll('[data-iwb-user-action]');
+  for (const el of userActionElements) {
+    if (el instanceof HTMLElement) {
+      delete el.dataset.iwbUserAction;
+    }
+  }
 }
 
 /**

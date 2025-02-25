@@ -62,6 +62,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "zh-doctorwho",
+    "origins_label": "Doctor Who Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Doctor Who Fandom Wiki",
+        "origin_base_url": "tardis.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Tardis"
+      }
+    ],
+    "destination": "Tardis Wiki",
+    "destination_base_url": "zh.tardis.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tardiswiki.png",
+    "destination_main_page": "Tardis百科",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
     "id": "zh-fridaynightfunkin",
     "origins_label": "Friday Night Funkin' Fandom Wiki",
     "origins": [
@@ -192,5 +211,24 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "zh-touhou",
+    "origins_label": "Touhou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Touhou Fandom Wiki",
+        "origin_base_url": "touhou.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "东方Project_Wiki"
+      }
+    ],
+    "destination": "Touhou Wiki",
+    "destination_base_url": "zh.touhouwiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "touhouwiki.png",
+    "destination_main_page": "東方維基",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   }
 ]
