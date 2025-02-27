@@ -56,7 +56,7 @@
         "description": "Prompt to re-enable a non-indie search result"
     },
     "searchFilteredResultsHide": {
-        "message": "Повторно приховати відфільтровані результати",
+        "message": "Знову приховати відфільтровані результати",
         "description": "Button to hide filtered search results"
     },
     "searchFilteredResultsShow": {
@@ -100,7 +100,7 @@
         "message": "Скористайтеся посиланнями вище, щоб переглянути повний посібник, подати нові вікі або зв'язатися з розробником."
     },
     "firstInstallInfo1": {
-        "message": "Дякуємо за встановлення Indie Wiki Buddy! Давайте налаштуємо."
+        "message": "Дякуємо, що ви встановили Indie Wiki Buddy! Починаймо."
     },
     "settingsGeneral": {
         "message": "Загальні налаштування",
@@ -521,7 +521,7 @@
         "description": "Button to return to the settings page"
     },
     "guideAlert": {
-        "message": "Замінити"
+        "message": "Попередження"
     },
     "settingsTitle": {
         "message": "Налаштування Indie Wiki Buddy",
@@ -561,7 +561,7 @@
         "description": "Explanation for the icons in search experience"
     },
     "searchRemovalNotice": {
-        "message": "Indie Wiki Buddy відфільтрував результати за запитом $destination$. Замість цього знайдено результати з $link$.",
+        "message": "Indie Wiki Buddy відфільтрував результати за запитом $destination$. Натомість знайдено результати з $link$.",
         "description": "Notice that some search results have been removed and a prompt to view them from an indie wiki",
         "placeholders": {
             "destination": {
@@ -599,7 +599,7 @@
         }
     },
     "searchResultLookupEnglish": {
-        "message": "Шукати $article$ на $destination$ (EN)",
+        "message": "Шукати $article$ y $destination$ (EN)",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki in English is available.",
         "placeholders": {
             "article": {
@@ -621,7 +621,7 @@
         "description": "Select for a BreezeWiki host"
     },
     "searchResultLookup": {
-        "message": "Шукати $article$ на $destination$",
+        "message": "Шукати $article$ y $destination$",
         "description": "Displayed for a search result to a non-indie wiki article when an indie wiki is available.",
         "placeholders": {
             "article": {
@@ -832,7 +832,7 @@
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
     "guideRedirect": {
-        "message": "Приховати"
+        "message": "Перенаправити"
     },
     "guideExtensionOnOffHelp": {
         "message": "Увімкає/вимикає всі функції Indie Wiki Buddy одним натисканням кнопки."
@@ -880,5 +880,11 @@
                 "example": "Minecraft Fandom Wiki"
             }
         }
+    },
+    "settingsLangNL": {
+        "message": "[NL] Нідерландська / Nederlands"
+    },
+    "settingsLangTR": {
+        "message": "[TR] Турецька / Türkçe"
     }
 }
