@@ -42,6 +42,25 @@
     "destination_search_path": "/index.php"
   },
   {
+    "id": "pl-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/pl",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Strona_główna"
+      }
+    ],
+    "destination": "Minecraft Wiki Polska",
+    "destination_base_url": "minewiki.pl",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraft.png",
+    "destination_main_page": "Strona_główna",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },  
+  {
     "id": "pl-rayman",
     "origins_label": "Rayman Fandom Wiki",
     "origins": [
