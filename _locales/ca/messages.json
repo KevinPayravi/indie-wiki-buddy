@@ -1,1 +1,53 @@
-{}
+{
+    "bannerHost": {
+        "message": "en $host$",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "bannerDescriptorIndependent": {
+        "message": "una independent"
+    },
+    "guideAlert": {
+        "message": "Alerta"
+    },
+    "guideHide": {
+        "message": "Amaga"
+    },
+    "guideReplace": {
+        "message": "Substituir"
+    },
+    "guideDisable": {
+        "message": "Desactivar"
+    },
+    "bannerLanguageEnglish": {
+        "message": "en anglès"
+    },
+    "extensionName": {
+        "message": "Indie Wiki Buddy"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "una oficial independent"
+    },
+    "bannerDescriptorWiki": {
+        "message": "una"
+    },
+    "bannerDescriptorOfficial": {
+        "message": "una oficial"
+    },
+    "bannerVisit": {
+        "message": "Visita $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "guideRedirect": {
+        "message": "Redirigir"
+    }
+}
