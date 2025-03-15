@@ -7628,6 +7628,32 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-ricochet",
+    "origins_label": "Ricochet Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Ricochet Universe Fandom Wiki",
+        "origin_base_url": "ricochet-universe.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ricochet_Universe_Wiki"
+      },
+      {
+        "origin": "Ricochet Lost Worlds Fandom Wiki",
+        "origin_base_url": "ricochetlw.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ricochet_Lost_Worlds_Wiki"
+      }
+    ],
+    "destination": "Ricochet Wiki",
+    "destination_base_url": "wiki.ricochetuniverse.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ricochet.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-riichimahjong",
     "origins_label": "Mahjong Fandom Wiki",
     "origins": [
