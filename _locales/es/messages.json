@@ -784,7 +784,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "oficialmente independiente",
+        "message": "independiente oficial",
         "description": "Descriptor used for an official independent wiki. See the bannerText message for more information."
     },
     "notificationMessageBreezeWiki": {
@@ -796,7 +796,7 @@
         "description": "Text to display in the banner after the banner has been restored"
     },
     "bannerBreezeWiki": {
-        "message": "Ver este wiki de Fandom a través de BreezeWiki",
+        "message": "Ver esta wiki de Fandom a través de BreezeWiki",
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "settingsSearchEngineFiltering": {
