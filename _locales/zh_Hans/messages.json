@@ -1,9 +1,9 @@
 {
     "extensionName": {
-        "message": "Indie Wiki Buddy"
+        "message": "独立百科全书伙伴"
     },
     "extensionDescription": {
-        "message": "Indie Wiki Buddy通过提示、重定向和搜索过滤，帮你找到高质量的独立百科站点。"
+        "message": "\"独立百科全书伙伴\"通过提示、重定向和搜索过滤，帮你找到高质量的独立百科站点。"
     },
     "bannerText": {
         "message": "此内容有$descriptor$$language$的$host$百科站点",
