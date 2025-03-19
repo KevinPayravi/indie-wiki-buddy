@@ -690,7 +690,7 @@
         "description": "Notification title for being redirected to BreezeWiki"
     },
     "extensionName": {
-        "message": "Indie Wiki Buddy",
+        "message": "インディーウィキバディ",
         "description": "The name of the extension"
     },
     "settingsHide": {
@@ -869,7 +869,7 @@
         "description": "Introduction paragraph of the general settings help"
     },
     "extensionDescription": {
-        "message": "Indie Wiki Buddyは検索フィルターやリダイレクト、通知を通して高クオリティの独立Wikiを発見しやすくします。",
+        "message": "\"インディーウィキバディ\"は検索フィルターやリダイレクト、通知を通して高クオリティの独立Wikiを発見しやすくします。",
         "description": "The description of the extension"
     },
     "settingsDisabledFor": {
