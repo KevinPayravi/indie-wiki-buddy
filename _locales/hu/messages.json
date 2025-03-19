@@ -452,7 +452,7 @@
         "description": "Notice that the extension is enabled"
     },
     "extensionName": {
-        "message": "",
+        "message": "Indie Wiki Buddy",
         "description": "The name of the extension"
     },
     "settingsWikiFrom": {
