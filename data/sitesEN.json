@@ -2889,28 +2889,28 @@
     "destination_content_path": "/"
   },
   {
-  "id": "en-dreamsphere",
-  "origins_label": "Dreamsphere Fandom Wiki",
-  "origins": [
-    {
-      "origin": "Dreamsphere Fandom Wiki",
-      "origin_base_url": "dreamsphere.fandom.com",
-      "origin_content_path": "/wiki/",
-      "origin_main_page": "Dreamsphere_Wiki"
-    }
-  ],
-  "destination": "Dreamsphere Wiki",
-  "destination_base_url": "dreamsphere.miraheze.org",
-  "destination_platform": "mediawiki",
-  "destination_icon": "dreamsphere.png",
-  "destination_main_page": "Main_Page",
-  "destination_search_path": "/w/index.php",
-  "destination_content_path": "/wiki/",
-  "destination_host": "Miraheze",
-  "tags": [
-    "official"
-  ]
-}
+    "id": "en-dreamsphere",
+    "origins_label": "Dreamsphere Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dreamsphere Fandom Wiki",
+        "origin_base_url": "dreamsphere.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dreamsphere_Wiki"
+      }
+    ],
+    "destination": "Dreamsphere Wiki",
+    "destination_base_url": "dreamsphere.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dreamsphere.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
+  },
   {
     "id": "en-dredge",
     "origins_label": "DREDGE Fandom Wiki",
