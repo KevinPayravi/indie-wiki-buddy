@@ -6625,7 +6625,7 @@
     "destination_main_page": "Main_Page"
   },
     {
-    "id": "en-oaklandsrblx",
+    "id": "en-oaklandsroblox",
     "origins_label": "Oaklands Fandom Wiki",
     "origins": [
       {
@@ -6638,11 +6638,11 @@
     "destination": "Oaklands Wiki",
     "destination_base_url": "oaklandsrblxwiki.miraheze.org",
     "destination_platform": "mediawiki",
-    "destination_icon": "OaklandsOIcon[1].png",
+    "destination_icon": "oaklandsroblox.png",
     "destination_content_path": "/wiki/",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Main_Page"
-    "destination_host": "Miraheze",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
   },
   
   {
