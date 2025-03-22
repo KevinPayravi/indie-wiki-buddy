@@ -4089,6 +4089,25 @@
     "destination_content_path": "/index.php/"
   },
   {
+    "id": "en-garn47",
+    "origins_label": "Garn47 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Garn47 Fandom Wiki",
+        "origin_base_url": "garn47.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Garn47_Wiki"
+      }
+    ],
+    "destination": "Garn47 Wiki",
+    "destination_base_url": "garn47.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "garn47wiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_host": "miraheze"
+  },
+  {
     "id": "en-gettotheorangedoor",
     "origins_label": "Get To The Orange Door Fandom Wiki",
     "origins": [
