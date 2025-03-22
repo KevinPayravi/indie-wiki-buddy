@@ -4105,7 +4105,8 @@
     "destination_icon": "garn47wiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
-    "destination_host": "miraheze"
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-gettotheorangedoor",
