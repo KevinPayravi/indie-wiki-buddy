@@ -323,6 +323,29 @@
     "destination_main_page": "Accueil"
   },
   {
+    "id": "fr-temtem",
+    "origins_label": "Temtem Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Temtem Fandom Wiki",
+        "origin_base_url": "temtem.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Temtem_Wiki"
+      }
+    ],
+    "destination": "Official Temtem Wiki",
+    "destination_base_url": "temtem.wiki.gg/fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "temtem.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Temtem_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "fr-terraria",
     "origins_label": "Terraria Fandom Wiki",
     "origins": [
