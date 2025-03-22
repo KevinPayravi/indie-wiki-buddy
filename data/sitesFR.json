@@ -178,6 +178,25 @@
     "destination_main_page": "Accueil"
   },
   {
+    "id": "fr-larouedutemps",
+    "origins_label": "La Roue du Temps Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Wiki La Roue du Temps ",
+        "origin_base_url": "la-roue-du-temps.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_La_Roue_du_Temps"
+      }
+    ],
+    "destination": "Encyclopédie de la Roue du Temps",
+    "destination_base_url": "encyclo.rouedutemps.fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "larouedutemps.png",
+    "destination_content_path": "/index.php?title=",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Accueil"
+  },
+  {
     "id": "fr-lethalcompany",
     "origins_label": "Lethal Company Fandom Wiki",
     "origins": [
