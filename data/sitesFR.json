@@ -28,8 +28,8 @@
     "origins": [
       {
         "origin": "Battlestar Fandom Wiki",
-        "origin_base_url": "galactica.fandom.com",
-        "origin_content_path": "/fr/wiki/",
+        "origin_base_url": "galactica.fandom.com/fr",
+        "origin_content_path": "/wiki/",
         "origin_main_page": "Accueil"
       }
     ],
