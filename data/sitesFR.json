@@ -62,6 +62,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "fr-clashofclans",
+    "origins_label": "Clash of Clans Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Clash of Clans Fandom Wiki",
+        "origin_base_url": "clashofclans.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Clash_of_Clans"
+      }
+    ],
+    "destination": "Clash of Clans Wiki",
+    "destination_base_url": "wiki.clashofclans.fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "clashofclans.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Accueil"
+  },
+  {
     "id": "fr-dragonquest",
     "origins_label": "Dragon Quest Fandom Wiki",
     "origins": [
