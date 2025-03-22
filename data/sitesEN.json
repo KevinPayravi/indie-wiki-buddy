@@ -2055,26 +2055,6 @@
     "destination_host": "wiki.gg"
   },
   {
-    "id": "en-cookierunovenbreak",
-    "origins_label": "Cookie Run Ovenbreak Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Cookie Run Ovenbreak Fandom Wiki",
-        "origin_base_url": "cookierunovenbreak.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Cookie_Run_Ovenbreak_Wiki"
-      }
-    ],
-    "destination": "Cookiepedia",
-    "destination_base_url": "ovenbreak.miraheze.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "cookiepedia.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/",
-    "destination_host": "Miraheze"
-  },
-  {
     "id": "en-coromon",
     "origins_label": "Coromon Fandom Wiki",
     "origins": [
