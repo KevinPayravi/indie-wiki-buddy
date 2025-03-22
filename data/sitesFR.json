@@ -23,6 +23,25 @@
     ]
   },
   {
+    "id": "fr-battlestar",
+    "origins_label": "Battlestar Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Battlestar Fandom Wiki",
+        "origin_base_url": "galactica.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Accueil"
+      }
+    ],
+    "destination": "Battlestar Wiki",
+    "destination_base_url": "fr.battlestarwiki.ddns.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "battlestarwiki.png",
+    "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "fr-bindingofisaacrebirth",
     "origins_label": "The Binding Of Isaac: Rebirth Fandom Wiki",
     "origins": [
