@@ -1619,6 +1619,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-buildabear",
+    "origins_label": "Build-A-Bear Workshop Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Build-A-Bear Workshop Fandom Wiki",
+        "origin_base_url": "buildabear.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Build-a-Bear_Workshop_Wiki"
+      }
+    ],
+    "destination": "Build-A-Bear Wiki",
+    "destination_base_url": "buildabearwiki.info",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thebuildabearwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Home",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-bz",
     "origins_label": "B'z Fandom Wiki",
     "origins": [
@@ -2378,6 +2398,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-deadmau5",
+    "origins_label": "Deadmau5 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Deadmau5 Fandom Wiki",
+        "origin_base_url": "deadmau5.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deadmau5_Wiki"
+      }
+    ],
+    "destination": "Mau5pedia",
+    "destination_base_url": "deadmau5.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deadmau5wiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Deadmau5_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-deadpoly",
     "origins_label": "Deadpoly Fandom Wikis",
     "origins": [
@@ -2404,6 +2444,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-deathbattle",
+    "origins_label": "DEATH BATTLE Fandom Wiki",
+    "origins": [
+      {
+        "origin": "DEATH BATTLE Fandom Wiki",
+        "origin_base_url": "deathbattle.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "DEATH_BATTLE!_Wiki"
+      }
+    ],
+    "destination": "DEATH BATTLE! Wiki",
+    "destination_base_url": "deathbattle.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deathbattlewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "DEATH_BATTLE!_Wiki",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-deeprockgalactic",
@@ -4988,6 +5048,29 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-itemasylum",
+    "origins_label": "Item Asylum Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Item Asylum Fandom Wiki",
+        "origin_base_url": "item-asylum-wiki.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Item_Asylum_Wiki"
+      }
+    ],
+    "destination": "JBC Item Asylum Wiki",
+    "destination_base_url": "jbcstudios.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "jbcstudioswiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "JBC_Studios_Wiki",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-iwannalockpick",
     "origins_label": "I Wanna Lockpick Fandom Wiki",
     "origins": [
@@ -5602,6 +5685,25 @@
     "destination_search_path": "/index.php",
     "destination_main_page": "Wiki_of_Loathing",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-lorcana",
+    "origins_label": "Lorcana Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Lorcana Fandom Wiki",
+        "origin_base_url": "lorcana.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Lorcana_Wiki"
+      }
+    ],
+    "destination": "Mushu Report's Lorcana Wiki",
+    "destination_base_url": "wiki.mushureport.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mushureport.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Mushu_Report"
   },
   {
     "id": "en-lotr",
@@ -7904,6 +8006,29 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-rootsofpacha",
+    "origins_label": "Roots of Pacha Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Roots of Pacha Fandom Wiki",
+        "origin_base_url": "rootsofpacha.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Roots_of_Pacha_Wiki"
+      }
+    ],
+    "destination": "Roots of Pacha Wiki",
+    "destination_base_url": "rootsofpacha.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rootsofpachawiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Roots_of_Pacha_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-runescape",
     "origins_label": "RuneScape Fandom & Neoseeker Wikis",
     "origins": [
@@ -8851,6 +8976,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-stonestoryrpg",
+    "origins_label": "Stone Story RPG Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Stone Story RPG Fandom Wiki",
+        "origin_base_url": "stone-story-rpg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Stone_Story_RPG_Wiki"
+      }
+    ],
+    "destination": "Stone Story RPG Wiki",
+    "destination_base_url": "stonestoryrpg.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "stonestoryrpgwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-strinova",
     "origins_label": "Strinova Fandom Wiki",
     "origins": [
@@ -9313,6 +9458,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-thebrokenscript",
+    "origins_label": "The Broken Script Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Broken Script Fandom Wiki",
+        "origin_base_url": "the-broken-script.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Broken_Script_Wiki"
+      }
+    ],
+    "destination": "The Broken Script Wiki",
+    "destination_base_url": "thebrokenscript.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thebrokenscriptwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "The_Broken_Script_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-thecyclefrontier",
