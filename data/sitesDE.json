@@ -75,9 +75,9 @@
     "destination_base_url": "gronkh-wiki.de",
     "destination_platform": "mediawiki",
     "destination_icon": "gronkhwiki.png",
-    "destination_content_path": "/wiki/",
+    "destination_main_page": "Hauptseite",
     "destination_search_path": "/index.php",
-    "destination_main_page": "Hauptseite"
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "de-lethalcompany",
@@ -172,9 +172,9 @@
     "destination_base_url": "southpark.wiki.gg/de",
     "destination_platform": "mediawiki",
     "destination_icon": "southparkwiki.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "South_Park_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
   },
   {
@@ -291,8 +291,8 @@
     "destination_base_url": "www.zeldapendium.de",
     "destination_platform": "mediawiki",
     "destination_icon": "zeldapendium.png",
-    "destination_content_path": "/wiki/",
+    "destination_main_page": "Zeldapendium:Hauptseite",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Zeldapendium:Hauptseite"
+    "destination_content_path": "/wiki/"
   }
 ]

@@ -14,9 +14,9 @@
     "destination_base_url": "arcanefr.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "wikiarcane.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/index.php",
     "destination_main_page": "Accueil",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
   },
   {
@@ -96,9 +96,9 @@
     "destination_base_url": "wiki.clashofclans.fr",
     "destination_platform": "mediawiki",
     "destination_icon": "clashofclans.png",
-    "destination_content_path": "/wiki/",
+    "destination_main_page": "Accueil",
     "destination_search_path": "/index.php",
-    "destination_main_page": "Accueil"
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "fr-deadbydaylight",
@@ -115,9 +115,9 @@
     "destination_base_url": "deadbydaylight.wiki.gg/fr",
     "destination_platform": "mediawiki",
     "destination_icon": "wikideadbydaylight.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Wiki_Dead_by_Daylight",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
   },
   {
@@ -135,9 +135,9 @@
     "destination_base_url": "wiki-dofus.eu",
     "destination_platform": "mediawiki",
     "destination_icon": "dofuswiki.png",
-    "destination_content_path": "/w/",
+    "destination_main_page": "Accueil",
     "destination_search_path": "/w",
-    "destination_main_page": "Accueil"
+    "destination_content_path": "/w/"
   },
   {
     "id": "fr-dontstarve",
@@ -154,9 +154,9 @@
     "destination_base_url": "dontstarve.wiki.gg/fr",
     "destination_platform": "mediawiki",
     "destination_icon": "dontstarvewiki.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Wiki_Don't_starve",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
   },
   {
@@ -232,9 +232,9 @@
     "destination_base_url": "fr.wiki.forgeofempires.com",
     "destination_platform": "mediawiki",
     "destination_icon": "forgeofempires.png",
-    "destination_content_path": "/index.php?title=",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php?title=",
     "tags": [
       "official"
     ]
@@ -273,9 +273,9 @@
     "destination_base_url": "wiki.fr.grepolis.com",
     "destination_platform": "mediawiki",
     "destination_icon": "grepolis.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "tags": [
       "official"
     ]
@@ -295,9 +295,9 @@
     "destination_base_url": "www.gwiki.fr",
     "destination_platform": "mediawiki",
     "destination_icon": "guildwarswiki.png",
-    "destination_content_path": "/wiki/",
+    "destination_main_page": "Accueil",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Accueil"
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "fr-gundam",
@@ -314,9 +314,9 @@
     "destination_base_url": "gundamfr.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "wikigundamfr.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/index.php",
     "destination_main_page": "Wiki_Gundam_FR",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
   },
   {
@@ -334,9 +334,9 @@
     "destination_base_url": "wiki.halo.fr",
     "destination_platform": "mediawiki",
     "destination_icon": "wikihalo.png",
-    "destination_content_path": "/",
+    "destination_main_page": "Accueil",
     "destination_search_path": "/index.php",
-    "destination_main_page": "Accueil"
+    "destination_content_path": "/"
   },
   {
     "id": "fr-kerbalspaceprogram",
@@ -376,9 +376,9 @@
     "destination_base_url": "encyclo.rouedutemps.fr",
     "destination_platform": "mediawiki",
     "destination_icon": "larouedutemps.png",
-    "destination_content_path": "/index.php?title=",
+    "destination_main_page": "Accueil",
     "destination_search_path": "/index.php",
-    "destination_main_page": "Accueil"
+    "destination_content_path": "/index.php?title="
   },
   {
     "id": "fr-lethalcompany",
@@ -416,9 +416,9 @@
     "destination_base_url": "fr-wiki.metin2.gameforge.com",
     "destination_platform": "mediawiki",
     "destination_icon": "metin2wiki.png",
-    "destination_content_path": "/index.php/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/",
     "tags": [
       "official"
     ]
@@ -482,9 +482,9 @@
     "destination_base_url": "satisfactory.wiki.gg/fr",
     "destination_platform": "mediawiki",
     "destination_icon": "satisfactorywiki.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Satisfactory_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg",
     "tags": [
       "official"
@@ -505,9 +505,9 @@
     "destination_base_url": "fr.splatoonwiki.org",
     "destination_platform": "mediawiki",
     "destination_icon": "inkipedia.png",
-    "destination_content_path": "/wiki/",
+    "destination_main_page": "Accueil",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Accueil"
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "fr-stardewvalley",
@@ -524,9 +524,9 @@
     "destination_base_url": "fr.stardewvalleywiki.com",
     "destination_platform": "mediawiki",
     "destination_icon": "stardewvalleywiki.png",
-    "destination_content_path": "/",
-    "destination_search_path": "/mediawiki/index.php",
     "destination_main_page": "Stardew_Valley_Wiki",
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
@@ -546,9 +546,9 @@
     "destination_base_url": "temtem.wiki.gg/fr",
     "destination_platform": "mediawiki",
     "destination_icon": "temtem.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Temtem_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg",
     "tags": [
       "official"
@@ -611,8 +611,8 @@
     "destination_base_url": "wh40k-fr.lexicanum.com",
     "destination_platform": "mediawiki",
     "destination_icon": "warhammer40klexicanum.png",
-    "destination_content_path": "/wiki/",
+    "destination_main_page": "Accueil",
     "destination_search_path": "/mediawiki/index.php",
-    "destination_main_page": "Accueil"
+    "destination_content_path": "/wiki/"
   }
 ]
