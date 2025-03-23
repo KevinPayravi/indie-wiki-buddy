@@ -281,6 +281,28 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "fr-metin2",
+    "origins_label": "Metin2 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Metin2 Fandom Wiki",
+        "origin_base_url": "metin2.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Accueil"
+      }
+    ],
+    "destination": "Metin2 Wiki",
+    "destination_base_url": "fr-wiki.metin2.gameforge.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "metin2wiki.png",
+    "destination_content_path": "/index.php/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Accueil",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "fr-minecraft",
     "origins_label": "Minecraft Fandom Wikis",
     "origins": [
