@@ -62,7 +62,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "combine.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "ru-lethalcompany",
@@ -82,6 +83,7 @@
     "destination_icon": "lethalcompany.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
   },
   {

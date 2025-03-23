@@ -2114,6 +2114,7 @@
     "destination_icon": "cosmicreachwiki.png",
     "destination_main_page": "Cosmic_Reach_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg",
     "tags": [
       "official"
@@ -7654,7 +7655,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "ramm.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "en-rayman",
@@ -10435,6 +10437,7 @@
     "destination_icon": "voicesofthevoidwiki.png",
     "destination_main_page": "Voices_of_the_Void_Wiki",
     "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
   },
   {
