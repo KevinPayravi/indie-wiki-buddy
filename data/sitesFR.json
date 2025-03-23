@@ -1,5 +1,25 @@
 [
   {
+    "id": "fr-arcane",
+    "origins_label": "Arcane Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Arcane Fandom Wiki",
+        "origin_base_url": "wiki-arcane.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Wiki_Arcane"
+      }
+    ],
+    "destination": "Arcane Wiki",
+    "destination_base_url": "arcanefr.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikiarcane.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Accueil",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "fr-ark",
     "origins_label": "ARK Fandom Wiki",
     "origins": [
@@ -81,6 +101,65 @@
     "destination_main_page": "Accueil"
   },
   {
+    "id": "fr-deadbydaylight",
+    "origins_label": "Dead by Daylight Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dead by Daylight Fandom Wiki",
+        "origin_base_url": "deadbydaylight.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Dead_by_Daylight"
+      }
+    ],
+    "destination": "Dead by Daylight Wiki",
+    "destination_base_url": "deadbydaylight.wiki.gg/fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikideadbydaylight.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Wiki_Dead_by_Daylight",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "fr-dofus",
+    "origins_label": "Dofus Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dofus Fandom Wiki",
+        "origin_base_url": "dofuswiki.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Dofus"
+      }
+    ],
+    "destination": "Dofus Wiki",
+    "destination_base_url": "wiki-dofus.eu",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dofuswiki.png",
+    "destination_content_path": "/w/",
+    "destination_search_path": "/w",
+    "destination_main_page": "Accueil"
+  },
+  {
+    "id": "fr-dontstarve",
+    "origins_label": "Don't Starve Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Don't Starve Fandom Wiki",
+        "origin_base_url": "dont-starve.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Don't_starve"
+      }
+    ],
+    "destination": "Don't Starve Wiki",
+    "destination_base_url": "dontstarve.wiki.gg/fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dontstarvewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Wiki_Don't_starve",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "fr-dragonquest",
     "origins_label": "Dragon Quest Fandom Wiki",
     "origins": [
@@ -91,7 +170,7 @@
         "origin_main_page": "Wiki_Dragon_Quest"
       }
     ],
-    "destination": "Wiki Dragon Quest",
+    "destination": "Dragon Quest Wiki",
     "destination_base_url": "wikidragonquest.fr",
     "destination_platform": "mediawiki",
     "destination_icon": "dragonquest.png",
@@ -202,6 +281,25 @@
     ]
   },
   {
+    "id": "fr-guildwars",
+    "origins_label": "Guild Wars Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Guild Wars Fandom Wiki",
+        "origin_base_url": "guildwars.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Guild_Wars_Wikia"
+      }
+    ],
+    "destination": "GWiki",
+    "destination_base_url": "www.gwiki.fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "guildwarswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Accueil"
+  },
+  {
     "id": "fr-gundam",
     "origins_label": "Gundam Fandom Wiki",
     "origins": [
@@ -212,7 +310,7 @@
         "origin_main_page": "Wiki_Gundam"
       }
     ],
-    "destination": "Wiki Gundam FR",
+    "destination": "Gundam FR Wiki",
     "destination_base_url": "gundamfr.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "wikigundamfr.png",
@@ -268,7 +366,7 @@
     "origins_label": "La Roue du Temps Fandom Wiki",
     "origins": [
       {
-        "origin": "Wiki La Roue du Temps ",
+        "origin": "La Roue du Temps Fandom Wiki",
         "origin_base_url": "la-roue-du-temps.fandom.com/fr",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Wiki_La_Roue_du_Temps"
@@ -412,6 +510,28 @@
     "destination_main_page": "Accueil"
   },
   {
+    "id": "fr-stardewvalley",
+    "origins_label": "Stardew Valley Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Stardew Valley Fandom Wiki",
+        "origin_base_url": "stardew-valley-fr.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Home"
+      }
+    ],
+    "destination": "Stardew Valley Wiki",
+    "destination_base_url": "fr.stardewvalleywiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "stardewvalleywiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_main_page": "Stardew_Valley_Wiki",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "fr-temtem",
     "origins_label": "Temtem Fandom Wiki",
     "origins": [
@@ -475,5 +595,24 @@
     "destination_main_page": "Touhou_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "fr-warhammer40k",
+    "origins_label": "Warhammer 40,000 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Warhammer 40,000 Fandom Wiki",
+        "origin_base_url": "warhammer40k.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Accueil"
+      }
+    ],
+    "destination": "Lexicanum",
+    "destination_base_url": "wh40k-fr.lexicanum.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "warhammer40klexicanum.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_main_page": "Accueil"
   }
 ]
