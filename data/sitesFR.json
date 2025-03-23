@@ -241,6 +241,29 @@
     "destination_main_page": "Accueil"
   },
   {
+    "id": "fr-kerbalspaceprogram",
+    "origins_label": "Kerbal Space Program Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Kerbal Space Program Fandom Wiki",
+        "origin_base_url": "kerbalspaceprogram.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_KerbalSpaceProgram"
+      }
+    ],
+    "destination": "Kerbal Space Program Wiki",
+    "destination_base_url": "wiki.kerbalspaceprogram.com",
+    "destination_content_suffix": "/fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "kerbalspaceprogramwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "fr-larouedutemps",
     "origins_label": "La Roue du Temps Fandom Wiki",
     "origins": [
