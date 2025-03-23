@@ -7885,29 +7885,6 @@
     ]
   },
   {
-    "id": "en-solarconquestroblox",
-    "origins_label": "Solar Conquest Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Solar Conquest Fandom Wiki",
-        "origin_base_url": "roblox-sc.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Solar_Conquest_Wiki"
-      }
-    ],
-    "destination": "Solar Conquest Wiki",
-    "destination_base_url": "wiki.solarconquest.net",
-    "destination_platform": "mediawiki",
-    "destination_icon": "solarconquest.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/w/index.php",
-    "destination_main_page": "Main_Page",
-    "destination_host": "Miraheze",
-    "tags": [
-      "official"
-    ]
-  },
-  {
     "id": "en-rollercoasters",
     "origins_label": "Roller Coaster Fandom Wiki",
     "origins": [
@@ -8398,6 +8375,29 @@
     "destination_search_path": "/index.php",
     "destination_main_page": "Super_Lesbian_Animal_RPG_Wiki",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-solarconquestroblox",
+    "origins_label": "Solar Conquest Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Solar Conquest Fandom Wiki",
+        "origin_base_url": "roblox-sc.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Solar_Conquest_Wiki"
+      }
+    ],
+    "destination": "Solar Conquest Wiki",
+    "destination_base_url": "wiki.solarconquest.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "solarconquest.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-songsofsyx",
@@ -8912,6 +8912,52 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-sunlesssea",
+    "origins_label": "Sunless Sea Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sunless Sea Fandom Wiki",
+        "origin_base_url": "sunlesssea.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sunless_Sea_Wiki"
+      }
+    ],
+    "destination": "Sunless Sea Wiki",
+    "destination_base_url": "sunlesssea.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sunlessseawiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Official_Sunless_Sea_Wiki",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
+  },
+  {
+    "id": "en-sunlessskies",
+    "origins_label": "Sunless Skies Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sunless Skies Fandom Wiki",
+        "origin_base_url": "sunlessskies.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sunless_Skies_Wiki"
+      }
+    ],
+    "destination": "Sunless Skies Wiki",
+    "destination_base_url": "sunlessskies.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sunlessskieswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Official_Sunless_Skies_Wiki",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-superautopets",
