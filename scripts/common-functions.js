@@ -242,6 +242,15 @@ function encodeArticleTitle(articleTitle) {
 }
 
 /**
+ * Get query parameters from a URL
+ * @param {string} originURL
+ */
+function getQueryParams(originURL) {
+  let url = new URL('https://' + originURL.replace(/.*https?:\/\//, ''));
+  return url.search || '';
+}
+
+/**
  * @param {string} originURL
  * @param {SiteData} matchingSite
  */
@@ -273,15 +282,22 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
     case 'dokuwiki':
       searchParams = `?do=search&q=${encodedDestinationArticle}`;
       break;
-      case 'moinmoin':
-        searchParams = `?action=fullsearch&context=180&value="${encodedDestinationArticle}"&fullsearch=Text`;
-        break;
+    case 'moinmoin':
+      searchParams = `?action=fullsearch&context=180&value="${encodedDestinationArticle}"&fullsearch=Text`;
+      break;
     // Otherwise, assume the full search path is defined on "destination_search_path"
     default:
       searchParams = encodedDestinationArticle;
       break;
   }
   newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_search_path"] + searchParams;
+
+  // Preserve original query parameters
+  // Used for special pages that may rely on query parameters, like Special:Search
+  const queryParams = getQueryParams(originURL);
+  if (queryParams) {
+    newURL += (newURL.includes('?') ? '&' : '?') + queryParams.substring(1);
+  }
 
   return newURL;
 }
