@@ -158,6 +158,28 @@
     "destination_content_path": "/index.php?title="
   },
   {
+    "id": "fr-grepolis",
+    "origins_label": "Grepolis Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Grepolis Fandom Wiki",
+        "origin_base_url": "grepolis.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Wiki_Grepolis"
+      }
+    ],
+    "destination": "Grepolis Wiki",
+    "destination_base_url": "wiki.fr.grepolis.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "grepolis.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Accueil",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "fr-gundam",
     "origins_label": "Gundam Fandom Wiki",
     "origins": [
@@ -333,7 +355,7 @@
         "origin_main_page": "Temtem_Wiki"
       }
     ],
-    "destination": "Official Temtem Wiki",
+    "destination": "Temtem Wiki",
     "destination_base_url": "temtem.wiki.gg/fr",
     "destination_platform": "mediawiki",
     "destination_icon": "temtem.png",
