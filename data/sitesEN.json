@@ -8377,6 +8377,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-sm64speedrun",
+    "origins_label": "SM64 Speedrun Fandom Wiki",
+    "origins": [
+      {
+        "origin": "SM64 Speedrun Fandom Wiki",
+        "origin_base_url": "sm64-speedrun.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "SM64_speedrun_Wiki"
+      }
+    ],
+    "destination": "Ukikipedia",
+    "destination_base_url": "ukikipedia.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ukikipedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/mediawiki/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-solarconquestroblox",
     "origins_label": "Solar Conquest Fandom Wiki",
     "origins": [
