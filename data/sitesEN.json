@@ -2527,6 +2527,31 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-deltarune",
+    "origins_label": "Deltarune Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Deltarune Fandom Wiki",
+        "origin_base_url": "deltarune.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Deltarune Fandom Wiki (Archived)",
+        "origin_base_url": "deltarune-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deltarune_Wiki"
+      }
+    ],
+    "destination": "Deltarune Wiki",
+    "destination_base_url": "deltarune.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deltarunewiki.png",
+    "destination_main_page": "",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "en-detectiveconan",
     "origins_label": "Detective Conan Fandom Wiki",
     "origins": [
@@ -10175,6 +10200,31 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-undertale",
+    "origins_label": "Undertale Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Undertale Fandom Wiki",
+        "origin_base_url": "undertale.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Undertale Fandom Wiki (Archived)",
+        "origin_base_url": "undertale-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Undertale_Wiki"
+      }
+    ],
+    "destination": "Undertale Wiki",
+    "destination_base_url": "undertale.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "undertalewiki.png",
+    "destination_main_page": "",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-undertaleyellow",
