@@ -1857,7 +1857,7 @@
     "destination_base_url": "chinafake.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "chinafakewiki.png",
-    "destination_main_page": "Main_Page",
+    "destination_main_page": "Chinafake_Wiki:Home",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
@@ -6544,6 +6544,26 @@
     "destination_platform": "mediawiki",
     "destination_icon": "necromergerwiki.png",
     "destination_main_page": "NecroMerger_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-needystreameroverload",
+    "origins_label": "NEEDY STREAMER OVERLOAD Fandom Wiki",
+    "origins": [
+      {
+        "origin": "NEEDY STREAMER OVERLOAD Fandom Wiki",
+        "origin_base_url": "needy-streamer-overload.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "NEEDY_STREAMER_OVERLOAD_Wiki"
+      }
+    ],
+    "destination": "NEEDY STREAMER OVERLOAD Wiki",
+    "destination_base_url": "needystreameroverload.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "needystreameroverload.png",
+    "destination_main_page": "NEEDY_STREAMER_OVERLOAD_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
