@@ -6363,6 +6363,13 @@
         "origin_base_url": "minecraftdungeons-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Minecraft:_Dungeons_Wiki"
+      },
+      {
+        "origin": "A Minecraft Movie Fandom Wiki",
+        "origin_base_url": "minecraft-the-movie.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "A_Minecraft_Movie_Wiki",
+        "destination_content_prefix": "Movie:"
       }
     ],
     "destination": "Minecraft Wiki",
