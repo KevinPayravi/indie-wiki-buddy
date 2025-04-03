@@ -5503,6 +5503,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-kuroshitsuji",
+    "origins_label": "Kuroshitsuji Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Kuroshitsuji Fandom Wiki",
+        "origin_base_url": "kuroshitsuji.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Kuroshitsuji_Wiki"
+      }
+    ],
+    "destination": "Kuroshitsuji Wiki",
+    "destination_base_url": "kuroshitsuji.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "kuroshitsujiwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Kuroshitsuji_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-kynseed",
     "origins_label": "Kynseed Fandom Wiki",
     "origins": [
