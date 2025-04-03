@@ -2528,7 +2528,7 @@
   },
   {
     "id": "en-deltarune",
-    "origins_label": "Deltarune Fandom Wiki",
+    "origins_label": "Deltarune Fandom Wikis",
     "origins": [
       {
         "origin": "Deltarune Fandom Wiki",
@@ -2547,8 +2547,8 @@
     "destination_base_url": "deltarune.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "deltarunewiki.png",
-    "destination_main_page": "",
-    "destination_search_path": "/",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/w/"
   },
   {
@@ -10203,7 +10203,7 @@
   },
   {
     "id": "en-undertale",
-    "origins_label": "Undertale Fandom Wiki",
+    "origins_label": "Undertale Fandom Wikis",
     "origins": [
       {
         "origin": "Undertale Fandom Wiki",
@@ -10222,8 +10222,8 @@
     "destination_base_url": "undertale.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "undertalewiki.png",
-    "destination_main_page": "",
-    "destination_search_path": "/",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/w/"
   },
   {
