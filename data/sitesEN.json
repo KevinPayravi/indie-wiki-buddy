@@ -5258,6 +5258,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-katawashoujo",
+    "origins_label": "Katawa Shoujo Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Katawa Shoujo Fandom Wiki",
+        "origin_base_url": "katawashoujo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Katawa_Shoujo_Wiki"
+      }
+    ],
+    "destination": "Katawa Shoujo Wiki",
+    "destination_base_url": "wiki.fhs.sh",
+    "destination_platform": "mediawiki",
+    "destination_icon": "katawashoujo.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Katawa_Shoujo_Wiki"
+  },
+  {
     "id": "en-kemonofriends",
     "origins_label": "Japari Library Fandom Wiki",
     "origins": [
