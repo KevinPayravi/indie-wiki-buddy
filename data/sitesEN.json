@@ -1599,6 +1599,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-bubsy",
+    "origins_label": "Bubsy Bobcat Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bubsy Bobcat Fandom Wiki",
+        "origin_base_url": "bubsy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bubsy_Bobcat_Wiki"
+      }
+    ],
+    "destination": "Bubsypedia",
+    "destination_base_url": "bubsypedia.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bubsypedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Bubsypedia",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-bugfables",
     "origins_label": "Bug Fables Fandom Wiki",
     "origins": [
@@ -2490,6 +2510,31 @@
     ]
   },
   {
+    "id": "en-deltarune",
+    "origins_label": "Deltarune Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Deltarune Fandom Wiki",
+        "origin_base_url": "deltarune.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Deltarune Fandom Wiki (Archived)",
+        "origin_base_url": "deltarune-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deltarune_Wiki"
+      }
+    ],
+    "destination": "Deltarune Wiki",
+    "destination_base_url": "deltarune.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deltarunewiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "en-destiny",
     "origins_label": "Destiny Fandom, Fextra, & Neoseeker Wikis",
     "origins": [
@@ -2525,31 +2570,6 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
-  },
-  {
-    "id": "en-deltarune",
-    "origins_label": "Deltarune Fandom Wikis",
-    "origins": [
-      {
-        "origin": "Deltarune Fandom Wiki",
-        "origin_base_url": "deltarune.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      },
-      {
-        "origin": "Deltarune Fandom Wiki (Archived)",
-        "origin_base_url": "deltarune-archive.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Deltarune_Wiki"
-      }
-    ],
-    "destination": "Deltarune Wiki",
-    "destination_base_url": "deltarune.wiki",
-    "destination_platform": "mediawiki",
-    "destination_icon": "deltarunewiki.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/w/"
   },
   {
     "id": "en-detectiveconan",
