@@ -1599,6 +1599,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-bubsy",
+    "origins_label": "Bubsy Bobcat Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bubsy Bobcat Fandom Wiki",
+        "origin_base_url": "bubsy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bubsy_Bobcat_Wiki"
+      }
+    ],
+    "destination": "Bubsypedia",
+    "destination_base_url": "bubsypedia.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bubsypedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Bubsypedia",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-bugfables",
     "origins_label": "Bug Fables Fandom Wiki",
     "origins": [
@@ -1679,6 +1699,25 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-capoeira",
+    "origins_label": "Capoeira Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Capoeira Fandom Wiki",
+        "origin_base_url": "capoeirista.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Capoeira_Wiki"
+      }
+    ],
+    "destination": "CapoeiraWiki",
+    "destination_base_url": "capoeirawiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "capoeirawiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-carrion",
@@ -2508,6 +2547,31 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-deltarune",
+    "origins_label": "Deltarune Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Deltarune Fandom Wiki",
+        "origin_base_url": "deltarune.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Deltarune Fandom Wiki (Archived)",
+        "origin_base_url": "deltarune-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deltarune_Wiki"
+      }
+    ],
+    "destination": "Deltarune Wiki",
+    "destination_base_url": "deltarune.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deltarunewiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-destiny",
@@ -3464,6 +3528,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-epicbattlefantasy",
+    "origins_label": "Epic Battle Fantasy Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Epic Battle Fantasy Fandom Wiki",
+        "origin_base_url": "epicbattlefantasy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Epic_Battle_Fantasy_Wiki"
+      }
+    ],
+    "destination": "Epic Battle Fantasy Wiki",
+    "destination_base_url": "epicbattlefantasy.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "epicbattlefantasywiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Epic_Battle_Fantasy_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-epitheterased",
@@ -5079,7 +5163,7 @@
         "origin_main_page": "Item_Asylum_Wiki"
       }
     ],
-    "destination": "JBC Item Asylum Wiki",
+    "destination": "JBC Studios Wiki",
     "destination_base_url": "jbcstudios.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "jbcstudioswiki.png",
@@ -5231,6 +5315,25 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-katawashoujo",
+    "origins_label": "Katawa Shoujo Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Katawa Shoujo Fandom Wiki",
+        "origin_base_url": "katawashoujo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Katawa_Shoujo_Wiki"
+      }
+    ],
+    "destination": "Katawa Shoujo Wiki",
+    "destination_base_url": "wiki.fhs.sh",
+    "destination_platform": "mediawiki",
+    "destination_icon": "katawashoujo.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Katawa_Shoujo_Wiki"
   },
   {
     "id": "en-kemonofriends",
@@ -5418,6 +5521,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-kuroshitsuji",
+    "origins_label": "Kuroshitsuji Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Kuroshitsuji Fandom Wiki",
+        "origin_base_url": "kuroshitsuji.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Kuroshitsuji_Wiki"
+      }
+    ],
+    "destination": "Kuroshitsuji Wiki",
+    "destination_base_url": "kuroshitsuji.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "kuroshitsujiwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Kuroshitsuji_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-kynseed",
@@ -6280,6 +6403,13 @@
         "origin_base_url": "minecraftdungeons-archive.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Minecraft:_Dungeons_Wiki"
+      },
+      {
+        "origin": "A Minecraft Movie Fandom Wiki",
+        "origin_base_url": "minecraft-the-movie.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "A_Minecraft_Movie_Wiki",
+        "destination_content_prefix": "Movie:"
       }
     ],
     "destination": "Minecraft Wiki",
@@ -6562,10 +6692,10 @@
     "destination": "NEEDY STREAMER OVERLOAD Wiki",
     "destination_base_url": "needystreameroverload.wiki.gg",
     "destination_platform": "mediawiki",
-    "destination_icon": "needystreameroverload.png",
-    "destination_main_page": "NEEDY_STREAMER_OVERLOAD_Wiki",
-    "destination_search_path": "/index.php",
+    "destination_icon": "needystreameroverloadwiki.png",
     "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "NEEDY_STREAMER_OVERLOAD_Wiki",
     "destination_host": "wiki.gg"
   },
   {
@@ -7056,6 +7186,26 @@
     "destination_main_page": "Pathologic_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-pathtonowhere",
+    "origins_label": "Path to Nowhere Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Path to Nowhere Fandom Wiki",
+        "origin_base_url": "path-to-nowhere.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Path_To_Nowhere_Wiki"
+      }
+    ],
+    "destination": "Path to Nowhere Wiki",
+    "destination_base_url": "pathtonowhere.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pathtonowherewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Path_To_Nowhere_Wiki",
     "destination_host": "wiki.gg"
   },
   {
@@ -9324,7 +9474,7 @@
       }
     ],
     "destination": "The Coffin of Andy and Leyley Wiki",
-    "destination_base_url": "tcoaal.wiki",
+    "destination_base_url": "coffin.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "tcoaal.png",
     "destination_main_page": "Main_Page",
@@ -10215,6 +10365,31 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-undertale",
+    "origins_label": "Undertale Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Undertale Fandom Wiki",
+        "origin_base_url": "undertale.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Undertale Fandom Wiki (Archived)",
+        "origin_base_url": "undertale-archive.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Undertale_Wiki"
+      }
+    ],
+    "destination": "Undertale Wiki",
+    "destination_base_url": "undertale.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "undertalewiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-undertaleyellow",
