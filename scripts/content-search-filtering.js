@@ -133,7 +133,11 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
 
     indieContainer.appendChild(indieResultLink);
     indieContainer.appendChild(resultControls);
-    searchResultContainer.prepend(indieContainer);
+    if (searchEngine === 'brave') {
+      searchResultContainer.appendChild(indieContainer);
+    } else {
+      searchResultContainer.prepend(indieContainer);
+    }
 
     return 1;
   }
@@ -170,7 +174,7 @@ function mountToTopOfSearchResults(element) {
       }
       break;
     case 'brave':
-      document.getElementById('results')?.prepend(element);
+      document.querySelector('body')?.prepend(element);
       break;
     case 'ecosia':
       document.querySelector('section.mainline')?.prepend(element);
@@ -896,10 +900,8 @@ if (currentURL.hostname.includes('www.google.')) {
 } else if (currentURL.hostname.endsWith('.bing.com')) {
   processSearchEngine('bing');
 } else if (currentURL.hostname.includes('search.brave.com')) {
-  // todo: fix reordering behaving weirdly on descriptions
   processSearchEngine('brave');
 } else if (currentURL.hostname.includes('ecosia.org')) {
-  // todo: figure out what is causing race conditions to make elements disappear, and ecosia to crash
   window.addEventListener("load", () => processSearchEngine('ecosia'));
 } else if (currentURL.hostname.includes('qwant.com')) {
   processSearchEngine('qwant');

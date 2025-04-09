@@ -142,7 +142,7 @@
     }
   },
   "searchResultReenable": {
-    "message": "Re-enable the result below",
+    "message": "Re-enable original search result",
     "description": "Prompt to re-enable a non-indie search result"
   },
   "searchRemovalNotice": {
@@ -289,8 +289,8 @@
     "description": "Option to show a banner when non-indie results are hidden"
   },
   "settingsReorderResults": {
-    "message": "Move indie wikis above non-indie results and hide duplicates (Excluding Brave)",
-    "description": "Option to move indie wikis above non-indie results and hide duplicates (Excluding Brave)"
+    "message": "Move indie wikis above non-indie results and hide duplicates",
+    "description": "Option to move indie wikis above non-indie results and hide duplicates"
   },
   "settingsBreezeWiki": {
     "message": "BreezeWiki alternative frontend for Fandom ($linkStart$learn more$linkEnd$)",
