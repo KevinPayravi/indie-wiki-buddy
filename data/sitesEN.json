@@ -11253,6 +11253,25 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-xenoseries",
+    "origins_label": "Xenoblade Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Xenoblade Fandom Wiki",
+        "origin_base_url": "xenoblade.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Xenoblade_Wiki"
+      }
+    ],
+    "destination": "Xeno Series Wiki",
+    "destination_base_url": "xenoserieswiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "xenoserieswiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-xkcd",
     "origins_label": "xkcd Fandom Wiki",
     "origins": [
