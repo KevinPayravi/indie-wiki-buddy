@@ -11031,6 +11031,25 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-wheeloftime",
+    "origins_label": "Wheel of Time Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Wheel of Time Fandom Wiki",
+        "origin_base_url": "wot.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "A_beginning"
+      }
+    ],
+    "destination": "Tar Valon Library Wiki",
+    "destination_base_url": "library.tarvalon.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tarvalon.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php?title="
+  },
+  {
     "id": "en-wildfrost",
     "origins_label": "Wildfrost Fandom Wiki",
     "origins": [
