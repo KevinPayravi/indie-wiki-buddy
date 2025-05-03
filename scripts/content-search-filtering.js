@@ -59,6 +59,28 @@ function removeSubstringIfAtEnd(str, sub) {
 }
 
 /**
+ * Finds the closest ancestor element with a non-transparent background color.
+ * @param {HTMLElement} element
+ * @returns {string}
+ */
+function getClosestBackgroundColor(element) {
+  let parent = element.parentElement;
+  while (parent) {
+    const style = window.getComputedStyle(parent);
+    const bgColor = style.backgroundColor;
+    if (bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+      return bgColor;
+    }
+    if (parent.parentElement) {
+      parent = parent.parentElement;
+    } else {
+      break;
+    }
+  }
+  return 'transparent';
+}
+
+/**
  * Function to show a chip/banner at the top of the container with a redirected url, and disable the original link/result.
  * @param {HTMLElement} searchResultContainer
  * @param {SiteData} wikiInfo
@@ -133,7 +155,13 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
 
     indieContainer.appendChild(indieResultLink);
     indieContainer.appendChild(resultControls);
-    searchResultContainer.prepend(indieContainer);
+    if (searchEngine === 'brave') {
+      searchResultContainer.appendChild(indieContainer);
+    } else {
+      searchResultContainer.prepend(indieContainer);
+    }
+
+    indieContainer.style.backgroundColor = getClosestBackgroundColor(searchResultContainer);
 
     return 1;
   }
@@ -170,7 +198,7 @@ function mountToTopOfSearchResults(element) {
       }
       break;
     case 'brave':
-      document.getElementById('results')?.prepend(element);
+      document.querySelector('body')?.prepend(element);
       break;
     case 'ecosia':
       document.querySelector('section.mainline')?.prepend(element);
@@ -224,6 +252,8 @@ function mountSearchBanner(wikiInfo) {
     let searchRemovalNotice = document.createElement('aside');
     searchRemovalNotice.id = 'iwb-notice-' + elementId;
     searchRemovalNotice.classList.add('iwb-notice');
+    let searchRemovalNoticeContent = document.createElement('div');
+    searchRemovalNoticeContent.classList.add('iwb-notice-content');
     let searchRemovalNoticeLink = document.createElement('a');
     searchRemovalNoticeLink.href = 'https://' + wikiInfo.destination_base_url;
     searchRemovalNoticeLink.textContent = wikiInfo.destination;
@@ -236,7 +266,7 @@ function mountSearchBanner(wikiInfo) {
     searchRemovalNoticeFragment.appendChild(document.createTextNode(searchRemovalNoticeTextParts[0]));
     searchRemovalNoticeFragment.appendChild(searchRemovalNoticeLink);
     searchRemovalNoticeFragment.appendChild(document.createTextNode(searchRemovalNoticeTextParts[1]));
-    searchRemovalNotice.appendChild(searchRemovalNoticeFragment);
+    searchRemovalNoticeContent.appendChild(searchRemovalNoticeFragment);
 
     // Output container for result controls:
     let resultControls = document.createElement('div');
@@ -275,9 +305,11 @@ function mountSearchBanner(wikiInfo) {
       }
     };
 
-    searchRemovalNotice.appendChild(resultControls);
+    searchRemovalNoticeContent.appendChild(resultControls);
+    searchRemovalNotice.appendChild(searchRemovalNoticeContent);
 
     mountToTopOfSearchResults(searchRemovalNotice);
+    searchRemovalNotice.style.backgroundColor = getClosestBackgroundColor(searchRemovalNotice);
   }
 }
 
@@ -896,10 +928,8 @@ if (currentURL.hostname.includes('www.google.')) {
 } else if (currentURL.hostname.endsWith('.bing.com')) {
   processSearchEngine('bing');
 } else if (currentURL.hostname.includes('search.brave.com')) {
-  // todo: fix reordering behaving weirdly on descriptions
   processSearchEngine('brave');
 } else if (currentURL.hostname.includes('ecosia.org')) {
-  // todo: figure out what is causing race conditions to make elements disappear, and ecosia to crash
   window.addEventListener("load", () => processSearchEngine('ecosia'));
 } else if (currentURL.hostname.includes('qwant.com')) {
   processSearchEngine('qwant');

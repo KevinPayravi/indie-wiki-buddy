@@ -5153,6 +5153,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-islandadventures",
+    "origins_label": "Island Adventures Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Island Adventures Fandom Wiki",
+        "origin_base_url": "island-adventures.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Island_Adventures_Wiki"
+      }
+    ],
+    "destination": "Island Adventures Wiki",
+    "destination_base_url": "islandadventures.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "islandadventureswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Island_Adventures_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-itemasylum",
     "origins_label": "Item Asylum Fandom Wiki",
     "origins": [
@@ -8179,6 +8199,26 @@
     ]
   },
   {
+    "id": "en-roguelegacy",
+    "origins_label": "Rogue Legacy Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Rogue Legacy Fandom Wiki",
+        "origin_base_url": "rogue-legacy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rogue_Legacy_Wiki"
+      }
+    ],
+    "destination": "Rogue Legacy Wiki",
+    "destination_base_url": "roguelegacy.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "roguelegacywiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Rogue_Legacy_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-rollercoasters",
     "origins_label": "Roller Coaster Fandom Wiki",
     "origins": [
@@ -8691,6 +8731,26 @@
     "destination_main_page": "Super_Lesbian_Animal_RPG_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-slycooper",
+    "origins_label": "Sly Cooper Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sly Cooper Fandom Wiki",
+        "origin_base_url": "slycooper.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sly_Cooper_Wiki:Main_page"
+      }
+    ],
+    "destination": "Sly Cooper Wiki",
+    "destination_base_url": "slycooper.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "slycooperwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Sly_Cooper_Wiki",
     "destination_host": "wiki.gg"
   },
   {
@@ -9521,6 +9581,26 @@
     "destination_main_page": "Tears_of_Themis_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-tempestrising",
+    "origins_label": "Tempest Rising Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Tempest Rising Fandom Wiki",
+        "origin_base_url": "tempestrising.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Tempest_Rising_Wiki"
+      }
+    ],
+    "destination": "Tempest Rising Wiki",
+    "destination_base_url": "tempestrising.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tempestrisingwiki.png",
+    "destination_main_page": "Tempest_Rising_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-temtem",
