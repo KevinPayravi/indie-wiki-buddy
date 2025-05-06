@@ -4550,6 +4550,26 @@
     "destination_host": "ShoutWiki"
   },
   {
+    "id": "en-gtfo",
+    "origins_label": "GTFO Fandom Wiki",
+    "origins": [
+      {
+        "origin": "GTFO Fandom Wiki",
+        "origin_base_url": "gtfo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "GTFO_Wiki"
+      }
+    ],
+    "destination": "GTFO Wiki",
+    "destination_base_url": "gtfo.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gtfowiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "GTFO_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-guildwars",
     "origins_label": "Guild Wars Fandom Wiki",
     "origins": [
@@ -6832,7 +6852,7 @@
         "origin_main_page": "Nico's_Nextbots_Wiki"
       }
     ],
-    "destination": "nico's nextbots wiki",
+    "destination": "Nico's Nextbots Wiki",
     "destination_base_url": "nicosnextbots.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "nicosnextbotswiki.png",
@@ -9892,6 +9912,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w139/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-thefirerises",
+    "origins_label": "The Fire Rises Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Fire Rises Fandom Wiki",
+        "origin_base_url": "the-fire-rises-unoffical-database.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_fire_rises_Wiki"
+      }
+    ],
+    "destination": "The Fire Rises Wiki",
+    "destination_base_url": "thefireriseswiki.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thefireriseswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "The_fire_rises_Wiki",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-thematchlesskungfu",
