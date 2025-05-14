@@ -1388,6 +1388,25 @@
     "destination_content_path": "/index.php?title="
   },
   {
+    "id": "en-bloons",
+    "origins_label": "Bloons Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bloons Fandom Wiki",
+        "origin_base_url": "bloons.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bloons_Wiki"
+      }
+    ],
+    "destination": "Blooncyclopedia",
+    "destination_base_url": "www.bloonswiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "blooncyclopedia.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-bluearchive",
     "origins_label": "Blue Archive Fandom Wiki",
     "origins": [
@@ -3390,6 +3409,13 @@
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page",
         "destination_content_prefix": "Skyrim:"
+      },
+      {
+        "origin": "Oblivion Remastered Fextralife Wiki",
+        "origin_base_url": "oblivionremastered.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Oblivion+Wiki",
+        "destination_content_prefix": "Oblivion:"
       }
     ],
     "destination": "Unofficial Elder Scrolls Pages",
@@ -3695,6 +3721,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-fallenaces",
+    "origins_label": "Fallen Aces Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Fallen Aces Fandom Wiki",
+        "origin_base_url": "fallen-aces.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Fallen_Aces_Wiki"
+      }
+    ],
+    "destination": "Fallen Aces Wiki",
+    "destination_base_url": "fallenaces.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fallenaceswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Fallen_Aces_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-fallout",
@@ -4522,6 +4568,26 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "ShoutWiki"
+  },
+  {
+    "id": "en-gtfo",
+    "origins_label": "GTFO Fandom Wiki",
+    "origins": [
+      {
+        "origin": "GTFO Fandom Wiki",
+        "origin_base_url": "gtfo.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "GTFO_Wiki"
+      }
+    ],
+    "destination": "GTFO Wiki",
+    "destination_base_url": "gtfo.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gtfowiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "GTFO_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-guildwars",
@@ -5585,6 +5651,26 @@
     ]
   },
   {
+    "id": "en-lancer",
+    "origins_label": "LANCER Fandom Wiki",
+    "origins": [
+      {
+        "origin": "LANCER Fandom Wiki",
+        "origin_base_url": "omninet.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "LANCER_Wiki"
+      }
+    ],
+    "destination": "LANCER Wiki",
+    "destination_base_url": "lancer.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lancerwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "LANCER_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-lastorigin",
     "origins_label": "Last Origin International Fandom Wiki",
     "origins": [
@@ -6570,6 +6656,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-museband",
+    "origins_label": "Muse Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Muse Fandom Wiki",
+        "origin_base_url": "muse.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "MuseWiki",
+    "destination_base_url": "musewiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "musewiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "MuseWiki"
+  },
+  {
     "id": "en-mylittlepony",
     "origins_label": "My Little Pony Fandom & Neoseeker Wikis",
     "origins": [
@@ -6755,6 +6860,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-nicosnextbots",
+    "origins_label": "Nico's Nextbots Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Nico's Nextbots Fandom Wiki",
+        "origin_base_url": "nicos-nextbots.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Nico's_Nextbots_Wiki"
+      }
+    ],
+    "destination": "Nico's Nextbots Wiki",
+    "destination_base_url": "nicosnextbots.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nicosnextbotswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Nico's_Nextbots_Wiki",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-nightmarereaper",
@@ -8349,6 +8474,25 @@
     "destination_content_path": "/index.php/"
   },
   {
+    "id": "en-saintsrow",
+    "origins_label": "Saints Row Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Saints Row Fandom Wiki",
+        "origin_base_url": "saintsrow.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Saints_Row_Wiki"
+      }
+    ],
+    "destination": "Saints Row Wiki",
+    "destination_base_url": "saintsrow.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "saintsrowwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Saints_Row_Wiki"
+  },
+  {
     "id": "en-salemmmo",
     "origins_label": "Salem MMO Fandom Wiki",
     "origins": [
@@ -9790,6 +9934,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-thefirerises",
+    "origins_label": "The Fire Rises Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Fire Rises Fandom Wiki",
+        "origin_base_url": "the-fire-rises-unoffical-database.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_fire_rises_Wiki"
+      }
+    ],
+    "destination": "The Fire Rises Wiki",
+    "destination_base_url": "thefireriseswiki.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thefireriseswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "The_fire_rises_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-thematchlesskungfu",
     "origins_label": "The Matchless Kungfu Fandom Wiki",
     "origins": [
@@ -11051,6 +11215,25 @@
     ]
   },
   {
+    "id": "en-wheeloftime",
+    "origins_label": "Wheel of Time Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Wheel of Time Fandom Wiki",
+        "origin_base_url": "wot.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "A_beginning"
+      }
+    ],
+    "destination": "Tar Valon Library Wiki",
+    "destination_base_url": "library.tarvalon.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "tarvalon.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php?title="
+  },
+  {
     "id": "en-whentheycry",
     "origins_label": "When They Cry Fandom Wiki",
     "origins": [
@@ -11068,6 +11251,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-whiteknuckle",
+    "origins_label": "White Knuckle Fandom Wiki",
+    "origins": [
+      {
+        "origin": "White Knuckle Fandom Wiki",
+        "origin_base_url": "white-knuckle.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "White_Knuckle_Wiki"
+      }
+    ],
+    "destination": "White Knuckle Wiki",
+    "destination_base_url": "whiteknuckle.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "whiteknucklewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "White_Knuckle_Wiki",
     "destination_host": "Miraheze"
   },
   {
