@@ -1,9 +1,9 @@
 {
     "extensionName": {
-        "message": "独立百科全书伙伴"
+        "message": "Indie Wiki Buddy"
     },
     "extensionDescription": {
-        "message": "\"独立百科全书伙伴\"通过提示、重定向和搜索过滤，帮你找到高质量的独立百科站点。"
+        "message": "Indie Wiki Buddy 通过提示、重定向和搜索过滤，帮你找到更高质量的独立百科站点。"
     },
     "bannerText": {
         "message": "此内容有$descriptor$$language$的$host$百科站点",
@@ -83,7 +83,7 @@
         "message": "禁用"
     },
     "bannerBreezeWiki": {
-        "message": "通过BreezeWiki查看这个FandomWiki"
+        "message": "通过 BreezeWiki 查看这个 FandomWiki"
     },
     "bannerRestore": {
         "message": "恢复横幅"
@@ -117,7 +117,7 @@
         }
     },
     "searchResultLookupEnglish": {
-        "message": "在$destination$查询$article$（英文）",
+        "message": "在$destination$查询$article$（原站点为英文）",
         "placeholders": {
             "article": {
                 "content": "$1",
@@ -130,7 +130,7 @@
         }
     },
     "searchResultVisit": {
-        "message": "访问$destination$",
+        "message": "建议访问$destination$",
         "placeholders": {
             "destination": {
                 "content": "$1",
@@ -139,7 +139,7 @@
         }
     },
     "searchResultVisitEnglish": {
-        "message": "访问$destination$（英文）",
+        "message": "建议访问$destination$（原站点为英文）",
         "placeholders": {
             "destination": {
                 "content": "$1",
@@ -151,7 +151,7 @@
         "message": "重新启用此搜索结果"
     },
     "searchRemovalNotice": {
-        "message": "Indie Wiki Buddy过滤了$destination$的搜索结果。请在$link$查询。",
+        "message": "Indie Wiki Buddy 已将 $destination$ 的搜索结果过滤。建议在$link$查询之。",
         "placeholders": {
             "destination": {
                 "content": "$1",
@@ -164,16 +164,16 @@
         }
     },
     "searchFilteredResultsShow": {
-        "message": "显示被过滤的搜索结果"
+        "message": "显示已过滤的搜索结果"
     },
     "searchFilteredResultsHide": {
-        "message": "重新隐藏被过滤的搜索结果"
+        "message": "重新隐藏已过滤的搜索结果"
     },
     "firstInstallInfo1": {
-        "message": "感谢您安装Indie Wiki Buddy！一切已经准备就绪。"
+        "message": "感谢您安装 Indie Wiki Buddy！一切已经准备就绪。"
     },
     "settingsTitle": {
-        "message": "Indie Wiki Buddy设置"
+        "message": "Indie Wiki Buddy 设置"
     },
     "settingsGuide": {
         "message": "指南"
@@ -214,7 +214,7 @@
         "message": "您可以使用上方的链接来查询指南、提交新站点、或联系开发者。"
     },
     "firstInstallInfo3": {
-        "message": "在下方设置中，您可以开关本扩展的功能。这些包括一个开启$BreezeWiki$的选项，可重新渲染 Fandom 维基的第三方前端界面，在规避其广告的同时提高加载速度。",
+        "message": "在下方设置中，您可以开关本扩展的功能。这些包括一个开启 $BreezeWiki$ 的选项，可重新渲染 Fandom 维基的第三方前端界面，在规避其广告的同时提高加载速度。",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -223,7 +223,7 @@
         }
     },
     "firstInstallInfo4": {
-        "message": "对于Fandom、Fextralife和Neoseeker这些百科站点，本扩展会查询它们是否有一个独立百科站点存在。在您访问上述站点时，您可以选择 $alert$ 显示提醒（默认）或 $redirect$ 自动重定向；而在搜索引擎上，您可以选择 $replace$ 替换（默认）或 $hide$ 隐藏搜索结果。在下方的选项中，您可为各个百科站点单独设置本扩展的行为。",
+        "message": "对于 Fandom、Fextralife 和 Neoseeker 这些百科站点，本扩展会查询在其上托管的专题百科是否存在一个独立的站点。在您访问上述站点时，您可以选择 $alert$ 显示提醒（默认）或 $redirect$ 自动重定向；而在搜索引擎上，您可以选择 $replace$ 替换（默认）或 $hide$ 隐藏搜索结果。在下方的选项中，您可为各个百科站点单独设置本扩展的行为。",
         "placeholders": {
             "alert": {
                 "content": "$1",
@@ -554,7 +554,7 @@
         "message": "Indie Wiki Buddy指南"
     },
     "guideBackToSettings": {
-        "message": "⇦ 返回设置"
+        "message": "⇦ 返回设置页"
     },
     "guideOverview": {
         "message": "帮助总览"
@@ -587,10 +587,10 @@
         "message": "如果该选项已启用，但仍未收到通知，请检查操作系统设置是否阻止了浏览器发送通知。"
     },
     "guideCrossLanguageHelp1": {
-        "message": "默认情况下，Indie Wiki Buddy只会重定向到同一语言的页面（如从西班牙语的Fandom页面重定向到西班牙语的独立百科站点）。但是，多语种用户可能希望众多仅提供英语的独立百科站点也可以用作备选。启用该选项后，若相同语言的独立百科站点不存在，Indie Wiki Buddy将会试图重定向到英语的百科页面。"
+        "message": "默认情况下，Indie Wiki Buddy 只会重定向到同一语言的页面（如从汉语的 Fandom 页面重定向到汉语的独立百科站点）。但是，通习英文的用户可能希望，那些仅提供英语的独立百科站点也可以被推荐来作为备选。启用该选项后，若同语言的独立百科站点不存在，Indie Wiki Buddy 会试图重定向到英语的百科页面。"
     },
     "guideChangelogHelp": {
-        "message": "启用该选项后，当Indie Wiki Buddy更新时，将会在新标签页内打开其$linkStart$更新日志$linkEnd$，以便用户了解最新更改。",
+        "message": "启用该选项后，当 Indie Wiki Buddy 更新时，将会在新标签页内打开其$linkStart$更新日志$linkEnd$，以便用户了解最新更改。",
         "placeholders": {
             "linkStart": {
                 "content": "$1"
@@ -631,7 +631,7 @@
         "message": "扩展已开启/已关闭"
     },
     "guideExtensionOnOffHelp": {
-        "message": "一键开关Indie Wiki Buddy的所有功能。"
+        "message": "一键开关 Indie Wiki Buddy 的所有功能。"
     },
     "guideNotificationsHelp1": {
         "message": "启用该选项后，在重定向至独立百科站点或$BreezeWiki$时会发送桌面通知。该选项默认启用。",
@@ -649,7 +649,7 @@
         "message": "访问任何英文 Fandom 百科页面都会立刻重定向至 BreezeWiki。如果重定向至独立百科站点已启用，则优先重定向至独立站点。"
     },
     "guideBreezeWiki": {
-        "message": "你同样可以为$BreezeWiki$设置偏好。$BreezeWiki$是一个无广告的 Fandom 页面渲染器。但请注意，目前$BreezeWiki$仅支持英文百科。",
+        "message": "你同样可以为 $BreezeWiki$ 设置你的偏好。这是一个无广告的 Fandom 页面渲染器。但请注意，目前其仅支持英文百科。",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
