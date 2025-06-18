@@ -1105,12 +1105,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "balatro.png",
     "destination_main_page": "",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/w/",
-    "destination_host": "weirdgloop",
-    "tags": [
-      "official"
-    ]
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
   },
   {
     "id": "en-barotrauma",
