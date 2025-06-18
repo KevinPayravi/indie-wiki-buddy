@@ -1090,6 +1090,29 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-balatro",
+    "origins_label": "Balatro Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Balatro Fandom Wiki",
+        "origin_base_url": "balatrogame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Balatro_Wiki"
+      }
+    ],
+    "destination": "Balatro Wiki",
+    "destination_base_url": "balatrowiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "balatro.png",
+    "destination_main_page": "",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/",
+    "destination_host": "weirdgloop",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-barotrauma",
     "origins_label": "Barotrauma Fandom Wiki",
     "origins": [
