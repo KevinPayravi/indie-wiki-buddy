@@ -10899,6 +10899,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-vocaloidlyrics",
+    "origins_label": "Vocaloid Lyrics Wiki (Fandom)",
+    "origins": [
+      {
+        "origin": "Vocaloid Lyrics Wiki (Fandom)",
+        "origin_base_url": "vocaloidlyrics.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Vocaloid_Lyrics_Wiki"
+      }
+    ],
+    "destination": "Vocaloid Lyrics Wiki",
+    "destination_base_url": "vocaloidlyrics.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "vocaloidlyrics.png",
+    "destination_main_page": "Vocaloid_Lyrics_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-voicesofthevoid",
     "origins_label": "Voices of the Void Fandom Wiki",
     "origins": [
