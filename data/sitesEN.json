@@ -8877,6 +8877,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+  "id": "en-skylanders",
+  "origins_label": "Skylanders Fandom Wiki",
+  "origins": [
+    {
+      "origin": "Skylanders Fandom Wiki",
+      "origin_base_url": "skylanders.fandom.com",
+      "origin_content_path": "/wiki/",
+      "origin_main_page": "Main_Page"
+    }
+  ],
+  "destination": "Skylanders Wiki",
+  "destination_base_url": "skylanderswiki.com",
+  "destination_platform": "mediawiki",
+  "destination_icon": "skylanders.png",
+  "destination_main_page": "Main_Page",
+  "destination_search_path": "/index.php",
+  "destination_content_path": "/wiki/"
+}
+  {
     "id": "en-slarpg",
     "origins_label": "Super Lesbian Animal RPG Fandom Wiki",
     "origins": [
