@@ -10900,10 +10900,10 @@
   },
   {
     "id": "en-vocaloidlyrics",
-    "origins_label": "Vocaloid Lyrics Wiki (Fandom)",
+    "origins_label": "Vocaloid Lyrics Fandom Wiki",
     "origins": [
       {
-        "origin": "Vocaloid Lyrics Wiki (Fandom)",
+        "origin": "Vocaloid Lyrics Fandom Wiki",
         "origin_base_url": "vocaloidlyrics.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Vocaloid_Lyrics_Wiki"
