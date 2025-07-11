@@ -8888,7 +8888,7 @@
     }
   ],
   "destination": "Skylanders Wiki",
-  "destination_base_url": "https://skylanderswiki.com",
+  "destination_base_url": "skylanderswiki.com",
   "destination_platform": "mediawiki",
   "destination_icon": "skylanders.png",
   "destination_main_page": "Main_Page",
