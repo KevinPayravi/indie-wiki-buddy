@@ -222,6 +222,9 @@ function mountToTopOfSearchResults(element) {
         document.querySelector('#main-algo')?.prepend(element);
       }
       break;
+    case 'yahoo.co.jp':
+      document.querySelector('Contents__inner')?.prepend(element);
+      break;
     case 'kagi':
       document.querySelector('#main')?.prepend(element);
       break;
@@ -419,6 +422,9 @@ function getResultContainer(searchEngine, searchResult) {
       break;
     case 'yahoo':
       searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+      break;
+    case 'yahoo.co.jp':
+      searchResultContainer = searchResult.closest('div.sw-CardBase:has(div.sw-Card.Algo)');
       break;
     case 'kagi':
       searchResultContainer = searchResult.closest('div.search-result, div.__srgi');
@@ -757,11 +763,19 @@ function filterAnchors(newAnchors) {
       filterSearchResults(searchResults);
       break;
     }
+
+    case 'yahoo.co.jp': {
+      const searchResults = newAnchors.filter(e => e.matches('a.sw-Card__titleInner'));
+      filterSearchResults(searchResults);
+      break;
+    }
+
     case 'kagi': {
       const searchResults = newAnchors.filter(e => e.matches('h3>a, a.__sri-url'));
       filterSearchResults(searchResults);
       break;
     }
+
     default: {
       if (storage.customSearchEngines) {
         function filterSearXNG() {
@@ -939,6 +953,8 @@ if (currentURL.hostname.includes('www.google.')) {
   processSearchEngine('yandex');
 } else if (currentURL.hostname.includes('yahoo.com')) {
   processSearchEngine('yahoo');
+} else if (currentURL.hostname.includes('yahoo.co.jp')) {
+  processSearchEngine('yahoo.co.jp');
 } else if (currentURL.hostname.includes('kagi.com')) {
   processSearchEngine('kagi');
 }

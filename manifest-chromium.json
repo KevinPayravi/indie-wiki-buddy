@@ -70,6 +70,7 @@
         "https://kagi.com/search*",
         "https://*.qwant.com/*",
         "https://*.search.yahoo.com/*",
+        "https://*.search.yahoo.co.jp/*",
         "https://*.startpage.com/*",
         "https://*.ya.ru/*",
         "https://*.yandex.az/*",
