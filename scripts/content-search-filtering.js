@@ -64,7 +64,7 @@ function removeSubstringIfAtEnd(str, sub) {
  * @returns {string}
  */
 function getClosestBackgroundColor(element) {
-  let parent = element.parentElement;
+  let parent = element;
   while (parent) {
     const style = window.getComputedStyle(parent);
     const bgColor = style.backgroundColor;
