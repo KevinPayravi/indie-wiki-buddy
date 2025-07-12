@@ -415,7 +415,7 @@ function getResultContainer(searchEngine, searchResult) {
       searchResultContainer = searchResult.closest('div.result, div.w-gl__result');
       break;
     case 'yandex':
-      searchResultContainer = searchResult.closest('li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
+      searchResultContainer = searchResult.closest('#search-result > li, #search-result > div[data-yaet4], li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
       break;
     case 'yahoo':
       searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
@@ -726,7 +726,7 @@ function filterAnchors(newAnchors) {
       break;
     }
     case 'yandex': {
-      const searchResults = newAnchors.filter(e => e.matches('li[data-cid] a.link, li[data-cid] a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a'));
+      const searchResults = newAnchors.filter(e => e.matches('li a.link, li a.Link, .OrganicTitle a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a'));
       filterSearchResults(searchResults);
       break;
     }
