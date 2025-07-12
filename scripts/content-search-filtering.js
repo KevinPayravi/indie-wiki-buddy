@@ -203,9 +203,9 @@ function mountToTopOfSearchResults(element) {
     case 'ecosia':
       document.querySelector('section.mainline')?.prepend(element);
       break;
-      case 'mojeek':
-        document.querySelector('.top-info').prepend(searchRemovalNotice);
-        break;
+    case 'mojeek':
+      document.querySelector('.top-info')?.prepend(element);
+      break;
     case 'qwant':
       document.querySelector('div[data-testid=sectionWeb]')?.prepend(element);
       break;
@@ -720,16 +720,11 @@ function filterAnchors(newAnchors) {
       const searchResults = newAnchors.filter(e => e.matches('section.mainline .result__title a.result__link'));
       filterSearchResults(searchResults);
       break;
-      case 'mojeek':
-        // Function to filter search results in Mojeek
-        function filterMojeek() {
-          let searchResults = Array.from(document.querySelectorAll('ul.results-standard li a.title')).filter(el => isNonIndieSite(el.href));
-          filterSearchResults(searchResults, 'mojeek', storage);
-        }
-
-        filterMojeek();
-        break;
-
+    }
+    case 'mojeek': {
+      const searchResults = newAnchors.filter(e => e.matches('ul.results-standard li a.title'));
+      filterSearchResults(searchResults);
+      break;
     }
     case 'qwant': {
       const searchResults = newAnchors.filter(e => e.matches('a.external'));
@@ -948,7 +943,7 @@ if (currentURL.hostname.includes('www.google.')) {
 } else if (currentURL.hostname.includes('ecosia.org')) {
   window.addEventListener("load", () => processSearchEngine('ecosia'));
 } else if (currentURL.hostname.includes('mojeek.com')) {
-  checkIfEnabled('mojeek');
+  processSearchEngine('mojeek');
 } else if (currentURL.hostname.includes('qwant.com')) {
   processSearchEngine('qwant');
 } else if (currentURL.hostname.includes('startpage.com')) {
