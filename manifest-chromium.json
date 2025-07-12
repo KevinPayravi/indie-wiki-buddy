@@ -1,6 +1,6 @@
 {
   "name": "__MSG_extensionName__",
-  "version": "3.8.0",
+  "version": "3.13.6",
   "description": "__MSG_extensionDescription__",
   "permissions": [
     "storage",
@@ -40,12 +40,14 @@
         "data/sitesJA.json",
         "data/sitesKO.json",
         "data/sitesLZH.json",
+        "data/sitesNL.json",
         "data/sitesPL.json",
         "data/sitesPT.json",
         "data/sitesRU.json",
         "data/sitesSV.json",
         "data/sitesTH.json",
         "data/sitesTOK.json",
+        "data/sitesTR.json",
         "data/sitesUK.json",
         "data/sitesZH.json"
       ],
@@ -286,7 +288,7 @@
       "css": [
         "css/content-search-filtering.css"
       ],
-      "run_at": "document_end"
+      "run_at": "document_start"
     },
     {
       "matches": [
@@ -375,7 +377,12 @@
     "https://breeze.whateveritworks.org/*",
     "https://breezewiki.woodland.cafe/*"
   ],
-  "optional_host_permissions": ["https://*/*"],
+  "options_ui": {
+    "page": "pages/settings/index.html"
+  },
+  "optional_host_permissions": [
+    "https://*/*"
+  ],
   "minimum_chrome_version": "88",
   "manifest_version": 3
 }

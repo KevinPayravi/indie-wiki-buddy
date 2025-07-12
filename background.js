@@ -37,13 +37,28 @@ async function getCachedStorage() {
   return cachedStorage;
 }
 
-// Cache Chrome's storage in memory so that we don't need to make repeated calls
+// Cache storage in memory so that we don't need to make repeated calls
 updateCachedStorage();
 
 // Capture web requests
 extensionAPI.webRequest.onBeforeSendHeaders.addListener(
   async (event) => {
-    if (event.documentLifecycle !== 'prerender') {
+    // Check for prefetch/prerender headers
+    const isPrefetch = event.requestHeaders?.some(header => {
+      const headerName = header.name.toLowerCase();
+      const headerValue = (header.value || '').toLowerCase();
+      return (
+        (headerName === 'purpose' && headerValue.includes('prefetch')) ||
+        (headerName === 'purpose' && headerValue.includes('preview')) ||
+        (headerName === 'sec-purpose' && headerValue.includes('prefetch')) || 
+        (headerName === 'sec-purpose' && headerValue.includes('preview')) ||
+        (headerName === 'x-purpose' && headerValue.includes('prefetch')) ||
+        (headerName === 'x-purpose' && headerValue.includes('preview')) ||
+        headerName === 'x-moz-prefetch'
+      );
+    });
+
+    if (!isPrefetch && event.documentLifecycle !== 'prerender') {
       if (event.frameType === 'sub_frame') {
         let tabInfo = await extensionAPI.tabs.get(event.tabId);
         main(tabInfo.url, event.tabId);
@@ -52,7 +67,11 @@ extensionAPI.webRequest.onBeforeSendHeaders.addListener(
       }
     }
   },
-  { urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*', '*://*.neoseeker.com/wiki/*'], types: ['main_frame', 'sub_frame'] }
+  { 
+    urls: ['*://*.fandom.com/*', '*://*.wiki.fextralife.com/*', '*://*.neoseeker.com/wiki/*'], 
+    types: ['main_frame', 'sub_frame']
+  },
+  ['requestHeaders']
 );
 
 // Listen for user turning extension on or off, to update icon

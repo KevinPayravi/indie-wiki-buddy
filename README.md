@@ -16,12 +16,14 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![JA wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=JA%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesJA.json)
 ![KO wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=KO%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesKO.json)
 ![LZH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=LZH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesLZH.json)
+![NL wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=NL%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesNL.json)
 ![PL wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PL%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPL.json)
 ![PT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=PT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesPT.json)
 ![RU wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=RU%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesRU.json)
 ![SV wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=SV%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesSV.json)
 ![TH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTH.json)
 ![TOK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TOK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTOK.json)
+![TR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTR.json)
 ![UK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=UK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesUK.json)
 ![ZH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ZH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesZH.json)
 
@@ -96,12 +98,15 @@ Entries are formatted as follows:
 * `destination_base_url`: Fully qualified domain name of the wiki being redirected to. Do not include `https://` or `http://`.
 * `destination_content_prefix`: A prefix that is prepended to article names before performing a search on the destination wiki. This can be useful if a wiki separates its content into different namespaces. For example, to redirect a wiki about _The Elder Scrolls V: Skyrim_ to a general Elder Scrolls wiki that has _Skyrim_ content in a namespace called `Skyrim`, set `destination_content_prefix` to `Skyrim:`. If this is not applicable, omit this property.
 * `destination_content_suffix`: A suffix that is added to the end of article names before performing a search on the destination wiki. This is typically used when a multilingual wiki separates its languages by suffixes (e.g. `/es`, `/pt`, etc.). Team Fortress Wiki is an example that uses this. If this is not applicable, omit this property.
-* `destination_platform`: The wiki software used by the wiki being redirected to. The currently supported options are `mediawiki` and `dokuwiki`. If you are contributing a redirect to a wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
+* `destination_platform`: The wiki software used by the wiki being redirected to. The currently supported options are `mediawiki`, `dokuwiki`, and `moinmoin`. If you are contributing a redirect to a wiki that is on another wiki platform, please open an issue so that support for the platform can be added.
 * `destination_icon`: The name of the favicon in the [favicons](favicons) folder for the wiki being redirected to.
 * `destination_main_page`: The title of the main page of the wiki being redirected to.
 * `destination_search_path`: The URL path prefix for performing searches on the wiki being redirected to. On MediaWiki wikis, it is listed on Special:Version as the index.php entry point.
 * `destination_content_path`: The URL path prefix for article links on the wiki being redirected to. On MediaWiki wikis, it is listed on Special:Version as the article path.
-* `destination_host`: The host of the wiki being redirected to, if it is hosted by a large wiki host (e.g. wiki.gg, Miraheze). If the wiki is hosted independantly, omit this property.
+* `destination_host`: The host of the wiki being redirected to, if it is hosted by a large wiki host (e.g. wiki.gg, Miraheze). If the wiki is hosted independently, omit this property.
 * `tags`: An optional array of tags. Currently only `official` is used, to mark wikis officially endorsed by the subject of the wiki. If there are no tags, omit this property.
 
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
+
+# Translations
+Translations are currently being prepared on Hosted Weblate ([link](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/)). If you're interested in helping translate, please register for an account at hosted.weblate.org, and you should be able to dive right in and start translating!

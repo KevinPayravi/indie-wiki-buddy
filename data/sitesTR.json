@@ -1,0 +1,21 @@
+[
+  {
+    "id": "tr-starwars",
+    "origins_label": "Star Wars Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Star Wars Fandom Wiki",
+        "origin_base_url": "starwars.fandom.com/tr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ana_sayfa"
+      }
+    ],
+    "destination": "Sithpedi",
+    "destination_base_url": "starwarsturkiye.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sithpedi.png",
+    "destination_main_page": "Anasayfa",
+    "destination_search_path": "/wiki/index.php",
+    "destination_content_path": "/wiki/"
+  }
+]

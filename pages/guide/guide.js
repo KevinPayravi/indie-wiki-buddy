@@ -12,6 +12,9 @@ document.querySelectorAll('[data-msg]').forEach(element => {
     }
   }
 
+  // Usage of innerHTML below is safe,
+  // as we are displaying literals from the extension's localization files,
+  // populated with placeholder HTML from elsewhere in the code.
   element.innerHTML = extensionAPI.i18n.getMessage(element.dataset.msg, placeholders);
 });
 

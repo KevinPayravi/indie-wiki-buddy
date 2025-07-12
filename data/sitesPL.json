@@ -39,7 +39,27 @@
     "destination_platform": "mediawiki",
     "destination_icon": "combine.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "pl-minecraft",
+    "origins_label": "Minecraft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Minecraft Fandom Wiki",
+        "origin_base_url": "minecraft.fandom.com/pl",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Strona_główna"
+      }
+    ],
+    "destination": "Minecraft Wiki Polska",
+    "destination_base_url": "minewiki.pl",
+    "destination_platform": "mediawiki",
+    "destination_icon": "minecraft.png",
+    "destination_main_page": "Strona_główna",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "pl-rayman",
@@ -105,5 +125,24 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "pl-touhou",
+    "origins_label": "Touhou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Touhou Fandom Wiki",
+        "origin_base_url": "touhou.fandom.com/pl",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Touhou_Wiki"
+      }
+    ],
+    "destination": "Touhou Wiki",
+    "destination_base_url": "pl.touhouwiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "touhouwiki.png",
+    "destination_main_page": "Touhou_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   }
 ]

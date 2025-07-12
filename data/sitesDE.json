@@ -61,6 +61,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "de-gronkh",
+    "origins_label": "Gronkh Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Gronkh Fandom Wiki",
+        "origin_base_url": "gronkh.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Gronkh_Wiki"
+      }
+    ],
+    "destination": "Gronkh-Wiki",
+    "destination_base_url": "gronkh-wiki.de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gronkhwiki.png",
+    "destination_main_page": "Hauptseite",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "de-lethalcompany",
     "origins_label": "Lethal Company Fandom Wiki",
     "origins": [
@@ -78,6 +97,7 @@
     "destination_icon": "lethalcompany.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
   },
   {
@@ -117,6 +137,45 @@
     "destination_main_page": "Hauptseite",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "de-simpsons",
+    "origins_label": "Simpsons Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Simpsons Fandom Wiki",
+        "origin_base_url": "simpsons.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Simpsons-Wiki"
+      }
+    ],
+    "destination": "Simpsonspedia Wiki",
+    "destination_base_url": "simpsonspedia.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "simpsonspedia.png",
+    "destination_main_page": "Simpsonspedia",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
+    "id": "de-southpark",
+    "origins_label": "South Park Fandom Wiki",
+    "origins": [
+      {
+        "origin": "South Park Fandom Wiki",
+        "origin_base_url": "southpark.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "South_Park_Wiki"
+      }
+    ],
+    "destination": "South Park Wiki",
+    "destination_base_url": "southpark.wiki.gg/de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "southparkwiki.png",
+    "destination_main_page": "South_Park_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "de-starcitizen",
@@ -197,5 +256,43 @@
     "destination_main_page": "Hauptseite",
     "destination_search_path": "/index.php",
     "destination_content_path": "/index.php/"
+  },
+  {
+    "id": "de-touhou",
+    "origins_label": "Touhou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Touhou Fandom Wiki",
+        "origin_base_url": "touhou.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Touhou_Wiki"
+      }
+    ],
+    "destination": "Touhou Wiki",
+    "destination_base_url": "de.touhouwiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "touhouwiki.png",
+    "destination_main_page": "Touhou_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "de-zelda",
+    "origins_label": "Zeldapedia",
+    "origins": [
+      {
+        "origin": "Zeldapedia",
+        "origin_base_url": "zelda.fandom.com/de",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Zeldapedia:Hauptseite"
+      }
+    ],
+    "destination": "Zeldapendium",
+    "destination_base_url": "www.zeldapendium.de",
+    "destination_platform": "mediawiki",
+    "destination_icon": "zeldapendium.png",
+    "destination_main_page": "Zeldapendium:Hauptseite",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
   }
 ]

@@ -20,10 +20,6 @@ legend {
   padding: 1rem .75rem;
 }
 
-.site-container {
-  background: var(--base-color-secondary);
-}
-
 /* NOTIFICATIONS */
 #notificationBannerReviewLinks {
   display: flex;
@@ -35,15 +31,15 @@ legend {
   display: inline-block;
 }
 
-#legend div,
-#legend span {
-  padding: 0 0 0 8px;
+#legend > span {
+  margin-left: 8px;
 }
 
-#legend div {
+#legend > div {
+  margin-left: 16px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 1em;
 }
 
 /* WIKI FILTERS */
@@ -75,97 +71,120 @@ legend {
   }
 }
 
-/** TOGGLE OPTIONS **/
-.toggles {
-  font-size: 0.8rem;
-  white-space: nowrap;
-  position: relative;
+/** TOGGLE TABLE OPTIONS **/
+#toggles {
+  --table-border-radius: 5px;
+  table-layout: fixed;
+  width: 100%;
+  background-color: var(--base-color-secondary);
+  border: 1px solid var(--base-color-outline-light);
+  border-radius: var(--table-border-radius);
+  border-spacing: 0px;
 }
 
-.toggles img {
-  line-height: 1.2rem;
+#toggles col#icon-col,
+#toggles col.button-col {
+  width: 1.75rem;
 }
 
-.toggles a img {
-  padding-right: .5rem;
-  vertical-align: middle;
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+#toggles col#lang-col {
+  width: 2rem;
+  visibility: visible;
 }
 
-.toggles label {
-  display: flex;
-  align-items: center;
+#toggles col#lang-col.hidden-col {
+  width: 0px;
+  visibility: collapse;
 }
 
-.toggles input {
-  cursor: pointer;
-  margin: 0;
+#toggles tr.togglesHeader td:nth-last-child(4),
+#toggles tr.site-container td:nth-last-child(4) {
+  padding-right: 2px;
 }
 
-.toggles>div {
-  display: flex;
-  flex-direction: row;
-  padding: 0 .5rem;
-  min-height: 20px;
+#toggles tr.togglesHeader td:nth-last-child(3),
+#toggles tr.site-container td:nth-last-child(3) {
+  padding-left: 2px;
+  border-left: 1px solid var(--base-color-outline-light);
 }
 
-.toggles .inputsContainer {
-  display: flex;
-  width: 150px;
-  justify-content: space-between;
+#togglesColumnLabels th {
+  padding: 5px;
+  font-weight: 600;
+  font-size: .9em;
+  white-space: break-spaces;
+  line-height: initial;
+  text-align: center;
 }
 
-.togglesHeader {
-  border-bottom: 1px solid var(--base-color-outline);
+#togglesKeys th,
+#togglesDefaults th {
+  text-align: right;
+  font-weight: normal;
+  font-style: italic;
+  padding: .5em;
+  white-space: break-spaces;
+  font-size: .9rem;
+}
+
+#toggles td,
+#toggles th {
   background-color: var(--base-color-secondary);
 }
 
-.togglesHeader span {
-  flex: 1;
-  text-align: right;
-  font-style: italic;
-  margin-right: 1em;
-  padding: .75em 0;
-  white-space: break-spaces;
+#toggles thead tr:first-child :first-child {
+  border-top-left-radius: var(--table-border-radius);
 }
 
-.toggles:not(.togglesHeader) span {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: .5em 0;
+#toggles thead tr:first-child :last-child {
+  border-top-right-radius: var(--table-border-radius);
 }
 
-#toggles>div:hover {
-  background-color: var(--base-color-primary-dark);
+#toggles tbody tr:last-child :first-child {
+  border-bottom-left-radius: var(--table-border-radius);
+}
+
+#toggles tbody tr:last-child :last-child {
+  border-bottom-right-radius: var(--table-border-radius);
+}
+
+#togglesKeys button:hover::after,
+#togglesDefaults input:hover::after {
+  content: attr(data-title);
+  padding: 5px;
+  width: max-content;
+  border: 1px solid var(--base-color-outline-dark);
+  position: absolute;
+  color: #fff;
+  background-color: var(--base-color-dark);
+  font-size: 0.8rem;
+  z-index: 999999;
+  left: 0px;
+  bottom: -20px;
+  transform: translateX(calc(-100% - 5px));
 }
 
 #togglesKeys button {
   all: unset;
-  display: inline-flex;
-  vertical-align: middle;
-  width: 100%;
-  height: 100%;
+  width: var(--default-icon-size);
+  height: var(--default-icon-size);
   background-repeat: no-repeat;
   background-position: center;
   background-size: var(--default-icon-size);
   cursor: pointer;
 }
 
-button#setAllDisabled {
+button#setAllWikiDisabled,
+button#setAllSearchEngineDisabled {
   background-image: url('../../images/toggle-disabled.png');
 }
 
-button#setAllAlert {
+button#setAllWikiAlert {
   background-image: url('../../images/toggle-alert.png');
 }
 
-button#setAllRedirect {
+button#setAllWikiRedirect {
   background-image: url('../../images/toggle-redirect.png');
-}
-
-button#setAllSearchEngineDisabled {
-  background-image: url('../../images/toggle-disabled.png');
 }
 
 button#setAllSearchEngineReplace {
@@ -181,78 +200,59 @@ button#setAllSearchEngineHide {
 }
 
 #togglesDefaults input[type=radio] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-#togglesDefaults input+label {
-  width: 100%;
-  height: 100%;
+  appearance: none;
+  width: var(--default-icon-size);
+  height: var(--default-icon-size);
   background-image: url('../../images/star-off.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: var(--default-icon-size);
 }
 
-#togglesDefaults input:checked+label {
+#togglesDefaults input[type=radio]:checked {
   background-image: url('../../images/star-on.png');
 }
 
-#togglesDefaults label {
+#toggles tr td:has(input),
+#toggles tr td:has(button) {
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+
+#toggles input {
   cursor: pointer;
+  margin: 0;
 }
 
-#togglesKeys .inputsContainer button:hover::after,
-#togglesDefaults .inputsContainer label:hover::after {
-  content: attr(data-title);
-  padding: 5px;
-  width: fit-content;
-  border: 1px solid var(--base-color-outline-dark);
-  position: absolute;
-  color: #fff;
-  background: var(--base-color-dark);
-  z-index: 999999;
-  transform: translateX(calc(-100% - 5px));
-  top: 30px;
+#toggles tbody tr:hover {
+  background-color: var(--base-color-primary-dark);
 }
 
-#togglesColumnLabels {
-  background-color: var(--base-color-secondary);
-  padding: 5px 0;
-}
-
-#togglesColumnLabels>div>div {
-  display: flex;
-  width: 150px;
-}
-
-#togglesColumnLabels>div>div>div {
-  flex: 1 1 0;
-  font-weight: 600;
-  font-size: .9em;
-  white-space: break-spaces;
-  line-height: initial;
+#toggles tbody {
+  font-size: 0.8rem;
   text-align: center;
+  vertical-align: middle;
 }
 
-.inputsContainer>label,
-.inputsContainer>div {
-  width: 20px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
+#toggles img {
+  line-height: 1.2rem;
 }
 
-.togglesHeader .inputsContainer>div:nth-child(4),
-.toggles>div>div>label:nth-child(4) {
-  padding-left: 5px;
-  border-left: 1px solid var(--base-color-outline-light);
+#toggles tbody tr td img {
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
-.inputsContainer label:nth-child(1) input,
-.inputsContainer label:nth-child(4) input {
+#toggles tbody .wiki-description {
+  white-space: nowrap;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: .5rem 0;
+}
+
+#toggles input.toggleWikiDisabled,
+#toggles input.toggleSearchEngineDisabled {
   accent-color: var(--disabled-color);
 }
 

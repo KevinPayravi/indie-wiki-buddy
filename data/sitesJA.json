@@ -116,8 +116,8 @@
     "destination_base_url": "wiki.ポケモン.com",
     "destination_platform": "mediawiki",
     "destination_icon": "pokemonwiki.png",
-    "destination_content_path": "/wiki/",
+    "destination_main_page": "メインページ",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "メインページ"
+    "destination_content_path": "/wiki/"
   }
 ]
