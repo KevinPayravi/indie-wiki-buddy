@@ -67,6 +67,7 @@
         "https://*.duckduckgo.com/*",
         "https://*.ecosia.org/*",
         "https://kagi.com/search*",
+        "https://*.mojeek.com/*",
         "https://*.qwant.com/*",
         "https://*.search.yahoo.com/*",
         "https://*.startpage.com/*",
