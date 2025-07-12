@@ -63,6 +63,7 @@
   font-weight: normal;
   line-height: normal;
   letter-spacing: normal;
+  white-space: normal;
 }
 .iwb-new-link div:first-of-type {
   display: inline-block;
