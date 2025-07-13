@@ -1090,6 +1090,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-balatro",
+    "origins_label": "Balatro Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Balatro Fandom Wiki",
+        "origin_base_url": "balatrogame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Balatro_Wiki"
+      }
+    ],
+    "destination": "Balatro Wiki",
+    "destination_base_url": "balatrowiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "balatro.png",
+    "destination_main_page": "",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "en-barotrauma",
     "origins_label": "Barotrauma Fandom Wiki",
     "origins": [
@@ -6616,6 +6635,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-monsterprom",
+    "origins_label": "Monster Prom Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Monster Prom Fandom Wiki",
+        "origin_base_url": "monster-prom.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Monster_Prom_Wiki"
+      }
+    ],
+    "destination": "Monster Prom Wiki",
+    "destination_base_url": "monsterprom.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "monsterpromwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Monster_Prom_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-monstersandmemories",
     "origins_label": "Monsters & Memories Fandom Wiki",
     "origins": [
@@ -8858,6 +8897,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-skylanders",
+    "origins_label": "Skylanders Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Skylanders Fandom Wiki",
+        "origin_base_url": "skylanders.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Skylanders Wiki",
+    "destination_base_url": "skylanderswiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "skylanders.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-slarpg",
     "origins_label": "Super Lesbian Animal RPG Fandom Wiki",
     "origins": [
@@ -10878,6 +10936,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-vocaloidlyrics",
+    "origins_label": "Vocaloid Lyrics Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Vocaloid Lyrics Fandom Wiki",
+        "origin_base_url": "vocaloidlyrics.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Vocaloid_Lyrics_Wiki"
+      }
+    ],
+    "destination": "Vocaloid Lyrics Wiki",
+    "destination_base_url": "vocaloidlyrics.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "vocaloidlyrics.png",
+    "destination_main_page": "Vocaloid_Lyrics_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-voicesofthevoid",
