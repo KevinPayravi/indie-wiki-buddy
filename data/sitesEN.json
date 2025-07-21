@@ -8851,30 +8851,28 @@
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
   },
-  
   {
-  "id": "en-siivagunner",
-  "origins_label": "SiIvaGunner Fandom Wiki",
-  "origins": [
-    {
-      "origin": "SiIvagunner Fandom Wiki",
-      "origin_base_url": "siivagunner.fandom.com",
-      "origin_content_path": "/wiki/",
-      "origin_main_page": "SiIvaGunner_Wiki"
-    }
-  ],
-  "destination": "SiIvaGunner Wiki",
-  "destination_base_url": "siivagunner.wiki",
-  "destination_platform": "mediawiki",
-  "destination_icon": "siivagunner.png",
-  "destination_main_page": "SiIvaGunner_Wiki",
-  "destination_search_path": "/index.php",
-  "destination_content_path": "/wiki/",
-  "tags": [
-    "official"
-  ]
+    "id": "en-siivagunner",
+    "origins_label": "SiIvaGunner Fandom Wiki",
+    "origins": [
+      {
+        "origin": "SiIvagunner Fandom Wiki",
+        "origin_base_url": "siivagunner.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "SiIvaGunner_Wiki"
+      }
+    ],
+    "destination": "SiIvaGunner Wiki",
+    "destination_base_url": "siivagunner.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "siivagunner.png",
+    "destination_main_page": "SiIvaGunner_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "official"
+    ]
   },
-  
   {
     "id": "en-simpsons",
     "origins_label": "Simpsons Fandom & Neoseeker Wikis",
