@@ -1920,6 +1920,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-chinafake",
+    "origins_label": "Chinafake Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Chinafake Fandom Wiki",
+        "origin_base_url": "chinafake.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Chinafake_Wiki:Home"
+      }
+    ],
+    "destination": "Chinafake Wiki",
+    "destination_base_url": "chinafake.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "chinafakewiki.png",
+    "destination_main_page": "Chinafake_Wiki:Home",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-chipschallenge",
     "origins_label": "Chip's Challenge Fandom Wiki",
     "origins": [

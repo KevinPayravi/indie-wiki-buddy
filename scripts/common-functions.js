@@ -1,4 +1,4 @@
-var LANGS = ["DE", "EN", "ES", "FI", "FR", "HU", "IT", "JA", "KO", "LZH", "NL", "PL", "PT", "RU", "SV", "TH", "TOK", "TR", "UK", "ZH"];
+var LANGS = ["DE", "EN", "ES", "FI", "FR", "HR", "HU", "IT", "JA", "KO", "LZH", "NL", "PL", "PT", "RU", "SV", "TH", "TOK", "TR", "UK", "ZH"];
 var BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 const extensionAPI = typeof browser === "undefined" ? chrome : browser;
 
