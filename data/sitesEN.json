@@ -7082,6 +7082,20 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-oakridge-nuclear-power-station-roblox",
+    "origins_label": "Oakridge Nuclear Power Station Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Oakridge Nuclear Power Station Fandom Wiki",
+        "origin_base_url": "oakridge-nps.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Oakridge_Nuclear_Power_Station_Wiki"
+      }
+    ],
+    "destination": "Oakridge Nuclear Power Station Wiki",
+    "destination_base_url": "onps.vercel.app"
+  },
+  {
     "id": "en-obeyme",
     "origins_label": "Obey Me! Fandom Wiki",
     "origins": [
