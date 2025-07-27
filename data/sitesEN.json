@@ -8920,11 +8920,17 @@
   },
   {
     "id": "en-skylanders",
-    "origins_label": "Skylanders Fandom Wiki",
+    "origins_label": "Skylanders Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Skylanders Fandom Wiki",
         "origin_base_url": "skylanders.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Skylanders Neoseeker Wiki",
+        "origin_base_url": "skylanders.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
       }
