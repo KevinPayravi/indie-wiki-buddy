@@ -1,0 +1,23 @@
+[
+  {
+    "id": "hr-pou",
+    "origins_label": "Pou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pou Fandom Wiki",
+        "origin_base_url": "pou.fandom.com/hr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pou_Wiki"
+      }
+    ],
+    "destination": "Poupedija",
+    "destination_base_url": "poupedia.com",
+    "destination_content_suffix": "/hr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "poupedija.png",
+    "destination_main_page": "Poupedia",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/",
+    "destination_host": "Miraheze"
+  }
+]
