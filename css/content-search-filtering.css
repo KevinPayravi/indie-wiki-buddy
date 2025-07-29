@@ -22,7 +22,7 @@
   display: block !important;
 }
 .iwb-new-link-container {
-  display: inline-block;
+  display: block;
   font-size: 12px !important;
   font-family: sans-serif;
   text-decoration: none;
@@ -48,12 +48,22 @@
   margin: .5em 0;
   font-size: 1.2em;
   width: fit-content;
+  height: auto;
 }
 .iwb-new-link button:hover {
   background: #00467a;
 }
 .iwb-new-link button * {
   vertical-align: middle;
+}
+.iwb-new-link button span {
+  /* prevent search engine sites like Mojeek overriding the button styling */
+  color: inherit !important;
+  text-transform: none;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  white-space: normal;
 }
 .iwb-new-link div:first-of-type {
   display: inline-block;
