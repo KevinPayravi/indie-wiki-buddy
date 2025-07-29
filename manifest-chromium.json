@@ -35,6 +35,7 @@
         "data/sitesES.json",
         "data/sitesFI.json",
         "data/sitesFR.json",
+        "data/sitesHR.json",
         "data/sitesHU.json",
         "data/sitesIT.json",
         "data/sitesJA.json",
@@ -52,7 +53,8 @@
         "data/sitesZH.json"
       ],
       "matches": [
-        "https://*/*"
+        "https://*/*",
+        "http://*/*"
       ]
     }
   ],
@@ -380,7 +382,8 @@
     "page": "pages/settings/index.html"
   },
   "optional_host_permissions": [
-    "https://*/*"
+    "https://*/*",
+    "http://*/*"
   ],
   "minimum_chrome_version": "88",
   "manifest_version": 3
