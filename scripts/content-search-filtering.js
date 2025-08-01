@@ -218,12 +218,12 @@ function mountToTopOfSearchResults(element) {
       if (currentURL.hostname.endsWith('yahoo.co.jp')) {
         document.querySelector('Contents__inner')?.prepend(element);
       } else {
-      if (document.querySelector('#web > ol')) {
-        var li = document.createElement('li');
-        li.appendChild(element);
-        document.querySelector('#web > ol')?.prepend(li);
-      } else {
-        document.querySelector('#main-algo')?.prepend(element);
+        if (document.querySelector('#web > ol')) {
+          var li = document.createElement('li');
+          li.appendChild(element);
+          document.querySelector('#web > ol')?.prepend(li);
+        } else {
+          document.querySelector('#main-algo')?.prepend(element);
         }
       }
       break;
@@ -427,7 +427,7 @@ function getResultContainer(searchEngine, searchResult) {
       if (currentURL.hostname.endsWith('yahoo.co.jp')) {
         searchResultContainer = searchResult.closest('div.sw-CardBase:has(div.sw-Card.Algo)');
       } else {
-      searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
+        searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
       }
       break;
     case 'kagi':
@@ -941,17 +941,17 @@ void commonFunctionGetSiteDataByOrigin();
 // Figure out which search engine we're on
 if (currentURL.hostname.includes('www.google.')) {
   processSearchEngine('google');
-} else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
+} else if (currentURL.hostname.endsWith('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
   processSearchEngine('duckduckgo');
 } else if (currentURL.hostname.endsWith('.bing.com')) {
   processSearchEngine('bing');
-} else if (currentURL.hostname.includes('search.brave.com')) {
+} else if (currentURL.hostname.endsWith('search.brave.com')) {
   processSearchEngine('brave');
-} else if (currentURL.hostname.includes('ecosia.org')) {
+} else if (currentURL.hostname.endsWith('ecosia.org')) {
   window.addEventListener("load", () => processSearchEngine('ecosia'));
-} else if (currentURL.hostname.includes('qwant.com')) {
+} else if (currentURL.hostname.endsWith('qwant.com')) {
   processSearchEngine('qwant');
-} else if (currentURL.hostname.includes('startpage.com')) {
+} else if (currentURL.hostname.endsWith('startpage.com')) {
   processSearchEngine('startpage');
 } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
   processSearchEngine('yandex');
@@ -959,6 +959,6 @@ if (currentURL.hostname.includes('www.google.')) {
   processSearchEngine('yahoo');
 } else if (currentURL.hostname.endsWith('yahoo.co.jp')) {
   window.addEventListener("load", () => processSearchEngine('yahoo'));
-} else if (currentURL.hostname.includes('kagi.com')) {
+} else if (currentURL.hostname.endsWith('kagi.com')) {
   processSearchEngine('kagi');
 }
