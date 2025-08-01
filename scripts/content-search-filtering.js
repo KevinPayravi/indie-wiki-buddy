@@ -954,7 +954,7 @@ if (currentURL.hostname.includes('www.google.')) {
 } else if (currentURL.hostname.includes('yahoo.com')) {
   processSearchEngine('yahoo');
 } else if (currentURL.hostname.includes('yahoo.co.jp')) {
-  processSearchEngine('yahoo.co.jp');
+  window.addEventListener("load", () => processSearchEngine('yahoo.co.jp'));
 } else if (currentURL.hostname.includes('kagi.com')) {
   processSearchEngine('kagi');
 }
