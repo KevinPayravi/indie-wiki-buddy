@@ -214,16 +214,18 @@ function mountToTopOfSearchResults(element) {
       searchResultsContainer?.prepend(element);
       break;
     case 'yahoo':
+      // Yahoo Japan is an entirely separate website, with a completely different DOM
+      if (currentURL.hostname.endsWith('yahoo.co.jp')) {
+        document.querySelector('Contents__inner')?.prepend(element);
+      } else {
       if (document.querySelector('#web > ol')) {
         var li = document.createElement('li');
         li.appendChild(element);
         document.querySelector('#web > ol')?.prepend(li);
       } else {
         document.querySelector('#main-algo')?.prepend(element);
+        }
       }
-      break;
-    case 'yahoo.co.jp':
-      document.querySelector('Contents__inner')?.prepend(element);
       break;
     case 'kagi':
       document.querySelector('#main')?.prepend(element);
@@ -421,10 +423,12 @@ function getResultContainer(searchEngine, searchResult) {
       searchResultContainer = searchResult.closest('#search-result > li, #search-result > div[data-yaet4], li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
       break;
     case 'yahoo':
+      // Yahoo Japan is an entirely separate website, with a completely different DOM
+      if (currentURL.hostname.endsWith('yahoo.co.jp')) {
+        searchResultContainer = searchResult.closest('div.sw-CardBase:has(div.sw-Card.Algo)');
+      } else {
       searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
-      break;
-    case 'yahoo.co.jp':
-      searchResultContainer = searchResult.closest('div.sw-CardBase:has(div.sw-Card.Algo)');
+      }
       break;
     case 'kagi':
       searchResultContainer = searchResult.closest('div.search-result, div.__srgi');
@@ -738,6 +742,13 @@ function filterAnchors(newAnchors) {
     }
 
     case 'yahoo': {
+      // Yahoo Japan is an entirely separate website, with a completely different DOM
+      if (currentURL.hostname.endsWith('yahoo.co.jp')) {
+        const searchResults = newAnchors.filter(e => e.matches('a.sw-Card__titleInner'));
+        filterSearchResults(searchResults);
+        break;
+      }
+
       const searchResults = newAnchors.filter(e => e.matches('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)'));
       searchResults.forEach(
         /** @param {HTMLAnchorElement} searchResult */
@@ -761,13 +772,6 @@ function filterAnchors(newAnchors) {
       );
 
       filterSearchResults(searchResults);
-      break;
-    }
-
-    case 'yahoo.co.jp': {
-      const searchResults = newAnchors.filter(e => e.matches('a.sw-Card__titleInner'));
-      filterSearchResults(searchResults);
-      break;
     }
 
     case 'kagi': {
@@ -951,10 +955,10 @@ if (currentURL.hostname.includes('www.google.')) {
   processSearchEngine('startpage');
 } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
   processSearchEngine('yandex');
-} else if (currentURL.hostname.includes('yahoo.com')) {
+} else if (currentURL.hostname.endsWith('yahoo.com')) {
   processSearchEngine('yahoo');
-} else if (currentURL.hostname.includes('yahoo.co.jp')) {
-  window.addEventListener("load", () => processSearchEngine('yahoo.co.jp'));
+} else if (currentURL.hostname.endsWith('yahoo.co.jp')) {
+  window.addEventListener("load", () => processSearchEngine('yahoo'));
 } else if (currentURL.hostname.includes('kagi.com')) {
   processSearchEngine('kagi');
 }
