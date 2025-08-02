@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Reduce to just protocal + hostname
     breezewikiCustomDomain = new URL(breezewikiCustomDomain);
-    breezewikiCustomDomain = breezewikiCustomDomain.protocol + "//" + breezewikiCustomDomain.hostname
+    breezewikiCustomDomain = breezewikiCustomDomain.protocol + "//" + breezewikiCustomDomain.host;
     breezewikiCustomDomain = breezewikiCustomDomain.toString();
 
     extensionAPI.permissions.request({
