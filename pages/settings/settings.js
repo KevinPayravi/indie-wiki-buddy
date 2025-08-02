@@ -429,8 +429,11 @@ document.addEventListener('DOMContentLoaded', () => {
     breezewikiCustomDomain = breezewikiCustomDomain.protocol + "//" + breezewikiCustomDomain.host;
     breezewikiCustomDomain = breezewikiCustomDomain.toString();
 
+    const permissionDomainURL = new URL(breezewikiCustomDomain);
+    const permissionDomain = permissionDomainURL.protocol + "//" + permissionDomainURL.hostname + "/*";
+
     extensionAPI.permissions.request({
-      origins: [breezewikiCustomDomain + '/*']
+      origins: [permissionDomain]
     }, (granted) => {
       // The callback argument will be true if the user granted the permissions.
       if (granted) {

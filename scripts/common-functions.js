@@ -1,7 +1,7 @@
 var LANGS = ["DE", "EN", "ES", "FI", "FR", "HR", "HU", "IT", "JA", "KO", "LZH", "NL", "PL", "PT", "RU", "SV", "TH", "TOK", "TR", "UK", "ZH"];
 var BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
-const extensionAPI = typeof browser === "undefined" ? chrome : browser;
-const CUSTOM_DOMAIN_CONTENT_SCRIPT_ID = "content-banners";
+var extensionAPI = typeof browser === "undefined" ? chrome : browser;
+var CUSTOM_DOMAIN_CONTENT_SCRIPT_ID = "content-banners";
 
 /** @param {string} str */
 function b64decode(str) {
@@ -382,7 +382,7 @@ async function updateCustomDomainContentScriptRegistration(domain) {
   const matcher = url.protocol + '//' + url.hostname + '/*';
 
   const scriptRegistrationParams = [{
-    id: 'content-banners',
+    id: CUSTOM_DOMAIN_CONTENT_SCRIPT_ID,
     matches: [matcher],
     js: ['/scripts/common-functions.js', '/scripts/content-banners.js', '/scripts/content-breezewiki.js'],
     runAt: "document_idle"
