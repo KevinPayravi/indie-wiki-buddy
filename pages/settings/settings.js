@@ -434,12 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, (granted) => {
       // The callback argument will be true if the user granted the permissions.
       if (granted) {
-        extensionAPI.scripting.registerContentScripts([{
-          id: 'content-banners',
-          matches: [breezewikiCustomDomain + '/*'],
-          js: ['/scripts/common-functions.js', '/scripts/content-banners.js', '/scripts/content-breezewiki.js'],
-          runAt: "document_idle"
-        }]);
+        updateCustomDomainContentScriptRegistration(breezewikiCustomDomain);
         extensionAPI.storage.sync.set({ 'breezewikiCustomHost': breezewikiCustomDomain });
         document.getElementById('breezewikiCustomHostStatus').innerText = extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostSetSuccessful');
       } else {

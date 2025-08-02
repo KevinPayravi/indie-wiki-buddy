@@ -264,11 +264,6 @@ async function main(url, tabId) {
 
 getSyncStorageData().then(result => {
   if (result.breezewikiHost === "CUSTOM") {
-    extensionAPI.scripting.registerContentScripts([{
-      id: 'content-banners',
-      matches: [result.breezewikiCustomHost + '/*'],
-      js: ['/scripts/common-functions.js', '/scripts/content-banners.js', '/scripts/content-breezewiki.js'],
-      runAt: "document_idle"
-    }]);
+    updateCustomDomainContentScriptRegistration(result.breezewikiCustomHost);
   }
 });
