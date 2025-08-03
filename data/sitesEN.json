@@ -8596,28 +8596,6 @@
     ]
   },
   {
-    "id": "en-schlockmercenary",
-    "origins_label": "Schlock Mercenary Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Schlock Mercenary Fandom Wiki",
-        "origin_base_url": "schlockmercenary.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Schlock_Mercenary_Wiki"
-      }
-    ],
-    "destination": "Ovalkwiki",
-    "destination_base_url": "www.ovalkwiki.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "ovalkwiki.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/index.php?title=",
-    "tags": [
-      "official"
-    ]
-  },
-  {
     "id": "en-scpsl",
     "origins_label": "SCP: Secret Laboratory Fandom Wiki",
     "origins": [
