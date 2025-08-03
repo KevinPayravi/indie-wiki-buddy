@@ -6771,9 +6771,9 @@
       }
     ],
     "destination": "My Little Pony Magic Princess Wiki",
-    "destination_base_url": "mlpgamewiki.png",
+    "destination_base_url": "mlp-game-wiki.no",
     "destination_platform": "mediawiki",
-    "destination_icon": "mlp-game-wiki.no",
+    "destination_icon": "mlpgamewiki.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/index.php/"
