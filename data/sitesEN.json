@@ -8963,6 +8963,31 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
   },
+   {
+    "id": "en-spyro",
+    "origins_label": "Spyro Fandom & Neoseeker Wikis",
+    "origins": [
+      {
+        "origin": "Spyro Fandom Wiki",
+        "origin_base_url": "spyro.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Spyro Neoseeker Wiki",
+        "origin_base_url": "spyro.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Spyro Wiki",
+    "destination_base_url": "spyrowiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "spyro.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
   {
     "id": "en-slarpg",
     "origins_label": "Super Lesbian Animal RPG Fandom Wiki",
