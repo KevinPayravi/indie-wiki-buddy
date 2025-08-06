@@ -20,11 +20,11 @@
         "description": "Text to display in the banner for the BreezeWiki link"
     },
     "bannerDisable": {
-        "message": "",
+        "message": "Disabilita il banner per questa wiki",
         "description": "Text to display in the banner for the disable banner link"
     },
     "bannerDisableDone": {
-        "message": "",
+        "message": "Banner disabilitato",
         "description": "Text to display in the banner after the banner has been disabled"
     },
     "bannerVisit": {
@@ -422,7 +422,7 @@
         }
     },
     "settingsTitle": {
-        "message": "",
+        "message": "Impostazioni di Indie Wiki Buddy",
         "description": "Title of the settings page"
     },
     "searchResultReenable": {
@@ -463,7 +463,7 @@
         }
     },
     "settingsBannerReview": {
-        "message": "",
+        "message": "Ti piace Indie Wiki Buddy? Lascia una recensione, per favore!",
         "description": "Notice to leave a review for the extension"
     },
     "guideReorderResultsHelp1": {
@@ -589,7 +589,7 @@
         "description": "Instruction to set default for new wikis in future updates"
     },
     "bannerRedirect": {
-        "message": "Reindirizza automaticamente verso questa wiki",
+        "message": "Reindirizza automaticamente questa wiki",
         "description": "Text to display in the banner for the redirect link"
     },
     "guideAlertHelp": {
@@ -683,7 +683,7 @@
         }
     },
     "extensionDescription": {
-        "message": "",
+        "message": "Indie Wiki Buddy ti aiuta a scoprire wiki indipendenti di qualità, tramite avvisi, redirezioni e filtraggio delle ricerche.",
         "description": "The description of the extension"
     },
     "searchFilteredResultsHide": {
