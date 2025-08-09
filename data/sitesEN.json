@@ -6921,6 +6921,29 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-newgrounds",
+    "origins_label": "Newgrounds Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Newgrounds Fandom Wiki",
+        "origin_base_url": "newgrounds.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Wikigrounds",
+    "destination_base_url": "newgrounds.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikigrounds.png",
+    "destination_main_page": "Newgrounds_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-nicosnextbots",
     "origins_label": "Nico's Nextbots Fandom Wiki",
     "origins": [
