@@ -8713,7 +8713,7 @@
     "origins": [
       {
         "origin": "SCP: Secret Laboratory Fandom Wiki",
-        "origin_base_url": "scp-secret-laboratory-official.fandom.com",
+        "origin_base_url": "scp-secret-laboratory.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "SCP:_Secret_Laboratory_Official_Wiki"
       }
