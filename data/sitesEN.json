@@ -6555,6 +6555,13 @@
         "origin_content_path": "/wiki/",
         "origin_main_page": "A_Minecraft_Movie_Wiki",
         "destination_content_prefix": "Movie:"
+      },
+      {
+        "origin": "A Minecraft Movie Fandom Wiki",
+        "origin_base_url": "a-minecraft-movie.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "A_Minecraft_Movie_Wiki",
+        "destination_content_prefix": "Movie:"
       }
     ],
     "destination": "Minecraft Wiki",
@@ -6919,6 +6926,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-newgrounds",
+    "origins_label": "Newgrounds Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Newgrounds Fandom Wiki",
+        "origin_base_url": "newgrounds.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Wikigrounds",
+    "destination_base_url": "newgrounds.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "wikigrounds.png",
+    "destination_main_page": "Newgrounds_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-nicosnextbots",
