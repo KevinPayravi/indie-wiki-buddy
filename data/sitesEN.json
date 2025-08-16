@@ -8989,6 +8989,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-skibiditoilet",
+    "origins_label": "Skibidi Toilet Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Skibidi Toilet Fandom Wiki",
+        "origin_base_url": "skibidi-toilet.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Skibidi_Toilet_Wiki"
+      }
+    ],
+    "destination": "Skibidi Toilet Wiki",
+    "destination_base_url": "skibiditoilet.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "skibiditoiletwiki.png",
+    "destination_main_page": "Skibidi_Toilet_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-skylanders",
     "origins_label": "Skylanders Fandom & Neoseeker Wikis",
     "origins": [
