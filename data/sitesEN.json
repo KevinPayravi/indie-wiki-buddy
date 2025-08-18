@@ -11455,26 +11455,6 @@
     "destination_content_path": "/index.php?title="
   },
   {
-    "id": "en-whentheycry",
-    "origins_label": "When They Cry Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Higurashi no Naku Koro Ni Fandom Wiki",
-        "origin_base_url": "whentheycry.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Higurashi_no_Naku_Koro_Ni_Wiki"
-      }
-    ],
-    "destination": "When They Cry Wiki",
-    "destination_base_url": "wiki.whentheycry.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "whentheycry.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/",
-    "destination_host": "Miraheze"
-  },
-  {
     "id": "en-whiteknuckle",
     "origins_label": "White Knuckle Fandom Wiki",
     "origins": [
