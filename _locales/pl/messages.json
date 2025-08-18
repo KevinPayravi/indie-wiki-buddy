@@ -325,7 +325,7 @@
         "message": "Zawsze masz pełną kontrolę nad tym jak rozszerzenie się zachowuje, które funkcje są włączone a które nie. Możesz również stosować funkcje zależnie od własnych preferencji - z podziałem na poszczególne wiki."
     },
     "guideNotificationsHelp1": {
-        "message": "",
+        "message": "Kiedy ta opcja jest włączona, otrzymasz powiadomienie po automatycznym przeniesieniu do indie wiki lub $BreezeWiki$. Ta funkcja jest domyślnie włączona.",
         "placeholders": {
             "BreezeWiki": {
                 "content": "$1",
@@ -334,14 +334,14 @@
         }
     },
     "guideNotificationsHelp2": {
-        "message": ""
+        "message": "Jeśli nie otrzymujesz powiadomień kiedy ta funkcja jest włączona sprawdź ustawienia swojego systemu operacyjnego, by upewnić się czy twoja wyszukiwarka ma upoważnienie do wysyłania powiadomień."
     },
     "guideExtensionOnOff": {
-        "message": "",
+        "message": "Rozszerzenie jest włączone / wyłączone",
         "description": "Extension on/off toggle"
     },
     "guideExtensionOnOffHelp": {
-        "message": ""
+        "message": "Włącz/wyłącz wszystkie funkcje Indie Wiki Buddy kliknięciem przycisku."
     },
     "guideChangelogHelp": {
         "message": "Włącz tę opcję aby po każdej aktualizacji Indie Wiki Buddy otworzyła się nowa karta z $linkStart$listą zmian$linkEnd$ aby być na bieżąco ze zmianami.",
@@ -883,5 +883,8 @@
     },
     "settingsLangTR": {
         "message": "[TR] Turecki / Türkçe"
+    },
+    "settingsLangNL": {
+        "message": "[NL] Holenderski / Netherlands"
     }
 }
