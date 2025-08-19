@@ -1,5 +1,160 @@
 {
     "extensionName": {
         "message": "Indie Wiki Buddy"
+    },
+    "extensionDescription": {
+        "message": "Indie Wiki Buddy uyarılar, yönlendirmeler ve arama filtreleri aracılığıyla kaliteli, bağımsız vikileri keşfetmenize yardımcı olur."
+    },
+    "bannerDescriptorWiki": {
+        "message": "bir"
+    },
+    "bannerDescriptorIndependent": {
+        "message": "bağımsız bir"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "resmi bağımsız bir"
+    },
+    "bannerDescriptorOfficial": {
+        "message": "resmi bir"
+    },
+    "bannerLanguageEnglish": {
+        "message": "İngilizce'de"
+    },
+    "bannerVisit": {
+        "message": "$destination$ adresini ziyaret edin",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerBreezeWiki": {
+        "message": "BreezeWiki aracılığıyla bu Fandom vikisini görüntüleyin"
+    },
+    "bannerRestore": {
+        "message": "Afişi yenile"
+    },
+    "bannerRestoreDone": {
+        "message": "Afiş yenilendi"
+    },
+    "bannerDisable": {
+        "message": "Bu viki için afişi devre dışı bırak"
+    },
+    "bannerDisableDone": {
+        "message": "Afiş devre dışı bırakıldı"
+    },
+    "bannerRedirect": {
+        "message": "Bu viki otomatik yönlendir"
+    },
+    "bannerRedirectDone": {
+        "message": "Yönlendirme etkinleştirildi"
+    },
+    "searchResultLookup": {
+        "message": "$destination$ adresindeki $article$ makalesini ziyaret edin",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultLookupEnglish": {
+        "message": "$destination$ adresindeki $article$ makalesini ziyaret edin (EN)",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisit": {
+        "message": "Bunun yerine $destination$ adresini ziyaret edin",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "Bunun yerine $destination$ (EN) adresini ziyaret edin",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "Aşağıdaki sonucu tekrar etkinleştir"
+    },
+    "searchRemovalNotice": {
+        "message": "Indie Wiki Buddy $destination$ adresindeki sonuçları filtreledi. $link$ adresinden sonuçlara bakın.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "searchFilteredResultsShow": {
+        "message": "Filtrelenmiş sonuçları göster"
+    },
+    "searchFilteredResultsHide": {
+        "message": "Filtrelenmiş sonuçları gizle"
+    },
+    "settingsTitle": {
+        "message": "Indie Wiki Buddy ayarları"
+    },
+    "settingsGuide": {
+        "message": "Rehber"
+    },
+    "settingsWebsite": {
+        "message": "Web Sitesi"
+    },
+    "settingsChangelog": {
+        "message": "Değişim Günlüğü"
+    },
+    "settingsSubmitWiki": {
+        "message": "Viki Yayınla"
+    },
+    "settingsSourceCode": {
+        "message": "Kaynak kodu"
+    },
+    "settingsBannerHide": {
+        "message": "Bu mesajı gizle"
+    },
+    "settingsBannerReview": {
+        "message": "Indie Wiki Buddy'den keyif alıyor musunuz? Lütfen bir inceleme bırakın!"
+    },
+    "settingsBannerReviewContact": {
+        "message": "Sorun yaşıyor veya tavsiyeleriniz mi var? Lütfen $linkStart$bana ulaşın$linkEnd$!",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "firstInstallInfo1": {
+        "message": "Indie Wiki Buddy'i indirdiğiniz için teşekkürler! Hadi kurulumunuzu yapalım."
+    },
+    "firstInstallInfo2": {
+        "message": "Tam rehberi görmek için, yeni vikiler yayınlamak için veya geliştiriciye ulaşmak için yukarıdaki bağlantıları kullanın."
     }
 }
