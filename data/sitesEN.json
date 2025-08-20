@@ -6790,6 +6790,25 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-mylittleponymagicprincess",
+    "origins_label": "My Little Pony Magic Princess Fandom Wiki",
+    "origins": [
+      {
+        "origin": "My Little Pony Gameloft Fandom Wiki",
+        "origin_base_url": "mlp-gameloft.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "My_Little_Pony:_Magic_Princess_Gameloft_Wiki"
+      }
+    ],
+    "destination": "My Little Pony Magic Princess Wiki",
+    "destination_base_url": "mlp-game-wiki.no",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mlpgamewiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
+  },
+  {
     "id": "en-myst",
     "origins_label": "D'ni Fandom Wiki",
     "origins": [
