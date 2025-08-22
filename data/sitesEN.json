@@ -6790,6 +6790,25 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-mylittleponymagicprincess",
+    "origins_label": "My Little Pony Magic Princess Fandom Wiki",
+    "origins": [
+      {
+        "origin": "My Little Pony Gameloft Fandom Wiki",
+        "origin_base_url": "mlp-gameloft.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "My_Little_Pony:_Magic_Princess_Gameloft_Wiki"
+      }
+    ],
+    "destination": "My Little Pony Magic Princess Wiki",
+    "destination_base_url": "mlp-game-wiki.no",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mlpgamewiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
+  },
+  {
     "id": "en-myst",
     "origins_label": "D'ni Fandom Wiki",
     "origins": [
@@ -8713,7 +8732,7 @@
     "origins": [
       {
         "origin": "SCP: Secret Laboratory Fandom Wiki",
-        "origin_base_url": "scp-secret-laboratory-official.fandom.com",
+        "origin_base_url": "scp-secret-laboratory.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "SCP:_Secret_Laboratory_Official_Wiki"
       }
@@ -8987,6 +9006,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-skibiditoilet",
+    "origins_label": "Skibidi Toilet Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Skibidi Toilet Fandom Wiki",
+        "origin_base_url": "skibidi-toilet.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Skibidi_Toilet_Wiki"
+      }
+    ],
+    "destination": "Skibidi Toilet Wiki",
+    "destination_base_url": "skibiditoilet.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "skibiditoiletwiki.png",
+    "destination_main_page": "Skibidi_Toilet_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-skylanders",
@@ -11433,26 +11472,6 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/index.php?title="
-  },
-  {
-    "id": "en-whentheycry",
-    "origins_label": "When They Cry Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Higurashi no Naku Koro Ni Fandom Wiki",
-        "origin_base_url": "whentheycry.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Higurashi_no_Naku_Koro_Ni_Wiki"
-      }
-    ],
-    "destination": "When They Cry Wiki",
-    "destination_base_url": "wiki.whentheycry.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "whentheycry.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/",
-    "destination_host": "Miraheze"
   },
   {
     "id": "en-whiteknuckle",
