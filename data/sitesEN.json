@@ -5801,6 +5801,26 @@
     ]
   },
   {
+    "id": "en-left4dead",
+    "origins_label": "Left 4 Dead Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Left 4 Dead Fandom Wiki",
+        "origin_base_url": "left4dead.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Left_4_Dead_Wiki"
+      }
+    ],
+    "destination": "Left 4 Dead Wiki",
+    "destination_base_url": "left4dead.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "left4dead.png",
+    "destination_main_page": "Left_4_Dead_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-legendofthegalacticheroes",
     "origins_label": "Legend of Galactic Heroes Fandom Wiki",
     "origins": [
