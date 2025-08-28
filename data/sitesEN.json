@@ -3700,6 +3700,29 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-everythingupgradetree",
+    "origins_label": "Everything Upgrade Tree Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Everything Upgrade Tree Fandom Wiki",
+        "origin_base_url": "everything-upgrade-tree.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Everything_Upgrade_Tree_Wiki"
+      }
+    ],
+    "destination": "Everything Upgrade Tree Wiki",
+    "destination_base_url": "eutwiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "everythingupgradetree.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+    "destination_host": "Miraheze"
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-evilprinceandthepuppet",
     "origins_label": "Evil Prince and the Puppet Fandom Wiki",
     "origins": [
