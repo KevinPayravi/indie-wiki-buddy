@@ -146,6 +146,25 @@
     ]
   },
   {
+    "id": "pt-undertale",
+    "origins_label": "Undertale Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Undertale Fandom Wiki",
+        "origin_base_url": "undertale.fandom.com/pt-br",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Página_principal"
+      }
+    ],
+    "destination": "Undertale Wiki",
+    "destination_base_url": "pt-br.undertale.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "undertalewiki.png",
+    "destination_main_page": "Página_Principal",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "pt-elderscrolls",
     "origins_label": "Elder Scrolls Fandom Wiki",
     "origins": [
