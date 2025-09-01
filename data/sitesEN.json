@@ -4010,6 +4010,27 @@
     ]
   },
   {
+    "id": "en-forsaken",
+    "origins_label": "(Unofficial) FORSAKEN Wiki",
+    "origins": [
+      {
+        "origin": "(Unofficial) FORSAKEN Wiki",
+        "origin_base_url": "forsaken2024.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "FORSAKEN_Wiki"
+      }
+    ],
+    "destination": "Forsaken - Forsaken Wiki",
+    "destination_base_url": "forsaken.wiki",
+    "destination_platform": "mediawiki",
+    "destination_main_page": "100%_Orange_Juice_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-foxhole",
     "origins_label": "Foxhole Fandom Wiki",
     "origins": [
