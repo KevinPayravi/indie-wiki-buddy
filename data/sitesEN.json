@@ -3716,8 +3716,8 @@
     "destination_icon": "everythingupgradetree.png",
     "destination_main_page": "",
     "destination_search_path": "/w/index.php",
-    "destination_content_path": "/"
-    "destination_host": "Miraheze"
+    "destination_content_path": "/",
+    "destination_host": "Miraheze",
     "tags": [
       "official"
     ]
