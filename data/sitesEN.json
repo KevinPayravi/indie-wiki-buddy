@@ -1,5 +1,26 @@
 [
   {
+  "id": "en-milgram",
+  "origins_label": "MILGRAM Fandom Wiki",
+  "origins": [
+    {
+      "origin": "MILGRAM Fandom Wiki",
+      "origin_base_url": "milgram.fandom.com",
+      "origin_content_path": "/wiki/",
+      "origin_main_page": "MILGRAM_Wiki"
+    }
+  ],
+  "destination": "MILGRAM Wiki",
+  "destination_base_url": "milgram.miraheze.org",
+  "destination_platform": "mediawiki",
+  "destination_icon": "milgramwiki.png",
+  "destination_main_page": "Main_Page",
+  "destination_search_path": "/index.php",
+  "destination_content_path": "/wiki/",
+  "destination_host": "Miraheze"
+  ]
+},
+  {
     "id": "en-1000xresist",
     "origins_label": "1000xRESIST Fandom Wiki",
     "origins": [
