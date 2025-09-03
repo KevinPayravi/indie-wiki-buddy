@@ -1446,6 +1446,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-blueprince",
+    "origins_label": "Blue Prince Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Blue Prince Fandom Wiki",
+        "origin_base_url": "blue-prince.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Blue_Prince_Wiki"
+      }
+    ],
+    "destination": "Blue Prince Wiki",
+    "destination_base_url": "blueprince.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "blueprince.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-boardgameonline",
     "origins_label": "Board Game Online Fandom Wiki",
     "origins": [
