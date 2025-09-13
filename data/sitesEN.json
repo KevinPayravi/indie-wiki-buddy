@@ -6544,25 +6544,25 @@
     "destination_content_path": "/wiki/"
   },
   {
-  "id": "en-milgram",
-  "origins_label": "MILGRAM Fandom Wiki",
-  "origins": [
-    {
-      "origin": "MILGRAM Fandom Wiki",
-      "origin_base_url": "milgram.fandom.com",
-      "origin_content_path": "/wiki/",
-      "origin_main_page": "MILGRAM_Wiki"
-    }
-  ],
-  "destination": "MILGRAM Wiki",
-  "destination_base_url": "milgram.miraheze.org",
-  "destination_platform": "mediawiki",
-  "destination_icon": "milgramwiki.png",
-  "destination_main_page": "Main_Page",
-  "destination_search_path": "/index.php",
-  "destination_content_path": "/wiki/",
-  "destination_host": "Miraheze"
-},
+    "id": "en-milgram",
+    "origins_label": "MILGRAM Fandom Wiki",
+    "origins": [
+      {
+        "origin": "MILGRAM Fandom Wiki",
+        "origin_base_url": "milgram.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "MILGRAM_Wiki"
+      }
+    ],
+    "destination": "MILGRAM Wiki",
+    "destination_base_url": "milgram.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "milgramwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
   {
     "id": "en-milkseries",
     "origins_label": "Milk Series Fandom Wiki",
