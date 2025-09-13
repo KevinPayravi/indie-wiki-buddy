@@ -1065,6 +1065,25 @@
     ]
   },
   {
+    "id": "en-bandori",
+    "origins_label": "Bang Dream! Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Bang Dream! Fandom Wiki",
+        "origin_base_url": "bandori.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "BanG_Dream!_Wikia"
+      }
+    ],
+    "destination": "Bandori Wiki",
+    "destination_base_url": "bandori.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bandoriwiki.png",
+    "destination_main_page": "BanG_Dream!_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-banjokazooie",
     "origins_label": "Banjo-Kazooie Fandom & Neoseeker Wikis",
     "origins": [
