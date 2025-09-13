@@ -1081,7 +1081,8 @@
     "destination_icon": "bandoriwiki.png",
     "destination_main_page": "BanG_Dream!_Wiki",
     "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/"
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-banjokazooie",
