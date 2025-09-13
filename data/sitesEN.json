@@ -1017,6 +1017,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-balatro",
+    "origins_label": "Balatro Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Balatro Fandom Wiki",
+        "origin_base_url": "balatrogame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Balatro_Wiki"
+      }
+    ],
+    "destination": "Balatro Wiki",
+    "destination_base_url": "balatrowiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "balatro.png",
+    "destination_main_page": "",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "en-baldursgate3",
     "origins_label": "Baldur's Gate 3 Fandom & Fextralife Wikis",
     "origins": [
@@ -1108,25 +1127,6 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
-  },
-  {
-    "id": "en-balatro",
-    "origins_label": "Balatro Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Balatro Fandom Wiki",
-        "origin_base_url": "balatrogame.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Balatro_Wiki"
-      }
-    ],
-    "destination": "Balatro Wiki",
-    "destination_base_url": "balatrowiki.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "balatro.png",
-    "destination_main_page": "",
-    "destination_search_path": "/",
-    "destination_content_path": "/w/"
   },
   {
     "id": "en-barotrauma",
@@ -9155,31 +9155,6 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
   },
-   {
-    "id": "en-spyro",
-    "origins_label": "Spyro Fandom & Neoseeker Wikis",
-    "origins": [
-      {
-        "origin": "Spyro Fandom Wiki",
-        "origin_base_url": "spyro.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      },
-      {
-        "origin": "Spyro Neoseeker Wiki",
-        "origin_base_url": "spyro.neoseeker.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Main_Page"
-      }
-    ],
-    "destination": "Spyro Wiki",
-    "destination_base_url": "spyrowiki.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "spyro.png",
-    "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/"
-  },
   {
     "id": "en-slarpg",
     "origins_label": "Super Lesbian Animal RPG Fandom Wiki",
@@ -9198,6 +9173,26 @@
     "destination_main_page": "Super_Lesbian_Animal_RPG_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-slaythespire",
+    "origins_label": "Slay the Spire Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Slay the Spire Fandom Wiki",
+        "origin_base_url": "slay-the-spire.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Slay_the_Spire_Wiki"
+      }
+    ],
+    "destination": "Slay the Spire Wiki",
+    "destination_base_url": "slaythespire.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "slaythespirewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Slay_the_Spire_Wiki",
     "destination_host": "wiki.gg"
   },
   {
@@ -9505,6 +9500,31 @@
     "destination_icon": "inkipedia.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-spyro",
+    "origins_label": "Spyro Fandom & Neoseeker Wikis",
+    "origins": [
+      {
+        "origin": "Spyro Fandom Wiki",
+        "origin_base_url": "spyro.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Spyro Neoseeker Wiki",
+        "origin_base_url": "spyro.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Spyro Wiki",
+    "destination_base_url": "spyrowiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "spyro.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
   },
   {
