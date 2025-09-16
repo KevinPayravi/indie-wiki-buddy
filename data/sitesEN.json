@@ -1017,6 +1017,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-baldi",
+    "origins_label": "Baldi's Basics Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Baldi's Basics Fandom Wiki",
+        "origin_base_url": "baldis-basics-in-education-and-learning.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Baldi%27s_Basics_Wiki"
+      }
+    ],
+    "destination": "Baldi's Basics Wiki",
+    "destination_base_url": "baldisbasics.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "baldiwiki.png",
+    "destination_main_page": "Baldi%27s_Basics_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
     "id": "en-balatro",
     "origins_label": "Balatro Fandom Wiki",
     "origins": [
