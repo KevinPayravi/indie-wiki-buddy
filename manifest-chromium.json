@@ -53,7 +53,8 @@
         "data/sitesZH.json"
       ],
       "matches": [
-        "https://*/*"
+        "https://*/*",
+        "http://*/*"
       ]
     }
   ],
@@ -381,7 +382,8 @@
     "page": "pages/settings/index.html"
   },
   "optional_host_permissions": [
-    "https://*/*"
+    "https://*/*",
+    "http://*/*"
   ],
   "minimum_chrome_version": "88",
   "manifest_version": 3
