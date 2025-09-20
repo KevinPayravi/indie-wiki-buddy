@@ -1036,6 +1036,7 @@
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
   },
+  {
     "id": "en-balatro",
     "origins_label": "Balatro Fandom Wiki",
     "origins": [
@@ -3802,6 +3803,44 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-falcom",
+    "origins_label": "Falcom Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Kiseki Fandom Wiki",
+        "origin_base_url": "kiseki.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": ""
+      },
+      {
+        "origin": "Ys Fandom Wiki",
+        "origin_base_url": "isu.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ys_Wiki"
+      },
+      {
+        "origin": "Tokyo Xanadu Fandom Wiki",
+        "origin_base_url": "tokyoxanadu.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Tokyo_Xanadu_Wikia"
+      },
+      {
+        "origin": "Gagharv Fandom Wiki",
+        "origin_base_url": "gagharv.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Gagharv_Wiki"
+      }
+    ],
+    "destination": "Falcom Wiki",
+    "destination_base_url": "falcom.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "falcomwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"   
   },
   {
     "id": "en-fallenaces",
