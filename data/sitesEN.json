@@ -2452,10 +2452,10 @@
   },
   {
     "id": "en-dashbored",
-    "origins_label": "DashBored Fandom Wikia",
+    "origins_label": "DashBored Fandom Wiki",
     "origins": [
       {
-        "origin": "DashBored Fandom Wikia",
+        "origin": "DashBored Fandom Wiki",
         "origin_base_url": "dashbored.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "DashBored_Wikia"
@@ -10455,10 +10455,10 @@
   },
   {
     "id": "en-thefifthcity",
-    "origins_label": "The Fifth City: Fallen London's Lore Fandom Wikia",
+    "origins_label": "The Fifth City Fandom Wiki",
     "origins": [
       {
-        "origin": "The Fifth City: Fallen London's Lore Fandom Wikia",
+        "origin": "The Fifth City Fandom Wiki",
         "origin_base_url": "thefifthcity.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "The_Fifth_City:_the_Neath's_Lore_Wiki"
