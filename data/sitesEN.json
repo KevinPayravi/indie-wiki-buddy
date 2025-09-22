@@ -1017,6 +1017,25 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-balatro",
+    "origins_label": "Balatro Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Balatro Fandom Wiki",
+        "origin_base_url": "balatrogame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Balatro_Wiki"
+      }
+    ],
+    "destination": "Balatro Wiki",
+    "destination_base_url": "balatrowiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "balatro.png",
+    "destination_main_page": "",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "en-baldi",
     "origins_label": "Baldi's Basics Fandom Wiki",
     "origins": [
@@ -1035,25 +1054,6 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
-  },
-  {
-    "id": "en-balatro",
-    "origins_label": "Balatro Fandom Wiki",
-    "origins": [
-      {
-        "origin": "Balatro Fandom Wiki",
-        "origin_base_url": "balatrogame.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "Balatro_Wiki"
-      }
-    ],
-    "destination": "Balatro Wiki",
-    "destination_base_url": "balatrowiki.org",
-    "destination_platform": "mediawiki",
-    "destination_icon": "balatro.png",
-    "destination_main_page": "",
-    "destination_search_path": "/",
-    "destination_content_path": "/w/"
   },
   {
     "id": "en-baldursgate3",
@@ -2451,6 +2451,26 @@
     ]
   },
   {
+    "id": "en-dashbored",
+    "origins_label": "DashBored Fandom Wikia",
+    "origins": [
+      {
+        "origin": "DashBored Fandom Wikia",
+        "origin_base_url": "dashbored.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "DashBored_Wikia"
+      }
+    ],
+    "destination": "DashBored Wiki",
+    "destination_base_url": "dashbored.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dashboredwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "DashBored_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-deadbydaylight",
     "origins_label": "Dead by Daylight Fandom Wiki",
     "origins": [
@@ -3840,7 +3860,7 @@
     "destination_content_path": "/wiki/",
     "destination_search_path": "/w/index.php",
     "destination_main_page": "Main_Page",
-    "destination_host": "Miraheze"   
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-fallenaces",
@@ -4460,6 +4480,26 @@
     "destination_main_page": "Gexpedia",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-gianasisters",
+    "origins_label": "Giana Sisters Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Giana Sisters Fandom Wiki",
+        "origin_base_url": "giana-sisters.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "GianaPedia",
+    "destination_base_url": "gianasisters.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "gianapedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page",
     "destination_host": "Miraheze"
   },
   {
@@ -7014,6 +7054,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-nebulamancers",
+    "origins_label": "Nebulamancers Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Nebulamancers Fandom Wiki",
+        "origin_base_url": "nebulamancers.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Nebulamancers_Wiki"
+      }
+    ],
+    "destination": "Nebulamancers Wiki",
+    "destination_base_url": "nebulamancers.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nebulamancerswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Nebulamancers_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-necesse",
     "origins_label": "Necesse Fandom Wiki",
     "origins": [
@@ -7416,6 +7476,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-openstreetmap",
+    "origins_label": "OpenStreetMap Fandom Wiki",
+    "origins": [
+      {
+        "origin": "OpenStreetMap Fandom Wiki",
+        "origin_base_url": "openstreetmap-online.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "OpenStreetMap_Wiki"
+      }
+    ],
+    "destination": "OpenStreetMap Wiki",
+    "destination_base_url": "wiki.openstreetmap.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "openstreetmapwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-osamusato",
     "origins_label": "Eastern Mind Fandom Wiki",
     "origins": [
@@ -7813,6 +7892,25 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-pixarcars",
+    "origins_label": "Pixar Cars Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pixar Cars Fandom Wiki",
+        "origin_base_url": "pixarcars.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      }
+    ],
+    "destination": "Disney•Pixar CARS Wiki",
+    "destination_base_url": "dpcarswiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "disneypixarcarswiki.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Main_Page"
   },
   {
     "id": "en-pixelgun",
@@ -10317,6 +10415,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-thecelestialcaverns",
+    "origins_label": "The Celestial Caverns Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Celestial Caverns Fandom Wiki",
+        "origin_base_url": "the-celestial-caverns.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Celestial_Caverns_Wiki"
+      }
+    ],
+    "destination": "The Celestial Caverns Wiki",
+    "destination_base_url": "thecelestialcaverns.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thecelestialcavernswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "The_Celestial_Caverns_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-thecyclefrontier",
     "origins_label": "The Cycle: Frontier Fandom Wiki",
     "origins": [
@@ -10334,6 +10452,25 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-thefifthcity",
+    "origins_label": "The Fifth City: Fallen London's Lore Fandom Wikia",
+    "origins": [
+      {
+        "origin": "The Fifth City: Fallen London's Lore Fandom Wikia",
+        "origin_base_url": "thefifthcity.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Fifth_City:_the_Neath's_Lore_Wiki"
+      }
+    ],
+    "destination": "The Fifth City Wiki",
+    "destination_base_url": "thefifthcity.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thefifthcitywiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "The_Fifth_City:_the_Neath's_Lore_Wiki"
   },
   {
     "id": "en-thefinals",
