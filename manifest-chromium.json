@@ -30,6 +30,7 @@
     {
       "resources": [
         "favicons/*",
+        "data/sitesCA.json",
         "data/sitesDE.json",
         "data/sitesEN.json",
         "data/sitesES.json",

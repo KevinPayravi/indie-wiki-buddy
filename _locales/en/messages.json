@@ -388,6 +388,10 @@
     "message": "All languages",
     "description": "Option to show all languages"
   },
+  "settingsLangCA": {
+    "message": "[CA] Catalan / Català",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, CA should be \"[CA] Catalan / Català\" in English, but just \"[CA] Català\" in Catalan."
+  },
   "settingsLangDE": {
     "message": "[DE] German / Deutsch",
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
