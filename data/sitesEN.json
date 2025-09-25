@@ -2355,7 +2355,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "d2mc.png",
     "destination_main_page": "Destiny_2_Minecraft_Edition_Wiki",
-    "destination_search_path": "/wiki/index.php",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
   },
@@ -4039,7 +4039,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "ffxiv.png",
     "destination_main_page": "FF14_Wiki",
-    "destination_search_path": "/index.php",
+    "destination_search_path": "/mediawiki/index.php",
     "destination_content_path": "/wiki/"
   },
   {
@@ -5170,7 +5170,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "hybridanimals.png",
     "destination_main_page": "Hybrid_Animals_Wiki",
-    "destination_search_path": "/w/index.php",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
   },
@@ -5640,7 +5640,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "japarilibrary.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/"
   },
   {
@@ -6116,7 +6116,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "linkinpedia.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w/index.php",
+    "destination_search_path": "/www/w/index.php",
     "destination_content_path": "/wiki/"
   },
   {
@@ -8745,9 +8745,9 @@
     "destination_base_url": "roguelegacy.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "roguelegacywiki.png",
-    "destination_content_path": "/wiki/",
-    "destination_search_path": "/index.php",
     "destination_main_page": "Rogue_Legacy_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
   },
   {
@@ -9328,7 +9328,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "skylanders.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php",
+    "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
   },
   {
@@ -10488,7 +10488,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "thefinalswiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/w139/index.php",
+    "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
   },
   {
