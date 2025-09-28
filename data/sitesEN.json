@@ -2070,6 +2070,26 @@
     ]
   },
   {
+    "id": "en-city",
+    "origins_label": "CITY Fandom Wiki",
+    "origins": [
+      {
+        "origin": "CITY Fandom Wiki",
+        "origin_base_url": "citymanga.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "CITY_Wiki"
+      }
+    ],
+    "destination": "CITY Wiki",
+    "destination_base_url": "city.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "city.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "CITY_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-cityofheroes",
     "origins_label": "City of Heroes Fandom Wiki",
     "origins": [
@@ -7208,6 +7228,26 @@
     "destination_main_page": "Newgrounds_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-nichijou",
+    "origins_label": "Nichijou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Nichijou Fandom Wiki",
+        "origin_base_url": "nichijou.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Nichijou_Wiki"
+      }
+    ],
+    "destination": "Nichijou Wiki",
+    "destination_base_url": "nichijou.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "nichijou.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Nichijou_Wiki",
     "destination_host": "wiki.gg"
   },
   {
