@@ -5754,6 +5754,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-kitatcho",
+    "origins_label": "The Kitatcho Laboratories Fandom Wiki",
+    "origins": [
+      {
+        "origin": "The Kitatcho Laboratories Fandom Wiki",
+        "origin_base_url": "kitatcho-labs.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Kitatcho_Laboratories_Wiki"
+      }
+    ],
+    "destination": "The Kitatcho Laboratories Wiki",
+    "destination_base_url": "kitatcho.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "kitatchowiki.png",
+    "destination_main_page": "The_Kitatcho_Laboratories_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-knighthood",
     "origins_label": "Knighthood Fandom Wiki",
     "origins": [
