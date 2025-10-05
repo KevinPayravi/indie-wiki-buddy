@@ -16,5 +16,157 @@
     },
     "bannerBreezeWiki": {
         "message": "o lukin e lipu Panto ni kepeken ilo pona WikiKon"
+    },
+    "bannerText": {
+        "message": "lon lipu $descriptor$ $host$ pi toki ni $language$",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "bannerHost": {
+        "message": "lon ma $host$",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "extensionDescription": {
+        "message": "ilo Indie Wiki Buddy li pana e sina tawa lipu pona, tan mu kalama, anu linluwi ante, anu ala pi linluwi ike."
+    },
+    "extensionName": {
+        "message": "ilo Indie Wiki Buddy"
+    },
+    "bannerDescriptorIndependent": {
+        "message": "pona"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "pona wawa"
+    },
+    "bannerDescriptorOfficial": {
+        "message": "wawa"
+    },
+    "bannerRestore": {
+        "message": "o sin e sitelen"
+    },
+    "bannerRestoreDone": {
+        "message": "sitelen li sin"
+    },
+    "bannerDisable": {
+        "message": "o weka e sitelen"
+    },
+    "bannerDisableDone": {
+        "message": "sitelen li weka"
+    },
+    "bannerRedirect": {
+        "message": "tenpo ale la o linluwi ante"
+    },
+    "bannerRedirectDone": {
+        "message": "tenpo ale la linluwi ante"
+    },
+    "searchResultLookup": {
+        "message": "o lukin lipu $article$ e linluwi $destination$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultLookupEnglish": {
+        "message": "o lukin lipu $article$ pi toki Inli e linluwi $destination$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisit": {
+        "message": "taso, o tawa lipu $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "taso, tawa lipu $destination$ pi toki Inli",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "o sin e linluwi ni"
+    },
+    "searchRemovalNotice": {
+        "message": "ilo Indie Wiki Buddy li weka e linluwi pi ijo $destination$. taso, o lukin e linluwi pi ijo $link$.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "searchFilteredResultsShow": {
+        "message": "o lukin pona taso"
+    },
+    "searchFilteredResultsHide": {
+        "message": "o weka ike"
+    },
+    "settingsTitle": {
+        "message": "lawa ante pi ilo Indie Wiki Buddy"
+    },
+    "settingsGuide": {
+        "message": "sona"
+    },
+    "settingsWebsite": {
+        "message": "lipu linluwi"
+    },
+    "settingsChangelog": {
+        "message": "lipu pi tenpo ante"
+    },
+    "settingsSubmitWiki": {
+        "message": "o pana e lipu sin"
+    },
+    "settingsSourceCode": {
+        "message": "sitelen mama"
+    },
+    "settingsBannerHide": {
+        "message": "o weka ni"
+    },
+    "settingsBannerOpera": {
+        "message": "jan pi pali ilo Opera: tenpo pi pali ilo alasa la sin la ilo Opera li weka e namako. ni li weka la tawa e linluwi \"about:extensions\", anu pali e nimi \"Allow access to search page results\" pi ilo Indie Wiki Buddy."
+    },
+    "settingsBannerReview": {
+        "message": "ilo ni li pona la o sitelen e lipu pilin a!"
     }
 }
