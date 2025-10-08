@@ -3851,6 +3851,18 @@
         "origin_base_url": "gagharv.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Gagharv_Wiki"
+      },
+      {
+        "origin": "Falcomverse Fandom Wiki",
+        "origin_base_url": "nihon-falcom.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Legend_Of_Heroes"
+      },
+      {
+        "origin": "Gurumin Fandom Wiki",
+        "origin_base_url": "gurumin.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Gurumin_Wiki"
       }
     ],
     "destination": "Falcom Wiki",
