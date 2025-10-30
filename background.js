@@ -261,3 +261,9 @@ async function main(url, tabId) {
     }
   }
 }
+
+getSyncStorageData().then(result => {
+  if (result.breezewikiHost === "CUSTOM") {
+    updateCustomDomainContentScriptRegistration(result.breezewikiCustomHost);
+  }
+});
