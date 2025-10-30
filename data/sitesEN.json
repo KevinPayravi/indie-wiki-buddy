@@ -6113,6 +6113,25 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-lgbtqia",
+    "origins_label": "LGBTQIA+ Fandom Wiki",
+    "origins": [
+      {
+        "origin": "LGBTQIA+ Fandom Wiki",
+        "origin_base_url": "lgbtqia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "LGBTQIA%2B_Wiki"
+      }
+    ],
+    "destination": "LGBTQIA+ Wiki",
+    "destination_base_url": "new.lgbtqia.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "lgbtqiawiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w139/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-libraryofruina",
     "origins_label": "Library Of Ruina Fandom Wiki",
     "origins": [
@@ -6976,6 +6995,26 @@
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-moshimonsters",
+    "origins_label": "Moshi Monsters Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Moshi Monsters Fandom Wiki",
+        "origin_base_url": "moshimonsters.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Moshi_Monsters_Wiki"
+      }
+    ],
+    "destination": "Moshi Monsters Wiki",
+    "destination_base_url": "moshimonsters.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "moshimonsterswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Moshi_Monsters_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-multiversus",
