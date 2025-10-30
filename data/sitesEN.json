@@ -8123,20 +8123,21 @@
   },
   {
     "id": "en-ranchstory",
-    "origins_label": "The Harvest Moon Wiki | Fandom",
+    "origins_label": "Harvest Moon Fandom Wiki",
     "origins": [
       {
-        "origin": "The Harvest Moon Wiki | Fandom",
+        "origin": "Harvest Moon Fandom Wiki",
         "origin_base_url": "harvestmoon.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
       }
     ],
-    "destination": "ranchstory",
+    "destination": "Ranch Story Wiki",
     "destination_base_url": "wiki.ranchstory.farm",
     "destination_platform": "mediawiki",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php/"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/index.php/"
   },
   {
     "id": "en-rayman",
