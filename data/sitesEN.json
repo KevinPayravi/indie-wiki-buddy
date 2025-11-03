@@ -10098,6 +10098,25 @@
     ]
   },
   {
+    "id": "en-discoelysium",
+    "origins_label": "Disco Elysium Wiki",
+    "origins": [
+      {
+        "origin": "Disco Elysium Wiki",
+        "origin_base_url": "discoelysium.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Disco_Elysium_Wiki"
+      }
+    ],
+    "destination": "Disco Elysium Wiki",
+    "destination_base_url": "discoelysium.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "favicon.ico",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
+  },
+  {
     "id": "en-terrypratchett",
     "origins_label": "Discworld Fandom Wiki",
     "origins": [
