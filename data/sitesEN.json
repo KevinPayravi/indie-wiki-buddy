@@ -11361,7 +11361,7 @@
   "destination": "Universal Union Wiki",
   "destination_base_url": "universalunion.wiki",
   "destination_platform": "mediawiki",
-  "destination_icon": "UniversalUnion.png",
+  "destination_icon": "universalunion.png",
   "destination_main_page": "Main",
   "destination_search_path": "/w/index.php",
   "destination_content_path": "/",
