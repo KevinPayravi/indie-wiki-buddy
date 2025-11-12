@@ -11350,16 +11350,16 @@
   "origins": [
     {
       "origin": "Universal Union Fandom Wiki",
-      "origin_base_url": "https://universalunion.fandom.com",
+      "origin_base_url": "universalunion.fandom.com",
       "origin_content_path": "/wiki/",
       "origin_main_page": "MainPage"
     }
   ],
   "destination": "Universal Union Wiki",
-  "destination_base_url": "https://universalunion.wiki",
+  "destination_base_url": "universalunion.wiki",
   "destination_platform": "mediawiki",
   "destination_icon": "UniversalUnion.png",
-  "destination_main_page": "/",
+  "destination_main_page": "Main",
   "destination_search_path": "/w/index.php",
   "destination_content_path": "/",
   "destination_host": "Miraheze"
