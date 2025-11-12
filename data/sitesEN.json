@@ -4010,22 +4010,22 @@
     ]
   },
   {
-    "id": "en-forsaken",
-    "origins_label": "(Unofficial) FORSAKEN Wiki",
+    "id": "en-forsakenroblox",
+    "origins_label": "FORSAKEN Fandom Wiki",
     "origins": [
       {
-        "origin": "(Unofficial) FORSAKEN Wiki",
+        "origin": "FORSAKEN Fandom Wiki",
         "origin_base_url": "forsaken2024.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "FORSAKEN_Wiki"
       }
     ],
-    "destination": "Forsaken - Forsaken Wiki",
+    "destination": "Forsaken Wiki",
     "destination_base_url": "forsaken.wiki",
     "destination_platform": "mediawiki",
-    "destination_main_page": "100%_Orange_Juice_Wiki",
+    "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
-    "destination_content_path": "/wiki/",
+    "destination_content_path": "/",
     "tags": [
       "official"
     ]
