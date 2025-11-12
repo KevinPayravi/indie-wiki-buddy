@@ -82,12 +82,15 @@
       }
     ],
     "destination": "2XKO Wiki",
-    "destination_base_url": "2xko.wiki",
+    "destination_base_url": "wiki.play2xko.com",
     "destination_platform": "mediawiki",
     "destination_icon": "2xkowiki.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/mw/index.php",
-    "destination_content_path": "/w/"
+    "destination_search_path": "/en-us/",
+    "destination_content_path": "/en-us/",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-7daystodie",
@@ -11466,7 +11469,7 @@
     "destination_main_page": "Utaite_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "Miraheze",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-utanoprincesama",
