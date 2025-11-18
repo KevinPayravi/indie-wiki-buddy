@@ -88,7 +88,7 @@
         }
     },
     "searchResultReenable": {
-        "message": "Dieses Ergebnis wieder einblenden",
+        "message": "Ursprüngliches Suchergebnis wieder einblenden",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "settingsBannerHide": {
@@ -730,7 +730,7 @@
         "message": "Durch Klicken auf die Symbole in der Tabellenüberschrift wird die Einstellung auf alle Wikis in der Tabelle angewandt. In der zweiten Zeile stellen die Sterne die Standardeinstellung für Wikis, die in zukünftigen Versionen der Erweiterung hinzugefügt wreden, dar. Standardmäßig sind alle Wikis so eingestellt, dass sie Benachrichtigungen anzeigen und Suchergebnisse ersetzen."
     },
     "settingsReorderResults": {
-        "message": "Unabhängige Wikis über nicht unabhängige Wikis verschieben und Duplikate ausblenden (außer Brave)",
+        "message": "Unabhängige Wikis über nicht unabhängige Wikis verschieben und Duplikate ausblenden",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "guideWikiHelpPara1": {
@@ -886,5 +886,11 @@
     },
     "settingsLangTR": {
         "message": "[TR] Türkisch / Türkçe"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Katalanisch / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Kroatisch / Hrvatski"
     }
 }
