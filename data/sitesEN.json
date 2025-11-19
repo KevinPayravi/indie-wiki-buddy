@@ -9642,6 +9642,19 @@
         "origin_content_path": "/",
         "origin_main_page": "Soulframe Wiki"
       }
+      ,
+      {
+        "origin": "Soulframe Wiki (wiki.gg)",
+        "origin_base_url": "soulframe.wiki.gg",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Soulframe_Wiki"
+      },
+      {
+        "origin": "Soulframe Fandom Wiki",
+        "origin_base_url": "soulframe.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Soulframe_Wiki"
+      }
     ],
     "destination": "Soulframe Wiki",
     "destination_base_url": "wiki.avakot.org",
