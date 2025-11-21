@@ -2,8 +2,8 @@
 name: Request a wiki be added
 about: Request an independent wiki be added
 title: 'Add a wiki: WIKI NAME'
-labels: add wiki
-assignees: KevinPayravi
+labels: 'type: new wiki'
+assignees: violine1101
 
 ---
 
