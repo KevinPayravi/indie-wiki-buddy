@@ -11085,6 +11085,29 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-trailmakers",
+    "origins_label": "Trailmakers Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Trailmakers Fandom Wiki",
+        "origin_base_url": "trailmakers.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Trailmakers_Wiki"
+      }
+    ],
+    "destination": "Trailmakers Wiki",
+    "destination_base_url": "trailmakers.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "trailmakers.png",
+    "destination_main_page": "Trailmakers_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-transformers",
     "origins_label": "Transformers Fandom Wiki",
     "origins": [
