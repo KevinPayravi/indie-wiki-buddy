@@ -5507,11 +5507,11 @@
         "origin_main_page": "Item_Asylum_Wiki"
       }
     ],
-    "destination": "JBC Studios Wiki",
-    "destination_base_url": "jbcstudios.miraheze.org",
+    "destination": "Item Asylum Wiki",
+    "destination_base_url": "itemasylum.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "jbcstudioswiki.png",
-    "destination_main_page": "JBC_Studios_Wiki",
+    "destination_main_page": "Item_Asylum_Wiki",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/",
     "destination_host": "Miraheze",
