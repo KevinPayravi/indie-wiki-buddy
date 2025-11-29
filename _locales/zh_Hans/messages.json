@@ -148,7 +148,7 @@
         }
     },
     "searchResultReenable": {
-        "message": "重新启用此搜索结果"
+        "message": "重新启用原搜索结果"
     },
     "searchRemovalNotice": {
         "message": "Indie Wiki Buddy 已将 $destination$ 的搜索结果过滤。建议在$link$查询之。",
@@ -581,7 +581,7 @@
         "message": "上述所有的功能都可以自由开关，您还可以对各个站点采取不同的设置。一切尽在您的掌握！"
     },
     "settingsReorderResults": {
-        "message": "使用Google时，将独立百科站点的搜索结果移至非独立站点之上，并隐藏重复结果（对Brave不生效）"
+        "message": "使用Google时，将独立百科站点的搜索结果移至非独立站点之上，并隐藏重复结果。"
     },
     "guideNotificationsHelp2": {
         "message": "如果该选项已启用，但仍未收到通知，请检查操作系统设置是否阻止了浏览器发送通知。"
@@ -755,5 +755,11 @@
     },
     "guideBreezeWikiHostHelp": {
         "message": "当启用了 BreezeWiki 的选项后，你可以在下拉菜单中选择一个 BreezeWiki 站点或镜像。若你所选的 BreezeWiki 站点无法访问，你可以回到这里并重新选择一个站点。"
+    },
+    "settingsLangCA": {
+        "message": "[CA] 加泰罗尼亚语 / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] 克罗地亚语 / Hrvatski"
     }
 }
