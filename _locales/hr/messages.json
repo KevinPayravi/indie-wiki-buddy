@@ -1,5 +1,8 @@
 {
     "extensionName": {
         "message": "Indie Wiki Buddy"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Hrvatski"
     }
 }
