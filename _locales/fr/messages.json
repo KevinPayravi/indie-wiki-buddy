@@ -94,7 +94,7 @@
         "description": "Title of the settings page"
     },
     "searchResultReenable": {
-        "message": "Réactiver le résultat ci-dessous",
+        "message": "Réactiver les résultats de recherche d'origine",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "searchFilteredResultsHide": {
@@ -822,7 +822,7 @@
         }
     },
     "settingsReorderResults": {
-        "message": "Dans les résultats, placer les wikis indépendants au-dessus des wikis non indépendants et masquer les doublons (Ne fonctionne pas sur Brave)",
+        "message": "Placer les wikis indépendants au-dessus des wikis non indépendants dans les résultats de recherche et masquer les doublons",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "settingsReplace": {
@@ -886,5 +886,11 @@
     },
     "settingsLangTR": {
         "message": "[TR] Turc / Türkçe"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Croate / Hrvatski"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Catalan / Català"
     }
 }
