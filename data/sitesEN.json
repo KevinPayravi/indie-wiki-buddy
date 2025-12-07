@@ -5273,6 +5273,26 @@
     "destination_host": "wiki.gg"
   },
   {
+  "id": "en-hytale",
+  "origins_label": "Hytale Fandom Wiki",
+  "origins": [
+    {
+      "origin": "Hytale Fandom Wiki",
+      "origin_base_url": "hytale.fandom.com",
+      "origin_content_path": "/wiki/",
+      "origin_main_page": "Hytale_Wiki"
+    }
+  ],
+  "destination": "Hytale Wiki",
+  "destination_base_url": "hytale.wiki.gg",
+  "destination_platform": "mediawiki",
+  "destination_icon": "hytale.png",
+  "destination_main_page": "Hytale_Wiki",
+  "destination_search_path": "/index.php",
+  "destination_content_path": "/wiki/",
+  "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-idlewizard",
     "origins_label": "Idle Wizard Fandom Wiki",
     "origins": [
@@ -9661,16 +9681,21 @@
         "origin_base_url": "soulframe.wiki.fextralife.com",
         "origin_content_path": "/",
         "origin_main_page": "Soulframe Wiki"
+      },
+      {
+        "origin": "Soulframe Fandom Wiki",
+        "origin_base_url": "soulframe.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Soulframe_Wiki"
       }
     ],
     "destination": "Soulframe Wiki",
-    "destination_base_url": "soulframe.wiki.gg",
+    "destination_base_url": "wiki.avakot.org",
     "destination_platform": "mediawiki",
-    "destination_icon": "soulframewiki.png",
+    "destination_icon": "avakotwiki.png",
     "destination_main_page": "Soulframe_Wiki",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/",
-    "destination_host": "wiki.gg"
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-southpark",
