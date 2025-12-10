@@ -6092,13 +6092,13 @@
       }
     ],
     "destination": "Len'en Wiki",
-    "destination_base_url": "lenen.shoutwiki.com",
+    "destination_base_url": "lenen.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "lenenwiki.png",
     "destination_main_page": "Len'en_Wiki",
-    "destination_search_path": "/w/index.php",
+    "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "ShoutWiki"
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-lethalcompany",
