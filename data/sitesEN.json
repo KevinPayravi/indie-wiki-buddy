@@ -5253,24 +5253,29 @@
     "destination_host": "wiki.gg"
   },
   {
-  "id": "en-hytale",
-  "origins_label": "Hytale Fandom Wiki",
-  "origins": [
-    {
-      "origin": "Hytale Fandom Wiki",
-      "origin_base_url": "hytale.fandom.com",
-      "origin_content_path": "/wiki/",
-      "origin_main_page": "Hytale_Wiki"
-    }
-  ],
-  "destination": "Hytale Wiki",
-  "destination_base_url": "hytale.wiki.gg",
-  "destination_platform": "mediawiki",
-  "destination_icon": "hytale.png",
-  "destination_main_page": "Hytale_Wiki",
-  "destination_search_path": "/index.php",
-  "destination_content_path": "/wiki/",
-  "destination_host": "wiki.gg"
+    "id": "en-hytale",
+    "origins_label": "Hytale Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Hytale Fandom Wiki",
+        "origin_base_url": "hytale.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Hytale_Wiki"
+      },
+      {
+        "origin": "Hytale Game Fandom Wiki",
+        "origin_base_url": "hytale-game.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Hytale_Wiki"
+      }
+    ],
+    "destination": "Hytale Wiki",
+    "destination_base_url": "hytalewiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hytalewiki.png",
+    "destination_content_path": "/w/",
+    "destination_search_path": "/",
+    "destination_main_page": "Hytale_Wiki"
   },
   {
     "id": "en-idlewizard",
@@ -11373,24 +11378,24 @@
     "destination_content_path": "/"
   },
   {
-  "id": "en-universalunion",
-  "origins_label": "Universal Union Fandom Wiki",
-  "origins": [
-    {
-      "origin": "Universal Union Fandom Wiki",
-      "origin_base_url": "universalunion.fandom.com",
-      "origin_content_path": "/wiki/",
-      "origin_main_page": "MainPage"
-    }
-  ],
-  "destination": "Universal Union Wiki",
-  "destination_base_url": "universalunion.wiki",
-  "destination_platform": "mediawiki",
-  "destination_icon": "universalunion.png",
-  "destination_main_page": "Main",
-  "destination_search_path": "/w/index.php",
-  "destination_content_path": "/",
-  "destination_host": "Miraheze"
+    "id": "en-universalunion",
+    "origins_label": "Universal Union Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Universal Union Fandom Wiki",
+        "origin_base_url": "universalunion.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "MainPage"
+      }
+    ],
+    "destination": "Universal Union Wiki",
+    "destination_base_url": "universalunion.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "universalunion.png",
+    "destination_main_page": "Main",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-unnamedspaceidle",
