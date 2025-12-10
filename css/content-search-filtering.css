@@ -4,6 +4,9 @@
   padding: .5em .5em .5em 1em !important;
   border-left: 3px solid #FFCC33 !important;
   font-size: 14px !important;
+  font-family: sans-serif;
+}
+.iwb-notice-content {
   color: white !important;
   mix-blend-mode: difference !important;
 }
@@ -12,31 +15,16 @@
   color: white !important;
   mix-blend-mode: difference !important;
 }
-.iwb-notice button {
-  cursor: pointer !important;
-  display: inline-block !important;
-  padding: 2px 8px !important;
-  margin: 8px 8px 0 0 !important;
-  background-color: transparent !important;
-  border: 1px solid !important;
-  border-radius: 5px !important; 
-  font-size: 12px !important;
-  color: white !important;
-  mix-blend-mode: difference !important;
-  text-align: left !important;
-}
 .iwb-hide {
   display: none !important;
 }
 .iwb-show {
   display: block !important;
 }
-.iwb-notice button:hover {
-  outline: 1px solid !important;
-}
 .iwb-new-link-container {
   display: inline-block;
   font-size: 12px !important;
+  font-family: sans-serif;
   text-decoration: none;
   padding-left: 5px;
   position: relative;

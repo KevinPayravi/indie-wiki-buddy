@@ -6,11 +6,13 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 * [Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/)
 * [Download for Chrome](https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm)
 
+![CA wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=CA%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesCA.json)
 ![DE wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=DE%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesDE.json)
 ![EN wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=EN%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesEN.json)
 ![ES wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ES%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesES.json)
 ![FI wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FI%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFI.json)
 ![FR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFR.json)
+![HR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=HR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesHR.json)
 ![HU wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=HU%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesHU.json)
 ![IT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=IT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesIT.json)
 ![JA wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=JA%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesJA.json)

@@ -31,6 +31,9 @@ function addDOMChangeObserver(callback) {
   const domObserver = new MutationObserver(callback);
   domObserver.observe(document.documentElement, {
     childList: true,
+    attributes: true,
+    attributeOldValue: true,
+    characterData: false,
     subtree: true
   });
 }
@@ -53,6 +56,28 @@ function removeSubstringIfAtEnd(str, sub) {
     return str.slice(0, -sub.length);
   }
   return str;
+}
+
+/**
+ * Finds the closest ancestor element with a non-transparent background color.
+ * @param {HTMLElement} element
+ * @returns {string}
+ */
+function getClosestBackgroundColor(element) {
+  let parent = element;
+  while (parent) {
+    const style = window.getComputedStyle(parent);
+    const bgColor = style.backgroundColor;
+    if (bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+      return bgColor;
+    }
+    if (parent.parentElement) {
+      parent = parent.parentElement;
+    } else {
+      break;
+    }
+  }
+  return 'transparent';
 }
 
 /**
@@ -118,13 +143,25 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
 
     enableResultButton.addEventListener('click', e => {
       const target = /** @type {HTMLDivElement} */ (e.target);
-      target.closest('.iwb-disavow')?.classList.remove('iwb-disavow');
+      const container = target.closest('.iwb-disavow');
+
+      if (container instanceof HTMLElement) {
+        container.dataset.iwbUserAction = 'true';
+        container.classList.remove('iwb-disavow');
+      }
+
       target.classList.add('iwb-hide');
     });
 
     indieContainer.appendChild(indieResultLink);
     indieContainer.appendChild(resultControls);
-    searchResultContainer.prepend(indieContainer);
+    if (searchEngine === 'brave') {
+      searchResultContainer.appendChild(indieContainer);
+    } else {
+      searchResultContainer.prepend(indieContainer);
+    }
+
+    indieContainer.style.backgroundColor = getClosestBackgroundColor(searchResultContainer);
 
     return 1;
   }
@@ -161,7 +198,7 @@ function mountToTopOfSearchResults(element) {
       }
       break;
     case 'brave':
-      document.getElementById('results')?.prepend(element);
+      document.querySelector('body')?.prepend(element);
       break;
     case 'ecosia':
       document.querySelector('section.mainline')?.prepend(element);
@@ -215,6 +252,8 @@ function mountSearchBanner(wikiInfo) {
     let searchRemovalNotice = document.createElement('aside');
     searchRemovalNotice.id = 'iwb-notice-' + elementId;
     searchRemovalNotice.classList.add('iwb-notice');
+    let searchRemovalNoticeContent = document.createElement('div');
+    searchRemovalNoticeContent.classList.add('iwb-notice-content');
     let searchRemovalNoticeLink = document.createElement('a');
     searchRemovalNoticeLink.href = 'https://' + wikiInfo.destination_base_url;
     searchRemovalNoticeLink.textContent = wikiInfo.destination;
@@ -227,7 +266,7 @@ function mountSearchBanner(wikiInfo) {
     searchRemovalNoticeFragment.appendChild(document.createTextNode(searchRemovalNoticeTextParts[0]));
     searchRemovalNoticeFragment.appendChild(searchRemovalNoticeLink);
     searchRemovalNoticeFragment.appendChild(document.createTextNode(searchRemovalNoticeTextParts[1]));
-    searchRemovalNotice.appendChild(searchRemovalNoticeFragment);
+    searchRemovalNoticeContent.appendChild(searchRemovalNoticeFragment);
 
     // Output container for result controls:
     let resultControls = document.createElement('div');
@@ -246,23 +285,31 @@ function mountSearchBanner(wikiInfo) {
         hiddenWikisRevealed[elementId] = true;
         const selector = e.currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
-          el.classList.remove('iwb-hide');
-          el.classList.add('iwb-show');
+          if (el instanceof HTMLElement) {
+            el.dataset.iwbUserAction = 'true';
+            el.classList.remove('iwb-hide');
+            el.classList.add('iwb-show');
+          }
         });
       } else {
         e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
         hiddenWikisRevealed[elementId] = false;
         const selector = e.currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
-          el.classList.remove('iwb-show');
-          el.classList.add('iwb-hide');
+          if (el instanceof HTMLElement) {
+            el.dataset.iwbUserAction = 'true';
+            el.classList.remove('iwb-show');
+            el.classList.add('iwb-hide');
+          }
         });
       }
     };
 
-    searchRemovalNotice.appendChild(resultControls);
+    searchRemovalNoticeContent.appendChild(resultControls);
+    searchRemovalNotice.appendChild(searchRemovalNoticeContent);
 
     mountToTopOfSearchResults(searchRemovalNotice);
+    searchRemovalNotice.style.backgroundColor = getClosestBackgroundColor(searchRemovalNotice);
   }
 }
 
@@ -275,8 +322,12 @@ function hideSearchResults(searchResultContainer, wikiInfo, bannerState = 'on') 
   let elementId = stringToId(wikiInfo.language + '-' + wikiInfo.origin);
   searchResultContainer.classList.add('iwb-search-result-' + elementId);
   const revealed = hiddenWikisRevealed[elementId] ?? false;
-  searchResultContainer.classList.toggle('iwb-hide', !revealed);
-  searchResultContainer.classList.toggle('iwb-show', revealed);
+
+  if (searchResultContainer instanceof HTMLElement) {
+    searchResultContainer.dataset.iwbUserAction = 'true';
+    searchResultContainer.classList.toggle('iwb-hide', !revealed);
+    searchResultContainer.classList.toggle('iwb-show', revealed);
+  }
 
   if (bannerState === 'on') {
     mountSearchBanner(wikiInfo);
@@ -364,7 +415,7 @@ function getResultContainer(searchEngine, searchResult) {
       searchResultContainer = searchResult.closest('div.result, div.w-gl__result');
       break;
     case 'yandex':
-      searchResultContainer = searchResult.closest('li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
+      searchResultContainer = searchResult.closest('#search-result > li, #search-result > div[data-yaet4], li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
       break;
     case 'yahoo':
       searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
@@ -644,7 +695,7 @@ function filterAnchors(newAnchors) {
                   searchResult.setAttribute('data-iwb-href', decodedLink);
                 }
               } catch (e) {
-                console.log('Indie Wiki Buddy failed to parse Bing link with error: ', e);
+                console.error('Indie Wiki Buddy failed to parse Bing link with error: ', e);
               }
             }
           }
@@ -675,7 +726,7 @@ function filterAnchors(newAnchors) {
       break;
     }
     case 'yandex': {
-      const searchResults = newAnchors.filter(e => e.matches('li[data-cid] a.link, li[data-cid] a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a'));
+      const searchResults = newAnchors.filter(e => e.matches('li a.link, li a.Link, .OrganicTitle a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a'));
       filterSearchResults(searchResults);
       break;
     }
@@ -774,17 +825,51 @@ function checkRevalidate() {
  */
 function filterMutations(mutations, observer) {
   // Check if *any* content has loaded (since we run at document start)
-  if (document.body == undefined || mutations == undefined) return;
+  if (!document.body || !mutations) return;
   checkRevalidate();
 
+  // Check for newly added anchors and filter them
   const addedSubtrees = mutations.flatMap(mutation => Array.from(mutation.addedNodes));
   const newAnchors = /** @type {HTMLAnchorElement[]} */ (addedSubtrees
     .filter(node => node instanceof HTMLElement)
     // @ts-ignore: node is always of type HTMLElement
     .flatMap(node => isAnchor(node) ? node : Array.from(node.querySelectorAll('a')))
   );
+  if (newAnchors.length) {
+    filterAnchors(newAnchors);
+  }
 
-  filterAnchors(newAnchors);
+  // Check for attribute changes where IWB classes might have been removed
+  for (const mutation of mutations) {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      const oldClassValue = mutation.oldValue;
+      if (!oldClassValue) return;
+    
+      const target = /** @type {HTMLElement} */ (mutation.target);
+    
+      const oldClasses = oldClassValue.split(/\s+/);
+      const newClasses = target.className.split(/\s+/);
+    
+      const oldIwbClasses = oldClasses.filter(cls => cls.startsWith('iwb-'));
+      const removedIwbClasses = oldIwbClasses.filter(cls => !newClasses.includes(cls));
+    
+      // Re-add any removed iwb- classes, unless it was a user action
+      if (!target.dataset.iwbUserAction) {
+        for (const removedClass of removedIwbClasses) {
+          console.debug(`IWB: ${removedClass} class was removed unexpectedly. Restoring...`);
+          target.classList.add(removedClass);
+        }
+      }
+    }
+  }
+
+  // Remove instances of user action attribute
+  const userActionElements = document.querySelectorAll('[data-iwb-user-action]');
+  for (const el of userActionElements) {
+    if (el instanceof HTMLElement) {
+      delete el.dataset.iwbUserAction;
+    }
+  }
 }
 
 /**
@@ -843,10 +928,8 @@ if (currentURL.hostname.includes('www.google.')) {
 } else if (currentURL.hostname.endsWith('.bing.com')) {
   processSearchEngine('bing');
 } else if (currentURL.hostname.includes('search.brave.com')) {
-  // todo: fix reordering behaving weirdly on descriptions
   processSearchEngine('brave');
 } else if (currentURL.hostname.includes('ecosia.org')) {
-  // todo: figure out what is causing race conditions to make elements disappear, and ecosia to crash
   window.addEventListener("load", () => processSearchEngine('ecosia'));
 } else if (currentURL.hostname.includes('qwant.com')) {
   processSearchEngine('qwant');

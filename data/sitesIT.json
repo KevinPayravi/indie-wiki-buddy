@@ -75,9 +75,9 @@
     "destination_base_url": "it.minecraft.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "minecraftwiki.png",
-    "destination_content_path": "/w/",
+    "destination_main_page": "Minecraft_Wiki",
     "destination_search_path": "/",
-    "destination_main_page": "Minecraft_Wiki"
+    "destination_content_path": "/w/"
   },
   {
     "id": "it-pokemon",

@@ -62,6 +62,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "zh-deltarune",
+    "origins_label": "Deltarune Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Deltarune Fandom Wiki",
+        "origin_base_url": "deltarune.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Deltarune_Wiki"
+      }
+    ],
+    "destination": "Deltarune Wiki",
+    "destination_base_url": "zh.deltarune.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "deltarunewiki.png",
+    "destination_main_page": "Deltarune_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "zh-doctorwho",
     "origins_label": "Doctor Who Fandom Wiki",
     "origins": [
@@ -72,7 +91,7 @@
         "origin_main_page": "Tardis"
       }
     ],
-    "destination": "Tardis Wiki",
+    "destination": "Tardis (Doctor Who) Wiki",
     "destination_base_url": "zh.tardis.wiki",
     "destination_platform": "mediawiki",
     "destination_icon": "tardiswiki.png",
@@ -117,7 +136,8 @@
     "destination_platform": "mediawiki",
     "destination_icon": "combine.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php"
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
   },
   {
     "id": "zh-minecraft",
@@ -160,6 +180,26 @@
     "destination_platform": "mediawiki",
     "destination_icon": "noitawiki.png",
     "destination_main_page": "Noita_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "zh-plantsvszombies",
+    "origins_label": "Plants vs. Zombies Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Plants vs. Zombies Fandom Wiki",
+        "origin_base_url": "pvz.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "植物大战僵尸百科"
+      }
+    ],
+    "destination": "Plants vs. Zombies Wiki",
+    "destination_base_url": "plantsvszombies.wiki.gg/zh",
+    "destination_platform": "mediawiki",
+    "destination_icon": "plantsvszombieswiki.png",
+    "destination_main_page": "植物大战僵尸百科",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
@@ -211,5 +251,43 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "zh-touhou",
+    "origins_label": "Touhou Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Touhou Fandom Wiki",
+        "origin_base_url": "touhou.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "东方Project_Wiki"
+      }
+    ],
+    "destination": "Touhou Wiki",
+    "destination_base_url": "zh.touhouwiki.net",
+    "destination_platform": "mediawiki",
+    "destination_icon": "touhouwiki.png",
+    "destination_main_page": "東方維基",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "zh-undertale",
+    "origins_label": "Undertale Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Undertale Fandom Wiki",
+        "origin_base_url": "undertale.fandom.com/zh",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Undertale_Wiki"
+      }
+    ],
+    "destination": "Undertale Wiki",
+    "destination_base_url": "zh.undertale.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "undertalewiki.png",
+    "destination_main_page": "Undertale_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
   }
 ]

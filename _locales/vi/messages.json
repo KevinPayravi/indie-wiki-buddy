@@ -1,0 +1,759 @@
+{
+    "guideOverviewPara2": {
+        "message": "Khi bạn ghé thăm một wiki được lưu trữ trên một mạng lưới wiki lớn do công ty quản lý, tiện ích mở rộng này có thể thông báo hoặc tự động chuyển hướng bạn đến các wiki độc lập chất lượng khi chúng đang khả dụng. Các kết quả tìm kiếm trong Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! và Yandex có thể được lọc đi, thay thế liên kết từ các wiki không phải độc lập với các liên kết đến wiki độc lập thay thế (hoặc ẩn chúng hoàn toàn)."
+    },
+    "guideExtensionOnOffHelp": {
+        "message": "Bật/tắt tất cả chức năng của Indie Wiki Buddy trong một cú nhấn nút."
+    },
+    "guideNotificationsHelp1": {
+        "message": "Khi tùy chọn này được bật, bạn sẽ nhận được thông báo đẩy trên màn hình khi nào bạn được tự động chuyển hướng đến một wiki độc lập hoặc $BreezeWiki$. Tùy chọn này được bật theo mặc định.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideCrossLanguageHelp1": {
+        "message": "Theo mặc định, Indie Wiki Buddy sẽ giữ người dùng trong cùng ngôn ngữ (ví dụ chỉ chuyển hướng các wiki Fandom Tiếng Tây Ban Nha đến các wiki độc lập Tiếng Tây Ban Nha). Nhưng mà các bạn có thể nói đa ngôn ngữ có thể sẽ muốn dùng nhiều wiki độc lập Tiếng Anh đang khả dụng. Bật tùy chọn này sẽ chuyển hướng từ các wiki Fandom không phải Tiếng Anh đến các wiki độc lập Tiếng Anh khi một wiki đang không khả dụng trong cùng ngôn ngữ đó."
+    },
+    "guideChangelogHelp": {
+        "message": "Bật tùy chọn này để $linkStart$nhật ký thay đổi$linkEnd$ của Indie Wiki Buddy được mở trong một tab mới mỗi khi nó được cập nhật, để bạn có thể luôn nắm bắt các thay đổi mới nhất.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": "Khi tùy chọn này được bật lên, một biểu ngữ sẽ được chèn vào trên đầu kết quả từ công cụ tìm kiếm khi Indie Wiki Buddy có các kết quả từ các wiki Fandom, Fextralife, hoặc Neoseeker được ẩn đi. Biểu ngữ này cũng cho phép bạn hiện lên lại các kết quả đã ẩn đi nếu bạn muốn."
+    },
+    "extensionName": {
+        "message": "Indie Wiki Buddy"
+    },
+    "bannerBreezeWiki": {
+        "message": "Xem wiki Fandom này thông qua BreezeWiki"
+    },
+    "bannerDisable": {
+        "message": "Tắt biểu ngữ cho wiki này"
+    },
+    "bannerRestore": {
+        "message": "Khôi phục biểu ngữ"
+    },
+    "bannerRestoreDone": {
+        "message": "Biểu ngữ đã khôi phục"
+    },
+    "bannerDisableDone": {
+        "message": "Biểu ngữ đã được tắt"
+    },
+    "bannerRedirect": {
+        "message": "Tự động chuyển hướng wiki này"
+    },
+    "bannerRedirectDone": {
+        "message": "Đã bật chuyển hướng"
+    },
+    "extensionDescription": {
+        "message": "Indie Wiki Buddy giúp bạn khám phá những wiki độc lập chất lượng thông qua cảnh báo, chuyển hướng và lọc phần tìm kiếm."
+    },
+    "searchResultLookup": {
+        "message": "Tra cứu $article$ trên $destination$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultLookupEnglish": {
+        "message": "Tra cứu $article$ trên $destination$ (Tiếng Anh)",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisit": {
+        "message": "Thay vào đó ghé thăm $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "Thay vào đó ghé thăm $destination$ (Tiếng Anh)",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "Kích hoạt lại kết quả bên dưới"
+    },
+    "searchRemovalNotice": {
+        "message": "Indie Wiki Buddy đã lọc đi kết quả từ $destination$. Thay vào đó hãy tra cứu thông tin trên $link$.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "searchFilteredResultsHide": {
+        "message": "Ẩn lại kết quả đã lọc đi"
+    },
+    "searchFilteredResultsShow": {
+        "message": "Hiển thị kết quả đã lọc đi"
+    },
+    "settingsTitle": {
+        "message": "Cài đặt Indie Wiki Buddy"
+    },
+    "settingsGuide": {
+        "message": "Hướng dẫn"
+    },
+    "settingsWebsite": {
+        "message": "Trang chủ"
+    },
+    "bannerDescriptorIndependent": {
+        "message": "một wiki độc lập"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "một wiki độc lập chính thức"
+    },
+    "bannerLanguageEnglish": {
+        "message": "trong Tiếng Anh"
+    },
+    "bannerDescriptorWiki": {
+        "message": "một wiki"
+    },
+    "settingsChangelog": {
+        "message": "Nhật ký thay đổi"
+    },
+    "settingsSubmitWiki": {
+        "message": "Trình lên một Wiki"
+    },
+    "settingsSourceCode": {
+        "message": "Mã nguồn"
+    },
+    "settingsBannerReview": {
+        "message": "Bạn có đang thích Indie Wiki Buddy không? Xin hãy để lại một lời đánh giá!"
+    },
+    "settingsBannerReviewContact": {
+        "message": "Có vấn đề hoặc ý tưởng để cải thiện? Xin hãy $linkStart$liên hệ mình$linkEnd$!",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "firstInstallInfo1": {
+        "message": "Cảm ơn vì đã cài Indie Wiki Buddy! Hãy cùng giúp bạn thiết lập nào."
+    },
+    "firstInstallInfo2": {
+        "message": "Sử dụng các liên kết ở trên để đọc hướng dẫn đầy đủ, trình lên các wiki mới, hoặc liên hệ nhà phát triển."
+    },
+    "settingsGeneral": {
+        "message": "Tùy chỉnh chung"
+    },
+    "settingsNotifications": {
+        "message": "Thông báo chuyển hướng trên màn hình"
+    },
+    "settingsBreezeWikiDisabled": {
+        "message": "Tắt BreezeWiki"
+    },
+    "settingsOpenChangelog": {
+        "message": "Mở nhật ký thay đổi khi Indie Wiki Buddy được cập nhật"
+    },
+    "firstInstallInfo5": {
+        "message": "Bạn có thể truy cập lại các cài đặt này trong tương lai thông qua biểu tượng của tiện ích $logo$ ngay phía trên bên phải trình duyệt của bạn. Nếu bạn không thấy biểu tượng, nó có thể nằm ở menu thả xuống của tiện ích, được mở thông qua icon miếng ghép $jigsaw$ (cũng nằm trên bên phải trình duyệt của bạn).",
+        "placeholders": {
+            "logo": {
+                "content": "$1",
+                "example": "(image for the extension icon)"
+            },
+            "jigsaw": {
+                "content": "$2",
+                "example": "(image for the jigsaw icon)"
+            }
+        }
+    },
+    "settingsCrossLanguage": {
+        "message": "Chuyển hướng các wiki Fandom không phải Tiếng Anh đến các wiki độc lập Tiếng Anh khi wiki cùng ngôn ngữ không tồn tại"
+    },
+    "settingsSearchEngineFiltering": {
+        "message": "Lọc công cụ tìm kiếm"
+    },
+    "settingsBannerHide": {
+        "message": "Ẩn đi tin nhắn này"
+    },
+    "settingsBreezeWiki": {
+        "message": "Trang giao diện thay thế BreezeWiki cho Fandom ($linkStart$Tìm hiểu thêm$linkEnd$)",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsBreezeWikiRedirect": {
+        "message": "Tự động điều hướng trang wiki Fandom đến BreezeWiki"
+    },
+    "settingsBreezeWikiCustomHost": {
+        "message": "Tên miền BreezeWiki tự đặt:"
+    },
+    "settingsBreezeWikiCustomHostOption": {
+        "message": "Máy chủ tự đặt…"
+    },
+    "settingsBreezeWikiCustomHostSet": {
+        "message": "Đặt tên miền"
+    },
+    "settingsReorderResults": {
+        "message": "Di chuyển các wiki độc lập lên trên các kết quả không phải wiki độc lập và ẩn kết quả trùng (Ngoại trừ công cụ tìm kiếm Brave)"
+    },
+    "settingsHiddenResultsBanner": {
+        "message": "Hiển thị biểu ngữ khi các kết quả không phải wiki độc lập bị ẩn đi trên các công cụ tìm kiếm"
+    },
+    "settingsBreezeWikiCustomHostSetSuccessful": {
+        "message": "Thêm tên miền thành công"
+    },
+    "settingsBreezeWikiCustomHostSetFailed": {
+        "message": "Thêm tên miền thất bại"
+    },
+    "settingsWiki": {
+        "message": "Tùy chỉnh từng wiki"
+    },
+    "settingsWikiLegendWikiExp": {
+        "message": "Khi ghé thăm các wiki Fandom, Fextralife, hoặc Neoseeker có wiki độc lập thay thế, IWB có thể:"
+    },
+    "settingsWikiLegendSearchExp": {
+        "message": "Khi kết quả của công cụ tìm kiếm có bao gồm các wiki Fandom, Fextralife, hoặc Neoseeker có wiki độc lập thay thế, IWB có thể:"
+    },
+    "settingsDisabled": {
+        "message": "Không làm gì cả"
+    },
+    "settingsAlert": {
+        "message": "Hiển thị biểu ngữ liên kết đến wiki độc lập"
+    },
+    "settingsRedirect": {
+        "message": "Chuyển hướng đến wiki độc lập"
+    },
+    "settingsFilterByName": {
+        "message": "Lọc các wiki theo tên:"
+    },
+    "settingsFilterByLanguage": {
+        "message": "Lọc các wiki theo ngôn ngữ:"
+    },
+    "settingsLangAll": {
+        "message": "Mọi ngôn ngữ"
+    },
+    "settingsLangDE": {
+        "message": "[DE] Tiếng Đức / Deutsch"
+    },
+    "settingsWikiLegend": {
+        "message": "Chú giải biểu tượng"
+    },
+    "settingsLangES": {
+        "message": "[ES] Tiếng Tây Ban Nha / Español"
+    },
+    "settingsLangFI": {
+        "message": "[FI] Tiếng Phần Lan / suomi"
+    },
+    "settingsLangFR": {
+        "message": "[FR] Tiếng Pháp / Français"
+    },
+    "settingsLangLZH": {
+        "message": "[LZH] Tiếng Trung Văn Ngôn / 文言"
+    },
+    "settingsLangNL": {
+        "message": "[NL] Tiếng Hà Lan / Nederlands"
+    },
+    "settingsLangPL": {
+        "message": "[PL] Tiếng Ba Lan / Polski"
+    },
+    "settingsLangPT": {
+        "message": "[PT] Tiếng Bồ Đào Nha / Português"
+    },
+    "settingsFunStats": {
+        "message": "Thông số vui"
+    },
+    "settingsDisabledFor": {
+        "message": "Không làm gì cả với $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsLangRU": {
+        "message": "[RU] Tiếng Nga / Русский"
+    },
+    "settingsLangSV": {
+        "message": "[SV] Tiếng Thụy Điển / Svenska"
+    },
+    "settingsLangTH": {
+        "message": "[TH] Tiếng Thái / ไทย"
+    },
+    "settingsLangTOK": {
+        "message": "[TOK] Tiếng Toki Pona / toki pona"
+    },
+    "settingsLangUK": {
+        "message": "[UK] Tiếng Ukraina / Українська"
+    },
+    "settingsLangZH": {
+        "message": "[ZH] Tiếng Trung / 中文"
+    },
+    "settingsNameFilterPlaceholder": {
+        "message": "Nhập tên wiki…"
+    },
+    "settingsWikiExp": {
+        "message": "Trải nghiệm wiki"
+    },
+    "settingsSearchExp": {
+        "message": "Trải nghiệm tìm kiếm"
+    },
+    "settingsSetColumn": {
+        "message": "Nhấp biểu tượng để đặt cho tất cả wiki trong cột:"
+    },
+    "settingsNewWiki": {
+        "message": "Mặc định cho các wiki mới trong các bản cập nhật tương lai:"
+    },
+    "settingsFunStatsBreezeWiki": {
+        "message": "Đã được tự động chuyển hướng đến BreezeWiki $breezeWiki$ lần",
+        "placeholders": {
+            "breezeWiki": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsRedirects": {
+        "message": "Đã được tự động chuyển hướng đến wiki độc lập $redirect$ lần",
+        "placeholders": {
+            "redirect": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsAlerts": {
+        "message": "Đã được cảnh báo đến wiki độc lập $alert$ lần",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsExtensionOn": {
+        "message": "Tiện ích đang bật"
+    },
+    "settingsAlertFor": {
+        "message": "Hiện biểu mẫu trên $origin$ liên kết đến $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsRedirectFor": {
+        "message": "Tự động điều hướng $origin$đến $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsReplaceFor": {
+        "message": "Thay thế kết quả công cụ tìm kiếm cho $origin$ với $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsHideFor": {
+        "message": "Ẩn các kết quả của $origin$ từ công cụ tìm kiếm",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsWikiFrom": {
+        "message": " (từ $origin$)",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsCustomWikiDelete": {
+        "message": "Xóa"
+    },
+    "settingsExtensionOff": {
+        "message": "Tiện ích đang tắt"
+    },
+    "popupDefault": {
+        "message": "Hành vi mặc định (áp dụng cho tất cả các wiki hiện tại và wiki mới được thêm vào trong các bản cập nhật tương lai)"
+    },
+    "popupWikiLegendWikiExp": {
+        "message": "Khi ghé thăm các wiki Fandom, Fextralife, và Neoseeker:"
+    },
+    "popupOpenSettings": {
+        "message": "Mở Cài đặt Đầy đủ"
+    },
+    "popupWikiLegendSearchExp": {
+        "message": "Khi kết quả của công cụ tìm kiếm có bao gồm các wiki Fandom, Fextralife, hoặc Neoseeker có wiki độc lập thay thế, IWB có thể:"
+    },
+    "popupSettingsPerWiki": {
+        "message": "Hãy ghé thăm phần $linkStart$cài đặt đầy đủ$linkEnd$ để thay đổi hành vi cho từng wiki.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "popupSettingsOverride": {
+        "message": "Nhấp vào một tùy chọn phía trên sẽ ghi đè các tùy chỉnh từng wiki bất kỳ mà bạn có thể có."
+    },
+    "popupBreezeWikiSeeSettings": {
+        "message": "Mở cài đặt"
+    },
+    "popupBreezeWikiSeeSettingsLink": {
+        "message": "Thay đổi tên miền tự đặt ở $linkStart$trang cài đặt đầy đủ$linkEnd$",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideTitle": {
+        "message": "Hướng dẫn dùng Indie Wiki Buddy"
+    },
+    "guideBackToSettings": {
+        "message": "⇦ Quay lại Cài đặt"
+    },
+    "guideOverview": {
+        "message": "Tổng quan"
+    },
+    "guideOverviewPara1": {
+        "message": "Indie Wiki Buddy cung cấp một bộ tính năng để giúp bạn khám phá các wiki độc lập và cải thiện trải nghiệm đọc wiki nói chung của bạn."
+    },
+    "guideOverviewPara3": {
+        "message": "Chúng mình hiện tại đang chuyển hướng các wiki Fandom, Fextralife, và Neoseeker đến các trang wiki độc lập thay thế."
+    },
+    "guideOverviewPara4": {
+        "message": "Indie Wiki Buddy cũng hỗ trợ $BreezeWiki$, một dịch vụ tách rời giúp hiển thị các wiki Fandom dưới dạng trang không có quảng cáo và nội dung thừa thãi. Việc này sẽ giúp bạn có một trải nghiệm đọc thoải mái hơn khi không có một wiki độc lập nào đang khả dụng.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideOverviewPara5": {
+        "message": "Mọi chức năng này đều có thể được bật tắt đi, và bạn có thể đặt tùy chọn của bạn cho từng wiki. Bạn có toàn quyền kiểm soát các việc này!"
+    },
+    "guideGlobalSettingsHelp": {
+        "message": "Hướng dẫn về Tùy chỉnh Chung"
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "Có vài tùy chỉnh chung sau đây:"
+    },
+    "guideExtensionOnOff": {
+        "message": "Tiện ích đang bật / tắt"
+    },
+    "guideNotificationsHelp2": {
+        "message": "Nếu bạn không nhận được thông báo khi tùy chọn này đã bật, hãy kiểm tra cài đặt thông báo của hệ điều hành để đảm bảo rằng trình duyệt của bạn được phép gửi thông báo."
+    },
+    "guideCrossLanguageHelp2": {
+        "message": "Không may thì tính năng này hiện chưa hoạt động cho các wiki Fextralife."
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": "Bạn cũng có thể tùy chỉnh cài đặt lọc kết quả của bạn trong các công cụ tìm kiếm:"
+    },
+    "guideTogglePerSearchEngine": {
+        "message": "Bật tùy chọn lọc theo từng công cụ tìm kiếm"
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": "Theo mặc định, phần lọc kết quả được bật lên cho tất cả các công cụ tìm kiếm. Phần lọc được xử lý dựa trên tùy chỉnh người dùng đã chọn cho từng wiki. Tùy chỉnh lọc mặc định cho tất cả các wiki là thay thể kết quả không phải wiki độc lập với nút liên kết đến wiki độc lập thay thế."
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": "Những công cụ tìm kiếm hiện được hỗ trợ là Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! và Yandex."
+    },
+    "guideAlert": {
+        "message": "Cảnh báo"
+    },
+    "guideRedirect": {
+        "message": "Chuyển hướng"
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": "Không điều hướng trang wiki Fandom sang BreezeWiki."
+    },
+    "guideRedirectHelp": {
+        "message": ": Tự động chuyển hướng đến wiki độc lập tương tự."
+    },
+    "guideWikiHelpPara2": {
+        "message": "Bộ nút radio đầu tiên sẽ điều khiển chuyện gì xảy ra khi bạn ghé thăm các wiki không phải độc lập đã được liệt kê."
+    },
+    "guideWikiHelp": {
+        "message": "Trợ giúp về Tùy chỉnh từng wiki"
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": "Ghé thăm bất kì trang wiki Fandom Tiếng Anh nào sẽ lập tức chuyển hướng bạn đến xem thông qua BreezeWiki. Nếu phần tự động chuyển hướng đến một wiki độc lập đã được bật lên, wiki độc lập sẽ được ưu tiên."
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": "Ở trên đầu của các trang wiki Fandom Tiếng Anh sẽ có một biểu ngữ nhỏ được chèn vào với liên kết dẫn bạn đến trang BreezeWiki."
+    },
+    "guideReorderResultsHelp2": {
+        "message": "Chức năng này hiện chỉ khả dụng cho Google, vì việc duy trì độ uy tín có thể rất phức tạp."
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": "Nếu bạn không muốn nhìn thấy dấu hiệu kết quả bị ẩn đi, hãy tắt tùy chọn này."
+    },
+    "guideReorderResultsHelp1": {
+        "message": "Theo mặc định, Indie Wiki Buddy sẽ sắp xếp lại trang kết quả trên Google để di chuyển các kết quả của wiki độc lập lên trên kết quả không phải wiki độc lập đầu tiên (Fandom / Fextralife / Neoseeker), nếu chúng bị xếp dưới hơn ở ngay trang kết quả đầu tiên. Việc này giúp bạn tìm các trang bạn đang cần trên wiki độc lập nhanh hơn."
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "Bạn đã được chuyển hướng đến BreezeWiki!"
+    },
+    "guideFeedback": {
+        "message": "Bạn có câu hỏi hoặc phản hồi?"
+    },
+    "guideReplace": {
+        "message": "Thay thế"
+    },
+    "guideHide": {
+        "message": "Ẩn đi"
+    },
+    "guideReplaceHelp": {
+        "message": ": Kết quả gốc từ trang wiki không phải độc lập bị tắt đi, và một nút được chèn vào ở trên để dẫn bạn đến trang wiki độc lập."
+    },
+    "guideHideHelp": {
+        "message": ": Kết quả bị ẩn đi trong các công cụ tìm kiếm. Một biểu ngữ sẽ hiện lên gần đầu trang để báo bạn, và cho phép bạn hiện lại những kết quả đã bị ẩn đi."
+    },
+    "guideDisableSearchHelp": {
+        "message": ": Kết quả của công cụ tìm kiếm không bị ảnh hưởng."
+    },
+    "guideFeedbackPara2": {
+        "message": "Mình cũng sẽ đón nhận các đề xuất để cải thiện tiện ích này!"
+    },
+    "guideAlertHelp": {
+        "message": ": Thêm một biểu ngữ hiển thị trên đầu để thông báo rằng một wiki độc lập đang khả dụng. Nó sẽ xuất hiện trên cả hai trang Fandom và BreezeWiki."
+    },
+    "bannerVisit": {
+        "message": "Ghé thăm $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerHost": {
+        "message": "trên $host$",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "bannerText": {
+        "message": "Có $descriptor$ $host$ đang làm về chủ đề này $language$",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "settingsBannerOpera": {
+        "message": "Với các người dùng Opera: Theo mặc định, Opera sẽ chặn các tiện ích chạy trên các công cụ tìm kiếm. Việc truy cập các công cụ tìm kiếm có thể kích hoạt theo từng tiện ích bằng cách vào phần \"about:extensions\" và mở chọn phần \"Allow access to search page results\" (\"Cho phép truy cập để tìm kiếm các kết quả trang\") dưới phần của Indie Wiki Buddy."
+    },
+    "firstInstallInfo3": {
+        "message": "Ở phần cài đặt bên dưới, bạn có thể tắt mở các chức năng. Đây bao gồm tùy chọn để kích hoạt $BreezeWiki$, một trang giao diện thay thế giúp hiển thị các trang wiki Fandom dưới dạng không có quảng cáo hoặc nội dung thừa thãi.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "firstInstallInfo4": {
+        "message": "Dưới đó nữa, bạn có thể tự tùy chỉnh chuyện sẽ xảy ra khi bạn ghé thăm các wiki Fandom, Fextralife, và Neoseeker có một nguồn độc lập thay thế, cũng như là chuyện sẽ xảy ra với các kết quả của chúng trong các công cụ tìm kiếm. Với việc ghé thăm các wiki, bạn có thể chọn được $alert$ cảnh báo (mặc định) hoặc được $redirect$ tự động chuyển hướng. Trên các công cụ tìm kiếm, bạn có thể chọn $replace$ thay thế (mặc định) hoặc $hide$ ẩn các kết quả tìm kiếm.",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "(image for alert)"
+            },
+            "redirect": {
+                "content": "$2",
+                "example": "(image for redirect)"
+            },
+            "replace": {
+                "content": "$3",
+                "example": "(image for replace)"
+            },
+            "hide": {
+                "content": "$4",
+                "example": "(image for hide)"
+            }
+        }
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "Indie Wiki Buddy đã chuyển bạn đến BreezeWiki để có một trải nghiệm không quảng cáo, sạch sẽ hơn trên Fandom."
+    },
+    "bannerDescriptorOfficial": {
+        "message": "một wiki chính thức"
+    },
+    "guideFeedbackPara1": {
+        "message": "Nếu bạn đang vướng mắc hoặc có câu hỏi, xin đừng ngần ngại liên lạc mình thông qua phần $linkStart$chi tiết liên lạc$linkEnd$ tại dưới cùng trang web Indie Wiki Buddy.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsHide": {
+        "message": "Ẩn kết quả đi"
+    },
+    "settingsReplace": {
+        "message": "Thay thế kết quả thành liên kết đến wiki độc lập"
+    },
+    "settingsLangEN": {
+        "message": "[EN] Tiếng Anh / English"
+    },
+    "settingsLangHU": {
+        "message": "[HU] Tiếng Hungary / Magyar"
+    },
+    "settingsLangJA": {
+        "message": "[JA] Tiếng Nhật / 日本語"
+    },
+    "settingsLangKO": {
+        "message": "[KO] Tiếng Hàn / 한국어"
+    },
+    "settingsLangIT": {
+        "message": "[IT] Tiếng Ý / Italiano"
+    },
+    "notificationMessage": {
+        "message": "Indie Wiki Buddy đã chuyển bạn từ $origin$ đến $destination$!",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "notificationTitle": {
+        "message": "Bạn đã được chuyển hướng!"
+    },
+    "guideDisable": {
+        "message": "Tắt"
+    },
+    "guideDisableVisitHelp": {
+        "message": ": Bạn sẽ không nhận được thông báo hoặc tự chuyển hướng sang wiki độc lập tương tự. Bạn vẫn sẽ được chuyển sang BreezeWiki nếu tùy chọn đó đã được bật."
+    },
+    "guideWikiHelpPara3": {
+        "message": "Bộ nút radio thứ hai sẽ điều khiển chuyện gì xảy ra với các wiki không phải độc lập trên Google, Bing, DuckDuckGo và các công cụ tìm kiếm khác."
+    },
+    "guideWikiHelpPara4": {
+        "message": "Ở trên đầu bảng, nhấp vào các biểu tượng sẽ áp dụng tùy chỉnh đó cho tất cả các wiki trong bảng. Ở hàng thứ hai, các ngôi sao đại diện cho cài đặt mặc định cho các wiki sẽ được thêm vào trong các bản cập nhật tương lai. Theo mặc định, tất cả các wiki sẽ được đặt là cảnh báo, cùng với phần thay thế kết quả trong công cụ tìm kiếm được bật lên."
+    },
+    "guideWikiHelpPara1": {
+        "message": "Trong phần tùy chỉnh từng wiki của trang cài đặt, bạn có thể tùy chỉnh cài đặt của bạn theo từng wiki. Bạn có thể tham khảo chú giải hoặc di chuột qua các biểu tượng để hiểu từng cột sẽ kiểm soát như thế nào."
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": "Khi bạn đã bật một tùy chọn BreezeWiki, một menu thả xuống sẽ xuất hiện, cho phép bạn chọn trang máy chủ/bản sao của BreezeWiki. Nếu trang máy chủ BreezeWiki mà bạn chọn bị sập, bạn có thể quay lại những cài đặt này và thay đổi trang máy chủ của bạn."
+    },
+    "guideBreezeWiki": {
+        "message": "Bạn cũng có thể cài đặt tùy chọn theo ý muốn cho $BreezeWiki$, một dịch vụ tách rời giúp hiển thị các wiki Fandom dưới dạng trang không có quảng cáo và nội dung thừa thãi. Lưu ý rằng BreezeWiki hiện chỉ hỗ trợ các wiki bằng Tiếng Anh.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "settingsBreezeWikiBanner": {
+        "message": "Chèn liên kết trên biểu ngữ để đưa bạn đến BreezeWiki"
+    },
+    "settingsBreezeWikiHost": {
+        "message": "Máy chủ BreezeWiki:"
+    },
+    "settingsFunStatsSearchFilters": {
+        "message": "$hide$ kết quả tìm kiếm được lọc đi",
+        "placeholders": {
+            "hide": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsLangTR": {
+        "message": "[TR] Tiếng Thổ Nhĩ Kỳ / Türkçe"
+    }
+}

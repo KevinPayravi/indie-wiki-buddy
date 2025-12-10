@@ -1,0 +1,759 @@
+{
+    "extensionName": {
+        "message": "Indie Wiki Buddy"
+    },
+    "extensionDescription": {
+        "message": "O Indie Wiki Buddy ajuda você a descobrir wikis independentes e de qualidade por meio de avisos, redirecionamentos e filtragem de buscas."
+    },
+    "bannerDescriptorIndependent": {
+        "message": "independente"
+    },
+    "searchResultLookupEnglish": {
+        "message": "Procure $article$ na $destination$ (inglês)",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "guideReorderResultsHelp1": {
+        "message": "Por padrão, o Indie Wiki Buddy alterará a ordem da página de resultados do Google para mover os resultados de wikis independentes para cima do primeiro resultado não independente (Fandom / Fextralife / Neoseeker), caso estejam mais para baixo na primeira página de resultados. Isso permite que você encontre mais rapidamente as páginas que está procurando em wikis independentes."
+    },
+    "guideBreezeWiki": {
+        "message": "Você também pode fazer os ajustes que desejar ao $BreezeWiki$, um serviço separado que carrega wikis do Fandom sem anúncios e distrações. Vale ressaltar que, no momento, o BreezeWiki oferece suporte apenas a wikis em inglês.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": "Ao acessar qualquer wiki em inglês do Fandom, você será imediatamente redirecionado para visualizá-la através do BreezeWiki. Se o redirecionamento automático para uma wiki independente estiver ativado, a wiki independente terá prioridade."
+    },
+    "guideWikiHelpPara1": {
+        "message": "Na página de ajustes, você pode configurar suas preferências para cada wiki individualmente. Consulte a legenda ou passe o mouse sobre os ícones para descobrir a função de cada coluna."
+    },
+    "guideAlert": {
+        "message": "Avisar"
+    },
+    "guideAlertHelp": {
+        "message": ": Um aviso será exibido na parte superior da página informando que uma wiki independente está disponível. Aparecerá em páginas do Fandom e do BreezeWiki."
+    },
+    "guideWikiHelpPara4": {
+        "message": "No cabeçalho da tabela, clicar nos ícones aplicará aquele ajuste a todas as wikis na tabela. Na segunda linha, as estrelas representam os ajustes padrão para wikis que serão adicionadas em atualizações futuras. Por padrão, todas as wikis estão configuradas para mostrar um aviso e substituir os resultados nas buscas."
+    },
+    "guideReplace": {
+        "message": "Substituir"
+    },
+    "bannerDisableDone": {
+        "message": "Aviso desativado"
+    },
+    "settingsHiddenResultsBanner": {
+        "message": "Nas ferramentas de busca, exibir um aviso quando resultados não independentes forem ocultos"
+    },
+    "firstInstallInfo4": {
+        "message": "A seguir, você pode configurar separadamente o que acontece ao visitar wikis do Fandom, Fextralife e Neoseeker que têm uma variante independente, além do que acontece com seus resultados em ferramentas de busca. Ao visitar wikis, você pode escolher entre ser $alert$ avisado (padrão) ou $redirect$ redirecionado automaticamente. Nas ferramentas de busca, você pode escolher entre $replace$ substituir (padrão) ou $hide$ ocultar os resultados de pesquisas.",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "(image for alert)"
+            },
+            "redirect": {
+                "content": "$2",
+                "example": "(image for redirect)"
+            },
+            "replace": {
+                "content": "$3",
+                "example": "(image for replace)"
+            },
+            "hide": {
+                "content": "$4",
+                "example": "(image for hide)"
+            }
+        }
+    },
+    "firstInstallInfo5": {
+        "message": "Você pode acessar esses ajustes no futuro através do ícone da extensão $logo$ no canto superior direito do navegador. Caso você não veja o ícone, ele pode estar no menu de extensões, que pode ser aberto por meio do ícone de quebra-cabeça $jigsaw$ (que também fica no canto superior direito).",
+        "placeholders": {
+            "logo": {
+                "content": "$1",
+                "example": "(image for the extension icon)"
+            },
+            "jigsaw": {
+                "content": "$2",
+                "example": "(image for the jigsaw icon)"
+            }
+        }
+    },
+    "settingsReplace": {
+        "message": "Substituir o resultado com um link para a wiki independente"
+    },
+    "settingsWikiLegendSearchExp": {
+        "message": "Quando os resultados de buscas incluírem wikis do Fandom, Fextralife ou Neoseeker com uma versão independente, o IWB deve:"
+    },
+    "settingsLangES": {
+        "message": "[ES] Espanhol / Español"
+    },
+    "settingsNameFilterPlaceholder": {
+        "message": "Insira o nome da wiki…"
+    },
+    "settingsLangDE": {
+        "message": "[DE] Alemão / Deutsch"
+    },
+    "settingsLangEN": {
+        "message": "[EN] Inglês / English"
+    },
+    "settingsLangRU": {
+        "message": "[RU] Russo / Русский"
+    },
+    "popupSettingsPerWiki": {
+        "message": "Acesse $linkStart$todos os ajustes$linkEnd$ para mudar o comportamento por wiki.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "Existem vários ajustes gerais:"
+    },
+    "guideExtensionOnOff": {
+        "message": "A extensão está ativada / desativada"
+    },
+    "guideNotificationsHelp2": {
+        "message": "Se você não receber notificações quando essa opção estiver ativada, verifique as configurações de notificações do seu sistema operacional para garantir que o navegador tenha permissão para enviar notificações."
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": "Por padrão, a filtragem está ativada em todas as ferramentas de busca. A filtragem se baseia nos ajustes selecionados pelo usuário para cada wiki. O ajuste de filtragem padrão para todas as wikis é substituir os resultados não independentes por botões que levem à sua versão independente."
+    },
+    "bannerDescriptorWiki": {
+        "message": " "
+    },
+    "bannerDescriptorOfficial": {
+        "message": "oficial"
+    },
+    "bannerLanguageEnglish": {
+        "message": "em inglês"
+    },
+    "bannerVisit": {
+        "message": "Acesse $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerBreezeWiki": {
+        "message": "Veja essa wiki do Fandom através do BreezeWiki"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "independente oficial"
+    },
+    "bannerHost": {
+        "message": "no $host$",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "bannerRedirect": {
+        "message": "Redirecionar automaticamente nesta wiki"
+    },
+    "bannerRedirectDone": {
+        "message": "Redirecionamento ativado"
+    },
+    "searchResultVisit": {
+        "message": "Em vez disso, acesse $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "Reativar o resultado abaixo"
+    },
+    "searchFilteredResultsShow": {
+        "message": "Mostrar resultados filtrados"
+    },
+    "searchFilteredResultsHide": {
+        "message": "Ocultar resultados filtrados"
+    },
+    "settingsTitle": {
+        "message": "Ajustes do Indie Wiki Buddy"
+    },
+    "bannerRestore": {
+        "message": "Restaurar aviso"
+    },
+    "bannerRestoreDone": {
+        "message": "Aviso restaurado"
+    },
+    "bannerDisable": {
+        "message": "Desativar o aviso nesta wiki"
+    },
+    "searchResultLookup": {
+        "message": "Procure $article$ na $destination$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "Em vez disso, acesse $destination$ (inglês)",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchRemovalNotice": {
+        "message": "O Indie Wiki Buddy filtrou os resultados em $destination$. Em vez disso, procure por resultados em $link$.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "bannerText": {
+        "message": "Há uma wiki $descriptor$ $host$ sobre esse assunto $language$",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "settingsGuide": {
+        "message": "Guia"
+    },
+    "settingsWebsite": {
+        "message": "Site"
+    },
+    "settingsChangelog": {
+        "message": "Registro de mudanças"
+    },
+    "settingsSubmitWiki": {
+        "message": "Sugerir uma wiki"
+    },
+    "settingsSourceCode": {
+        "message": "Código-fonte"
+    },
+    "settingsBannerHide": {
+        "message": "Ocultar esta mensagem"
+    },
+    "firstInstallInfo1": {
+        "message": "Obrigado por instalar o Indie Wiki Buddy! Vamos configurá-lo para você."
+    },
+    "firstInstallInfo2": {
+        "message": "Use os links acima para ver o guia completa, sugerir novas wikis ou contatar o desenvolvedor."
+    },
+    "settingsBannerReviewContact": {
+        "message": "Tem algum problema ou alguma ideia de melhoria? $linkStart$Entre em contato$linkEnd$!",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "firstInstallInfo3": {
+        "message": "Nos ajustes abaixo, você pode ativar e desativar funcionalidades. Uma delas é a opção de ativar o $BreezeWiki$, uma interface alternativa que carrega as wikis do Fandom sem anúncios ou distrações.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "settingsBannerOpera": {
+        "message": "Usuários do Opera: Por padrão, o Opera impede o funcionamento de extensões em ferramentas de busca. Você pode ativar o acesso às ferramentas de busca ao acessar \"about:extensions\" e ativar a opção \"Permitir o acesso aos resultados da página de pesquisa\" para o Indie Wiki Buddy."
+    },
+    "settingsBannerReview": {
+        "message": "Está gostando do Indie Wiki Buddy? Deixe uma avaliação!"
+    },
+    "settingsGeneral": {
+        "message": "Ajustes gerais"
+    },
+    "settingsNotifications": {
+        "message": "Notificações de redirecionamentos na área de trabalho"
+    },
+    "settingsCrossLanguage": {
+        "message": "Redirecionar wikis do Fandom em outros idiomas para wikis independentes em inglês quando não houver uma wiki no mesmo idioma"
+    },
+    "settingsOpenChangelog": {
+        "message": "Abrir o registro de mudanças quando o Indie Wiki Buddy for atualizado"
+    },
+    "settingsSearchEngineFiltering": {
+        "message": "Filtragem das ferramentas de busca"
+    },
+    "settingsReorderResults": {
+        "message": "Exibir wikis independentes antes de resultados não independentes e ocultar duplicatas (exceto no Brave)"
+    },
+    "settingsBreezeWiki": {
+        "message": "BreezeWiki, a interface alternativa ao Fandom ($linkStart$saiba mais$linkEnd$)",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsBreezeWikiDisabled": {
+        "message": "Desativar BreezeWiki"
+    },
+    "settingsBreezeWikiBanner": {
+        "message": "Inserir aviso com um link para o BreezeWiki"
+    },
+    "settingsBreezeWikiRedirect": {
+        "message": "Redirecionar automaticamente as wikis do Fandom para o BreezeWiki"
+    },
+    "settingsBreezeWikiHost": {
+        "message": "Hospedagem do BreezeWiki:"
+    },
+    "settingsBreezeWikiCustomHost": {
+        "message": "Domínio personalizado do BreezeWiki:"
+    },
+    "settingsBreezeWikiCustomHostOption": {
+        "message": "Site personalizado…"
+    },
+    "settingsBreezeWikiCustomHostSet": {
+        "message": "Definir domínio"
+    },
+    "settingsBreezeWikiCustomHostSetSuccessful": {
+        "message": "Adicionado com sucesso"
+    },
+    "settingsBreezeWikiCustomHostSetFailed": {
+        "message": "Falha ao adicionar"
+    },
+    "settingsWikiLegend": {
+        "message": "Legenda dos ícones"
+    },
+    "settingsWikiLegendWikiExp": {
+        "message": "Ao visitar wikis do Fandom, Fextralife ou Neoseeker com uma variante independente, o IWB deve:"
+    },
+    "settingsDisabled": {
+        "message": "Não fazer nada"
+    },
+    "settingsAlert": {
+        "message": "Exibir um aviso com um link para a wiki independente"
+    },
+    "settingsRedirect": {
+        "message": "Redirecionar para a wiki independente"
+    },
+    "settingsHide": {
+        "message": "Ocultar o resultado"
+    },
+    "settingsFilterByLanguage": {
+        "message": "Filtrar wikis por idioma:"
+    },
+    "settingsWiki": {
+        "message": "Ajustes individuais de wikis"
+    },
+    "settingsFilterByName": {
+        "message": "Filtrar wikis por nome:"
+    },
+    "settingsLangAll": {
+        "message": "Todos os idiomas"
+    },
+    "settingsLangFI": {
+        "message": "[FI] Finlandês / suomi"
+    },
+    "settingsLangFR": {
+        "message": "[FR] Francês / Français"
+    },
+    "settingsLangHU": {
+        "message": "[HU] Húngaro / Magyar"
+    },
+    "settingsLangIT": {
+        "message": "[IT] Italiano / Italiano"
+    },
+    "settingsLangJA": {
+        "message": "[JA] Japonês / 日本語"
+    },
+    "settingsLangKO": {
+        "message": "[KO] Coreano / 한국어"
+    },
+    "settingsLangLZH": {
+        "message": "[LZH] Chinês clássico / 文言"
+    },
+    "settingsLangPL": {
+        "message": "[PL] Polonês / Polski"
+    },
+    "settingsLangPT": {
+        "message": "[PT] Português"
+    },
+    "settingsLangSV": {
+        "message": "[SV] Sueco / Svenska"
+    },
+    "settingsLangTH": {
+        "message": "[TH] Tailandês / ไทย"
+    },
+    "settingsLangTOK": {
+        "message": "[TOK] Toki pona / toki pona"
+    },
+    "settingsLangUK": {
+        "message": "[UK] Ucraniano / Українська"
+    },
+    "settingsLangZH": {
+        "message": "[ZH] Chinês / 中文"
+    },
+    "settingsWikiExp": {
+        "message": "Experiência na wiki"
+    },
+    "settingsSetColumn": {
+        "message": "Clique no ícone para definir todas as wikis na coluna:"
+    },
+    "settingsNewWiki": {
+        "message": "Padrão para novas wikis em atualizações futuras:"
+    },
+    "settingsFunStats": {
+        "message": "Estatísticas interessantes"
+    },
+    "settingsFunStatsAlerts": {
+        "message": "$alert$s avisos de wikis independentes já foram exibidos",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsRedirects": {
+        "message": "$redirect$ redirecionamentos para wikis independentes já foram feitos",
+        "placeholders": {
+            "redirect": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsBreezeWiki": {
+        "message": "$breezeWiki$ redirecionamentos para o BreezeWiki já foram feitos",
+        "placeholders": {
+            "breezeWiki": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsSearchFilters": {
+        "message": "$hide$ resultados de busca já foram filtrados",
+        "placeholders": {
+            "hide": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsAlertFor": {
+        "message": "Exibir um aviso em $origin$ com um link para $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsRedirectFor": {
+        "message": "Redirecionar automaticamente $origin$ para $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsReplaceFor": {
+        "message": "Substituir resultados de busca de $origin$ por $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsHideFor": {
+        "message": "Ocultar resultados de busca de $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsWikiFrom": {
+        "message": " (de $origin$)",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsCustomWikiDelete": {
+        "message": "Excluir"
+    },
+    "settingsExtensionOn": {
+        "message": "A extensão está ativada"
+    },
+    "settingsExtensionOff": {
+        "message": "A extensão está desativada"
+    },
+    "popupOpenSettings": {
+        "message": "Abrir todos os ajustes"
+    },
+    "popupDefault": {
+        "message": "Comportamentos padrão (se aplicam a todas as wikis atuais e futuras)"
+    },
+    "popupWikiLegendWikiExp": {
+        "message": "Ao visitar wikis do Fandom, Fextralife e Neoseeker:"
+    },
+    "popupWikiLegendSearchExp": {
+        "message": "Quando os resultados de busca incluírem wikis do Fandom, Fextralife ou Neoseeker com uma variante independente, o IWB deve:"
+    },
+    "settingsSearchExp": {
+        "message": "Experiência em buscas"
+    },
+    "settingsDisabledFor": {
+        "message": "Não fazer nada em $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "guideTitle": {
+        "message": "Guia do Indie Wiki Buddy"
+    },
+    "guideBackToSettings": {
+        "message": "⇦ Voltar aos ajustes"
+    },
+    "guideOverview": {
+        "message": "Descrição geral"
+    },
+    "popupSettingsOverride": {
+        "message": "Clicar em uma das opções acima substituirá qualquer personalização que você tenha feito separadamente a uma wiki."
+    },
+    "popupBreezeWikiSeeSettings": {
+        "message": "Ver ajustes"
+    },
+    "popupBreezeWikiSeeSettingsLink": {
+        "message": "Altere o domínio personalizado na $linkStart$página completa de ajustes$linkEnd$",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideOverviewPara1": {
+        "message": "O Indie Wiki Buddy oferece uma série de ferramentas para ajudar você a descobrir wikis independentes e melhorar a sua experiência de leitura de wikis como um todo."
+    },
+    "guideOverviewPara2": {
+        "message": "Quando você acessa uma wiki que pertence a uma grande empresa de hospedagem de wikis, essa extensão pode notificá-lo ou redirecioná-lo automaticamente para wikis independentes de qualidade sempre que possível. Os resultados de busca no Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! e Yandex também podem ser filtrados, substituindo as wikis não independentes por links que levam à sua versão independente (ou ocultando-as completamente)."
+    },
+    "guideOverviewPara3": {
+        "message": "No momento, redirecionamos as wikis do Fandom, Fextralife e Neoseeker para suas versões independentes."
+    },
+    "guideOverviewPara4": {
+        "message": "O Indie Wiki Buddy também oferece suporte ao $BreezeWiki$, um serviço separado que carrega wikis do Fandom sem anúncios ou distrações. Isso lhe oferece uma experiência de leitura mais agradável quando uma wiki independente não está disponível.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideOverviewPara5": {
+        "message": "Todas essas funcionalidades podem ser ativadas e desativadas, e você também pode definir suas preferências por wiki. Você tem controle de tudo!"
+    },
+    "guideGlobalSettingsHelp": {
+        "message": "Ajuda com os ajustes gerais"
+    },
+    "guideExtensionOnOffHelp": {
+        "message": "Ativa/desativa todas as funcionalidades do Indie Wiki Buddy com apenas um clique."
+    },
+    "guideNotificationsHelp1": {
+        "message": "Se essa opção estiver ativada, você receberá uma notificação na área de trabalho quando for redirecionado automaticamente para uma wiki independente ou para o $BreezeWiki$. Essa opção está ativada por padrão.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": "Você também pode alterar os ajustes para filtrar os resultados em ferramentas de busca:"
+    },
+    "guideCrossLanguageHelp1": {
+        "message": "Por padrão, o Indie Wiki Buddy manterá os usuários no mesmo idioma (por exemplo, o usuário só será redirecionado de wikis em espanhol do Fandom para wikis independentes em espanhol). No entanto, os falantes de vários idiomas também podem querer usar as diversas wikis independentes que existem em inglês. Ao ativar essa opção, o usuário será redirecionado de wikis do Fandom que não estejam em inglês para wikis independentes em inglês quando não houver uma versão disponível no mesmo idioma."
+    },
+    "guideCrossLanguageHelp2": {
+        "message": "Infelizmente, essa funcionalidade ainda não funciona com as wikis do Fextralife."
+    },
+    "guideChangelogHelp": {
+        "message": "Ative essa opção para que o $linkStart$registro de mudanças$linkEnd$ do Indie Wiki Buddy seja aberto em uma nova guia toda vez que a extensão for atualizada, para que você possa acompanhar as mudanças mais recentes.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideTogglePerSearchEngine": {
+        "message": "Filtrar por ferramenta de busca"
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": "Atualmente, as ferramentas de busca compatíveis são Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! e Yandex."
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": "Se essa opção estiver ativada, um aviso será inserido no topo dos resultados da ferramenta de busca caso o Indie Wiki Buddy tenha ocultado os resultados de alguma wiki do Fandom, Fextralife ou Neoseeker. Esse aviso também permite que você reexiba os resultados ocultos, se desejar."
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": "Se você não quiser ver nenhum sinal de que os resultados foram ocultos, desative essa opção."
+    },
+    "guideReorderResultsHelp2": {
+        "message": "No momento, essa funcionalidade está disponível apenas para o Google, devido à complexidade de mantê-la de forma estável."
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": "Não redireciona wikis do Fandom para o BreezeWiki."
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": "No topo das wikis em inglês do Fandom, um pequeno aviso será inserido com um link que levará você à wiki no BreezeWiki."
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": "Quando você ativar a opção do BreezeWiki, um menu aparecerá para que você escolha sua hospedagem preferida do BreezeWiki. Caso a hospedagem escolhida pare de funcionar, você pode voltar aos ajustes e alterá-la."
+    },
+    "guideWikiHelpPara2": {
+        "message": "O primeiro grupo de botões define o que acontece ao acessar as wikis não independentes listadas."
+    },
+    "guideDisable": {
+        "message": "Desativar"
+    },
+    "guideDisableVisitHelp": {
+        "message": ": Você não será notificado e nem redirecionado para a versão independente. Você ainda será direcionado ao BreezeWiki se ele estiver ativado."
+    },
+    "guideRedirect": {
+        "message": "Redirecionar"
+    },
+    "guideRedirectHelp": {
+        "message": ": Você será redirecionado automaticamente para a versão independente."
+    },
+    "guideWikiHelpPara3": {
+        "message": "O segundo grupo de botões define o que acontece com a wiki não independente no Google, Bing, DuckDuckGo e outras ferramentas de busca."
+    },
+    "guideDisableSearchHelp": {
+        "message": ": Os resultados das ferramentas de busca não são afetados."
+    },
+    "guideHide": {
+        "message": "Ocultar"
+    },
+    "guideHideHelp": {
+        "message": ": Os resultados ficam ocultos nas ferramentas de busca. Um aviso será exibido no topo da página para informá-lo e permitir que você revele os resultados ocultos."
+    },
+    "guideReplaceHelp": {
+        "message": ": O resultado original não independente é desativado e um botão é inserido acima dele para levar você à wiki independente."
+    },
+    "guideFeedback": {
+        "message": "Tem perguntas ou comentários?"
+    },
+    "guideFeedbackPara1": {
+        "message": "Se tiver dúvidas ou dificuldades, não deixe de entrar em contato por meio das $linkStart$informações de contato$linkEnd$ na parte inferior do site do Indie Wiki Buddy.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideFeedbackPara2": {
+        "message": "Sugestões de melhorias para a extensão também são bem-vindas!"
+    },
+    "guideWikiHelp": {
+        "message": "Ajuda com os ajustes individuais de wikis"
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "O Indie Wiki Buddy enviou você para o BreezeWiki para uma experiência mais limpa e sem anúncios no Fandom."
+    },
+    "notificationTitle": {
+        "message": "Você foi redirecionado(a)!"
+    },
+    "notificationMessage": {
+        "message": "O Indie Wiki Buddy enviou você de $origin$ para $destination$!",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "Você foi redirecionado para o BreezeWiki!"
+    },
+    "settingsLangNL": {
+        "message": "[NL] Holandês / Nederlands"
+    },
+    "settingsLangTR": {
+        "message": "[TR] Turco / Türkçe"
+    }
+}

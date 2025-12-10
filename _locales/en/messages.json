@@ -142,7 +142,7 @@
     }
   },
   "searchResultReenable": {
-    "message": "Re-enable the result below",
+    "message": "Re-enable original search result",
     "description": "Prompt to re-enable a non-indie search result"
   },
   "searchRemovalNotice": {
@@ -289,8 +289,8 @@
     "description": "Option to show a banner when non-indie results are hidden"
   },
   "settingsReorderResults": {
-    "message": "Move indie wikis above non-indie results and hide duplicates (Excluding Brave)",
-    "description": "Option to move indie wikis above non-indie results and hide duplicates (Excluding Brave)"
+    "message": "Move indie wikis above non-indie results and hide duplicates",
+    "description": "Option to move indie wikis above non-indie results and hide duplicates"
   },
   "settingsBreezeWiki": {
     "message": "BreezeWiki alternative frontend for Fandom ($linkStart$learn more$linkEnd$)",
@@ -388,6 +388,10 @@
     "message": "All languages",
     "description": "Option to show all languages"
   },
+  "settingsLangCA": {
+    "message": "[CA] Catalan / Català",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, CA should be \"[CA] Catalan / Català\" in English, but just \"[CA] Català\" in Catalan."
+  },
   "settingsLangDE": {
     "message": "[DE] German / Deutsch",
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, DE should be \"[DE] German / Deutsch\" in English, but just \"[DE] Deutsch\" in German."
@@ -407,6 +411,10 @@
   "settingsLangFR": {
     "message": "[FR] French / Français",
     "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, FR should be \"[FR] French / Français\" in German, but just \"[FR] Français\" in French."
+  },
+  "settingsLangHR": {
+    "message": "[HR] Croatian / Hrvatski",
+    "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, HR should be \"[HR] Croatian / Hrvatski\" in English, but just \"[HR] Hrvatski\" in Croatian."
   },
   "settingsLangHU": {
     "message": "[HU] Hungarian / Magyar",
