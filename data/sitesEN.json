@@ -4555,7 +4555,7 @@
       }
     ],
     "destination": "Gigantic Wiki",
-    "destination_base_url": "gogigantic.wiki",
+    "destination_base_url": "gogigantic.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "giganticwiki.png",
     "destination_main_page": "Gigantic_Wiki:Main_Page",
