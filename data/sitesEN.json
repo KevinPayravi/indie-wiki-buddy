@@ -6331,7 +6331,7 @@
     "destination": "Lost Episode Creepypasta Wiki",
     "destination_base_url": "lostepisodecreepypasta.miraheze.org",
     "destination_platform": "mediawiki",
-    "destination_icon": "",
+    "destination_icon": "lostepisodecreepypasta.png",
     "destination_main_page": "Lost_Episode_Creepypasta_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
