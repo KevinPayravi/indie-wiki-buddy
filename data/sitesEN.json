@@ -5954,6 +5954,25 @@
     ]
   },
   {
+    "id": "en-larn",
+    "origins_label": "Larn Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Larn Fandom Wiki",
+        "origin_base_url": "larn.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Larn_Wiki"
+      }
+    ],
+    "destination": "Larn Wiki",
+    "destination_base_url": "wiki.larn.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "larn.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-lancer",
     "origins_label": "LANCER Fandom Wiki",
     "origins": [
