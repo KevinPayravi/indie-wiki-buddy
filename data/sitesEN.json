@@ -653,6 +653,25 @@
     ]
   },
   {
+    "id": "en-arcraiders",
+    "origins_label": "Arc Raiders Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Arc Raiders Fandom Wiki",
+        "origin_base_url": "arc-raiders.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Arc_Raiders_Wiki"
+      }
+    ],
+    "destination": "ARC Raiders Wiki",
+    "destination_base_url": "arcraiders.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arcraiders.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-ark",
     "origins_label": "ARK Fandom Wikis",
     "origins": [
