@@ -320,6 +320,10 @@
     "message": "BreezeWiki host:",
     "description": "Select for a BreezeWiki host"
   },
+  "settingsBreezeWikiHostTrafficNote": {
+    "message": "Note that if a BreezeWiki host gets a lot of traffic, it is likely to hit a rate limit and show an error message. If you get frequent errors visiting BreezeWiki, try switching to a different host.",
+    "description": "A short text above the BreezeWiki host selection"
+  },
   "settingsBreezeWikiCustomHost": {
     "message": "Custom BreezeWiki domain:",
     "description": "Input for a custom BreezeWiki host not included by default"
