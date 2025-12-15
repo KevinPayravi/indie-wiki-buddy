@@ -7734,6 +7734,29 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-outward",
+    "origins_label": "Outward Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Outward Fandom Wiki",
+        "origin_base_url": "outward.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Outward_Wiki"
+      }
+    ],
+    "destination": "Official Outward Wiki",
+    "destination_base_url": "outward.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "outward.png",
+    "destination_main_page": "Outward_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-oxygennotincluded",
     "origins_label": "Oxygen Not Included Fandom Wiki",
     "origins": [
