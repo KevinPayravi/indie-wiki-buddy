@@ -62,6 +62,25 @@
     "destination_content_path": "/index.php/"
   },
   {
+    "id": "pt-hytale",
+    "origins_label": "Hytale Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Hytale Fandom Wiki",
+        "origin_base_url": "hytale.fandom.com/pt-br",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Hytale_Wiki"
+      }
+    ],
+    "destination": "Hytale Wiki",
+    "destination_base_url": "pt.hytalewiki.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hytalewiki.png",
+    "destination_content_path": "/w/",
+    "destination_search_path": "/",
+    "destination_main_page": "Hytale_Wiki"
+  },
+  {
     "id": "pt-minecraft",
     "origins_label": "Minecraft Fandom Wiki",
     "origins": [
