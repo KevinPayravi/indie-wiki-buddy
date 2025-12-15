@@ -291,7 +291,7 @@
         "description": "Explanation for the icons in wiki experience"
     },
     "searchResultReenable": {
-        "message": "Reactiva el resultado a continuación",
+        "message": "Reactiva el resultado original a continuación",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "settingsLangHU": {
@@ -886,5 +886,11 @@
     },
     "settingsLangTR": {
         "message": "[TR] Turco / Türkçe"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Catalán / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Croata / Hrvatski"
     }
 }

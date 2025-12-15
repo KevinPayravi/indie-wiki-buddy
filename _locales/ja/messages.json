@@ -70,7 +70,7 @@
         "description": "Button to show filtered search results"
     },
     "searchResultReenable": {
-        "message": "下の検索結果を有効化する",
+        "message": "本来の検索結果を再有効化する",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "searchRemovalNotice": {
@@ -806,7 +806,7 @@
         "description": "Input for a custom BreezeWiki host not included by default"
     },
     "settingsReorderResults": {
-        "message": "独立Wikiを非独立Wikiより上に表示し、重複する検索結果を非表示にする（Braveでは無効）",
+        "message": "独立Wikiを非独立Wikiより上に表示し、重複する検索結果を非表示にする",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "guideBreezeWikiRedirectHelp": {
@@ -886,5 +886,11 @@
     },
     "settingsLangTR": {
         "message": "[TR] トルコ語 / Türkçe"
+    },
+    "settingsLangCA": {
+        "message": "[CA] カタルーニャ語 / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] クロアチア語 / Hrvatski"
     }
 }

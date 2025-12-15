@@ -74,7 +74,7 @@
         "description": "Button to hide filtered search results"
     },
     "searchResultReenable": {
-        "message": "Восстановить результат ниже",
+        "message": "Восстановить исходный результат поиска",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "settingsChangelog": {
@@ -355,7 +355,7 @@
         "description": "Placeholder for the name filter input"
     },
     "settingsReorderResults": {
-        "message": "Переместить инди-вики выше не инди в результатах поиска и скрыть дубликаты (К Brave не относится)",
+        "message": "Переместить инди-вики выше не инди в результатах поиска и скрыть дубликаты",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "guideReplaceHelp": {
@@ -886,5 +886,11 @@
                 "example": "Minecraft Fandom Wiki"
             }
         }
+    },
+    "settingsLangCA": {
+        "message": "[CA] Каталанский / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Хорватский / Hrvatski"
     }
 }

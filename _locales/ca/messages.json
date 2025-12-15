@@ -49,5 +49,14 @@
     },
     "guideRedirect": {
         "message": "Redirigir"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Català"
+    },
+    "settingsLangEN": {
+        "message": "[EN] Anglès / English"
+    },
+    "settingsLangES": {
+        "message": "[ES] Espanyol / Español"
     }
 }
