@@ -17,6 +17,6 @@
     "destination_main_page": "lipu_open",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "Wikipedia",
+    "destination_host": "Wikipedia"
   }
 ]
