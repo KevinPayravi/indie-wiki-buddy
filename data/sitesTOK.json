@@ -11,11 +11,12 @@
       }
     ],
     "destination": "Wikipesija",
-    "destination_base_url": "wikipesija.org",
+    "destination_base_url": "tok.wikipedia.org",
     "destination_platform": "mediawiki",
     "destination_icon": "wikipesija.png",
     "destination_main_page": "lipu_open",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/"
+    "destination_content_path": "/wiki/",
+    "destination_host": "Wikipedia",
   }
 ]
