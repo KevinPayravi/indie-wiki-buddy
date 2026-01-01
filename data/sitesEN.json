@@ -2851,6 +2851,12 @@
         "origin_base_url": "daleksrus.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Dr._Who_Wiki"
+      },
+      {
+        "origin": "Bigger on the Inside Wiki",
+        "origin_base_url": "biggerontheinside.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Bigger_on_the_Inside_Wiki"
       }
     ],
     "destination": "Tardis (Doctor Who) Wiki",
