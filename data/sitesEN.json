@@ -653,6 +653,25 @@
     ]
   },
   {
+    "id": "en-arcraiders",
+    "origins_label": "Arc Raiders Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Arc Raiders Fandom Wiki",
+        "origin_base_url": "arc-raiders.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Arc_Raiders_Wiki"
+      }
+    ],
+    "destination": "ARC Raiders Wiki",
+    "destination_base_url": "arcraiders.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arcraiders.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "en-ark",
     "origins_label": "ARK Fandom Wikis",
     "origins": [
@@ -5960,6 +5979,25 @@
     ]
   },
   {
+    "id": "en-larn",
+    "origins_label": "Larn Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Larn Fandom Wiki",
+        "origin_base_url": "larn.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Larn_Wiki"
+      }
+    ],
+    "destination": "Larn Wiki",
+    "destination_base_url": "wiki.larn.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "larn.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Main_Page"
+  },
+  {
     "id": "en-lancer",
     "origins_label": "LANCER Fandom Wiki",
     "origins": [
@@ -7702,6 +7740,29 @@
     "destination_content_path": "/w/"
   },
   {
+    "id": "en-outward",
+    "origins_label": "Outward Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Outward Fandom Wiki",
+        "origin_base_url": "outward.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Outward_Wiki"
+      }
+    ],
+    "destination": "Official Outward Wiki",
+    "destination_base_url": "outward.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "outward.png",
+    "destination_main_page": "Outward_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-oxygennotincluded",
     "origins_label": "Oxygen Not Included Fandom Wiki",
     "origins": [
@@ -8587,6 +8648,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/"
+  },
+  {
+    "id": "en-ratatan",
+    "origins_label": "Ratatan Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Ratatan Fandom Wiki",
+        "origin_base_url": "ratatan.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ratatan_Wiki"
+      }
+    ],
+    "destination": "ARC Raiders Wiki",
+    "destination_base_url": "ratatan.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ratatan.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-rayman",
