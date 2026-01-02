@@ -15,7 +15,7 @@
         }
     },
     "guideCrossLanguageHelp1": {
-        "message": "Theo mặc định, Indie Wiki Buddy sẽ giữ người dùng trong cùng ngôn ngữ (ví dụ chỉ chuyển hướng các wiki Fandom Tiếng Tây Ban Nha đến các wiki độc lập Tiếng Tây Ban Nha). Nhưng mà các bạn có thể nói đa ngôn ngữ có thể sẽ muốn dùng nhiều wiki độc lập Tiếng Anh đang khả dụng. Bật tùy chọn này sẽ chuyển hướng từ các wiki Fandom không phải Tiếng Anh đến các wiki độc lập Tiếng Anh khi một wiki đang không khả dụng trong cùng ngôn ngữ đó."
+        "message": "Theo mặc định, Indie Wiki Buddy sẽ giữ người dùng trong cùng ngôn ngữ (ví dụ chỉ chuyển hướng các wiki Fandom Tiếng Tây Ban Nha đến các wiki độc lập Tiếng Tây Ban Nha). Nhưng những người dùng đa ngôn ngữ có thể sẽ muốn dùng nhiều wiki độc lập Tiếng Anh đang khả dụng. Bật tùy chọn này sẽ chuyển hướng từ các wiki Fandom không phải Tiếng Anh đến các wiki độc lập Tiếng Anh khi một wiki đang không khả dụng trong cùng ngôn ngữ đó."
     },
     "guideChangelogHelp": {
         "message": "Bật tùy chọn này để $linkStart$nhật ký thay đổi$linkEnd$ của Indie Wiki Buddy được mở trong một tab mới mỗi khi nó được cập nhật, để bạn có thể luôn nắm bắt các thay đổi mới nhất.",
@@ -103,7 +103,7 @@
         }
     },
     "searchResultReenable": {
-        "message": "Kích hoạt lại kết quả bên dưới"
+        "message": "Hiển thị lại kết quả gốc"
     },
     "searchRemovalNotice": {
         "message": "Indie Wiki Buddy đã lọc đi kết quả từ $destination$. Thay vào đó hãy tra cứu thông tin trên $link$.",
@@ -206,7 +206,7 @@
         "message": "Lọc công cụ tìm kiếm"
     },
     "settingsBannerHide": {
-        "message": "Ẩn đi tin nhắn này"
+        "message": "Ẩn tin nhắn này"
     },
     "settingsBreezeWiki": {
         "message": "Trang giao diện thay thế BreezeWiki cho Fandom ($linkStart$Tìm hiểu thêm$linkEnd$)",
@@ -232,7 +232,7 @@
         "message": "Đặt tên miền"
     },
     "settingsReorderResults": {
-        "message": "Di chuyển các wiki độc lập lên trên các kết quả không phải wiki độc lập và ẩn kết quả trùng (Ngoại trừ công cụ tìm kiếm Brave)"
+        "message": "Di chuyển các wiki độc lập lên trên các kết quả không phải wiki độc lập và ẩn kết quả trùng"
     },
     "settingsHiddenResultsBanner": {
         "message": "Hiển thị biểu ngữ khi các kết quả không phải wiki độc lập bị ẩn đi trên các công cụ tìm kiếm"
@@ -386,7 +386,7 @@
         }
     },
     "settingsRedirectFor": {
-        "message": "Tự động điều hướng $origin$đến $destination$",
+        "message": "Tự động điều hướng $origin$ đến $destination$",
         "placeholders": {
             "origin": {
                 "content": "$1",
@@ -515,7 +515,7 @@
         "message": "Nếu bạn không nhận được thông báo khi tùy chọn này đã bật, hãy kiểm tra cài đặt thông báo của hệ điều hành để đảm bảo rằng trình duyệt của bạn được phép gửi thông báo."
     },
     "guideCrossLanguageHelp2": {
-        "message": "Không may thì tính năng này hiện chưa hoạt động cho các wiki Fextralife."
+        "message": "Không may thay là tính năng này hiện vẫn chưa hoạt động cho các wiki Fextralife."
     },
     "guideGlobalSettingsHelpSearch": {
         "message": "Bạn cũng có thể tùy chỉnh cài đặt lọc kết quả của bạn trong các công cụ tìm kiếm:"
@@ -542,7 +542,7 @@
         "message": ": Tự động chuyển hướng đến wiki độc lập tương tự."
     },
     "guideWikiHelpPara2": {
-        "message": "Bộ nút radio đầu tiên sẽ điều khiển chuyện gì xảy ra khi bạn ghé thăm các wiki không phải độc lập đã được liệt kê."
+        "message": "Bộ nút lựa chọn đầu tiên sẽ điều khiển chuyện gì xảy ra khi bạn ghé thăm các wiki không phải độc lập đã được liệt kê."
     },
     "guideWikiHelp": {
         "message": "Trợ giúp về Tùy chỉnh từng wiki"
@@ -637,7 +637,7 @@
         }
     },
     "firstInstallInfo4": {
-        "message": "Dưới đó nữa, bạn có thể tự tùy chỉnh chuyện sẽ xảy ra khi bạn ghé thăm các wiki Fandom, Fextralife, và Neoseeker có một nguồn độc lập thay thế, cũng như là chuyện sẽ xảy ra với các kết quả của chúng trong các công cụ tìm kiếm. Với việc ghé thăm các wiki, bạn có thể chọn được $alert$ cảnh báo (mặc định) hoặc được $redirect$ tự động chuyển hướng. Trên các công cụ tìm kiếm, bạn có thể chọn $replace$ thay thế (mặc định) hoặc $hide$ ẩn các kết quả tìm kiếm.",
+        "message": "Dưới đó nữa, bạn có thể tự tùy chỉnh hành vi của tiện ích khi bạn ghé thăm các wiki Fandom, Fextralife, và Neoseeker có một nguồn độc lập thay thế, cũng như là chuyện sẽ xảy ra với các kết quả của chúng trong các công cụ tìm kiếm. Với việc ghé thăm các wiki, bạn có thể chọn được $alert$ cảnh báo (mặc định) hoặc được $redirect$ tự động chuyển hướng. Trên các công cụ tìm kiếm, bạn có thể chọn $replace$ thay thế (mặc định) hoặc $hide$ ẩn các kết quả tìm kiếm.",
         "placeholders": {
             "alert": {
                 "content": "$1",
@@ -718,7 +718,7 @@
         "message": ": Bạn sẽ không nhận được thông báo hoặc tự chuyển hướng sang wiki độc lập tương tự. Bạn vẫn sẽ được chuyển sang BreezeWiki nếu tùy chọn đó đã được bật."
     },
     "guideWikiHelpPara3": {
-        "message": "Bộ nút radio thứ hai sẽ điều khiển chuyện gì xảy ra với các wiki không phải độc lập trên Google, Bing, DuckDuckGo và các công cụ tìm kiếm khác."
+        "message": "Bộ nút lựa chọn thứ hai sẽ điều khiển chuyện gì xảy ra với các wiki phi độc lập trên Google, Bing, DuckDuckGo và các công cụ tìm kiếm khác."
     },
     "guideWikiHelpPara4": {
         "message": "Ở trên đầu bảng, nhấp vào các biểu tượng sẽ áp dụng tùy chỉnh đó cho tất cả các wiki trong bảng. Ở hàng thứ hai, các ngôi sao đại diện cho cài đặt mặc định cho các wiki sẽ được thêm vào trong các bản cập nhật tương lai. Theo mặc định, tất cả các wiki sẽ được đặt là cảnh báo, cùng với phần thay thế kết quả trong công cụ tìm kiếm được bật lên."
@@ -755,5 +755,11 @@
     },
     "settingsLangTR": {
         "message": "[TR] Tiếng Thổ Nhĩ Kỳ / Türkçe"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Tiếng Catalunya / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Tiếng Croatia / Hrvatski"
     }
 }
