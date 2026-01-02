@@ -5995,7 +5995,8 @@
     "destination_icon": "larn.png",
     "destination_content_path": "/wiki/",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Main_Page"
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-lancer",
