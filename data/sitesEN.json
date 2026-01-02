@@ -2236,7 +2236,7 @@
   },
   {
     "id": "en-cookierun",
-    "origins_label": "Cookie Run Fandom Wiki",
+    "origins_label": "Cookie Run Fandom Wikis",
     "origins": [
       {
         "origin": "Cookie Run Fandom Wiki",
@@ -2255,6 +2255,12 @@
         "origin_base_url": "cookieruntoa.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Cookie_Run:_Tower_of_Adventures_Wiki"
+      },
+      {
+        "origin": "Cookie Run: Witch's Castle Fandom Wiki",
+        "origin_base_url": "cookierun-witchs-castle.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "CookieRun:_Witch's_Castle_Wiki"
       }
     ],
     "destination": "Cookie Run Wiki",
