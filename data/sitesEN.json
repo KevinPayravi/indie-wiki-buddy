@@ -2243,39 +2243,13 @@
         "origin_base_url": "cookierun.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Cookie_Run_Wiki"
-      }
-    ],
-    "destination": "Cookie Run Wiki",
-    "destination_base_url": "cookierun.wiki",
-    "destination_platform": "mediawiki",
-    "destination_icon": "cookierunwiki.png",
-    "destination_main_page": "Cookie_Run_Wiki",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/w/",
-  },
-  {
-    "id": "en-cookierunkingdom",
-    "origins_label": "Cookie Run: Kingdom Fandom Wiki",
-    "origins": [
+      },
       {
         "origin": "Cookie Run: Kingdom Fandom Wiki",
         "origin_base_url": "cookierunkingdom.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Cookie_Run:_Kingdom_Wiki"
-      }
-    ],
-    "destination": "Cookie Run Wiki",
-    "destination_base_url": "cookierun.wiki",
-    "destination_platform": "mediawiki",
-    "destination_icon": "cookierunwiki.png",
-    "destination_main_page": "Cookie_Run_Wiki",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/w/",
-  },
-  {
-    "id": "en-cookieruntoa",
-    "origins_label": "Cookie Run: Tower of Adventures Fandom Wiki",
-    "origins": [
+      },
       {
         "origin": "Cookie Run: Tower of Adventures Fandom Wiki",
         "origin_base_url": "cookieruntoa.fandom.com",
