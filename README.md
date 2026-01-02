@@ -37,6 +37,8 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/users/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20downloads&logo=googlechrome)
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20rating&logo=googlechrome)
 
+![Weblate translation status](https://img.shields.io/weblate/progress/indie-wiki-buddy?style=flat-square&logo=weblate&color=%232E8C6A)
+
 ----
 
 Large, corporate-run wiki farms have enabled hundreds of great wikis and communities. Unfortunately, these wiki farms can easily overshadow quality independent wikis, especially in search engine results. Independent wikis often have the benefit of greater self-determination and fewer ads, but are easily missed by users who aren't aware of their existence.
@@ -111,4 +113,7 @@ Entries are formatted as follows:
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
 
 # Translations
-Translations are currently being prepared on Hosted Weblate ([link](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/)). If you're interested in helping translate, please register for an account at hosted.weblate.org, and you should be able to dive right in and start translating!
+This extension can be translated on Hosted Weblate ([link to the translation project](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/)).
+If you're interested in helping translate, please register for an account at [hosted.weblate.org](https://hosted.weblate.org), and you should be able to dive right in and start translating!
+
+![Per-language translation status](https://hosted.weblate.org/widget/indie-wiki-buddy/indie-wiki-buddy-browser-extension/multi-auto.svg)
