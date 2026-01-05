@@ -886,5 +886,11 @@
     },
     "settingsLangTR": {
         "message": "[TR] Türkisch / Türkçe"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Katalanisch / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Kroatisch / Hrvatski"
     }
 }
