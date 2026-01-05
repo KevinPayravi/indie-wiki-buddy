@@ -1,5 +1,17 @@
 {
     "extensionName": {
         "message": "חבר ויקי עצמאי"
+    },
+    "settingsLangEN": {
+        "message": "[EN] אנגלית / English"
+    },
+    "settingsLangES": {
+        "message": "[ES] סְפָרַדִית / Español"
+    },
+    "settingsLangDE": {
+        "message": "[DE] גרמנית / Deutsch"
+    },
+    "settingsLangCA": {
+        "message": "[CA] קטלאנית / Català"
     }
 }
