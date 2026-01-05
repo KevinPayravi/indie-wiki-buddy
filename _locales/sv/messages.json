@@ -224,7 +224,7 @@
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, RU should be \"[RU] Russian / Русский\" in English, but just \"[RU] Русский\" in Russian."
     },
     "settingsLangSV": {
-        "message": "",
+        "message": "[SV] Svenska",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, SV should be \"[SV] Swedish / Svenska\" in English, but just \"[SV] Svenska\" in Swedish."
     },
     "settingsLangTH": {
