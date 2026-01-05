@@ -660,7 +660,7 @@
         }
     },
     "settingsReorderResults": {
-        "message": "대체 위키를 대체 위키가 아닌 위키 위에 올리고 중복 위키 숨기기 (Brave 검색 엔진 제외)",
+        "message": "대체 위키를 대체 위키가 아닌 위키 위에 올리고 중복 위키 숨기기",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "settingsBreezeWikiCustomHost": {
@@ -886,5 +886,11 @@
     },
     "settingsLangTR": {
         "message": "[TR] 튀르키예어 / Türkçe"
+    },
+    "settingsLangCA": {
+        "message": "[CA] 카탈루냐어 / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] 크로아티아어 / Hrvatski"
     }
 }
