@@ -404,7 +404,7 @@
         "message": "Филтриране на резултатите от търсачките"
     },
     "settingsReorderResults": {
-        "message": "Преместване на независими уикита по-нагоре в резултатите и скриване на дубликати (с изключение на Brave)"
+        "message": "Преместване на независими уикита по-нагоре в резултатите и скриване на дубликати"
     },
     "settingsBreezeWiki": {
         "message": "BreezeWiki алтернативен интерфейс за Fandom ($linkStart$научете повече$linkEnd$)",
@@ -755,5 +755,11 @@
     },
     "settingsLangNL": {
         "message": "[NL] датски / Nederlands"
+    },
+    "settingsLangCA": {
+        "message": "[CA] каталонски / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] хърватски / Hrvatski"
     }
 }
