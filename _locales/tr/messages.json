@@ -156,5 +156,8 @@
     },
     "firstInstallInfo2": {
         "message": "Tam rehberi görmek için, yeni vikiler yayınlamak için veya geliştiriciye ulaşmak için yukarıdaki bağlantıları kullanın."
+    },
+    "settingsLangTR": {
+        "message": "[TR] Türkçe"
     }
 }
