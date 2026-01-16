@@ -320,8 +320,8 @@
     "message": "BreezeWiki host:",
     "description": "Select for a BreezeWiki host"
   },
-  "settingsBreezeWikiHostTrafficNote": {
-    "message": "Note that if a BreezeWiki host gets a lot of traffic, it is likely to hit a rate limit and show an error message. If you get frequent errors visiting BreezeWiki, try switching to a different host.",
+  "settingsBreezeWikiHostNote": {
+    "message": "If you get frequent errors visiting BreezeWiki, try switching to a different host. Indie Wiki Buddy is not responsible for BreezeWiki or its hosts.",
     "description": "A short text above the BreezeWiki host selection"
   },
   "settingsBreezeWikiCustomHost": {
