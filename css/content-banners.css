@@ -1,60 +1,60 @@
 #indie-wiki-banner-container {
-  font-family: sans-serif;
-  width: 100%;
-  z-index: 2147483647;
-  position: sticky;
-  top: 0;
-  text-align: center;
-}
-.indie-wiki-banner {
-  background-color: #acdae2;
-  padding: 8px 10px;
-  font-size: 12px;
-}
-.indie-wiki-banner-exit {
-  position: absolute;
-  right: 8px;
-  top: 4px;
-  font-size: 20px;
-  color: #333;
-  cursor: pointer;
-}
-.indie-wiki-banner-controls {
-  padding-bottom: 5px;
-}
-.indie-wiki-banner-big-text {
-  font-size: 14px;
-  line-height: 24px;
-  margin-top: 5px;
-}
-.indie-wiki-banner-big-text .indie-wiki-banner-link {
-  font-size: 16px;
-}
-.indie-wiki-banner-link {
-  font-weight: 600;
-  color: #000080 !important;
-  cursor: pointer;
-  padding: 0 10px;
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
-}
-.indie-wiki-banner-link:hover {
-  text-decoration: underline;
-  color: #000080;
-}
-.indie-wiki-banner-link-small {
-  display: inline-block;
-  font-size: 12px;
-  min-width: 180px;
-}
-.indie-wiki-banner-disabled {
-  color: #333;
-  cursor: default;
-}
-.indie-wiki-banner-disabled:hover {
-  text-decoration: none;
-}
-.indie-wiki-banner-hidden {
-  display: none;
-}
+    font-family: sans-serif;
+    width: 100%;
+    z-index: 2147483647;
+    position: sticky;
+    top: 0;
+    text-align: center;
+  }
+  .indie-wiki-banner {
+    background-color: #acdae2;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .indie-wiki-banner-exit {
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+  }
+  .indie-wiki-banner-controls {
+    padding-bottom: 5px;
+  }
+  .indie-wiki-banner-big-text {
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 5px;
+  }
+  .indie-wiki-banner-big-text .indie-wiki-banner-link{
+    font-size: 16px;
+  }
+  .indie-wiki-banner-link {
+    font-weight: 600;
+    color: #000080;
+    cursor: pointer;
+    padding: 0 10px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .indie-wiki-banner-link:hover {
+    text-decoration: underline;
+    color: #000080;
+  }
+  .indie-wiki-banner-link-small {
+    display: inline-block;
+    font-size: 12px;
+    min-width: 180px;
+  }
+  .indie-wiki-banner-disabled {
+    color: #333;
+    cursor: default;
+  }
+  .indie-wiki-banner-disabled:hover {
+    text-decoration: none;
+  }
+  .indie-wiki-banner-hidden {
+    display: none;
+  }
