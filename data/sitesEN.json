@@ -7642,6 +7642,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-oathbreakersvr",
+    "origins_label": "OathBreakersVr Fandom Wiki",
+    "origins": [
+      {
+        "origin": "OathBreakersVr Fandom Wiki",
+        "origin_base_url": "oathbreakersvr.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "OathBreakersVr_Wiki"
+      }
+    ],
+    "destination": "Oathbreakers VR Wiki",
+    "destination_base_url": "oathbreakersvr.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "oathbreakersvr.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-obeyme",
     "origins_label": "Obey Me! Fandom Wiki",
     "origins": [
