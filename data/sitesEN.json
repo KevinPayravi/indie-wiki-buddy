@@ -955,6 +955,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-azumangadaioh",
+    "origins_label": "Azumanga Daioh! Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Azumanga Daioh! Fandom Wiki",
+        "origin_base_url": "azumanga.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Azumanga_Daioh_Yotsuba%26!_Wiki"
+      }
+    ],
+    "destination": "Azumanga Daioh Wiki",
+    "destination_base_url": "azudaioh.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "azumangadaiohwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-azurlane",
     "origins_label": "Azur Lane Fandom Wikis",
     "origins": [
