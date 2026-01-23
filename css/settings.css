@@ -42,6 +42,10 @@ legend {
   gap: 1em;
 }
 
+#breezewikiHostNote {
+  margin-bottom: 8px;
+}
+
 /* WIKI FILTERS */
 #wikiFiltersContainer {
   width: fit-content;

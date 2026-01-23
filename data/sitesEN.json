@@ -327,6 +327,29 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-aloft",
+    "origins_label": "Aloft Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Aloft Fandom Wiki",
+        "origin_base_url": "aloft.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Aloft_Wiki"
+      }
+    ],
+    "destination": "Aloft Wiki",
+    "destination_base_url": "aloft.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "aloft.png",
+    "destination_main_page": "",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-alphaver",
     "origins_label": "AlphaVer Fandom Wiki",
     "origins": [
@@ -953,6 +976,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-azumangadaioh",
+    "origins_label": "Azumanga Daioh! Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Azumanga Daioh! Fandom Wiki",
+        "origin_base_url": "azumanga.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Azumanga_Daioh_Yotsuba%26!_Wiki"
+      }
+    ],
+    "destination": "Azumanga Daioh Wiki",
+    "destination_base_url": "azudaioh.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "azumangadaiohwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-azurlane",
@@ -7636,6 +7679,26 @@
     "destination_base_url": "oaklandsrblxwiki.miraheze.org",
     "destination_platform": "mediawiki",
     "destination_icon": "oaklandsroblox.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
+    "id": "en-oathbreakersvr",
+    "origins_label": "OathBreakersVr Fandom Wiki",
+    "origins": [
+      {
+        "origin": "OathBreakersVr Fandom Wiki",
+        "origin_base_url": "oathbreakersvr.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "OathBreakersVr_Wiki"
+      }
+    ],
+    "destination": "Oathbreakers VR Wiki",
+    "destination_base_url": "oathbreakersvr.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "oathbreakersvr.png",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/wiki/",
