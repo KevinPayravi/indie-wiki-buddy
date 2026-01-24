@@ -985,7 +985,7 @@
         "origin": "Azumanga Daioh! Fandom Wiki",
         "origin_base_url": "azumanga.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Azumanga_Daioh_Yotsuba%26!_Wiki"
+        "origin_main_page": "Azumanga_Daioh_Yotsuba&!_Wiki"
       }
     ],
     "destination": "Azumanga Daioh Wiki",
@@ -2915,7 +2915,7 @@
         "origin_main_page": "Dr._Who_Wiki"
       },
       {
-        "origin": "Bigger on the Inside Wiki",
+        "origin": "Bigger on the Inside Fandom Wiki",
         "origin_base_url": "biggerontheinside.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Bigger_on_the_Inside_Wiki"
@@ -8724,7 +8724,7 @@
         "origin_main_page": "Ratatan_Wiki"
       }
     ],
-    "destination": "ARC Raiders Wiki",
+    "destination": "Ratatan Wiki",
     "destination_base_url": "ratatan.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "ratatan.png",
