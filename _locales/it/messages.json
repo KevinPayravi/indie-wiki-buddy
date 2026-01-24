@@ -669,7 +669,7 @@
         "message": ""
     },
     "settingsLangUK": {
-        "message": "",
+        "message": "[UK] Ucraino / Українська",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, UK should be \"[UK] Ukrainian / Українська\" in English, but just \"[UK] Українська\" in Ukrainian."
     },
     "settingsWikiFrom": {
@@ -886,5 +886,11 @@
                 "example": "Minecraft Fandom Wiki"
             }
         }
+    },
+    "settingsLangHR": {
+        "message": "[HR] Croato / Hrvatski"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Catalano / Català"
     }
 }

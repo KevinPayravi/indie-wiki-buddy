@@ -132,7 +132,7 @@
         "description": "Option to open the changelog when Indie Wiki Buddy is updated"
     },
     "settingsReorderResults": {
-        "message": "Перемістити інді-вікі над неінді-результатами та приховати дублікати (за винятком Brave)",
+        "message": "Перемістити інді-вікі над неінді-результатами та приховати дублікати",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "settingsCrossLanguage": {
@@ -886,5 +886,11 @@
     },
     "settingsLangTR": {
         "message": "[TR] Турецька / Türkçe"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Каталонська / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Хорватська / Hrvatski"
     }
 }

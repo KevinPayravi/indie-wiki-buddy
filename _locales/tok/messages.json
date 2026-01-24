@@ -168,5 +168,26 @@
     },
     "settingsBannerReview": {
         "message": "ilo ni li pona la o sitelen e lipu pilin a!"
+    },
+    "settingsLangTOK": {
+        "message": "[TOK] toki pona"
+    },
+    "settingsLangEN": {
+        "message": "[EN] toki Inli / English"
+    },
+    "settingsLangES": {
+        "message": "[ES] toki Epanja / Español"
+    },
+    "settingsLangDE": {
+        "message": "[DE] toki Tosi / Deutsch"
+    },
+    "settingsLangCA": {
+        "message": "[CA] toki Katala / Català"
+    },
+    "settingsLangFI": {
+        "message": "[FI] toki Sumi / suomi"
+    },
+    "settingsLangAll": {
+        "message": "ale toki"
     }
 }
