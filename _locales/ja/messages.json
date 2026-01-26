@@ -244,7 +244,7 @@
         "message": "置き換え"
     },
     "guideHide": {
-        "message": "：非表示"
+        "message": "非表示"
     },
     "guideDisableSearchHelp": {
         "message": "：検索エンジンに何の影響も与えません。"
@@ -690,7 +690,7 @@
         "description": "Notification title for being redirected to BreezeWiki"
     },
     "extensionName": {
-        "message": "インディーウィキバディ",
+        "message": "Indie Wiki Buddy",
         "description": "The name of the extension"
     },
     "settingsHide": {
@@ -869,7 +869,7 @@
         "description": "Introduction paragraph of the general settings help"
     },
     "extensionDescription": {
-        "message": "\"インディーウィキバディ\"は検索フィルターやリダイレクト、通知を通して高クオリティの独立Wikiを発見しやすくします。",
+        "message": "Indie Wiki Buddyは検索フィルターやリダイレクト、通知を通して高クオリティの独立Wikiを発見しやすくします。",
         "description": "The description of the extension"
     },
     "settingsDisabledFor": {
@@ -892,5 +892,8 @@
     },
     "settingsLangHR": {
         "message": "[HR] クロアチア語 / Hrvatski"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "BreezeWikiへの移動時に繰り返しエラーが生じる場合は、ホストを切り替えてみてください。Indie Wiki BuddyはBreezeWikiおよびそのホストに関して一切の責任を負いません。"
     }
 }
