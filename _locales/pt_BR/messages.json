@@ -184,7 +184,7 @@
         }
     },
     "searchResultReenable": {
-        "message": "Reativar o resultado abaixo"
+        "message": "Reativar o resultado original"
     },
     "searchFilteredResultsShow": {
         "message": "Mostrar resultados filtrados"
@@ -322,7 +322,7 @@
         "message": "Filtragem das ferramentas de busca"
     },
     "settingsReorderResults": {
-        "message": "Exibir wikis independentes antes de resultados não independentes e ocultar duplicatas (exceto no Brave)"
+        "message": "Exibir wikis independentes antes de resultados não independentes e ocultar duplicatas"
     },
     "settingsBreezeWiki": {
         "message": "BreezeWiki, a interface alternativa ao Fandom ($linkStart$saiba mais$linkEnd$)",
@@ -755,5 +755,14 @@
     },
     "settingsLangTR": {
         "message": "[TR] Turco / Türkçe"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "Se você recebe erros frequêntes ao visitar BreezeWiki, tente mudar de hospedeiro. Indie Wiki Buddy não é responsável pela BreezeWiki ou seus hospedeiros."
+    },
+    "settingsLangCA": {
+        "message": "[CA] Catalão / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Croata / Hrvatski"
     }
 }
