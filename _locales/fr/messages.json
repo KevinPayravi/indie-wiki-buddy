@@ -892,5 +892,8 @@
     },
     "settingsLangCA": {
         "message": "[CA] Catalan / Català"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "Si vous rencontrez souvent des erreurs lorsque vous utilisez BreezeWiki, essayez de passer à une autre de ses instances. Indie Wiki Buddy n'est pas responsable de BreezeWiki ni de ses instances."
     }
 }
