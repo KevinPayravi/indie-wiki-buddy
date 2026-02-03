@@ -892,5 +892,8 @@
     },
     "settingsLangHR": {
         "message": "[HR] Croata / Hrvatski"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "Si recibes errores frecuentemente al visitar BreezeWiki, prueba a cambiar a un sitio diferente. Indie Wiki Buddy no es responsable de BreezeWiki ni de sus sitios."
     }
 }
