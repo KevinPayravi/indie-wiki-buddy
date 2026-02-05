@@ -873,7 +873,7 @@
         "description": "The description of the extension"
     },
     "settingsDisabledFor": {
-        "message": "「何もしない」：$origin$件",
+        "message": "$origin$：何もしない",
         "placeholders": {
             "origin": {
                 "content": "$1",
