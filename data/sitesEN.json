@@ -519,6 +519,22 @@
     ]
   },
   {
+    "id": "en-animania",
+    "origins_label": "Animania Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Animania Fandom Wiki",
+        "origin_base_url": "animania.fandom.com",
+        "origin_content_path": "/wiki/"
+      }
+    ],
+    "destination": "Animania Wiki",
+    "destination_base_url": "animaniamod.net",
+    "destination_content_path": "/index.php/",
+    "destination_platform": "mediawiki",
+    "destination_icon": "animania.png"
+  },
+  {
     "id": "en-anothereden",
     "origins_label": "Another Eden Fandom Wiki",
     "origins": [
