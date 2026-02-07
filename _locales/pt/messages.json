@@ -397,16 +397,6 @@
             }
         }
     },
-    "settingsDisableFor": {
-        "message": "",
-        "description": "Tooltip for option to disable any action for a specific wiki",
-        "placeholders": {
-            "origin": {
-                "content": "$1",
-                "example": "Minecraft Fandom Wiki"
-            }
-        }
-    },
     "notificationTitleBreezeWiki": {
         "message": "Foi redirecionado ao BreezeWiki!",
         "description": "Notification title for being redirected to BreezeWiki"

@@ -705,16 +705,6 @@
         "message": "Löschen",
         "description": "Button to delete a custom wiki"
     },
-    "settingsDisableFor": {
-        "message": "",
-        "description": "Tooltip for option to disable any action for a specific wiki",
-        "placeholders": {
-            "origin": {
-                "content": "$1",
-                "example": "Minecraft Fandom Wiki"
-            }
-        }
-    },
     "settingsLangTOK": {
         "message": "[TOK] Toki Pona / toki pona",
         "description": "Do not translate the language code in brackets. If this language is your language, leave only one name. Otherwise, add the name of the language in your language before the slash. For example, TOKE should be \"[TOK] Toki Pona / toki pona\" in English, but just \"[TOK] toki pona\" in Toki Pona."

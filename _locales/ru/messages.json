@@ -490,16 +490,6 @@
         "message": "независимая",
         "description": "Descriptor used for an independent wiki. See the bannerText message for more information."
     },
-    "settingsDisableFor": {
-        "message": "",
-        "description": "Tooltip for option to disable any action for a specific wiki",
-        "placeholders": {
-            "origin": {
-                "content": "$1",
-                "example": "Minecraft Fandom Wiki"
-            }
-        }
-    },
     "guideReplace": {
         "message": "Заменить"
     },

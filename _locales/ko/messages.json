@@ -166,16 +166,6 @@
             }
         }
     },
-    "settingsDisableFor": {
-        "message": "",
-        "description": "Tooltip for option to disable any action for a specific wiki",
-        "placeholders": {
-            "origin": {
-                "content": "$1",
-                "example": "Minecraft Fandom Wiki"
-            }
-        }
-    },
     "settingsReplaceFor": {
         "message": "$origin$ 검색 엔진 결과를 $destination$으로 대체",
         "description": "Tooltip for option to replace search results with links to a specific wiki",

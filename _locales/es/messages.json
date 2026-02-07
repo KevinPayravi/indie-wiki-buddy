@@ -141,16 +141,6 @@
             }
         }
     },
-    "settingsDisableFor": {
-        "message": "",
-        "description": "Tooltip for option to disable any action for a specific wiki",
-        "placeholders": {
-            "origin": {
-                "content": "$1",
-                "example": "Minecraft Fandom Wiki"
-            }
-        }
-    },
     "settingsFunStatsBreezeWiki": {
         "message": "Redirigido automáticamente a BreezeWiki $breezeWiki$ veces",
         "description": "Number of times visited Fandom wikis through BreezeWiki",

@@ -304,16 +304,6 @@
             }
         }
     },
-    "settingsDisableFor": {
-        "message": "",
-        "description": "Tooltip for option to disable any action for a specific wiki",
-        "placeholders": {
-            "origin": {
-                "content": "$1",
-                "example": "Minecraft Fandom Wiki"
-            }
-        }
-    },
     "settingsHideFor": {
         "message": "検索結果上の$origin$を非表示",
         "description": "Tooltip for option to hide search results for a specific wiki",
