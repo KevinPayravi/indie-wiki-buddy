@@ -183,7 +183,7 @@ fieldset {
   background-color: var(--base-color-secondary);
   border: 1px solid var(--base-color-outline-light);
   border-radius: 5px;
-  padding: 0 12px 12px 0;
+  padding: 0 .5rem .75em .5rem;
   margin: 0;
   margin-bottom: .5em;
   font-size: .9em;
@@ -196,16 +196,8 @@ fieldset+fieldset {
   margin-top: 1rem;
 }
 
-fieldset>div {
-  margin: 0 .5rem;
-}
-
 fieldset>span {
   display: block;
-}
-
-fieldset>div+span {
-  margin: .8rem 0 0 0;
 }
 
 legend {

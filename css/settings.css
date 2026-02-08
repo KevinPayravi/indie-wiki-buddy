@@ -31,12 +31,8 @@ legend {
   display: inline-block;
 }
 
-#legend > span {
-  margin-left: 8px;
-}
-
 #legend > div {
-  margin-left: 16px;
+  margin-left: 8px;
   display: inline-flex;
   align-items: center;
   gap: 1em;
