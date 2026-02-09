@@ -1043,6 +1043,29 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-b3313",
+    "origins_label": "B3313 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "B3313 Fandom Wiki",
+        "origin_base_url": "b3313.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "B3313_Wiki"
+      }
+    ],
+    "destination": "The Official B3313 Wiki",
+    "destination_base_url": "b3313official.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "b3313.png",
+    "destination_main_page": "",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-backpackbattles",
     "origins_label": "Backpack Battles Fandom Wiki",
     "origins": [
