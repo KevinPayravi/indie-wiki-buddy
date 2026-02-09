@@ -1,6 +1,7 @@
 var LANGS = ["CA", "DE", "EN", "ES", "FI", "FR", "HR", "HU", "IT", "JA", "KO", "LZH", "NL", "PL", "PT", "RU", "SV", "TH", "TOK", "TR", "UK", "ZH"];
 var BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
-const extensionAPI = typeof browser === "undefined" ? chrome : browser;
+var extensionAPI = typeof browser === "undefined" ? chrome : browser;
+var CUSTOM_DOMAIN_CONTENT_SCRIPT_ID = "content-banners";
 
 /** @param {string} str */
 function b64decode(str) {
@@ -20,8 +21,7 @@ function b64decode(str) {
  */
 function camelCaseJoin(stringArray) {
   let outputString = "";
-  for(let i = 0; i < stringArray.length; i++)
-  {
+  for (let i = 0; i < stringArray.length; i++) {
     const stringEntry = stringArray[i];
     if (i == 0) {
       outputString += stringEntry;
@@ -371,6 +371,29 @@ async function commonFunctionMigrateToV3() {
 function isAnchor(element) {
   if (!(element instanceof HTMLElement)) return false;
   return element.tagName && element.tagName.toLowerCase() === 'a';
+}
+
+async function updateCustomDomainContentScriptRegistration(domain) {
+  const scripts = await extensionAPI.scripting.getRegisteredContentScripts({
+    ids: [CUSTOM_DOMAIN_CONTENT_SCRIPT_ID],
+  });
+
+  const url = new URL(domain);
+  const matcher = url.protocol + '//' + url.hostname + '/*';
+
+  const scriptRegistrationParams = [{
+    id: CUSTOM_DOMAIN_CONTENT_SCRIPT_ID,
+    matches: [matcher],
+    js: ['/scripts/common-functions.js', '/scripts/content-banners.js', '/scripts/content-breezewiki.js'],
+    runAt: "document_idle"
+  }];
+
+  if (scripts.length > 0) {
+    await extensionAPI.scripting.updateContentScripts(scriptRegistrationParams);
+    return;
+  }
+
+  await extensionAPI.scripting.registerContentScripts(scriptRegistrationParams);
 }
 
 /**

@@ -297,7 +297,7 @@ function populateBreezewikiHosts(breezewikiHosts, selectedHost, customHostName) 
   } else {
     document.getElementById('breezewikiCustomHost').style.display = 'none';
   }
-  document.getElementById('customBreezewikiHost').value = customHostName.replace(/^https?:\/\//i, '');
+  document.getElementById('customBreezewikiHost').value = customHostName.replace(/^https:\/\//i, '');
 }
 
 // Populate BreezeWiki dropdown when enabled

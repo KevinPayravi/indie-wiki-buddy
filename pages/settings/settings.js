@@ -426,20 +426,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Reduce to just protocal + hostname
     breezewikiCustomDomain = new URL(breezewikiCustomDomain);
-    breezewikiCustomDomain = breezewikiCustomDomain.protocol + "//" + breezewikiCustomDomain.hostname
+    breezewikiCustomDomain = breezewikiCustomDomain.protocol + "//" + breezewikiCustomDomain.host;
     breezewikiCustomDomain = breezewikiCustomDomain.toString();
 
+    const permissionDomainURL = new URL(breezewikiCustomDomain);
+    const permissionDomain = permissionDomainURL.protocol + "//" + permissionDomainURL.hostname + "/*";
+
     extensionAPI.permissions.request({
-      origins: [breezewikiCustomDomain + '/*']
+      origins: [permissionDomain]
     }, (granted) => {
       // The callback argument will be true if the user granted the permissions.
       if (granted) {
-        extensionAPI.scripting.registerContentScripts([{
-          id: 'content-banners',
-          matches: [breezewikiCustomDomain + '/*'],
-          js: ['/scripts/common-functions.js', '/scripts/content-banners.js', '/scripts/content-breezewiki.js'],
-          runAt: "document_idle"
-        }]);
+        updateCustomDomainContentScriptRegistration(breezewikiCustomDomain);
         extensionAPI.storage.sync.set({ 'breezewikiCustomHost': breezewikiCustomDomain });
         document.getElementById('breezewikiCustomHostStatus').innerText = extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostSetSuccessful');
       } else {
