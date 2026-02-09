@@ -5934,6 +5934,31 @@
     ]
   },
   {
+    "id": "en-kingdomcomedeliverance",
+    "origins_label": "Kingdom Come Deliverance Fandom & Fextralife Wiki",
+    "origins": [
+      {
+        "origin": "Kingdom Come Deliverance Fandom Wiki",
+        "origin_base_url": "kingdom-come-deliverance.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Kingdom_Come:_Deliverance_Wiki"
+      },
+      {
+        "origin": "Kingdom Come Deliverance Fextralife Wiki",
+        "origin_base_url": "https://kingdomcomedeliverance.wiki.fextralife.com",
+        "origin_content_path": "/",
+        "origin_main_page": "Kingdom_Come:_Deliverance_Wiki"
+      }
+    ],
+    "destination": "The Kingdom Come: Deliverance Wiki",
+    "destination_base_url": "kingdomcomedeliverance.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_main_page": "Kingdom_Come:_Deliverance_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-kingdomhearts",
     "origins_label": "Kingdom Hearts Fandom & Neoseeker Wikis",
     "origins": [
