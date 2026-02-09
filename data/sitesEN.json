@@ -4355,6 +4355,27 @@
     ]
   },
   {
+    "id": "en-forsakenroblox",
+    "origins_label": "FORSAKEN Fandom Wiki",
+    "origins": [
+      {
+        "origin": "FORSAKEN Fandom Wiki",
+        "origin_base_url": "forsaken2024.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "FORSAKEN_Wiki"
+      }
+    ],
+    "destination": "Forsaken Wiki",
+    "destination_base_url": "forsaken.wiki",
+    "destination_platform": "mediawiki",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-foxhole",
     "origins_label": "Foxhole Fandom Wiki",
     "origins": [
@@ -10834,6 +10855,25 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-discoelysium",
+    "origins_label": "Disco Elysium Wiki",
+    "origins": [
+      {
+        "origin": "Disco Elysium Wiki",
+        "origin_base_url": "discoelysium.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Disco_Elysium_Wiki"
+      }
+    ],
+    "destination": "Disco Elysium Wiki",
+    "destination_base_url": "discoelysium.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "favicon.ico",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/"
   },
   {
     "id": "en-terrypratchett",
