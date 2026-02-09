@@ -8407,6 +8407,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-pleasantgoat",
+    "origins_label": "Pleasant Goat Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Pleasant Goat Fandom Wiki",
+        "origin_base_url": "xyy.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Pleasant_Goat_Wiki"
+      }
+    ],
+    "destination": "Pleasant Goat Wiki",
+    "destination_base_url": "xyy.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "xyywiki.png",
+    "destination_main_page": "Pleasant_Goat_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-plurality",
     "origins_label": "Plural Fandom Wiki",
     "origins": [
