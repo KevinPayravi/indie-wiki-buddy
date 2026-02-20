@@ -3865,6 +3865,29 @@
     ]
   },
   {
+  "id": "en-etrianodyssey",
+  "origins_label": "Etrian Odyssey Fandom Wiki",
+  "origins": [
+    {
+      "origin": "Etrian Odyssey Fandom Wiki",
+      "origin_base_url": "etrian.fandom.com",
+      "origin_content_path": "/wiki/",
+      "origin_main_page": "Etrian_Odyssey_Wiki"
+    }
+  ],
+  "destination": "Etrian Odyssey Wiki",
+  "destination_base_url": "https://etrianodyssey.wiki",
+  "destination_platform": "mediawiki",
+  "destination_icon": "wiki.png",
+  "destination_main_page": "Main_Page",
+  "destination_search_path": "/index.php",
+  "destination_content_path": "/wiki/",
+  "destination_host": "wiki.gg",
+  "tags": [
+    "official"
+  ]
+},
+  {
     "id": "en-essentialsengine",
     "origins_label": "Essentials Docs Fandom Wiki",
     "origins": [
