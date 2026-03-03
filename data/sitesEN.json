@@ -71,6 +71,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-20mtd",
+    "origins_label": "20 Minutes Till Dawn Fandom Wiki",
+    "origins": [
+      {
+        "origin": "20 Minutes Till Dawn Fandom Wiki",
+        "origin_base_url": "20-minutes-till-dawn.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Minutes_Till_Dawn_Wiki"
+      }
+    ],
+    "destination": "20 Minutes Till Dawn Wiki",
+    "destination_base_url": "20minutestilldawn.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "20mtd.png",
+    "destination_main_page": "20_Minutes_Till_Dawn_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-2xko",
     "origins_label": "2XKO Fandom Wiki",
     "origins": [
@@ -137,6 +157,26 @@
     "tags": [
       "official"
     ]
+  },
+  {
+    "id": "en-absolum",
+    "origins_label": "Absolum Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Absolum Fandom Wiki",
+        "origin_base_url": "absolumgame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "AbsolumGame_Wiki"
+      }
+    ],
+    "destination": "Absolum Wiki",
+    "destination_base_url": "absolum.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "absolum.png",
+    "destination_main_page": "Absolum_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-acecombat",
@@ -1189,6 +1229,32 @@
     ]
   },
   {
+    "id": "en-ballxpit",
+    "origins_label": "BALL x PIT Fandom Wikis",
+    "origins": [
+      {
+        "origin": "BALL x PIT Fandom Wiki",
+        "origin_base_url": "ballxpit.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ballxpit_Wiki"
+      },
+      {
+        "origin": "BALL x PIT Fandom Wiki",
+        "origin_base_url": "ballxpit.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ballxpit_Wiki"
+      }
+    ],
+    "destination": "BALL x PIT Wiki",
+    "destination_base_url": "ballxpit.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "ballxpit.png",
+    "destination_main_page": "BALL_x_PIT_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-bandori",
     "origins_label": "Bang Dream! Fandom Wiki",
     "origins": [
@@ -1446,6 +1512,26 @@
     "destination_platform": "mediawiki",
     "destination_icon": "bitcraftwiki.png",
     "destination_main_page": "BitCraft_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-bladeandsorcery",
+    "origins_label": "Blade & Sorcery Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Blade & Sorcery Fandom Wiki",
+        "origin_base_url": "blade-and-sorcery.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Blade_and_Sorcery_Wiki"
+      }
+    ],
+    "destination": "Blade & Sorcery Wiki",
+    "destination_base_url": "bladeandsorcery.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "bladeandsorcery.png",
+    "destination_main_page": "Blade_%26_Sorcery_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
@@ -2232,6 +2318,32 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-cloverpit",
+    "origins_label": "CloverPit Fandom Wikis",
+    "origins": [
+      {
+        "origin": "CloverPit Fandom Wiki",
+        "origin_base_url": "cloverpit.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "CloverPit_Wiki"
+      },
+      {
+        "origin": "CloverPit Fandom Wiki",
+        "origin_base_url": "cloverpit-panik.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Clove_Pit_Wiki"
+      }
+    ],
+    "destination": "CloverPit Wiki",
+    "destination_base_url": "cloverpit.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "cloverpit.png",
+    "destination_main_page": "CloverPit_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-cobaltcore",
     "origins_label": "Cobalt Core Fandom Wiki",
     "origins": [
@@ -2913,6 +3025,26 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/"
+  },
+  {
+    "id": "en-disfigure",
+    "origins_label": "Disfigure Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Disfigure Fandom Wiki",
+        "origin_base_url": "disfigure.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Disfigure_Wiki"
+      }
+    ],
+    "destination": "Disfigure Wiki",
+    "destination_base_url": "disfigure.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "disfigure.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Disfigure_Wiki",
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-doctorwho",
