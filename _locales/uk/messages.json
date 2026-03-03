@@ -211,16 +211,6 @@
         "message": "За замовчуванням для нових вікі у майбутніх оновленнях:",
         "description": "Instruction to set default for new wikis in future updates"
     },
-    "settingsDisableFor": {
-        "message": "",
-        "description": "Tooltip for option to disable any action for a specific wiki",
-        "placeholders": {
-            "origin": {
-                "content": "$1",
-                "example": "Minecraft Fandom Wiki"
-            }
-        }
-    },
     "settingsFunStatsSearchFilters": {
         "message": "$hide$ результатів пошуку відфільтровано",
         "description": "Number of non-indie search results hidden",

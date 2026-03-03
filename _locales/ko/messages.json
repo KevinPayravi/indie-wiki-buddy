@@ -166,16 +166,6 @@
             }
         }
     },
-    "settingsDisableFor": {
-        "message": "",
-        "description": "Tooltip for option to disable any action for a specific wiki",
-        "placeholders": {
-            "origin": {
-                "content": "$1",
-                "example": "Minecraft Fandom Wiki"
-            }
-        }
-    },
     "settingsReplaceFor": {
         "message": "$origin$ 검색 엔진 결과를 $destination$으로 대체",
         "description": "Tooltip for option to replace search results with links to a specific wiki",
@@ -379,7 +369,7 @@
         "description": "Select for a language filter"
     },
     "searchResultReenable": {
-        "message": "아래 검색 결과 다시 활성화하기",
+        "message": "기존 검색 결과 다시 켜기",
         "description": "Prompt to re-enable a non-indie search result"
     },
     "guideHiddenResultsBannerHelp1": {
@@ -892,5 +882,8 @@
     },
     "settingsLangHR": {
         "message": "[HR] 크로아티아어 / Hrvatski"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "BreezeWiki 방문 중 오류가 발생했다면, 다른 호스트를 시도해 보세요. Indie Wiki Buddy는 BreezeWiki나 그 호스트에 관한 책임이 없습니다."
     }
 }
