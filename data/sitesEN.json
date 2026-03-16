@@ -7143,6 +7143,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-mewgenics",
+    "origins_label": "Mewgenics Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Mewgenics Fandom Wiki",
+        "origin_base_url": "mewgenics.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Mewgenics_Wiki"
+      }
+    ],
+    "destination": "Mewgenics Wiki",
+    "destination_base_url": "mewgenics.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "mewgenicswiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Mewgenics_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-micronations",
     "origins_label": "MicroNations Fandom Wikis",
     "origins": [
