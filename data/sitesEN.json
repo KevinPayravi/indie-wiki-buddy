@@ -5149,6 +5149,25 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-growtopia",
+    "origins_label": "Growtopia Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Growtopia Fandom Wiki",
+        "origin_base_url": "growtopia.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Growtopia_Wiki"
+      }
+    ],
+    "destination": "Growtopia Wiki",
+    "destination_base_url": "growtopiawiki.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "growtopiawiki.png",
+    "destination_main_page": "Growtopia Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "en-gta",
     "origins_label": "GTA Fandom Wiki",
     "origins": [
