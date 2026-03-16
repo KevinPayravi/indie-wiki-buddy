@@ -11675,6 +11675,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-twice",
+    "origins_label": "Twice Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Twice Fandom Wiki",
+        "origin_base_url": "twice.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Twice_Wiki"
+      }
+    ],
+    "destination": "TWICEpedia",
+    "destination_base_url": "twice.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "twicepedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "TWICEpedia",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-twoworlds",
     "origins_label": "Two Worlds Fandom Wikis",
     "origins": [
