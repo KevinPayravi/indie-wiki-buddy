@@ -10765,6 +10765,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-sunkenland",
+    "origins_label": "Sunkenland Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Sunkenland Fandom Wiki",
+        "origin_base_url": "sunkenland.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Sunkenland_Wiki"
+      }
+    ],
+    "destination": "Sunkenland Wiki",
+    "destination_base_url": "sunkenland.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "sunkenlandwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Sunkenland_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-sunlesssea",
     "origins_label": "Sunless Sea Fandom Wiki",
     "origins": [
