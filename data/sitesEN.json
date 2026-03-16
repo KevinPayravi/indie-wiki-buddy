@@ -8427,6 +8427,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-peakgame",
+    "origins_label": "Peak Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Peak Fandom Wiki",
+        "origin_base_url": "peakgame.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Peak_Wiki"
+      }
+    ],
+    "destination": "PEAK Wiki",
+    "destination_base_url": "peak.wiki.gg",
+    "destination_platform": "wiki.gg",
+    "destination_icon": "peakwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "PEAK_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-peglin",
     "origins_label": "Peglin Fandom Wiki",
     "origins": [
