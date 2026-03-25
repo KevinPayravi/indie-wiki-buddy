@@ -8276,6 +8276,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-parkourreborn",
+    "origins_label": "Parkour Reborn Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Parkour Reborn Fandom Wiki",
+        "origin_base_url": "parkour-reborn.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "PARKOUR_Reborn_Wiki"
+      }
+    ],
+    "destination": "PARKOUR Reborn Wiki",
+    "destination_base_url": "parkourreborn.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "parkourreborn.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "PARKOUR_Reborn_Wiki",
+    "tags": ["official"]
+  },
+  {
     "id": "en-pathfinder",
     "origins_label": "Pathfinder Fandom Wiki",
     "origins": [
