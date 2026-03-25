@@ -490,7 +490,7 @@
         "description": "Notice that the extension is disabled"
     },
     "settingsReorderResults": {
-        "message": "Mover resultados de wikis independientes por encima de resultados de wikis no independientes, y ocultar duplicados (Excepto Brave)",
+        "message": "Mover resultados de wikis independientes por encima de resultados de wikis no independientes, y ocultar duplicados",
         "description": "Option to move indie wikis above non-indie results and hide duplicates on Google"
     },
     "settingsBreezeWiki": {
