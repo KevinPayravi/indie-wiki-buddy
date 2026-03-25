@@ -374,5 +374,52 @@
     },
     "settingsLangCA": {
         "message": "[CA] Catalano / Català"
+    },
+    "bannerText": {
+        "message": "C'è una wiki $descriptor$ in $host$ sull'argomento $language$",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "bannerDescriptorIndependent": {
+        "message": "indipendente"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "indipendente ufficiale"
+    },
+    "bannerDescriptorOfficial": {
+        "message": "ufficiale"
+    },
+    "searchResultVisit": {
+        "message": "Visita invece $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "Visita invece $destination$ (EN)",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "Riattiva il risultato originale della ricerca"
     }
 }

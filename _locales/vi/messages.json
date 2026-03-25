@@ -761,5 +761,8 @@
     },
     "settingsLangHR": {
         "message": "[HR] Tiếng Croatia / Hrvatski"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "Nếu bạn thường xuyên gặp lỗi khi ghé thăm BreezeWiki, hãy thử đổi sang một máy chủ (host) khác. Indie Wiki Buddy sẽ không chịu trách nhiệm nào về BreezeWiki hoặc những máy chủ của nó."
     }
 }
