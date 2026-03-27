@@ -4817,13 +4817,19 @@
   },
   {
     "id": "en-geometrydash",
-    "origins_label": "Geometry Dash Fandom Wiki",
+    "origins_label": "Geometry Dash Fandom Wikis",
     "origins": [
       {
         "origin": "Geometry Dash Fandom Wiki",
         "origin_base_url": "geometry-dash.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Geometry_Dash_Wiki"
+      },
+      {
+        "origin": "Geometry Dash Fan Fandom Wiki",
+        "origin_base_url": "geometry-dash-fan.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Geometry_Dash_Fan_Wiki"
       }
     ],
     "destination": "Geometry Dash Wiki",
