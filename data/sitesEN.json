@@ -4816,6 +4816,32 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-geometrydash",
+    "origins_label": "Geometry Dash Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Geometry Dash Fandom Wiki",
+        "origin_base_url": "geometry-dash.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Geometry_Dash_Wiki"
+      },
+      {
+        "origin": "Geometry Dash Fan Fandom Wiki",
+        "origin_base_url": "geometry-dash-fan.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Geometry_Dash_Fan_Wiki"
+      }
+    ],
+    "destination": "Geometry Dash Wiki",
+    "destination_base_url": "geometrydash.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "geometrydashwiki.png",
+    "destination_main_page": "Geometry_Dash_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-gettotheorangedoor",
     "origins_label": "Get To The Orange Door Fandom Wiki",
     "origins": [
