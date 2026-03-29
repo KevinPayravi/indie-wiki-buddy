@@ -10326,13 +10326,13 @@
   },
   {
     "id": "en-southpark",
-    "origins_label": "South Park Archives on Fandom",
+    "origins_label": "South Park Public Library on Fandom",
     "origins": [
       {
-        "origin": "South Park Archives on Fandom",
+        "origin": "South Park Public Library on Fandom",
         "origin_base_url": "southpark.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "South_Park_Archives"
+        "origin_main_page": "South_Park_Public_Library"
       }
     ],
     "destination": "South Park Archives",
