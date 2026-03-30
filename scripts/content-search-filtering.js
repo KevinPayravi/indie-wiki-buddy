@@ -562,9 +562,7 @@ async function filterSearchResults(searchResults) {
       }
 
       const detectedContainer = searchResult.closest('.iwb-detected');
-      // For most engines, skip nested and previously-detected nodes.
-      // Brave is excluded because it frequently rewrites the DOM and needs reprocessing.
-      const skipDetectedResult = searchEngine !== 'brave' && !!detectedContainer && !detectedContainer.querySelector('.iwb-new-link');
+      const skipDetectedResult = !!detectedContainer && !detectedContainer.querySelector('.iwb-new-link');
 
       // Check that result isn't within another result.
       if (!skipDetectedResult) {
