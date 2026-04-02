@@ -2104,6 +2104,26 @@
     "destination_content_path": "/"
   },
   {
+    "id": "en-chantsofsennaar",
+    "origins_label": "Chants of Sennaar Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Chants of Sennaar Fandom Wiki",
+        "origin_base_url": "chants-of-sennaar.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Chants_of_Sennaar_Wiki"
+      }
+    ],
+    "destination": "Chants of Sennaar Wiki",
+    "destination_base_url": "chantsofsennaar.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "miraheze.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-chefrpg",
     "origins_label": "Chef RPG Fandom Wiki",
     "origins": [
