@@ -9149,6 +9149,26 @@
     ]
   },
   {
+    "id": "en-rabbitandsteel",
+    "origins_label": "Rabbit and Steel Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Rabbit and Steel Fandom Wiki",
+        "origin_base_url": "rabbitandsteel.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Rabbit_and_Steel_Wiki"
+      }
+    ],
+    "destination": "Rabbit and Steel Wiki",
+    "destination_base_url": "rns.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "rabbitandsteelwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-raincomic",
     "origins_label": "Rain (web comic) Fandom Wikis",
     "origins": [
