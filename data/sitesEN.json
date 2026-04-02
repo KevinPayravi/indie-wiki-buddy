@@ -9850,6 +9850,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-saszombieassault",
+    "origins_label": "SAS Zombie Assault Fandom Wiki",
+    "origins": [
+      {
+        "origin": "SAS Zombie Assault Fandom Wiki",
+        "origin_base_url": "saszombieassault.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "SAS:_Zombie_Assault_Wiki"
+      }
+    ],
+    "destination": "SAS: Zombie Assault Wiki",
+    "destination_base_url": "saszombieassault.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "saszombieassaultwiki.png",
+    "destination_main_page": "SAS:_Zombie_Assault_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-satisfactory",
     "origins_label": "Satisfactory Fandom Wiki",
     "origins": [
