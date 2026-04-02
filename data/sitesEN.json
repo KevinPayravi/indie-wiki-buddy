@@ -12453,6 +12453,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-vividstasis",
+    "origins_label": "Vivid/stasis Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Vivid/stasis Fandom Wiki",
+        "origin_base_url": "vividstasis.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Vivid/stasis_Wiki"
+      }
+    ],
+    "destination": "vivid/stasis wiki",
+    "destination_base_url": "vividstasis.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "vividstasiswiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-vocaloidlyrics",
     "origins_label": "Vocaloid Lyrics Fandom Wiki",
     "origins": [
