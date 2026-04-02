@@ -5,7 +5,6 @@ title: 'Add a wiki: WIKI NAME'
 labels:
 - 'type: new wiki'
 - 'status: pending review'
-assignees: violine1101
 
 ---
 
