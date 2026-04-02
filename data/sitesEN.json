@@ -6416,6 +6416,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-laysara",
+    "origins_label": "Laysara: Summit Kingdom Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Laysara: Summit Kingdom Fandom Wiki",
+        "origin_base_url": "laysara.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Laysara:_Summit_Kingdom_Wiki"
+      }
+    ],
+    "destination": "Laysara: Summit Kingdom Wiki",
+    "destination_base_url": "laysara.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "laysarawiki.png",
+    "destination_main_page": "Laysara:_Summit_Kingdom_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-leafblowerrevolution",
     "origins_label": "Leaf Blower Revolution Fandom Wiki",
     "origins": [
