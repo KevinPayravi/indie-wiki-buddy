@@ -9833,6 +9833,26 @@
     ]
   },
   {
+    "id": "en-scarlethollow",
+    "origins_label": "Scarlet Hollow Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Scarlet Hollow Fandom Wiki",
+        "origin_base_url": "scarlet-hollow.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Scarlet_Hollow_Wiki"
+      }
+    ],
+    "destination": "Scarlet Hollow Wiki",
+    "destination_base_url": "scarlethollow.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "scarlethollowwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Scarlet_Hollow_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-scavprototype",
     "origins_label": "Scav Prototype Fandom Wiki",
     "origins": [
