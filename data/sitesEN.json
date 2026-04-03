@@ -7229,11 +7229,17 @@
   },
   {
     "id": "en-magicthegathering",
-    "origins_label": "Magic: The Gathering Fandom Wiki",
+    "origins_label": "Magic: The Gathering Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "Magic: The Gathering Fandom Wiki",
         "origin_base_url": "mtg.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "Magic: The Gathering Wiki - Neoseeker",
+        "origin_base_url": "mtg.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
       }
