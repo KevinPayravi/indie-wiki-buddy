@@ -245,7 +245,7 @@ export function encodeArticleTitle(articleTitle) {
  * Get query parameters from a URL
  * @param {string} originURL
  */
-export function getQueryParams(originURL) {
+function getQueryParams(originURL) {
   let url = new URL('https://' + originURL.replace(/.*https?:\/\//, ''));
   return url.search || '';
 }
