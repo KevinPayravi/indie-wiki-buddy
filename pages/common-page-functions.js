@@ -1,3 +1,5 @@
+import { extensionAPI } from "../scripts/common-functions.js";
+
 // Set setting toggle values on-load:
 extensionAPI.storage.sync.get({ 'notifications': 'on' }, (item) => {
   setNotifications(item.notifications, false);

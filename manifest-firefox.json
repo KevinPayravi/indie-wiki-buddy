@@ -49,6 +49,9 @@
     }
   },
   "web_accessible_resources": [
+    "scripts/common-functions.js",
+    "scripts/content-search-filtering.js",
+    "scripts/content-banners.js",
     "favicons/*",
     "data/sitesCA.json",
     "data/sitesDE.json",
@@ -78,6 +81,7 @@
       "scripts/common-functions.js",
       "background.js"
     ],
+    "type": "module",
     "persistent": true
   },
   "content_scripts": [
@@ -107,8 +111,7 @@
         "https://breezewiki.woodland.cafe/*"
       ],
       "js": [
-        "scripts/common-functions.js",
-        "scripts/content-banners.js"
+        "scripts/content-banners-importer.js"
       ],
       "css": [
         "css/content-banners.css"
@@ -138,7 +141,6 @@
         "https://breezewiki.woodland.cafe/*"
       ],
       "js": [
-        "scripts/common-functions.js",
         "scripts/content-breezewiki.js"
       ],
       "run_at": "document_end"
@@ -364,8 +366,7 @@
         "https://www.google.cat/search*"
       ],
       "js": [
-        "scripts/common-functions.js",
-        "scripts/content-search-filtering.js"
+        "scripts/content-search-filtering-importer.js"
       ],
       "css": [
         "css/content-search-filtering.css"

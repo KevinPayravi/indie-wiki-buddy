@@ -1,6 +1,17 @@
-/// <reference lib="esnext" />
-/// <reference path="common-functions.js" />
-// @ts-check
+import { 
+  extensionAPI, 
+  commonFunctionDecompressJSON, 
+  commonFunctionFindMatchingSite,
+  commonFunctionGetDestinationArticle,
+  commonFunctionGetNewURL,
+  commonFunctionGetOriginArticle,
+  commonFunctionGetSiteDataByOrigin,
+  isAnchor,
+ } from './common-functions.js';
+
+/**
+ * @typedef {import('./common-functions').SiteData} SiteData
+ */
 
 const currentURL = new URL(document.location.href);
 let hiddenWikisRevealed = {};

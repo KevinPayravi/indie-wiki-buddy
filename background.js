@@ -1,6 +1,10 @@
-if (typeof importScripts !== 'undefined') {
-  importScripts('scripts/common-functions.js');
-}
+import { 
+  extensionAPI, 
+  commonFunctionMigrateToV3, 
+  commonFunctionFindMatchingSite, 
+  commonFunctionDecompressJSON,
+  commonFunctionGetNewURL,
+ } from "./scripts/common-functions.js";
 
 let cachedStorage = {};
 

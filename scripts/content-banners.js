@@ -1,3 +1,12 @@
+import { 
+  extensionAPI, 
+  commonFunctionCompressJSON, 
+  commonFunctionDecompressJSON, 
+  commonFunctionGetSiteDataByOrigin, 
+  commonFunctionGetNewURL,
+  commonFunctionFindMatchingSite,
+} from "./common-functions.js";
+
 const breezewikiRegex = /breezewiki\.com$|antifandom\.com$|bw\.artemislena\.eu$|breezewiki\.catsarch\.com$|breezewiki\.esmailelbob\.xyz$|breezewiki\.frontendfriendly\.xyz$|bw\.hamstro\.dev$|breeze\.hostux\.net$|breezewiki\.hyperreal\.coffee$|breeze\.mint\.lgbt$|breezewiki\.nadeko\.net$|nerd\.whatever\.social$|breeze\.nohost\.network$|z\.opnxng\.com$|bw\.projectsegfau\.lt$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breeze\.whateveritworks\.org$|breezewiki\.woodland\.cafe$/;
 const currentURL = new URL(document.location);
 
@@ -20,7 +29,7 @@ function processBreezeWikiBanner(storage) {
     // Extract article from URL
     const subdomain = currentURL.hostname.split(".")[0];
     const article = currentURL.toString().split('fandom.com/wiki/')[1].replaceAll('%20', '_');
-    breezewikiHost = '';
+    let breezewikiHost = '';
     if (!(storage.breezewikiHost ?? null)) {
       fetch('https://bw.getindie.wiki/instances.json')
         .then((response) => {

@@ -1,3 +1,12 @@
+import { 
+  extensionAPI, 
+  camelCaseJoin, 
+  commonFunctionMigrateToV3,
+  commonFunctionCompressJSON,
+  commonFunctionDecompressJSON,
+  commonFunctionGetSiteDataByDestination,
+} from "../../scripts/common-functions.js";
+
 let sites = [];
 
 // Clear wiki toggles
@@ -7,7 +16,7 @@ function resetOptions() {
 
    // Need to create a copy first, because the children change while iterating
   const toggleTableRows = [...toggleTableBody.children];
-  for(el of toggleTableRows) {
+  for(const el of toggleTableRows) {
     if(el.classList?.contains('site-container')) {
       el.remove();
     }
@@ -225,7 +234,7 @@ async function loadOptions(lang, textFilter = '') {
           inputSearchEngineReplace, 
           inputSearchEngineHide
         ];
-        for(cellContent of rowCells) {
+        for(const cellContent of rowCells) {
           const cell = document.createElement("td");
           cell.appendChild(cellContent);
           siteRow.appendChild(cell);

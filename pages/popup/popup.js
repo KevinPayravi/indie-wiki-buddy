@@ -1,3 +1,10 @@
+import { 
+  extensionAPI,
+  commonFunctionMigrateToV3,
+  commonFunctionGetSiteDataByDestination,
+  commonFunctionCompressJSON,
+ } from "../../scripts/common-functions.js";
+
 async function migrateData() {
   commonFunctionMigrateToV3();
 }
@@ -108,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
       extensionAPI.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
 
       let wikiSettings = {};
-      sites = await commonFunctionGetSiteDataByDestination();
+      const sites = await commonFunctionGetSiteDataByDestination();
       sites.forEach((site) => {
         wikiSettings[site.id] = document.options.defaultWikiAction.value;
       });
@@ -120,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       extensionAPI.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
 
       let searchEngineSettings = {};
-      sites = await commonFunctionGetSiteDataByDestination();
+      const sites = await commonFunctionGetSiteDataByDestination();
       sites.forEach((site) => {
         searchEngineSettings[site.id] = document.options.defaultSearchAction.value;
       });
