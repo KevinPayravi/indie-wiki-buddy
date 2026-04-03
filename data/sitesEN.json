@@ -2967,15 +2967,15 @@
     "id": "en-deltatravler",
     "origins_label": "Deltatraveler Fandom Wiki",
     "origins": [
-    {
-      "origin": "Deltatraveler Fandom Wiki",
-      "origin_base_url": "deltatraveler.fandom.com/",
-      "origin_content_path": "/wiki/",
-      "origin_main_page": "The_Unofficial_Deltatraveler_Wiki"
-    }
-  ],
+      {
+        "origin": "Deltatraveler Fandom Wiki",
+        "origin_base_url": "deltatraveler.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "The_Unofficial_Deltatraveler_Wiki"
+      }
+    ],
     "destination": "Deltatraveler Wiki",
-    "destination_base_url": "deltatraveler.wiki.gg/",
+    "destination_base_url": "deltatraveler.wiki.gg",
     "destination_platform": "mediawiki",
     "destination_icon": "deltatravelerwiki.png",
     "destination_main_page": "DELTATRAVELER",
