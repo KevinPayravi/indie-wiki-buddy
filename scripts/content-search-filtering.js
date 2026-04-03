@@ -1,11 +1,11 @@
 import { 
-  extensionAPI, 
-  commonFunctionDecompressJSON, 
-  commonFunctionFindMatchingSite,
-  commonFunctionGetDestinationArticle,
-  commonFunctionGetNewURL,
-  commonFunctionGetOriginArticle,
-  commonFunctionGetSiteDataByOrigin,
+  extensionAPI,
+  decompressJSON,
+  findMatchingSite,
+  getDestinationArticle,
+  getNewURL,
+  getOriginArticle,
+  getSiteDataByOrigin,
   isAnchor,
  } from './common-functions.js';
 
@@ -103,9 +103,9 @@ function getClosestBackgroundColor(element) {
  * @param {string} link
  */
 function replaceSearchResult(searchResultContainer, wikiInfo, link) {
-  let originArticle = commonFunctionGetOriginArticle(link, wikiInfo);
-  let destinationArticle = commonFunctionGetDestinationArticle(wikiInfo, originArticle);
-  let newURL = commonFunctionGetNewURL(link, wikiInfo);
+  let originArticle = getOriginArticle(link, wikiInfo);
+  let destinationArticle = getDestinationArticle(wikiInfo, originArticle);
+  let newURL = getNewURL(link, wikiInfo);
 
   if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link') && !searchResultContainer.querySelector('.iwb-detected')) {
     searchResultContainer.classList.add('iwb-detected');
@@ -499,8 +499,8 @@ function filterSearchResult(wikiInfo, anchorElement) {
     if (searchResultContainer) {
       // If this page from the non-indie wiki is the same as a re-ordered page, filter it out
       let searchResultLink = anchorElement.getAttribute('data-iwb-href') || anchorElement.href;
-      let originArticle = commonFunctionGetOriginArticle(searchResultLink, wikiInfo);
-      let destinationArticle = commonFunctionGetDestinationArticle(wikiInfo, originArticle);
+      let originArticle = getOriginArticle(searchResultLink, wikiInfo);
+      let destinationArticle = getDestinationArticle(wikiInfo, originArticle);
 
       const destinationArticleDecoded = decodeURI(destinationArticle);
       const destinationArticleBase = destinationArticleDecoded.replace(/_\([^/]*\)$/, '');
@@ -608,7 +608,7 @@ async function filterSearchResults(searchResults) {
           searchResultContainer.classList.add('iwb-detected');
 
           // Handle source -> destination filtering, i.e. non-indie/commercial wikis
-          let matchingNonIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting);
+          let matchingNonIndieWiki = await findMatchingSite(searchResultLink, crossLanguageSetting);
           if (matchingNonIndieWiki) {
             // Site found in db, process search result
             console.debug('Indie Wiki Buddy: Filtering search result:', searchResultLink);
@@ -624,7 +624,7 @@ async function filterSearchResults(searchResults) {
             });
           } else {
             // handle destination -> source, i.e. indie wikis
-            let matchingIndieWiki = await commonFunctionFindMatchingSite(searchResultLink, crossLanguageSetting, true);
+            let matchingIndieWiki = await findMatchingSite(searchResultLink, crossLanguageSetting, true);
             if (matchingIndieWiki) {
               console.debug('Indie Wiki Buddy: Found indie wiki for search result:', searchResultLink);
               const cacheInfo = {
@@ -935,7 +935,7 @@ async function decompressStorage(storage) {
   await Promise.all(
     compressedKeys.map(async key => {
       if (storage[key]) {
-        storage[key] = await commonFunctionDecompressJSON(storage[key]);
+        storage[key] = await decompressJSON(storage[key]);
       }
     })
   );
@@ -972,7 +972,7 @@ function processSearchEngine(_searchEngine) {
 }
 
 // fill cache
-void commonFunctionGetSiteDataByOrigin();
+void getSiteDataByOrigin();
 
 // Figure out which search engine we're on
 if (currentURL.hostname.includes('www.google.')) {

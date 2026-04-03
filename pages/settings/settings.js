@@ -1,10 +1,10 @@
 import { 
   extensionAPI, 
   camelCaseJoin, 
-  commonFunctionMigrateToV3,
-  commonFunctionCompressJSON,
-  commonFunctionDecompressJSON,
-  commonFunctionGetSiteDataByDestination,
+  compressJSON,
+  decompressJSON,
+  migrateToV3,
+  getSiteDataByDestination,
 } from "../../scripts/common-functions.js";
 
 let sites = [];
@@ -47,9 +47,9 @@ function createRadioButton(redirectEntry, action, category) {
   const settingsType = `${category}Settings`;
   radioButton.addEventListener('click', () => {
     extensionAPI.storage.sync.get(settingsType, async (response) => {
-      const settings = await commonFunctionDecompressJSON(response[settingsType]);
+      const settings = await decompressJSON(response[settingsType]);
       settings[redirectID] = action;
-      extensionAPI.storage.sync.set({ [settingsType]: await commonFunctionCompressJSON(settings) });
+      extensionAPI.storage.sync.set({ [settingsType]: await compressJSON(settings) });
     });
   });
 
@@ -58,7 +58,7 @@ function createRadioButton(redirectEntry, action, category) {
 
 // Populate settings and toggles
 async function loadOptions(lang, textFilter = '') {
-  sites = await commonFunctionGetSiteDataByDestination();
+  sites = await getSiteDataByDestination();
   textFilter = textFilter.toLocaleLowerCase();
 
   // Sort sites alphabetically by destination
@@ -87,8 +87,8 @@ async function loadOptions(lang, textFilter = '') {
   extensionAPI.storage.local.get((localStorage) => {
     extensionAPI.storage.sync.get(async (syncStorage) => {
       const storage = { ...syncStorage, ...localStorage };
-      const wikiSettings = await commonFunctionDecompressJSON(storage.wikiSettings ?? {});
-      const searchEngineSettings = await commonFunctionDecompressJSON(storage.searchEngineSettings ?? {});
+      const wikiSettings = await decompressJSON(storage.wikiSettings ?? {});
+      const searchEngineSettings = await decompressJSON(storage.searchEngineSettings ?? {});
       const defaultWikiAction = storage.defaultWikiAction ?? null;
       const defaultSearchAction = storage.defaultSearchAction ?? null;
 
@@ -105,7 +105,7 @@ async function loadOptions(lang, textFilter = '') {
             toggles[i].checked = true;
             settings[toggles[i].getAttribute('data-wiki-key')] = action;
           }
-          extensionAPI.storage.sync.set({ [settingsType]: await commonFunctionCompressJSON(settings) });
+          extensionAPI.storage.sync.set({ [settingsType]: await compressJSON(settings) });
         });
       }
 
@@ -342,7 +342,7 @@ document.getElementById('powerCheckbox').addEventListener('change', () => {
 });
 
 async function migrateData() {
-  commonFunctionMigrateToV3();
+  migrateToV3();
 }
 
 // Main function that runs on-load

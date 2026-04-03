@@ -1,10 +1,10 @@
 import { 
-  extensionAPI, 
-  commonFunctionCompressJSON, 
-  commonFunctionDecompressJSON, 
-  commonFunctionGetSiteDataByOrigin, 
-  commonFunctionGetNewURL,
-  commonFunctionFindMatchingSite,
+  extensionAPI,
+  compressJSON,
+  decompressJSON,
+  getSiteDataByOrigin,
+  getNewURL,
+  findMatchingSite,
 } from "./common-functions.js";
 
 const breezewikiRegex = /breezewiki\.com$|antifandom\.com$|bw\.artemislena\.eu$|breezewiki\.catsarch\.com$|breezewiki\.esmailelbob\.xyz$|breezewiki\.frontendfriendly\.xyz$|bw\.hamstro\.dev$|breeze\.hostux\.net$|breezewiki\.hyperreal\.coffee$|breeze\.mint\.lgbt$|breezewiki\.nadeko\.net$|nerd\.whatever\.social$|breeze\.nohost\.network$|z\.opnxng\.com$|bw\.projectsegfau\.lt$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breeze\.whateveritworks\.org$|breezewiki\.woodland\.cafe$/;
@@ -132,9 +132,9 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerControls.appendChild(bannerRestoreLink);
   bannerRestoreLink.onclick = function (e) {
     extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-      let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
+      let wikiSettings = await decompressJSON(response.wikiSettings);
       wikiSettings[id] = 'alert';
-      extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
       e.target.textContent = '✓ ' + extensionAPI.i18n.getMessage('bannerRestoreDone');
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerControls.querySelector('.indie-wiki-banner-redirect').textContent = '↪ ' + extensionAPI.i18n.getMessage('bannerRedirect');
@@ -154,9 +154,9 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
     extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-      let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
+      let wikiSettings = await decompressJSON(response.wikiSettings);
       wikiSettings[id] = 'disabled';
-      extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
       e.target.textContent = '✓ ' + extensionAPI.i18n.getMessage('bannerDisableDone');
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerControls.querySelector('.indie-wiki-banner-restore').textContent = '⎌ ' + extensionAPI.i18n.getMessage('bannerRestore');
@@ -174,9 +174,9 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerControls.appendChild(bannerRedirectLink);
   bannerRedirectLink.onclick = function (e) {
     extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-      let wikiSettings = await commonFunctionDecompressJSON(response.wikiSettings);
+      let wikiSettings = await decompressJSON(response.wikiSettings);
       wikiSettings[id] = 'redirect';
-      extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
       e.target.textContent = '✓ ' + extensionAPI.i18n.getMessage('bannerRedirectDone');
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerControls.querySelector('.indie-wiki-banner-disable').classList.add('indie-wiki-banner-hidden');
@@ -280,14 +280,14 @@ function main() {
           }
         }
 
-        commonFunctionGetSiteDataByOrigin().then(async sites => {
+        getSiteDataByOrigin().then(async sites => {
           let crossLanguageSetting = storage.crossLanguage || 'off';
-          let matchingSite = await commonFunctionFindMatchingSite(origin, crossLanguageSetting);
+          let matchingSite = await findMatchingSite(origin, crossLanguageSetting);
           if (matchingSite) {
             // Get user's settings for the wiki
             let id = matchingSite['id'];
             let siteSetting = 'alert';
-            let wikiSettings = await commonFunctionDecompressJSON(storage.wikiSettings || {});
+            let wikiSettings = await decompressJSON(storage.wikiSettings || {});
             if (wikiSettings[id]) {
               siteSetting = wikiSettings[id];
             } else if (storage.defaultWikiAction) {
@@ -296,7 +296,7 @@ function main() {
 
             // Notify if enabled for the wiki:
             if (siteSetting === 'alert') {
-              let newURL = commonFunctionGetNewURL(origin, matchingSite);
+              let newURL = getNewURL(origin, matchingSite);
 
               // When head elem is loaded, notify that another wiki is available
               const docObserver = new MutationObserver((mutations, mutationInstance) => {
