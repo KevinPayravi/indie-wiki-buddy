@@ -1,0 +1,768 @@
+{
+    "extensionName": {
+        "message": "Indie Wiki Buddy"
+    },
+    "extensionDescription": {
+        "message": "Indie Wiki Buddy membantu Anda menemukan wiki independen berkualitas melalui peringatan, pengalihan, dan penyaringan pencarian."
+    },
+    "bannerText": {
+        "message": "Ada wiki $descriptor$ $host$ yang membahas topik ini $language$",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "bannerHost": {
+        "message": "di $host$",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "bannerDescriptorWiki": {
+        "message": "sebuah"
+    },
+    "bannerDescriptorIndependent": {
+        "message": "sebuah independen"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "sebuah independen resmi"
+    },
+    "bannerDescriptorOfficial": {
+        "message": "sebuah resmi"
+    },
+    "bannerLanguageEnglish": {
+        "message": "dalam Bahasa Inggris"
+    },
+    "bannerVisit": {
+        "message": "Kunjungi $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerBreezeWiki": {
+        "message": "Lihat wiki Fandom ini melalui BreezeWiki"
+    },
+    "bannerRestore": {
+        "message": "Pulihkan banner"
+    },
+    "bannerRestoreDone": {
+        "message": "Banner dipulihkan"
+    },
+    "bannerDisable": {
+        "message": "Nonaktifkan banner untuk wiki ini"
+    },
+    "bannerDisableDone": {
+        "message": "Banner dinonaktifkan"
+    },
+    "bannerRedirect": {
+        "message": "Alihkan otomatis wiki ini"
+    },
+    "bannerRedirectDone": {
+        "message": "Pengalihan diaktifkan"
+    },
+    "searchResultLookup": {
+        "message": "Cari $article$ di $destination$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultLookupEnglish": {
+        "message": "Cari $article$ di $destination$ (EN)",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisit": {
+        "message": "Kunjungi $destination$ sebagai gantinya",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "Kunjungi $destination$ (EN) sebagai gantinya",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "Aktifkan kembali hasil pencarian asli"
+    },
+    "searchRemovalNotice": {
+        "message": "Indie Wiki Buddy telah menyaring hasil dari $destination$. Cari hasil dari $link$ sebagai gantinya.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "searchFilteredResultsShow": {
+        "message": "Tampilkan hasil yang disaring"
+    },
+    "searchFilteredResultsHide": {
+        "message": "Sembunyikan kembali hasil yang disaring"
+    },
+    "settingsTitle": {
+        "message": "Pengaturan Indie Wiki Buddy"
+    },
+    "settingsGuide": {
+        "message": "Panduan"
+    },
+    "settingsWebsite": {
+        "message": "Situs web"
+    },
+    "settingsChangelog": {
+        "message": "Catatan perubahan"
+    },
+    "settingsSubmitWiki": {
+        "message": "Kirim Wiki"
+    },
+    "settingsSourceCode": {
+        "message": "Kode sumber"
+    },
+    "settingsBannerHide": {
+        "message": "Sembunyikan pesan ini"
+    },
+    "settingsBannerOpera": {
+        "message": "Pengguna Opera: Secara bawaan, Opera akan memblokir ekstensi agar tidak berjalan di mesin pencari. Akses mesin pencari dapat diaktifkan per-ekstensi dengan membuka \"about:extensions\" dan memilih opsi \"Izinkan akses ke hasil halaman pencarian\" di bawah Indie Wiki Buddy."
+    },
+    "settingsBannerReview": {
+        "message": "Menikmati Indie Wiki Buddy? Silakan tinggalkan ulasan!"
+    },
+    "settingsBannerReviewContact": {
+        "message": "Mengalami masalah atau punya ide untuk perbaikan? Silakan $linkStart$hubungi saya$linkEnd$!",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "firstInstallInfo1": {
+        "message": "Terima kasih telah memasang Indie Wiki Buddy! Mari kita atur terlebih dahulu."
+    },
+    "firstInstallInfo2": {
+        "message": "Gunakan tautan di atas untuk melihat panduan lengkap, mengirim wiki baru, atau menghubungi pengembang."
+    },
+    "firstInstallInfo3": {
+        "message": "Di pengaturan di bawah ini, Anda dapat mengaktifkan atau menonaktifkan fitur. Ini termasuk opsi untuk mengaktifkan $BreezeWiki$, sebuah frontend alternatif yang menampilkan wiki Fandom tanpa iklan atau bloat.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "firstInstallInfo4": {
+        "message": "Di bawah itu, Anda dapat mengatur secara individual apa yang terjadi saat mengunjungi wiki Fandom, Fextralife, dan Neoseeker yang memiliki alternatif independen, serta apa yang terjadi pada hasil mereka di mesin pencari. Untuk mengunjungi wiki, Anda dapat memilih untuk $alert$ diberi peringatan (bawaan) atau $redirect$ dialihkan secara otomatis. Pada mesin pencari, Anda dapat memilih untuk $replace$ mengganti (bawaan) atau $hide$ menyembunyikan hasil pencarian.",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "(image for alert)"
+            },
+            "redirect": {
+                "content": "$2",
+                "example": "(image for redirect)"
+            },
+            "replace": {
+                "content": "$3",
+                "example": "(image for replace)"
+            },
+            "hide": {
+                "content": "$4",
+                "example": "(image for hide)"
+            }
+        }
+    },
+    "firstInstallInfo5": {
+        "message": "Anda dapat mengakses pengaturan ini di masa mendatang melalui ikon ekstensi $logo$ di kanan atas peramban Anda. Jika Anda tidak melihat ikon tersebut, mungkin ada di dropdown ekstensi, yang dapat dibuka melalui ikon puzzle $jigsaw$ (juga di kanan atas peramban Anda).",
+        "placeholders": {
+            "logo": {
+                "content": "$1",
+                "example": "(image for the extension icon)"
+            },
+            "jigsaw": {
+                "content": "$2",
+                "example": "(image for the jigsaw icon)"
+            }
+        }
+    },
+    "settingsGeneral": {
+        "message": "Pengaturan umum"
+    },
+    "settingsNotifications": {
+        "message": "Notifikasi desktop untuk pengalihan"
+    },
+    "settingsCrossLanguage": {
+        "message": "Alihkan wiki Fandom non-Inggris ke wiki independen berbahasa Inggris saat tidak ada wiki dengan bahasa yang sama"
+    },
+    "settingsOpenChangelog": {
+        "message": "Buka catatan perubahan saat Indie Wiki Buddy diperbarui"
+    },
+    "settingsSearchEngineFiltering": {
+        "message": "Penyaringan mesin pencari"
+    },
+    "settingsHiddenResultsBanner": {
+        "message": "Di mesin pencari, tampilkan banner saat hasil non-independen disembunyikan"
+    },
+    "settingsReorderResults": {
+        "message": "Pindahkan wiki independen di atas hasil non-independen dan sembunyikan duplikat"
+    },
+    "settingsBreezeWiki": {
+        "message": "Frontend alternatif BreezeWiki untuk Fandom ($linkStart$pelajari lebih lanjut$linkEnd$)",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsBreezeWikiDisabled": {
+        "message": "BreezeWiki mati"
+    },
+    "settingsBreezeWikiBanner": {
+        "message": "Sisipkan tautan banner untuk membawa Anda ke BreezeWiki"
+    },
+    "settingsBreezeWikiRedirect": {
+        "message": "Alihkan otomatis Fandom ke BreezeWiki"
+    },
+    "settingsBreezeWikiHost": {
+        "message": "Host BreezeWiki:"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "Jika Anda sering mengalami kesalahan saat mengunjungi BreezeWiki, coba beralih ke host lain. Indie Wiki Buddy tidak bertanggung jawab atas BreezeWiki atau hostnya."
+    },
+    "settingsBreezeWikiCustomHost": {
+        "message": "Domain BreezeWiki khusus:"
+    },
+    "settingsBreezeWikiCustomHostOption": {
+        "message": "Host khusus…"
+    },
+    "settingsBreezeWikiCustomHostSet": {
+        "message": "Atur domain"
+    },
+    "settingsBreezeWikiCustomHostSetSuccessful": {
+        "message": "Berhasil ditambahkan"
+    },
+    "settingsBreezeWikiCustomHostSetFailed": {
+        "message": "Gagal menambahkan"
+    },
+    "settingsWiki": {
+        "message": "Pengaturan wiki individual"
+    },
+    "settingsWikiLegend": {
+        "message": "Legenda ikon"
+    },
+    "settingsWikiLegendWikiExp": {
+        "message": "Saat mengunjungi wiki Fandom, Fextralife, atau Neoseeker dengan alternatif independen, IWB dapat:"
+    },
+    "settingsWikiLegendSearchExp": {
+        "message": "Saat hasil mesin pencari menyertakan wiki Fandom, Fextralife, atau Neoseeker dengan alternatif independen, IWB dapat:"
+    },
+    "settingsDisabled": {
+        "message": "Tidak melakukan apa-apa"
+    },
+    "settingsAlert": {
+        "message": "Tampilkan banner yang menautkan ke wiki independen"
+    },
+    "settingsRedirect": {
+        "message": "Alihkan ke wiki independen"
+    },
+    "settingsReplace": {
+        "message": "Ganti hasil dengan tautan ke wiki independen"
+    },
+    "settingsHide": {
+        "message": "Sembunyikan hasil"
+    },
+    "settingsFilterByLanguage": {
+        "message": "Saring wiki berdasarkan bahasa:"
+    },
+    "settingsFilterByName": {
+        "message": "Saring wiki berdasarkan nama:"
+    },
+    "settingsLangAll": {
+        "message": "Semua bahasa"
+    },
+    "settingsLangCA": {
+        "message": "[CA] Katalan / Català"
+    },
+    "settingsLangDE": {
+        "message": "[DE] Jerman / Deutsch"
+    },
+    "settingsLangEN": {
+        "message": "[EN] Inggris"
+    },
+    "settingsLangES": {
+        "message": "[ES] Spanyol / Español"
+    },
+    "settingsLangFI": {
+        "message": "[FI] Finlandia / suomi"
+    },
+    "settingsLangFR": {
+        "message": "[FR] Prancis / Français"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Kroasia / Hrvatski"
+    },
+    "settingsLangHU": {
+        "message": "[HU] Hungaria / Magyar"
+    },
+    "settingsLangIT": {
+        "message": "[IT] Italia / Italiano"
+    },
+    "settingsLangJA": {
+        "message": "[JA] Jepang / 日本語"
+    },
+    "settingsLangKO": {
+        "message": "[K0] Korea / 한국어"
+    },
+    "settingsLangLZH": {
+        "message": "[LZH] Tionghoa Klasik / 文言"
+    },
+    "settingsLangNL": {
+        "message": "[NL] Belanda / Nederlands"
+    },
+    "settingsLangPL": {
+        "message": "[PL] Polandia / Polski"
+    },
+    "settingsLangPT": {
+        "message": "[PT] Portugis / Português"
+    },
+    "settingsLangRU": {
+        "message": "[RU] Rusia / Русский"
+    },
+    "settingsLangSV": {
+        "message": "[SV] Swedia / Svenska"
+    },
+    "settingsLangTH": {
+        "message": "[TH] Thai / ไทย"
+    },
+    "settingsLangTOK": {
+        "message": "[TOK] Toki Pona / toki pona"
+    },
+    "settingsLangTR": {
+        "message": "[TR] Turki / Türkçe"
+    },
+    "settingsLangUK": {
+        "message": "[UK] Ukraina / Українська"
+    },
+    "settingsLangZH": {
+        "message": "[ZH] Tionghoa / 中文"
+    },
+    "settingsNameFilterPlaceholder": {
+        "message": "Masukkan nama wiki…"
+    },
+    "settingsWikiExp": {
+        "message": "Pengalaman wiki"
+    },
+    "settingsSearchExp": {
+        "message": "Pengalaman pencarian"
+    },
+    "settingsSetColumn": {
+        "message": "Klik ikon untuk mengatur semua wiki di kolom:"
+    },
+    "settingsNewWiki": {
+        "message": "Bawaan untuk wiki baru di pembaruan mendatang:"
+    },
+    "settingsFunStats": {
+        "message": "Statistik Menarik"
+    },
+    "settingsFunStatsAlerts": {
+        "message": "Diperingatkan ke wiki independen $alert$ kali",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsRedirects": {
+        "message": "Dialihkan otomatis ke wiki independen $redirect$ kali",
+        "placeholders": {
+            "redirect": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsBreezeWiki": {
+        "message": "Dialihkan otomatis ke BreezeWiki $breezeWiki$ kali",
+        "placeholders": {
+            "breezeWiki": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsSearchFilters": {
+        "message": "$hide$ hasil mesin pencari disaring",
+        "placeholders": {
+            "hide": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsDisabledFor": {
+        "message": "Tidak melakukan apa-apa untuk $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsAlertFor": {
+        "message": "Tampilkan banner di $origin$ yang menautkan ke $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsRedirectFor": {
+        "message": "Alihkan otomatis $origin$ ke $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsReplaceFor": {
+        "message": "Ganti hasil mesin pencari $origin$ dengan $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsHideFor": {
+        "message": "Sembunyikan hasil mesin pencari $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsWikiFrom": {
+        "message": " (dari $origin$)",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsCustomWikiDelete": {
+        "message": "Hapus"
+    },
+    "settingsExtensionOn": {
+        "message": "Ekstensi aktif"
+    },
+    "settingsExtensionOff": {
+        "message": "Ekstensi nonaktif"
+    },
+    "popupOpenSettings": {
+        "message": "Buka Semua Pengaturan"
+    },
+    "popupDefault": {
+        "message": "Perilaku bawaan (berlaku untuk semua wiki saat ini dan baru di pembaruan mendatang)"
+    },
+    "popupWikiLegendWikiExp": {
+        "message": "Saat mengunjungi wiki Fandom, Fextralife, dan Neoseeker:"
+    },
+    "popupWikiLegendSearchExp": {
+        "message": "Saat hasil mesin pencari menyertakan wiki Fandom, Fextralife, atau Neoseeker dengan alternatif independen, IWB dapat:"
+    },
+    "popupSettingsPerWiki": {
+        "message": "Kunjungi $linkStart$semua pengaturan$linkEnd$ untuk mengubah perilaku per-wiki.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "popupSettingsOverride": {
+        "message": "Mengklik opsi di atas akan menimpa kustomisasi per-wiki yang mungkin Anda miliki."
+    },
+    "popupBreezeWikiSeeSettings": {
+        "message": "Lihat pengaturan"
+    },
+    "popupBreezeWikiSeeSettingsLink": {
+        "message": "Ubah domain khusus di $linkStart$halaman pengaturan lengkap$linkEnd$",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideTitle": {
+        "message": "Panduan Indie Wiki Buddy"
+    },
+    "guideBackToSettings": {
+        "message": "⇦ Kembali ke Pengaturan"
+    },
+    "guideOverview": {
+        "message": "Ikhtisar"
+    },
+    "guideOverviewPara1": {
+        "message": "Indie Wiki Buddy menyediakan serangkaian fitur untuk membantu Anda menemukan wiki independen dan meningkatkan pengalaman membaca wiki secara umum."
+    },
+    "guideOverviewPara2": {
+        "message": "Saat Anda mengunjungi wiki di host wiki besar yang dikelola korporasi, ekstensi ini dapat memberi tahu atau secara otomatis mengalihkan Anda ke wiki independen berkualitas bila tersedia. Hasil pencarian di Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, dan Yandex juga dapat disaring, mengganti wiki non-independen dengan tautan ke padanan independen (atau menyembunyikannya sepenuhnya)."
+    },
+    "guideOverviewPara3": {
+        "message": "Saat ini kami mengalihkan dari wiki Fandom, Fextralife, dan Neoseeker ke padanan independen."
+    },
+    "guideOverviewPara4": {
+        "message": "Indie Wiki Buddy juga mendukung $BreezeWiki$, layanan terpisah yang menampilkan wiki Fandom tanpa iklan atau bloat. Ini membantu memberikan pengalaman membaca yang lebih menyenangkan saat wiki independen tidak tersedia.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideOverviewPara5": {
+        "message": "Semua fitur ini dapat diaktifkan atau dinonaktifkan, dan Anda dapat mengatur preferensi per-wiki juga. Anda memiliki kendali penuh!"
+    },
+    "guideGlobalSettingsHelp": {
+        "message": "Bantuan pengaturan global"
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "Ada beberapa pengaturan umum:"
+    },
+    "guideExtensionOnOff": {
+        "message": "Ekstensi aktif / nonaktif"
+    },
+    "guideExtensionOnOffHelp": {
+        "message": "Aktifkan/nonaktifkan semua fungsi Indie Wiki Buddy dengan sekali klik."
+    },
+    "guideNotificationsHelp1": {
+        "message": "Saat opsi ini diaktifkan, Anda akan menerima notifikasi desktop setiap kali dialihkan otomatis ke wiki independen atau $BreezeWiki$. Ini aktif secara bawaan.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideNotificationsHelp2": {
+        "message": "Jika Anda tidak menerima notifikasi saat ini diaktifkan, periksa pengaturan notifikasi sistem operasi Anda untuk memastikan peramban diizinkan mengirim notifikasi."
+    },
+    "guideCrossLanguageHelp1": {
+        "message": "Secara bawaan, Indie Wiki Buddy akan menjaga pengguna tetap dalam bahasa yang sama (misalnya hanya mengalihkan wiki Fandom berbahasa Spanyol ke wiki independen berbahasa Spanyol). Namun, penutur multibahasa mungkin ingin juga menggunakan banyak wiki independen berbahasa Inggris yang tersedia. Mengaktifkan opsi ini akan mengalihkan dari wiki Fandom non-Inggris ke wiki independen berbahasa Inggris saat tidak tersedia dalam bahasa yang sama."
+    },
+    "guideCrossLanguageHelp2": {
+        "message": "Sayangnya fitur ini saat ini tidak berfungsi untuk wiki Fextralife."
+    },
+    "guideChangelogHelp": {
+        "message": "Aktifkan opsi ini agar $linkStart$catatan perubahan$linkEnd$ Indie Wiki Buddy dibuka di tab baru setiap kali diperbarui, sehingga Anda tetap mengetahui perubahan terbaru.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": "Anda juga dapat mengatur pengaturan untuk menyaring hasil di mesin pencari:"
+    },
+    "guideTogglePerSearchEngine": {
+        "message": "Alihkan penyaringan per mesin pencari"
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": "Secara bawaan, penyaringan diaktifkan untuk semua mesin pencari. Penyaringan dilakukan berdasarkan pengaturan yang dipilih pengguna untuk setiap wiki. Pengaturan penyaringan bawaan untuk semua wiki adalah mengganti hasil pencarian non-independen dengan tombol yang menautkan ke padanan independen."
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": "Mesin pencari yang saat ini didukung adalah Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, dan Yandex."
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": "Saat opsi ini diaktifkan, sebuah banner akan dimasukkan di bagian atas hasil mesin pencari ketika Indie Wiki Buddy telah menyembunyikan hasil dari wiki Fandom, Fextralife, atau Neoseeker. Banner ini juga memungkinkan Anda menampilkan kembali hasil yang disembunyikan jika diinginkan."
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": "Jika Anda tidak ingin melihat indikasi bahwa hasil telah disembunyikan, nonaktifkan opsi ini."
+    },
+    "guideReorderResultsHelp1": {
+        "message": "Secara bawaan, Indie Wiki Buddy akan mengatur ulang halaman hasil di Google untuk memindahkan hasil wiki independen di atas hasil non-independen pertama (Fandom / Fextralife / Neoseeker), jika mereka berada lebih jauh di halaman pertama hasil. Ini memungkinkan Anda menemukan halaman yang dicari di wiki independen lebih cepat."
+    },
+    "guideReorderResultsHelp2": {
+        "message": "Fitur ini saat ini hanya tersedia untuk Google, karena cukup kompleks untuk dipelihara secara andal."
+    },
+    "guideBreezeWiki": {
+        "message": "Anda juga dapat mengatur preferensi untuk $BreezeWiki$, layanan terpisah yang menampilkan wiki Fandom tanpa iklan atau bloat. Catatan, BreezeWiki saat ini hanya mendukung wiki berbahasa Inggris.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": "Jangan alihkan Fandom ke BreezeWiki."
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": "Di bagian atas wiki Fandom berbahasa Inggris, sebuah banner kecil akan dimasukkan dengan tautan untuk membawa Anda ke wiki BreezeWiki."
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": "Mengunjungi wiki Fandom berbahasa Inggris akan segera mengalihkan Anda untuk melihatnya melalui BreezeWiki. Jika pengalihan otomatis ke wiki independen diaktifkan, wiki independen akan diprioritaskan."
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": "Setelah Anda mengaktifkan opsi BreezeWiki, sebuah dropdown akan muncul memungkinkan Anda memilih host/mirror BreezeWiki yang diinginkan. Jika host BreezeWiki yang dipilih tidak berfungsi, Anda dapat kembali ke pengaturan ini dan mengganti host Anda."
+    },
+    "guideWikiHelp": {
+        "message": "Bantuan pengaturan wiki individual"
+    },
+    "guideWikiHelpPara1": {
+        "message": "Di bagian pengaturan individual pada halaman pengaturan, Anda dapat mengatur preferensi per-wiki. Anda dapat merujuk ke legenda atau arahkan kursor ke ikon untuk mengetahui apa yang dikontrol setiap kolom."
+    },
+    "guideWikiHelpPara2": {
+        "message": "Set pertama tombol radio mengontrol apa yang terjadi saat Anda mengunjungi wiki non-independen yang terdaftar."
+    },
+    "guideDisable": {
+        "message": "Nonaktifkan"
+    },
+    "guideDisableVisitHelp": {
+        "message": ": Anda tidak akan diberi notifikasi atau dialihkan ke padanan independen. Anda tetap akan diarahkan ke BreezeWiki jika diaktifkan."
+    },
+    "guideRedirect": {
+        "message": "Alihkan"
+    },
+    "guideRedirectHelp": {
+        "message": ": Dialihkan otomatis ke padanan independen."
+    },
+    "guideAlert": {
+        "message": "Peringatan"
+    },
+    "guideAlertHelp": {
+        "message": ": Tampilkan banner di bagian atas yang memberi tahu Anda bahwa wiki independen tersedia. Ini akan muncul di halaman Fandom dan BreezeWiki."
+    },
+    "guideWikiHelpPara3": {
+        "message": "Set kedua tombol radio mengontrol apa yang terjadi pada wiki non-independen di Google, Bing, DuckDuckGo, dan mesin pencari lainnya."
+    },
+    "guideDisableSearchHelp": {
+        "message": ": Hasil mesin pencari tidak terpengaruh."
+    },
+    "guideHide": {
+        "message": "Sembunyikan"
+    },
+    "guideHideHelp": {
+        "message": ": Hasil disembunyikan di mesin pencari. Sebuah banner akan ditampilkan di dekat bagian atas halaman untuk memberi tahu Anda, dan memungkinkan Anda menampilkan kembali hasil yang disembunyikan."
+    },
+    "guideReplace": {
+        "message": "Ganti"
+    },
+    "guideReplaceHelp": {
+        "message": ": Hasil asli non-independen dinonaktifkan, dan sebuah tombol disisipkan di atas untuk membawa Anda ke wiki independen."
+    },
+    "guideWikiHelpPara4": {
+        "message": "Di header tabel, mengklik ikon akan menerapkan pengaturan tersebut ke semua wiki di tabel. Di baris kedua, bintang mewakili pengaturan bawaan untuk wiki yang ditambahkan di pembaruan mendatang. Secara bawaan, semua wiki akan diatur ke peringatan, dengan penggantian hasil mesin pencari diaktifkan."
+    },
+    "guideFeedback": {
+        "message": "Punya pertanyaan atau umpan balik?"
+    },
+    "guideFeedbackPara1": {
+        "message": "Jika Anda mengalami kesulitan atau memiliki pertanyaan, jangan ragu untuk menghubungi melalui $linkStart$detail kontak$linkEnd$ di bagian bawah situs web Indie Wiki Buddy.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideFeedbackPara2": {
+        "message": "Saran untuk peningkatan ekstensi juga sangat diterima!"
+    },
+    "notificationTitle": {
+        "message": "Anda telah dialihkan!"
+    },
+    "notificationMessage": {
+        "message": "Indie Wiki Buddy telah mengirim Anda dari $origin$ ke $destination$!",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "Anda telah dialihkan ke BreezeWiki!"
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "Indie Wiki Buddy telah mengirim Anda ke BreezeWiki untuk pengalaman yang lebih bersih dan bebas iklan di Fandom."
+    }
+}
