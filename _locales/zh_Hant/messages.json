@@ -1,0 +1,759 @@
+{
+    "extensionName": {
+        "message": "Indie Wiki Buddy"
+    },
+    "bannerDescriptorWiki": {
+        "message": "一個"
+    },
+    "bannerHost": {
+        "message": "$host$",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "bannerDescriptorOfficial": {
+        "message": "一個官方"
+    },
+    "bannerLanguageEnglish": {
+        "message": "英文"
+    },
+    "bannerRestore": {
+        "message": "恢復橫幅"
+    },
+    "bannerRestoreDone": {
+        "message": "橫幅已恢復"
+    },
+    "bannerDisable": {
+        "message": "在此 Wiki 中不要顯示此橫幅"
+    },
+    "bannerDisableDone": {
+        "message": "已關閉此橫幅"
+    },
+    "bannerRedirectDone": {
+        "message": "已開啟重新導向"
+    },
+    "searchResultLookup": {
+        "message": "在 $destination$ 查看 $article$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerRedirect": {
+        "message": "自動重新導向此 Wiki 站點"
+    },
+    "searchResultReenable": {
+        "message": "重新顯示此搜尋結果"
+    },
+    "settingsGuide": {
+        "message": "指南"
+    },
+    "settingsWebsite": {
+        "message": "網站"
+    },
+    "settingsChangelog": {
+        "message": "更新日誌"
+    },
+    "settingsSourceCode": {
+        "message": "原始碼"
+    },
+    "settingsBannerHide": {
+        "message": "隱藏此訊息"
+    },
+    "settingsTitle": {
+        "message": "設定"
+    },
+    "settingsBannerReview": {
+        "message": "喜歡 Indie Wiki Buddy？請留下評論！"
+    },
+    "firstInstallInfo2": {
+        "message": "使用上面的連結查看完整指南、提交新 Wiki 或聯繫開發人員。"
+    },
+    "settingsGeneral": {
+        "message": "一般"
+    },
+    "settingsSearchEngineFiltering": {
+        "message": "搜尋引擎過濾"
+    },
+    "settingsHiddenResultsBanner": {
+        "message": "當非獨立 Wiki 的搜尋結果被隱藏時顯示橫幅"
+    },
+    "settingsBreezeWiki": {
+        "message": "使用 Fandom 的替代介面 BreezeWiki（$linkStart$了解更多$linkEnd$）",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "settingsBreezeWikiBanner": {
+        "message": "插入連結至 BreezeWiki 的橫幅"
+    },
+    "settingsBreezeWikiRedirect": {
+        "message": "自動將 Fandom 重新導向至 BreezeWiki"
+    },
+    "settingsBreezeWikiHost": {
+        "message": "BreezeWiki 站點："
+    },
+    "settingsBreezeWikiCustomHostOption": {
+        "message": "自定義站點…"
+    },
+    "settingsBreezeWikiCustomHostSetFailed": {
+        "message": "新增失敗"
+    },
+    "settingsWiki": {
+        "message": "相關設定"
+    },
+    "settingsWikiLegendWikiExp": {
+        "message": "當查看 Fandom、Fextralife 或是 Neoseeker Wiki 時，Indie Wiki Buddy 將："
+    },
+    "settingsRedirect": {
+        "message": "自動重新導向至獨立 Wiki"
+    },
+    "settingsReplace": {
+        "message": "將結果替換成獨立 Wiki 的連結"
+    },
+    "settingsHide": {
+        "message": "隱藏搜尋結果"
+    },
+    "settingsFilterByLanguage": {
+        "message": "按照語言篩選："
+    },
+    "settingsFilterByName": {
+        "message": "按照名稱篩選："
+    },
+    "settingsLangAll": {
+        "message": "所有語言"
+    },
+    "settingsLangFR": {
+        "message": "[FR] 法文 / Français"
+    },
+    "settingsLangHU": {
+        "message": "[HU] 匈牙利文 / Magyar"
+    },
+    "settingsLangJA": {
+        "message": "[JA] 日文 / 日本語"
+    },
+    "settingsLangKO": {
+        "message": "[KO] 韓文 / 한국어"
+    },
+    "settingsLangLZH": {
+        "message": "[LZH] 文言文"
+    },
+    "settingsLangPL": {
+        "message": "[PL] 波蘭文 / Polski"
+    },
+    "settingsLangRU": {
+        "message": "[RU] 俄文 / Русский"
+    },
+    "settingsLangTOK": {
+        "message": "[TOK] 道本文 / toki pona"
+    },
+    "settingsLangZH": {
+        "message": "[ZH] 中文"
+    },
+    "settingsWikiExp": {
+        "message": "Wiki 體驗"
+    },
+    "settingsNewWiki": {
+        "message": "對於未來新加入的 Wiki 的預設狀態："
+    },
+    "settingsFunStats": {
+        "message": "統計"
+    },
+    "settingsFunStatsAlerts": {
+        "message": "獨立 Wiki 的橫幅共顯示 $alert$ 次",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsRedirects": {
+        "message": "自動重新導向至獨立 Wiki 共 $redirect$ 次",
+        "placeholders": {
+            "redirect": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsSearchFilters": {
+        "message": "已過濾 $hide$ 個搜尋結果",
+        "placeholders": {
+            "hide": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsDisabledFor": {
+        "message": "對 $origin$：不進行操作",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsReplaceFor": {
+        "message": "對 $origin$：將搜尋結果替換成 $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsWikiFrom": {
+        "message": " （來自 $origin$）",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsCustomWikiDelete": {
+        "message": "刪除"
+    },
+    "popupOpenSettings": {
+        "message": "開啟全部設定"
+    },
+    "popupDefault": {
+        "message": "預設行為（對於所有 Wiki 和未來的新 Wiki 皆會生效）"
+    },
+    "popupWikiLegendSearchExp": {
+        "message": "當搜尋結果擁有可取代 Fandom、Fextralife 或 Neoseeker Wiki 的獨立 Wiki 時，Indie Wiki Buddy 能："
+    },
+    "popupSettingsOverride": {
+        "message": "點擊上方選項會覆蓋設定過的所有獨立 Wiki 的自定義插件行為。"
+    },
+    "popupBreezeWikiSeeSettings": {
+        "message": "查看設定"
+    },
+    "guideTitle": {
+        "message": "Indie Wiki Buddy 指南"
+    },
+    "guideOverview": {
+        "message": "指南概述"
+    },
+    "guideOverviewPara3": {
+        "message": "我們目前支援將 Fandom、Fextralife 和 Neoseeker wiki 重新導向至獨立 Wiki。"
+    },
+    "guideOverviewPara5": {
+        "message": "上述所有功能皆可自由開啟或關閉，您也可以選擇對於各個 Wiki 做出不同的設定。一切都掌握在您手中！"
+    },
+    "guideExtensionOnOff": {
+        "message": "擴充功能已開啟 / 已關閉"
+    },
+    "guideTogglePerSearchEngine": {
+        "message": "按照搜尋引擎調整過濾設定"
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": "目前支援：Google、Bing、DuckDuckGo、Brave、Ecosia、Kagi、Qwant、Startpage、Yahoo! 和 Yandex。"
+    },
+    "guideReorderResultsHelp2": {
+        "message": "由於維護不易，該功能僅適用於 Google 搜尋。"
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": "不要將 Fandom 重新導向至 BreezeWiki。"
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": "在英文 Fandom 頁面頂端插入重新導向至 BreezeWiki 的橫幅。"
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": "查看任一英文 Fandom 頁面都會立刻重新導向至 BreezeWiki，若重新導向至獨立 Wiki 已開啟，則優先重新導向至獨立 Wiki。"
+    },
+    "guideWikiHelp": {
+        "message": "獨立 Wiki 的相關設定說明"
+    },
+    "guideWikiHelpPara1": {
+        "message": "在設定頁面的\"獨立 Wiki 相關設定\"中，您可以對於每個 Wiki 進行單獨的設定。您可透過參考頁面中的圖例或是將滑鼠游標停在圖示上來查看每一列所控制之選項。"
+    },
+    "guideDisable": {
+        "message": "關閉"
+    },
+    "guideRedirectHelp": {
+        "message": "：自動重新導向至相對應的獨立 Wiki。"
+    },
+    "guideDisableVisitHelp": {
+        "message": "：既不會出現通知也不會重新導向至相對應的獨立 Wiki。但若開啟了 BreezeWiki，您仍會被引導至 BreezeWiki。"
+    },
+    "guideAlertHelp": {
+        "message": "：在頁面頂端顯示橫幅，通知您有一個獨立 Wiki。這同時會出現在 Fandom 和 BreezeW iki 頁面上。"
+    },
+    "guideDisableSearchHelp": {
+        "message": "：不影響搜尋結果。"
+    },
+    "guideReplace": {
+        "message": "替換"
+    },
+    "guideReplaceHelp": {
+        "message": "：將非獨立 Wiki 的搜尋結果停用，並在頂部插入一個轉換至獨立 Wiki 的按鈕。"
+    },
+    "guideFeedback": {
+        "message": "使用時有問題或是要反映的？"
+    },
+    "guideFeedbackPara1": {
+        "message": "若您需要幫助或是任何建議，請隨時透過 Indie Wiki Buddy 網頁底部的$linkStart$聯繫方式$linkEnd$來聯繫我們。",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideFeedbackPara2": {
+        "message": "也歡迎對於本擴充功能提供建議！"
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "已重新導向至 BreezeWiki！"
+    },
+    "bannerText": {
+        "message": "此內容有$descriptor$的$host$$language$ Wiki 站點",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "settingsBannerOpera": {
+        "message": "致 Opera 用戶：Opera 預設會禁止此擴充功能在搜尋引擎上運作。您可以前往\"about:extensions\"，在 Indie Wiki Buddy 下選擇\"允許存取搜尋頁面結果\"選項，為每個擴充功能啟用搜尋引擎存取權限。"
+    },
+    "firstInstallInfo4": {
+        "message": "對於 Fandom、Fextralife 和 Neoseeker 這些 Wiki，本擴充功能會查詢在其上託管的 Wiki 是否存在一個獨立的站點。當您造訪上述網站時，您可以選擇 $alert$ 顯示提醒（預設）或 $redirect$ 自動重新導向；而在搜尋引擎中，您可以選擇 $replace$ 替換（預設）或 $hide$ 隱藏該搜尋結果。在下方的選項中，您可為各個 Wiki 單獨設定行為。",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "(image for alert)"
+            },
+            "redirect": {
+                "content": "$2",
+                "example": "(image for redirect)"
+            },
+            "replace": {
+                "content": "$3",
+                "example": "(image for replace)"
+            },
+            "hide": {
+                "content": "$4",
+                "example": "(image for hide)"
+            }
+        }
+    },
+    "bannerVisit": {
+        "message": "連結至 $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "extensionDescription": {
+        "message": "Indie Wiki Buddy 透過提醒、重新導向和搜尋過濾器，幫助您發現優質且獨立的 Wiki。"
+    },
+    "searchResultVisit": {
+        "message": "前往 $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerDescriptorIndependent": {
+        "message": "一個獨立"
+    },
+    "bannerBreezeWiki": {
+        "message": "透過 BreezeWiki 查看此 Fandom Wiki"
+    },
+    "settingsSubmitWiki": {
+        "message": "提交新 Wiki"
+    },
+    "firstInstallInfo3": {
+        "message": "在下面的設定中，您可以開啟或關閉此功能。這包括啟用$BreezeWiki$的選項，這是一個替代 Fandom 的前端網站，可以呈現沒有廣告或垃圾內容的 Fandom Wiki。",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "settingsBreezeWikiDisabled": {
+        "message": "已關閉 BreezeWiki"
+    },
+    "settingsLangSV": {
+        "message": "[SV] 瑞典文 / Svenska"
+    },
+    "settingsOpenChangelog": {
+        "message": "更新完成後自動開啟更新日誌"
+    },
+    "settingsBreezeWikiCustomHost": {
+        "message": "自定義 BreezeWiki 網域名稱："
+    },
+    "settingsWikiLegendSearchExp": {
+        "message": "當搜尋結果包含 Fandom、Fextralife 或是 Neoseeker Wiki 時，Indie Wiki Buddy 將："
+    },
+    "settingsDisabled": {
+        "message": "不進行任何操作"
+    },
+    "settingsLangES": {
+        "message": "[ES] 西班牙文 / Español"
+    },
+    "settingsLangPT": {
+        "message": "[PT] 葡萄牙文 / Português"
+    },
+    "settingsLangTH": {
+        "message": "[TH] 泰文 / ไทย"
+    },
+    "settingsSetColumn": {
+        "message": "點擊此圖示更改列表中所有 Wiki 的設定："
+    },
+    "popupWikiLegendWikiExp": {
+        "message": "當查看 Fandom、Fextralife 或 Neoseeker Wiki 時："
+    },
+    "guideCrossLanguageHelp2": {
+        "message": "Fextralife 不支援此功能。"
+    },
+    "settingsNotifications": {
+        "message": "重新導向時發布桌面通知"
+    },
+    "guideCrossLanguageHelp1": {
+        "message": "預設情況下，Indie Wiki Buddy 僅會重新導向至同一個語言的頁面（像是中文的 Fandom 頁面會重新導向至獨立 Wiki 的中文相同頁面）。但是某些用戶希望僅提供英文的獨立 Wiki 也可被推薦作為備用選項。開啟後，若無法找到相同語言的獨立 Wiki 時，Indie Wiki Buddy 則改以重新導向至英文的獨立 Wiki 頁面。"
+    },
+    "guideBreezeWiki": {
+        "message": "您也可以為 $BreezeWiki$ 設定偏好。這是一個無廣告的 Fandom 前端網站。目前僅支援英文頁面。",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "前往 $destination$ (英文)",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultLookupEnglish": {
+        "message": "在 $destination$ 查看 $article$ (英文)",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "firstInstallInfo1": {
+        "message": "感謝您安裝獨立百科全書夥伴！一切已經準備就緒。"
+    },
+    "settingsHideFor": {
+        "message": "對 $origin$：隱藏搜尋結果",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsExtensionOn": {
+        "message": "擴充功能已開啟"
+    },
+    "settingsLangUK": {
+        "message": "[UK] 烏克蘭文 / Українська"
+    },
+    "settingsExtensionOff": {
+        "message": "擴充功能已關閉"
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "一個官方獨立"
+    },
+    "settingsReorderResults": {
+        "message": "使用 Google 時，將獨立 Wiki 搜尋結果移動到非獨立 Wiki 之上，並隱藏重複的結果（不適用於 Brave）"
+    },
+    "settingsBannerReviewContact": {
+        "message": "有任何問題或是建議？請$linkStart$聯繫我$linkEnd$！",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "popupBreezeWikiSeeSettingsLink": {
+        "message": "在$linkStart$全部設定$linkEnd$更改自定義網域名稱",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "searchRemovalNotice": {
+        "message": "Indie Wiki Buddy 已過濾掉來自 $destination$ 的結果。建議在 $link$ 查詢。",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "settingsCrossLanguage": {
+        "message": "當沒有相同語言的 Wiki 時，會將非英文的 Fandom 頁面重新導向到英文的獨立 Wiki 頁面中"
+    },
+    "searchFilteredResultsShow": {
+        "message": "顯示已過濾結果"
+    },
+    "firstInstallInfo5": {
+        "message": "若需要更改設定，請點擊瀏覽器右上角的擴充功能圖示 $logo$。若沒看到圖示，可能是隱藏在擴充功能的選項當中，可點擊右上角拼圖圖示 $jigsaw$ 開啟。",
+        "placeholders": {
+            "logo": {
+                "content": "$1",
+                "example": "(image for the extension icon)"
+            },
+            "jigsaw": {
+                "content": "$2",
+                "example": "(image for the jigsaw icon)"
+            }
+        }
+    },
+    "searchFilteredResultsHide": {
+        "message": "重新隱藏過濾結果"
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": "預設情況下，Indie Wiki Buddy 會過濾所有搜尋引擎的所有結果。過濾設定可根據不童的 Wiki 自由更改。預設會用獨立 Wiki 的連結替換搜尋結果中的非獨立 Wiki。"
+    },
+    "settingsBreezeWikiCustomHostSet": {
+        "message": "設定網域名稱"
+    },
+    "settingsBreezeWikiCustomHostSetSuccessful": {
+        "message": "新增成功"
+    },
+    "settingsAlert": {
+        "message": "顯示連結至獨立 Wiki 的橫幅"
+    },
+    "settingsLangFI": {
+        "message": "[FI] 芬蘭文 / suomi"
+    },
+    "settingsLangIT": {
+        "message": "[IT] 義大利文 / Italiano"
+    },
+    "settingsLangNL": {
+        "message": "[NL] 荷蘭文 / Nederlands"
+    },
+    "settingsSearchExp": {
+        "message": "搜尋體驗"
+    },
+    "settingsLangTR": {
+        "message": "[TR] 土耳其文 / Türkçe"
+    },
+    "settingsNameFilterPlaceholder": {
+        "message": "輸入 Wiki 名稱…"
+    },
+    "settingsFunStatsBreezeWiki": {
+        "message": "自動重新導向至 BreezeWiki 共 $breezeWiki$ 次",
+        "placeholders": {
+            "breezeWiki": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsRedirectFor": {
+        "message": "對 $origin$：自動重新導向至 $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "guideBackToSettings": {
+        "message": "⇦ 回到設定"
+    },
+    "popupSettingsPerWiki": {
+        "message": "查看$linkStart$全部設定$linkEnd$以修改每個獨立 Wiki 的插件行為。",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideOverviewPara2": {
+        "message": "若您查看規模較大的、由商業化企業運營的 Wiki 站點，本擴充功能會在此條目中存在優質獨立 Wiki 時提醒您，或是自動重新導向至獨立 Wiki。本擴充功能也會過濾掉那些非獨立的 Wiki 結果。您可以選擇將這些搜尋結果直接替換成該獨立 Wiki，又或是將其隱藏。本擴充功能支援：Google、Bing、DuckDuckGo、Brave、Ecosia、Kagi、Qwant、Startpage、Yahoo! 和 Yandex。"
+    },
+    "guideOverviewPara4": {
+        "message": "Indie Wiki Buddy 也支援 $BreezeWiki$。這是一個獨立、提供第三方 Fandom 的前端網頁，沒有 Fandom 上的廣告和垃圾內容。若沒有獨立 Wiki 時，這也可提升您的閱讀體驗。",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": "當啟用 BreezeWiki 時，您可以在下拉式選單選擇一個 BreezeWiki 的網域名稱。若您選則無法連結的網域名稱，您也可以回到此處重新選擇一個網域名稱。"
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "Indie Wiki Buddy 已將您重新導向至 BreezeWiki，享受體驗清爽乾淨無廣告的 Fandom 頁面。"
+    },
+    "settingsLangEN": {
+        "message": "[EN] 英文 / English"
+    },
+    "settingsWikiLegend": {
+        "message": "圖示"
+    },
+    "settingsLangDE": {
+        "message": "[DE] 德文 / Deutsch"
+    },
+    "guideExtensionOnOffHelp": {
+        "message": "一鍵開關 Indie Wiki Buddy 所有功能。"
+    },
+    "settingsAlertFor": {
+        "message": "對 $origin$：顯示連結至 $destination$ 的橫幅",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "一般設定以下選項："
+    },
+    "guideNotificationsHelp1": {
+        "message": "開啟時會在重新導向至獨立 Wiki 或 $BreezeWiki$ 時發送桌面通知（預設開啟）。",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideNotificationsHelp2": {
+        "message": "若該選項開啟後仍未收到通知，請檢查作業系統設定是否關閉瀏覽器通知。"
+    },
+    "guideReorderResultsHelp1": {
+        "message": "預設情況下，若獨立 Wiki 的搜尋結果在第一頁較為後面的位置，Indie Wiki Buddy 會將這些獨立 Wiki 改排到非獨立 Wiki（Fandom、Fextralife、Neoseeker）前面，可幫助用戶更容易找到獨立 Wiki 的頁面。"
+    },
+    "guideOverviewPara1": {
+        "message": "Indie Wiki Buddy 透過一系列的功能，幫助您找到獨立 Wiki 來提升您的 Wiki 閱讀體驗。"
+    },
+    "guideGlobalSettingsHelp": {
+        "message": "一般設定說明"
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": "以下選項設定如何在搜尋引擎中過濾搜尋結果："
+    },
+    "guideChangelogHelp": {
+        "message": "開啟後，當 Indie Wiki Buddy 有更新時，將會自動開啟$linkStart$更新日誌$linkEnd$。",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": "若不希望在搜尋結果中看見這些橫幅，可關閉此選項。"
+    },
+    "guideWikiHelpPara3": {
+        "message": "右側的第二組按鈕決定非獨立 Wiki 在如 Google、Bing、DuckDuckGo 等搜尋引擎的處理方式。"
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": "開啟後，Indie Wiki Buddy 將會隱藏來自 Fandom、Fextralife 和 Neoseeker Wiki 的搜尋結果，並在上方插入重新導向的橫幅。您也可以在該橫幅處選擇顯示隱藏內容。"
+    },
+    "guideAlert": {
+        "message": "提醒"
+    },
+    "guideWikiHelpPara2": {
+        "message": "左側第一組按鈕決定了開啟非獨立 Wiki 的行為模式。"
+    },
+    "guideRedirect": {
+        "message": "重新導向"
+    },
+    "guideHide": {
+        "message": "隱藏"
+    },
+    "guideHideHelp": {
+        "message": "：在搜尋引擎中隱藏非獨立 Wiki 的搜尋結果。該結果頂部會出現一條橫幅，告知用戶並允許重新顯示這些隱藏結果。"
+    },
+    "notificationTitle": {
+        "message": "已重新導向至此！"
+    },
+    "guideWikiHelpPara4": {
+        "message": "點擊頂部的圖示可將設定應用於所有 Wiki 中。第二行星星符號是提供給新獨立 Wiki 的預設狀態，其選項將應用於未來更心中所新增的站點。預設情況下，所有的站點設定皆為\"提醒\"和\"替換\"。"
+    },
+    "notificationMessage": {
+        "message": "Indie Wiki Buddy 已將您從 $origin$ 重新導向至 $destination$！",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    }
+}

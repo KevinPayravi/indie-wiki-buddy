@@ -6,11 +6,13 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 * [Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/)
 * [Download for Chrome](https://chrome.google.com/webstore/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm)
 
+![CA wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=CA%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesCA.json)
 ![DE wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=DE%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesDE.json)
 ![EN wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=EN%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesEN.json)
 ![ES wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ES%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesES.json)
 ![FI wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FI%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFI.json)
 ![FR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=FR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesFR.json)
+![HR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=HR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesHR.json)
 ![HU wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=HU%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesHU.json)
 ![IT wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=IT%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesIT.json)
 ![JA wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=JA%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesJA.json)
@@ -34,6 +36,8 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20version&logo=google-chrome)
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/users/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20downloads&logo=googlechrome)
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/fkagelmloambgokoeokbpihmgpkbgbfm?style=flat-square&color=%234285f4&label=chrome%20rating&logo=googlechrome)
+
+![Weblate translation status](https://img.shields.io/weblate/progress/indie-wiki-buddy?style=flat-square&logo=weblate&color=%232E8C6A)
 
 ----
 
@@ -109,4 +113,7 @@ Entries are formatted as follows:
 Favicons should be uploaded as 16px PNGs inside the [favicons](favicons) folder.
 
 # Translations
-Translations are currently being prepared on Hosted Weblate ([link](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/)). If you're interested in helping translate, please register for an account at hosted.weblate.org, and you should be able to dive right in and start translating!
+This extension can be translated on Hosted Weblate ([link to the translation project](https://hosted.weblate.org/projects/indie-wiki-buddy/indie-wiki-buddy-browser-extension/)).
+If you're interested in helping translate, please register for an account at [hosted.weblate.org](https://hosted.weblate.org), and you should be able to dive right in and start translating!
+
+![Per-language translation status](https://hosted.weblate.org/widget/indie-wiki-buddy/indie-wiki-buddy-browser-extension/multi-auto.svg)

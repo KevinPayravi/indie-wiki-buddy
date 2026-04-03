@@ -58,13 +58,18 @@ function removeSubstringIfAtEnd(str, sub) {
   return str;
 }
 
+/** @param {string} text */
+function escapeRegExp(text) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 /**
  * Finds the closest ancestor element with a non-transparent background color.
  * @param {HTMLElement} element
  * @returns {string}
  */
 function getClosestBackgroundColor(element) {
-  let parent = element.parentElement;
+  let parent = element;
   while (parent) {
     const style = window.getComputedStyle(parent);
     const bgColor = style.backgroundColor;
@@ -94,6 +99,7 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
   if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link') && !searchResultContainer.querySelector('.iwb-detected')) {
     searchResultContainer.classList.add('iwb-detected');
     searchResultContainer.classList.add('iwb-disavow');
+    searchResultContainer.classList.add('iwb-has-new-link');
     // Using aside to avoid conflicts with website CSS and listeners:
     let indieContainer = document.createElement('aside');
     indieContainer.classList.add('iwb-new-link-container');
@@ -400,7 +406,7 @@ function getResultContainer(searchEngine, searchResult) {
       searchResultContainer = searchResult.closest('li[data-layout], div.web-result');
       break;
     case 'brave':
-      searchResultContainer = searchResult.closest('div.snippet');
+      searchResultContainer = searchResult.closest('div.result-wrapper') || searchResult.closest('div.snippet[data-type="web"]');
       break;
     case 'ecosia':
       searchResultContainer = searchResult.closest('div.mainline__result-wrapper article')?.parentElement;
@@ -415,7 +421,7 @@ function getResultContainer(searchEngine, searchResult) {
       searchResultContainer = searchResult.closest('div.result, div.w-gl__result');
       break;
     case 'yandex':
-      searchResultContainer = searchResult.closest('li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
+      searchResultContainer = searchResult.closest('#search-result > li, #search-result > div[data-yaet4], li[data-cid], .serp-item, .MMOrganicSnippet, .viewer-snippet');
       break;
     case 'yahoo':
       searchResultContainer = searchResult.closest('#web > ol > li div.itm .exp, #web > ol > li div.algo, #web > ol > li, section.algo');
@@ -433,6 +439,22 @@ function getResultContainer(searchEngine, searchResult) {
 
   // @ts-ignore: searchResultContainer would always be of type HTMLElement
   return searchResultContainer;
+}
+
+/**
+ * Returns the element to use for DOM swapping during re-ordering.
+ * @param {string} searchEngine
+ * @param {HTMLElement} resultContainer
+ */
+function getSwapContainer(searchEngine, resultContainer) {
+  if (searchEngine === 'brave') {
+    const snippetContainer = resultContainer.closest('div.snippet[data-type="web"]');
+    if (snippetContainer instanceof HTMLElement) {
+      return snippetContainer;
+    }
+  }
+
+  return resultContainer;
 }
 
 /**
@@ -459,8 +481,7 @@ function filterSearchResult(wikiInfo, anchorElement) {
   let countFiltered = 0;
 
   if (getSearchFilterSetting(wikiInfo.id) !== 'disabled') {
-    // Get user's reorder settings
-    let reorderResults = storage.reorderResults ?? 'on';
+    const reorderResultsEnabled = (storage.reorderResults ?? 'on') === 'on';
 
     // Get the containing element for the search result
     let searchResultContainer = getResultContainer(searchEngine, anchorElement);
@@ -470,17 +491,19 @@ function filterSearchResult(wikiInfo, anchorElement) {
       let originArticle = commonFunctionGetOriginArticle(searchResultLink, wikiInfo);
       let destinationArticle = commonFunctionGetDestinationArticle(wikiInfo, originArticle);
 
-      if (reorderResults === 'on' && ((processedCache.find(({ url }) => url.match(
-        // Match for destination URL with content path and article name
-        new RegExp(
-          `http(s)?://${wikiInfo.destination_base_url}${wikiInfo.destination_content_path}${decodeURI(destinationArticle)}$`
-        )
-      ))) || ((originArticle === wikiInfo.origin_main_page) && processedCache.find(({ url }) => url.match(
-        // Match for destination URL by main page, when applicable
-        new RegExp(
-          `http(s)?://${wikiInfo.destination_base_url}${wikiInfo.destination_content_path}${decodeURI(wikiInfo.destination_main_page)}$`
-        )
-      ))))) {
+      const destinationArticleDecoded = decodeURI(destinationArticle);
+      const destinationArticleBase = destinationArticleDecoded.replace(/_\([^/]*\)$/, '');
+      const destinationPrefixPattern = escapeRegExp(wikiInfo.destination_base_url + wikiInfo.destination_content_path);
+      const destinationArticlePattern = `${escapeRegExp(destinationArticleBase)}(?:_\\([^/]+\\))?`;
+      const destinationMatchRegex = new RegExp(`^https?://${destinationPrefixPattern}${destinationArticlePattern}$`);
+      const mainPageMatchRegex = new RegExp(
+        `^https?://${destinationPrefixPattern}${escapeRegExp(decodeURI(wikiInfo.destination_main_page))}$`
+      );
+
+      if (reorderResultsEnabled && (
+        processedCache.some(({ url }) => destinationMatchRegex.test(decodeURI(url))) ||
+        ((originArticle === wikiInfo.origin_main_page) && processedCache.some(({ url }) => mainPageMatchRegex.test(decodeURI(url))))
+      )) {
         countFiltered += hideSearchResults(searchResultContainer, wikiInfo, 'off');
         console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
       } else {
@@ -509,6 +532,7 @@ function swapDOMElements(a, b) {
   dummy.replaceWith(b);
 }
 
+/** @type {Set<HTMLAnchorElement>} */
 const checkedAnchors = new Set();
 
 /**
@@ -518,20 +542,30 @@ async function filterSearchResults(searchResults) {
   let countFiltered = 0;
 
   for (const searchResult of searchResults) {
-    // Check that we haven't already processed this result
-    if (checkedAnchors.has(searchResult)) {
-      continue;
-    }
-    checkedAnchors.add(searchResult);
-
     try {
-      // Check that result isn't within another result
-      if (!searchResult.closest('.iwb-detected') && !searchResult.closest('.iwb-detected')?.querySelector('.iwb-new-link')) {
-        let searchResultLink = searchResult.getAttribute('data-iwb-href') ?? searchResult.href ?? '';
-        if (!searchResultLink) {
-          continue;
-        }
+      if (checkedAnchors.has(searchResult)) {
+        continue;
+      }
+      checkedAnchors.add(searchResult);
+      
+      let searchResultLink = searchResult.getAttribute('data-iwb-href') ?? searchResult.href ?? '';
+      if (!searchResultLink) {
+        continue;
+      }
 
+      const existingContainer = getResultContainer(searchEngine, searchResult);
+      if (existingContainer?.classList.contains('iwb-disavow') && !isNonIndieSite(searchResultLink)) {
+        existingContainer.querySelector('.iwb-new-link-container')?.remove();
+        existingContainer.classList.remove('iwb-disavow');
+        existingContainer.classList.remove('iwb-detected');
+        existingContainer.classList.remove('iwb-has-new-link');
+      }
+
+      const detectedContainer = searchResult.closest('.iwb-detected');
+      const skipDetectedResult = !!detectedContainer && !detectedContainer.querySelector('.iwb-new-link');
+
+      // Check that result isn't within another result.
+      if (!skipDetectedResult) {
         if (searchEngine === 'google') {
           // Break if image result:
           if (searchResultLink.includes('imgurl=')) {
@@ -559,6 +593,7 @@ async function filterSearchResults(searchResults) {
         const searchResultContainer = getResultContainer(searchEngine, searchResult);
 
         if (searchResultContainer) {
+          const swapContainer = getSwapContainer(searchEngine, searchResultContainer);
           searchResultContainer.classList.add('iwb-detected');
 
           // Handle source -> destination filtering, i.e. non-indie/commercial wikis
@@ -573,7 +608,7 @@ async function filterSearchResults(searchResults) {
               url: searchResultLink,
               isNonIndie: true,
               siteData: matchingNonIndieWiki,
-              container: searchResultContainer,
+              container: swapContainer,
               anchor: searchResult,
             });
           } else {
@@ -585,23 +620,29 @@ async function filterSearchResults(searchResults) {
                 url: searchResultLink,
                 isNonIndie: false,
                 siteData: matchingIndieWiki,
-                container: searchResultContainer,
+                container: swapContainer,
                 anchor: searchResult,
               };
 
               if (getSearchFilterSetting(matchingIndieWiki.id) !== 'disabled') {
-                if ((storage.reorderResults ?? 'on') == 'on' && processedCache.at(-1)?.isNonIndie) {
+                const matchingNonIndieIndex = processedCache.findIndex(
+                  ({ isNonIndie, siteData }) => isNonIndie && siteData.id === matchingIndieWiki.id
+                );
+
+                if ((storage.reorderResults ?? 'on') === 'on' && matchingNonIndieIndex !== -1) {
                   console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
 
-                  const index = processedCache.findIndex(({ isNonIndie }) => isNonIndie);
+                  const index = matchingNonIndieIndex;
                   // push cacheInfo right before the first non-indie wiki
                   processedCache.splice(index, 0, cacheInfo);
                   // swap the elements upwards until the indie wiki is above the non-indie wiki
                   for (let i = processedCache.length - 1; i > index; i--) {
                     const prev = processedCache[i];
-                    swapDOMElements(prev.container, searchResultContainer);
-                    // try re-filtering the element that was swapped
-                    countFiltered += filterSearchResult(prev.siteData, prev.anchor);
+                    swapDOMElements(prev.container, cacheInfo.container);
+                    // Re-filter swapped non-indie entries only
+                    if (prev.isNonIndie) {
+                      countFiltered += filterSearchResult(prev.siteData, prev.anchor);
+                    }
                   }
                 } else {
                   processedCache.push(cacheInfo);
@@ -706,7 +747,9 @@ function filterAnchors(newAnchors) {
       break;
     }
     case 'brave': {
-      const searchResults = newAnchors.filter(e => e.matches('div.snippet[data-type="web"] a'));
+      processedCache.length = 0;
+      checkedAnchors.clear();
+      const searchResults = Array.from(document.body?.querySelectorAll('div.snippet[data-type="web"] div.result-content > a.l1:not(.iwb-new-link)') ?? []);
       filterSearchResults(searchResults);
       break;
     }
@@ -726,7 +769,7 @@ function filterAnchors(newAnchors) {
       break;
     }
     case 'yandex': {
-      const searchResults = newAnchors.filter(e => e.matches('li[data-cid] a.link, li[data-cid] a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a'));
+      const searchResults = newAnchors.filter(e => e.matches('li a.link, li a.Link, .OrganicTitle a.Link, .serp-item a.link, .serp-item a.Link, .MMOrganicSnippet a, .viewer-snippet a'));
       filterSearchResults(searchResults);
       break;
     }

@@ -267,7 +267,7 @@ function main() {
           if (currentURL.search.includes('?q=')) {
             origin = 'https://' + origin + currentURL.search.substring(3);
           } else {
-            origin = 'https://' + origin + currentURL.pathname.split('/')[3];
+            origin = 'https://' + origin + currentURL.pathname.split('/').slice(3).join('/');
           }
         }
 

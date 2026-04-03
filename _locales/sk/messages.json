@@ -1,0 +1,759 @@
+{
+    "extensionDescription": {
+        "message": "Indie Wiki Buddy Vám pomôže nájsť kvalitné, nezávislé wiki pomocou upozornení, presmerovaní a filtrovania."
+    },
+    "bannerRestore": {
+        "message": "Obnoviť banner"
+    },
+    "bannerDisableDone": {
+        "message": "Banner vypnutý"
+    },
+    "bannerLanguageEnglish": {
+        "message": "v angličtine"
+    },
+    "searchResultVisitEnglish": {
+        "message": "Radšej navštíviť $destination$ (v angličtine)",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchFilteredResultsHide": {
+        "message": "Schovať filtrované výsledky"
+    },
+    "searchResultLookupEnglish": {
+        "message": "Nájsť $article$ na $destination$ (v angličtine)",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "settingsBannerOpera": {
+        "message": "Použivatelia internetového prehliadača Opera: Opera v predvolenom nastavení blokuje rozšírenia aby fungovali na výsledkoch vyhľadávania. Toto nastavenie sa dá zmeniť ak pôjdete na „about:extensions“ a zvolíte možnosť „povoliť prístup k výsledkom vyhľadávania“ pod Indie Wiki Buddy."
+    },
+    "firstInstallInfo5": {
+        "message": "Neskôr si môžete zmeniť tieto nastavenia kliknutím na ikonu rozšírenia $logo$ v pravom hornom rohu vášho prehliadača. Ak ikonu nevidíte, možno je v rozbaľovacej ponuke rozšírení, ktorá sa dá otvoriť kliknutím na ikonu skladačky $jigsaw$ (taktiež v pravom hornom rohu vášho prehliadača).",
+        "placeholders": {
+            "logo": {
+                "content": "$1",
+                "example": "(image for the extension icon)"
+            },
+            "jigsaw": {
+                "content": "$2",
+                "example": "(image for the jigsaw icon)"
+            }
+        }
+    },
+    "settingsBreezeWiki": {
+        "message": "BreezeWiki alternatívny frontend pre Fandom ($linkStart$viac info$linkEnd$)",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "bannerDescriptorIndependentOfficial": {
+        "message": "oficiálna nezávislá"
+    },
+    "searchResultLookup": {
+        "message": "Nájsť $article$ na $destination$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "extensionName": {
+        "message": "Indie Wiki Buddy"
+    },
+    "bannerText": {
+        "message": "Je $descriptor$ wiki $host$ na túto tému $language$",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "bannerHost": {
+        "message": "na $host$",
+        "placeholders": {
+            "host": {
+                "content": "$1",
+                "example": "wiki.gg"
+            }
+        }
+    },
+    "bannerDescriptorIndependent": {
+        "message": "nezávislá"
+    },
+    "bannerDescriptorOfficial": {
+        "message": "oficiálna"
+    },
+    "bannerVisit": {
+        "message": "Prejdite na $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "bannerBreezeWiki": {
+        "message": "Pozrite si túto Fandom wiki cez BreezeWiki"
+    },
+    "bannerRestoreDone": {
+        "message": "Banner bol obnovený"
+    },
+    "bannerDisable": {
+        "message": "Vypnúť banner pre túto wiki"
+    },
+    "bannerRedirect": {
+        "message": "Automaticky presmerovať túto wiki"
+    },
+    "bannerRedirectDone": {
+        "message": "Presmerovanie je zapnuté"
+    },
+    "searchResultVisit": {
+        "message": "Radšej navštíviť $destination$",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "Obnoviť výsledok"
+    },
+    "searchFilteredResultsShow": {
+        "message": "Ukázať skryté výsledky"
+    },
+    "settingsTitle": {
+        "message": "Indie Wiki Buddy nastavenia"
+    },
+    "settingsGuide": {
+        "message": "Príručka"
+    },
+    "settingsWebsite": {
+        "message": "Stránka"
+    },
+    "settingsChangelog": {
+        "message": "Zoznam zmien"
+    },
+    "settingsSubmitWiki": {
+        "message": "Pridajte wiki"
+    },
+    "settingsSourceCode": {
+        "message": "Zdrojový kód"
+    },
+    "settingsBannerReview": {
+        "message": "Páči sa Vám Indie Wiki Buddy? Nechajte nám recenziu!"
+    },
+    "settingsBannerReviewContact": {
+        "message": "Máte problémy alebo nápady na zlepšenie rozšírenia? $linkStart$Kontaktujte nás$linkEnd$!",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "firstInstallInfo1": {
+        "message": "Ďakujeme Vám za inštaláciu Indie Wiki Buddy! Teraz musíme rozšírenie nastaviť."
+    },
+    "firstInstallInfo3": {
+        "message": "V nižších nastaveniach môžete zapnúť či vypnúť rôzne funkcie tohto rozšírenia. Taktiež máte možnosť zapnúť $BreezeWiki$, alternatívny frontend, ktorý Vám ukáže Fandom wiki bez reklám.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "settingsGeneral": {
+        "message": "Všeobecné nastavenia"
+    },
+    "settingsNotifications": {
+        "message": "Desktop upozornenia na presmerovanie"
+    },
+    "settingsCrossLanguage": {
+        "message": "Presmerovať neanglické Fandom wiki na nezávislé anglické wiki ak neexistuje wiki v tom istom jazyku"
+    },
+    "settingsOpenChangelog": {
+        "message": "Automaticky otvoriť zoznam zmien po aktualizácii Indie Wiki Buddy"
+    },
+    "settingsSearchEngineFiltering": {
+        "message": "Filtrovanie internetových vyhľadávačov"
+    },
+    "settingsHiddenResultsBanner": {
+        "message": "Ukázať banner vo vyhľadávačoch ak sú niektoré výsledky skryté"
+    },
+    "settingsReorderResults": {
+        "message": "Presunúť výsledky z nezávislých wiki nad ostatné wiki a schovať duplikáty (okrem Brave)"
+    },
+    "settingsBreezeWikiDisabled": {
+        "message": "Vypnúť BreezeWiki"
+    },
+    "settingsBreezeWikiRedirect": {
+        "message": "Automatické presmerovanie Fandom na BreezeWiki"
+    },
+    "settingsBreezeWikiHost": {
+        "message": "BreezeWiki hostiteľský server:"
+    },
+    "settingsBreezeWikiCustomHost": {
+        "message": "Vlastná BreezeWiki doména:"
+    },
+    "settingsBreezeWikiCustomHostOption": {
+        "message": "Iný hostiteľský server…"
+    },
+    "settingsBreezeWikiCustomHostSet": {
+        "message": "Nastaviť doménu"
+    },
+    "settingsBreezeWikiCustomHostSetSuccessful": {
+        "message": "Pridanie úspešné"
+    },
+    "settingsBreezeWikiCustomHostSetFailed": {
+        "message": "Pridanie zlyhalo"
+    },
+    "settingsWiki": {
+        "message": "Individuálne wiki nastavenia"
+    },
+    "settingsWikiLegend": {
+        "message": "Legenda"
+    },
+    "settingsWikiLegendWikiExp": {
+        "message": "Keď navštívite Fandom, Fextralife, alebo Neoseeker wiki, ktorá má nezávislú alternatívu, IWB môže:"
+    },
+    "settingsWikiLegendSearchExp": {
+        "message": "Keď výsledky internetového vyhľadávača majú Fandom, Fextralife, alebo Neoseeker wiki s nezávislými alternatívami, IWB môže:"
+    },
+    "settingsDisabled": {
+        "message": "Nerobiť nič"
+    },
+    "settingsAlert": {
+        "message": "Ukázať banner odkazujúci na nezávislú wiki"
+    },
+    "settingsRedirect": {
+        "message": "Presmerovať na nezávislú wiki"
+    },
+    "settingsReplace": {
+        "message": "Nahradiť výsledok s odkazom na nezávislú wiki"
+    },
+    "settingsHide": {
+        "message": "Schovať výsledok"
+    },
+    "settingsFilterByName": {
+        "message": "Filtrovanie wiki podľa mena:"
+    },
+    "settingsLangAll": {
+        "message": "Všetky jazyky"
+    },
+    "settingsLangEN": {
+        "message": "[EN] Angličtina / English"
+    },
+    "settingsLangFI": {
+        "message": "[FI] Fínčina / suomi"
+    },
+    "settingsLangFR": {
+        "message": "[FR] Francúzština / Français"
+    },
+    "settingsLangHU": {
+        "message": "[HU] Maďarčina / Magyar"
+    },
+    "firstInstallInfo2": {
+        "message": "Pomocou vyšších odkazov si môžete prečítať príručku k rozšíreniu, pridať nové wiki, alebo kontaktovať vývojára."
+    },
+    "searchRemovalNotice": {
+        "message": "Indie Wiki Buddy skryl výsledky z $destination$. Radšej pozrite výsledky z $link$.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "settingsBannerHide": {
+        "message": "Skryť túto správu"
+    },
+    "firstInstallInfo4": {
+        "message": "Pod tým môžete individuálne nastaviť čo sa stane ak navštívite Fandom, Fextralife a Neoseeker wiki, ktoré majú nezávislú alternatívu. Taktiež môžete nastaviť, čo sa stane s ich výsledkami vo vyhľadávačoch. Ak navštívite takú wiki, môžete si nastaviť či budete $alert$ varovaný (predvolené nastavenie) alebo $redirect$ automaticky presmerovaný. Čo sa týka vyhľadávačov, môžete si zvoliť $replace$ nahradenie ich výsledkov (predvolené nastavenie) alebo $hide$ ich skrytie.",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "(image for alert)"
+            },
+            "redirect": {
+                "content": "$2",
+                "example": "(image for redirect)"
+            },
+            "replace": {
+                "content": "$3",
+                "example": "(image for replace)"
+            },
+            "hide": {
+                "content": "$4",
+                "example": "(image for hide)"
+            }
+        }
+    },
+    "settingsBreezeWikiBanner": {
+        "message": "Vložiť banner odkaz, ktorý Vas presmeruje na BreezeWiki"
+    },
+    "settingsLangES": {
+        "message": "[ES] Španielčina / Español"
+    },
+    "settingsFilterByLanguage": {
+        "message": "Filtrovanie wiki podľa jazyka:"
+    },
+    "settingsLangDE": {
+        "message": "[DE] Nemčina / Deutsch"
+    },
+    "settingsLangIT": {
+        "message": "[IT] Taliančina / Italiano"
+    },
+    "bannerDescriptorWiki": {
+        "message": " "
+    },
+    "settingsLangLZH": {
+        "message": "[LZH] Klasická čínština / 文言"
+    },
+    "settingsLangPL": {
+        "message": "[PL] Poľština / Polski"
+    },
+    "settingsLangSV": {
+        "message": "[SV] Švédčina / Svenska"
+    },
+    "settingsLangTR": {
+        "message": "[TR] Turečtina / Türkçe"
+    },
+    "settingsLangZH": {
+        "message": "[ZH] Čínština / 中文"
+    },
+    "settingsNameFilterPlaceholder": {
+        "message": "Napíšte názov wiki…"
+    },
+    "settingsWikiExp": {
+        "message": "Wiki skúsenosť"
+    },
+    "settingsSearchExp": {
+        "message": "Vyhľadávacia skúsenosť"
+    },
+    "settingsNewWiki": {
+        "message": "Predvolené nastavenie pre nové wiki v budúcich aktualizáciách:"
+    },
+    "settingsFunStats": {
+        "message": "Štatistiky pre srandu"
+    },
+    "settingsFunStatsRedirects": {
+        "message": "$redirect$ automatických presmerovaní na nezávislé wiki",
+        "placeholders": {
+            "redirect": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsBreezeWiki": {
+        "message": "$breezeWiki$ automatických presmerovaní na BreezeWiki",
+        "placeholders": {
+            "breezeWiki": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsFunStatsSearchFilters": {
+        "message": "$hide$ skrytých výsledkov internetového vyhľadávania",
+        "placeholders": {
+            "hide": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsReplaceFor": {
+        "message": "Nahradiť $origin$ výsledky vyhľadávania s odkazmi na $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsCustomWikiDelete": {
+        "message": "Odstrániť"
+    },
+    "settingsExtensionOn": {
+        "message": "Rozšírenie je zapnuté"
+    },
+    "popupOpenSettings": {
+        "message": "Otvoriť všetky nastavenia"
+    },
+    "popupWikiLegendWikiExp": {
+        "message": "Pri návšteve Fandom, Fetralife a Neoseeker wiki:"
+    },
+    "popupSettingsPerWiki": {
+        "message": "Navštívte $linkStart$všetky nastavenia$linkEnd$ na zmenu správania pre každú wiki.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "popupSettingsOverride": {
+        "message": "Kliknutie na jednu z volieb prepíše vaše individuálne prispôsobenie pre každú wiki."
+    },
+    "popupBreezeWikiSeeSettingsLink": {
+        "message": "Zmente vlastnú doménu na$linkStart$stránke nastavení$linkEnd$",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideBackToSettings": {
+        "message": "⇦ Späť na nastavenia"
+    },
+    "guideOverview": {
+        "message": "Prehľad"
+    },
+    "guideOverviewPara3": {
+        "message": "Momentálne presmerujeme z Fandom, Fextralife a Neoseeker wiki na ich nezávislé alternatívy."
+    },
+    "guideOverviewPara5": {
+        "message": "Tieto funkcie sa dajú zapnúť a vypnúť. Všetky nastavenia si môžete zmeniť pre každú wiki osobitne. Nad rozšírením máte úplnú kontrolu!"
+    },
+    "guideGlobalSettingsHelp": {
+        "message": "Pomoc s globálnymi nastaveniami"
+    },
+    "guideGlobalSettingsHelpIntro": {
+        "message": "Existuje niekoľko všeobecných nastavení:"
+    },
+    "guideExtensionOnOff": {
+        "message": "Rozšírenie je zapnuté / vypnuté"
+    },
+    "guideExtensionOnOffHelp": {
+        "message": "Zapnite alebo vypnite všetky funkcie Indie Wiki Buddy s kliknutím tlačítka."
+    },
+    "guideNotificationsHelp1": {
+        "message": "Ak zapnete túto možnosť, dostanete desktop upozornenia keď budete automaticky presmerovaní na nezávislú wiki alebo na $BreezeWiki$. V predvolenom nastavení je táto možnosť zapnutá.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideCrossLanguageHelp2": {
+        "message": "Bohužiaľ táto funkcia momentálne nefunguje na Fextralife wiki stránkach."
+    },
+    "guideChangelogHelp": {
+        "message": "Zapnite túto možnosť ak chcete aby bol $linkStart$zoznam zmien$linkEnd$ otvorený v novej karte vždy keď je Indie Wiki Buddy aktualizovaný, aby ste ostali v obraze o tom, čo sa zmenilo.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideGlobalSettingsHelpSearch": {
+        "message": "Taktiež si môžete zmeniť vaše nastavenia pre filtrovanie výsledkov v internetových vyhľadávačoch:"
+    },
+    "guideTogglePerSearchEngine": {
+        "message": "Zmeniť filtrovanie podľa vyhľadávača"
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": "Rozšírenie momentálne funguje s: Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, a Yandex."
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": "Ak nechcete vidieť indikátor, že boli nejaké výsledky schované, tak vypnite túto možnosť."
+    },
+    "guideReorderResultsHelp2": {
+        "message": "Táto funkcia je momentálne dostupná len pre Google, keďže je náročné ju spoľahlivo udržiavať."
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": "Nepresmerovať Fandom na BreezeWiki."
+    },
+    "guideBreezeWikiBannerHelp": {
+        "message": "V hornej časti anglických Fandom wiki stránok sa objaví malý banner s odkazom na BreezeWiki verziu wiki."
+    },
+    "guideBreezeWikiHostHelp": {
+        "message": "Po tom, čo zapnete BreezeWiki možnosť, objaví sa rozbaľovacie okno, kde si budete môcť vybrať Vášho preferovaného hostiteľa BreezeWiki. Keď bude Váš zvolený hostiteľ zrušený, môžete sa sem vrátiť a vybrať si iného hostiteľa."
+    },
+    "guideWikiHelp": {
+        "message": "Pomoc s nastaveniami pre individuálne wiki"
+    },
+    "guideWikiHelpPara2": {
+        "message": "Prvý súbor prepínačov ovláda čo sa stane ak navštívite uvedené wiki stránky."
+    },
+    "guideDisable": {
+        "message": "Vypnúť"
+    },
+    "guideRedirect": {
+        "message": "Presmerovať"
+    },
+    "guideRedirectHelp": {
+        "message": ": Budete automaticky presmerovaný na nezávislú alternatívu."
+    },
+    "guideAlert": {
+        "message": "Upozornenie"
+    },
+    "guideAlertHelp": {
+        "message": ": Na vrchu stránky bude banner, ktorý Vás upozorní na to, že existuje nezávislá wiki. Toto sa objaví na Fandom aj BreezeWiki stránkach."
+    },
+    "guideDisableSearchHelp": {
+        "message": ": Výsledky vyhľadávania sú nedotknuté."
+    },
+    "guideHide": {
+        "message": "Skryť"
+    },
+    "guideReplace": {
+        "message": "Nahradiť"
+    },
+    "guideReplaceHelp": {
+        "message": ": Pôvodný výsledok je vypnutý, a tlačidlo nad výsledkom Vás zoberie na nezávislú verziu wiki."
+    },
+    "guideFeedback": {
+        "message": "Máte otázky či spätnú väzbu?"
+    },
+    "guideFeedbackPara2": {
+        "message": "Návrhy na zlepšenie rozšírenia sú taktiež vítané!"
+    },
+    "notificationMessage": {
+        "message": "Indie Wiki Buddy Vás poslal z $origin$ na $destination$!",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "notificationTitle": {
+        "message": "Boli ste presmerovaný!"
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "Boli ste presmerovaný na BreezeWiki!"
+    },
+    "notificationMessageBreezeWiki": {
+        "message": "Indie Wiki Buddy Vás presmeroval na BreezeWiki pre lepší, bezreklamný zážitok na Fandome."
+    },
+    "settingsWikiFrom": {
+        "message": " (z $origin$)",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "popupWikiLegendSearchExp": {
+        "message": "Keď výsledky vyhľadávania majú Fandom, Fextralife, alebo Neoseeker wiki s nezávislou alternatívou, IWB môže:"
+    },
+    "settingsLangPT": {
+        "message": "[PT] Portugalčina / Português"
+    },
+    "settingsLangNL": {
+        "message": "[NL] Holandčina / Nederlands"
+    },
+    "settingsLangRU": {
+        "message": "[RU] Ruština / Русский"
+    },
+    "settingsLangJA": {
+        "message": "[JA] Japončina / 日本語"
+    },
+    "guideOverviewPara2": {
+        "message": "Ak navštívite wiki. ktorá je s veľkým, firemným hostiteľom, toto rozšírenie Vás upozorní alebo automaticky presmeruje na kvalitnú, nezávislú wiki, ak existuje. Vaše výsledky vyhľadávania v Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo! a Yandex môžu byť filtrované. Teda buď budú nahradené s odkazmi na nezávislé alternativy alebo úplne skryté, podľa Vašich nastavení."
+    },
+    "settingsLangTH": {
+        "message": "[TH] Thajčina / ไทย"
+    },
+    "settingsHideFor": {
+        "message": "Schovať $origin$ výsledky vyhľadávania",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "settingsRedirectFor": {
+        "message": "Automaticky presmerovať $origin$ na $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsLangKO": {
+        "message": "[KO] Kórejčina / 한국어"
+    },
+    "settingsAlertFor": {
+        "message": "Ukázať banner na $origin$ odkazujúci na $destination$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "Minecraft Wiki"
+            }
+        }
+    },
+    "settingsLangTOK": {
+        "message": "[TOK] Toki Pona / toki pona"
+    },
+    "settingsLangUK": {
+        "message": "[UK] Ukrajinčina / Українська"
+    },
+    "settingsDisabledFor": {
+        "message": "Nerobiť nič pre $origin$",
+        "placeholders": {
+            "origin": {
+                "content": "$1",
+                "example": "Minecraft Fandom Wiki"
+            }
+        }
+    },
+    "guideDisableVisitHelp": {
+        "message": ": Nebudete upozornení ani presmerovaný na nezávislú verziu wiki. Stále budete presmerovaný na BreezeWiki verziu, ak je zapnutá."
+    },
+    "settingsSetColumn": {
+        "message": "Kliknite na ikonu na nastavenie všetkých wiki v stĺpci:"
+    },
+    "settingsFunStatsAlerts": {
+        "message": "$alert$ pripomenutí o nezávislých wiki",
+        "placeholders": {
+            "alert": {
+                "content": "$1",
+                "example": "123"
+            }
+        }
+    },
+    "settingsExtensionOff": {
+        "message": "Rozšírenie je vypnuté"
+    },
+    "popupDefault": {
+        "message": "Predvolené správanie (bude aplikované na všetky aktuálne a nové wiki v budúcich aktualizáciách)"
+    },
+    "guideOverviewPara1": {
+        "message": "Indie Wiki Buddy ponúka funkcie, ktoré Vám pomôžu nájsť nezávislé wiki a zlepšia Váš všeobený zážitok s čítaním wiki stránok."
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": "Predvolené nastavenie je, že filtrovanie je zapnuté pre všetky internetové vyhľadávače. Filtrovanie je robené podľa použivateľových zvolených nastaveniach pre každú wiki. Predvolené nastavenie filtrovania pre všetky wiki je nahrádzanie výsledkov s tlačítkami, ktoré odkazujú na nezávislé alternatívy."
+    },
+    "popupBreezeWikiSeeSettings": {
+        "message": "Pozrieť nastavenia"
+    },
+    "guideTitle": {
+        "message": "Príručka k Indie Wiki Buddy"
+    },
+    "guideOverviewPara4": {
+        "message": "Indie Wiki Buddy taktiež podporuje $BreezeWiki$. $BreezeWiki$ je samostatná služba, ktorá Vám môže ukázať Fandom wiki bez reklám. Toto Vám môže poskytnúť lepšiu čítateľskú skúsenosť ak nezávislá wiki nie je dostupná.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideNotificationsHelp2": {
+        "message": "Ak nedostávate upozornenia keď je táto možnosť zapnutá, pozrite sa na nastavenie upozornení na Vašom operačnom systéme. Je možné, že váš prehliadač nemá povolenie posielať upozornenia."
+    },
+    "guideCrossLanguageHelp1": {
+        "message": "S predvoleným nastavením Indie Wiki Buddy používateľov nechá v tom istom jazyku (teda španielské Fandom wiki budú presmerované len na nazávislé španielské wiki). Avšak viacjazyčný používatelia možno budú chcieť byť presmerovaní na jednu z mnohých nezávislých anglických wiki stránok. Ak zapnete túto možnosť, tak budete automaticky presmerovaný z neanglických Fandom wiki stránok na nezávislé anglické wiki ak neexistuje nezávislá alternatíva v tom istom jazyku."
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": "Ak je táto možnosť zapnutá, tak bude nad výsledkami vyhľadávania ukázaný banner, ale len keď Indie Wiki Buddy schoval nejaké výsledky z Fandom, Fextralife, alebo Neoseeker wiki stránok. Tento banner Vám taktiež umožní ukázať tieto skryté výsledky."
+    },
+    "guideReorderResultsHelp1": {
+        "message": "S predvoleným nastavením Indie Wiki Buddy zmení poradie výsledkov na Google tak, aby výsledky z nezávislých wiki stránok boli nad prvým výsledkom z Fandom / Fextralife / Neoseeker, ak sú nezávislé wiki výsledky nižšie na stránke výsledkov. Toto Vám umožní rýchlejšie nájsť články na nezávislých wiki stránkach."
+    },
+    "guideBreezeWikiRedirectHelp": {
+        "message": "Ak navštívite hociktorú anglickú Fandom wiki, budete ihneď presmerovaný na BreezeWiki. Avšak ak je automatické presmerovanie na nezávislé wiki stránky zapnuté, nezávislá wiki bude mať prednosť."
+    },
+    "guideBreezeWiki": {
+        "message": "Taktiež si môžete zvoliť Vaše požadované nastavenie pre $BreezeWiki$, samostatnú službu, ktorá vám ukáže Fandom wiki stránky bez reklám. BreezeWiki zatiaľ podporuje iba anglické wiki.",
+        "placeholders": {
+            "BreezeWiki": {
+                "content": "$1",
+                "example": "BreezeWiki"
+            }
+        }
+    },
+    "guideHideHelp": {
+        "message": ": Výsledky sú skryté v internetových vyhľadávačoch. Pri vrchu stránky bude ukázaný informatívny banner, ktorý Vám umožní ukázať skryté výsledky."
+    },
+    "guideFeedbackPara1": {
+        "message": "Ak ste sa zasekli alebo máte nejaké otázky, prosím ozvite sa cez $linkStart$kontaktné detaily$linkEnd$ na spodnej časti stránky Indie Wiki Buddy.",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "guideWikiHelpPara1": {
+        "message": "V sekcii individuálnych nastavení na stránke nastavení si môžete zmeniť Vaše nastavenia pre každú wiki. Prečítajte si legendu alebo presuňte svoj kurzor na ikony aby ste zistili čo každý stĺpec znamená."
+    },
+    "guideWikiHelpPara3": {
+        "message": "Druhý súbor prepínačov ovláda čo sa stane s wiki na Google, Bing, DuckDuckGo, a iných vyhľadávačoch."
+    },
+    "guideWikiHelpPara4": {
+        "message": "Kliknutím na ikony v záhlaví tabuľky bude dané nastavenie použité pre všetky wiki v tabuľke. Hviezdy v druhom riadku ukazujú predvolené nastavenie pre wiki, ktoré budú pridané v budúcich aktualizáciách. Predvolené nastavenie je upozornenie a náhrada vo výsledkoch vyhľadávania."
+    }
+}
