@@ -1,4 +1,4 @@
-const extensionAPI = typeof browser === "undefined" ? chrome : browser;
+import { extensionAPI } from "../../scripts/common-functions.js";
 
 // Somehow this has to be done manually
 document.querySelectorAll('[data-msg]').forEach(element => {

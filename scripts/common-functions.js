@@ -1,6 +1,6 @@
-var LANGS = ["CA", "DE", "EN", "ES", "FI", "FR", "HR", "HU", "IT", "JA", "KO", "LZH", "NL", "PL", "PT", "RU", "SV", "TH", "TOK", "TR", "UK", "ZH"];
-var BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
-const extensionAPI = typeof browser === "undefined" ? chrome : browser;
+export const extensionAPI = typeof browser === "undefined" ? chrome : browser;
+const LANGS = ["CA", "DE", "EN", "ES", "FI", "FR", "HR", "HU", "IT", "JA", "KO", "LZH", "NL", "PL", "PT", "RU", "SV", "TH", "TOK", "TR", "UK", "ZH"];
+const BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 
 /** @param {string} str */
 function b64decode(str) {
@@ -18,7 +18,7 @@ function b64decode(str) {
  * @param {string[]} stringArray
  * @returns {string}
  */
-function camelCaseJoin(stringArray) {
+export function camelCaseJoin(stringArray) {
   let outputString = "";
   for(let i = 0; i < stringArray.length; i++)
   {
@@ -33,7 +33,7 @@ function camelCaseJoin(stringArray) {
 }
 
 /** @param {string} value */
-async function commonFunctionDecompressJSON(value) {
+export async function decompressJSON(value) {
   // Check if value is base64 encoded:
   if (BASE64REGEX.test(value)) {
     // Decode into blob
@@ -55,7 +55,7 @@ async function commonFunctionDecompressJSON(value) {
   }
 }
 /** @param {string} value */
-async function commonFunctionCompressJSON(value) {
+export async function compressJSON(value) {
   const stream = new Blob([JSON.stringify(value)], {
     type: 'application/json',
   }).stream();
@@ -82,7 +82,7 @@ async function commonFunctionCompressJSON(value) {
  * Load wiki data objects, with each destination having its own object
  * @returns {Promise<SiteInfo[]>}
  */
-async function commonFunctionGetSiteDataByDestination() {
+export async function getSiteDataByDestination() {
   var sites = [];
   let promises = [];
   for (let i = 0; i < LANGS.length; i++) {
@@ -152,7 +152,7 @@ let _siteDataByOrigin;
  * Load wiki data objects, with each origin having its own object
  * @returns {Promise<SiteData[]>}
  */
-async function commonFunctionGetSiteDataByOrigin() {
+export async function getSiteDataByOrigin() {
   if (_siteDataByOrigin === undefined) {
     let resolve;
     _siteDataByOrigin = new Promise(_resolve => resolve = _resolve);
@@ -171,10 +171,10 @@ async function commonFunctionGetSiteDataByOrigin() {
  * @param {string} crossLanguageSetting
  * @param {boolean} dest
  */
-async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest = false) {
+export async function findMatchingSite(site, crossLanguageSetting, dest = false) {
   let base_url_key = dest ? 'destination_base_url' : 'origin_base_url';
 
-  let sites = await commonFunctionGetSiteDataByOrigin();
+  let sites = await getSiteDataByOrigin();
 
   let matchingSites = [];
   if (crossLanguageSetting === 'on') {
@@ -205,7 +205,7 @@ async function commonFunctionFindMatchingSite(site, crossLanguageSetting, dest =
  * @param {string} originURL
  * @param {SiteData} matchingSite
  */
-function commonFunctionGetOriginArticle(originURL, matchingSite) {
+export function getOriginArticle(originURL, matchingSite) {
   let url = new URL('https://' + originURL.replace(/.*https?:\/\//, ''));
   let article = String(url.pathname).split(matchingSite['origin_content_path'])[1] || '';
 
@@ -222,14 +222,14 @@ function commonFunctionGetOriginArticle(originURL, matchingSite) {
  * @param {SiteData} matchingSite
  * @param {string} article
  */
-function commonFunctionGetDestinationArticle(matchingSite, article) {
+export function getDestinationArticle(matchingSite, article) {
   return matchingSite['destination_content_prefix'] + article + matchingSite['destination_content_suffix'];
 }
 
 /**
  * @param {string} articleTitle
  */
-function encodeArticleTitle(articleTitle) {
+export function encodeArticleTitle(articleTitle) {
   // We decode + encode to ensure we don't double-encode,
   // in the event a string is already encoded.
   // We wrap in a try-catch as decoding can sometimes fail if destination article
@@ -254,12 +254,12 @@ function getQueryParams(originURL) {
  * @param {string} originURL
  * @param {SiteData} matchingSite
  */
-function commonFunctionGetNewURL(originURL, matchingSite) {
+export function getNewURL(originURL, matchingSite) {
   // Get article name from the end of the URL;
   // We can't just take the last part of the path due to subpages;
   // Instead, we take everything after the wiki's base URL + content path
-  let originArticle = commonFunctionGetOriginArticle(originURL, matchingSite);
-  let destinationArticle = commonFunctionGetDestinationArticle(matchingSite, originArticle);
+  let originArticle = getOriginArticle(originURL, matchingSite);
+  let destinationArticle = getDestinationArticle(matchingSite, originArticle);
 
   // Set up URL to redirect user to based on wiki platform
   let newURL = '';
@@ -303,7 +303,7 @@ function commonFunctionGetNewURL(originURL, matchingSite) {
 }
 
 /** Temporary function to migrate user data to IWB version 3.0+ */
-async function commonFunctionMigrateToV3() {
+export async function migrateToV3() {
   await extensionAPI.storage.sync.get(async (storage) => {
     if (!storage.v3migration) {
       let defaultWikiAction = storage.defaultWikiAction || 'alert';
@@ -332,10 +332,10 @@ async function commonFunctionMigrateToV3() {
       extensionAPI.storage.sync.remove('defaultSearchFilterSettings');
 
       // Migrate wiki settings to new searchEngineSettings and wikiSettings objects
-      const sites = await commonFunctionGetSiteDataByOrigin();
+      const sites = await getSiteDataByOrigin();
       let siteSettings = storage.siteSettings || {};
-      let searchEngineSettings = await commonFunctionDecompressJSON(storage.searchEngineSettings || {});
-      let wikiSettings = await commonFunctionDecompressJSON(storage.wikiSettings) || {};
+      let searchEngineSettings = await decompressJSON(storage.searchEngineSettings || {});
+      let wikiSettings = await decompressJSON(storage.wikiSettings) || {};
 
       sites.forEach((site) => {
         if (!searchEngineSettings[site.id]) {
@@ -355,8 +355,8 @@ async function commonFunctionMigrateToV3() {
         }
       });
 
-      extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
-      extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+      extensionAPI.storage.sync.set({ 'searchEngineSettings': await compressJSON(searchEngineSettings) });
+      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
 
       // Remove old object:
       extensionAPI.storage.sync.remove('siteSettings');
@@ -368,7 +368,7 @@ async function commonFunctionMigrateToV3() {
 }
 
 /** @param {Node} element */
-function isAnchor(element) {
+export function isAnchor(element) {
   if (!(element instanceof HTMLElement)) return false;
   return element.tagName && element.tagName.toLowerCase() === 'a';
 }

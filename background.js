@@ -1,6 +1,10 @@
-if (typeof importScripts !== 'undefined') {
-  importScripts('scripts/common-functions.js');
-}
+import { 
+  extensionAPI,
+  decompressJSON,
+  findMatchingSite,
+  getNewURL,
+  migrateToV3,
+ } from "./scripts/common-functions.js";
 
 let cachedStorage = {};
 
@@ -120,7 +124,7 @@ extensionAPI.runtime.onInstalled.addListener(async (detail) => {
 
   // Temporary functions for 3.0 migration
   if (detail.reason === 'update') {
-    commonFunctionMigrateToV3();
+    migrateToV3();
   }
 });
 
@@ -222,17 +226,17 @@ async function main(url, tabId) {
 
   if ((storage.power ?? 'on') === 'on') {
     let crossLanguageSetting = storage.crossLanguage || 'off';
-    let matchingSite = await commonFunctionFindMatchingSite(url, crossLanguageSetting);
+    let matchingSite = await findMatchingSite(url, crossLanguageSetting);
 
     if (matchingSite) {
       // Get user's settings for the wiki
-      let settings = await commonFunctionDecompressJSON(storage.wikiSettings) || {};
+      let settings = await decompressJSON(storage.wikiSettings) || {};
       let id = matchingSite['id'];
       let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
 
       // Check if redirects are enabled for the site
       if (siteSetting === 'redirect') {
-        let newURL = commonFunctionGetNewURL(url, matchingSite);
+        let newURL = getNewURL(url, matchingSite);
 
         // Perform redirect
         extensionAPI.tabs.update(tabId, { url: newURL });

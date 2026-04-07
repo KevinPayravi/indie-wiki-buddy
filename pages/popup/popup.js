@@ -1,5 +1,12 @@
+import { 
+  extensionAPI,
+  compressJSON,
+  getSiteDataByDestination,
+  migrateToV3,
+ } from "../../scripts/common-functions.js";
+
 async function migrateData() {
-  commonFunctionMigrateToV3();
+  migrateToV3();
 }
 
 // Set power setting
@@ -108,11 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
       extensionAPI.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
 
       let wikiSettings = {};
-      sites = await commonFunctionGetSiteDataByDestination();
+      const sites = await getSiteDataByDestination();
       sites.forEach((site) => {
         wikiSettings[site.id] = document.options.defaultWikiAction.value;
       });
-      extensionAPI.storage.sync.set({ 'wikiSettings': await commonFunctionCompressJSON(wikiSettings) });
+      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
@@ -120,11 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
       extensionAPI.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
 
       let searchEngineSettings = {};
-      sites = await commonFunctionGetSiteDataByDestination();
+      const sites = await getSiteDataByDestination();
       sites.forEach((site) => {
         searchEngineSettings[site.id] = document.options.defaultSearchAction.value;
       });
-      extensionAPI.storage.sync.set({ 'searchEngineSettings': await commonFunctionCompressJSON(searchEngineSettings) });
+      extensionAPI.storage.sync.set({ 'searchEngineSettings': await compressJSON(searchEngineSettings) });
     });
   });
 });
