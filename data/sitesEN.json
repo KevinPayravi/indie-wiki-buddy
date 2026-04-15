@@ -2840,10 +2840,7 @@
     "destination_main_page": "DayZ_Wiki",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "wiki.gg",
-    "tags": [
-      "official"
-    ]
+    "destination_host": "wiki.gg"
   },
   {
     "id": "en-deadcells",
