@@ -4372,6 +4372,28 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-fancade",
+    "origins_label": "Fancade Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Fancade Fandom Wiki",
+        "origin_base_url": "fancade.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Fancade_Wiki"
+      }
+    ],
+    "destination": "Fancade Wiki",
+    "destination_base_url": "www.fancade.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fancadewiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/wikiw/index.php",
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-farmingsimulator",
     "origins_label": "Farming Simulator Fandom Wiki",
     "origins": [
