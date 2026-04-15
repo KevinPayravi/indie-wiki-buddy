@@ -4490,6 +4490,29 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-fightknight",
+    "origins_label": "FIGHT KNIGHT Fandom Wiki",
+    "origins": [
+      {
+        "origin": "FIGHT KNIGHT Fandom Wiki",
+        "origin_base_url": "fight-knight.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "FIGHT_KNIGHT_Wiki"
+      }
+    ],
+    "destination": "FIGHT KNIGHT Wiki",
+    "destination_base_url": "fightknight.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "fightknightwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "FIGHT_KNIGHT_Wiki",
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-finalearth2",
     "origins_label": "The Final Earth 2 Fandom Wiki",
     "origins": [
