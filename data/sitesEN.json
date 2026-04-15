@@ -9395,6 +9395,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-pvzfusion",
+    "origins_label": "PVZ: Fusion Fandom Wiki",
+    "origins": [
+      {
+        "origin": "PVZ: Fusion Fandom Wiki",
+        "origin_base_url": "pvz-fusion.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "PvZ:_Fusion_Wiki"
+      }
+    ],
+    "destination": "PvZ: Fusion Wiki",
+    "destination_base_url": "pvzfusion.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "pvzfusionwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "PvZ:_Fusion_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-pythonprogramming",
     "origins_label": "Python Fandom Wiki",
     "origins": [
