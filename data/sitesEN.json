@@ -7361,6 +7361,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-metalhellsinger",
+    "origins_label": "Metal: Hellsinger Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Metal: Hellsinger Fandom Wiki",
+        "origin_base_url": "metal-hellsinger.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Metal:_Hellsinger_Wiki"
+      }
+    ],
+    "destination": "Metal: Hellsinger Wiki",
+    "destination_base_url": "metalhellsinger.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "metalhellsingerwiki.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/index.php",
+    "destination_main_page": "Metal:_Hellsinger_Wiki",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-mewgenics",
     "origins_label": "Mewgenics Fandom Wiki",
     "origins": [
