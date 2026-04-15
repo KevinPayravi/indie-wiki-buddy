@@ -559,6 +559,28 @@
     ]
   },
   {
+    "id": "en-animevanguards",
+    "origins_label": "Anime Vanguards Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Anime Vanguards Fandom Wiki",
+        "origin_base_url": "animevanguards.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Anime_Vanguards_Wiki"
+      }
+    ],
+    "destination": "Anime Vanguards Wiki",
+    "destination_base_url": "wiki.vanguards.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "animevanguards.png",
+    "destination_content_path": "/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Anime_Vanguards_Wiki",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-anothereden",
     "origins_label": "Another Eden Fandom Wiki",
     "origins": [
