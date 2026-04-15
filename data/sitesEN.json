@@ -2800,6 +2800,26 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-dayz",
+    "origins_label": "DayZ Fandom Wiki",
+    "origins": [
+      {
+        "origin": "DayZ Fandom Wiki",
+        "origin_base_url": "dayz.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "DayZ_Wiki"
+      }
+    ],
+    "destination": "DayZ Wiki",
+    "destination_base_url": "dayz.wiki.gg",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dayz.png",
+    "destination_main_page": "DayZ_Wiki",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "wiki.gg"
+  },
+  {
     "id": "en-deadbydaylight",
     "origins_label": "Dead by Daylight Fandom Wiki",
     "origins": [
@@ -2821,26 +2841,6 @@
     "tags": [
       "official"
     ]
-  },
-  {
-    "id": "en-dayz",
-    "origins_label": "DayZ Fandom Wiki",
-    "origins": [
-      {
-        "origin": "DayZ Fandom Wiki",
-        "origin_base_url": "dayz.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "DayZ_Wiki"
-      }
-    ],
-    "destination": "DayZ Wiki",
-    "destination_base_url": "dayz.wiki.gg",
-    "destination_platform": "mediawiki",
-    "destination_icon": "dayz.png",
-    "destination_main_page": "DayZ_Wiki",
-    "destination_search_path": "/index.php",
-    "destination_content_path": "/wiki/",
-    "destination_host": "wiki.gg"
   },
   {
     "id": "en-deadcells",
@@ -8516,7 +8516,9 @@
     "destination_content_path": "/wiki/",
     "destination_search_path": "/w/index.php",
     "destination_main_page": "PARKOUR_Reborn_Wiki",
-    "tags": ["official"]
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-pathfinder",
@@ -10130,6 +10132,25 @@
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
     "destination_host": "wiki.gg"
+  },
+  {
+    "id": "en-scribblenauts",
+    "origins_label": "Scribblenauts Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Scribblenauts Fandom Wiki",
+        "origin_base_url": "scribblenauts.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Scribblenauts_Wiki"
+      }
+    ],
+    "destination": "Scribblepedia",
+    "destination_base_url": "scribblepedia.ink",
+    "destination_platform": "mediawiki",
+    "destination_icon": "scribblepedia.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "Scribblepedia"
   },
   {
     "id": "en-seaofthieves",
