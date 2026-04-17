@@ -339,6 +339,25 @@
     "destination_content_path": "/"
   },
   {
+    "id": "fr-hollowknight",
+    "origins_label": "Hollow Knight Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Hollow Knight Fandom Wiki",
+        "origin_base_url": "hollowknight.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Accueil"
+      }
+    ],
+    "destination": "Hollow Knight Wiki",
+    "destination_base_url": "fr.hollowknight.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hollowknight.png",
+    "destination_main_page": "Accueil",
+    "destination_search_path": "/mw/index.php",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "fr-kerbalspaceprogram",
     "origins_label": "Kerbal Space Program Fandom Wiki",
     "origins": [
