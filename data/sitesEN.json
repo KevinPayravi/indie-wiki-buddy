@@ -4684,6 +4684,7 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/",
+    "destination_host": "Miraheze",
     "tags": [
       "official"
     ]
@@ -11692,7 +11693,8 @@
     "destination_icon": "favicon.ico",
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
-    "destination_content_path": "/"
+    "destination_content_path": "/",
+    "destination_host": "wiki.gg",
   },
   {
     "id": "en-terrypratchett",
