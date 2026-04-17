@@ -8545,7 +8545,7 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "miraheze"
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-outward",
@@ -8674,10 +8674,10 @@
   },
   {
     "id": "en-parkourreborn",
-    "origins_label": "Parkour Reborn Fandom Wiki",
+    "origins_label": "PARKOUR Reborn Fandom Wiki",
     "origins": [
       {
-        "origin": "Parkour Reborn Fandom Wiki",
+        "origin": "PARKOUR Reborn Fandom Wiki",
         "origin_base_url": "parkour-reborn.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "PARKOUR_Reborn_Wiki"
