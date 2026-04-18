@@ -1,6 +1,6 @@
 {
   "name": "__MSG_extensionName__",
-  "version": "3.14.2",
+  "version": "3.14.3",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "permissions": [
