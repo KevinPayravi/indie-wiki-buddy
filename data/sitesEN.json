@@ -3206,10 +3206,10 @@
   },
   {
     "id": "en-discoelysium",
-    "origins_label": "Disco Elysium Wiki",
+    "origins_label": "Disco Elysium Fandom Wiki",
     "origins": [
       {
-        "origin": "Disco Elysium Wiki",
+        "origin": "Disco Elysium Fandom Wiki",
         "origin_base_url": "discoelysium.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Disco_Elysium_Wiki"
