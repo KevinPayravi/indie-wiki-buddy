@@ -5904,6 +5904,31 @@
     ]
   },
   {
+    "id": "en-hypixelskyblock",
+    "origins_label": "Hypixel SkyBlock Fandom Wikis",
+    "origins": [
+      {
+        "origin": "Hypixel SkyBlock Fandom Wiki",
+        "origin_base_url": "hypixel-skyblock.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Hypixel_SkyBlock_Wiki"
+      },
+      {
+        "origin": "SkyBlock Fandom Wiki",
+        "origin_base_url": "skyblock.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Hypixel_SkyBlock_Wiki"
+      }
+    ],
+    "destination": "Hypixel SkyBlock Wiki",
+    "destination_base_url": "hypixelskyblock.minecraft.wiki",
+    "destination_platform": "mediawiki",
+    "destination_icon": "hypixelskyblockwiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "en-hypnospace",
     "origins_label": "Hypnospace Outlaw Fandom Wiki",
     "origins": [
