@@ -1275,13 +1275,19 @@
   },
   {
     "id": "en-ballxpit",
-    "origins_label": "BALL x PIT Fandom Wiki",
+    "origins_label": "BALL x PIT Fandom Wikis",
     "origins": [
       {
         "origin": "BALL x PIT Fandom Wiki",
         "origin_base_url": "ballxpit.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Ballxpit_Wiki"
+      },
+      {
+        "origin": "Ball x Pit Fandom Wiki",
+        "origin_base_url": "https://ballpit.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Ball_X_Pit_Wiki"
       }
     ],
     "destination": "BALL x PIT Wiki",
