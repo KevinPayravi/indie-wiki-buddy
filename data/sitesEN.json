@@ -5924,7 +5924,13 @@
         "origin_base_url": "skyblock.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Hypixel_SkyBlock_Wiki"
-      }
+      },
+      {
+        "origin": "Hyblock Fandom Wiki",
+        "origin_base_url": "hyblock.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Hypixel_Skyblock_Wiki"
+      },
     ],
     "destination": "Hypixel SkyBlock Wiki",
     "destination_base_url": "hypixelskyblock.minecraft.wiki",
