@@ -11953,6 +11953,35 @@
     "destination_host": "wiki.gg"
   },
   {
+    "id": "en-thepowdertoy",
+    "origins_label": "The Powder Toy Fandom Wikis",
+    "origins": [
+      {
+        "origin": "The Powder Toy Fandom Wiki",
+        "origin_base_url": "tpt.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Powder_Toy_Wiki"
+      },
+      {
+        "origin": "The Powder Toy Fandom Wiki",
+        "origin_base_url": "pwt.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Powder_Toy_Wiki"
+      }
+    ],
+    "destination": "The Powder Toy Wiki",
+    "destination_base_url": "powdertoy.co.uk",
+    "destination_platform": "mediawiki",
+    "destination_icon": "thepowdertoywiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/Wiki/index.php",
+    "destination_content_path": "/Wiki/W/",
+    "destination_content_suffix": ".html",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-thewanderinginn",
     "origins_label": "The Wandering Inn Fandom Wiki",
     "origins": [
