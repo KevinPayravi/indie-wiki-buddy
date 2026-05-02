@@ -5444,11 +5444,23 @@
   },
   {
     "id": "en-gta",
-    "origins_label": "GTA Fandom Wiki",
+    "origins_label": "GTA Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "GTA Fandom Wiki",
         "origin_base_url": "gta.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "GTA 5 Neoseeker Wiki",
+        "origin_base_url": "gta5.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
+      },
+      {
+        "origin": "GTA Neoseeker Wiki",
+        "origin_base_url": "gta.neoseeker.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Main_Page"
       }
