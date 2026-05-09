@@ -1285,7 +1285,7 @@
       },
       {
         "origin": "Ball x Pit Fandom Wiki",
-        "origin_base_url": "https://ballpit.fandom.com",
+        "origin_base_url": "ballpit.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Ball_X_Pit_Wiki"
       }
