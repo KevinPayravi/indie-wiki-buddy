@@ -11344,6 +11344,29 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-subnautica",
+    "origins_label": "Subnautica Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Subnautica Fandom Wiki",
+        "origin_base_url": "subnautica.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Subnautica_Wiki"
+      }
+    ],
+    "destination": "Subnautica Wiki",
+    "destination_base_url": "wiki.subnautica.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "subnauticawiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/sn/",
+    "destination_content_path": "/sn/",
+    "destination_host": "Weird Gloop",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-sugaryspire",
     "origins_label": "Sugary Spire Fandom Wiki",
     "origins": [
