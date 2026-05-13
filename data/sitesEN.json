@@ -12042,13 +12042,19 @@
   },
   {
     "id": "en-theworldendswithyou",
-    "origins_label": "The World Ends with You Fandom Wiki",
+    "origins_label": "The World Ends with You Fandom & Neoseeker Wikis",
     "origins": [
       {
         "origin": "The World Ends with You Fandom Wiki",
         "origin_base_url": "twewy.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "The_World_Ends_with_You_Wiki"
+      },
+      {
+        "origin": "The World Ends with You Neoseeker Wiki",
+        "origin_base_url": "https://theworldendswithyou.neoseeker.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Main_Page"
       }
     ],
     "destination": "The World Ends with You Wiki",
