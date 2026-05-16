@@ -11398,6 +11398,28 @@
     ]
   },
   {
+    "id": "en-subnautica2",
+    "origins_label": "Subnautica 2 Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Subnautica 2 Fandom Wiki",
+        "origin_base_url": "subnautica2.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Subnautica_2_Wiki"
+      }
+    ],
+    "destination": "Subnautica 2 Wiki",
+    "destination_base_url": "wiki.subnautica.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "subnauticawiki.png",
+    "destination_main_page": "Main_Page",
+    "destination_search_path": "/sn2/",
+    "destination_content_path": "/sn2/",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-sugaryspire",
     "origins_label": "Sugary Spire Fandom Wiki",
     "origins": [
