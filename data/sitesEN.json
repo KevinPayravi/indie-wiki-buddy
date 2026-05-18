@@ -9881,13 +9881,19 @@
   },
   {
     "id": "en-pou",
-    "origins_label": "Pou Fandom Wiki",
+    "origins_label": "Pou Fandom Wikis",
     "origins": [
       {
         "origin": "Pou Fandom Wiki",
         "origin_base_url": "pou.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Pou_Wiki"
+      },
+      {
+        "origin": "Simple English Pou Fandom Wiki",
+        "origin_base_url": "simple-english-pou.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Simple_English_Pou_Wiki"
       }
     ],
     "destination": "Poupedia",
