@@ -13692,6 +13692,28 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-valorant",
+    "origins_label": "VALORANT Fandom Wiki",
+    "origins": [
+      {
+        "origin": "VALORANT Fandom Wiki",
+        "origin_base_url": "valorant.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "VALORANT_Wiki"
+      }
+    ],
+    "destination": "VALORANT Wiki",
+    "destination_base_url": "wiki.playvalorant.com",
+    "destination_platform": "mediawiki",
+    "destination_icon": "valorantwiki.png",
+    "destination_main_page": "VALORANT_Wiki",
+    "destination_search_path": "/en-us/",
+    "destination_content_path": "/en-us/",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-vampiresurvivors",
     "origins_label": "Vampire Survivors Fandom Wiki",
     "origins": [
