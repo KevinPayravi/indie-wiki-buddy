@@ -7452,7 +7452,7 @@
     "origins_label": "Live a Live Fandom Wiki",
     "origins": [
       {
-        "origin": "Live a Fandom Wiki",
+        "origin": "Live a Live Fandom Wiki",
         "origin_base_url": "live-a-live.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Live_A_Wikia"
@@ -13640,7 +13640,7 @@
         "origin_main_page": "URealms_Live_Wiki"
       }
     ],
-    "destination": "Unforgotten Realms Wiki",
+    "destination": "URealms Live Wiki",
     "destination_base_url": "urwiki.phijkchu.com",
     "destination_platform": "mediawiki",
     "destination_icon": "unforgottenrealmswiki.png",
