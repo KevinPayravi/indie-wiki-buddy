@@ -3379,7 +3379,7 @@
         "origin": "Pookapedia Fandom Wiki",
         "origin_base_url": "digdug.fandom.com",
         "origin_content_path": "/wiki/",
-        "origin_main_page": "Mr._Driller_Wiki"
+        "origin_main_page": "Pookapedia"
       }
     ],
     "destination": "Horipedia",
@@ -7449,7 +7449,7 @@
   },
   {
     "id": "en-livealive",
-    "origins_label": "Live a Fandom Wiki",
+    "origins_label": "Live a Live Fandom Wiki",
     "origins": [
       {
         "origin": "Live a Fandom Wiki",
@@ -8882,7 +8882,10 @@
     "destination_icon": "noiszwiki.png",
     "destination_content_path": "/noiszwiki/",
     "destination_search_path": "/noisz/wiki/index.php",
-    "destination_main_page": "Main_Page"
+    "destination_main_page": "Main_Page",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-noita",
@@ -11250,7 +11253,8 @@
     "destination_icon": "shippinglaneswiki.png",
     "destination_content_path": "/wiki/",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Main_Page"
+    "destination_main_page": "Main_Page",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-shroudoftheavatar",
@@ -11861,7 +11865,10 @@
     "destination_content_path": "/wiki/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Stardew_Valley_Expanded_Wiki",
-    "destination_host": "wiki.gg"
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-starfield",
@@ -13251,7 +13258,10 @@
     "destination_content_path": "/wiki/",
     "destination_search_path": "/index.php",
     "destination_main_page": "Turnip_Boy_Wiki",
-    "destination_host": "wiki.gg"
+    "destination_host": "wiki.gg",
+    "tags": [
+      "official"
+    ]
   },
   {
     "id": "en-twice",
