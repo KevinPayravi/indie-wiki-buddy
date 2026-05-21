@@ -13396,10 +13396,10 @@
   },
   {
     "id": "en-windgate",
-    "origins_label": "Projoot Testing Wiki",
+    "origins_label": "Projoot Testing Fandom Wiki",
     "origins": [
       {
-        "origin": "Projoot Testing Wiki",
+        "origin": "Projoot Testing Fandom Wiki",
         "origin_base_url": "projoot-testing.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Projoot_Testing_Wiki"
@@ -13410,7 +13410,7 @@
     "destination_platform": "mediawiki",
     "destination_icon": "windgate.png",
     "destination_main_page": "Main_Page",
-    "destination_search_path": "/index.php",
+    "destination_search_path": "/w/index.php",
     "destination_content_path": "/",
   },
   {
