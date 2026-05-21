@@ -1720,7 +1720,8 @@
     "destination_icon": "blockatewiki.png",
     "destination_content_path": "/wiki/",
     "destination_search_path": "/w/index.php",
-    "destination_main_page": "Blockate_Wiki"
+    "destination_main_page": "Blockate_Wiki",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-blockfrontmc",
@@ -14276,6 +14277,7 @@
     "destination_main_page": "Main_Page",
     "destination_search_path": "/w/index.php",
     "destination_content_path": "/",
+    "destination_host": "Miraheze"
   },
   {
     "id": "en-windowkill",
