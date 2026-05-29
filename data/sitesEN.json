@@ -1121,6 +1121,28 @@
     ]
   },
   {
+    "id": "en-attuproject",
+    "origins_label": "Attu Project Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Attu Project Fandom Wiki",
+        "origin_base_url": "attuproject.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Attu_Project_Wiki"
+      }
+    ],
+    "destination": "Attu Project Wiki",
+    "destination_base_url": "attuproject.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "attuproject.png",
+    "destination_main_page": "Attu_Project:Home",
+    "destination_search_path": "/wiki",
+    "destination_content_path": "/wiki/",
+    "tags": [
+      "official"
+    ]
+  },
+  {
     "id": "en-audiovisualidentity",
     "origins_label": "Closing Logo Group Fandom Wiki",
     "origins": [
