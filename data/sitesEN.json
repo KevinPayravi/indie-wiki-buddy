@@ -13717,6 +13717,13 @@
         "origin_base_url": "valorant.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "VALORANT_Wiki"
+      },
+      {
+        "origin": "VALORANT Fandom Lore Wiki",
+        "origin_base_url": "valorant-lore.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "VALORANT_Lore_Wiki",
+        "destination_content_prefix": "Lore:"
       }
     ],
     "destination": "VALORANT Wiki",
@@ -13726,29 +13733,6 @@
     "destination_main_page": "VALORANT_Wiki",
     "destination_search_path": "/en-us/",
     "destination_content_path": "/en-us/",
-    "tags": [
-      "official"
-    ]
-  },
-  {
-    "id": "en-valorant-lore",
-    "origins_label": "VALORANT Lore Fandom Wiki",
-    "origins": [
-      {
-        "origin": "VALORANT Lore Fandom Wiki",
-        "origin_base_url": "valorant-lore.fandom.com",
-        "origin_content_path": "/wiki/",
-        "origin_main_page": "VALORANT_Lore_Wiki"
-      }
-    ],
-    "destination": "VALORANT Lore Wiki",
-    "destination_base_url": "wiki.playvalorant.com",
-    "destination_platform": "mediawiki",
-    "destination_icon": "valorantwiki.png",
-    "destination_main_page": "VALORANT_Wiki",
-    "destination_search_path": "/en-us/",
-    "destination_content_path": "/en-us/",
-    "destination_content_prefix": "Lore:",
     "tags": [
       "official"
     ]
