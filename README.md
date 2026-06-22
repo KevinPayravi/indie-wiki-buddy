@@ -27,6 +27,7 @@ Indie Wiki Buddy is a browser extension that automatically notifies and redirect
 ![TOK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TOK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTOK.json)
 ![TR wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=TR%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesTR.json)
 ![UK wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=UK%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesUK.json)
+![VI wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=VI%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesVI.json)
 ![ZH wikis](https://img.shields.io/badge/dynamic/json?style=flat-square&label=ZH%20wikis&query=length&url=https%3A%2F%2Fraw.githubusercontent.com%2FKevinPayravi%2Findie-wiki-buddy%2Fmain%2Fdata%2FsitesZH.json)
 
 ![Mozilla Add-on](https://img.shields.io/amo/v/indie-wiki-buddy?style=flat-square&color=%23cb553f&label=firefox%20version&logo=firefox)
