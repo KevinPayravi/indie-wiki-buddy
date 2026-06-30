@@ -14670,6 +14670,26 @@
     "destination_host": "Miraheze"
   },
   {
+    "id": "en-youshouyan",
+    "origins_label": "You Shou Yan Fandom Wiki",
+    "origins": [
+      {
+        "origin": "You Shou Yan Fandom Wiki",
+        "origin_base_url": "you-shou-yan.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "You_Shou_Yan_Wiki"
+      }
+    ],
+    "destination": "You Shoy Yan Wiki",
+    "destination_base_url": "youshouyan.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "favicon.png",
+    "destination_content_path": "/wiki/",
+    "destination_search_path": "/w/index.php",
+    "destination_main_page": "You_Shou_Yan_Wiki",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-yugioh",
     "origins_label": "Yu-Gi-Oh! Fandom & Neoseeker Wikis",
     "origins": [
