@@ -9,7 +9,7 @@
         }
     },
     "bannerDescriptorIndependent": {
-        "message": "una independent"
+        "message": "independent"
     },
     "guideAlert": {
         "message": "Alerta"
@@ -30,13 +30,13 @@
         "message": "Indie Wiki Buddy"
     },
     "bannerDescriptorIndependentOfficial": {
-        "message": "una oficial independent"
+        "message": "independent i oficial"
     },
     "bannerDescriptorWiki": {
-        "message": "una"
+        "message": ""
     },
     "bannerDescriptorOfficial": {
-        "message": "una oficial"
+        "message": "oficial"
     },
     "bannerVisit": {
         "message": "Visita $destination$",
@@ -58,5 +58,153 @@
     },
     "settingsLangES": {
         "message": "[ES] Espanyol / Español"
+    },
+    "extensionDescription": {
+        "message": "Indie Wiki Buddy t'ajuda a descobrir viquis independents de qualitat mitjançant alertes, redireccions i filtrs de cerca."
+    },
+    "bannerText": {
+        "message": "Hi ha un viqui $descriptor$ $host$ sobre aquest tema $language$",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "bannerBreezeWiki": {
+        "message": "Visualitza aquest viqui de Fandom amb BreezeWiki"
+    },
+    "bannerRestore": {
+        "message": "Restaura el bàner"
+    },
+    "bannerRestoreDone": {
+        "message": "Bàner restaurat"
+    },
+    "bannerDisable": {
+        "message": "Desactiva el bàner per a aquest viqui"
+    },
+    "bannerDisableDone": {
+        "message": "Bàner desactivat"
+    },
+    "bannerRedirect": {
+        "message": "Redirigeix automàticament en aquest viqui"
+    },
+    "bannerRedirectDone": {
+        "message": "Redirecció activada"
+    },
+    "searchResultLookup": {
+        "message": "Cerca $article$ a $destination$",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultLookupEnglish": {
+        "message": "Cerca $article$ a $destination$ (EN)",
+        "placeholders": {
+            "article": {
+                "content": "$1",
+                "example": "search term"
+            },
+            "destination": {
+                "content": "$2",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisit": {
+        "message": "Visita $destination$ en lloc",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultVisitEnglish": {
+        "message": "Visita $destination$ (EN) en lloc",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            }
+        }
+    },
+    "searchResultReenable": {
+        "message": "Torna a activar el resultat de cerca original"
+    },
+    "searchRemovalNotice": {
+        "message": "El filtre de Indie Wiki Buddy ha tret els resultats de $destination$. Busca resultats de $link$ en lloc.",
+        "placeholders": {
+            "destination": {
+                "content": "$1",
+                "example": "wiki name"
+            },
+            "link": {
+                "content": "$2",
+                "example": "a link to the indie wiki"
+            }
+        }
+    },
+    "searchFilteredResultsShow": {
+        "message": "Mostra resultats filtrats"
+    },
+    "searchFilteredResultsHide": {
+        "message": "Torna a amagar resultats de cerca filtrats"
+    },
+    "settingsTitle": {
+        "message": "Configuració de Indie Wiki Buddy"
+    },
+    "settingsGuide": {
+        "message": "Guia"
+    },
+    "settingsWebsite": {
+        "message": "Lloc web"
+    },
+    "settingsSourceCode": {
+        "message": "Codi font"
+    },
+    "settingsBannerHide": {
+        "message": "Amaga aquest missatge"
+    },
+    "settingsBannerReview": {
+        "message": "Gaudint de Indie Wiki Buddy? S'agraeixen les ressenyes!"
+    },
+    "settingsBannerReviewContact": {
+        "message": "Tens algun problema, o bé una idea per a nosaltres? Posa't en $linkStart$contacte$linkEnd$!",
+        "placeholders": {
+            "linkStart": {
+                "content": "$1"
+            },
+            "linkEnd": {
+                "content": "$2"
+            }
+        }
+    },
+    "firstInstallInfo1": {
+        "message": "Gràcies per instal·lar Indie Wiki Buddy! Preparem-ho tot."
+    },
+    "firstInstallInfo2": {
+        "message": "Amb els enllaços de dalt pots veure la guia completa, enviar nous viquis, o contacatr el desenvolupador."
+    },
+    "settingsGeneral": {
+        "message": "Configuració general"
+    },
+    "settingsNotifications": {
+        "message": "Notificacions d'escriptori de redireccions"
     }
 }
