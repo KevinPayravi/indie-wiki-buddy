@@ -304,7 +304,7 @@
         }
     },
     "searchResultReenable": {
-        "message": "Възстановете долния резултат"
+        "message": "Възстановете оригиналния резултат"
     },
     "searchFilteredResultsHide": {
         "message": "Отново скриване на филтрираните резултати"
@@ -761,5 +761,8 @@
     },
     "settingsLangHR": {
         "message": "[HR] хърватски / Hrvatski"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "Ако често получавате грешки при посещаване на BreezeWiki, опитайте да смените на друг хост. Indie Wiki Buddy не носи отговорност за BreezeWiki или техните хостове."
     }
 }

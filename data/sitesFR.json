@@ -589,6 +589,25 @@
     ]
   },
   {
+    "id": "fr-starfox",
+    "origins_label": "Star Fox Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Star Fox Fandom Wiki",
+        "origin_base_url": "starfox.fandom.com/fr",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Accueil"
+      }
+    ],
+    "destination": "Wiki Lylat",
+    "destination_base_url": "wikilylat-starfox.fr",
+    "destination_platform": "mediawiki",
+    "destination_icon": "starfox.png",
+    "destination_main_page": "Accueil",
+    "destination_search_path": "/index.php",
+    "destination_content_path": "/wiki/"
+  },
+  {
     "id": "fr-temtem",
     "origins_label": "Temtem Fandom Wiki",
     "origins": [

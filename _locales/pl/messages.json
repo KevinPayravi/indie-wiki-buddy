@@ -700,5 +700,58 @@
     },
     "settingsLangNL": {
         "message": "[NL] Holenderski / Netherlands"
+    },
+    "bannerText": {
+        "message": "Istnieje $descriptor$ wiki $host$ zajmująca się tym tematem $language$",
+        "placeholders": {
+            "descriptor": {
+                "content": "$1",
+                "example": "an independent"
+            },
+            "host": {
+                "content": "$2",
+                "example": "on wiki.gg"
+            },
+            "language": {
+                "content": "$3",
+                "example": "in English"
+            }
+        }
+    },
+    "settingsLangCA": {
+        "message": "[CA] Kataloński / Català"
+    },
+    "settingsLangHR": {
+        "message": "[HR] Chorwacki / Hrvatski"
+    },
+    "guideTogglePerSearchEngineHelp1": {
+        "message": "Domyślnie, filtrowanie jest włączone dla wszystkich wyszukiwarek. Filtrowanie działa na podstawie ustawień wybranych przez użytkownika dla każdej wiki. Domyślnym ustawieniem filtrowania dla wszystkich wiki jest zastępowanie wyników wyszukiwania innych niż niezależne przyciskami odsyłającymi do niezależnych odpowiedników."
+    },
+    "guideTogglePerSearchEngineHelp2": {
+        "message": "Obecnie obsługiwane wyszukiwarki to Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, oraz Yandex."
+    },
+    "guideHiddenResultsBannerHelp1": {
+        "message": "Kiedy ta opcja jest włączona, zostanie wstawiony baner nad wynikami wyszukiwania kiedy Indie Wiki Buddy ukryje wyniki z wiki Fandom, Fextralife lub Neoseeker. Baner również pozwala Ci ponownie wyświetlić ukryte wyniki."
+    },
+    "guideHiddenResultsBannerHelp2": {
+        "message": "Jeśli nie chcesz widzieć żadnej informacji o ukryciu wyników, wyłącz tę opcję."
+    },
+    "guideReorderResultsHelp1": {
+        "message": "Domyślnie, Indie Wiki Buddy zmienia kolejność wyników na stronie Google, tak aby wyniki z niezależnych wiki znajdujące się w dalszej części pierwszej strony zostały przeniesione przed pierwszy wynik spoza nurtu niezależnego (Fandom / Fextralife / Neoseeker). Dzięki temu szybciej znajdziesz interesujące Cię strony na niezależnych wiki."
+    },
+    "guideReorderResultsHelp2": {
+        "message": "Ta funkcja jest obecnie dostępna tylko dla Google, ponieważ jej niezawodne utrzymywanie bywa skomplikowane."
+    },
+    "guideBreezeWikiDisabledHelp": {
+        "message": "Nie przekierowuj Fandom na Breezewiki."
+    },
+    "guideDisableSearchHelp": {
+        "message": ": Nie ma to wpływu na wyniki wyszukiwania."
+    },
+    "notificationTitle": {
+        "message": "Zostałeś przekierowany!"
+    },
+    "notificationTitleBreezeWiki": {
+        "message": "Zostałeś przekierowany na BreezeWiki!"
     }
 }
