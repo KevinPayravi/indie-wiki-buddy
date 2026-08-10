@@ -9223,6 +9223,25 @@
     ]
   },
   {
+    "id": "en-overwatch",
+    "origins_label": "Overwatch Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Overwatch Fandom Wiki",
+        "origin_base_url": "overwatch.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Overwatch_Wiki"
+      }
+    ],
+    "destination": "Overwatch Wiki",
+    "destination_base_url": "overwatch.weirdgloop.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "overwatchwiki.png",
+    "destination_main_page": "Overwatch_Wiki",
+    "destination_search_path": "/",
+    "destination_content_path": "/w/"
+  },
+  {
     "id": "en-oxygennotincluded",
     "origins_label": "Oxygen Not Included Fandom Wiki",
     "origins": [
