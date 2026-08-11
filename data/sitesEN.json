@@ -13825,6 +13825,13 @@
         "origin_base_url": "valorant.fandom.com",
         "origin_content_path": "/wiki/",
         "origin_main_page": "VALORANT_Wiki"
+      },
+      {
+        "origin": "VALORANT Fandom Lore Wiki",
+        "origin_base_url": "valorant-lore.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "VALORANT_Lore_Wiki",
+        "destination_content_prefix": "Lore:"
       }
     ],
     "destination": "VALORANT Wiki",
