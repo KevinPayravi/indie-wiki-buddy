@@ -377,7 +377,8 @@
     "page": "pages/settings/index.html"
   },
   "optional_permissions": [
-    "https://*/*"
+    "https://*/*",
+    "http://*/*"
   ],
   "browser_specific_settings": {
     "gecko": {
