@@ -209,13 +209,13 @@
     "origins_label": "Pokémon Fandom Wikis",
     "origins": [
       {
-        "origins": "Pokémon Fandom Wiki",
+        "origin": "Pokémon Fandom Wiki",
         "origin_base_url": "pokemon.fandom.com/zh",
         "origin_content_path": "/wiki/",
         "origin_main_page": "Pokemon"
       },
       {
-        "origins": "Pokémon Fandom Wiki (Zh-Hk)",
+        "origin": "Pokémon Fandom Wiki (Zh-Hk)",
         "origin_base_url": "pokemon.fandom.com/zh-hk",
         "origin_content_path": "/wiki/",
         "origin_main_page": "寵物小精靈百科"
