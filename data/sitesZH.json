@@ -30,17 +30,14 @@
         "origin_main_page": "Terraria_Calamity_Mod_中文_Wiki"
       }
     ],
-    "destination": "Calamity Mod Wiki",
-    "destination_base_url": "calamitymod.wiki.gg/zh",
+    "destination": "灾厄中文维基",
+    "destination_base_url": "calamity.huijiwiki.com",
     "destination_platform": "mediawiki",
     "destination_icon": "calamitymodwiki.png",
-    "destination_main_page": "Calamity_Mod_Wiki",
+    "destination_main_page": "首页",
     "destination_search_path": "/index.php",
     "destination_content_path": "/wiki/",
-    "destination_host": "wiki.gg",
-    "tags": [
-      "official"
-    ]
+    "destination_host": "huijiwiki.com"
   },
   {
     "id": "zh-cookie",
