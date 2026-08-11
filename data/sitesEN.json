@@ -2960,8 +2960,7 @@
     "destination_icon": "dantdm.png",
     "destination_content_path": "/w/",
     "destination_search_path": "/index.php",
-    "destination_main_page": "DanTDM Wiki",
-    "destination_host": "ScrapBlox"
+    "destination_main_page": "DanTDM Wiki"
   },
   {
     "id": "en-daria",
