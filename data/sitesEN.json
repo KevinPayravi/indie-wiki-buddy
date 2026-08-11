@@ -818,6 +818,26 @@
     ]
   },
   {
+    "id": "en-arcaea",
+    "origins_label": "Arcaea Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Arcaea Fandom Wiki",
+        "origin_base_url": "arcaea.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Arcaea_Wiki"
+      }
+    ],
+    "destination": "Arcaea Fan Wiki",
+    "destination_base_url": "arcaea.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "arcaeawiki.png",
+    "destination_main_page": "Arcaea_Fan_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-arcraiders",
     "origins_label": "Arc Raiders Fandom Wiki",
     "origins": [
