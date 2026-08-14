@@ -113,6 +113,14 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
     indieResultFavicon.width = 16;
     indieResultFavicon.height = 16;
     indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + wikiInfo.language.toLowerCase() + '/' + wikiInfo.destination_icon);
+    // If the favicon is not bundled with the extension, load it from the API
+    indieResultFavicon.onerror = () => {
+      // Hide the icon if the API load also fails
+      indieResultFavicon.onerror = () => {
+        indieResultFavicon.style.display = 'none';
+      };
+      indieResultFavicon.src = commonFunctionGetApiFaviconURL(wikiInfo);
+    };
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && decodeURIComponent(originArticle).toLowerCase() !== wikiInfo['origin_main_page'].toLowerCase()) {

@@ -1,4 +1,3 @@
-var LANGS = ["CA", "DE", "EN", "ES", "FI", "FR", "HR", "HU", "IT", "JA", "KO", "LZH", "NL", "PL", "PT", "RU", "SV", "TH", "TOK", "TR", "UK", "ZH"];
 var BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
 const extensionAPI = typeof browser === "undefined" ? chrome : browser;
 
@@ -70,12 +69,182 @@ async function commonFunctionCompressJSON(value) {
   const blob = await compressedResponse.blob();
   const buffer = await blob.arrayBuffer();
 
-  // Encode and return string
-  return btoa(
-    String.fromCharCode(
-      ...new Uint8Array(buffer)
-    )
+  // Encode and return string (convert in chunks)
+  const bytes = new Uint8Array(buffer);
+  const chunkSize = 0x8000;
+  let binary = '';
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+  }
+  return btoa(binary);
+}
+
+const REMOTE_DATA_URL = 'https://api.getindie.wiki/v1/data.json';
+const REMOTE_FAVICON_BASE_URL = 'https://api.getindie.wiki/favicons/';
+const REMOTE_DATA_MAX_AGE_MS = 3 * 60 * 60 * 1000;
+
+/**
+ * Load the wiki data file bundled with the extension
+ * @returns {Promise<SiteInfo[]>}
+ */
+async function loadBundledSiteData() {
+  const response = await fetch(extensionAPI.runtime.getURL('data/data.json'));
+  const data = await response.json();
+  return data.sites;
+}
+
+/**
+ * Check whether the user has enabled pulling wiki data from the API
+ * @returns {Promise<boolean>}
+ */
+function isApiDataEnabled() {
+  return new Promise((resolve) => {
+    extensionAPI.storage.sync.get({ 'apiData': 'on' }, (items) => {
+      resolve(items.apiData === 'on');
+    });
+  });
+}
+
+/**
+ * Check that every site entry has the fields the extension relies on
+ * @returns {boolean}
+ */
+function isValidSiteData(sites) {
+  return Array.isArray(sites) && sites.length > 0 && sites.every((site) =>
+    site &&
+    typeof site.id === 'string' &&
+    typeof site.language === 'string' &&
+    typeof site.origins_label === 'string' &&
+    typeof site.destination === 'string' &&
+    typeof site.destination_base_url === 'string' &&
+    Array.isArray(site.origins)
   );
+}
+
+/**
+ * Load remote wiki data cached in local storage, if any.
+ * Returns null when the cache is empty or the user has disabled API data.
+ * @returns {Promise<SiteInfo[] | null>}
+ */
+function loadCachedRemoteSiteData() {
+  return new Promise(async (resolve) => {
+    if (!await isApiDataEnabled()) {
+      resolve(null);
+      return;
+    }
+    extensionAPI.storage.local.get(['remoteSiteData'], async (items) => {
+      if (items && items.remoteSiteData) {
+        try {
+          const sites = await commonFunctionDecompressJSON(items.remoteSiteData);
+          if (isValidSiteData(sites)) {
+            resolve(sites);
+            return;
+          }
+        } catch (e) {
+          console.log('Indie Wiki Buddy failed to read cached site data: ' + e);
+        }
+      }
+      resolve(null);
+    });
+  });
+}
+
+/** @type {Promise<SiteInfo[]> | undefined} */
+let _siteData;
+
+/**
+ * Load wiki data, preferring cached remote data over the bundled files.
+ * Result kept in memory.
+ * @returns {Promise<SiteInfo[]>}
+ */
+async function commonFunctionLoadSiteData() {
+  if (_siteData === undefined) {
+    _siteData = (async () => {
+      const remoteSites = await loadCachedRemoteSiteData();
+      return remoteSites || loadBundledSiteData();
+    })();
+    // Drop a failed load so the next call retries
+    _siteData.catch(() => {
+      _siteData = undefined;
+    });
+  }
+  return _siteData;
+}
+
+/** @type {Promise<void> | undefined} */
+let _siteDataRefreshPromise;
+
+/**
+ * Fetch latest wiki data from the API and cache it in local storage.
+ * Only fetches when the cache is missing or older than 3 hours.
+ * force = true will fetch regardless of cache age.
+ * @param {boolean} force
+ */
+function commonFunctionRefreshSiteData(force = false) {
+  if (!_siteDataRefreshPromise) {
+    _siteDataRefreshPromise = refreshSiteData(force).finally(() => {
+      _siteDataRefreshPromise = undefined;
+    });
+  }
+  return _siteDataRefreshPromise;
+}
+
+/** @param {boolean} force */
+async function refreshSiteData(force) {
+  try {
+    if (!await isApiDataEnabled()) {
+      return;
+    }
+    if (!force) {
+      const timestamp = await new Promise((resolve) => {
+        extensionAPI.storage.local.get(['remoteSiteDataTimestamp'], (items) => {
+          resolve((items && items.remoteSiteDataTimestamp) || 0);
+        });
+      });
+      if (Date.now() - timestamp < REMOTE_DATA_MAX_AGE_MS) {
+        return;
+      }
+    }
+
+    const response = await fetch(REMOTE_DATA_URL);
+    if (!response.ok) {
+      throw new Error('received HTTP ' + response.status);
+    }
+    const data = await response.json();
+    if (!data || data.schemaVersion !== 1 || !isValidSiteData(data.sites)) {
+      throw new Error('response failed validation');
+    }
+
+    const compressedSites = await commonFunctionCompressJSON(data.sites);
+    await new Promise((resolve) => {
+      extensionAPI.storage.local.set({
+        'remoteSiteData': compressedSites,
+        'remoteSiteDataTimestamp': Date.now()
+      }, resolve);
+    });
+    _siteData = undefined;
+    _siteDataByOrigin = undefined;
+    console.debug('IWB: Remote site data refreshed.');
+  } catch (e) {
+    console.log('Indie Wiki Buddy failed to fetch site data: ' + e);
+  }
+}
+
+// When another context stores fresh remote data, drop in-memory copy
+extensionAPI.storage.onChanged.addListener((changes, area) => {
+  if (area === 'local' && changes.remoteSiteData) {
+    _siteData = undefined;
+    _siteDataByOrigin = undefined;
+  }
+});
+
+/**
+ * Get the API URL for a wiki's favicon
+ * Used when local favicon copy is missing
+ * @param {SiteData | SiteInfo} site
+ */
+function commonFunctionGetApiFaviconURL(site) {
+  return REMOTE_FAVICON_BASE_URL + site.language.toLowerCase() + '/' + site.destination_icon;
 }
 
 /**
@@ -83,18 +252,7 @@ async function commonFunctionCompressJSON(value) {
  * @returns {Promise<SiteInfo[]>}
  */
 async function commonFunctionGetSiteDataByDestination() {
-  var sites = [];
-  let promises = [];
-  for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(extensionAPI.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-      .then((resp) => resp.json())
-      .then((jsonData) => {
-        jsonData.forEach((site) => site.language = LANGS[i]);
-        sites = sites.concat(jsonData);
-      }));
-  }
-  await Promise.all(promises);
-  return sites;
+  return commonFunctionLoadSiteData();
 }
 
 /**
@@ -104,39 +262,31 @@ async function populateSiteDataByOrigin() {
   // Populate with the site data
   /** @type {SiteData[]} */
   let sites = [];
-  let promises = [];
-  for (let i = 0; i < LANGS.length; i++) {
-    promises.push(fetch(extensionAPI.runtime.getURL('data/sites' + LANGS[i] + '.json'))
-      .then((resp) => resp.json())
-      .then((jsonData) => {
-        jsonData.forEach((site) => {
-          site.origins.forEach((origin) => {
-            sites.push({
-              "id": site.id,
-              "origin": origin.origin,
-              "origin_base_url": origin.origin_base_url,
-              "origin_content_path": origin.origin_content_path,
-              "origin_main_page": origin.origin_main_page,
-              "destination": site.destination,
-              "destination_base_url": site.destination_base_url,
-              "destination_search_path": site.destination_search_path,
-              "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
-              // /w/index.php?title= is the default path for a new MediaWiki install, change as accordingly in config JSON files
-              "destination_content_path": site.destination_content_path || "/w/index.php?title=",
-              "destination_content_suffix": origin.destination_content_suffix || site.destination_content_suffix || "",
-              "destination_platform": site.destination_platform,
-              "destination_icon": site.destination_icon,
-              "destination_main_page": site.destination_main_page,
-              "destination_host": site.destination_host,
-              "tags": site.tags || [],
-              "language": LANGS[i]
-            })
-          })
-        });
-      }));
-  }
-
-  await Promise.all(promises);
+  const siteData = await commonFunctionLoadSiteData();
+  siteData.forEach((site) => {
+    site.origins.forEach((origin) => {
+      sites.push({
+        "id": site.id,
+        "origin": origin.origin,
+        "origin_base_url": origin.origin_base_url,
+        "origin_content_path": origin.origin_content_path,
+        "origin_main_page": origin.origin_main_page,
+        "destination": site.destination,
+        "destination_base_url": site.destination_base_url,
+        "destination_search_path": site.destination_search_path,
+        "destination_content_prefix": origin.destination_content_prefix || site.destination_content_prefix || "",
+        // /w/index.php?title= is the default path for a new MediaWiki install, change as accordingly in config JSON files
+        "destination_content_path": site.destination_content_path || "/w/index.php?title=",
+        "destination_content_suffix": origin.destination_content_suffix || site.destination_content_suffix || "",
+        "destination_platform": site.destination_platform,
+        "destination_icon": site.destination_icon,
+        "destination_main_page": site.destination_main_page,
+        "destination_host": site.destination_host,
+        "tags": site.tags || [],
+        "language": site.language
+      })
+    })
+  });
 
   if (typeof window !== 'undefined') {
     window.iwb_siteDataByOrigin = sites;
@@ -145,24 +295,24 @@ async function populateSiteDataByOrigin() {
   return sites;
 }
 
-/** @type {SiteData[] | Promise<SiteData[]> | undefined} */
+/** @type {Promise<SiteData[]> | undefined} */
 let _siteDataByOrigin;
 
 /**
  * Load wiki data objects, with each origin having its own object
  * @returns {Promise<SiteData[]>}
  */
-async function commonFunctionGetSiteDataByOrigin() {
+function commonFunctionGetSiteDataByOrigin() {
   if (_siteDataByOrigin === undefined) {
-    let resolve;
-    _siteDataByOrigin = new Promise(_resolve => resolve = _resolve);
-    let sites = await populateSiteDataByOrigin();
-    resolve(sites);
-    console.debug("IWB: Site data loaded.");
-    return sites;
-  } else {
-    return _siteDataByOrigin;
+    _siteDataByOrigin = populateSiteDataByOrigin();
+    _siteDataByOrigin.then(() => {
+      console.debug("IWB: Site data loaded.");
+    }).catch(() => {
+      // Drop the failed load so the next call retries
+      _siteDataByOrigin = undefined;
+    });
   }
+  return _siteDataByOrigin;
 }
 
 /**
