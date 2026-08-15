@@ -79,7 +79,7 @@ async function commonFunctionCompressJSON(value) {
   return btoa(binary);
 }
 
-const REMOTE_DATA_URL = 'https://api.getindie.wiki/v1/data.json';
+const REMOTE_DATA_URL = 'https://api.getindie.wiki/v1/all-data.json';
 const REMOTE_FAVICON_BASE_URL = 'https://api.getindie.wiki/favicons/';
 const REMOTE_DATA_MAX_AGE_MS = 3 * 60 * 60 * 1000;
 
