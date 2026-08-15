@@ -4013,6 +4013,26 @@
     "destination_content_path": "/wiki/"
   },
   {
+    "id": "en-dustbunny",
+    "origins_label": "Dustbunny Fandom Wiki",
+    "origins": [
+      {
+        "origin": "Dustbunny Fandom Wiki",
+        "origin_base_url": "dustbunny.fandom.com",
+        "origin_content_path": "/wiki/",
+        "origin_main_page": "Dustbunny_Wiki"
+      }
+    ],
+    "destination": "Dustbunny Wiki",
+    "destination_base_url": "dustbunny.miraheze.org",
+    "destination_platform": "mediawiki",
+    "destination_icon": "dustbunnywiki.png",
+    "destination_main_page": "Dustbunny_Wiki",
+    "destination_search_path": "/w/index.php",
+    "destination_content_path": "/wiki/",
+    "destination_host": "Miraheze"
+  },
+  {
     "id": "en-dwarffortress",
     "origins_label": "Dwarf Fortress Fandom Wiki",
     "origins": [
