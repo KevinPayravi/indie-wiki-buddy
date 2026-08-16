@@ -87,6 +87,7 @@ legend {
 /* SETTINGS BUTTON */
 #openSettingsButton {
   border: 0;
+  outline: 1px solid var(--accent-color);
   background: var(--base-color-secondary);
   color: var(--accent-color);
   border-radius: 5px;
@@ -95,6 +96,5 @@ legend {
 }
 
 #openSettingsButton:hover {
-  cursor: pointer;
   outline: 2px solid var(--accent-color);
 }

@@ -17,6 +17,7 @@ import {
  */
 
 const currentURL = new URL(document.location.href);
+/** @type {Record<string, boolean>} */
 let hiddenWikisRevealed = {};
 
 /** @type {{url: string, isNonIndie: boolean, siteData: SiteData, container: HTMLElement, anchor: HTMLAnchorElement}[]} */
@@ -203,6 +204,7 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
 function mountToTopOfSearchResults(element) {
   switch (searchEngine) {
     case 'google':
+    case 'google_intl':
       if (document.querySelector('#search')) {
         document.querySelector('#search')?.prepend(element);
       } else if (document.querySelector('#topstuff')) {
@@ -211,14 +213,15 @@ function mountToTopOfSearchResults(element) {
         document.querySelector('#main > div:nth-of-type(2)')?.insertAdjacentElement('beforebegin', element);
       }
       break;
-    case 'bing':
-      var li = document.createElement('li');
+    case 'bing': {
+      let li = document.createElement('li');
       li.appendChild(element);
       document.querySelector('#b_results')?.prepend(li);
       break;
+    }
     case 'duckduckgo':
       if (document.getElementById('web_content_wrapper')) {
-        var li = document.createElement('li');
+        let li = document.createElement('li');
         li.appendChild(element);
         document.querySelector('#web_content_wrapper ol')?.prepend(li);
       } else {
@@ -237,13 +240,14 @@ function mountToTopOfSearchResults(element) {
     case 'startpage':
       document.querySelector('#main')?.prepend(element);
       break;
-    case 'yandex':
-      var searchResultsContainer = document.querySelector('#search-result') || document.querySelector('.main__content .content');
+    case 'yandex': {
+      const searchResultsContainer = document.querySelector('#search-result') || document.querySelector('.main__content .content');
       searchResultsContainer?.prepend(element);
       break;
+    }
     case 'yahoo':
       if (document.querySelector('#web > ol')) {
-        var li = document.createElement('li');
+        let li = document.createElement('li');
         li.appendChild(element);
         document.querySelector('#web > ol')?.prepend(li);
       } else {
@@ -306,12 +310,13 @@ function mountSearchBanner(wikiInfo) {
     showResultsButton.innerText = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
     resultControls.appendChild(showResultsButton);
 
-    /** @param {MouseEvent & { target: HTMLDivElement, currentTarget: HTMLDivElement }} e */
     showResultsButton.onclick = function (e) {
-      if (e.target.textContent?.includes(extensionAPI.i18n.getMessage('searchFilteredResultsShow'))) {
-        e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsHide');
+      const target = /** @type {HTMLDivElement} */ (e.target);
+      const currentTarget = /** @type {HTMLDivElement} */ (e.currentTarget);
+      if (target.textContent?.includes(extensionAPI.i18n.getMessage('searchFilteredResultsShow'))) {
+        target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsHide');
         hiddenWikisRevealed[elementId] = true;
-        const selector = e.currentTarget.dataset.group;
+        const selector = currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
           if (el instanceof HTMLElement) {
             el.dataset.iwbUserAction = 'true';
@@ -320,9 +325,9 @@ function mountSearchBanner(wikiInfo) {
           }
         });
       } else {
-        e.target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
+        target.textContent = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
         hiddenWikisRevealed[elementId] = false;
-        const selector = e.currentTarget.dataset.group;
+        const selector = currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
           if (el instanceof HTMLElement) {
             el.dataset.iwbUserAction = 'true';
@@ -412,6 +417,7 @@ function getResultContainer(searchEngine, searchResult) {
 
   switch (searchEngine) {
     case 'google':
+    case 'google_intl':
       /** @type {HTMLElement | null} */
       const closestJsController = searchResult.closest('div[jscontroller]');
       /** @type {HTMLElement | null} */
@@ -713,7 +719,8 @@ function filterAnchors(newAnchors) {
 
   // Determine which search engine we're on
   switch (searchEngine) {
-    case 'google': {
+    case 'google':
+    case 'google_intl': {
       // Query Google results and rewrite HREFs when Google uses middleman links (i.e. google.com/url?q=)
       let searchResults = newAnchors.filter(e => e.matches("div[data-hveid] a:first-of-type:not([role='button']):not([target='_self'])"));
 
@@ -728,7 +735,7 @@ function filterAnchors(newAnchors) {
         /** @param {HTMLAnchorElement} searchResult */ searchResult => {
           if (searchResult.href) {
             const link = new URL(searchResult.href);
-            if (link.href.includes('https://www.google.com/url')) {
+            if (link.hostname.startsWith('www.google.') && link.pathname === '/url') {
               try {
                 const destinationLink = link.searchParams.get('url') || link.searchParams.get('q');
                 if (destinationLink) {
@@ -779,7 +786,7 @@ function filterAnchors(newAnchors) {
     case 'brave': {
       processedCache.length = 0;
       checkedAnchors.clear();
-      const searchResults = Array.from(document.body?.querySelectorAll('div.snippet[data-type="web"] div.result-content > a.l1:not(.iwb-new-link)') ?? []);
+      const searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.body?.querySelectorAll('div.snippet[data-type="web"] div.result-content > a.l1:not(.iwb-new-link)') ?? []));
       filterSearchResults(searchResults);
       break;
     }
@@ -803,7 +810,6 @@ function filterAnchors(newAnchors) {
       filterSearchResults(searchResults);
       break;
     }
-
     case 'yahoo': {
       const searchResults = newAnchors.filter(e => e.matches('#web > ol > li a:not(.thmb), #main-algo section.algo a:not(.thmb)'));
       searchResults.forEach(
@@ -835,33 +841,15 @@ function filterAnchors(newAnchors) {
       filterSearchResults(searchResults);
       break;
     }
-    default: {
-      if (storage.customSearchEngines) {
-        function filterSearXNG() {
-          const searchResults = newAnchors?.filter(e => e.matches('h3>a'));
-          if (searchResults) filterSearchResults(searchResults);
-        }
-
-        function filterWhoogle() {
-          const searchResults = newAnchors?.filter(e => e.matches('div>a'));
-          if (searchResults) filterSearchResults(searchResults);
-        }
-
-        /** @param {string} searchEngine */
-        function filter(searchEngine) {
-          if (searchEngine === 'searxng') {
-            filterSearXNG();
-          } else if (searchEngine === 'whoogle') {
-            filterWhoogle();
-          }
-        }
-
-        let customSearchEngines = storage.customSearchEngines;
-        if (customSearchEngines[currentURL.hostname]) {
-          let customSearchEnginePreset = customSearchEngines[currentURL.hostname];
-          filter(customSearchEnginePreset);
-        }
-      }
+    case 'whoogle': {
+      const searchResults = newAnchors?.filter(e => e.matches('div>a'));
+      filterSearchResults(searchResults);
+      break;
+    }
+    case 'searxng': {
+      const searchResults = newAnchors?.filter(e => e.matches('h3>a'));
+      filterSearchResults(searchResults);
+      break;
     }
   }
 }
@@ -916,21 +904,23 @@ function filterMutations(mutations, observer) {
   for (const mutation of mutations) {
     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
       const oldClassValue = mutation.oldValue;
-      if (!oldClassValue) return;
+      if (!oldClassValue) continue;
     
       const target = /** @type {HTMLElement} */ (mutation.target);
     
-      const oldClasses = oldClassValue.split(/\s+/);
-      const newClasses = target.className.split(/\s+/);
-    
-      const oldIwbClasses = oldClasses.filter(cls => cls.startsWith('iwb-'));
-      const removedIwbClasses = oldIwbClasses.filter(cls => !newClasses.includes(cls));
-    
-      // Re-add any removed iwb- classes, unless it was a user action
-      if (!target.dataset.iwbUserAction) {
-        for (const removedClass of removedIwbClasses) {
-          console.debug(`IWB: ${removedClass} class was removed unexpectedly. Restoring...`);
-          target.classList.add(removedClass);
+      if (target instanceof HTMLElement) {
+        const oldClasses = oldClassValue.split(/\s+/);
+        const newClasses = target.className.split(/\s+/);
+      
+        const oldIwbClasses = oldClasses.filter(cls => cls.startsWith('iwb-'));
+        const removedIwbClasses = oldIwbClasses.filter(cls => !newClasses.includes(cls));
+      
+        // Re-add any removed iwb- classes, unless it was a user action
+        if (!target.dataset.iwbUserAction) {
+          for (const removedClass of removedIwbClasses) {
+            console.debug(`IWB: ${removedClass} class was removed unexpectedly. Restoring...`);
+            target.classList.add(removedClass);
+          }
         }
       }
     }
@@ -964,7 +954,6 @@ async function decompressStorage(storage) {
 
 /**
  * Check if user has enabled filtering for the current search engine
- * If so, call startFiltering function to start filtering process
  * @param {string} _searchEngine
  */
 function processSearchEngine(_searchEngine) {
@@ -993,25 +982,39 @@ function processSearchEngine(_searchEngine) {
 // fill cache
 void getSiteDataByOrigin();
 
-// Figure out which search engine we're on
-if (currentURL.hostname.includes('www.google.')) {
-  processSearchEngine('google');
-} else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
-  processSearchEngine('duckduckgo');
-} else if (currentURL.hostname.endsWith('.bing.com')) {
-  processSearchEngine('bing');
-} else if (currentURL.hostname.includes('search.brave.com')) {
-  processSearchEngine('brave');
-} else if (currentURL.hostname.includes('ecosia.org')) {
-  window.addEventListener("load", () => processSearchEngine('ecosia'));
-} else if (currentURL.hostname.includes('qwant.com')) {
-  processSearchEngine('qwant');
-} else if (currentURL.hostname.includes('startpage.com')) {
-  processSearchEngine('startpage');
-} else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
-  processSearchEngine('yandex');
-} else if (currentURL.hostname.includes('yahoo.com')) {
-  processSearchEngine('yahoo');
-} else if (currentURL.hostname.includes('kagi.com')) {
-  processSearchEngine('kagi');
+// Engine provided when called via background.js executeScript
+if (typeof document !== 'undefined') {
+  // @ts-ignore
+  if (typeof engine !== 'undefined') {
+    // @ts-ignore
+    processSearchEngine(engine);
+  } else {
+    const currentURL = new URL(document.location.href);
+    // Figure out which search engine we're on
+    if (currentURL.hostname.includes('www.google.com')) {
+      processSearchEngine('google');
+    } else if (currentURL.hostname.includes('www.google.')) {
+      processSearchEngine('google_intl');
+    } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
+      processSearchEngine('duckduckgo');
+    } else if (currentURL.hostname.endsWith('.bing.com')) {
+      processSearchEngine('bing');
+    } else if (currentURL.hostname.includes('search.brave.com')) {
+      // todo: fix reordering behaving weirdly on descriptions
+      processSearchEngine('brave');
+    } else if (currentURL.hostname.includes('ecosia.org')) {
+      // todo: figure out what is causing race conditions to make elements disappear, and ecosia to crash
+      window.addEventListener("load", () => processSearchEngine('ecosia'));
+    } else if (currentURL.hostname.includes('qwant.com')) {
+      processSearchEngine('qwant');
+    } else if (currentURL.hostname.includes('startpage.com')) {
+      processSearchEngine('startpage');
+    } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
+      processSearchEngine('yandex');
+    } else if (currentURL.hostname.includes('yahoo.com')) {
+      processSearchEngine('yahoo');
+    } else if (currentURL.hostname.includes('kagi.com')) {
+      processSearchEngine('kagi');
+    }
+  }
 }

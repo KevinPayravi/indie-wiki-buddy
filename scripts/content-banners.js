@@ -29,7 +29,6 @@ function processBreezeWikiBanner(storage) {
     // Extract article from URL
     const subdomain = currentURL.hostname.split(".")[0];
     const article = currentURL.toString().split('fandom.com/wiki/')[1].replaceAll('%20', '_');
-    let breezewikiHost = '';
     if (!(storage.breezewikiHost ?? null)) {
       fetch('https://bw.getindie.wiki/instances.json')
         .then((response) => {
@@ -45,33 +44,37 @@ function processBreezeWikiBanner(storage) {
             ) >= 0
           );
           // Check if BreezeWiki's main site is available
+          let selectedHost;
           let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
           if (breezewikiMain.length > 0) {
-            extensionAPI.storage.sync.set({ 'breezewikiHost': breezewikiMain[0].instance });
+            selectedHost = breezewikiMain[0].instance;
+            extensionAPI.storage.sync.set({ 'breezewikiHost': selectedHost });
           } else {
             // If BreezeWiki.com is not available, set to a random mirror
             try {
-              extensionAPI.storage.sync.set({ 'breezewikiHost': breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance });
+              selectedHost = breezewikiHosts[Math.floor(Math.random() * breezewikiHosts.length)].instance;
+              extensionAPI.storage.sync.set({ 'breezewikiHost': selectedHost });
             } catch (e) {
               console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
+              selectedHost = 'https://breezewiki.com';
             }
           }
           extensionAPI.storage.sync.set({ 'breezewikiHostOptions': breezewikiHosts });
           extensionAPI.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
-          breezewikiHost = host;
+          displayBreezewikiBanner(selectedHost + '/' + subdomain + '/wiki/' + article);
         }).catch((e) => {
           console.log('Indie Wiki Buddy failed to get BreezeWiki data: ' + e);
           extensionAPI.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
         });
     } else {
+      let breezewikiHost;
       if (storage.breezewikiHost === 'CUSTOM') {
         breezewikiHost = storage.breezewikiCustomHost || 'https://breezewiki.com';
       } else {
         breezewikiHost = storage.breezewikiHost;
       }
+      displayBreezewikiBanner(breezewikiHost + '/' + subdomain + '/wiki/' + article);
     }
-
-    displayBreezewikiBanner(breezewikiHost + '/' + subdomain + '/wiki/' + article);
   }
 }
 

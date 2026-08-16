@@ -1,21 +1,14 @@
-import { 
+import {
   extensionAPI,
   compressJSON,
   getSiteDataByDestination,
- } from "../../scripts/common-functions.js";
+} from "../../scripts/common-functions.js";
+import { loadOptions } from "../common-page-functions.js";
 
-// Main function that runs on-load
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Listener for settings links:
-  document.getElementById('openSettingsButton').addEventListener('click', () => {
-    extensionAPI.tabs.create({ 'url': extensionAPI.runtime.getURL('pages/settings/index.html') });
-    window.close();
-  });
-  document.getElementById('openSettingsLink').addEventListener('click', () => {
-    extensionAPI.tabs.create({ 'url': extensionAPI.runtime.getURL('pages/settings/index.html') });
-    window.close();
-  });
 
+  // Set default wiki action
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
     el.addEventListener('change', async () => {
       extensionAPI.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
@@ -28,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
     });
   });
+  // Set default search action
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
     el.addEventListener('change', async () => {
       extensionAPI.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
@@ -40,4 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
       extensionAPI.storage.sync.set({ 'searchEngineSettings': await compressJSON(searchEngineSettings) });
     });
   });
+
 });

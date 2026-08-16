@@ -14,6 +14,8 @@
   --secondary-color: #ceeaff;
   --accent-color: #3174f1;
   --accent-color-dark: #205ed0;
+  --negative-color: #f72626;
+  --negative-color-dark: #b90d0d;
   --notification-color: #f8f3d6;
   --disabled-color: #3f3f3f;
 
@@ -39,6 +41,8 @@
     --secondary-color: #334553;
     --accent-color: #03dac6;
     --accent-color-dark: #018786;
+    --negative-color: #ff6b6b;
+    --negative-color-dark: #e03c3c;
   }
   
   :root hr {
@@ -48,6 +52,14 @@
 
   :root img.dark-invert, :root #toggles #togglesKeys button {
     filter: invert(1);
+  }
+
+  :root .searchEngineToggles label:has(input:checked) {
+    background-color: var(--secondary-color);
+  }
+
+  :root #customSearchEnginesList>div:hover {
+    background-color: var(--secondary-color);
   }
 }
 
@@ -96,6 +108,10 @@ h2 {
   text-align: center;
   padding: .5em 0 0 0;
   margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 /* CONTAINERS AND LAYOUT */
@@ -222,6 +238,16 @@ select {
 }
 .searchEngineToggles label {
   white-space: nowrap;
+  border: 1px solid #e0e3e5;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+}
+.searchEngineToggles label:has(input:checked) {
+  background: #ceeaff;
 }
 
 .settingToggle {
@@ -229,7 +255,9 @@ select {
 }
 
 .settingToggle img {
-  vertical-align: middle;
+  vertical-align: text-bottom;
+  max-height: 16px;
+  max-width: 16px;
 }
 
 .radioGroup {
@@ -247,6 +275,13 @@ select {
   gap: .5em;
 }
 
+#customSearchEngines {
+  padding: .25rem;
+}
+#customSearchEngines > label > span {
+  font-weight: 600;
+}
+
 /* BREEZEWIKI */
 #breeezwikiLearnMore {
   white-space: nowrap;
@@ -259,20 +294,6 @@ select {
 
 #breezewikiHost label {
   cursor: default;
-}
-
-#breezewikiHost button {
-  background: var(--accent-color);
-  border: none;
-  color: var(--text-color-white);
-  border-radius: 5px;
-  padding: .3em;
-  font-size: .9em;
-}
-
-#breezewikiHost button:hover {
-  cursor: pointer;
-  background: var(--accent-color-dark);
 }
 
 #breezewikiHost label+label {
@@ -300,4 +321,32 @@ select {
 
 .center {
   text-align: center;
+}
+
+/* BUTTONS */
+button.affirmative {
+  border: none;
+  outline: 1px solid var(--accent-color);
+  background: var(--base-color-secondary);
+  color: var(--accent-color);
+  border-radius: 5px;
+  padding: .3em;
+  font-size: .9em;
+}
+button.affirmative:hover {
+  outline: 2px solid var(--accent-color-dark);
+  color: var(--accent-color-dark);
+}
+button.negative {
+  border: none;
+  outline: 1px solid var(--negative-color);
+  background: var(--base-color-secondary);
+  color: var(--negative-color);
+  border-radius: 5px;
+  padding: .3em;
+  font-size: .9em;
+}
+button.negative:hover {
+  outline: 2px solid var(--negative-color-dark);
+  color: var(--negative-color-dark);
 }

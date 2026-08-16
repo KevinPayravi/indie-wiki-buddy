@@ -47,24 +47,6 @@
       </span>
     </div>
     <div id="content">
-      <div id="firstInstallInfo">
-        <p data-msg="firstInstallInfo1"></p>
-        <p data-msg="firstInstallInfo2"></p>
-        <p
-          data-msg="firstInstallInfo3"
-          data-msg-ph-1="<a href='https://breezewiki.com/' target='_blank'>BreezeWiki</a>"></p>
-        <p
-          data-msg="firstInstallInfo4"
-          data-msg-ph-1="<img class='dark-invert' src='../../images/toggle-alert.png' width='12' alt='' />"
-          data-msg-ph-2="<img class='dark-invert' src='../../images/toggle-redirect.png' width='12' alt='' />"
-          data-msg-ph-3="<img class='dark-invert' src='../../images/toggle-replace.png' width='12' alt='' />"
-          data-msg-ph-4="<img class='dark-invert' src='../../images/toggle-hide.png' width='12' alt='' />"></p>
-        <p
-          data-msg="firstInstallInfo5"
-          data-msg-ph-1="<img src='../../images/logo-32.png' width='15' alt='' />"
-          data-msg-ph-2="<img class='dark-invert' src='../../images/jigsaw.png' width='15' alt='' />"></p>
-        <hr />
-      </div>
       <form name="options" class="options">
         <fieldset id="generalSettings">
           <legend><span aria-hidden="true">⚙️</span>&nbsp;<span data-msg="settingsGeneral"></span></legend>
@@ -111,43 +93,47 @@
           <div class="settingToggle searchEngineToggles">
             <label>
               <input id="googleCheckbox" data-search-engine="google" type="checkbox" />
-              Google
+              <img src="/images/search-logos/google.png" alt=""> Google.com
+            </label>
+            <label>
+              <input id="googleIntlCheckbox" data-search-engine="google_intl" type="checkbox" />
+              <img src="/images/search-logos/google.png" alt=""> Google Intl. <small>(.co.uk, .fr, etc.)</small>
             </label>
             <label>
               <input id="bingCheckbox" data-search-engine="bing" type="checkbox" />
-              Bing
+              <img src="/images/search-logos/bing.png" alt=""> Bing
             </label>
             <label>
               <input id="duckduckgoCheckbox" data-search-engine="duckduckgo" type="checkbox" />
-              DuckDuckGo
+              <img src="/images/search-logos/duckduckgo.png" alt=""> DuckDuckGo
             </label>
             <label>
               <input id="braveCheckbox" data-search-engine="brave" type="checkbox" />
-              Brave
+              <img src="/images/search-logos/brave.png" alt=""> Brave
             </label>
             <label>
               <input id="ecosiaCheckbox" data-search-engine="ecosia" type="checkbox" />
-              Ecosia
+              <img src="/images/search-logos/ecosia.png" alt=""> Ecosia
             </label>
             <label>
               <input id="kagiCheckbox" data-search-engine="kagi" type="checkbox" />
-              Kagi
+              <img src="/images/search-logos/kagi.png" alt=""> Kagi
             </label>
             <label>
               <input id="qwantCheckbox" data-search-engine="qwant" type="checkbox" />
-              Qwant
+              <img src="/images/search-logos/qwant.png" alt=""> Qwant
             </label>
             <label>
               <input id="startpageCheckbox" data-search-engine="startpage" type="checkbox" />
-              Startpage
+              <img src="/images/search-logos/startpage.png" alt=""> Startpage
             </label>
             <label>
               <input id="yahooCheckbox" data-search-engine="yahoo" type="checkbox" />
-              Yahoo
+              <img src="/images/search-logos/yahoo.png" alt=""> Yahoo
             </label>
             <label>
               <input id="yandexCheckbox" data-search-engine="yandex" type="checkbox" />
-              Yandex
+              <img src="/images/search-logos/yandex.png" alt=""> Yandex
             </label>
           </div>
           <hr>
@@ -164,6 +150,21 @@
               <img class="dark-invert" src="../../images/toggle-move-up.png" height="12" alt="" />
               <span data-msg="settingsReorderResults"></span>
             </label>
+          </div>
+          <hr />
+          <div id="customSearchEngines" class="settingToggle">
+            <span data-msg="customSearchEngines"></span>
+            <div id="customSearchEnginesContainer">
+              <div id="customSearchEnginesList"></div>
+              <div id="customSearchEnginesAdd">
+                <input type="text" id="newCustomSearchEngineDomain" placeholder="Search engine domain (e.g. search.example.org)" />
+                <select id="newCustomSearchEnginePreset">
+                  <option value="searxng">SearXNG</option>
+                  <option value="whoogle">Whoogle</option>
+                </select>
+                <button id="addCustomSearchEngine" class="affirmative" type="button"><span data-msg="customSearchEnginesAdd"></span></button>
+              </div>
+            </div>
           </div>
         </fieldset>
         <fieldset id="breezewikiSettings">
@@ -196,38 +197,20 @@
             <div id="breezewikiHostNote" data-msg="settingsBreezeWikiHostNote"></div>
             <label>
               <span data-msg="settingsBreezeWikiHost"></span>
+              <span id="breezewikiHostSelectLoading" data-msg="settingsBreezeWikiHostLoading"></span>
               <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+              <button id="breezewikiHostApply" class="affirmative" type="button" data-msg="settingsBreezeWikiHostApply" style="display:none"></button>
             </label>
             <label id="breezewikiCustomHost">
               <span data-msg="settingsBreezeWikiCustomHost"></span>
               <input type="text" id="customBreezewikiHost" name="customBreezewikiHost" placeholder="bw.example.com"
                 size="30" />
-              <button id="setCustomBreezewikiDomain" type="button" data-msg="settingsBreezeWikiCustomHostSet">
+              <button id="setCustomBreezewikiDomain" class="affirmative" type="button" data-msg="settingsBreezeWikiCustomHostSet">
               </button>
               <span id="breezewikiCustomHostStatus"></span>
             </label>
           </div>
         </fieldset>
-        <!--
-          Custom search engines are currently disabled
-          due to content scripts being unregistered on-update.
-        -->
-        <!-- <fieldset id="customSearchEngines">
-          <legend>
-            <span aria-hidden="true">🔍</span> Custom search engines
-          </legend>
-          <div id="customSearchEnginesContainer">
-            <div id="customSearchEnginesList"></div>
-            <div id="customSearchEnginesAdd">
-              <input type="text" id="newCustomSearchEngineDomain" placeholder="Search engine domain (e.g. search.example.org)" />
-              <select id="newCustomSearchEnginePreset">
-                <option value="searxng">SearXNG</option>
-                <option value="whoogle">Whoogle</option>
-              </select>
-              <button id="addCustomSearchEngine">Add</button>
-            </div>
-          </div>
-        </fieldset> -->
         <h2 data-msg="settingsWiki"></h2>
         <fieldset id="legend">
           <legend>
