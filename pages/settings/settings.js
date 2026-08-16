@@ -1,13 +1,13 @@
-import { 
-  extensionAPI, 
-  camelCaseJoin, 
+import {
+  extensionAPI,
+  camelCaseJoin,
   compressJSON,
   decompressJSON,
   migrateToV3,
   getSiteDataByDestination,
+  getApiFaviconURL,
+  refreshSiteData,
 } from "../../scripts/common-functions.js";
-
-let sites = [];
 
 // Clear wiki toggles
 // Used when switching languages
@@ -21,14 +21,6 @@ function resetOptions() {
       el.remove();
     }
   }
-
-  // Clone "select all" buttons to reset listeners
-  document.getElementById('setAllWikiDisabled').cloneNode(true);
-  document.getElementById('setAllWikiRedirect').cloneNode(true);
-  document.getElementById('setAllWikiAlert').cloneNode(true);
-  document.getElementById('setAllSearchEngineDisabled').cloneNode(true);
-  document.getElementById('setAllSearchEngineHide').cloneNode(true);
-  document.getElementById('setAllSearchEngineReplace').cloneNode(true);
 }
 
 function createRadioButton(redirectEntry, action, category) {
@@ -56,13 +48,32 @@ function createRadioButton(redirectEntry, action, category) {
   return radioButton;
 }
 
+// Bumped on each loadOptions call
+// Used to ignore stale loadOptions runs
+let loadOptionsGeneration = 0;
+
+// Get site data from background
+// Avoids fresh loading of storage.local, which can be slow in Firefox
+function getSiteData() {
+  return new Promise((resolve) => {
+    extensionAPI.runtime.sendMessage({ action: 'getSiteData' }, (sites) => {
+      if (extensionAPI.runtime.lastError || !sites) {
+        resolve(getSiteDataByDestination());
+      } else {
+        resolve(sites);
+      }
+    });
+  });
+}
+
 // Populate settings and toggles
 async function loadOptions(lang, textFilter = '') {
-  sites = await getSiteDataByDestination();
+  const generation = ++loadOptionsGeneration;
+  const siteData = await getSiteData();
   textFilter = textFilter.toLocaleLowerCase();
 
   // Sort sites alphabetically by destination
-  sites.sort((a, b) => {
+  let sites = [...siteData].sort((a, b) => {
     a = a.destination.toLowerCase().replace(' ', '');
     b = b.destination.toLowerCase().replace(' ', '');
     return a < b ? -1 : (a > b ? 1 : 0);
@@ -84,176 +95,193 @@ async function loadOptions(lang, textFilter = '') {
       site.destination_base_url.toLowerCase().includes(textFilter))
   ));
 
-  extensionAPI.storage.local.get((localStorage) => {
-    extensionAPI.storage.sync.get(async (syncStorage) => {
-      const storage = { ...syncStorage, ...localStorage };
-      const wikiSettings = await decompressJSON(storage.wikiSettings ?? {});
-      const searchEngineSettings = await decompressJSON(storage.searchEngineSettings ?? {});
-      const defaultWikiAction = storage.defaultWikiAction ?? null;
-      const defaultSearchAction = storage.defaultSearchAction ?? null;
+  // Load keys from storage.sync
+  const syncStorage = await new Promise((resolve) => {
+    extensionAPI.storage.sync.get(['wikiSettings', 'searchEngineSettings', 'defaultWikiAction', 'defaultSearchAction'], resolve);
+  });
+  const wikiSettings = await decompressJSON(syncStorage.wikiSettings ?? {});
+  const searchEngineSettings = await decompressJSON(syncStorage.searchEngineSettings ?? {});
+  const defaultWikiAction = syncStorage.defaultWikiAction ?? null;
+  const defaultSearchAction = syncStorage.defaultSearchAction ?? null;
 
-      function addGlobalButtonEventListeners(action, category) {
-        const globalButtonID = camelCaseJoin(['setAll', category, action]);
-        const settingsType = `${category}Settings`;
-        const settings = (category === 'wiki') ? wikiSettings : searchEngineSettings;
+  if (generation !== loadOptionsGeneration) {
+    return;
+  }
 
-        const setAllWikiButton = document.getElementById(globalButtonID);
-        setAllWikiButton.addEventListener('click', async () => {
-          const buttonClassName = camelCaseJoin(['toggle', category, action]);
-          const toggles = document.querySelectorAll(`#toggles input.${buttonClassName}`);
-          for (let i = 0; i < toggles.length; i++) {
-            toggles[i].checked = true;
-            settings[toggles[i].getAttribute('data-wiki-key')] = action;
-          }
-          extensionAPI.storage.sync.set({ [settingsType]: await compressJSON(settings) });
-        });
+  // Load defaults for newly added wikis:
+  switch(syncStorage.defaultWikiAction) {
+    case 'disabled':
+      document.options.defaultWikiAction.value = 'disabled';
+      break;
+    case 'redirect':
+      document.options.defaultWikiAction.value = 'redirect';
+      break;
+    default:
+      document.options.defaultWikiAction.value = 'alert';
+  }
+  switch(syncStorage.defaultSearchAction) {
+    case 'disabled':
+      document.options.defaultSearchAction.value = 'disabled';
+      break;
+    case 'hide':
+      document.options.defaultSearchAction.value = 'hide';
+      break;
+    default:
+      document.options.defaultSearchAction.value = 'replace';
+  }
+
+  // Reset toggles:
+  resetOptions();
+
+  // Populate individual wiki settings
+  // Build rows in small batches for page responsiveness
+  const toggleTableBody = document.getElementById('togglesBody');
+  const chunkSize = 100;
+  for (let chunkStart = 0; chunkStart < sites.length; chunkStart += chunkSize) {
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    if (generation !== loadOptionsGeneration) {
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    const chunkEnd = Math.min(chunkStart + chunkSize, sites.length);
+    for (let i = chunkStart; i < chunkEnd; i++) {
+      const redirectEntry = sites[i];
+
+      // Create radio buttons for wiki & search engine options
+      const inputWikiDisabled = createRadioButton(redirectEntry, 'disabled', 'wiki');
+      const inputWikiAlert = createRadioButton(redirectEntry, 'alert', 'wiki');
+      const inputWikiRedirect = createRadioButton(redirectEntry, 'redirect', 'wiki');
+      const inputSearchEngineDisabled = createRadioButton(redirectEntry, 'disabled', 'searchEngine');
+      const inputSearchEngineReplace = createRadioButton(redirectEntry, 'replace', 'searchEngine');
+      const inputSearchEngineHide = createRadioButton(redirectEntry, 'hide', 'searchEngine');
+
+      // Set wiki radio buttons based on user's settings
+      const wikiAction = wikiSettings[redirectEntry.id] ?? defaultWikiAction ?? 'alert';
+
+      switch(wikiAction) {
+        case 'disabled':
+          inputWikiDisabled.checked = true;
+          break;
+        case 'redirect':
+          inputWikiRedirect.checked = true;
+          break;
+        default:
+          inputWikiAlert.checked = true;
       }
 
-      // Load defaults for newly added wikis:
-      extensionAPI.storage.sync.get(['defaultWikiAction'], (item) => {
-        switch(item.defaultWikiAction) {
-          case 'disabled':
-            document.options.defaultWikiAction.value = 'disabled';
-            break;
-          case 'redirect':
-            document.options.defaultWikiAction.value = 'redirect';
-            break;
-          default:
-            document.options.defaultWikiAction.value = 'alert';
-        }
-      });
-      extensionAPI.storage.sync.get(['defaultSearchAction'], (item) => {
-        switch(item.defaultSearchAction) {
-          case 'disabled':
-            document.options.defaultSearchAction.value = 'disabled';
-            break;
-          case 'hide':
-            document.options.defaultSearchAction.value = 'hide';
-            break;
-          default:
-            document.options.defaultSearchAction.value = 'replace';
-        }
-      });
+      // Set search engine radio buttons based on user's settings
+      const searchEngineAction = searchEngineSettings[redirectEntry.id] ?? defaultSearchAction ?? 'replace';
 
-      // Reset toggles:
-      resetOptions();
-
-      // Populate individual wiki settings:
-      const toggleTableBody = document.getElementById('togglesBody');
-      for (let i = 0; i < sites.length; i++) {
-        const redirectEntry = sites[i];
-
-        // Create radio buttons for wiki & search engine options
-        const inputWikiDisabled = createRadioButton(redirectEntry, 'disabled', 'wiki');
-        const inputWikiAlert = createRadioButton(redirectEntry, 'alert', 'wiki');
-        const inputWikiRedirect = createRadioButton(redirectEntry, 'redirect', 'wiki');
-        const inputSearchEngineDisabled = createRadioButton(redirectEntry, 'disabled', 'searchEngine');
-        const inputSearchEngineReplace = createRadioButton(redirectEntry, 'replace', 'searchEngine');
-        const inputSearchEngineHide = createRadioButton(redirectEntry, 'hide', 'searchEngine');
-
-        // Set wiki radio buttons based on user's settings
-        const wikiAction = wikiSettings[redirectEntry.id] ?? defaultWikiAction ?? 'alert';
-        
-        switch(wikiAction) {
-          case 'disabled':
-            inputWikiDisabled.checked = true;
-            break;
-          case 'redirect':
-            inputWikiRedirect.checked = true;
-            break;
-          default:
-            inputWikiAlert.checked = true;
-        }
-
-        // Set search engine radio buttons based on user's settings
-        const searchEngineAction = searchEngineSettings[redirectEntry.id] ?? defaultSearchAction ?? 'replace';
-
-        switch(searchEngineAction) {
-          case 'true':
-          case 'replace':
-            inputSearchEngineReplace.checked = true;
-            break;
-          case 'false':
-          case 'disabled':
-            inputSearchEngineDisabled.checked = true;
-            break;
-          default:
-            inputSearchEngineHide.checked = true;
-        }
-
-        // Output wiki info:
-        const destinationSiteURL = `https://${redirectEntry.destination_base_url}`;
-        const visitDestinationText = extensionAPI.i18n.getMessage('bannerVisit', [redirectEntry.destination]);
-
-        // Create row container
-        const siteRow = document.createElement("tr");
-        siteRow.classList.add('site-container');
-
-        // Create icon for the destination wiki
-        const icon = document.createElement("img");
-        icon.src = `../../favicons/${redirectEntry.language.toLowerCase()}/${redirectEntry.destination_icon}`;
-        icon.alt = visitDestinationText;
-        icon.style.width = '16px';
-        
-        const linkedIcon = document.createElement("a");
-        linkedIcon.href = destinationSiteURL;
-        linkedIcon.title = visitDestinationText;
-        linkedIcon.target = '_blank';
-        linkedIcon.appendChild(icon);
-
-        const iconCell = document.createElement("td");
-        iconCell.appendChild(linkedIcon);
-        siteRow.appendChild(iconCell);
-
-        // Create language tag (hidden unless filter is set to "All languages")
-        const languageSpan = document.createElement('td');
-        languageSpan.classList.add('text-sm');
-        languageSpan.innerText = `[${redirectEntry.language}]`;
-        siteRow.appendChild(languageSpan);
-
-        // Create text description of the redirect
-        const wikiLink = document.createElement("a");
-        wikiLink.href = destinationSiteURL;
-        wikiLink.title = visitDestinationText;
-        wikiLink.target = '_blank';
-        wikiLink.appendChild(document.createTextNode(redirectEntry.destination));
-
-        const wikiInfo = document.createElement('td');
-        wikiInfo.classList.add('wiki-description');
-        wikiInfo.appendChild(wikiLink);
-        wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [redirectEntry.origins_label])));
-
-        siteRow.appendChild(wikiInfo);
-
-        // Wrap each of the buttons and add them to the container
-        const rowCells = [
-          inputWikiDisabled, 
-          inputWikiAlert, 
-          inputWikiRedirect, 
-          inputSearchEngineDisabled, 
-          inputSearchEngineReplace, 
-          inputSearchEngineHide
-        ];
-        for(const cellContent of rowCells) {
-          const cell = document.createElement("td");
-          cell.appendChild(cellContent);
-          siteRow.appendChild(cell);
-        }
-
-        toggleTableBody.appendChild(siteRow);
+      switch(searchEngineAction) {
+        case 'true':
+        case 'replace':
+          inputSearchEngineReplace.checked = true;
+          break;
+        case 'false':
+        case 'disabled':
+          inputSearchEngineDisabled.checked = true;
+          break;
+        default:
+          inputSearchEngineHide.checked = true;
       }
 
-      // Add "select all" button event listeners:
-      addGlobalButtonEventListeners('redirect', 'wiki');
-      addGlobalButtonEventListeners('alert', 'wiki');
-      addGlobalButtonEventListeners('disabled', 'wiki');
+      // Output wiki info:
+      const destinationSiteURL = `https://${redirectEntry.destination_base_url}`;
+      const visitDestinationText = extensionAPI.i18n.getMessage('bannerVisit', [redirectEntry.destination]);
 
-      addGlobalButtonEventListeners('disabled', 'searchEngine');
-      addGlobalButtonEventListeners('hide', 'searchEngine');
-      addGlobalButtonEventListeners('replace', 'searchEngine');
+      // Create row container
+      const siteRow = document.createElement("tr");
+      siteRow.classList.add('site-container');
+
+      // Create icon for the destination wiki
+      const icon = document.createElement("img");
+      // Lazy-load icons
+      icon.loading = 'lazy';
+      icon.src = `../../favicons/${redirectEntry.language.toLowerCase()}/${redirectEntry.destination_icon}`;
+      // If favicon is not bundled, load it from the API
+      icon.onerror = () => {
+        icon.onerror = null;
+        icon.src = getApiFaviconURL(redirectEntry);
+      };
+      icon.alt = visitDestinationText;
+      icon.style.width = '16px';
+
+      const linkedIcon = document.createElement("a");
+      linkedIcon.href = destinationSiteURL;
+      linkedIcon.title = visitDestinationText;
+      linkedIcon.target = '_blank';
+      linkedIcon.appendChild(icon);
+
+      const iconCell = document.createElement("td");
+      iconCell.appendChild(linkedIcon);
+      siteRow.appendChild(iconCell);
+
+      // Create language tag (hidden unless filter is set to "All languages")
+      const languageSpan = document.createElement('td');
+      languageSpan.classList.add('text-sm');
+      languageSpan.innerText = `[${redirectEntry.language}]`;
+      siteRow.appendChild(languageSpan);
+
+      // Create text description of the redirect
+      const wikiLink = document.createElement("a");
+      wikiLink.href = destinationSiteURL;
+      wikiLink.title = visitDestinationText;
+      wikiLink.target = '_blank';
+      wikiLink.appendChild(document.createTextNode(redirectEntry.destination));
+
+      const wikiInfo = document.createElement('td');
+      wikiInfo.classList.add('wiki-description');
+      wikiInfo.appendChild(wikiLink);
+      wikiInfo.appendChild(document.createTextNode(extensionAPI.i18n.getMessage('settingsWikiFrom', [redirectEntry.origins_label])));
+
+      siteRow.appendChild(wikiInfo);
+
+      // Wrap each of the buttons and add them to the container
+      const rowCells = [
+        inputWikiDisabled,
+        inputWikiAlert,
+        inputWikiRedirect,
+        inputSearchEngineDisabled,
+        inputSearchEngineReplace,
+        inputSearchEngineHide
+      ];
+      for(const cellContent of rowCells) {
+        const cell = document.createElement("td");
+        cell.appendChild(cellContent);
+        siteRow.appendChild(cell);
+      }
+
+      fragment.appendChild(siteRow);
+    }
+    toggleTableBody.appendChild(fragment);
+  }
+}
+
+// "Set all" button applies action to all listed wikis
+function addGlobalButtonEventListeners(action, category) {
+  const settingsType = `${category}Settings`;
+
+  document.getElementById(camelCaseJoin(['setAll', category, action])).addEventListener('click', () => {
+    extensionAPI.storage.sync.get(settingsType, async (response) => {
+      const settings = await decompressJSON(response[settingsType] ?? {});
+      const buttonClassName = camelCaseJoin(['toggle', category, action]);
+      const toggles = document.querySelectorAll(`#toggles input.${buttonClassName}`);
+      for (let i = 0; i < toggles.length; i++) {
+        toggles[i].checked = true;
+        settings[toggles[i].getAttribute('data-wiki-key')] = action;
+      }
+      extensionAPI.storage.sync.set({ [settingsType]: await compressJSON(settings) });
     });
   });
 }
+
+addGlobalButtonEventListeners('redirect', 'wiki');
+addGlobalButtonEventListeners('alert', 'wiki');
+addGlobalButtonEventListeners('disabled', 'wiki');
+addGlobalButtonEventListeners('disabled', 'searchEngine');
+addGlobalButtonEventListeners('hide', 'searchEngine');
+addGlobalButtonEventListeners('replace', 'searchEngine');
 
 function displayCustomSearchEngine(customSearchEngineHostname, customSearchEnginePreset) {
   let customSearchEnginesList = document.getElementById('customSearchEnginesList');
@@ -325,20 +353,58 @@ function setPower(setting, storeSetting = true) {
   });
 }
 
+// Get local storage data from background
+// Avoids fresh loading of storage.local, which can be slow in Firefox
+const backgroundStoragePromise = new Promise((resolve) => {
+  extensionAPI.runtime.sendMessage({ action: 'getStorage' }, (storage) => {
+    if (extensionAPI.runtime.lastError || !storage) {
+      extensionAPI.storage.local.get(['power', 'countSettingsOpened', 'hideReviewReminder'], resolve);
+    } else {
+      resolve(storage);
+    }
+  });
+});
+
 // Set setting toggle values on-load:
-extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
-  setPower(item.power, false);
+backgroundStoragePromise.then((storage) => {
+  setPower(storage.power ?? 'on', false);
 });
 
 // Add event listener for power toggle
-document.getElementById('powerCheckbox').addEventListener('change', () => {
-  extensionAPI.storage.local.get({ 'power': 'on' }, (item) => {
-    if (item.power === 'on') {
-      setPower('off');
-    } else {
-      setPower('on');
-    }
-  });
+document.getElementById('powerCheckbox').addEventListener('change', (e) => {
+  setPower(e.target.checked ? 'on' : 'off');
+});
+
+// Set API data setting
+function setApiData(setting, storeSetting = true) {
+  if (storeSetting) {
+    extensionAPI.storage.sync.set({ 'apiData': setting }, () => {
+      if (setting === 'on') {
+        // Fetch fresh data right away
+        refreshSiteData(true);
+      } else {
+        // Drop the cached data so the bundled data takes over
+        extensionAPI.storage.local.remove(['remoteSiteData', 'remoteSiteDataTimestamp']);
+      }
+    });
+  }
+
+  const apiDataIcon = document.getElementById('apiDataIcon');
+  if (setting === 'on') {
+    document.getElementById('apiDataCheckbox').checked = true;
+    apiDataIcon.innerText = '🔄';
+  } else {
+    document.getElementById('apiDataCheckbox').checked = false;
+    apiDataIcon.innerText = '📦';
+  }
+}
+
+extensionAPI.storage.sync.get({ 'apiData': 'on' }, (item) => {
+  setApiData(item.apiData, false);
+});
+
+document.getElementById('apiDataCheckbox').addEventListener('change', (e) => {
+  setApiData(e.target.checked ? 'on' : 'off');
 });
 
 async function migrateData() {
@@ -369,32 +435,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Count number of times settings have been opened
   // Purposefully using local storage instead of sync
-  extensionAPI.storage.local.get({ 'countSettingsOpened': 0 }, (item) => {
-    const countSettingsOpened = item.countSettingsOpened;
+  backgroundStoragePromise.then((storage) => {
+    const countSettingsOpened = storage.countSettingsOpened ?? 0;
     extensionAPI.storage.local.set({ 'countSettingsOpened': countSettingsOpened + 1 });
 
     // Show review reminder every 5 opens,
     // and if the banner hasn't been previously dismissed
-    extensionAPI.storage.local.get({ 'hideReviewReminder': false }, (item) => {
-      if (!item.hideReviewReminder && ((countSettingsOpened - 1) % 5 === 0)) {
-        const notificationBannerReview = document.getElementById('notificationBannerReview');
+    if (!(storage.hideReviewReminder ?? false) && ((countSettingsOpened - 1) % 5 === 0)) {
+      const notificationBannerReview = document.getElementById('notificationBannerReview');
 
-        notificationBannerReview.style.display = 'block';
-        document.getElementById('notificationBannerReview').style.display = ' block';
+      notificationBannerReview.style.display = 'block';
 
-        // Disable future review reminders if user clicks links:
-        document.getElementById('reviewReminderChromeLink').addEventListener('click', () => {
-          extensionAPI.storage.local.set({ 'hideReviewReminder': true });
-        });
-        document.getElementById('reviewReminderFirefoxLink').addEventListener('click', () => {
-          extensionAPI.storage.local.set({ 'hideReviewReminder': true });
-        });
-        document.getElementById('reviewReminderHideLink').addEventListener('click', () => {
-          extensionAPI.storage.local.set({ 'hideReviewReminder': true });
-          notificationBannerReview.style.display = 'none';
-        });
-      }
-    });
+      // Disable future review reminders if user clicks links:
+      document.getElementById('reviewReminderChromeLink').addEventListener('click', () => {
+        extensionAPI.storage.local.set({ 'hideReviewReminder': true });
+      });
+      document.getElementById('reviewReminderFirefoxLink').addEventListener('click', () => {
+        extensionAPI.storage.local.set({ 'hideReviewReminder': true });
+      });
+      document.getElementById('reviewReminderHideLink').addEventListener('click', () => {
+        extensionAPI.storage.local.set({ 'hideReviewReminder': true });
+        notificationBannerReview.style.display = 'none';
+      });
+    }
   });
 
   // Adding version to popup:
@@ -551,9 +614,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Add event listener for filtering by text
+  // Waits for typing to pause, so each keystroke doesn't rebuild the table
+  let filterDebounce = null;
   document.getElementById('filterInput').addEventListener('input', (e) => {
-    const langSelect = document.getElementById("langSelect");
-    loadOptions(langSelect.value, e.target.value);
+    clearTimeout(filterDebounce);
+    filterDebounce = setTimeout(() => {
+      const langSelect = document.getElementById("langSelect");
+      loadOptions(langSelect.value, e.target.value);
+    }, 200);
   });
 
   // Get and display stat counts

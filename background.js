@@ -1,48 +1,75 @@
-import { 
+import {
   extensionAPI,
   decompressJSON,
   findMatchingSite,
   getNewURL,
+  loadSiteData,
   migrateToV3,
+  refreshSiteData,
  } from "./scripts/common-functions.js";
 
-let cachedStorage = {};
+// Local storage keys to cache
+const CACHED_LOCAL_KEYS = ['power', 'hideOperaPermissionsNote', 'countSettingsOpened', 'hideReviewReminder'];
 
-function getLocalStorageData() {
-  // Wrap the extensionAPI.storage.sync.get method in a promise
+function getStorageData(area, keys) {
+  // Wrap the extensionAPI.storage.get method in a promise
   // Needed for Firefox manifest v2
-  return new Promise((resolve, reject) => {
-      extensionAPI.storage.local.get(null, (items) => {
-        resolve(items);
-      });
+  return new Promise((resolve) => {
+    extensionAPI.storage[area].get(keys, (items) => {
+      resolve(items);
+    });
   });
 }
 
-function getSyncStorageData() {
-  // Wrap the extensionAPI.storage.sync.get method in a promise
-  // Needed for Firefox manifest v2
-  return new Promise((resolve, reject) => {
-      extensionAPI.storage.sync.get(null, (items) => {
-        resolve(items);
-      });
-  });
+async function loadCachedStorage() {
+  const [localStorageData, syncStorageData] = await Promise.all([
+    getStorageData('local', CACHED_LOCAL_KEYS),
+    getStorageData('sync', null)
+  ]);
+  return { ...localStorageData, ...syncStorageData };
 }
 
-async function updateCachedStorage() {
-  let localStorage = await getLocalStorageData();
-  let syncStorage = await getSyncStorageData();
-  cachedStorage = {...localStorage, ...syncStorage};
-}
-
-async function getCachedStorage() {
-  if (Object.keys(cachedStorage).length === 0) {
-    await updateCachedStorage();
+function applyStorageChanges(storage, changes, area) {
+  if (area !== 'local' && area !== 'sync') {
+    return;
   }
-  return cachedStorage;
+  for (const [key, change] of Object.entries(changes)) {
+    if (area === 'local' && !CACHED_LOCAL_KEYS.includes(key)) {
+      continue;
+    }
+    if ('newValue' in change) {
+      storage[key] = change.newValue;
+    } else {
+      delete storage[key];
+    }
+  }
 }
 
 // Cache storage in memory so that we don't need to make repeated calls
-updateCachedStorage();
+let cachedStoragePromise = loadCachedStorage();
+
+function getCachedStorage() {
+  return cachedStoragePromise;
+}
+
+// Refresh remote site data every 3 hours
+const SITE_DATA_ALARM = 'refreshSiteData';
+
+extensionAPI.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === SITE_DATA_ALARM) {
+    refreshSiteData(true);
+  }
+});
+
+extensionAPI.alarms.get(SITE_DATA_ALARM, (alarm) => {
+  if (!alarm) {
+    extensionAPI.alarms.create(SITE_DATA_ALARM, { periodInMinutes: 180 });
+  }
+});
+
+// Also refresh on-load
+// (in case alarm is missed or fresh install)
+refreshSiteData();
 
 // Capture web requests
 extensionAPI.webRequest.onBeforeSendHeaders.addListener(
@@ -88,6 +115,14 @@ extensionAPI.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
       return res;
     });
     return true;
+  } else if (msg.action === 'getSiteData') {
+    loadSiteData().then((sites) => {
+      sendResponse(sites);
+    }).catch(() => {
+      // Answer with null so the caller falls back to reading directly
+      sendResponse(null);
+    });
+    return true;
   }
 });
 
@@ -98,9 +133,12 @@ extensionAPI.runtime.onStartup.addListener(() => {
   });
 });
 
-// Listen for changes to stored data, and updated our cached data
-extensionAPI.storage.onChanged.addListener(() => {
-  updateCachedStorage();
+// Listen for changes to stored data, and update our cached data
+extensionAPI.storage.onChanged.addListener((changes, area) => {
+  cachedStoragePromise = cachedStoragePromise.then((storage) => {
+    applyStorageChanges(storage, changes, area);
+    return storage;
+  });
 })
 
 // Listen for extension installed/updating

@@ -280,6 +280,10 @@
     "message": "Open changelog when Indie Wiki Buddy is updated",
     "description": "Option to open the changelog when Indie Wiki Buddy is updated"
   },
+  "settingsApiData": {
+    "message": "Fetch the latest wiki data from getindie.wiki",
+    "description": "Option to periodically fetch the latest wiki data from the getindie.wiki API"
+  },
   "settingsSearchEngineFiltering": {
     "message": "Search engine filtering",
     "description": "Search engine filtering section"

@@ -1,9 +1,10 @@
 // @ts-check
 
-import { 
+import {
   extensionAPI,
   decompressJSON,
   findMatchingSite,
+  getApiFaviconURL,
   getDestinationArticle,
   getNewURL,
   getOriginArticle,
@@ -109,7 +110,7 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
   let destinationArticle = getDestinationArticle(wikiInfo, originArticle);
   let newURL = getNewURL(link, wikiInfo);
 
-  if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link') && !searchResultContainer.querySelector('.iwb-detected')) {
+  if (searchResultContainer && !searchResultContainer.querySelector('.iwb-new-link') && !searchResultContainer.classList.contains('iwb-has-new-link')) {
     searchResultContainer.classList.add('iwb-detected');
     searchResultContainer.classList.add('iwb-disavow');
     searchResultContainer.classList.add('iwb-has-new-link');
@@ -126,6 +127,14 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
     indieResultFavicon.width = 16;
     indieResultFavicon.height = 16;
     indieResultFavicon.src = extensionAPI.runtime.getURL('favicons/' + wikiInfo.language.toLowerCase() + '/' + wikiInfo.destination_icon);
+    // If the favicon is not bundled with the extension, load it from the API
+    indieResultFavicon.onerror = () => {
+      // Hide the icon if the API load also fails
+      indieResultFavicon.onerror = () => {
+        indieResultFavicon.style.display = 'none';
+      };
+      indieResultFavicon.src = getApiFaviconURL(wikiInfo);
+    };
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
     if (originArticle && decodeURIComponent(originArticle).toLowerCase() !== wikiInfo['origin_main_page'].toLowerCase()) {
@@ -568,10 +577,18 @@ async function filterSearchResults(searchResults) {
 
       const existingContainer = getResultContainer(searchEngine, searchResult);
       if (existingContainer?.classList.contains('iwb-disavow') && !isNonIndieSite(searchResultLink)) {
-        existingContainer.querySelector('.iwb-new-link-container')?.remove();
-        existingContainer.classList.remove('iwb-disavow');
-        existingContainer.classList.remove('iwb-detected');
-        existingContainer.classList.remove('iwb-has-new-link');
+        // Only clean up if the container no longer has any non-indie links
+        const hasNonIndieLink = Array.from(existingContainer.querySelectorAll('a')).some(a => {
+          const href = a.getAttribute('data-iwb-href') ?? a.href ?? '';
+          return isNonIndieSite(href);
+        });
+        if (!hasNonIndieLink) {
+          existingContainer.dataset.iwbUserAction = 'true';
+          existingContainer.querySelector('.iwb-new-link-container')?.remove();
+          existingContainer.classList.remove('iwb-disavow');
+          existingContainer.classList.remove('iwb-detected');
+          existingContainer.classList.remove('iwb-has-new-link');
+        }
       }
 
       const detectedContainer = searchResult.closest('.iwb-detected');

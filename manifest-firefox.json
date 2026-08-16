@@ -1,9 +1,10 @@
 {
   "name": "__MSG_extensionName__",
-  "version": "3.14.2",
+  "version": "3.14.8",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "permissions": [
+    "alarms",
     "storage",
     "webRequest",
     "notifications",
@@ -53,28 +54,7 @@
     "scripts/content-search-filtering.js",
     "scripts/content-banners.js",
     "favicons/*",
-    "data/sitesCA.json",
-    "data/sitesDE.json",
-    "data/sitesEN.json",
-    "data/sitesES.json",
-    "data/sitesFI.json",
-    "data/sitesFR.json",
-    "data/sitesHR.json",
-    "data/sitesHU.json",
-    "data/sitesIT.json",
-    "data/sitesJA.json",
-    "data/sitesKO.json",
-    "data/sitesLZH.json",
-    "data/sitesNL.json",
-    "data/sitesPL.json",
-    "data/sitesPT.json",
-    "data/sitesRU.json",
-    "data/sitesSV.json",
-    "data/sitesTH.json",
-    "data/sitesTOK.json",
-    "data/sitesTR.json",
-    "data/sitesUK.json",
-    "data/sitesZH.json"
+    "data/data.json"
   ],
   "background": {
     "scripts": [
