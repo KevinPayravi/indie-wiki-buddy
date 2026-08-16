@@ -53,16 +53,11 @@ searchEngineToggles.forEach((engine) => {
     }
   });
 });
-document.querySelectorAll('.searchEngineToggles input').forEach((el) => {
-  const searchEngineName = el.getAttribute('data-search-engine');
-  extensionAPI.storage.sync.get({
-      'searchEngineToggles': {}
-  }, (settings) => {
-    if (settings.searchEngineToggles[searchEngineName] === 'on' || !settings.searchEngineToggles.hasOwnProperty(searchEngineName)) {
-      el.checked = true;
-    } else {
-      el.checked = false;
-    }
+extensionAPI.storage.sync.get({ 'searchEngineToggles': {} }, (settings) => {
+  document.querySelectorAll('.searchEngineToggles input').forEach((el) => {
+    const searchEngineName = el.getAttribute('data-search-engine');
+    el.checked = settings.searchEngineToggles[searchEngineName] === 'on' ||
+      !settings.searchEngineToggles.hasOwnProperty(searchEngineName);
   });
 });
 
