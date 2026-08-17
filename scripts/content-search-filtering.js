@@ -601,7 +601,7 @@ async function filterSearchResults(searchResults) {
 
       // Check that result isn't within another result.
       if (!skipDetectedResult) {
-        if (searchEngine === 'google') {
+        if (searchEngine === 'google' || searchEngine === 'google_intl') {
           // Break if image result:
           if (searchResultLink.includes('imgurl=')) {
             continue;
@@ -956,6 +956,21 @@ async function decompressStorage(storage) {
  * @param {string} _searchEngine
  */
 function processSearchEngine(_searchEngine) {
+  // DuckDuckGo serves its homepage from the same host as its results
+  if (_searchEngine === 'duckduckgo') {
+    const url = new URL(document.location.href);
+    if (!url.search.includes('q=') && !url.pathname.includes('html')) {
+      return;
+    }
+  }
+
+  // Ecosia rewrites its results after load
+  // Filtering earlier makes elements disappear and can crash the page
+  if (_searchEngine === 'ecosia' && document.readyState !== 'complete') {
+    window.addEventListener('load', () => processSearchEngine(_searchEngine), { once: true });
+    return;
+  }
+
   searchEngine = _searchEngine;
   console.debug('Indie Wiki Buddy: Processing search engine:', searchEngine);
   extensionAPI.runtime.sendMessage(
@@ -986,32 +1001,7 @@ void getSiteDataByOrigin();
 if (typeof engine !== 'undefined') {
   // @ts-ignore
   processSearchEngine(engine);
-} else {
-  const currentURL = new URL(document.location.href);
-  // Figure out which search engine we're on
-  if (currentURL.hostname === 'www.google.com') {
-    processSearchEngine('google');
-  } else if (currentURL.hostname.startsWith('www.google.')) {
-    processSearchEngine('google_intl');
-  } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
-    processSearchEngine('duckduckgo');
-  } else if (currentURL.hostname.endsWith('.bing.com')) {
-    processSearchEngine('bing');
-  } else if (currentURL.hostname.includes('search.brave.com')) {
-    // todo: fix reordering behaving weirdly on descriptions
-    processSearchEngine('brave');
-  } else if (currentURL.hostname.includes('ecosia.org')) {
-    // todo: figure out what is causing race conditions to make elements disappear, and ecosia to crash
-    window.addEventListener("load", () => processSearchEngine('ecosia'));
-  } else if (currentURL.hostname.includes('qwant.com')) {
-    processSearchEngine('qwant');
-  } else if (currentURL.hostname.includes('startpage.com')) {
-    processSearchEngine('startpage');
-  } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
-    processSearchEngine('yandex');
-  } else if (currentURL.hostname.includes('yahoo.com')) {
-    processSearchEngine('yahoo');
-  } else if (currentURL.hostname.includes('kagi.com')) {
-    processSearchEngine('kagi');
-  }
+} else if (new URL(document.location.href).hostname === 'www.google.com') {
+  // Only the static content script gets here
+  processSearchEngine('google');
 }
