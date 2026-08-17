@@ -320,6 +320,247 @@ export async function compressJSON(value) {
   return btoa(binary);
 }
 
+// Per-wiki settings ('wikiSettings' / 'searchEngineSettings')
+// Stores overrides of the default action,
+// sharded across keys ('wikiSettings_0'...)
+// (sharded to stay under the 8KB per-item sync quota)
+// Changing this requires a re-shard migration
+export const SETTINGS_SHARD_COUNT = 32;
+
+const USER_SETTINGS_META = {
+  'wikiSettings': { defaultActionKey: 'defaultWikiAction', fallbackAction: 'alert' },
+  'searchEngineSettings': { defaultActionKey: 'defaultSearchAction', fallbackAction: 'replace' },
+};
+
+/** @param {string} settingsType 'wikiSettings' or 'searchEngineSettings' */
+export function userSettingsShardKeys(settingsType) {
+  return Array.from({ length: SETTINGS_SHARD_COUNT }, (_, i) => `${settingsType}_${i}`);
+}
+
+/**
+ * Shard key holding a wiki's setting
+ * @param {string} settingsType
+ * @param {string} wikiId
+ */
+function userSettingsShardKey(settingsType, wikiId) {
+  let hash = 0;
+  for (let i = 0; i < wikiId.length; i++) {
+    hash = (hash * 31 + wikiId.charCodeAt(i)) >>> 0;
+  }
+  return `${settingsType}_${hash % SETTINGS_SHARD_COUNT}`;
+}
+
+/**
+ * Convert pre-3.0 'true'/'false' search values
+ * @param {string} settingsType
+ * @param {string} value
+ */
+function normalizeUserSetting(settingsType, value) {
+  if (settingsType === 'searchEngineSettings') {
+    if (value === 'true') return 'replace';
+    if (value === 'false') return 'disabled';
+  }
+  return value;
+}
+
+/**
+ * Parse the legacy single-key value
+ * Returns null if unusable, throws if unreadable
+ * @param {string} settingsType
+ * @param {any} value
+ * @returns {Promise<Record<string, string> | null>}
+ */
+async function parseLegacyUserSettings(settingsType, value) {
+  if (value === undefined) return null;
+  const legacy = await decompressJSON(value);
+  if (!legacy || typeof legacy !== 'object' || Array.isArray(legacy)) return null;
+  const settings = {};
+  for (const [wikiId, action] of Object.entries(legacy)) {
+    settings[wikiId] = normalizeUserSetting(settingsType, action);
+  }
+  return settings;
+}
+
+/**
+ * Get all overrides as {wikiId: action},
+ * from the given storage object or storage.sync
+ * @param {string} settingsType 'wikiSettings' or 'searchEngineSettings'
+ * @param {Record<string, any>} [storage]
+ * @returns {Promise<Record<string, string>>}
+ */
+export async function getUserSettings(settingsType, storage = null) {
+  const shardKeys = userSettingsShardKeys(settingsType);
+  if (!storage) {
+    storage = await extensionAPI.storage.sync.get([settingsType, ...shardKeys]);
+  }
+  const settings = {};
+  for (const key of shardKeys) {
+    if (storage[key] && typeof storage[key] === 'object') {
+      Object.assign(settings, storage[key]);
+    }
+  }
+  // Legacy key rewritten by older devices is newer than the shards, so it wins
+  try {
+    const legacy = await parseLegacyUserSettings(settingsType, storage[settingsType]);
+    if (legacy) {
+      Object.assign(settings, legacy);
+    }
+  } catch (e) {
+    console.log('Indie Wiki Buddy failed to read pre-4.0 settings: ' + e);
+  }
+  return settings;
+}
+
+/**
+ * Set one wiki's action
+ * @param {string} settingsType
+ * @param {string} wikiId
+ * @param {string} action
+ */
+export function setUserSetting(settingsType, wikiId, action) {
+  return setUserSettings(settingsType, { [wikiId]: action });
+}
+
+/**
+ * Set multiple wikis' actions
+ * A value equal to the default removes the entry
+ * @param {string} settingsType
+ * @param {Record<string, string>} entries {wikiId: action}
+ */
+export async function setUserSettings(settingsType, entries) {
+  const { defaultActionKey, fallbackAction } = USER_SETTINGS_META[settingsType];
+
+  // Group updates by shard
+  const idsByShardKey = {};
+  for (const wikiId of Object.keys(entries)) {
+    const shardKey = userSettingsShardKey(settingsType, wikiId);
+    (idsByShardKey[shardKey] ??= []).push(wikiId);
+  }
+  const shardKeysToUpdate = Object.keys(idsByShardKey);
+  if (shardKeysToUpdate.length === 0) return;
+
+  const stored = await extensionAPI.storage.sync.get([defaultActionKey, ...shardKeysToUpdate]);
+  const defaultAction = stored[defaultActionKey] || fallbackAction;
+
+  const updates = {};
+  for (const shardKey of shardKeysToUpdate) {
+    const shard = { ...(stored[shardKey] || {}) };
+    for (const wikiId of idsByShardKey[shardKey]) {
+      if (entries[wikiId] === defaultAction) {
+        delete shard[wikiId];
+      } else {
+        shard[wikiId] = entries[wikiId];
+      }
+    }
+    updates[shardKey] = shard;
+  }
+  await extensionAPI.storage.sync.set(updates);
+}
+
+/**
+ * Set the default action for all wikis by clearing every override
+ * (popup and setup pages)
+ * @param {string} settingsType
+ * @param {string} action
+ */
+export async function setDefaultUserAction(settingsType, action) {
+  const { defaultActionKey } = USER_SETTINGS_META[settingsType];
+  await extensionAPI.storage.sync.set({ [defaultActionKey]: action });
+  await extensionAPI.storage.sync.remove([settingsType, ...userSettingsShardKeys(settingsType)]);
+}
+
+/**
+ * Set the default action for newly added wikis only (settings page)
+ * Current wikis keep their effective action
+ * @param {string} settingsType
+ * @param {string} action
+ */
+export async function setDefaultUserActionForNewWikis(settingsType, action) {
+  const { defaultActionKey, fallbackAction } = USER_SETTINGS_META[settingsType];
+  const shardKeys = userSettingsShardKeys(settingsType);
+  const sites = await getSiteDataByDestination();
+  const stored = await extensionAPI.storage.sync.get([settingsType, defaultActionKey, ...shardKeys]);
+  const current = await getUserSettings(settingsType, stored);
+  const oldDefault = stored[defaultActionKey] || fallbackAction;
+
+  // Pin every known wiki to its current action
+  const shards = {};
+  for (const key of shardKeys) {
+    shards[key] = {};
+  }
+  for (const site of sites) {
+    const effective = current[site.id] || oldDefault;
+    if (effective !== action) {
+      shards[userSettingsShardKey(settingsType, site.id)][site.id] = effective;
+    }
+    delete current[site.id];
+  }
+  // Keep overrides for wikis gone from the site data
+  for (const [wikiId, storedAction] of Object.entries(current)) {
+    if (storedAction !== action) {
+      shards[userSettingsShardKey(settingsType, wikiId)][wikiId] = storedAction;
+    }
+  }
+
+  await extensionAPI.storage.sync.set({ [defaultActionKey]: action, ...shards });
+  await extensionAPI.storage.sync.remove(settingsType);
+}
+
+// Serialized so runs cannot interleave
+let _userSettingsMigration = Promise.resolve();
+
+/**
+ * Fold the legacy single keys into the shards, then remove them
+ */
+export function migrateUserSettings() {
+  _userSettingsMigration = _userSettingsMigration
+    .then(() => migrateUserSettingsType('wikiSettings'))
+    .then(() => migrateUserSettingsType('searchEngineSettings'))
+    .catch((e) => {
+      console.log('Indie Wiki Buddy failed to migrate settings: ' + e);
+    });
+  return _userSettingsMigration;
+}
+
+/** @param {string} settingsType */
+async function migrateUserSettingsType(settingsType) {
+  const { defaultActionKey, fallbackAction } = USER_SETTINGS_META[settingsType];
+  const shardKeys = userSettingsShardKeys(settingsType);
+  const stored = await extensionAPI.storage.sync.get([settingsType, defaultActionKey, ...shardKeys]);
+  if (stored[settingsType] === undefined) {
+    return;
+  }
+
+  let legacy;
+  try {
+    legacy = await parseLegacyUserSettings(settingsType, stored[settingsType]);
+  } catch (e) {
+    // Unreadable: keep the key rather than lose it
+    console.log('Indie Wiki Buddy failed to migrate settings: ' + e);
+    return;
+  }
+
+  if (legacy) {
+    const defaultAction = stored[defaultActionKey] || fallbackAction;
+    const updates = {};
+    for (const [wikiId, action] of Object.entries(legacy)) {
+      const shardKey = userSettingsShardKey(settingsType, wikiId);
+      updates[shardKey] ??= { ...(stored[shardKey] || {}) };
+      if (action === defaultAction) {
+        delete updates[shardKey][wikiId];
+      } else {
+        updates[shardKey][wikiId] = action;
+      }
+    }
+    if (Object.keys(updates).length > 0) {
+      await extensionAPI.storage.sync.set(updates);
+    }
+  }
+
+  // Remove only after the shards are written
+  await extensionAPI.storage.sync.remove(settingsType);
+}
+
 const REMOTE_DATA_URL = 'https://api.getindie.wiki/v1/all-data.json';
 const REMOTE_FAVICON_BASE_URL = 'https://api.getindie.wiki/favicons/';
 const REMOTE_DATA_MAX_AGE_MS = 3 * 60 * 60 * 1000;

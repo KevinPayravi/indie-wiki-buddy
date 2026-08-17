@@ -1,4 +1,4 @@
-import { extensionAPI, refreshSiteData } from "../../scripts/common-functions.js";
+import { extensionAPI, refreshSiteData, setDefaultUserActionForNewWikis } from "../../scripts/common-functions.js";
 import { loadOptions } from "../common-page-functions.js";
 
 function displayCustomSearchEngine(customSearchEngineDomain, customSearchEnginePreset) {
@@ -202,14 +202,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Add event listeners for default action selections
+  // (only apply to newly added wikis)
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
     el.addEventListener('change', () => {
-      extensionAPI.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
+      setDefaultUserActionForNewWikis('wikiSettings', document.options.defaultWikiAction.value);
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
     el.addEventListener('change', () => {
-      extensionAPI.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
+      setDefaultUserActionForNewWikis('searchEngineSettings', document.options.defaultSearchAction.value);
     });
   });
 

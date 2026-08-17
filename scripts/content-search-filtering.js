@@ -2,7 +2,7 @@
 
 import {
   extensionAPI,
-  decompressJSON,
+  getUserSettings,
   findMatchingSite,
   getApiFaviconURL,
   getDestinationArticle,
@@ -935,18 +935,12 @@ function filterMutations(mutations, observer) {
 }
 
 /**
- * Decode the base64 encoded values in the storage object
+ * Assemble the sharded settings in the storage object
  * @param {Record<string, any>} storage
  */
 async function decompressStorage(storage) {
-  const compressedKeys = ['searchEngineSettings', 'wikiSettings'];
-  await Promise.all(
-    compressedKeys.map(async key => {
-      if (storage[key]) {
-        storage[key] = await decompressJSON(storage[key]);
-      }
-    })
-  );
+  storage.wikiSettings = await getUserSettings('wikiSettings', storage);
+  storage.searchEngineSettings = await getUserSettings('searchEngineSettings', storage);
 
   return storage;
 }

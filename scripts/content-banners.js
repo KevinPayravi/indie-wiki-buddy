@@ -1,7 +1,7 @@
-import { 
+import {
   extensionAPI,
-  compressJSON,
-  decompressJSON,
+  getUserSettings,
+  setUserSetting,
   getSiteDataByOrigin,
   getNewURL,
   findMatchingSite,
@@ -134,10 +134,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRestoreLink.textContent = '⎌ ' + extensionAPI.i18n.getMessage('bannerRestore');
   bannerControls.appendChild(bannerRestoreLink);
   bannerRestoreLink.onclick = function (e) {
-    extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-      let wikiSettings = await decompressJSON(response.wikiSettings);
-      wikiSettings[id] = 'alert';
-      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
+    setUserSetting('wikiSettings', id, 'alert').then(() => {
       e.target.textContent = '✓ ' + extensionAPI.i18n.getMessage('bannerRestoreDone');
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerControls.querySelector('.indie-wiki-banner-redirect').textContent = '↪ ' + extensionAPI.i18n.getMessage('bannerRedirect');
@@ -156,10 +153,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerDisableLink.textContent = '✕ ' + extensionAPI.i18n.getMessage('bannerDisable');
   bannerControls.appendChild(bannerDisableLink);
   bannerDisableLink.onclick = function (e) {
-    extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-      let wikiSettings = await decompressJSON(response.wikiSettings);
-      wikiSettings[id] = 'disabled';
-      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
+    setUserSetting('wikiSettings', id, 'disabled').then(() => {
       e.target.textContent = '✓ ' + extensionAPI.i18n.getMessage('bannerDisableDone');
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerControls.querySelector('.indie-wiki-banner-restore').textContent = '⎌ ' + extensionAPI.i18n.getMessage('bannerRestore');
@@ -176,10 +170,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
   bannerRedirectLink.textContent = '↪ ' + extensionAPI.i18n.getMessage('bannerRedirect');
   bannerControls.appendChild(bannerRedirectLink);
   bannerRedirectLink.onclick = function (e) {
-    extensionAPI.storage.sync.get({ 'wikiSettings': {} }, async (response) => {
-      let wikiSettings = await decompressJSON(response.wikiSettings);
-      wikiSettings[id] = 'redirect';
-      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
+    setUserSetting('wikiSettings', id, 'redirect').then(() => {
       e.target.textContent = '✓ ' + extensionAPI.i18n.getMessage('bannerRedirectDone');
       e.target.classList.add('indie-wiki-banner-disabled');
       bannerControls.querySelector('.indie-wiki-banner-disable').classList.add('indie-wiki-banner-hidden');
@@ -290,7 +281,7 @@ function main() {
             // Get user's settings for the wiki
             let id = matchingSite['id'];
             let siteSetting = 'alert';
-            let wikiSettings = await decompressJSON(storage.wikiSettings || {});
+            let wikiSettings = await getUserSettings('wikiSettings', storage);
             if (wikiSettings[id]) {
               siteSetting = wikiSettings[id];
             } else if (storage.defaultWikiAction) {

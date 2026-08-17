@@ -1,7 +1,6 @@
-import { 
+import {
   extensionAPI,
-  compressJSON,
-  getSiteDataByDestination,
+  setDefaultUserAction,
  } from "../../scripts/common-functions.js";
 
 // Main function that runs on-load
@@ -17,27 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
-    el.addEventListener('change', async () => {
-      extensionAPI.storage.sync.set({ 'defaultWikiAction': document.options.defaultWikiAction.value })
-
-      let wikiSettings = {};
-      const sites = await getSiteDataByDestination();
-      sites.forEach((site) => {
-        wikiSettings[site.id] = document.options.defaultWikiAction.value;
-      });
-      extensionAPI.storage.sync.set({ 'wikiSettings': await compressJSON(wikiSettings) });
+    el.addEventListener('change', () => {
+      setDefaultUserAction('wikiSettings', document.options.defaultWikiAction.value);
     });
   });
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
-    el.addEventListener('change', async () => {
-      extensionAPI.storage.sync.set({ 'defaultSearchAction': document.options.defaultSearchAction.value })
-
-      let searchEngineSettings = {};
-      const sites = await getSiteDataByDestination();
-      sites.forEach((site) => {
-        searchEngineSettings[site.id] = document.options.defaultSearchAction.value;
-      });
-      extensionAPI.storage.sync.set({ 'searchEngineSettings': await compressJSON(searchEngineSettings) });
+    el.addEventListener('change', () => {
+      setDefaultUserAction('searchEngineSettings', document.options.defaultSearchAction.value);
     });
   });
 });

@@ -1,4 +1,4 @@
-import { extensionAPI, SEARCHENGINEDOMAINS, camelCaseJoin, compressJSON, decompressJSON, getSiteDataByDestination, getApiFaviconURL } from "../scripts/common-functions.js";
+import { extensionAPI, SEARCHENGINEDOMAINS, camelCaseJoin, getUserSettings, setUserSetting, setUserSettings, getSiteDataByDestination, getApiFaviconURL } from "../scripts/common-functions.js";
 
 // Clear wiki toggles
 // Used when switching languages
@@ -39,11 +39,7 @@ export function createRadioButton(redirectEntry, action, category) {
   // Add event listener for the radio button
   const settingsType = `${category}Settings`;
   radioButton.addEventListener('click', () => {
-    extensionAPI.storage.sync.get(settingsType, async (response) => {
-      const settings = await decompressJSON(response[settingsType]) || {};
-      settings[redirectID] = action;
-      extensionAPI.storage.sync.set({ [settingsType]: await compressJSON(settings) });
-    });
+    setUserSetting(settingsType, redirectID, action);
   });
 
   return radioButton;
@@ -96,12 +92,11 @@ export async function loadOptions(lang, textFilter = '') {
       site.destination_base_url.toLowerCase().includes(textFilter))
   ));
 
-  // Load keys from storage.sync
-  const syncStorage = await new Promise((resolve) => {
-    extensionAPI.storage.sync.get(['wikiSettings', 'searchEngineSettings', 'defaultWikiAction', 'defaultSearchAction'], resolve);
-  });
-  const wikiSettings = await decompressJSON(syncStorage.wikiSettings ?? {});
-  const searchEngineSettings = await decompressJSON(syncStorage.searchEngineSettings ?? {});
+  // Load all of storage.sync
+  // Per-wiki settings span several keys
+  const syncStorage = await extensionAPI.storage.sync.get(null);
+  const wikiSettings = await getUserSettings('wikiSettings', syncStorage);
+  const searchEngineSettings = await getUserSettings('searchEngineSettings', syncStorage);
   const defaultWikiAction = syncStorage.defaultWikiAction ?? null;
   const defaultSearchAction = syncStorage.defaultSearchAction ?? null;
 
@@ -112,17 +107,17 @@ export async function loadOptions(lang, textFilter = '') {
   function addGlobalButtonEventListeners(action, category) {
     const globalButtonID = camelCaseJoin(['setAll', category, action]);
     const settingsType = `${category}Settings`;
-    const settings = (category === 'wiki') ? wikiSettings : searchEngineSettings;
 
     const setAllButton = document.getElementById(globalButtonID);
-    setAllButton.addEventListener('click', async () => {
+    setAllButton.addEventListener('click', () => {
       const buttonClassName = camelCaseJoin(['toggle', category, action]);
       const toggles = document.querySelectorAll(`#toggles input.${buttonClassName}`);
+      const entries = {};
       for (let i = 0; i < toggles.length; i++) {
         toggles[i].checked = true;
-        settings[toggles[i].getAttribute('data-wiki-key')] = action;
+        entries[toggles[i].getAttribute('data-wiki-key')] = action;
       }
-      extensionAPI.storage.sync.set({ [settingsType]: await compressJSON(settings) });
+      setUserSettings(settingsType, entries);
     });
   }
 

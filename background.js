@@ -1,9 +1,10 @@
 import {
   extensionAPI,
-  decompressJSON,
   findMatchingSite,
   getNewURL,
+  getUserSettings,
   loadSiteData,
+  migrateUserSettings,
   refreshSiteData,
   SEARCHENGINEDOMAINS,
   BREEZEWIKIDOMAINS,
@@ -71,6 +72,19 @@ extensionAPI.alarms.get(SITE_DATA_ALARM, (alarm) => {
 // Also refresh on-load
 // (in case alarm is missed or fresh install)
 refreshSiteData();
+
+// Fold pre-4.0 settings keys into the sharded keys
+migrateUserSettings();
+
+// Older devices can recreate the pre-4.0 keys via sync
+extensionAPI.storage.onChanged.addListener((changes, area) => {
+  if (
+    area === 'sync' &&
+    (changes.wikiSettings?.newValue !== undefined || changes.searchEngineSettings?.newValue !== undefined)
+  ) {
+    migrateUserSettings();
+  }
+});
 
 // Capture web requests
 extensionAPI.webRequest.onBeforeSendHeaders.addListener(
@@ -504,7 +518,7 @@ async function main(url, tabId) {
 
     if (matchingSite) {
       // Get user's settings for the wiki
-      let settings = await decompressJSON(storage.wikiSettings) || {};
+      let settings = await getUserSettings('wikiSettings', storage);
       let id = matchingSite['id'];
       let siteSetting = settings[id] || storage.defaultWikiAction || 'alert';
 
