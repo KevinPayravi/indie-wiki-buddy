@@ -33,13 +33,9 @@ function displayCustomSearchEngine(customSearchEngineDomain, customSearchEngineP
       }
     });
 
-    let customSearchEngine = customSearchEngineDomain;
     extensionAPI.permissions.remove({
-      origins: [ customSearchEngine ]
+      origins: [ customSearchEngineDomain ]
     });
-
-    // TODO: remove
-    // extensionAPI.scripting.unregisterContentScripts({ ids: [`content-search-filtering-${customSearchEngineDomain}`] });
   });
 
   listItem.appendChild(customSearchEngineDomainLabel);

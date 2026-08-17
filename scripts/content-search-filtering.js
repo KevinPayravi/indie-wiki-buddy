@@ -16,7 +16,6 @@ import {
  * @typedef {import('./common-functions').SiteData} SiteData
  */
 
-const currentURL = new URL(document.location.href);
 /** @type {Record<string, boolean>} */
 let hiddenWikisRevealed = {};
 
@@ -983,38 +982,36 @@ function processSearchEngine(_searchEngine) {
 void getSiteDataByOrigin();
 
 // Engine provided when called via background.js executeScript
-if (typeof document !== 'undefined') {
+// @ts-ignore
+if (typeof engine !== 'undefined') {
   // @ts-ignore
-  if (typeof engine !== 'undefined') {
-    // @ts-ignore
-    processSearchEngine(engine);
-  } else {
-    const currentURL = new URL(document.location.href);
-    // Figure out which search engine we're on
-    if (currentURL.hostname.includes('www.google.com')) {
-      processSearchEngine('google');
-    } else if (currentURL.hostname.includes('www.google.')) {
-      processSearchEngine('google_intl');
-    } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
-      processSearchEngine('duckduckgo');
-    } else if (currentURL.hostname.endsWith('.bing.com')) {
-      processSearchEngine('bing');
-    } else if (currentURL.hostname.includes('search.brave.com')) {
-      // todo: fix reordering behaving weirdly on descriptions
-      processSearchEngine('brave');
-    } else if (currentURL.hostname.includes('ecosia.org')) {
-      // todo: figure out what is causing race conditions to make elements disappear, and ecosia to crash
-      window.addEventListener("load", () => processSearchEngine('ecosia'));
-    } else if (currentURL.hostname.includes('qwant.com')) {
-      processSearchEngine('qwant');
-    } else if (currentURL.hostname.includes('startpage.com')) {
-      processSearchEngine('startpage');
-    } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
-      processSearchEngine('yandex');
-    } else if (currentURL.hostname.includes('yahoo.com')) {
-      processSearchEngine('yahoo');
-    } else if (currentURL.hostname.includes('kagi.com')) {
-      processSearchEngine('kagi');
-    }
+  processSearchEngine(engine);
+} else {
+  const currentURL = new URL(document.location.href);
+  // Figure out which search engine we're on
+  if (currentURL.hostname.includes('www.google.com')) {
+    processSearchEngine('google');
+  } else if (currentURL.hostname.includes('www.google.')) {
+    processSearchEngine('google_intl');
+  } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
+    processSearchEngine('duckduckgo');
+  } else if (currentURL.hostname.endsWith('.bing.com')) {
+    processSearchEngine('bing');
+  } else if (currentURL.hostname.includes('search.brave.com')) {
+    // todo: fix reordering behaving weirdly on descriptions
+    processSearchEngine('brave');
+  } else if (currentURL.hostname.includes('ecosia.org')) {
+    // todo: figure out what is causing race conditions to make elements disappear, and ecosia to crash
+    window.addEventListener("load", () => processSearchEngine('ecosia'));
+  } else if (currentURL.hostname.includes('qwant.com')) {
+    processSearchEngine('qwant');
+  } else if (currentURL.hostname.includes('startpage.com')) {
+    processSearchEngine('startpage');
+  } else if (currentURL.hostname.includes('yandex.') || currentURL.hostname.includes('ya.ru')) {
+    processSearchEngine('yandex');
+  } else if (currentURL.hostname.includes('yahoo.com')) {
+    processSearchEngine('yahoo');
+  } else if (currentURL.hostname.includes('kagi.com')) {
+    processSearchEngine('kagi');
   }
 }

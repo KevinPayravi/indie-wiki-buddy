@@ -106,23 +106,31 @@ extensionAPI.webRequest.onBeforeSendHeaders.addListener(
   ['requestHeaders']
 );
 
+// Convert a match pattern like "https://*.bing.com/search*" to an anchored regex
+function matchPatternToRegex(pattern) {
+  const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp('^' + escaped
+    .replace(/\*\\\./g, '\x00')
+    .replace(/\*/g, '.*')
+    .replace(/\x00/g, '(?:[^/]*\\.)?'));
+}
+
 function getSearchEngine(url, callback) {
   extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
     let customSearchEngines = item.customSearchEngines;
     let searchEngines = { ...SEARCHENGINEDOMAINS, ...customSearchEngines };
     try {
       for (let engine in searchEngines) {
-        const patterns = searchEngines[engine];
+        // Skip string entries from the pre-4.0 {hostname: preset} format
+        const patterns = Array.isArray(searchEngines[engine]) ? searchEngines[engine] : [];
         for (let pattern of patterns) {
-          const regexPattern = pattern.replace(/\*\./g, "*.?").replace(/\./g, "\\.").replace(/\*/g, '.*'); // Escape periods and replace '*' with '.*' for wildcard matching
-          const regex = new RegExp(regexPattern);
-          if (regex.test(url)) {
+          if (matchPatternToRegex(pattern).test(url)) {
             callback(engine);
             return;
           }
         }
       }
-      
+
       callback(null); // Return null if no match
     } catch (error) {
       console.error("Invalid URL:", error);
@@ -142,9 +150,7 @@ function getBreezewikiHost(url, callback) {
     }
     try {
       for (let pattern of allPatterns) {
-        const regexPattern = pattern.replace(/\*\./g, "*.?").replace(/\./g, "\\.").replace(/\*/g, '.*');
-        const regex = new RegExp(regexPattern);
-        if (regex.test(url)) {
+        if (matchPatternToRegex(pattern).test(url)) {
           callback(true);
           return;
         }
@@ -169,6 +175,10 @@ extensionAPI.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           args: [{engine: searchEngine}],
           func: vars => Object.assign(self, vars)
         }, () => {
+          // Injection fails if the tab navigated away; skip the main script
+          if (extensionAPI.runtime.lastError) {
+            return;
+          }
           extensionAPI.scripting.executeScript({
             target: { tabId: tab.id },
             files: ['scripts/content-search-filtering-importer.js']
@@ -339,6 +349,23 @@ extensionAPI.runtime.onInstalled.addListener(async (detail) => {
     // Reset Breezewiki settings
     extensionAPI.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
     extensionAPI.storage.sync.set({ 'breezewikiCustomHost': '' });
+
+    // Convert custom search engines from the pre-4.0 {hostname: preset}
+    // format to {preset: [origin patterns]}
+    extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
+      const engines = item.customSearchEngines;
+      if (!Object.values(engines).some((value) => typeof value === 'string')) {
+        return;
+      }
+      const migrated = {};
+      for (const [hostname, preset] of Object.entries(engines)) {
+        if (typeof preset === 'string') {
+          migrated[preset] = migrated[preset] || [];
+          migrated[preset].push('https://' + hostname + '/*');
+        }
+      }
+      extensionAPI.storage.sync.set({ 'customSearchEngines': migrated });
+    });
   }
 });
 
