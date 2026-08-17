@@ -989,9 +989,9 @@ if (typeof engine !== 'undefined') {
 } else {
   const currentURL = new URL(document.location.href);
   // Figure out which search engine we're on
-  if (currentURL.hostname.includes('www.google.com')) {
+  if (currentURL.hostname === 'www.google.com') {
     processSearchEngine('google');
-  } else if (currentURL.hostname.includes('www.google.')) {
+  } else if (currentURL.hostname.startsWith('www.google.')) {
     processSearchEngine('google_intl');
   } else if (currentURL.hostname.includes('duckduckgo.com') && (currentURL.search.includes('q=') || currentURL.pathname.includes('html'))) {
     processSearchEngine('duckduckgo');

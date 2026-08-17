@@ -191,6 +191,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
     Object.keys(item.customSearchEngines).forEach((engine) => {
+      // A device on 3.x can sync the old {hostname: preset} format back in
+      if (!Array.isArray(item.customSearchEngines[engine])) {
+        return;
+      }
       item.customSearchEngines[engine].forEach((hostname) => {
         displayCustomSearchEngine(hostname, engine);
       })

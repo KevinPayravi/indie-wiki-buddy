@@ -266,6 +266,10 @@ extensionAPI.permissions.onRemoved.addListener((permissions) => {
   extensionAPI.storage.sync.get({ 'searchEngineToggles': {} }, (settings) => {
     let updated = false;
     for (const [engine, origins] of Object.entries(SEARCHENGINEDOMAINS)) {
+      // google.com filtering is declared in content_scripts, so perms don't switch
+      if (engine === 'google') {
+        continue;
+      }
       const directMatch = origins.some((o) => removedOrigins.includes(o));
       if (directMatch || broadWildcardRemoved) {
         if (settings.searchEngineToggles[engine] !== 'off') {
