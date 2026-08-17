@@ -305,19 +305,44 @@ extensionAPI.permissions.onAdded.addListener((permissions) => {
   const addedOrigins = permissions.origins || [];
   if (addedOrigins.length === 0) return;
 
-  extensionAPI.storage.sync.get({ 'searchEngineToggles': {} }, (settings) => {
-    let updated = false;
-    for (const [engine, origins] of Object.entries(SEARCHENGINEDOMAINS)) {
-      if (origins.some((o) => addedOrigins.includes(o))) {
+  // A broad wildcard grant (e.g. switching back from "on click" in Chrome)
+  // restores access to all engines covered by optional_host_permissions
+  const broadWildcardAdded = addedOrigins.some(
+    (o) => o === 'https://*/*' || o === '*://*/*'
+  );
+
+  // For each engine the grant touches,
+  // confirm its full origin set is now held
+  // before toggling it on
+  const engineChecks = Object.entries(SEARCHENGINEDOMAINS)
+    .filter(([engine, origins]) =>
+      // google.com filtering is declared in content_scripts, so perms don't switch
+      engine !== 'google' &&
+      (broadWildcardAdded || origins.some((o) => addedOrigins.includes(o)))
+    )
+    .map(([engine, origins]) =>
+      new Promise((resolve) => {
+        extensionAPI.permissions.contains({ origins }, (hasAllOrigins) => {
+          resolve(hasAllOrigins ? engine : null);
+        });
+      })
+    );
+
+  Promise.all(engineChecks).then((engines) => {
+    const enginesToEnable = engines.filter(Boolean);
+    if (enginesToEnable.length === 0) return;
+    extensionAPI.storage.sync.get({ 'searchEngineToggles': {} }, (settings) => {
+      let updated = false;
+      for (const engine of enginesToEnable) {
         if (settings.searchEngineToggles[engine] !== 'on') {
           settings.searchEngineToggles[engine] = 'on';
           updated = true;
         }
       }
-    }
-    if (updated) {
-      extensionAPI.storage.sync.set({ 'searchEngineToggles': settings.searchEngineToggles });
-    }
+      if (updated) {
+        extensionAPI.storage.sync.set({ 'searchEngineToggles': settings.searchEngineToggles });
+      }
+    });
   });
 
   // Check if there are any pending BreezeWiki setting updates
