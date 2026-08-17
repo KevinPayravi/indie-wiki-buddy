@@ -1,22 +1,23 @@
 import {
   setDefaultUserAction,
 } from "../../scripts/common-functions.js";
-import { loadOptions } from "../common-page-functions.js";
+import { debounce } from "../common-page-functions.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Set default wiki action
+  // Debounced
+  const applyDefaultWikiAction = debounce(() => {
+    setDefaultUserAction('wikiSettings', document.options.defaultWikiAction.value);
+  }, 200);
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
-    el.addEventListener('change', () => {
-      setDefaultUserAction('wikiSettings', document.options.defaultWikiAction.value);
-    });
+    el.addEventListener('change', applyDefaultWikiAction);
   });
-  // Set default search action
+  const applyDefaultSearchAction = debounce(() => {
+    setDefaultUserAction('searchEngineSettings', document.options.defaultSearchAction.value);
+  }, 200);
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
-    el.addEventListener('change', () => {
-      setDefaultUserAction('searchEngineSettings', document.options.defaultSearchAction.value);
-    });
+    el.addEventListener('change', applyDefaultSearchAction);
   });
 
 });
