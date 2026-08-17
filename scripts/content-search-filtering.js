@@ -547,25 +547,24 @@ function filterSearchResult(wikiInfo, anchorElement) {
   return countFiltered;
 }
 
-/**
- * Swaps two elements in the DOM WITHOUT changing their references
- * @param {HTMLElement} a
- * @param {HTMLElement} b
- */
-function swapDOMElements(a, b) {
-  let dummy = document.createElement('span');
-  a.before(dummy);
-  b.before(a);
-  dummy.replaceWith(b);
-}
-
 /** @type {Set<HTMLAnchorElement>} */
 const checkedAnchors = new Set();
+
+let _filterRun = Promise.resolve();
 
 /**
  * @param {HTMLAnchorElement[]} searchResults
  */
-async function filterSearchResults(searchResults) {
+function filterSearchResults(searchResults) {
+  const run = _filterRun.then(() => processSearchResults(searchResults));
+  _filterRun = run.catch(() => {});
+  return run;
+}
+
+/**
+ * @param {HTMLAnchorElement[]} searchResults
+ */
+async function processSearchResults(searchResults) {
   let countFiltered = 0;
 
   for (const searchResult of searchResults) {
@@ -668,15 +667,26 @@ async function filterSearchResults(searchResults) {
                   console.debug('Indie Wiki Buddy: Reordering search result:', searchResultLink);
 
                   const index = matchingNonIndieIndex;
-                  // push cacheInfo right before the first non-indie wiki
+                  const targetContainer = processedCache[index].container;
+                  // record cacheInfo right before the first non-indie entry of the same wiki
                   processedCache.splice(index, 0, cacheInfo);
-                  // swap the elements upwards until the indie wiki is above the non-indie wiki
-                  for (let i = processedCache.length - 1; i > index; i--) {
-                    const prev = processedCache[i];
-                    swapDOMElements(prev.container, cacheInfo.container);
-                    // Re-filter swapped non-indie entries only
-                    if (prev.isNonIndie) {
-                      countFiltered += filterSearchResult(prev.siteData, prev.anchor);
+                  // Move the indie result directly above it.
+                  // Skip when the site has detached either container,
+                  // or when they have different parents
+                  if (
+                    cacheInfo.container !== targetContainer &&
+                    cacheInfo.container.isConnected &&
+                    targetContainer.isConnected &&
+                    cacheInfo.container.parentElement === targetContainer.parentElement
+                  ) {
+                    targetContainer.before(cacheInfo.container);
+                  }
+                  // Re-filter later non-indie entries,
+                  // which may now duplicate the moved result
+                  for (let i = index + 1; i < processedCache.length; i++) {
+                    const entry = processedCache[i];
+                    if (entry.isNonIndie) {
+                      countFiltered += filterSearchResult(entry.siteData, entry.anchor);
                     }
                   }
                 } else {
