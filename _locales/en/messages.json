@@ -905,5 +905,17 @@
   "customSearchEnginesAdd": {
     "message": "Add",
     "description": "Text on the button that the user clicks to add a custom search engine."
+  },
+  "customSearchEnginesDomain": {
+    "message": "Search engine domain (e.g. search.example.org)",
+    "description": "Placeholder and label for the custom search engine domain input."
+  },
+  "customSearchEnginesPreset": {
+    "message": "Search engine platform",
+    "description": "Label for the dropdown selecting which software the custom search engine runs (e.g. SearXNG)."
+  },
+  "customSearchEnginesInvalidDomain": {
+    "message": "Enter a valid domain, like search.example.org",
+    "description": "Error shown when the custom search engine domain input cannot be parsed as a URL."
   }
 }
