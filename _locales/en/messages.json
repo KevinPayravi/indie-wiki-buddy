@@ -917,5 +917,13 @@
   "customSearchEnginesInvalidDomain": {
     "message": "Enter a valid domain, like search.example.org",
     "description": "Error shown when the custom search engine domain input cannot be parsed as a URL."
+  },
+  "customSearchEnginesInvalidScheme": {
+    "message": "Enter a valid domain",
+    "description": "Error shown when the custom search engine domain uses a scheme other than http or https."
+  },
+  "settingsBreezeWikiCustomHostInvalid": {
+    "message": "Enter a valid domain, like bw.example.com",
+    "description": "Error shown when the custom BreezeWiki host input cannot be parsed as a URL."
   }
 }
