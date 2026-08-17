@@ -1,5 +1,5 @@
 import { extensionAPI, refreshSiteData, setDefaultUserActionForNewWikis } from "../../scripts/common-functions.js";
-import { loadOptions } from "../common-page-functions.js";
+import { debounce, loadOptions } from "../common-page-functions.js";
 
 function displayCustomSearchEngine(customSearchEngineDomain, customSearchEnginePreset) {
   let customSearchEnginesList = document.getElementById('customSearchEnginesList');
@@ -136,23 +136,31 @@ document.addEventListener('DOMContentLoaded', () => {
   let customSERequestPending = false;
   function addCustomSearchEngine() {
     if (customSERequestPending) return;
-    let customSearchEngine = document.getElementById('newCustomSearchEngineDomain').value;
+    const domainInput = document.getElementById('newCustomSearchEngineDomain');
+    let customSearchEngine = domainInput.value;
 
     // Add "https://" if not already present
     if (!customSearchEngine.includes('://')) {
       customSearchEngine = 'https://' + customSearchEngine;
     }
-    customSearchEngine = new URL(customSearchEngine);
-
-    // Check not already added
-    let hostnames = document.querySelectorAll('.customSearchEngineDomain');
-    for (let i = 0; i < hostnames.length; i++) {
-      if (hostnames[i].innerText === customSearchEngine.hostname) {
-        return;
-      }
+    domainInput.setCustomValidity('');
+    try {
+      customSearchEngine = new URL(customSearchEngine);
+    } catch {
+      domainInput.setCustomValidity(extensionAPI.i18n.getMessage('customSearchEnginesInvalidDomain'));
+      domainInput.reportValidity();
+      return;
     }
 
     customSearchEngine = String(customSearchEngine) + '*';
+
+    // Check not already added (the list displays the same pattern format)
+    let existingDomains = document.querySelectorAll('.customSearchEngineDomain');
+    for (let i = 0; i < existingDomains.length; i++) {
+      if (existingDomains[i].innerText === customSearchEngine) {
+        return;
+      }
+    }
 
     customSERequestPending = true;
     extensionAPI.permissions.request({
@@ -203,26 +211,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Add event listeners for default action selections
   // (only apply to newly added wikis)
+  // Debounced
+  const applyDefaultWikiAction = debounce(() => {
+    setDefaultUserActionForNewWikis('wikiSettings', document.options.defaultWikiAction.value);
+  }, 200);
   document.querySelectorAll('[name="defaultWikiAction"]').forEach((el) => {
-    el.addEventListener('change', () => {
-      setDefaultUserActionForNewWikis('wikiSettings', document.options.defaultWikiAction.value);
-    });
+    el.addEventListener('change', applyDefaultWikiAction);
   });
+  const applyDefaultSearchAction = debounce(() => {
+    setDefaultUserActionForNewWikis('searchEngineSettings', document.options.defaultSearchAction.value);
+  }, 200);
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
-    el.addEventListener('change', () => {
-      setDefaultUserActionForNewWikis('searchEngineSettings', document.options.defaultSearchAction.value);
-    });
+    el.addEventListener('change', applyDefaultSearchAction);
   });
 
   // Add event listener for filtering by text
   // Waits for typing to pause, so each keystroke doesn't rebuild the table
-  let filterDebounce = null;
+  const applyFilter = debounce((filterText) => {
+    const langSelect = document.getElementById("langSelect");
+    loadOptions(langSelect.value, filterText);
+  }, 200);
   document.getElementById('filterInput').addEventListener('input', (e) => {
-    clearTimeout(filterDebounce);
-    filterDebounce = setTimeout(() => {
-      const langSelect = document.getElementById("langSelect");
-      loadOptions(langSelect.value, e.target.value);
-    }, 200);
+    applyFilter(e.target.value);
   });
 
   // Get and display stat counts
