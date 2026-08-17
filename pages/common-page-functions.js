@@ -1,5 +1,14 @@
 import { extensionAPI, SEARCHENGINEDOMAINS, camelCaseJoin, getUserSettings, setUserSetting, setUserSettings, getSiteDataByDestination, getApiFaviconURL } from "../scripts/common-functions.js";
 
+// Coalesce rapid repeats (e.g. arrow-key radio navigation) into one call
+export function debounce(fn, delay) {
+  let timeout = null;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), delay);
+  };
+}
+
 // Clear wiki toggles
 // Used when switching languages
 export function resetOptions() {
@@ -365,6 +374,15 @@ extensionAPI.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
 });
 
 // Event listeners for toggling search engines
+function setSearchEngineToggle(engineName, state) {
+  extensionAPI.storage.sync.get({ 'searchEngineToggles': {} }, (settings) => {
+    settings.searchEngineToggles[engineName] = state;
+    extensionAPI.storage.sync.set({
+      'searchEngineToggles': settings.searchEngineToggles
+    });
+  });
+}
+
 let searchEngineRequestPending = false;
 const searchEngineToggles = document.querySelectorAll('.searchEngineToggles label');
 searchEngineToggles.forEach((engine) => {
@@ -374,12 +392,7 @@ searchEngineToggles.forEach((engine) => {
     if (engineInput.checked) {
       if (engineName === 'google') {
         // Google is default in the manifest; no permission request needed.
-        extensionAPI.storage.sync.get({'searchEngineToggles': {}}, (settings) => {
-          settings.searchEngineToggles[engineName] = 'on';
-          extensionAPI.storage.sync.set({
-            'searchEngineToggles': settings.searchEngineToggles
-          });
-        });
+        setSearchEngineToggle(engineName, 'on');
         engineInput.checked = true;
       } else {
         if (searchEngineRequestPending) {
@@ -387,32 +400,24 @@ searchEngineToggles.forEach((engine) => {
           return;
         }
         searchEngineRequestPending = true;
+        // Store the toggle before requesting
+        setSearchEngineToggle(engineName, 'on');
         extensionAPI.permissions.request({
           origins: SEARCHENGINEDOMAINS[engineName]
         }, (granted) => {
           searchEngineRequestPending = false;
           // The callback argument will be true if the user granted the permissions.
           if (granted) {
-            extensionAPI.storage.sync.get({'searchEngineToggles': {}}, (settings) => {
-              settings.searchEngineToggles[engineName] = 'on';
-              extensionAPI.storage.sync.set({
-                'searchEngineToggles': settings.searchEngineToggles
-              });
-            });
             engineInput.checked = true;
           } else {
+            setSearchEngineToggle(engineName, 'off');
             engineInput.checked = false;
           }
         });
         if (isPopup) window.close();
       }
     } else {
-      extensionAPI.storage.sync.get({ 'searchEngineToggles': {} }, (settings) => {
-        settings.searchEngineToggles[engineName] = 'off';
-        extensionAPI.storage.sync.set({
-          'searchEngineToggles': settings.searchEngineToggles
-        });
-      });
+      setSearchEngineToggle(engineName, 'off');
       engineInput.checked = false;
       if (engineName !== 'google') {
         extensionAPI.permissions.remove({
@@ -615,37 +620,35 @@ breezewikiHostSelect.addEventListener('change', () => {
   if (breezewikiHostSelect.value === 'CUSTOM') {
     document.getElementById('breezewikiCustomHost').style.display = 'block';
     document.getElementById('breezewikiCustomHostStatus').innerText = '';
-    if (breezewikiHostApply) breezewikiHostApply.style.display = 'none';
+    breezewikiHostApply.style.display = 'none';
   } else {
     document.getElementById('breezewikiCustomHost').style.display = 'none';
-    if (breezewikiHostApply) breezewikiHostApply.style.display = 'inline';
+    breezewikiHostApply.style.display = 'inline';
   }
 });
-if (breezewikiHostApply) {
-  breezewikiHostApply.addEventListener('click', () => {
-    const selectedHost = breezewikiHostSelect.value;
-    // Disable to prevent multiple requests from rapid/double clicks
-    breezewikiHostApply.disabled = true;
-    
-    // Store pending intent so background script can save it if popup closes
-    extensionAPI.storage.local.set({ 'pendingBreezeWikiHost': selectedHost });
+breezewikiHostApply.addEventListener('click', () => {
+  const selectedHost = breezewikiHostSelect.value;
+  // Disable to prevent multiple requests from rapid/double clicks
+  breezewikiHostApply.disabled = true;
 
-    extensionAPI.permissions.request({
-      origins: [selectedHost + '/*']
-    }, (granted) => {
-      breezewikiHostApply.disabled = false;
-      // The callback argument will be true if the user granted the permissions.
-      if (granted) {
-        extensionAPI.storage.sync.set({ 'breezewikiHost': selectedHost });
-        breezewikiHostApply.style.display = 'none';
-      } else {
-        breezewikiHostSelect.value = 'https://breezewiki.com';
-        breezewikiHostApply.style.display = 'none';
-      }
-    });
-    if (isPopup) window.close();
+  // Store pending intent so background script can save it if popup closes
+  extensionAPI.storage.local.set({ 'pendingBreezeWikiHost': selectedHost });
+
+  extensionAPI.permissions.request({
+    origins: [selectedHost + '/*']
+  }, (granted) => {
+    breezewikiHostApply.disabled = false;
+    // The callback argument will be true if the user granted the permissions.
+    if (granted) {
+      extensionAPI.storage.sync.set({ 'breezewikiHost': selectedHost });
+      breezewikiHostApply.style.display = 'none';
+    } else {
+      breezewikiHostSelect.value = 'https://breezewiki.com';
+      breezewikiHostApply.style.display = 'none';
+    }
   });
-}
+  if (isPopup) window.close();
+});
 
 // Set BreezeWiki settings
 function setBreezeWiki(setting, storeSetting = true) {
@@ -818,8 +821,14 @@ async function loadBreezewikiOptions() {
 
           // If fetch fails and no host is set, default to breezewiki.com:
           if (!host) {
-            extensionAPI.storage.sync.set({ 'breezewikiHost': 'https://breezewiki.com' });
+            host = 'https://breezewiki.com';
+            extensionAPI.storage.sync.set({ 'breezewikiHost': host });
           }
+
+          // Fall back to the cached host list so the dropdown still populates
+          const fallbackHosts = hostOptions ||
+            [{ instance: host === 'CUSTOM' ? 'https://breezewiki.com' : host }];
+          populateBreezewikiHosts(fallbackHosts, host, customHost);
         });
     } else {
       // If currently selected host is no longer available, select random host:
