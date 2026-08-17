@@ -411,6 +411,16 @@ export async function getUserSettings(settingsType, storage = null) {
   return settings;
 }
 
+// Chain writing to shards
+let _userSettingsWriteChain = Promise.resolve();
+
+/** @param {() => Promise<void>} task */
+function queueUserSettingsWrite(task) {
+  const run = _userSettingsWriteChain.then(task);
+  _userSettingsWriteChain = run.catch(() => {});
+  return run;
+}
+
 /**
  * Set one wiki's action
  * @param {string} settingsType
@@ -427,7 +437,15 @@ export function setUserSetting(settingsType, wikiId, action) {
  * @param {string} settingsType
  * @param {Record<string, string>} entries {wikiId: action}
  */
-export async function setUserSettings(settingsType, entries) {
+export function setUserSettings(settingsType, entries) {
+  return queueUserSettingsWrite(() => writeUserSettings(settingsType, entries));
+}
+
+/**
+ * @param {string} settingsType
+ * @param {Record<string, string>} entries
+ */
+async function writeUserSettings(settingsType, entries) {
   const { defaultActionKey, fallbackAction } = USER_SETTINGS_META[settingsType];
 
   // Group updates by shard
@@ -463,10 +481,12 @@ export async function setUserSettings(settingsType, entries) {
  * @param {string} settingsType
  * @param {string} action
  */
-export async function setDefaultUserAction(settingsType, action) {
-  const { defaultActionKey } = USER_SETTINGS_META[settingsType];
-  await extensionAPI.storage.sync.set({ [defaultActionKey]: action });
-  await extensionAPI.storage.sync.remove([settingsType, ...userSettingsShardKeys(settingsType)]);
+export function setDefaultUserAction(settingsType, action) {
+  return queueUserSettingsWrite(async () => {
+    const { defaultActionKey } = USER_SETTINGS_META[settingsType];
+    await extensionAPI.storage.sync.set({ [defaultActionKey]: action });
+    await extensionAPI.storage.sync.remove([settingsType, ...userSettingsShardKeys(settingsType)]);
+  });
 }
 
 /**
@@ -475,7 +495,15 @@ export async function setDefaultUserAction(settingsType, action) {
  * @param {string} settingsType
  * @param {string} action
  */
-export async function setDefaultUserActionForNewWikis(settingsType, action) {
+export function setDefaultUserActionForNewWikis(settingsType, action) {
+  return queueUserSettingsWrite(() => writeDefaultUserActionForNewWikis(settingsType, action));
+}
+
+/**
+ * @param {string} settingsType
+ * @param {string} action
+ */
+async function writeDefaultUserActionForNewWikis(settingsType, action) {
   const { defaultActionKey, fallbackAction } = USER_SETTINGS_META[settingsType];
   const shardKeys = userSettingsShardKeys(settingsType);
   const sites = await getSiteDataByDestination();
@@ -509,25 +537,51 @@ export async function setDefaultUserActionForNewWikis(settingsType, action) {
 // Serialized so runs cannot interleave
 let _userSettingsMigration = Promise.resolve();
 
+// Sync:
+const MIGRATED_SYNC_KEY = 'userSettingsMigrated';
+// Local:
+const MIGRATED_LOCAL_KEY = 'userSettingsMigratedLocally';
+
 /**
  * Fold the legacy single keys into the shards, then remove them
  */
 export function migrateUserSettings() {
   _userSettingsMigration = _userSettingsMigration
-    .then(() => migrateUserSettingsType('wikiSettings'))
-    .then(() => migrateUserSettingsType('searchEngineSettings'))
+    .then(async () => {
+      const synced = await extensionAPI.storage.sync.get([MIGRATED_SYNC_KEY]);
+      const local = await extensionAPI.storage.local.get([MIGRATED_LOCAL_KEY]);
+      // When another device has migrated but this one never has,
+      // a local legacy key is this device's stale pre-update copy
+      const discardLegacy = !!synced[MIGRATED_SYNC_KEY] && !local[MIGRATED_LOCAL_KEY];
+      await migrateUserSettingsType('wikiSettings', discardLegacy);
+      await migrateUserSettingsType('searchEngineSettings', discardLegacy);
+      if (!synced[MIGRATED_SYNC_KEY]) {
+        await extensionAPI.storage.sync.set({ [MIGRATED_SYNC_KEY]: true });
+      }
+      if (!local[MIGRATED_LOCAL_KEY]) {
+        await extensionAPI.storage.local.set({ [MIGRATED_LOCAL_KEY]: true });
+      }
+    })
     .catch((e) => {
       console.log('Indie Wiki Buddy failed to migrate settings: ' + e);
     });
   return _userSettingsMigration;
 }
 
-/** @param {string} settingsType */
-async function migrateUserSettingsType(settingsType) {
+/**
+ * @param {string} settingsType
+ * @param {boolean} discardLegacy remove the legacy key without folding it
+ */
+async function migrateUserSettingsType(settingsType, discardLegacy) {
   const { defaultActionKey, fallbackAction } = USER_SETTINGS_META[settingsType];
   const shardKeys = userSettingsShardKeys(settingsType);
   const stored = await extensionAPI.storage.sync.get([settingsType, defaultActionKey, ...shardKeys]);
   if (stored[settingsType] === undefined) {
+    return;
+  }
+
+  if (discardLegacy) {
+    await extensionAPI.storage.sync.remove(settingsType);
     return;
   }
 
