@@ -72,7 +72,7 @@
       "128": "images/logo-128.png"
     }
   },
-  "optional_host_permissions": ["https://*/*"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
   "browser_specific_settings": {
     "gecko": {
       "id": "{cb31ec5d-c49a-4e5a-b240-16c767444f62}",
