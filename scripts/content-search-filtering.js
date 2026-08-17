@@ -980,8 +980,13 @@ function processSearchEngine(_searchEngine) {
   extensionAPI.runtime.sendMessage(
     { action: 'getStorage' },
     /** @param {Record<string, any>} _storage */ async _storage => {
+      // Return if no storage (settings unknown)
+      if (extensionAPI.runtime.lastError || !_storage) {
+        console.debug('IWB: Failed to get storage; not filtering.');
+        return;
+      }
       console.debug('IWB: Storage acquired.');
-      storage = await decompressStorage(_storage ?? {});
+      storage = await decompressStorage(_storage);
       console.debug('IWB: storage decompressed.');
       const searchEngineToggles = storage.searchEngineToggles ?? {};
       if ((storage.power ?? 'on') != 'on') return;

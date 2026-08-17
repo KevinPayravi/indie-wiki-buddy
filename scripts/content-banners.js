@@ -256,6 +256,10 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
 
 function main() {
   extensionAPI.runtime.sendMessage({ action: 'getStorage' }, (storage) => {
+    // Return if no storage (settings unknown)
+    if (extensionAPI.runtime.lastError || !storage) {
+      return;
+    }
     // Check if extension is on:
     if ((storage.power ?? 'on') === 'on') {
       // Check if there is a pathname, to ensure we're looking at an article
