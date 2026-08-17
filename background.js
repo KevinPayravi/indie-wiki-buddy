@@ -154,13 +154,13 @@ function getSearchEngine(url, callback) {
 }
 
 function getBreezewikiHost(url, callback) {
-  extensionAPI.storage.sync.get({ 'customBreezewikiHost': '' }, (item) => {
-    let customBreezewikiHost = item.customBreezewikiHost;
+  extensionAPI.storage.sync.get({ 'breezewikiCustomHost': '' }, (item) => {
+    let breezewikiCustomHost = item.breezewikiCustomHost;
     // BREEZEWIKIDOMAINS is an array of patterns
-    // customBreezewikiHost is a string URL for the user's custom BreezeWiki host
+    // breezewikiCustomHost is a string URL for the user's custom BreezeWiki host
     let allPatterns = [...BREEZEWIKIDOMAINS];
-    if (customBreezewikiHost && typeof customBreezewikiHost === 'string') {
-      allPatterns.push(customBreezewikiHost.replace(/\/$/, '') + '/*');
+    if (breezewikiCustomHost && typeof breezewikiCustomHost === 'string') {
+      allPatterns.push(breezewikiCustomHost.replace(/\/$/, '') + '/*');
     }
     try {
       for (let pattern of allPatterns) {
@@ -321,24 +321,42 @@ extensionAPI.permissions.onAdded.addListener((permissions) => {
   });
 
   // Check if there are any pending BreezeWiki setting updates
+  commitPendingBreezewikiHosts();
+});
+
+// Commit a pending BreezeWiki host choice once its permission is held
+function commitPendingBreezewikiHosts() {
   extensionAPI.storage.local.get(['pendingBreezeWikiHost', 'pendingCustomBreezeWikiHost'], (local) => {
     if (local.pendingBreezeWikiHost) {
-      // Validate that the requested origin matches the pending host
-      if (addedOrigins.includes(local.pendingBreezeWikiHost + '/*')) {
-        extensionAPI.storage.sync.set({ 'breezewikiHost': local.pendingBreezeWikiHost });
-        extensionAPI.storage.local.remove(['pendingBreezeWikiHost']);
-      }
+      extensionAPI.permissions.contains({ origins: [local.pendingBreezeWikiHost + '/*'] }, (hasPermission) => {
+        if (hasPermission) {
+          extensionAPI.storage.sync.set({ 'breezewikiHost': local.pendingBreezeWikiHost });
+          extensionAPI.storage.local.remove(['pendingBreezeWikiHost']);
+        }
+      });
     }
     if (local.pendingCustomBreezeWikiHost) {
-      if (addedOrigins.includes(local.pendingCustomBreezeWikiHost + '/*')) {
-        extensionAPI.storage.sync.set({
-          'breezewikiHost': 'CUSTOM',
-          'breezewikiCustomHost': local.pendingCustomBreezeWikiHost
-        });
-        extensionAPI.storage.local.remove(['pendingCustomBreezeWikiHost']);
-      }
+      extensionAPI.permissions.contains({ origins: [local.pendingCustomBreezeWikiHost + '/*'] }, (hasPermission) => {
+        if (hasPermission) {
+          extensionAPI.storage.sync.set({
+            'breezewikiHost': 'CUSTOM',
+            'breezewikiCustomHost': local.pendingCustomBreezeWikiHost
+          });
+          extensionAPI.storage.local.remove(['pendingCustomBreezeWikiHost']);
+        }
+      });
     }
   });
+}
+
+// Pages write the pending key before calling permissions.request
+extensionAPI.storage.onChanged.addListener((changes, area) => {
+  if (
+    area === 'local' &&
+    (changes.pendingBreezeWikiHost?.newValue || changes.pendingCustomBreezeWikiHost?.newValue)
+  ) {
+    commitPendingBreezewikiHosts();
+  }
 });
 
 // Listen for extension installed/updating
@@ -353,15 +371,18 @@ extensionAPI.runtime.onInstalled.addListener(async (detail) => {
     extensionAPI.tabs.create({ url: 'pages/setup/index.html' });
   }
 
+  const isPre4Update = detail.reason === 'update' && parseInt(detail.previousVersion.split('.')[0], 10) < 4;
+
   // If update, open changelog if setting is enabled
+  // (skipped when the permissions update page below is also opening)
   extensionAPI.storage.sync.get({ 'openChangelog': 'off' }, (item) => {
-    if (item.openChangelog === 'on' && detail.reason === 'update') {
+    if (item.openChangelog === 'on' && detail.reason === 'update' && !isPre4Update) {
       extensionAPI.tabs.create({ url: 'https://getindie.wiki/changelog/?updated=true', active: false });
     }
   });
 
   // If updating from pre-4.0, show permissions update page
-  if (detail.reason === 'update' && parseInt(detail.previousVersion.split('.')[0], 10) < 4) {
+  if (isPre4Update) {
     extensionAPI.tabs.create({ url: 'pages/permissions-update/index.html', active: false });
 
     // Reset Breezewiki settings
@@ -376,10 +397,17 @@ extensionAPI.runtime.onInstalled.addListener(async (detail) => {
         return;
       }
       const migrated = {};
-      for (const [hostname, preset] of Object.entries(engines)) {
-        if (typeof preset === 'string') {
-          migrated[preset] = migrated[preset] || [];
-          migrated[preset].push('https://' + hostname + '/*');
+      for (const [key, value] of Object.entries(engines)) {
+        if (Array.isArray(value)) {
+          // Already-migrated {preset: [patterns]} entry synced from another device
+          migrated[key] = [...new Set([...(migrated[key] || []), ...value])];
+        } else if (typeof value === 'string') {
+          // Pre-4.0 {hostname: preset} entry
+          const pattern = 'https://' + key + '/*';
+          migrated[value] = migrated[value] || [];
+          if (!migrated[value].includes(pattern)) {
+            migrated[value].push(pattern);
+          }
         }
       }
       extensionAPI.storage.sync.set({ 'customSearchEngines': migrated });
