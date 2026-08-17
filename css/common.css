@@ -238,7 +238,7 @@ select {
 }
 .searchEngineToggles label {
   white-space: nowrap;
-  border: 1px solid #e0e3e5;
+  border: 1px solid var(--base-color-outline-light);
   border-radius: 10px;
   padding: 5px;
   margin: 5px 2px;
@@ -278,7 +278,7 @@ select {
 #customSearchEngines {
   padding: .25rem;
 }
-#customSearchEngines > label > span {
+#customSearchEngines > span {
   font-weight: 600;
 }
 
@@ -349,4 +349,10 @@ button.negative {
 button.negative:hover {
   outline: 2px solid var(--negative-color-dark);
   color: var(--negative-color-dark);
+}
+
+button.affirmative:focus-visible,
+button.negative:focus-visible {
+  outline-width: 2px;
+  outline-offset: 2px;
 }
