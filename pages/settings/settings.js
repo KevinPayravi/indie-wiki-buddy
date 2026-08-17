@@ -144,15 +144,25 @@ document.addEventListener('DOMContentLoaded', () => {
       customSearchEngine = 'https://' + customSearchEngine;
     }
     domainInput.setCustomValidity('');
+    let engineUrl;
     try {
-      customSearchEngine = new URL(customSearchEngine);
+      engineUrl = new URL(customSearchEngine);
     } catch {
       domainInput.setCustomValidity(extensionAPI.i18n.getMessage('customSearchEnginesInvalidDomain'));
       domainInput.reportValidity();
       return;
     }
 
-    customSearchEngine = String(customSearchEngine) + '*';
+    // Domains without a scheme default to https
+    // http covers self-hosted / localhost
+    if (engineUrl.protocol !== 'https:' && engineUrl.protocol !== 'http:') {
+      domainInput.setCustomValidity(extensionAPI.i18n.getMessage('customSearchEnginesInvalidScheme'));
+      domainInput.reportValidity();
+      return;
+    }
+
+    // Reduce to scheme + hostname
+    customSearchEngine = engineUrl.protocol + '//' + engineUrl.hostname + '/*';
 
     // Check not already added (the list displays the same pattern format)
     let existingDomains = document.querySelectorAll('.customSearchEngineDomain');

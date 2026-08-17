@@ -859,16 +859,23 @@ async function loadBreezewikiOptions() {
 let customDomainRequestPending = false;
 function setCustomBreezewikiDomain() {
   if (customDomainRequestPending) return;
-  customDomainRequestPending = true;
-  let breezewikiCustomDomain = document.getElementById('customBreezewikiHost').value;
+  const customHostInput = document.getElementById('customBreezewikiHost');
+  let breezewikiCustomDomain = customHostInput.value;
   // Add "https://" if not already present
   if (!/^https?:\/\//i.test(breezewikiCustomDomain)) {
     breezewikiCustomDomain = 'https://' + breezewikiCustomDomain;
   }
+  customHostInput.setCustomValidity('');
+  try {
+    breezewikiCustomDomain = new URL(breezewikiCustomDomain);
+  } catch {
+    customHostInput.setCustomValidity(extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostInvalid'));
+    customHostInput.reportValidity();
+    return;
+  }
+  customDomainRequestPending = true;
   // Reduce to just protocol + hostname
-  breezewikiCustomDomain = new URL(breezewikiCustomDomain);
   breezewikiCustomDomain = breezewikiCustomDomain.protocol + "//" + breezewikiCustomDomain.hostname;
-  breezewikiCustomDomain = breezewikiCustomDomain.toString();
 
   extensionAPI.storage.local.set({ 'pendingCustomBreezeWikiHost': breezewikiCustomDomain });
   extensionAPI.permissions.request({
