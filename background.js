@@ -123,7 +123,10 @@ extensionAPI.webRequest.onBeforeSendHeaders.addListener(
 // Convert a match pattern like "https://*.bing.com/search*" to an anchored regex
 function matchPatternToRegex(pattern) {
   const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp('^' + escaped
+  // Match patterns ignore ports, so allow an optional port after host
+  // (needed for localhost instances)
+  const withPort = escaped.replace(/^([^/]+:\/\/[^/]*)\//, '$1(?::\\d+)?/');
+  return new RegExp('^' + withPort
     .replace(/\*\\\./g, '\x00')
     .replace(/\*/g, '.*')
     .replace(/\x00/g, '(?:[^/]*\\.)?'));
