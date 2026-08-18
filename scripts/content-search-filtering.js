@@ -277,7 +277,7 @@ function mountSearchBanner(wikiInfo) {
   // Insert search result removal notice, if enabled and not already injected
   let elementId = stringToId(wikiInfo.language + '-' + wikiInfo.origin);
   if (!document.getElementById('iwb-notice-' + elementId)) {
-    hiddenWikisRevealed[elementId] = false;
+    hiddenWikisRevealed[elementId] ??= false;
 
     // Using aside to avoid conflicts with website CSS and listeners:
     let searchRemovalNotice = document.createElement('aside');
@@ -306,7 +306,9 @@ function mountSearchBanner(wikiInfo) {
     // Output link to show hidden results:
     let showResultsButton = document.createElement('div');
     showResultsButton.setAttribute('data-group', 'iwb-search-result-' + elementId);
-    showResultsButton.innerText = extensionAPI.i18n.getMessage('searchFilteredResultsShow');
+    showResultsButton.innerText = extensionAPI.i18n.getMessage(
+      hiddenWikisRevealed[elementId] ? 'searchFilteredResultsHide' : 'searchFilteredResultsShow'
+    );
     resultControls.appendChild(showResultsButton);
 
     showResultsButton.onclick = function (e) {
@@ -547,8 +549,41 @@ function filterSearchResult(wikiInfo, anchorElement) {
   return countFiltered;
 }
 
-/** @type {Set<HTMLAnchorElement>} */
-const checkedAnchors = new Set();
+/**
+ * Move a result above another
+ * @param {HTMLElement} node
+ * @param {HTMLElement} target
+ * @returns {boolean} whether the move happened
+ */
+function moveResultAbove(node, target) {
+  // Nested results have no order to fix
+  if (node === target || !node.isConnected || !target.isConnected
+    || node.contains(target) || target.contains(node)) {
+    return false;
+  }
+
+  // Assume results sit one or two wrappers deep
+  let branch = node;
+  let climbs = 0;
+  while (branch.parentElement && !branch.parentElement.contains(target)) {
+    if (++climbs > 4) return false;
+    branch = branch.parentElement;
+  }
+  const parent = branch.parentElement;
+  if (!parent) return false;
+
+  let targetBranch = target;
+  while (targetBranch.parentElement && targetBranch.parentElement !== parent) {
+    targetBranch = targetBranch.parentElement;
+  }
+
+  parent.insertBefore(branch, targetBranch);
+  return true;
+}
+
+// Anchor -> link it was last processed with
+/** @type {Map<HTMLAnchorElement, string>} */
+const checkedAnchors = new Map();
 
 let _filterRun = Promise.resolve();
 
@@ -567,14 +602,22 @@ function filterSearchResults(searchResults) {
 async function processSearchResults(searchResults) {
   let countFiltered = 0;
 
+  // Drop results the page has removed
+  for (let i = processedCache.length - 1; i >= 0; i--) {
+    if (!processedCache[i].anchor.isConnected) {
+      processedCache.splice(i, 1);
+    }
+  }
+
   for (const searchResult of searchResults) {
     try {
-      if (checkedAnchors.has(searchResult)) {
+      let searchResultLink = searchResult.getAttribute('data-iwb-href') ?? searchResult.href ?? '';
+      // Re-examine an anchor whose link changed (page rebuilt in place)
+      if (checkedAnchors.get(searchResult) === searchResultLink) {
         continue;
       }
-      checkedAnchors.add(searchResult);
-      
-      let searchResultLink = searchResult.getAttribute('data-iwb-href') ?? searchResult.href ?? '';
+      checkedAnchors.set(searchResult, searchResultLink);
+
       if (!searchResultLink) {
         continue;
       }
@@ -670,17 +713,7 @@ async function processSearchResults(searchResults) {
                   const targetContainer = processedCache[index].container;
                   // record cacheInfo right before the first non-indie entry of the same wiki
                   processedCache.splice(index, 0, cacheInfo);
-                  // Move the indie result directly above it.
-                  // Skip when the site has detached either container,
-                  // or when they have different parents
-                  if (
-                    cacheInfo.container !== targetContainer &&
-                    cacheInfo.container.isConnected &&
-                    targetContainer.isConnected &&
-                    cacheInfo.container.parentElement === targetContainer.parentElement
-                  ) {
-                    targetContainer.before(cacheInfo.container);
-                  }
+                  moveResultAbove(cacheInfo.container, targetContainer);
                   // Re-filter later non-indie entries,
                   // which may now duplicate the moved result
                   for (let i = index + 1; i < processedCache.length; i++) {
@@ -753,6 +786,9 @@ function filterAnchors(newAnchors) {
               } catch (e) {
                 throw new Error('Indie Wiki Buddy failed to parse Google link with error: ' + e);
               }
+            } else {
+              // No longer a middleman link
+              searchResult.removeAttribute('data-iwb-href');
             }
           }
         }
@@ -784,6 +820,9 @@ function filterAnchors(newAnchors) {
               } catch (e) {
                 console.error('Indie Wiki Buddy failed to parse Bing link with error: ', e);
               }
+            } else {
+              // No longer a middleman link
+              searchResult.removeAttribute('data-iwb-href');
             }
           }
         }
@@ -837,6 +876,9 @@ function filterAnchors(newAnchors) {
               } catch (e) {
                 console.error('Indie Wiki Buddy failed to parse Yahoo link with error: ', e);
               }
+            } else {
+              // No longer a middleman link
+              searchResult.removeAttribute('data-iwb-href');
             }
           }
         }
@@ -870,6 +912,8 @@ function checkRevalidate() {
   if (pageChangeDetector == null || !pageChangeDetector.isConnected) {
     processedCache.length = 0;
     checkedAnchors.clear();
+    // New search: reveal choices apply per results page
+    hiddenWikisRevealed = {};
 
     // mount dummy element to detect page changes
     pageChangeDetector = document.createElement('span');
