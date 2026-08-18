@@ -759,6 +759,10 @@
       }
     }
   },
+  "guideApiDataHelp": {
+    "message": "When this option is enabled, the extension periodically fetches the latest list of supported wikis from getindie.wiki. Disable it to only use the wiki list bundled with the extension.",
+    "description": "Guide entry for the setting that fetches the latest wiki data from the API."
+  },
   "guideGlobalSettingsHelpSearch": {
     "message": "You can also configure your settings for filtering results in search engines:"
   },
@@ -766,10 +770,14 @@
     "message": "Toggle filtering per search engine"
   },
   "guideTogglePerSearchEngineHelp1": {
-    "message": "By default, filtering is enabled for all search engines. Filtering is done based on the user's selected settings for each wiki. The default filtering setting for all wikis is to replace non-indie search results with buttons linking to indie counterparts."
+    "message": "By default, filtering works on Google.com. Every other search engine is off until you turn it on and grant permission. Filtering is done based on the user's selected settings for each wiki. The default filtering setting for all wikis is to replace non-indie search results with buttons linking to indie counterparts."
   },
   "guideTogglePerSearchEngineHelp2": {
-    "message": "The current supported search engines are Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex."
+    "message": "The current supported search engines are Google (with a separate toggle for international domains like google.co.uk), Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex."
+  },
+  "guideCustomSearchEnginesHelp": {
+    "message": "If you run your own search engine using SearXNG or Whoogle, you can add its domain at the bottom of the search engine settings. Your browser will ask you to grant the extension access to that domain.",
+    "description": "Guide entry for the custom search engines setting."
   },
   "guideHiddenResultsBannerHelp1": {
     "message": "When this option is enabled, a banner will be inserted at the top of search engine results when Indie Wiki Buddy has hidden results from Fandom, Fextralife, or Neoseeker wikis. This banner also lets you re-show the hidden results if you wish."
@@ -778,10 +786,10 @@
     "message": "If you don't want to see any indication that results have been hidden, disable this option."
   },
   "guideReorderResultsHelp1": {
-    "message": "By default, Indie Wiki Buddy will re-order the results page on Google to move indie wiki results above the first non-indie (Fandom / Fextralife / Neoseeker) result, if they are further down the first page of results. This allows you to find the pages you're looking for on indie wikis quicker."
+    "message": "By default, Indie Wiki Buddy will re-order the results page to move indie wiki results above the first non-indie (Fandom / Fextralife / Neoseeker) result, if they are further down the first page of results. This allows you to find the pages you're looking for on indie wikis quicker."
   },
   "guideReorderResultsHelp2": {
-    "message": "This feature is currently only available for Google, as it can be complex to maintain reliably."
+    "message": "When the same article shows up from both the indie wiki and the non-indie wiki, the duplicate non-indie result is hidden."
   },
   "guideBreezeWiki": {
     "message": "You can also set your desired setting for $BreezeWiki$, a separate service that renders Fandom wikis without ads or bloat. Note, BreezeWiki currently only supports English wikis.",
@@ -803,7 +811,7 @@
     "message": "Visiting any English Fandom wiki will immediately redirect you to view it through BreezeWiki. If automatic redirect to an independent wiki is enabled, the indepedent wiki will take priority."
   },
   "guideBreezeWikiHostHelp": {
-    "message": "Once you've enabled a BreezeWiki option, a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror. If your selected BreezeWiki host goes down, you can come back to these settings and switch your host."
+    "message": "Once you've enabled a BreezeWiki option, a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror. Your browser will ask you to grant the extension access to the host you pick. You can also enter a custom BreezeWiki domain. If your selected BreezeWiki host goes down, you can come back to these settings and switch your host."
   },
   "guideWikiHelp": {
     "message": "Individual wiki settings help",
