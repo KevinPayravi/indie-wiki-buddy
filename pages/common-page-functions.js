@@ -1,4 +1,4 @@
-import { extensionAPI, SEARCHENGINEDOMAINS, camelCaseJoin, getUserSettings, setUserSetting, setUserSettings, getSiteDataByDestination, getApiFaviconURL } from "../scripts/common-functions.js";
+import { extensionAPI, SEARCHENGINEDOMAINS, applyI18nMessages, camelCaseJoin, getUserSettings, setUserSetting, setUserSettings, getSiteDataByDestination, getApiFaviconURL } from "../scripts/common-functions.js";
 
 // Coalesce rapid repeats (e.g. arrow-key radio navigation) into one call
 export function debounce(fn, delay) {
@@ -11,7 +11,7 @@ export function debounce(fn, delay) {
 
 // Clear wiki toggles
 // Used when switching languages
-export function resetOptions() {
+function resetOptions() {
   const toggleTableBody = document.getElementById('togglesBody');
 
   // Need to create a copy first, because the children change while iterating
@@ -21,17 +21,29 @@ export function resetOptions() {
       el.remove();
     }
   }
-
-  // Clone "select all" buttons to reset listeners
-  const setAllButtonIds = [
-    'setAllWikiDisabled', 'setAllWikiRedirect', 'setAllWikiAlert',
-    'setAllSearchEngineDisabled', 'setAllSearchEngineHide', 'setAllSearchEngineReplace'
-  ];
-  for (const id of setAllButtonIds) {
-    const el = document.getElementById(id);
-    el.replaceWith(el.cloneNode(true));
-  }
 }
+
+// "Select all" buttons (settings page only)
+// Attached once; each click reads the toggles then in the DOM
+function addSetAllButtonListener(action, category) {
+  const settingsType = `${category}Settings`;
+  document.getElementById(camelCaseJoin(['setAll', category, action]))?.addEventListener('click', () => {
+    const buttonClassName = camelCaseJoin(['toggle', category, action]);
+    const toggles = document.querySelectorAll(`#toggles input.${buttonClassName}`);
+    const entries = {};
+    for (let i = 0; i < toggles.length; i++) {
+      toggles[i].checked = true;
+      entries[toggles[i].getAttribute('data-wiki-key')] = action;
+    }
+    setUserSettings(settingsType, entries);
+  });
+}
+addSetAllButtonListener('disabled', 'wiki');
+addSetAllButtonListener('alert', 'wiki');
+addSetAllButtonListener('redirect', 'wiki');
+addSetAllButtonListener('disabled', 'searchEngine');
+addSetAllButtonListener('hide', 'searchEngine');
+addSetAllButtonListener('replace', 'searchEngine');
 
 export function createRadioButton(redirectEntry, action, category) {
   const redirectID = redirectEntry.id;
@@ -113,45 +125,6 @@ export async function loadOptions(lang, textFilter = '') {
     return;
   }
 
-  function addGlobalButtonEventListeners(action, category) {
-    const globalButtonID = camelCaseJoin(['setAll', category, action]);
-    const settingsType = `${category}Settings`;
-
-    const setAllButton = document.getElementById(globalButtonID);
-    setAllButton.addEventListener('click', () => {
-      const buttonClassName = camelCaseJoin(['toggle', category, action]);
-      const toggles = document.querySelectorAll(`#toggles input.${buttonClassName}`);
-      const entries = {};
-      for (let i = 0; i < toggles.length; i++) {
-        toggles[i].checked = true;
-        entries[toggles[i].getAttribute('data-wiki-key')] = action;
-      }
-      setUserSettings(settingsType, entries);
-    });
-  }
-
-  // Load defaults for newly added wikis:
-  switch (syncStorage.defaultWikiAction) {
-    case 'disabled':
-      document.options.defaultWikiAction.value = 'disabled';
-      break;
-    case 'redirect':
-      document.options.defaultWikiAction.value = 'redirect';
-      break;
-    default:
-      document.options.defaultWikiAction.value = 'alert';
-  }
-  switch (syncStorage.defaultSearchAction) {
-    case 'disabled':
-      document.options.defaultSearchAction.value = 'disabled';
-      break;
-    case 'hide':
-      document.options.defaultSearchAction.value = 'hide';
-      break;
-    default:
-      document.options.defaultSearchAction.value = 'replace';
-  }
-
   // Reset toggles:
   resetOptions();
 
@@ -196,11 +169,9 @@ export async function loadOptions(lang, textFilter = '') {
       const searchEngineAction = searchEngineSettings[redirectEntry.id] ?? defaultSearchAction ?? 'replace';
 
       switch (searchEngineAction) {
-        case 'true':
         case 'replace':
           inputSearchEngineReplace.checked = true;
           break;
-        case 'false':
         case 'disabled':
           inputSearchEngineDisabled.checked = true;
           break;
@@ -278,15 +249,6 @@ export async function loadOptions(lang, textFilter = '') {
     }
     toggleTableBody.appendChild(fragment);
   }
-
-  // Add "select all" button event listeners:
-  addGlobalButtonEventListeners('redirect', 'wiki');
-  addGlobalButtonEventListeners('alert', 'wiki');
-  addGlobalButtonEventListeners('disabled', 'wiki');
-
-  addGlobalButtonEventListeners('disabled', 'searchEngine');
-  addGlobalButtonEventListeners('hide', 'searchEngine');
-  addGlobalButtonEventListeners('replace', 'searchEngine');
 }
 
 // This is due to a Firefox bug where the permissions window
@@ -975,28 +937,4 @@ if (versionElement) {
   versionElement.textContent = 'v' + version;
 }
 
-// Somehow this has to be done manually
-document.querySelectorAll('[data-msg]').forEach(element => {
-  // Check data-msg-ph-* attributes for placeholder text
-  // iterate
-  const placeholders = [];
-  for (let i = 1; i <= 9; i++) {
-    let ph = element.getAttribute(`data-msg-ph-${i}`);
-    if (ph) {
-      placeholders.push(ph);
-    }
-  }
-
-  // Usage of innerHTML below is safe,
-  // as we are displaying literals from the extension's localization files,
-  // populated with placeholder HTML from elsewhere in the code.
-  element.innerHTML = extensionAPI.i18n.getMessage(element.dataset.msg, placeholders);
-});
-
-document.querySelectorAll('[data-msg-attr]').forEach(element => {
-  const attrs = element.dataset.msgAttr.split(',');
-  attrs.forEach(attr => {
-    const [key, value] = attr.split('=');
-    element.setAttribute(key, extensionAPI.i18n.getMessage(value));
-  });
-});
+applyI18nMessages();

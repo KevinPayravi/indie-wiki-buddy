@@ -987,6 +987,34 @@ export function isAnchor(element) {
 }
 
 /**
+ * Fill elements with data-msg / data-msg-attr
+ */
+export function applyI18nMessages() {
+  document.querySelectorAll('[data-msg]').forEach(element => {
+    // data-msg-ph-* attributes hold placeholder values
+    const placeholders = [];
+    for (let i = 1; i <= 9; i++) {
+      const ph = element.getAttribute(`data-msg-ph-${i}`);
+      if (ph) {
+        placeholders.push(ph);
+      }
+    }
+
+    // innerHTML is safe here: the text is literals from the extension's
+    // localization files, with placeholder HTML from elsewhere in the code
+    element.innerHTML = extensionAPI.i18n.getMessage(element.dataset.msg, placeholders);
+  });
+
+  document.querySelectorAll('[data-msg-attr]').forEach(element => {
+    const attrs = element.dataset.msgAttr.split(',');
+    attrs.forEach(attr => {
+      const [key, value] = attr.split('=');
+      element.setAttribute(key, extensionAPI.i18n.getMessage(value));
+    });
+  });
+}
+
+/**
  * @typedef {Object} SiteData
  * @property {string} id
  * @property {string} origin
