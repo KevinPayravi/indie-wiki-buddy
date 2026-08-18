@@ -54,10 +54,6 @@
     filter: invert(1);
   }
 
-  :root .searchEngineToggles label:has(input:checked) {
-    background-color: var(--secondary-color);
-  }
-
   :root #customSearchEnginesList>div:hover {
     background-color: var(--secondary-color);
   }
@@ -110,7 +106,7 @@ h2 {
   margin: 0;
 }
 
-button:hover {
+button:not(:disabled):hover {
   cursor: pointer;
 }
 
@@ -247,7 +243,7 @@ select {
   gap: .3em;
 }
 .searchEngineToggles label:has(input:checked) {
-  background: #ceeaff;
+  background: var(--secondary-color);
 }
 
 .settingToggle {

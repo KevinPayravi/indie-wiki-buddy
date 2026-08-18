@@ -18,9 +18,6 @@
 .iwb-hide {
   display: none !important;
 }
-.iwb-show {
-  display: block !important;
-}
 .iwb-new-link-container {
   display: block;
   width: 100%;
