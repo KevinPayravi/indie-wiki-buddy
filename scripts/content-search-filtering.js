@@ -69,7 +69,7 @@ function addDOMChangeObserver(callback) {
  * @param {string} string
  */
 function stringToId(string) {
-  return string.replaceAll(' ', '-').replaceAll("'", '').replace(/\W/g, '').toLowerCase();
+  return string.replace(/[^\p{L}\p{N}_]/gu, '').toLowerCase();
 }
 
 /**
@@ -768,7 +768,8 @@ async function processSearchResults(searchResults) {
 
   // If any results were filtered, update search filter count
   if (countFiltered > 0) {
-    extensionAPI.storage.sync.set({ 'countSearchFilters': (storage.countSearchFilters ?? 0) + countFiltered });
+    const item = await extensionAPI.storage.sync.get({ 'countSearchFilters': 0 });
+    await extensionAPI.storage.sync.set({ 'countSearchFilters': item.countSearchFilters + countFiltered });
   }
 }
 
