@@ -5543,6 +5543,26 @@
       "language": "EN"
     },
     {
+      "id": "en-fortnite",
+      "origins_label": "Fortnite Fandom Wiki",
+      "origins": [
+        {
+          "origin": "Fortnite Fandom Wiki",
+          "origin_base_url": "fortnite.fandom.com",
+          "origin_content_path": "/wiki/",
+          "origin_main_page": "Fortnite_Wiki"
+        }
+      ],
+      "destination": "Fortnite Wiki",
+      "destination_base_url": "fortnite.weirdgloop.org",
+      "destination_platform": "mediawiki",
+      "destination_icon": "fortnitewiki.png",
+      "destination_main_page": "Fortnite_Wiki",
+      "destination_search_path": "/",
+      "destination_content_path": "/w/",
+      "language": "EN"
+    },
+    {
       "id": "en-foxhole",
       "origins_label": "Foxhole Fandom Wiki",
       "origins": [
