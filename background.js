@@ -132,58 +132,90 @@ function matchPatternToRegex(pattern) {
     .replace(/\x00/g, '(?:[^/]*\\.)?'));
 }
 
-function getSearchEngine(url, callback) {
-  extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
-    let customSearchEngines = item.customSearchEngines;
-    let searchEngines = { ...SEARCHENGINEDOMAINS, ...customSearchEngines };
-    try {
-      for (let engine in searchEngines) {
-        // Skip string entries from the pre-4.0 {hostname: preset} format
-        const patterns = Array.isArray(searchEngines[engine]) ? searchEngines[engine] : [];
-        for (let pattern of patterns) {
-          if (matchPatternToRegex(pattern).test(url)) {
-            callback(engine);
-            return;
-          }
-        }
-      }
+// Compile custom entries on first use
+const builtinSearchEngineRegexes = {};
+for (const [engine, patterns] of Object.entries(SEARCHENGINEDOMAINS)) {
+  builtinSearchEngineRegexes[engine] = patterns.map(matchPatternToRegex);
+}
+const builtinBreezewikiRegexes = BREEZEWIKIDOMAINS.map(matchPatternToRegex);
 
-      callback(null); // Return null if no match
-    } catch (error) {
-      console.error("Invalid URL:", error);
-      callback(null);
+/** @type {Record<string, RegExp[]> | null} */
+let customSearchEngineRegexes = null;
+/** @type {RegExp[] | null} */
+let customBreezewikiRegexes = null;
+
+extensionAPI.storage.onChanged.addListener((changes, area) => {
+  if (area !== 'sync') return;
+  if (changes.customSearchEngines) customSearchEngineRegexes = null;
+  if (changes.breezewikiCustomHost) customBreezewikiRegexes = null;
+});
+
+function loadCustomSearchEngineRegexes(callback) {
+  if (customSearchEngineRegexes) {
+    callback(customSearchEngineRegexes);
+    return;
+  }
+  extensionAPI.storage.sync.get({ 'customSearchEngines': {} }, (item) => {
+    customSearchEngineRegexes = {};
+    for (const [engine, patterns] of Object.entries(item.customSearchEngines)) {
+      // Skip string entries from the pre-4.0 {hostname: preset} format
+      if (Array.isArray(patterns)) {
+        customSearchEngineRegexes[engine] = patterns.map(matchPatternToRegex);
+      }
     }
+    callback(customSearchEngineRegexes);
+  });
+}
+
+function loadCustomBreezewikiRegexes(callback) {
+  if (customBreezewikiRegexes) {
+    callback(customBreezewikiRegexes);
+    return;
+  }
+  extensionAPI.storage.sync.get({ 'breezewikiCustomHost': '' }, (item) => {
+    // breezewikiCustomHost is a string URL for the user's custom BreezeWiki host
+    const customHost = item.breezewikiCustomHost;
+    customBreezewikiRegexes = (customHost && typeof customHost === 'string')
+      ? [matchPatternToRegex(customHost.replace(/\/$/, '') + '/*')]
+      : [];
+    callback(customBreezewikiRegexes);
+  });
+}
+
+function getSearchEngine(url, callback) {
+  loadCustomSearchEngineRegexes((customRegexes) => {
+    const searchEngines = { ...builtinSearchEngineRegexes, ...customRegexes };
+    for (const engine in searchEngines) {
+      if (searchEngines[engine].some((regex) => regex.test(url))) {
+        callback(engine);
+        return;
+      }
+    }
+    callback(null); // Return null if no match
   });
 }
 
 function getBreezewikiHost(url, callback) {
-  extensionAPI.storage.sync.get({ 'breezewikiCustomHost': '' }, (item) => {
-    let breezewikiCustomHost = item.breezewikiCustomHost;
-    // BREEZEWIKIDOMAINS is an array of patterns
-    // breezewikiCustomHost is a string URL for the user's custom BreezeWiki host
-    let allPatterns = [...BREEZEWIKIDOMAINS];
-    if (breezewikiCustomHost && typeof breezewikiCustomHost === 'string') {
-      allPatterns.push(breezewikiCustomHost.replace(/\/$/, '') + '/*');
-    }
-    try {
-      for (let pattern of allPatterns) {
-        if (matchPatternToRegex(pattern).test(url)) {
-          callback(true);
-          return;
-        }
-      }
-      
-      callback(null); // Return null if no match
-    } catch (error) {
-      console.error("Invalid URL:", error);
-      callback(null);
-    }
+  loadCustomBreezewikiRegexes((customRegexes) => {
+    callback([...builtinBreezewikiRegexes, ...customRegexes].some((regex) => regex.test(url)));
   });
+}
+
+// Reading lastError marks the failure as handled
+// (happens when the tab navigates away mid-injection)
+function ignoreInjectionError() {
+  void extensionAPI.runtime.lastError;
 }
 
 extensionAPI.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (tab.url && changeInfo.status === 'loading') {
     const currentUrl = new URL(tab.url);
+
+    // Static content scripts cover these hosts
+    if (currentUrl.hostname === 'www.google.com' || currentUrl.hostname === 'breezewiki.com') {
+      return;
+    }
+
     // Check if search engine
     getSearchEngine(currentUrl.href, (searchEngine) => {
       if (searchEngine) {
@@ -199,12 +231,12 @@ extensionAPI.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
           extensionAPI.scripting.executeScript({
             target: { tabId: tab.id },
             files: ['scripts/content-search-filtering-importer.js']
-          });
+          }, ignoreInjectionError);
         });
         extensionAPI.scripting.insertCSS({
           target: { tabId: tab.id },
           files: ['css/content-search-filtering.css']
-        });
+        }, ignoreInjectionError);
       } else {
         // If not search engine, check if Breezewiki
         getBreezewikiHost(currentUrl.href, (breezewikiHost) => {
@@ -212,19 +244,15 @@ extensionAPI.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             extensionAPI.scripting.executeScript({
               target: { tabId: tab.id },
               files: ['scripts/content-banners-importer.js']
-            });
+            }, ignoreInjectionError);
             extensionAPI.scripting.insertCSS({
               target: { tabId: tab.id },
               files: ['css/content-banners.css']
-            });
+            }, ignoreInjectionError);
             extensionAPI.scripting.executeScript({
               target: { tabId: tab.id },
               files: ['scripts/content-breezewiki.js']
-            });
-            extensionAPI.scripting.insertCSS({
-              target: { tabId: tab.id },
-              files: ['css/content-search-filtering.css']
-            });
+            }, ignoreInjectionError);
           }
         });
       }
