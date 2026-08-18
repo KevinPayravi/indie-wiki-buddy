@@ -29,6 +29,16 @@ let searchEngine;
 /** @type {Record<string, any>} */
 let storage;
 
+// Track elements the user changed
+/** @type {Set<HTMLElement>} */
+const userActionElements = new Set();
+
+/** @param {HTMLElement} element */
+function markUserAction(element) {
+  element.dataset.iwbUserAction = 'true';
+  userActionElements.add(element);
+}
+
 /** @param {string} text */
 function base64Decode(text) {
   text = text.replace(/\s+/g, '').replace(/\-/g, '+').replace(/\_/g, '/');
@@ -46,6 +56,7 @@ function addDOMChangeObserver(callback) {
   domObserver.observe(document.documentElement, {
     childList: true,
     attributes: true,
+    attributeFilter: ['class'],
     attributeOldValue: true,
     characterData: false,
     subtree: true
@@ -174,7 +185,7 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
       const container = target.closest('.iwb-disavow');
 
       if (container instanceof HTMLElement) {
-        container.dataset.iwbUserAction = 'true';
+        markUserAction(container);
         container.classList.remove('iwb-disavow');
       }
 
@@ -320,7 +331,7 @@ function mountSearchBanner(wikiInfo) {
         const selector = currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
           if (el instanceof HTMLElement) {
-            el.dataset.iwbUserAction = 'true';
+            markUserAction(el);
             el.classList.remove('iwb-hide');
             el.classList.add('iwb-show');
           }
@@ -331,7 +342,7 @@ function mountSearchBanner(wikiInfo) {
         const selector = currentTarget.dataset.group;
         document.querySelectorAll('.' + selector).forEach(el => {
           if (el instanceof HTMLElement) {
-            el.dataset.iwbUserAction = 'true';
+            markUserAction(el);
             el.classList.remove('iwb-show');
             el.classList.add('iwb-hide');
           }
@@ -358,7 +369,7 @@ function hideSearchResults(searchResultContainer, wikiInfo, bannerState = 'on') 
   const revealed = hiddenWikisRevealed[elementId] ?? false;
 
   if (searchResultContainer instanceof HTMLElement) {
-    searchResultContainer.dataset.iwbUserAction = 'true';
+    markUserAction(searchResultContainer);
     searchResultContainer.classList.toggle('iwb-hide', !revealed);
     searchResultContainer.classList.toggle('iwb-show', revealed);
   }
@@ -619,6 +630,11 @@ async function processSearchResults(searchResults) {
       processedCache.splice(i, 1);
     }
   }
+  for (const [anchor] of checkedAnchors) {
+    if (!anchor.isConnected) {
+      checkedAnchors.delete(anchor);
+    }
+  }
 
   for (const searchResult of searchResults) {
     try {
@@ -641,7 +657,7 @@ async function processSearchResults(searchResults) {
           return isNonIndieSite(href);
         });
         if (!hasNonIndieLink) {
-          existingContainer.dataset.iwbUserAction = 'true';
+          markUserAction(existingContainer);
           existingContainer.querySelector('.iwb-new-link-container')?.remove();
           existingContainer.classList.remove('iwb-disavow');
           existingContainer.classList.remove('iwb-detected');
@@ -991,12 +1007,10 @@ function filterMutations(mutations, observer) {
   }
 
   // Remove instances of user action attribute
-  const userActionElements = document.querySelectorAll('[data-iwb-user-action]');
   for (const el of userActionElements) {
-    if (el instanceof HTMLElement) {
-      delete el.dataset.iwbUserAction;
-    }
+    delete el.dataset.iwbUserAction;
   }
+  userActionElements.clear();
 }
 
 /**
