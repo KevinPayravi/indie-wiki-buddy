@@ -201,11 +201,8 @@ function getBreezewikiHost(url, callback) {
   });
 }
 
-// Reading lastError marks the failure as handled
-// (happens when the tab navigates away mid-injection)
-function ignoreInjectionError() {
-  void extensionAPI.runtime.lastError;
-}
+// Injection fails when the tab navigates away mid-flight; nothing to do
+function ignoreInjectionError() {}
 
 extensionAPI.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (tab.url && changeInfo.status === 'loading') {
@@ -219,24 +216,15 @@ extensionAPI.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     // Check if search engine
     getSearchEngine(currentUrl.href, (searchEngine) => {
       if (searchEngine) {
+        // The script asks the background for its engine via 'getSearchEngine'
         extensionAPI.scripting.executeScript({
           target: { tabId: tab.id },
-          args: [{engine: searchEngine}],
-          func: vars => Object.assign(self, vars)
-        }, () => {
-          // Injection fails if the tab navigated away; skip the main script
-          if (extensionAPI.runtime.lastError) {
-            return;
-          }
-          extensionAPI.scripting.executeScript({
-            target: { tabId: tab.id },
-            files: ['scripts/content-search-filtering-importer.js']
-          }, ignoreInjectionError);
-        });
+          files: ['scripts/content-search-filtering-importer.js']
+        }).catch(ignoreInjectionError);
         extensionAPI.scripting.insertCSS({
           target: { tabId: tab.id },
           files: ['css/content-search-filtering.css']
-        }, ignoreInjectionError);
+        }).catch(ignoreInjectionError);
       } else {
         // If not search engine, check if Breezewiki
         getBreezewikiHost(currentUrl.href, (breezewikiHost) => {
@@ -244,15 +232,15 @@ extensionAPI.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             extensionAPI.scripting.executeScript({
               target: { tabId: tab.id },
               files: ['scripts/content-banners-importer.js']
-            }, ignoreInjectionError);
+            }).catch(ignoreInjectionError);
             extensionAPI.scripting.insertCSS({
               target: { tabId: tab.id },
               files: ['css/content-banners.css']
-            }, ignoreInjectionError);
+            }).catch(ignoreInjectionError);
             extensionAPI.scripting.executeScript({
               target: { tabId: tab.id },
               files: ['scripts/content-breezewiki.js']
-            }, ignoreInjectionError);
+            }).catch(ignoreInjectionError);
           }
         });
       }
@@ -276,6 +264,12 @@ extensionAPI.runtime.onMessage.addListener(function (msg, sender, sendResponse) 
     }).catch(() => {
       // Answer with null so the caller falls back to reading directly
       sendResponse(null);
+    });
+    return true;
+  } else if (msg.action === 'getSearchEngine') {
+    // The search filtering script asking which engine its page is
+    getSearchEngine(sender.url, (engine) => {
+      sendResponse(engine);
     });
     return true;
   }

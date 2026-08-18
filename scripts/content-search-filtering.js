@@ -1075,12 +1075,12 @@ function processSearchEngine(_searchEngine) {
 // fill cache
 void getSiteDataByOrigin();
 
-// Engine provided when called via background.js executeScript
-// @ts-ignore
-if (typeof engine !== 'undefined') {
-  // @ts-ignore
-  processSearchEngine(engine);
-} else if (new URL(document.location.href).hostname === 'www.google.com') {
-  // Only the static content script gets here
-  processSearchEngine('google');
-}
+// The background matches this page against the built-in and custom engines
+extensionAPI.runtime.sendMessage({ action: 'getSearchEngine' }, /** @param {string | null} engine */ (engine) => {
+  if (!extensionAPI.runtime.lastError && engine) {
+    processSearchEngine(engine);
+  } else if (new URL(document.location.href).hostname === 'www.google.com') {
+    // Keep google.com working even when the background cannot answer
+    processSearchEngine('google');
+  }
+});
