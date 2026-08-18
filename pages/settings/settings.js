@@ -20,7 +20,7 @@ function displayCustomSearchEngine(customSearchEngineDomain, customSearchEngineP
   customSearchEngineDeleteButton.type = 'button';
   customSearchEngineDeleteButton.classList.add('negative');
   customSearchEngineDeleteButton.classList.add('customSearchEngineDelete');
-  customSearchEngineDeleteButton.innerText = extensionAPI.i18n.getMessage('settingsCustomWikiDelete');
+  customSearchEngineDeleteButton.innerText = extensionAPI.i18n.getMessage('customSearchEnginesDelete');
   customSearchEngineDeleteButton.addEventListener('click', () => {
     listItem.remove();
 
@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const countSettingsOpened = storage.countSettingsOpened ?? 0;
     extensionAPI.storage.local.set({ 'countSettingsOpened': countSettingsOpened + 1 });
 
-    // Show review reminder every 5 opens,
+    // Show review reminder every 5th open,
     // and if the banner hasn't been previously dismissed
-    if (!(storage.hideReviewReminder ?? false) && ((countSettingsOpened - 1) % 5 === 0)) {
+    if (!(storage.hideReviewReminder ?? false) && ((countSettingsOpened + 1) % 5 === 0)) {
       const notificationBannerReview = document.getElementById('notificationBannerReview');
 
       notificationBannerReview.style.display = 'block';
