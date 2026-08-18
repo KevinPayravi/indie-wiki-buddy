@@ -906,6 +906,10 @@
     "message": "Add",
     "description": "Text on the button that the user clicks to add a custom search engine."
   },
+  "customSearchEnginesDelete": {
+    "message": "Delete",
+    "description": "Button to delete a custom search engine."
+  },
   "customSearchEnginesDomain": {
     "message": "Search engine domain (e.g. search.example.org)",
     "description": "Placeholder and label for the custom search engine domain input."
