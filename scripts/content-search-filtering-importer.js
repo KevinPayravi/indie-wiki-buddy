@@ -3,10 +3,7 @@
 // the main script can successfully resolve its own static imports.
 //
 // Based on https://stackoverflow.com/a/53033388
-
-const extensionAPI = typeof browser === "undefined" ? chrome : browser;
-
 (async () => {
-  const src = extensionAPI.runtime.getURL('scripts/content-search-filtering.js');
-  await import(src);
+  const extensionAPI = typeof browser === "undefined" ? chrome : browser;
+  await import(extensionAPI.runtime.getURL('scripts/content-search-filtering.js'));
 })();

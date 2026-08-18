@@ -1,16 +1,20 @@
-// Hide Indie Wiki Buddy promo banner
-const bwTopBanners = document.querySelectorAll('.bw-top-banner');
-bwTopBanners.forEach((banner) => {
-  if (banner.innerText.includes('affiliated browser extension')) {
-    banner.style.display = 'none';
-  }
-});
+(() => {
+  // Hide Indie Wiki Buddy promo banner
+  const bwTopBanners = document.querySelectorAll('.bw-top-banner');
+  bwTopBanners.forEach((banner) => {
+    if (banner.innerText.includes('affiliated browser extension')) {
+      banner.style.display = 'none';
+    }
+  });
 
-// Append "fandom allow" query param to Fandom links
-// This allows users to click a Fandom link without being redirected back to BW
-const bwFandomLinks = document.querySelectorAll('a[href*=".fandom.com"]');
-bwFandomLinks.forEach((link) => {
-  const url = new URL(link.href);
-  url.searchParams.append('fandom', 'allow');
-  link.href = url.href;
-});
+  // Append "fandom allow" query param to Fandom links
+  // This allows users to click a Fandom link without being redirected back to BW
+  const bwFandomLinks = document.querySelectorAll('a[href*=".fandom.com"]');
+  bwFandomLinks.forEach((link) => {
+    const url = new URL(link.href);
+    if (!url.searchParams.has('fandom')) {
+      url.searchParams.append('fandom', 'allow');
+      link.href = url.href;
+    }
+  });
+})();
