@@ -503,6 +503,30 @@ function getSearchFilterSetting(wikiId) {
 }
 
 /**
+ * Whether a reordered indie result already covers an article
+ * @param {SiteData} wikiInfo
+ * @param {string} originArticle
+ */
+function isArticleAlreadyReordered(wikiInfo, originArticle) {
+  const prefix = escapeRegExp(wikiInfo.destination_base_url + wikiInfo.destination_content_path);
+  const article = decodeURI(getDestinationArticle(wikiInfo, originArticle)).replace(/_\([^/]*\)$/, '');
+
+  // Indie URLs that would show this same page
+  const forms = [`${prefix}${escapeRegExp(article)}(?:_\\([^/]+\\))?`];
+
+  // Assume bare URL is a wiki's main page
+  // (some search engines surface the bare URL)
+  if (!originArticle
+    || decodeURIComponent(originArticle).toLowerCase() === wikiInfo.origin_main_page.toLowerCase()) {
+    forms.push(`${prefix}${escapeRegExp(decodeURI(wikiInfo.destination_main_page))}`);
+    forms.push(`${escapeRegExp(wikiInfo.destination_base_url)}/?`);
+  }
+
+  const matchRegex = new RegExp(`^https?://(?:${forms.join('|')})$`);
+  return processedCache.some(({ url }) => matchRegex.test(decodeURI(url)));
+}
+
+/**
  * @param {SiteData} wikiInfo
  * @param {HTMLAnchorElement} anchorElement
  */
@@ -515,24 +539,11 @@ function filterSearchResult(wikiInfo, anchorElement) {
     // Get the containing element for the search result
     let searchResultContainer = getResultContainer(searchEngine, anchorElement);
     if (searchResultContainer) {
-      // If this page from the non-indie wiki is the same as a re-ordered page, filter it out
       let searchResultLink = anchorElement.getAttribute('data-iwb-href') || anchorElement.href;
       let originArticle = getOriginArticle(searchResultLink, wikiInfo);
-      let destinationArticle = getDestinationArticle(wikiInfo, originArticle);
 
-      const destinationArticleDecoded = decodeURI(destinationArticle);
-      const destinationArticleBase = destinationArticleDecoded.replace(/_\([^/]*\)$/, '');
-      const destinationPrefixPattern = escapeRegExp(wikiInfo.destination_base_url + wikiInfo.destination_content_path);
-      const destinationArticlePattern = `${escapeRegExp(destinationArticleBase)}(?:_\\([^/]+\\))?`;
-      const destinationMatchRegex = new RegExp(`^https?://${destinationPrefixPattern}${destinationArticlePattern}$`);
-      const mainPageMatchRegex = new RegExp(
-        `^https?://${destinationPrefixPattern}${escapeRegExp(decodeURI(wikiInfo.destination_main_page))}$`
-      );
-
-      if (reorderResultsEnabled && (
-        processedCache.some(({ url }) => destinationMatchRegex.test(decodeURI(url))) ||
-        ((originArticle === wikiInfo.origin_main_page) && processedCache.some(({ url }) => mainPageMatchRegex.test(decodeURI(url))))
-      )) {
+      // If this page from the non-indie wiki is the same as a re-ordered page, filter it out
+      if (reorderResultsEnabled && isArticleAlreadyReordered(wikiInfo, originArticle)) {
         countFiltered += hideSearchResults(searchResultContainer, wikiInfo, 'off');
         console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
       } else {
