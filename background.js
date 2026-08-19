@@ -105,9 +105,12 @@ extensionAPI.webRequest.onBeforeSendHeaders.addListener(
     });
 
     if (!isPrefetch && event.documentLifecycle !== 'prerender') {
-      if (event.frameType === 'sub_frame') {
-        let tabInfo = await extensionAPI.tabs.get(event.tabId);
-        main(tabInfo.url, event.tabId);
+      if (event.type === 'sub_frame') {
+        // A framed wiki redirects the whole tab, so act on the tab's own URL
+        const tabInfo = await extensionAPI.tabs.get(event.tabId).catch(() => null);
+        if (tabInfo?.url) {
+          main(tabInfo.url, event.tabId);
+        }
       } else {
         main(event.url, event.tabId);
       }
@@ -255,7 +258,6 @@ extensionAPI.runtime.onMessage.addListener(function (msg, sender, sendResponse) 
   } else if (msg.action === 'getStorage') {
     getCachedStorage().then((res) => {
       sendResponse(res);
-      return res;
     });
     return true;
   } else if (msg.action === 'getSiteData') {
@@ -466,20 +468,9 @@ extensionAPI.runtime.onInstalled.addListener(async (detail) => {
 });
 
 function setPowerIcon(status) {
-  const manifestVersion = extensionAPI.runtime.getManifest().manifest_version;
-  if (status === 'on') {
-    if (manifestVersion === 2) {
-      extensionAPI.browserAction.setIcon({ path: "/images/logo-128.png" });
-    } else {
-      extensionAPI.action.setIcon({ path: "/images/logo-128.png" });
-    }
-  } else {
-    if (manifestVersion === 2) {
-      extensionAPI.browserAction.setIcon({ path: "/images/logo-off.png" });
-    } else {
-      extensionAPI.action.setIcon({ path: "/images/logo-off.png" });
-    }
-  }
+  extensionAPI.action.setIcon({
+    path: status === 'on' ? "/images/logo-128.png" : "/images/logo-off.png"
+  });
 }
 
 function redirectToBreezeWiki(storage, tabId, url) {
