@@ -367,7 +367,6 @@ function mountSearchBanner(wikiInfo) {
  */
 function hideSearchResults(searchResultContainer, wikiInfo, bannerState = 'on') {
   let elementId = stringToId(wikiInfo.language + '-' + wikiInfo.origin);
-  const alreadyHidden = searchResultContainer.classList.contains('iwb-search-result-' + elementId);
   searchResultContainer.classList.add('iwb-search-result-' + elementId);
   const revealed = hiddenWikisRevealed[elementId] ?? false;
 
@@ -380,7 +379,7 @@ function hideSearchResults(searchResultContainer, wikiInfo, bannerState = 'on') 
     mountSearchBanner(wikiInfo);
   }
 
-  return alreadyHidden ? 0 : 1;
+  return 1;
 }
 
 /**
@@ -539,12 +538,16 @@ function isArticleAlreadyReordered(wikiInfo, originArticle) {
   return processedCache.some(({ url }) => matchRegex.test(safeDecodeURI(url)));
 }
 
+// Used for tracking which results have been touched
+/** @type {WeakSet<HTMLElement>} */
+const countedContainers = new WeakSet();
+
 /**
  * @param {SiteData} wikiInfo
  * @param {HTMLAnchorElement} anchorElement
  */
 function filterSearchResult(wikiInfo, anchorElement) {
-  let countFiltered = 0;
+  let filtered = 0;
 
   if (getSearchFilterSetting(wikiInfo.id) !== 'disabled') {
     const reorderResultsEnabled = (storage.reorderResults ?? 'on') === 'on';
@@ -557,20 +560,26 @@ function filterSearchResult(wikiInfo, anchorElement) {
 
       // If this page from the non-indie wiki is the same as a re-ordered page, filter it out
       if (reorderResultsEnabled && isArticleAlreadyReordered(wikiInfo, originArticle)) {
-        countFiltered += hideSearchResults(searchResultContainer, wikiInfo, 'off');
+        filtered = hideSearchResults(searchResultContainer, wikiInfo, 'off');
         console.debug(`Indie Wiki Buddy has hidden a result matching ${searchResultLink} because we re-ordered an indie wiki result with a matching article`);
       } else {
         if (getSearchFilterSetting(wikiInfo.id) === 'hide') {
           // Else, if the user has the preference set to hide search results, hide it indiscriminately
-          countFiltered += hideSearchResults(searchResultContainer, wikiInfo, storage['hiddenResultsBanner']);
+          filtered = hideSearchResults(searchResultContainer, wikiInfo, storage['hiddenResultsBanner']);
         } else {
-          countFiltered += replaceSearchResult(searchResultContainer, wikiInfo, searchResultLink);
+          filtered = replaceSearchResult(searchResultContainer, wikiInfo, searchResultLink);
         }
+      }
+
+      if (filtered && countedContainers.has(searchResultContainer)) {
+        filtered = 0;
+      } else if (filtered) {
+        countedContainers.add(searchResultContainer);
       }
     }
   }
 
-  return countFiltered;
+  return filtered;
 }
 
 /**
