@@ -22,10 +22,6 @@ legend {
 }
 
 /* SETTINGS SECTION */
-#searchFilteringSettings>div {
-  display: inline-block;
-}
-
 #legend > div {
   margin-left: 8px;
   display: inline-flex;
@@ -283,5 +279,27 @@ button#setAllSearchEngineHide {
 }
 
 #customSearchEnginesAdd input {
-  width: 25em;
+  flex: 1;
+  min-width: 0;
+  max-width: 25em;
+}
+
+@media (max-width: 600px) {
+  #customSearchEnginesAdd {
+    flex-wrap: wrap;
+  }
+
+  #toggles tbody .wiki-description {
+    white-space: normal;
+    text-overflow: clip;
+  }
+
+  #toggles tbody tr td:has(input) {
+    padding: .7rem 0;
+  }
+
+  #toggles tbody input[type=radio] {
+    width: 20px;
+    height: 20px;
+  }
 }

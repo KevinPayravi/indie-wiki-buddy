@@ -61,7 +61,7 @@
 
 /* ELEMENTS */
 body {
-  max-width: 700px;
+  max-width: var(--body-max-width);
   margin: 0 auto;
   padding: 20px;
   background-color: var(--base-color-dark);
@@ -192,6 +192,7 @@ p {
 
 /* SETTINGS SECTION */
 fieldset {
+  min-inline-size: 0;
   background-color: var(--base-color-secondary);
   border: 1px solid var(--base-color-outline-light);
   border-radius: 5px;
@@ -273,6 +274,7 @@ select {
 
 #customSearchEngines {
   padding: .25rem;
+  width: auto;
 }
 #customSearchEngines > span {
   font-weight: 600;
