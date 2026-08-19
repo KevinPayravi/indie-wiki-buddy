@@ -10,6 +10,8 @@ import {
   getOriginArticle,
   getSiteDataByOrigin,
   isAnchor,
+  safeDecodeURI,
+  safeDecodeURIComponent,
  } from './common-functions.js';
 
 /**
@@ -148,13 +150,13 @@ function replaceSearchResult(searchResultContainer, wikiInfo, link) {
     };
     indieResultFaviconContainer.append(indieResultFavicon);
     let indieResultText = document.createElement('span');
-    if (originArticle && decodeURIComponent(originArticle).toLowerCase() !== wikiInfo['origin_main_page'].toLowerCase()) {
+    if (originArticle && safeDecodeURIComponent(originArticle).toLowerCase() !== safeDecodeURIComponent(wikiInfo['origin_main_page']).toLowerCase()) {
       let destinationArticleTitle = removeSubstringIfAtEnd(destinationArticle, wikiInfo['destination_content_suffix'])
         .replace(wikiInfo['destination_content_prefix'], '')
         .replaceAll('_', ' ');
 
       // Decode article
-      destinationArticleTitle = decodeURIComponent(destinationArticleTitle);
+      destinationArticleTitle = safeDecodeURIComponent(destinationArticleTitle);
 
       if (wikiInfo['language'] === 'EN' && link.match(/fandom\.com\/[a-z]{2}\/wiki\//)) {
         indieResultText.innerText = extensionAPI.i18n.getMessage('searchResultLookupEnglish', [destinationArticleTitle, wikiInfo.destination]);
@@ -219,7 +221,7 @@ function mountToTopOfSearchResults(element) {
         document.querySelector('#search')?.prepend(element);
       } else if (document.querySelector('#topstuff')) {
         document.querySelector('#topstuff')?.prepend(element);
-      } else if (document.querySelector('#main')) {
+      } else {
         document.querySelector('#main > div:nth-of-type(2)')?.insertAdjacentElement('beforebegin', element);
       }
       break;
@@ -365,20 +367,20 @@ function mountSearchBanner(wikiInfo) {
  */
 function hideSearchResults(searchResultContainer, wikiInfo, bannerState = 'on') {
   let elementId = stringToId(wikiInfo.language + '-' + wikiInfo.origin);
+  const alreadyHidden = searchResultContainer.classList.contains('iwb-search-result-' + elementId);
   searchResultContainer.classList.add('iwb-search-result-' + elementId);
   const revealed = hiddenWikisRevealed[elementId] ?? false;
 
-  if (searchResultContainer instanceof HTMLElement) {
-    markUserAction(searchResultContainer);
-    searchResultContainer.classList.toggle('iwb-hide', !revealed);
-    searchResultContainer.classList.toggle('iwb-show', revealed);
-  }
+  // Marked as our own change so the class watcher doesn't undo the toggle
+  markUserAction(searchResultContainer);
+  searchResultContainer.classList.toggle('iwb-hide', !revealed);
+  searchResultContainer.classList.toggle('iwb-show', revealed);
 
   if (bannerState === 'on') {
     mountSearchBanner(wikiInfo);
   }
 
-  return 1;
+  return alreadyHidden ? 0 : 1;
 }
 
 /**
@@ -520,7 +522,7 @@ function getSearchFilterSetting(wikiId) {
  */
 function isArticleAlreadyReordered(wikiInfo, originArticle) {
   const prefix = escapeRegExp(wikiInfo.destination_base_url + wikiInfo.destination_content_path);
-  const article = decodeURI(getDestinationArticle(wikiInfo, originArticle)).replace(/_\([^/]*\)$/, '');
+  const article = safeDecodeURI(getDestinationArticle(wikiInfo, originArticle)).replace(/_\([^/]*\)$/, '');
 
   // Indie URLs that would show this same page
   const forms = [`${prefix}${escapeRegExp(article)}(?:_\\([^/]+\\))?`];
@@ -528,13 +530,13 @@ function isArticleAlreadyReordered(wikiInfo, originArticle) {
   // Assume bare URL is a wiki's main page
   // (some search engines surface the bare URL)
   if (!originArticle
-    || decodeURIComponent(originArticle).toLowerCase() === wikiInfo.origin_main_page.toLowerCase()) {
-    forms.push(`${prefix}${escapeRegExp(decodeURI(wikiInfo.destination_main_page))}`);
+    || safeDecodeURIComponent(originArticle).toLowerCase() === safeDecodeURIComponent(wikiInfo.origin_main_page).toLowerCase()) {
+    forms.push(`${prefix}${escapeRegExp(safeDecodeURI(wikiInfo.destination_main_page))}`);
     forms.push(`${escapeRegExp(wikiInfo.destination_base_url)}/?`);
   }
 
   const matchRegex = new RegExp(`^https?://(?:${forms.join('|')})$`);
-  return processedCache.some(({ url }) => matchRegex.test(decodeURI(url)));
+  return processedCache.some(({ url }) => matchRegex.test(safeDecodeURI(url)));
 }
 
 /**
@@ -550,7 +552,7 @@ function filterSearchResult(wikiInfo, anchorElement) {
     // Get the containing element for the search result
     let searchResultContainer = getResultContainer(searchEngine, anchorElement);
     if (searchResultContainer) {
-      let searchResultLink = anchorElement.getAttribute('data-iwb-href') || anchorElement.href;
+      let searchResultLink = anchorElement.getAttribute('data-iwb-href') ?? anchorElement.href;
       let originArticle = getOriginArticle(searchResultLink, wikiInfo);
 
       // If this page from the non-indie wiki is the same as a re-ordered page, filter it out
@@ -607,6 +609,11 @@ function moveResultAbove(node, target) {
 /** @type {Map<HTMLAnchorElement, string>} */
 const checkedAnchors = new Map();
 
+function resetProcessedResults() {
+  processedCache.length = 0;
+  checkedAnchors.clear();
+}
+
 let _filterRun = Promise.resolve();
 
 /**
@@ -644,6 +651,13 @@ async function processSearchResults(searchResults) {
         continue;
       }
       checkedAnchors.set(searchResult, searchResultLink);
+
+      // Drop what we recorded for this anchor's previous link
+      for (let i = processedCache.length - 1; i >= 0; i--) {
+        if (processedCache[i].anchor === searchResult) {
+          processedCache.splice(i, 1);
+        }
+      }
 
       if (!searchResultLink) {
         continue;
@@ -804,19 +818,19 @@ function filterAnchors(newAnchors) {
       searchResults.forEach(
         /** @param {HTMLAnchorElement} searchResult */ searchResult => {
           if (searchResult.href) {
-            const link = new URL(searchResult.href);
-            if (link.hostname.startsWith('www.google.') && link.pathname === '/url') {
-              try {
+            try {
+              const link = new URL(searchResult.href);
+              if (link.hostname.startsWith('www.google.') && link.pathname === '/url') {
                 const destinationLink = link.searchParams.get('url') || link.searchParams.get('q');
                 if (destinationLink) {
                   searchResult.setAttribute('data-iwb-href', destinationLink);
                 }
-              } catch (e) {
-                throw new Error('Indie Wiki Buddy failed to parse Google link with error: ' + e);
+              } else {
+                // No longer a middleman link
+                searchResult.removeAttribute('data-iwb-href');
               }
-            } else {
-              // No longer a middleman link
-              searchResult.removeAttribute('data-iwb-href');
+            } catch (e) {
+              console.error('Indie Wiki Buddy failed to parse Google link with error: ', e);
             }
           }
         }
@@ -860,8 +874,7 @@ function filterAnchors(newAnchors) {
       break;
     }
     case 'brave': {
-      processedCache.length = 0;
-      checkedAnchors.clear();
+      resetProcessedResults();
       const searchResults = /** @type {HTMLAnchorElement[]} */ (Array.from(document.body?.querySelectorAll('div.snippet[data-type="web"] div.result-content > a.l1:not(.iwb-new-link)') ?? []));
       filterSearchResults(searchResults);
       break;
@@ -938,8 +951,7 @@ let pageChangeDetector = null;
 
 function checkRevalidate() {
   if (pageChangeDetector == null || !pageChangeDetector.isConnected) {
-    processedCache.length = 0;
-    checkedAnchors.clear();
+    resetProcessedResults();
     // New search: reveal choices apply per results page
     hiddenWikisRevealed = {};
 
@@ -947,17 +959,12 @@ function checkRevalidate() {
     pageChangeDetector = document.createElement('span');
     pageChangeDetector.id = 'iwb-page-change-detector';
     pageChangeDetector.style.display = 'none';
-    try {
-      const containerMounted = mountToTopOfSearchResults(pageChangeDetector);
-      // if search results not mounted yet, we wait until they exist.
-      if (!containerMounted) return;
-      // just in case, re-process search results
-      console.debug('IWB: Reprocessing search results...');
-      filterAnchors(Array.from(document.body?.querySelectorAll('a')));
-    } catch (e) {
-      // search results not mounted yet, so we wait until they exist.
-      return;
-    }
+    const containerMounted = mountToTopOfSearchResults(pageChangeDetector);
+    // if search results not mounted yet, we wait until they exist.
+    if (!containerMounted) return;
+    // just in case, re-process search results
+    console.debug('IWB: Reprocessing search results...');
+    filterAnchors(Array.from(document.body?.querySelectorAll('a')));
   }
 }
 

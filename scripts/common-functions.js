@@ -905,18 +905,33 @@ export function getDestinationArticle(matchingSite, article) {
 }
 
 /**
+ * Safe handling of special characters like %
+ * @param {string} value
+ */
+export function safeDecodeURIComponent(value) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+/** @param {string} value */
+export function safeDecodeURI(value) {
+  try {
+    return decodeURI(value);
+  } catch {
+    return value;
+  }
+}
+
+/**
  * @param {string} articleTitle
  */
 export function encodeArticleTitle(articleTitle) {
   // We decode + encode to ensure we don't double-encode,
   // in the event a string is already encoded.
-  // We wrap in a try-catch as decoding can sometimes fail if destination article
-  // does have special characters (e.g. %) in the title.
-  try {
-    return encodeURIComponent(decodeURIComponent(articleTitle));
-  } catch {
-    return encodeURIComponent(articleTitle);
-  }
+  return encodeURIComponent(safeDecodeURIComponent(articleTitle));
 }
 
 /**
@@ -943,7 +958,8 @@ export function getNewURL(originURL, matchingSite) {
   let newURL = '';
 
   // If the article is the main page (or missing), redirect to the indie wiki's main page
-  if ((!originArticle) || (decodeURIComponent(originArticle).toLowerCase() === matchingSite['origin_main_page'].toLowerCase())) {
+  // (both sides decoded, as some main pages are stored encoded)
+  if ((!originArticle) || (safeDecodeURIComponent(originArticle).toLowerCase() === safeDecodeURIComponent(matchingSite['origin_main_page']).toLowerCase())) {
     const mainPageArticle = encodeArticleTitle(matchingSite['destination_main_page']);
     newURL = 'https://' + matchingSite["destination_base_url"] + matchingSite["destination_content_path"] + mainPageArticle + matchingSite['destination_content_suffix'];
     return newURL;
