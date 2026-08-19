@@ -4153,6 +4153,28 @@
       "language": "EN"
     },
     {
+      "id": "en-doorsgame",
+      "origins_label": "DOORS Fandom Wiki",
+      "origins": [
+        {
+          "origin": "DOORS Fandom Wiki",
+          "origin_base_url": "doors-game.fandom.com",
+          "origin_content_path": "/wiki/",
+          "origin_main_page": "DOORS_Wiki"
+        }
+      ],
+      "destination": "Roblox DOORS Wiki",
+      "destination_base_url": "doorsgame.wiki",
+      "destination_platform": "mediawiki",
+      "destination_icon": "robloxdoorswiki.png",
+      "destination_main_page": "DOORS_Wiki",
+      "destination_search_path": "/index.php"
+      "destination_content_path": "/wiki/",
+      "destination_host": "miraheze.org",
+      "tags": ["official"],
+      "language": "EN"
+    },
+    {
       "id": "en-dota2",
       "origins_label": "Dota 2 Fandom Wiki",
       "origins": [
