@@ -14,6 +14,8 @@
   --secondary-color: #ceeaff;
   --accent-color: #3174f1;
   --accent-color-dark: #205ed0;
+  --negative-color: #f72626;
+  --negative-color-dark: #b90d0d;
   --notification-color: #f8f3d6;
   --disabled-color: #3f3f3f;
 
@@ -39,6 +41,8 @@
     --secondary-color: #334553;
     --accent-color: #03dac6;
     --accent-color-dark: #018786;
+    --negative-color: #ff6b6b;
+    --negative-color-dark: #e03c3c;
   }
   
   :root hr {
@@ -49,11 +53,15 @@
   :root img.dark-invert, :root #toggles #togglesKeys button {
     filter: invert(1);
   }
+
+  :root #customSearchEnginesList>div:hover {
+    background-color: var(--secondary-color);
+  }
 }
 
 /* ELEMENTS */
 body {
-  max-width: 700px;
+  max-width: var(--body-max-width);
   margin: 0 auto;
   padding: 20px;
   background-color: var(--base-color-dark);
@@ -96,6 +104,10 @@ h2 {
   text-align: center;
   padding: .5em 0 0 0;
   margin: 0;
+}
+
+button:not(:disabled):hover {
+  cursor: pointer;
 }
 
 /* CONTAINERS AND LAYOUT */
@@ -180,6 +192,7 @@ p {
 
 /* SETTINGS SECTION */
 fieldset {
+  min-inline-size: 0;
   background-color: var(--base-color-secondary);
   border: 1px solid var(--base-color-outline-light);
   border-radius: 5px;
@@ -222,6 +235,16 @@ select {
 }
 .searchEngineToggles label {
   white-space: nowrap;
+  border: 1px solid var(--base-color-outline-light);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+}
+.searchEngineToggles label:has(input:checked) {
+  background: var(--secondary-color);
 }
 
 .settingToggle {
@@ -229,7 +252,9 @@ select {
 }
 
 .settingToggle img {
-  vertical-align: middle;
+  vertical-align: text-bottom;
+  max-height: 16px;
+  max-width: 16px;
 }
 
 .radioGroup {
@@ -247,6 +272,14 @@ select {
   gap: .5em;
 }
 
+#customSearchEngines {
+  padding: .25rem;
+  width: auto;
+}
+#customSearchEngines > span {
+  font-weight: 600;
+}
+
 /* BREEZEWIKI */
 #breeezwikiLearnMore {
   white-space: nowrap;
@@ -259,20 +292,6 @@ select {
 
 #breezewikiHost label {
   cursor: default;
-}
-
-#breezewikiHost button {
-  background: var(--accent-color);
-  border: none;
-  color: var(--text-color-white);
-  border-radius: 5px;
-  padding: .3em;
-  font-size: .9em;
-}
-
-#breezewikiHost button:hover {
-  cursor: pointer;
-  background: var(--accent-color-dark);
 }
 
 #breezewikiHost label+label {
@@ -300,4 +319,38 @@ select {
 
 .center {
   text-align: center;
+}
+
+/* BUTTONS */
+button.affirmative {
+  border: none;
+  outline: 1px solid var(--accent-color);
+  background: var(--base-color-secondary);
+  color: var(--accent-color);
+  border-radius: 5px;
+  padding: .3em;
+  font-size: .9em;
+}
+button.affirmative:hover {
+  outline: 2px solid var(--accent-color-dark);
+  color: var(--accent-color-dark);
+}
+button.negative {
+  border: none;
+  outline: 1px solid var(--negative-color);
+  background: var(--base-color-secondary);
+  color: var(--negative-color);
+  border-radius: 5px;
+  padding: .3em;
+  font-size: .9em;
+}
+button.negative:hover {
+  outline: 2px solid var(--negative-color-dark);
+  color: var(--negative-color-dark);
+}
+
+button.affirmative:focus-visible,
+button.negative:focus-visible {
+  outline-width: 2px;
+  outline-offset: 2px;
 }

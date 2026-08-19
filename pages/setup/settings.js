@@ -1,20 +1,10 @@
 import {
-  extensionAPI,
   setDefaultUserAction,
- } from "../../scripts/common-functions.js";
+} from "../../scripts/common-functions.js";
 import { debounce } from "../common-page-functions.js";
 
-// Main function that runs on-load
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Listener for settings links:
-  document.getElementById('openSettingsButton').addEventListener('click', () => {
-    extensionAPI.tabs.create({ 'url': extensionAPI.runtime.getURL('pages/settings/index.html') });
-    window.close();
-  });
-  document.getElementById('openSettingsLink').addEventListener('click', () => {
-    extensionAPI.tabs.create({ 'url': extensionAPI.runtime.getURL('pages/settings/index.html') });
-    window.close();
-  });
 
   // Debounced
   const applyDefaultWikiAction = debounce(() => {
@@ -29,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[name="defaultSearchAction"]').forEach((el) => {
     el.addEventListener('change', applyDefaultSearchAction);
   });
+
 });

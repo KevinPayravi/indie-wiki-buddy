@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../../images/logo.png" />
+    <title data-msg="settingsTitle"></title>
+    <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/settings.css" type="text/css" />
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="header">
+        <span id="version"></span>
+        <h1 data-msg="extensionName"></h1>
+      </div>
+      <div id="links">
+        <a href="../guide/index.html" data-msg="settingsGuide"></a>
+        <a
+          href="https://getindie.wiki"
+          target="_blank"
+          data-msg="settingsWebsite"
+        ></a>
+        <a
+          href="https://getindie.wiki/changelog/"
+          target="_blank"
+          data-msg="settingsChangelog"
+        ></a>
+        <a
+          href="https://getindie.wiki/#submit"
+          target="_blank"
+          data-msg="settingsSubmitWiki"
+        ></a>
+        <a
+          href="https://github.com/KevinPayravi/indie-wiki-buddy"
+          target="_blank"
+          data-msg="settingsSourceCode"
+        ></a>
+      </div>
+      <div id="content">
+        <form name="options" class="options" style="padding-bottom: 0">
+          <h2>4.0 Update: Re-enable Your Preferences!</h2>
+          <p>
+            Sorry to interrupt, but this is a one-time notice about an important
+            update for Indie Wiki Buddy!
+          </p>
+          <p>
+            Previously, Indie Wiki Buddy had access to all search engines by
+            default, for filtering search results and directing you to indie
+            wikis.
+            <b>
+              Now, search engine filtering is only enabled by default for
+              google.com, and opt-in for all other search engines.
+            </b>
+            Depending on your browser and previous permissions setup, you may
+            need to re-enable and re-grant permissions for the search engines
+            you'd like Indie Wiki Buddy to work with below. If the search
+            engine(s) you want are already checked, you're good to go.
+          </p>
+          <p>
+            This change has been done to make Indie Wiki Buddy more
+            privacy-friendly, and enables us to add support for more search
+            engines in the future without having to annoy you with pesky
+            permission requests when updating.
+          </p>
+          <fieldset id="searchFilteringSettings">
+            <legend>
+              <span aria-hidden="true">🔍</span>&nbsp;<span
+                data-msg="settingsSearchEngineFiltering"
+              ></span>
+            </legend>
+            <div class="settingToggle searchEngineToggles">
+              <label>
+                <input
+                  id="googleCheckbox"
+                  data-search-engine="google"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/google.png" alt="" />
+                Google.com
+              </label>
+              <label>
+                <input
+                  id="googleIntlCheckbox"
+                  data-search-engine="google_intl"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/google.png" alt="" /> Google
+                Intl. <small>(.co.uk, .fr, etc.)</small>
+              </label>
+              <label>
+                <input
+                  id="bingCheckbox"
+                  data-search-engine="bing"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/bing.png" alt="" /> Bing
+              </label>
+              <label>
+                <input
+                  id="duckduckgoCheckbox"
+                  data-search-engine="duckduckgo"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/duckduckgo.png" alt="" />
+                DuckDuckGo
+              </label>
+              <label>
+                <input
+                  id="braveCheckbox"
+                  data-search-engine="brave"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/brave.png" alt="" /> Brave
+              </label>
+              <label>
+                <input
+                  id="ecosiaCheckbox"
+                  data-search-engine="ecosia"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/ecosia.png" alt="" /> Ecosia
+              </label>
+              <label>
+                <input
+                  id="kagiCheckbox"
+                  data-search-engine="kagi"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/kagi.png" alt="" /> Kagi
+              </label>
+              <label>
+                <input
+                  id="qwantCheckbox"
+                  data-search-engine="qwant"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/qwant.png" alt="" /> Qwant
+              </label>
+              <label>
+                <input
+                  id="startpageCheckbox"
+                  data-search-engine="startpage"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/startpage.png" alt="" />
+                Startpage
+              </label>
+              <label>
+                <input
+                  id="yahooCheckbox"
+                  data-search-engine="yahoo"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/yahoo.png" alt="" /> Yahoo
+              </label>
+              <label>
+                <input
+                  id="yandexCheckbox"
+                  data-search-engine="yandex"
+                  type="checkbox"
+                />
+                <img src="/images/search-logos/yandex.png" alt="" /> Yandex
+              </label>
+            </div>
+          </fieldset>
+          <p>
+            In addition, BreezeWiki permissions have been reworked. If you were
+            previously using a BreezeWiki mirror, you may need to re-grant
+            permissions for it.
+          </p>
+          <fieldset id="breezewikiSettings">
+            <legend>
+              <span aria-hidden="true">🍃</span>&nbsp;<span
+                data-msg="settingsBreezeWiki"
+                data-msg-ph-1="<a id='breeezwikiLearnMore' href='https://breezewiki.com/' target='_blank'>"
+                data-msg-ph-2="</a>"
+              ></span>
+            </legend>
+            <div role="radiogroup">
+              <div class="radioGroup vertical">
+                <label>
+                  <input
+                    id="breeezwikiSettingDisabledRadio"
+                    type="radio"
+                    name="breezewikiSetting"
+                    value="off"
+                  />
+                  <img
+                    class="dark-invert"
+                    src="../../images/toggle-disabled.png"
+                    height="12"
+                    alt=""
+                  />
+                  <span data-msg="settingsBreezeWikiDisabled"></span>
+                </label>
+                <label>
+                  <input
+                    id="breezewikiSettingBannerRadio"
+                    type="radio"
+                    name="breezewikiSetting"
+                    value="banner"
+                  />
+                  <img
+                    class="dark-invert"
+                    src="../../images/toggle-alert.png"
+                    height="12"
+                    alt=""
+                  />
+                  <span data-msg="settingsBreezeWikiBanner"></span>
+                </label>
+                <label>
+                  <input
+                    id="breezewikiSettingRedirectRadio"
+                    type="radio"
+                    name="breezewikiSetting"
+                    value="redirect"
+                  />
+                  <img
+                    class="dark-invert"
+                    src="../../images/toggle-redirect.png"
+                    height="12"
+                    alt=""
+                  />
+                  <span data-msg="settingsBreezeWikiRedirect"></span>
+                </label>
+              </div>
+            </div>
+            <div id="breezewikiHost" class="settingToggle">
+              <label>
+                <span data-msg="settingsBreezeWikiHost"></span>
+                <span
+                  id="breezewikiHostSelectLoading"
+                  data-msg="settingsBreezeWikiHostLoading"
+                ></span>
+                <select
+                  name="breezewikiHost"
+                  id="breezewikiHostSelect"
+                ></select>
+                <button
+                  id="breezewikiHostApply"
+                  class="affirmative"
+                  type="button"
+                  data-msg="settingsBreezeWikiHostApply"
+                  style="display: none"
+                ></button>
+              </label>
+              <label id="breezewikiCustomHost">
+                <span data-msg="settingsBreezeWikiCustomHost"></span>
+                <input
+                  type="text"
+                  id="customBreezewikiHost"
+                  name="customBreezewikiHost"
+                  placeholder="bw.example.com"
+                  size="30"
+                />
+                <button
+                  id="setCustomBreezewikiDomain"
+                  class="affirmative"
+                  type="button"
+                  data-msg="settingsBreezeWikiCustomHostSet"
+                ></button>
+                <span id="breezewikiCustomHostStatus"></span>
+              </label>
+            </div>
+          </fieldset>
+        </form>
+        <p>
+          For all changes in v4.0, visit
+          <a href="https://getindie.wiki/changelog/">the changelog</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+  <script type="module" src="../common-page-functions.js"></script>
+</html>

@@ -25,7 +25,7 @@
     </div>
   </div>
   <div id="links">
-    <a href="../guide/index.html" data-msg="settingsGuide"></a>
+    <a href="../guide/index.html" target="_blank" data-msg="settingsGuide"></a>
     <a href="https://getindie.wiki" target="_blank" data-msg="settingsWebsite"></a>
     <a href="https://getindie.wiki/changelog/" target="_blank" data-msg="settingsChangelog"></a>
     <a href="https://getindie.wiki/#submit" target="_blank" data-msg="settingsSubmitWiki"></a>
@@ -114,48 +114,52 @@
           </label>
         </div>
       </fieldset>
-      <fieldset id="generalSettings">
+      <fieldset id="searchFilteringSettings">
         <legend><span aria-hidden="true">🔍</span>&nbsp;<span data-msg="settingsSearchEngineFiltering"></span></legend>
         <div class="settingToggle searchEngineToggles">
           <label>
             <input id="googleCheckbox" data-search-engine="google" type="checkbox" />
-            Google
+            <img src="/images/search-logos/google.png" alt=""> Google.com
+          </label>
+          <label>
+            <input id="googleIntlCheckbox" data-search-engine="google_intl" type="checkbox" />
+            <img src="/images/search-logos/google.png" alt=""> Google Intl. <small>(.co.uk, .fr, etc.)</small>
           </label>
           <label>
             <input id="bingCheckbox" data-search-engine="bing" type="checkbox" />
-            Bing
+            <img src="/images/search-logos/bing.png" alt=""> Bing
           </label>
           <label>
             <input id="duckduckgoCheckbox" data-search-engine="duckduckgo" type="checkbox" />
-            DuckDuckGo
+            <img src="/images/search-logos/duckduckgo.png" alt=""> DuckDuckGo
           </label>
           <label>
             <input id="braveCheckbox" data-search-engine="brave" type="checkbox" />
-            Brave
+            <img src="/images/search-logos/brave.png" alt=""> Brave
           </label>
           <label>
             <input id="ecosiaCheckbox" data-search-engine="ecosia" type="checkbox" />
-            Ecosia
+            <img src="/images/search-logos/ecosia.png" alt=""> Ecosia
           </label>
           <label>
             <input id="kagiCheckbox" data-search-engine="kagi" type="checkbox" />
-            Kagi
+            <img src="/images/search-logos/kagi.png" alt=""> Kagi
           </label>
           <label>
             <input id="qwantCheckbox" data-search-engine="qwant" type="checkbox" />
-            Qwant
+            <img src="/images/search-logos/qwant.png" alt=""> Qwant
           </label>
           <label>
             <input id="startpageCheckbox" data-search-engine="startpage" type="checkbox" />
-            Startpage
+            <img src="/images/search-logos/startpage.png" alt=""> Startpage
           </label>
           <label>
             <input id="yahooCheckbox" data-search-engine="yahoo" type="checkbox" />
-            Yahoo
+            <img src="/images/search-logos/yahoo.png" alt=""> Yahoo
           </label>
           <label>
             <input id="yandexCheckbox" data-search-engine="yandex" type="checkbox" />
-            Yandex
+            <img src="/images/search-logos/yandex.png" alt=""> Yandex
           </label>
         </div>
         <hr>
@@ -203,25 +207,23 @@
         <div id="breezewikiHost" class="settingToggle">
           <label>
             <span data-msg="settingsBreezeWikiHost"></span>
+            <span id="breezewikiHostSelectLoading" data-msg="settingsBreezeWikiHostLoading"></span>
             <select name="breezewikiHost" id="breezewikiHostSelect"></select>
+            <button id="breezewikiHostApply" class="affirmative" type="button" data-msg="settingsBreezeWikiHostApply" style="display:none"></button>
           </label>
           <label id="breezewikiCustomHost">
             <span data-msg="settingsBreezeWikiCustomHost"></span>
-            <input disabled type="text" id="customBreezewikiHost" name="customBreezewikiHost"
-              data-msg-attr="placeholder=popupBreezeWikiSeeSettings" size="30" />
-            <span
-              id="breezewikiCustomHostStatus"
-                data-msg="popupBreezeWikiSeeSettingsLink"
-                data-msg-ph-1="<a href='../settings/index.html' target='_blank'>"
-                data-msg-ph-2="</a>"></span>
+            <input type="text" id="customBreezewikiHost" name="customBreezewikiHost"
+              placeholder="bw.example.com" size="30" />
+            <button id="setCustomBreezewikiDomain" class="affirmative" type="button" data-msg="settingsBreezeWikiCustomHostSet"></button>
+            <span id="breezewikiCustomHostStatus"></span>
           </label>
         </div>
       </fieldset>
     </form>
   </div>
 </body>
-<script type="text/javascript" src="../../scripts/common-functions.js"></script>
-<script type="text/javascript" src="../common-page-functions.js"></script>
-<script type="text/javascript" src="popup.js"></script>
+<script type="module" src="../common-page-functions.js"></script>
+<script type="module" src="popup.js"></script>
 
 </html>

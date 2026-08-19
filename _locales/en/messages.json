@@ -215,14 +215,17 @@
       }
     }
   },
-  "firstInstallInfo1": {
-    "message": "Thanks for installing Indie Wiki Buddy! Let's get you set up."
+  "firstInstallInfoWelcome": {
+    "message": "Thanks for installing Indie Wiki Buddy! Let's get you set up with some of the most important settings."
   },
-  "firstInstallInfo2": {
-    "message": "Use the links above to see the full guide, submit new wikis, or contact the developer."
+  "firstInstallInfoSearchFiltering": {
+    "message": "Indie Wiki Buddy filters Google search results by default. You can disable Google or toggle other search engines below."
   },
-  "firstInstallInfo3": {
-    "message": "In the settings below, you can toggle features on and off. This includes the option to enable $BreezeWiki$, an alternative frontend that renders Fandom wikis without ads or bloat.",
+  "firstInstallInfoDefaults": {
+    "message": "You can set the default behavior when visiting non-indie wikis:"
+  },
+  "firstInstallInfoBreezeWiki": {
+    "message": "Enable $BreezeWiki$ if you want to view Fandom wikis in an alternative frontend that renders Fandom wikis without ads or bloat:",
     "placeholders": {
       "BreezeWiki": {
         "content": "$1",
@@ -230,29 +233,20 @@
       }
     }
   },
-  "firstInstallInfo4": {
-    "message": "Below that, you can individually configure what happens when you visit Fandom, Fextralife, and Neoseeker wikis that have an independent alternative, as well as what happens to their results in search engines. For visiting wikis, you can choose to be $alert$ alerted (default) or $redirect$ automatically redirected. On search engines, you can choose to $replace$ replace (default) or $hide$ hide search results.",
+  "firstInstallInfoSettingsLink": {
+    "message": "For the complete list of settings, including changing settings per-wiki, visit the full $linkStart$settings page$linkEnd$.",
+    "description": "Link to the full settings page.",
     "placeholders": {
-      "alert": {
-        "content": "$1",
-        "example": "(image for alert)"
+      "linkStart": {
+        "content": "$1"
       },
-      "redirect": {
-        "content": "$2",
-        "example": "(image for redirect)"
-      },
-      "replace": {
-        "content": "$3",
-        "example": "(image for replace)"
-      },
-      "hide": {
-        "content": "$4",
-        "example": "(image for hide)"
+      "linkEnd": {
+        "content": "$2"
       }
     }
   },
-  "firstInstallInfo5": {
-    "message": "You can access these settings in the future via the extension's icon $logo$ at the top right of your browser. If you don't see the icon, it may be in the extension dropdown, which can be opened via the jigsaw icon $jigsaw$ (also at the top right of your browser).",
+  "firstInstallInfoSettingsAccess": {
+    "message": "You can access the settings in the future via the extension's icon $logo$ at the top right of your browser. If you don't see the icon, it may be in your browser's extensions dropdown, which can be opened via the jigsaw icon $jigsaw$ (also at the top right of your browser).",
     "placeholders": {
       "logo": {
         "content": "$1",
@@ -328,6 +322,10 @@
     "message": "If you get frequent errors visiting BreezeWiki, try switching to a different host. Indie Wiki Buddy is not responsible for BreezeWiki or its hosts.",
     "description": "A short text above the BreezeWiki host selection"
   },
+  "settingsBreezeWikiHostLoading": {
+    "message": "Loading host options...",
+    "description": "Indicating that the list of Breezewiki hosts is being loaded"
+  },
   "settingsBreezeWikiCustomHost": {
     "message": "Custom BreezeWiki domain:",
     "description": "Input for a custom BreezeWiki host not included by default"
@@ -335,6 +333,10 @@
   "settingsBreezeWikiCustomHostOption": {
     "message": "Custom host…",
     "description": "Option to input a custom BreezeWiki host"
+  },
+  "settingsBreezeWikiHostApply": {
+    "message": "Apply",
+    "description": "Button to confirm BreezeWiki host selection"
   },
   "settingsBreezeWikiCustomHostSet": {
     "message": "Set domain",
@@ -361,7 +363,7 @@
     "description": "Explanation for the icons in wiki experience"
   },
   "settingsWikiLegendSearchExp": {
-    "message": "When search engine results include Fandom, Fextralife, or Neoseeker wikis with an independent alternative, IWB can:",
+    "message": "When search engine results include Fandom, Fextralife, or Neoseeker wikis that have an independent alternative, IWB should:",
     "description": "Explanation for the icons in search experience"
   },
   "settingsDisabled": {
@@ -757,6 +759,10 @@
       }
     }
   },
+  "guideApiDataHelp": {
+    "message": "When this option is enabled, the extension periodically fetches the latest list of supported wikis from getindie.wiki. Disable it to only use the wiki list bundled with the extension.",
+    "description": "Guide entry for the setting that fetches the latest wiki data from the API."
+  },
   "guideGlobalSettingsHelpSearch": {
     "message": "You can also configure your settings for filtering results in search engines:"
   },
@@ -764,10 +770,14 @@
     "message": "Toggle filtering per search engine"
   },
   "guideTogglePerSearchEngineHelp1": {
-    "message": "By default, filtering is enabled for all search engines. Filtering is done based on the user's selected settings for each wiki. The default filtering setting for all wikis is to replace non-indie search results with buttons linking to indie counterparts."
+    "message": "By default, filtering works on Google.com. Every other search engine is off until you turn it on and grant permission. Filtering is done based on the user's selected settings for each wiki. The default filtering setting for all wikis is to replace non-indie search results with buttons linking to indie counterparts."
   },
   "guideTogglePerSearchEngineHelp2": {
-    "message": "The current supported search engines are Google, Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex."
+    "message": "The current supported search engines are Google (with a separate toggle for international domains like google.co.uk), Bing, DuckDuckGo, Brave, Ecosia, Kagi, Qwant, Startpage, Yahoo!, and Yandex."
+  },
+  "guideCustomSearchEnginesHelp": {
+    "message": "If you run your own search engine using SearXNG or Whoogle, you can add its domain at the bottom of the search engine settings. Your browser will ask you to grant the extension access to that domain.",
+    "description": "Guide entry for the custom search engines setting."
   },
   "guideHiddenResultsBannerHelp1": {
     "message": "When this option is enabled, a banner will be inserted at the top of search engine results when Indie Wiki Buddy has hidden results from Fandom, Fextralife, or Neoseeker wikis. This banner also lets you re-show the hidden results if you wish."
@@ -776,10 +786,10 @@
     "message": "If you don't want to see any indication that results have been hidden, disable this option."
   },
   "guideReorderResultsHelp1": {
-    "message": "By default, Indie Wiki Buddy will re-order the results page on Google to move indie wiki results above the first non-indie (Fandom / Fextralife / Neoseeker) result, if they are further down the first page of results. This allows you to find the pages you're looking for on indie wikis quicker."
+    "message": "By default, Indie Wiki Buddy will re-order the results page to move indie wiki results above the first non-indie (Fandom / Fextralife / Neoseeker) result, if they are further down the first page of results. This allows you to find the pages you're looking for on indie wikis quicker."
   },
   "guideReorderResultsHelp2": {
-    "message": "This feature is currently only available for Google, as it can be complex to maintain reliably."
+    "message": "When the same article shows up from both the indie wiki and the non-indie wiki, the duplicate non-indie result is hidden."
   },
   "guideBreezeWiki": {
     "message": "You can also set your desired setting for $BreezeWiki$, a separate service that renders Fandom wikis without ads or bloat. Note, BreezeWiki currently only supports English wikis.",
@@ -801,7 +811,7 @@
     "message": "Visiting any English Fandom wiki will immediately redirect you to view it through BreezeWiki. If automatic redirect to an independent wiki is enabled, the indepedent wiki will take priority."
   },
   "guideBreezeWikiHostHelp": {
-    "message": "Once you've enabled a BreezeWiki option, a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror. If your selected BreezeWiki host goes down, you can come back to these settings and switch your host."
+    "message": "Once you've enabled a BreezeWiki option, a dropdown will appear allowing you to select your preferred BreezeWiki host/mirror. Your browser will ask you to grant the extension access to the host you pick. You can also enter a custom BreezeWiki domain. If your selected BreezeWiki host goes down, you can come back to these settings and switch your host."
   },
   "guideWikiHelp": {
     "message": "Individual wiki settings help",
@@ -895,5 +905,37 @@
   "notificationMessageBreezeWiki": {
     "message": "Indie Wiki Buddy has sent you to BreezeWiki for a cleaner, ad-free experience on Fandom.",
     "description": "Notification message for being redirected to BreezeWiki"
+  },
+  "customSearchEngines": {
+    "message": "Custom search engines",
+    "description": "Label for the section that allows users to add their own self-hosted custom search engines."
+  },
+  "customSearchEnginesAdd": {
+    "message": "Add",
+    "description": "Text on the button that the user clicks to add a custom search engine."
+  },
+  "customSearchEnginesDelete": {
+    "message": "Delete",
+    "description": "Button to delete a custom search engine."
+  },
+  "customSearchEnginesDomain": {
+    "message": "Search engine domain (e.g. search.example.org)",
+    "description": "Placeholder and label for the custom search engine domain input."
+  },
+  "customSearchEnginesPreset": {
+    "message": "Search engine platform",
+    "description": "Label for the dropdown selecting which software the custom search engine runs (e.g. SearXNG)."
+  },
+  "customSearchEnginesInvalidDomain": {
+    "message": "Enter a valid domain, like search.example.org",
+    "description": "Error shown when the custom search engine domain input cannot be parsed as a URL."
+  },
+  "customSearchEnginesInvalidScheme": {
+    "message": "Enter a valid domain",
+    "description": "Error shown when the custom search engine domain uses a scheme other than http or https."
+  },
+  "settingsBreezeWikiCustomHostInvalid": {
+    "message": "Enter a valid domain, like bw.example.com",
+    "description": "Error shown when the custom BreezeWiki host input cannot be parsed as a URL."
   }
 }
