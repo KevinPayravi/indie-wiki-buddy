@@ -255,6 +255,14 @@ export async function loadOptions(lang, textFilter = '') {
 // may appear behind the popup
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1798454
 const isPopup = window.location.pathname.includes('/popup/');
+// Open a real tab
+document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    extensionAPI.tabs.create({ url: link.href });
+    if (isPopup) window.close();
+  });
+});
 
 // Set power setting
 function setPower(setting, storeSetting = true) {
@@ -831,6 +839,11 @@ function setCustomBreezewikiDomain() {
   try {
     breezewikiCustomDomain = new URL(breezewikiCustomDomain);
   } catch {
+    customHostInput.setCustomValidity(extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostInvalid'));
+    customHostInput.reportValidity();
+    return;
+  }
+  if (breezewikiCustomDomain.protocol !== 'https:' && breezewikiCustomDomain.protocol !== 'http:') {
     customHostInput.setCustomValidity(extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostInvalid'));
     customHostInput.reportValidity();
     return;
