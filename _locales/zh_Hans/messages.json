@@ -761,5 +761,8 @@
     },
     "settingsLangHR": {
         "message": "[HR] 克罗地亚语 / Hrvatski"
+    },
+    "settingsBreezeWikiHostNote": {
+        "message": "如果您在访问BreezeWiki时遇到错误，请尝试更换其他主机进行访问。Indie Wiki Buddy不对BreezeWiki或其他主机负责。"
     }
 }
