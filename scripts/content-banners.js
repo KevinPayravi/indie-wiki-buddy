@@ -101,7 +101,7 @@ function displayBreezewikiBanner(newUrl) {
       // Add banner container if not already in doc
       outputBannerContainer();
       // Ensure banner isn't already outputted
-      if (!document.querySelector(':root > #indie-wiki-banner-bw')) {
+      if (!document.getElementById('indie-wiki-banner-bw')) {
         document.getElementById('indie-wiki-banner-container').appendChild(banner);
       }
 
@@ -225,7 +225,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
       // Add banner container if not already in doc
       outputBannerContainer();
       // Ensure banner isn't already outputted
-      if (!document.querySelector(':root > #indie-wiki-banner-redirect')) {
+      if (!document.getElementById('indie-wiki-banner-redirect')) {
         document.getElementById('indie-wiki-banner-container').appendChild(banner);
         // Increment banner count
         if (storage.breezewiki === 'on') {
