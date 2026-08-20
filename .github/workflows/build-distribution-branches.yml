@@ -1,0 +1,104 @@
+name: Build Distribution Branches
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-dist-branches:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Must run before the build steps below remove .github from the tree
+      - name: Generate release notes from getindie.wiki changelog
+        run: |
+          if ! node .github/scripts/changelog-release-notes.js "${{ github.ref_name }}" > "$RUNNER_TEMP/release-notes.md"; then
+            echo "No changelog entry for ${{ github.ref_name }} yet; linking to the changelog instead"
+            echo 'See the [Indie Wiki Buddy changelog](https://getindie.wiki/changelog/) for what changed in this release.' > "$RUNNER_TEMP/release-notes.md"
+          fi
+
+          # Append a link to the diff since the previous tag
+          prev=$(git describe --tags --abbrev=0 "${{ github.ref_name }}^" 2>/dev/null || true)
+          echo "" >> "$RUNNER_TEMP/release-notes.md"
+          if [ -n "$prev" ]; then
+            echo "**Full diff**: https://github.com/${{ github.repository }}/compare/$prev...${{ github.ref_name }}" >> "$RUNNER_TEMP/release-notes.md"
+          else
+            echo "**All commits**: https://github.com/${{ github.repository }}/commits/${{ github.ref_name }}" >> "$RUNNER_TEMP/release-notes.md"
+          fi
+
+      - name: Build dist-chromium branch
+        run: |
+          # Create or reset to tag
+          git checkout -B dist-chromium ${{ github.ref_name }}
+
+          # Move manifest-chromium.json to manifest.json
+          mv manifest-chromium.json manifest.json
+
+          # Remove the other manifest variant
+          rm -f manifest-firefox.json
+
+          # Minify data/data.json to one line
+          node -e "console.log(JSON.stringify(JSON.parse(require('fs').readFileSync('data/data.json', 'utf8'))))" > data/data.json.tmp && mv data/data.json.tmp data/data.json
+
+          # Remove development files
+          rm -rf .github .gitignore
+
+          # Commit changes
+          git add -A
+          git commit -m "Build dist-chromium from ${{ github.ref_name }}"
+
+          # Zip for the release (store zips have files at the archive root)
+          zip -qr "$RUNNER_TEMP/indie-wiki-buddy-${{ github.ref_name }}-chromium.zip" . -x '.git/*'
+
+      - name: Build dist-firefox branch
+        run: |
+          # Create or reset to tag
+          git checkout -B dist-firefox ${{ github.ref_name }}
+
+          # Move manifest-firefox.json to manifest.json
+          mv manifest-firefox.json manifest.json
+
+          # Remove the other manifest variant
+          rm -f manifest-chromium.json
+
+          # Minify data/data.json to one line
+          node -e "console.log(JSON.stringify(JSON.parse(require('fs').readFileSync('data/data.json', 'utf8'))))" > data/data.json.tmp && mv data/data.json.tmp data/data.json
+
+          # Remove development files
+          rm -rf .github .gitignore
+
+          # Commit changes
+          git add -A
+          git commit -m "Build dist-firefox from ${{ github.ref_name }}"
+
+          # Zip for the release (store zips have files at the archive root)
+          zip -qr "$RUNNER_TEMP/indie-wiki-buddy-${{ github.ref_name }}-firefox.zip" . -x '.git/*'
+
+      - name: Push distribution branches
+        run: |
+          git push origin dist-chromium dist-firefox --force
+
+      - name: Create GitHub release with zips
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ github.ref_name }} \
+            --title ${{ github.ref_name }} \
+            --verify-tag \
+            --notes-file "$RUNNER_TEMP/release-notes.md" \
+            "$RUNNER_TEMP/indie-wiki-buddy-${{ github.ref_name }}-chromium.zip" \
+            "$RUNNER_TEMP/indie-wiki-buddy-${{ github.ref_name }}-firefox.zip"
