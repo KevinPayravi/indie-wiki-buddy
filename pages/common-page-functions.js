@@ -1,4 +1,4 @@
-import { extensionAPI, SEARCHENGINEDOMAINS, applyI18nMessages, camelCaseJoin, getUserSettings, setUserSetting, setUserSettings, getSiteDataByDestination, getApiFaviconURL } from "../scripts/common-functions.js";
+import { extensionAPI, SEARCHENGINEDOMAINS, COREHOSTORIGINS, applyI18nMessages, camelCaseJoin, getUserSettings, setUserSetting, setUserSettings, getSiteDataByDestination, getApiFaviconURL } from "../scripts/common-functions.js";
 
 // Coalesce rapid repeats (e.g. arrow-key radio navigation) into one call
 export function debounce(fn, delay) {
@@ -343,6 +343,25 @@ extensionAPI.storage.sync.get({ 'breezewiki': 'off' }, (item) => {
   }
 });
 
+// Warn when access to the wiki farm hosts is missing
+const corePermissionsBanner = document.getElementById('notificationBannerCorePermissions');
+if (corePermissionsBanner) {
+  extensionAPI.permissions.contains({ origins: COREHOSTORIGINS }, (hasPermissions) => {
+    if (!hasPermissions) {
+      corePermissionsBanner.style.display = 'block';
+    }
+  });
+  document.getElementById('corePermissionsGrantLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    extensionAPI.permissions.request({ origins: COREHOSTORIGINS }, (granted) => {
+      if (granted) {
+        corePermissionsBanner.style.display = 'none';
+      }
+    });
+    if (isPopup) window.close();
+  });
+}
+
 // Event listeners for toggling search engines
 function setSearchEngineToggle(engineName, state) {
   extensionAPI.storage.sync.get({ 'searchEngineToggles': {} }, (settings) => {
@@ -354,14 +373,18 @@ function setSearchEngineToggle(engineName, state) {
 }
 
 let searchEngineRequestPending = false;
+
+// Permission state per search engine
+const searchEnginePermissions = {};
+
 const searchEngineToggles = document.querySelectorAll('.searchEngineToggles label');
 searchEngineToggles.forEach((engine) => {
   let engineInput = engine.querySelector('input');
   let engineName = engineInput.getAttribute('data-search-engine');
   engine.addEventListener('change', () => {
     if (engineInput.checked) {
-      if (engineName === 'google') {
-        // Google is default in the manifest; no permission request needed.
+      if (searchEnginePermissions[engineName]) {
+        // Permission already held
         setSearchEngineToggle(engineName, 'on');
         engineInput.checked = true;
       } else {
@@ -378,6 +401,7 @@ searchEngineToggles.forEach((engine) => {
           searchEngineRequestPending = false;
           // The callback argument will be true if the user granted the permissions.
           if (granted) {
+            searchEnginePermissions[engineName] = true;
             engineInput.checked = true;
           } else {
             setSearchEngineToggle(engineName, 'off');
@@ -393,6 +417,7 @@ searchEngineToggles.forEach((engine) => {
         extensionAPI.permissions.remove({
           origins: SEARCHENGINEDOMAINS[engineName]
         });
+        searchEnginePermissions[engineName] = false;
       }
     }
   });
@@ -402,33 +427,22 @@ document.querySelectorAll('.searchEngineToggles input').forEach((el) => {
   extensionAPI.storage.sync.get({
       'searchEngineToggles': {}
   }, (settings) => {
-    if (searchEngineName === 'google') {
-      // Google is default in the manifest; no permission request needed.
-      if (
-        settings.searchEngineToggles[searchEngineName] === 'on'
-        || !settings.searchEngineToggles.hasOwnProperty(searchEngineName)
-      ) {
-        el.checked = true;
-      } else {
-        el.checked = false;
-      }
-    } else {
-      const permissionObj = { origins: SEARCHENGINEDOMAINS[searchEngineName] };
-      extensionAPI.permissions.contains(permissionObj, (hasPermission) => {
-        if (hasPermission) {
-          if (
-            settings.searchEngineToggles[searchEngineName] === 'on'
-            || !settings.searchEngineToggles.hasOwnProperty(searchEngineName)
-          ) {
-            el.checked = true;
-          } else {
-            el.checked = false;
-          }
+    const permissionObj = { origins: SEARCHENGINEDOMAINS[searchEngineName] };
+    extensionAPI.permissions.contains(permissionObj, (hasPermission) => {
+      searchEnginePermissions[searchEngineName] = hasPermission;
+      if (hasPermission) {
+        if (
+          settings.searchEngineToggles[searchEngineName] === 'on'
+          || !settings.searchEngineToggles.hasOwnProperty(searchEngineName)
+        ) {
+          el.checked = true;
         } else {
           el.checked = false;
         }
-      });
-    }
+      } else {
+        el.checked = false;
+      }
+    });
   });
 });
 

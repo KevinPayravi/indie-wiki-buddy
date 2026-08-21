@@ -221,6 +221,13 @@ export const SEARCHENGINEDOMAINS = {
   ]
 }
 
+// Wiki farm hosts
+export const COREHOSTORIGINS = [
+  "https://*.fandom.com/*",
+  "https://*.fextralife.com/*",
+  "https://*.neoseeker.com/*"
+];
+
 /** @param {string} str */
 function b64decode(str) {
   const binary_string = atob(str);

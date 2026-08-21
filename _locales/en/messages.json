@@ -199,6 +199,14 @@
     "message": "Opera users: By default, Opera will block extensions from running on search engines. Search engine access can be enabled per-extension by going to \"about:extensions\" and selecting the \"Allow access to search page results\" option under Indie Wiki Buddy.",
     "description": "Notice for Opera users about enabling search engine access"
   },
+  "settingsBannerCorePermissions": {
+    "message": "Indie Wiki Buddy cannot read Fandom, Fextralife, and/or Neoseeker pages, so alerts and redirects will not work.",
+    "description": "Notice shown when the extension is missing permission for the wiki farm hosts"
+  },
+  "settingsBannerCorePermissionsGrant": {
+    "message": "Grant access",
+    "description": "Button to grant permission for the wiki farm hosts"
+  },
   "settingsBannerReview": {
     "message": "Enjoying Indie Wiki Buddy? Please leave a review!",
     "description": "Notice to leave a review for the extension"
