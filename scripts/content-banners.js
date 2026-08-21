@@ -7,8 +7,26 @@ import {
   findMatchingSite,
 } from "./common-functions.js";
 
-const breezewikiRegex = /breezewiki\.com$|antifandom\.com$|bw\.artemislena\.eu$|breezewiki\.catsarch\.com$|breezewiki\.esmailelbob\.xyz$|breezewiki\.frontendfriendly\.xyz$|bw\.hamstro\.dev$|breeze\.hostux\.net$|breezewiki\.hyperreal\.coffee$|breeze\.mint\.lgbt$|breezewiki\.nadeko\.net$|nerd\.whatever\.social$|breeze\.nohost\.network$|z\.opnxng\.com$|bw\.projectsegfau\.lt$|breezewiki\.pussthecat\.org$|bw\.vern\.cc$|breeze\.whateveritworks\.org$|breezewiki\.woodland\.cafe$/;
 const currentURL = new URL(document.location);
+
+// Breezewiki mirrors come from bw.getindie.wiki as 'breezewikiHostOptions'
+function isBreezewikiHost(storage) {
+  const hostname = currentURL.hostname;
+  if (hostname === 'breezewiki.com') {
+    return true;
+  }
+  if (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(hostname)) {
+    return true;
+  }
+  const hostOptions = storage.breezewikiHostOptions;
+  return Array.isArray(hostOptions) && hostOptions.some((host) => {
+    try {
+      return new URL(host.instance).hostname === hostname;
+    } catch {
+      return false;
+    }
+  });
+}
 
 function outputBannerContainer() {
   if (!document.getElementById('indie-wiki-banner-container')) {
@@ -229,7 +247,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
         document.getElementById('indie-wiki-banner-container').appendChild(banner);
         // Increment banner count
         if (storage.breezewiki === 'on') {
-          if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(currentURL.hostname))) {
+          if (isBreezewikiHost(storage)) {
             extensionAPI.storage.sync.set({ 'countAlerts': (storage.countAlerts ?? 0) + 1 });
           }
         } else {
@@ -237,7 +255,7 @@ function displayRedirectBanner(newUrl, id, destinationName, destinationLanguage,
         }
 
         // Hide duplicative indie wiki notice on BreezeWiki instances
-        if (currentURL.hostname.match(breezewikiRegex)) {
+        if (isBreezewikiHost(storage)) {
           const bwIndieNotice = document.querySelector('aside.niwa__notice');
           if (bwIndieNotice) {
             bwIndieNotice.style.display = 'none';
@@ -269,7 +287,7 @@ function main() {
         let origin = currentURL.toString();
 
         // If on a BreezeWiki site, convert to Fandom link to match with our list of wikis:
-        if (currentURL.hostname.match(breezewikiRegex) || (storage.breezewikiHost === 'CUSTOM' && storage.breezewikiCustomHost?.includes(currentURL.hostname))) {
+        if (isBreezewikiHost(storage)) {
           origin = String(currentURL.pathname).split('/')[1] + '.fandom.com/wiki/';
           if (currentURL.search.includes('?q=')) {
             origin = 'https://' + origin + currentURL.search.substring(3);

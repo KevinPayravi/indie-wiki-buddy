@@ -7,7 +7,6 @@ import {
   migrateUserSettings,
   refreshSiteData,
   SEARCHENGINEDOMAINS,
-  BREEZEWIKIDOMAINS,
  } from "./scripts/common-functions.js";
 
 // Local storage keys to cache
@@ -140,17 +139,15 @@ const builtinSearchEngineRegexes = {};
 for (const [engine, patterns] of Object.entries(SEARCHENGINEDOMAINS)) {
   builtinSearchEngineRegexes[engine] = patterns.map(matchPatternToRegex);
 }
-const builtinBreezewikiRegexes = BREEZEWIKIDOMAINS.map(matchPatternToRegex);
-
 /** @type {Record<string, RegExp[]> | null} */
 let customSearchEngineRegexes = null;
 /** @type {RegExp[] | null} */
-let customBreezewikiRegexes = null;
+let breezewikiRegexes = null;
 
 extensionAPI.storage.onChanged.addListener((changes, area) => {
   if (area !== 'sync') return;
   if (changes.customSearchEngines) customSearchEngineRegexes = null;
-  if (changes.breezewikiCustomHost) customBreezewikiRegexes = null;
+  if (changes.breezewikiCustomHost || changes.breezewikiHostOptions) breezewikiRegexes = null;
 });
 
 function loadCustomSearchEngineRegexes(callback) {
@@ -170,18 +167,28 @@ function loadCustomSearchEngineRegexes(callback) {
   });
 }
 
-function loadCustomBreezewikiRegexes(callback) {
-  if (customBreezewikiRegexes) {
-    callback(customBreezewikiRegexes);
+// Breezewiki mirrors come from bw.getindie.wiki as 'breezewikiHostOptions'
+function loadBreezewikiRegexes(callback) {
+  if (breezewikiRegexes) {
+    callback(breezewikiRegexes);
     return;
   }
-  extensionAPI.storage.sync.get({ 'breezewikiCustomHost': '' }, (item) => {
+  extensionAPI.storage.sync.get({ 'breezewikiHostOptions': [], 'breezewikiCustomHost': '' }, (item) => {
+    const patterns = ['https://breezewiki.com/*'];
+    if (Array.isArray(item.breezewikiHostOptions)) {
+      for (const host of item.breezewikiHostOptions) {
+        if (typeof host?.instance === 'string') {
+          patterns.push(host.instance.replace(/\/$/, '') + '/*');
+        }
+      }
+    }
     // breezewikiCustomHost is a string URL for the user's custom BreezeWiki host
     const customHost = item.breezewikiCustomHost;
-    customBreezewikiRegexes = (customHost && typeof customHost === 'string')
-      ? [matchPatternToRegex(customHost.replace(/\/$/, '') + '/*')]
-      : [];
-    callback(customBreezewikiRegexes);
+    if (customHost && typeof customHost === 'string') {
+      patterns.push(customHost.replace(/\/$/, '') + '/*');
+    }
+    breezewikiRegexes = patterns.map(matchPatternToRegex);
+    callback(breezewikiRegexes);
   });
 }
 
@@ -199,8 +206,8 @@ function getSearchEngine(url, callback) {
 }
 
 function getBreezewikiHost(url, callback) {
-  loadCustomBreezewikiRegexes((customRegexes) => {
-    callback([...builtinBreezewikiRegexes, ...customRegexes].some((regex) => regex.test(url)));
+  loadBreezewikiRegexes((regexes) => {
+    callback(regexes.some((regex) => regex.test(url)));
   });
 }
 

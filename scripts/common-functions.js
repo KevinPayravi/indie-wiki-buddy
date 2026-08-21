@@ -1,26 +1,5 @@
 export const extensionAPI = typeof browser === "undefined" ? chrome : browser;
 const BASE64REGEX = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
-export const BREEZEWIKIDOMAINS = [
-  "https://breezewiki.com/*",
-  "https://antifandom.com/*",
-  "https://bw.artemislena.eu/*",
-  "https://breezewiki.catsarch.com/*",
-  "https://breezewiki.esmailelbob.xyz/*",
-  "https://breezewiki.frontendfriendly.xyz/*",
-  "https://bw.hamstro.dev/*",
-  "https://breeze.hostux.net/*",
-  "https://breezewiki.hyperreal.coffee/*",
-  "https://breeze.mint.lgbt/*",
-  "https://breezewiki.nadeko.net/*",
-  "https://nerd.whatever.social/*",
-  "https://breeze.nohost.network/*",
-  "https://z.opnxng.com/*",
-  "https://bw.projectsegfau.lt/*",
-  "https://breezewiki.pussthecat.org/*",
-  "https://bw.vern.cc/*",
-  "https://breeze.whateveritworks.org/*",
-  "https://breezewiki.woodland.cafe/*"
-];
 export const SEARCHENGINEDOMAINS = {
   "bing": ["https://*.bing.com/search*"],
   "brave": ["https://search.brave.com/search*"],
