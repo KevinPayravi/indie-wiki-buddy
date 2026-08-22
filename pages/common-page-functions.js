@@ -377,6 +377,22 @@ let searchEngineRequestPending = false;
 // Permission state per search engine
 const searchEnginePermissions = {};
 
+// Whether we have content script access on a search engine
+function getSearchEnginePermission(engineName, callback) {
+  const origins = SEARCHENGINEDOMAINS[engineName];
+  extensionAPI.permissions.contains({ origins }, (hasPermission) => {
+    // Two checks to account for various browser behaviors  
+    if (hasPermission) {
+      callback(true);
+      return;
+    }
+    extensionAPI.permissions.getAll((granted) => {
+      const grantedOrigins = granted.origins || [];
+      callback(origins.every((origin) => grantedOrigins.includes(origin)));
+    });
+  });
+}
+
 const searchEngineToggles = document.querySelectorAll('.searchEngineToggles label');
 searchEngineToggles.forEach((engine) => {
   let engineInput = engine.querySelector('input');
@@ -427,8 +443,7 @@ document.querySelectorAll('.searchEngineToggles input').forEach((el) => {
   extensionAPI.storage.sync.get({
       'searchEngineToggles': {}
   }, (settings) => {
-    const permissionObj = { origins: SEARCHENGINEDOMAINS[searchEngineName] };
-    extensionAPI.permissions.contains(permissionObj, (hasPermission) => {
+    const applyPermission = (hasPermission) => {
       searchEnginePermissions[searchEngineName] = hasPermission;
       if (hasPermission) {
         if (
@@ -442,7 +457,8 @@ document.querySelectorAll('.searchEngineToggles input').forEach((el) => {
       } else {
         el.checked = false;
       }
-    });
+    };
+    getSearchEnginePermission(searchEngineName, applyPermission);
   });
 });
 
