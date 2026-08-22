@@ -771,7 +771,7 @@ async function loadBreezewikiOptions() {
 
     // Fetch and cache list of BreezeWiki hosts if first time,
     // or if it has been 24 hrs since last refresh
-    if (!host || !hostOptions || !hostFetchTimestamp || (Date.now() - 86400000 > hostFetchTimestamp)) {
+    if (!host || !Array.isArray(hostOptions) || hostOptions.length === 0 || !hostFetchTimestamp || (Date.now() - 86400000 > hostFetchTimestamp)) {
       fetch('https://bw.getindie.wiki/instances.json')
         .then((response) => {
           if (response.ok) {
