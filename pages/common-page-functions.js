@@ -785,7 +785,7 @@ async function loadBreezewikiOptions() {
             ) >= 0
           );
           // If host isn't set, or currently selected host is no longer available, select random host:
-          if (!host || !breezewikiHosts.some(item => item.instance === host)) {
+          if (host !== 'CUSTOM' && (!host || !breezewikiHosts.some(item => item.instance === host))) {
             // Check if BreezeWiki's main site is available
             let breezewikiMain = breezewikiHosts.filter(host => host.instance === 'https://breezewiki.com');
             if (breezewikiMain.length > 0) {
@@ -804,8 +804,9 @@ async function loadBreezewikiOptions() {
           extensionAPI.storage.sync.set({ 'breezewikiHostFetchTimestamp': Date.now() });
 
           // Verify we still have permission for the selected host; if not, fall back to breezewiki.com
-          if (host !== 'https://breezewiki.com') {
-            extensionAPI.permissions.contains({ origins: [host + '/*'] }, (hasPermission) => {
+          const hostToVerify = (host === 'CUSTOM') ? customHost : host;
+          if (hostToVerify && hostToVerify !== 'https://breezewiki.com') {
+            extensionAPI.permissions.contains({ origins: [hostToVerify + '/*'] }, (hasPermission) => {
               if (!hasPermission) {
                 host = 'https://breezewiki.com';
               }
