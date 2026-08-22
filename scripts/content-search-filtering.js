@@ -10,6 +10,7 @@ import {
   getOriginArticle,
   getSiteDataByOrigin,
   isAnchor,
+  isSearchEngineOn,
   safeDecodeURI,
   safeDecodeURIComponent,
  } from './common-functions.js';
@@ -1076,7 +1077,7 @@ function processSearchEngine(_searchEngine) {
       console.debug('IWB: storage decompressed.');
       const searchEngineToggles = storage.searchEngineToggles ?? {};
       if ((storage.power ?? 'on') != 'on') return;
-      if (searchEngineToggles[searchEngine] === 'on' || !searchEngineToggles.hasOwnProperty(searchEngine)) {
+      if (isSearchEngineOn(searchEngine, searchEngineToggles)) {
         // catchup on any possible missed search results
         checkRevalidate();
         filterAnchors(Array.from(document.body?.querySelectorAll('a') ?? []));

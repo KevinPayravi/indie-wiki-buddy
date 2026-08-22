@@ -1,4 +1,4 @@
-import { extensionAPI, SEARCHENGINEDOMAINS, COREHOSTORIGINS, applyI18nMessages, camelCaseJoin, getUserSettings, setUserSetting, setUserSettings, getSiteDataByDestination, getApiFaviconURL } from "../scripts/common-functions.js";
+import { extensionAPI, SEARCHENGINEDOMAINS, COREHOSTORIGINS, applyI18nMessages, camelCaseJoin, getUserSettings, setUserSetting, setUserSettings, getSiteDataByDestination, getApiFaviconURL, isSearchEngineOn } from "../scripts/common-functions.js";
 
 // Coalesce rapid repeats (e.g. arrow-key radio navigation) into one call
 export function debounce(fn, delay) {
@@ -445,18 +445,8 @@ document.querySelectorAll('.searchEngineToggles input').forEach((el) => {
   }, (settings) => {
     const applyPermission = (hasPermission) => {
       searchEnginePermissions[searchEngineName] = hasPermission;
-      if (hasPermission) {
-        if (
-          settings.searchEngineToggles[searchEngineName] === 'on'
-          || !settings.searchEngineToggles.hasOwnProperty(searchEngineName)
-        ) {
-          el.checked = true;
-        } else {
-          el.checked = false;
-        }
-      } else {
-        el.checked = false;
-      }
+      // Filtering needs both browser permission and user's toggle
+      el.checked = hasPermission && isSearchEngineOn(searchEngineName, settings.searchEngineToggles);
     };
     getSearchEnginePermission(searchEngineName, applyPermission);
   });

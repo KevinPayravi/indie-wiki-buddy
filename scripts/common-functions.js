@@ -228,6 +228,19 @@ export const COREHOSTORIGINS = [
   "https://*.neoseeker.com/*"
 ];
 
+/**
+ * Whether user has search filtering on for an engine
+ * google.com on by default, rest opt-in
+ * @param {string} engine
+ * @param {Record<string, string>} [toggles] searchEngineToggles
+ */
+export function isSearchEngineOn(engine, toggles = {}) {
+  if (toggles[engine]) {
+    return toggles[engine] === 'on';
+  }
+  return engine === 'google' || !SEARCHENGINEDOMAINS.hasOwnProperty(engine);
+}
+
 /** @param {string} str */
 function b64decode(str) {
   const binary_string = atob(str);

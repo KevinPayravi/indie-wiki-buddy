@@ -304,13 +304,6 @@ extensionAPI.storage.onChanged.addListener((changes, area) => {
 extensionAPI.permissions.onRemoved.addListener((permissions) => {
   const removedOrigins = permissions.origins || [];
   if (removedOrigins.length === 0) return;
-
-  // A broad wildcard removal (e.g. switching to "on click" in Chrome) also
-  // revokes access to all engines covered by optional_host_permissions.
-  const broadWildcardRemoved = removedOrigins.some(
-    (o) => o === 'https://*/*' || o === '*://*/*'
-  );
-
   extensionAPI.storage.sync.get({ 'searchEngineToggles': {} }, (settings) => {
     let updated = false;
     for (const [engine, origins] of Object.entries(SEARCHENGINEDOMAINS)) {
@@ -318,8 +311,7 @@ extensionAPI.permissions.onRemoved.addListener((permissions) => {
       if (engine === 'google') {
         continue;
       }
-      const directMatch = origins.some((o) => removedOrigins.includes(o));
-      if (directMatch || broadWildcardRemoved) {
+      if (origins.some((o) => removedOrigins.includes(o))) {
         if (settings.searchEngineToggles[engine] !== 'off') {
           settings.searchEngineToggles[engine] = 'off';
           updated = true;
@@ -339,20 +331,14 @@ extensionAPI.permissions.onAdded.addListener((permissions) => {
   const addedOrigins = permissions.origins || [];
   if (addedOrigins.length === 0) return;
 
-  // A broad wildcard grant (e.g. switching back from "on click" in Chrome)
-  // restores access to all engines covered by optional_host_permissions
-  const broadWildcardAdded = addedOrigins.some(
-    (o) => o === 'https://*/*' || o === '*://*/*'
-  );
-
-  // For each engine the grant touches,
-  // confirm its full origin set is now held
-  // before toggling it on
+  // For each engine the grant names,
+  // confirm its full origin set is now held before toggling it on.
+  // All-access grants are not considered opt-in/out to every engine
   const engineChecks = Object.entries(SEARCHENGINEDOMAINS)
     .filter(([engine, origins]) =>
       // google.com filtering is declared in content_scripts, so perms don't switch
       engine !== 'google' &&
-      (broadWildcardAdded || origins.some((o) => addedOrigins.includes(o)))
+      origins.some((o) => addedOrigins.includes(o))
     )
     .map(([engine, origins]) =>
       new Promise((resolve) => {
