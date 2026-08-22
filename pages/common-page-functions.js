@@ -643,6 +643,7 @@ breezewikiHostApply.addEventListener('click', () => {
       extensionAPI.storage.sync.set({ 'breezewikiHost': selectedHost });
       breezewikiHostApply.style.display = 'none';
     } else {
+      extensionAPI.storage.local.remove(['pendingBreezeWikiHost']);
       breezewikiHostSelect.value = 'https://breezewiki.com';
       breezewikiHostApply.style.display = 'none';
     }
@@ -896,6 +897,7 @@ function setCustomBreezewikiDomain() {
         document.getElementById('breezewikiCustomHostStatus').innerText = extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostSetSuccessful');
       }
     } else {
+      extensionAPI.storage.local.remove(['pendingCustomBreezeWikiHost']);
       if (document.getElementById('breezewikiCustomHostStatus')) {
         document.getElementById('breezewikiCustomHostStatus').innerText = extensionAPI.i18n.getMessage('settingsBreezeWikiCustomHostSetFailed');
       }

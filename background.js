@@ -380,13 +380,15 @@ extensionAPI.permissions.onAdded.addListener((permissions) => {
   });
 
   // Check if there are any pending BreezeWiki setting updates
-  commitPendingBreezewikiHosts();
+  commitPendingBreezewikiHosts(addedOrigins);
 });
 
 // Commit a pending BreezeWiki host choice once its permission is held
-function commitPendingBreezewikiHosts() {
+function commitPendingBreezewikiHosts(addedOrigins = null) {
+  const grantCoversHost = (host) => addedOrigins === null || addedOrigins.includes(host + '/*');
+
   extensionAPI.storage.local.get(['pendingBreezeWikiHost', 'pendingCustomBreezeWikiHost'], (local) => {
-    if (local.pendingBreezeWikiHost) {
+    if (local.pendingBreezeWikiHost && grantCoversHost(local.pendingBreezeWikiHost)) {
       extensionAPI.permissions.contains({ origins: [local.pendingBreezeWikiHost + '/*'] }, (hasPermission) => {
         if (hasPermission) {
           extensionAPI.storage.sync.set({ 'breezewikiHost': local.pendingBreezeWikiHost });
@@ -394,7 +396,7 @@ function commitPendingBreezewikiHosts() {
         }
       });
     }
-    if (local.pendingCustomBreezeWikiHost) {
+    if (local.pendingCustomBreezeWikiHost && grantCoversHost(local.pendingCustomBreezeWikiHost)) {
       extensionAPI.permissions.contains({ origins: [local.pendingCustomBreezeWikiHost + '/*'] }, (hasPermission) => {
         if (hasPermission) {
           extensionAPI.storage.sync.set({
